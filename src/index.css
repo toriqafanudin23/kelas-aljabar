@@ -1495,6 +1495,29 @@ summary:focus-visible {
 .lesson-content li {
   margin-bottom: 6px;
 }
+.lesson-content .material-table-wrap {
+  margin-bottom: 16px;
+  overflow-x: auto;
+}
+.lesson-content .reflection-table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  color: #485666;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.lesson-content .reflection-table th,
+.lesson-content .reflection-table td {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  text-align: left;
+  vertical-align: middle;
+}
+.lesson-content .reflection-table thead {
+  background: #f7f8fa;
+  color: var(--navy);
+}
 .math-display {
   margin: 16px 0;
   padding: 16px;
