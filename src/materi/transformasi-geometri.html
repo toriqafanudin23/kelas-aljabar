@@ -141,35 +141,82 @@
   <ol>
     <li>
       <p>
-        Bayangan titik \((2,3)\) oleh dilatasi dengan pusat \((4,1)\) dan faktor
-        skala \(2\) adalah ....
+        Bayangan titik \((2,3)\) oleh dilatasi dengan pusat \(P(4,1)\) dan
+        faktor skala \(2\) adalah ....
       </p>
+
       <p><strong>Pembahasan:</strong></p>
+
       <p>
-        Kurangi koordinat titik dengan pusat dilatasi, kalikan dengan faktor
-        skala, lalu tambahkan kembali pusatnya:
+        Untuk dilatasi dengan pusat \(P(a,b)\) dan faktor skala \(k\), gunakan
+        rumus
       </p>
+
       <div class="math-display">
-        \[ (x',y') = (4,1) + 2\big((2,3)-(4,1)\big) = (4,1) + 2(-2,2) = (0,5).
-        \]
+        \[ (x',y')=\bigl(a+k(x-a),\;b+k(y-b)\bigr). \]
       </div>
-      <p>Jadi, bayangannya adalah \((0,5)\).</p>
+
+      <p>
+        Pada soal diketahui \(P(4,1)\), \(k=2\), dan titik \(A(2,3)\).
+        Substitusikan nilai tersebut:
+      </p>
+
+      <div class="math-display">
+        \[ \begin{aligned} x' &= 4+2(2-4) \\ &= 4+2(-2) \\ &= 0,\\[4pt] y' &=
+        1+2(3-1) \\ &= 1+2(2) \\ &= 5. \end{aligned} \]
+      </div>
+
+      <p>Jadi, bayangan titik \(A(2,3)\) adalah \(A'(0,5)\).</p>
     </li>
+
     <li>
       <p>
-        Bayangan titik \((2,3)\) oleh rotasi berpusat di \((4,1)\) sebesar
+        Bayangan titik \((2,3)\) oleh rotasi berpusat di \(P(4,1)\) sebesar
         \(90^\circ\) berlawanan arah jarum jam adalah ....
       </p>
+
       <p><strong>Pembahasan:</strong></p>
+
       <p>
-        Vektor titik terhadap pusat adalah \((2-4,3-1)=(-2,2)\). Rotasi
-        \(90^\circ\) berlawanan arah jarum jam mengubah \((x,y)\) menjadi
-        \((-y,x)\), sehingga vektornya menjadi \((-2,-2)\). Tambahkan kembali
-        pusat rotasi:
+        Karena pusat rotasi bukan titik asal, lakukan dalam tiga langkah:
+        tentukan vektor dari pusat ke titik, rotasikan vektor tersebut, lalu
+        tambahkan kembali pusat rotasi.
       </p>
-      <div class="math-display">\[ (x',y') = (4,1)+(-2,-2)=(2,-1). \]</div>
-      <p>Jadi, bayangannya adalah \((2,-1)\).</p>
+
+      <p>
+        <strong>Langkah 1: Menentukan vektor terhadap pusat rotasi.</strong>
+      </p>
+
+      <div class="math-display">\[ (2-4,\;3-1)=(-2,2). \]</div>
+
+      <p>
+        Jadi, posisi titik \((2,3)\) terhadap pusat \(P(4,1)\) adalah
+        \((-2,2)\).
+      </p>
+
+      <p>
+        <strong
+          >Langkah 2: Merotasi \(90^\circ\) berlawanan arah jarum jam.</strong
+        >
+      </p>
+
+      <p>
+        Rotasi \(90^\circ\) berlawanan arah jarum jam mengubah \((x,y)\) menjadi
+        \((-y,x)\). Maka
+      </p>
+
+      <div class="math-display">\[ (-2,2)\longrightarrow(-2,-2). \]</div>
+
+      <p><strong>Langkah 3: Menambahkan kembali pusat rotasi.</strong></p>
+
+      <div class="math-display">
+        \[ \begin{aligned} (x',y') &= (4,1)+(-2,-2)\\ &= (2,-1). \end{aligned}
+        \]
+      </div>
+
+      <p>Jadi, bayangan titik tersebut adalah \((2,-1)\).</p>
     </li>
+
     <li>
       <p>
         Titik \((4,-1)\) ditransformasikan oleh matriks
@@ -178,34 +225,117 @@
         akhirnya dan persamaan garis bergradien \(2\) yang melalui titik
         tersebut.
       </p>
+
       <p><strong>Pembahasan:</strong></p>
-      <p>Terapkan matriks terlebih dahulu, lalu rotasi \((x,y)\to(y,-x)\):</p>
-      <div class="math-display">
-        \[ \begin{bmatrix}1&2\\0&1\end{bmatrix}
-        \begin{bmatrix}4\\-1\end{bmatrix} =\begin{bmatrix}2\\-1\end{bmatrix}
-        \quad\longrightarrow\quad (-1,-2). \]
-      </div>
+
       <p>
-        Garis bergradien \(2\) melalui \((-1,-2)\) memenuhi \(y+2=2(x+1)\),
-        sehingga persamaannya adalah \(y=2x\).
+        Transformasi dilakukan sesuai urutan pada soal. Jadi, kita melakukan
+        transformasi matriks terlebih dahulu, kemudian rotasi \(90^\circ\)
+        searah jarum jam.
       </p>
+
+      <p><strong>Langkah 1: Menerapkan matriks transformasi.</strong></p>
+
+      <div class="math-display">
+        \[ \begin{aligned} \begin{bmatrix}x_1\\y_1\end{bmatrix} &=
+        \begin{bmatrix}1&2\\0&1\end{bmatrix}
+        \begin{bmatrix}4\\-1\end{bmatrix}\\[4pt] &= \begin{bmatrix} 1(4)+2(-1)\\
+        0(4)+1(-1) \end{bmatrix}\\[4pt] &= \begin{bmatrix}2\\-1\end{bmatrix}.
+        \end{aligned} \]
+      </div>
+
+      <p>Jadi, setelah transformasi matriks, titik menjadi \(A_1(2,-1)\).</p>
+
+      <p>
+        <strong
+          >Langkah 2: Melakukan rotasi \(90^\circ\) searah jarum jam.</strong
+        >
+      </p>
+
+      <p>
+        Rotasi \(90^\circ\) searah jarum jam terhadap titik asal menggunakan
+        aturan \[ (x,y)\longrightarrow(y,-x). \] Oleh karena itu,
+      </p>
+
+      <div class="math-display">\[ (2,-1)\longrightarrow(-1,-2). \]</div>
+
+      <p>Jadi, koordinat bayangan akhirnya adalah \((-1,-2)\).</p>
+
+      <p><strong>Langkah 3: Menentukan persamaan garis.</strong></p>
+
+      <p>
+        Garis tersebut memiliki gradien \(m=2\) dan melalui titik \((-1,-2)\).
+        Gunakan bentuk titik-gradien:
+      </p>
+
+      <div class="math-display">\[ y-y_1=m(x-x_1). \]</div>
+
+      <p>Substitusikan \(m=2\), \(x_1=-1\), dan \(y_1=-2\):</p>
+
+      <div class="math-display">
+        \[ \begin{aligned} y-(-2) &= 2\bigl(x-(-1)\bigr)\\ y+2 &= 2(x+1)\\ y+2
+        &= 2x+2\\ y &= 2x. \end{aligned} \]
+      </div>
+
+      <p>Jadi, persamaan garisnya adalah \(y=2x\).</p>
     </li>
+
     <li>
       <p>
         Titik \(A(3,-2)\) ditranslasikan oleh
         \(T=\begin{bmatrix}1\\-2\end{bmatrix}\), kemudian dirotasi \(90^\circ\)
-        berlawanan arah jarum jam dengan pusat \((1,1)\). Tentukan koordinat
+        berlawanan arah jarum jam dengan pusat \(P(1,1)\). Tentukan koordinat
         bayangan akhirnya.
       </p>
+
       <p><strong>Pembahasan:</strong></p>
-      <p>Setelah translasi, diperoleh \(A_1=(3+1,-2-2)=(4,-4)\).</p>
+
       <p>
-        Terhadap pusat \((1,1)\), vektor \(A_1\) adalah \((3,-5)\). Setelah
-        rotasi \(90^\circ\) berlawanan arah jarum jam, vektor itu menjadi
-        \((5,3)\). Maka:
+        Karena terdapat dua transformasi, kerjakan sesuai urutan yang diberikan:
+        pertama translasi, kemudian rotasi.
       </p>
-      <div class="math-display">\[ A'=(1,1)+(5,3)=(6,4). \]</div>
-      <p>Jadi, bayangan akhirnya adalah \((6,4)\).</p>
+
+      <p><strong>Langkah 1: Melakukan translasi.</strong></p>
+
+      <p>
+        Translasi \(T=\begin{bmatrix}1\\-2\end{bmatrix}\) berarti koordinat
+        \(x\) ditambah \(1\), sedangkan koordinat \(y\) dikurangi \(2\).
+      </p>
+
+      <div class="math-display">
+        \[ \begin{aligned} A_1 &= (3+1,\;-2-2)\\ &= (4,-4). \end{aligned} \]
+      </div>
+
+      <p>Jadi, setelah translasi diperoleh \(A_1(4,-4)\).</p>
+
+      <p>
+        <strong>Langkah 2: Menentukan vektor terhadap pusat rotasi.</strong>
+      </p>
+
+      <p>Pusat rotasi adalah \(P(1,1)\). Vektor dari \(P\) ke \(A_1\) adalah</p>
+
+      <div class="math-display">\[ (4-1,\;-4-1)=(3,-5). \]</div>
+
+      <p>
+        <strong
+          >Langkah 3: Merotasi \(90^\circ\) berlawanan arah jarum jam.</strong
+        >
+      </p>
+
+      <p>
+        Aturan rotasi \(90^\circ\) berlawanan arah jarum jam adalah
+        \((x,y)\to(-y,x)\). Maka
+      </p>
+
+      <div class="math-display">\[ (3,-5)\longrightarrow(5,3). \]</div>
+
+      <p><strong>Langkah 4: Menambahkan kembali pusat rotasi.</strong></p>
+
+      <div class="math-display">
+        \[ \begin{aligned} A' &= (1,1)+(5,3)\\ &= (6,4). \end{aligned} \]
+      </div>
+
+      <p>Jadi, bayangan akhir titik \(A\) adalah \(A'(6,4)\).</p>
     </li>
   </ol>
 
