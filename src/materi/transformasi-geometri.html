@@ -126,3 +126,141 @@
     \end{bmatrix} + \begin{bmatrix} a \\ b \end{bmatrix} \]
   </div>
 </section>
+
+<section
+  id="contoh-dan-latihan-transformasi"
+  data-title="Contoh Soal dan Latihan Mandiri"
+>
+  <h2>Contoh Soal dan Latihan Mandiri</h2>
+  <p>
+    Gunakan aturan translasi, refleksi, rotasi, dan dilatasi yang telah
+    dipelajari untuk menyelesaikan soal-soal berikut.
+  </p>
+
+  <h3>Contoh Soal dan Pembahasan</h3>
+  <ol>
+    <li>
+      <p>
+        Bayangan titik \((2,3)\) oleh dilatasi dengan pusat \((4,1)\) dan faktor
+        skala \(2\) adalah ....
+      </p>
+      <p><strong>Pembahasan:</strong></p>
+      <p>
+        Kurangi koordinat titik dengan pusat dilatasi, kalikan dengan faktor
+        skala, lalu tambahkan kembali pusatnya:
+      </p>
+      <div class="math-display">
+        \[ (x',y') = (4,1) + 2\big((2,3)-(4,1)\big) = (4,1) + 2(-2,2) = (0,5).
+        \]
+      </div>
+      <p>Jadi, bayangannya adalah \((0,5)\).</p>
+    </li>
+    <li>
+      <p>
+        Bayangan titik \((2,3)\) oleh rotasi berpusat di \((4,1)\) sebesar
+        \(90^\circ\) berlawanan arah jarum jam adalah ....
+      </p>
+      <p><strong>Pembahasan:</strong></p>
+      <p>
+        Vektor titik terhadap pusat adalah \((2-4,3-1)=(-2,2)\). Rotasi
+        \(90^\circ\) berlawanan arah jarum jam mengubah \((x,y)\) menjadi
+        \((-y,x)\), sehingga vektornya menjadi \((-2,-2)\). Tambahkan kembali
+        pusat rotasi:
+      </p>
+      <div class="math-display">\[ (x',y') = (4,1)+(-2,-2)=(2,-1). \]</div>
+      <p>Jadi, bayangannya adalah \((2,-1)\).</p>
+    </li>
+    <li>
+      <p>
+        Titik \((4,-1)\) ditransformasikan oleh matriks
+        \(\begin{bmatrix}1&2\\0&1\end{bmatrix}\), kemudian diputar \(90^\circ\)
+        searah jarum jam dengan pusat \(O(0,0)\). Tentukan koordinat bayangan
+        akhirnya dan persamaan garis bergradien \(2\) yang melalui titik
+        tersebut.
+      </p>
+      <p><strong>Pembahasan:</strong></p>
+      <p>Terapkan matriks terlebih dahulu, lalu rotasi \((x,y)\to(y,-x)\):</p>
+      <div class="math-display">
+        \[ \begin{bmatrix}1&2\\0&1\end{bmatrix}
+        \begin{bmatrix}4\\-1\end{bmatrix} =\begin{bmatrix}2\\-1\end{bmatrix}
+        \quad\longrightarrow\quad (-1,-2). \]
+      </div>
+      <p>
+        Garis bergradien \(2\) melalui \((-1,-2)\) memenuhi \(y+2=2(x+1)\),
+        sehingga persamaannya adalah \(y=2x\).
+      </p>
+    </li>
+    <li>
+      <p>
+        Titik \(A(3,-2)\) ditranslasikan oleh
+        \(T=\begin{bmatrix}1\\-2\end{bmatrix}\), kemudian dirotasi \(90^\circ\)
+        berlawanan arah jarum jam dengan pusat \((1,1)\). Tentukan koordinat
+        bayangan akhirnya.
+      </p>
+      <p><strong>Pembahasan:</strong></p>
+      <p>Setelah translasi, diperoleh \(A_1=(3+1,-2-2)=(4,-4)\).</p>
+      <p>
+        Terhadap pusat \((1,1)\), vektor \(A_1\) adalah \((3,-5)\). Setelah
+        rotasi \(90^\circ\) berlawanan arah jarum jam, vektor itu menjadi
+        \((5,3)\). Maka:
+      </p>
+      <div class="math-display">\[ A'=(1,1)+(5,3)=(6,4). \]</div>
+      <p>Jadi, bayangan akhirnya adalah \((6,4)\).</p>
+    </li>
+  </ol>
+
+  <h3>Latihan Mandiri</h3>
+  <ol>
+    <li>
+      Titik \((-10,-3)\) dicerminkan terhadap sumbu-\(x\), kemudian terhadap
+      sumbu-\(y\). Tentukan koordinat bayangan akhirnya.
+      <ol type="A">
+        <li>\((-3,-10)\)</li>
+        <li>\((-3,10)\)</li>
+        <li>\((3,-10)\)</li>
+        <li>\((3,10)\)</li>
+        <li>\((10,3)\)</li>
+      </ol>
+    </li>
+    <li>
+      Titik \((6,7)\) direfleksikan terhadap titik \(P(3,1)\). Tentukan
+      koordinat bayangannya.
+      <ol type="A">
+        <li>\((0,5)\)</li>
+        <li>\((5,0)\)</li>
+        <li>\((-5,0)\)</li>
+        <li>\((5,5)\)</li>
+        <li>\((0,-5)\)</li>
+      </ol>
+    </li>
+    <li>
+      Benar atau salah: komposisi dua translasi selalu menghasilkan sebuah
+      translasi.
+    </li>
+    <li>
+      Titik \(A(2,3)\) ditransformasikan oleh matriks
+      \(\begin{bmatrix}4&1\\1&4\end{bmatrix}\), kemudian dicerminkan terhadap
+      garis \(y=x\). Tentukan koordinat bayangan akhirnya.
+      <ol type="A">
+        <li>\((16,12)\)</li>
+        <li>\((14,11)\)</li>
+        <li>\((11,14)\)</li>
+        <li>\((9,11)\)</li>
+        <li>\((11,9)\)</li>
+      </ol>
+    </li>
+    <li>
+      Benar atau salah: transformasi dengan matriks
+      \(\begin{bmatrix}k&0\\0&k\end{bmatrix}\) pada titik \((x,y)\) sama dengan
+      mengalikan setiap koordinatnya dengan \(k\).
+    </li>
+    <li>
+      Benar atau salah: rotasi \(90^\circ\) searah jarum jam terhadap titik asal
+      memiliki matriks \(\begin{bmatrix}0&1\\-1&0\end{bmatrix}\).
+    </li>
+    <li>
+      Benar atau salah: semua transformasi geometri mempertahankan ukuran
+      bangun, kecuali translasi.
+    </li>
+  </ol>
+</section>
