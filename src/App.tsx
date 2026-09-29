@@ -139,7 +139,7 @@ function SiteHeader({ page, navigate }: { page: Page; navigate: Navigate }) {
             &Sigma;
           </span>
           <div className="logo-text">
-            <strong>Kelas 1729</strong>
+            <strong>Math 1729</strong>
             <small>Referensi materi matematika SMA</small>
           </div>
         </a>
@@ -523,7 +523,7 @@ function AboutPage() {
         <span className="section-kicker">
           Profil Penulis dan Tentang Platform
         </span>
-        <h1>Tentang Kelas 1729</h1>
+        <h1>Tentang Math 1729</h1>
         <p>
           Media pembelajaran digital untuk pelajari matematika secara praktis.
         </p>

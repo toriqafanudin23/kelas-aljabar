@@ -175,7 +175,9 @@
       </p>
 
       <div class="math-display">
-        \[ (x',y')=\bigl(a+k(x-a),\;b+k(y-b)\bigr). \]
+        \[ \begin{bmatrix}x'\\y'\end{bmatrix} = \begin{bmatrix}a\\b\end{bmatrix}
+        + k\left( \begin{bmatrix}x\\y\end{bmatrix} -
+        \begin{bmatrix}a\\b\end{bmatrix}\right). \]
       </div>
 
       <p>
@@ -184,8 +186,12 @@
       </p>
 
       <div class="math-display">
-        \[ \begin{aligned} x' &= 4+2(2-4) \\ &= 4+2(-2) \\ &= 0,\\[4pt] y' &=
-        1+2(3-1) \\ &= 1+2(2) \\ &= 5. \end{aligned} \]
+        \[ \begin{aligned} \begin{bmatrix}x'\\y'\end{bmatrix} &=
+        \begin{bmatrix}4\\1\end{bmatrix} + 2\left(
+        \begin{bmatrix}2\\3\end{bmatrix} -
+        \begin{bmatrix}4\\1\end{bmatrix}\right) \\[6pt] &=
+        \begin{bmatrix}4\\1\end{bmatrix} + 2 \begin{bmatrix}-2\\2\end{bmatrix}
+        \\[6pt] &= \begin{bmatrix}0\\5\end{bmatrix}. \end{aligned} \]
       </div>
 
       <p>Jadi, bayangan titik \(A(2,3)\) adalah \(A'(0,5)\).</p>
@@ -209,11 +215,14 @@
         <strong>Langkah 1: Menentukan vektor terhadap pusat rotasi.</strong>
       </p>
 
-      <div class="math-display">\[ (2-4,\;3-1)=(-2,2). \]</div>
+      <div class="math-display">
+        \[ \begin{bmatrix}2\\3\end{bmatrix} - \begin{bmatrix}4\\1\end{bmatrix} =
+        \begin{bmatrix}-2\\2\end{bmatrix}. \]
+      </div>
 
       <p>
         Jadi, posisi titik \((2,3)\) terhadap pusat \(P(4,1)\) adalah
-        \((-2,2)\).
+        \(\begin{bmatrix}-2\\2\end{bmatrix}\).
       </p>
 
       <p>
@@ -223,17 +232,22 @@
       </p>
 
       <p>
-        Rotasi \(90^\circ\) berlawanan arah jarum jam mengubah \((x,y)\) menjadi
-        \((-y,x)\). Maka
+        Rotasi \(90^\circ\) berlawanan arah jarum jam menggunakan matriks
+        \(\begin{bmatrix}0&-1\\1&0\end{bmatrix}\). Maka
       </p>
 
-      <div class="math-display">\[ (-2,2)\longrightarrow(-2,-2). \]</div>
+      <div class="math-display">
+        \[ \begin{bmatrix}0&-1\\1&0\end{bmatrix}
+        \begin{bmatrix}-2\\2\end{bmatrix} = \begin{bmatrix}-2\\-2\end{bmatrix}.
+        \]
+      </div>
 
       <p><strong>Langkah 3: Menambahkan kembali pusat rotasi.</strong></p>
 
       <div class="math-display">
-        \[ \begin{aligned} (x',y') &= (4,1)+(-2,-2)\\ &= (2,-1). \end{aligned}
-        \]
+        \[ \begin{aligned} \begin{bmatrix}x'\\y'\end{bmatrix} &=
+        \begin{bmatrix}4\\1\end{bmatrix} + \begin{bmatrix}-2\\-2\end{bmatrix}
+        \\[4pt] &= \begin{bmatrix}2\\-1\end{bmatrix}. \end{aligned} \]
       </div>
 
       <p>Jadi, bayangan titik tersebut adalah \((2,-1)\).</p>
@@ -276,10 +290,14 @@
 
       <p>
         Rotasi \(90^\circ\) searah jarum jam terhadap titik asal menggunakan
-        aturan \[ (x,y)\longrightarrow(y,-x). \] Oleh karena itu,
+        matriks \(\begin{bmatrix}0&1\\-1&0\end{bmatrix}\). Oleh karena itu,
       </p>
 
-      <div class="math-display">\[ (2,-1)\longrightarrow(-1,-2). \]</div>
+      <div class="math-display">
+        \[ \begin{bmatrix}0&1\\-1&0\end{bmatrix}
+        \begin{bmatrix}2\\-1\end{bmatrix} = \begin{bmatrix}-1\\-2\end{bmatrix}.
+        \]
+      </div>
 
       <p>Jadi, koordinat bayangan akhirnya adalah \((-1,-2)\).</p>
 
@@ -325,7 +343,9 @@
       </p>
 
       <div class="math-display">
-        \[ \begin{aligned} A_1 &= (3+1,\;-2-2)\\ &= (4,-4). \end{aligned} \]
+        \[ \begin{aligned} \begin{bmatrix}x_1\\y_1\end{bmatrix} &=
+        \begin{bmatrix}3\\-2\end{bmatrix} + \begin{bmatrix}1\\-2\end{bmatrix}
+        \\[4pt] &= \begin{bmatrix}4\\-4\end{bmatrix}. \end{aligned} \]
       </div>
 
       <p>Jadi, setelah translasi diperoleh \(A_1(4,-4)\).</p>
@@ -336,7 +356,10 @@
 
       <p>Pusat rotasi adalah \(P(1,1)\). Vektor dari \(P\) ke \(A_1\) adalah</p>
 
-      <div class="math-display">\[ (4-1,\;-4-1)=(3,-5). \]</div>
+      <div class="math-display">
+        \[ \begin{bmatrix}4\\-4\end{bmatrix} - \begin{bmatrix}1\\1\end{bmatrix}
+        = \begin{bmatrix}3\\-5\end{bmatrix}. \]
+      </div>
 
       <p>
         <strong
@@ -345,16 +368,21 @@
       </p>
 
       <p>
-        Aturan rotasi \(90^\circ\) berlawanan arah jarum jam adalah
-        \((x,y)\to(-y,x)\). Maka
+        Matriks rotasi \(90^\circ\) berlawanan arah jarum jam adalah
+        \(\begin{bmatrix}0&-1\\1&0\end{bmatrix}\). Maka
       </p>
 
-      <div class="math-display">\[ (3,-5)\longrightarrow(5,3). \]</div>
+      <div class="math-display">
+        \[ \begin{bmatrix}0&-1\\1&0\end{bmatrix}
+        \begin{bmatrix}3\\-5\end{bmatrix} = \begin{bmatrix}5\\3\end{bmatrix}. \]
+      </div>
 
       <p><strong>Langkah 4: Menambahkan kembali pusat rotasi.</strong></p>
 
       <div class="math-display">
-        \[ \begin{aligned} A' &= (1,1)+(5,3)\\ &= (6,4). \end{aligned} \]
+        \[ \begin{aligned} \begin{bmatrix}x'\\y'\end{bmatrix} &=
+        \begin{bmatrix}1\\1\end{bmatrix} + \begin{bmatrix}5\\3\end{bmatrix}
+        \\[4pt] &= \begin{bmatrix}6\\4\end{bmatrix}. \end{aligned} \]
       </div>
 
       <p>Jadi, bayangan akhir titik \(A\) adalah \(A'(6,4)\).</p>
