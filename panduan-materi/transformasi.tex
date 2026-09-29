@@ -1,0 +1,91 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{float}
+
+
+\title{\textbf{Transformasi Geometri}}
+
+
+\begin{document}
+\onehalfspacing
+\maketitle
+
+Transformasi yang dimaksud dalam materi ini adalah perpindahan atau perubahan ukuran suatu objek yang disebabkan oleh pergeseran, pencerminan, perputaran, dan penskalaan.
+
+\section{Translasi}
+Translasi adalah pergeseran suatu objek tanpa mengubah bentuk dan ukurannya. Dalam materi ini objek yang akan di translasikan berupa titik, garis, ataupun bidang dalam koordinat kartesius. Misalnya saja titik $A(2,3)$, jika titik tersebut digeser oleh $\begin{bmatrix}
+    6\\-7
+\end{bmatrix}$ maka akan menghasilkan
+\[
+\begin{aligned}
+A'=
+    \begin{bmatrix}
+        2\\-3
+    \end{bmatrix}+\begin{bmatrix}
+        6\\-7
+    \end{bmatrix}=\begin{bmatrix}
+        8\\-10
+    \end{bmatrix}
+\end{aligned}
+\]
+dimana $A'$ disebut bayangan dari $A$.\\
+Diketahui garis $g:2y=5x+7$. Jika garis $g$ ditranslasikan oleh $\begin{bmatrix}
+    3\\-4
+\end{bmatrix}$ maka garis baru yang akan dihasilkan adalah\\
+\[\begin{aligned}
+    x&=x'-3\\
+    y&=y'-(-4)=y'+4\\
+    2y&=5x+7\\
+    2(y'+4)&=5(x'-3)+7\\
+    2y'+8&=5x'-15+7\\
+    2y'&=5x'-15+7-8\\
+    2y'&=5x'-16
+\end{aligned}\]
+Jadi garis baru yang dihasikan adalah $2y=5x-16$ atau bisa ditulis $\displaystyle y=\frac{5}{2}x-8$.\\
+\textbf{Contoh Lain}. Diketahui titik $A(8,1),B(12,1),C(10,5)$ membentuk sebuah segitiga. Jika segitiga ABC ditranslasikan oleh $\begin{bmatrix}
+    0\\-3
+\end{bmatrix}$, maka luas bagian segitiga yang ada di kuadran II adalah $\dots$
+\[
+\begin{aligned}
+    A'&=\begin{bmatrix}
+        8\\1
+    \end{bmatrix}+\begin{bmatrix}
+        0\\-3
+    \end{bmatrix}=\begin{bmatrix}
+        8\\-2
+    \end{bmatrix}\\
+    B'&=\begin{bmatrix}
+        12\\1
+    \end{bmatrix}+\begin{bmatrix}
+        0\\-3
+    \end{bmatrix}=\begin{bmatrix}
+        12\\-2
+    \end{bmatrix}\\
+    C'&=\begin{bmatrix}
+        10\\5
+    \end{bmatrix}+\begin{bmatrix}
+        0\\-3
+    \end{bmatrix}=\begin{bmatrix}
+        10\\2
+    \end{bmatrix}\\
+\end{aligned}
+\]
+Akan coba digambar segitiga yang telah di translasikan tersebut
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{gambar/bayangansegitiga.png}
+\end{figure}
+Dari gambar diatas, dapat dihitung luas bagian segitiga yang ada di kuadran II adalah
+\[
+\begin{aligned}
+    L&=\frac{1}{2}\times 4 \times4-\frac{1}{2}\times2\times2\\
+    L&=8-2=6
+\end{aligned}
+\]
+Jadi luas bagian segitiga yang ada di kuadran II adalah 6 satuan luas.
+\section{Refleksi}
+\section{Rotasi}
+\section{Dilatasi}
+\end{document}

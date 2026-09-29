@@ -1,0 +1,128 @@
+<section id="translasi" data-title="Translasi (Pergeseran)">
+  <h2>1. Translasi (Pergeseran)</h2>
+  <p>
+    Translasi adalah perpindahan atau pergeseran suatu objek (titik, garis, atau
+    bidang) sepanjang garis lurus dengan arah dan jarak tertentu tanpa mengubah
+    bentuk dan ukurannya.
+  </p>
+
+  <h3>Pemetaan Titik</h3>
+  <p>
+    Jika titik \(A(x,y)\) ditranslasikan oleh matriks pergeseran \(T =
+    \begin{bmatrix} a \\ b \end{bmatrix}\), maka bayangan titik \(A'(x',y')\)
+    ditentukan oleh:
+  </p>
+
+  <div class="math-display">
+    \[ \begin{bmatrix} x' \\ y' \end{bmatrix} = \begin{bmatrix} x \\ y
+    \end{bmatrix} + \begin{bmatrix} a \\ b \end{bmatrix} = \begin{bmatrix} x+a
+    \\ y+b \end{bmatrix} \]
+  </div>
+
+  <h3>Contoh Pergeseran Titik</h3>
+  <p>
+    Titik \(A(2,-3)\) digeser oleh \(T = \begin{bmatrix} 6 \\ -7
+    \end{bmatrix}\). Bayangan titik \(A'\) adalah:
+  </p>
+  <div class="math-display">
+    \[ A' = \begin{bmatrix} 2 \\ -3 \end{bmatrix} + \begin{bmatrix} 6 \\ -7
+    \end{bmatrix} = \begin{bmatrix} 8 \\ -10 \end{bmatrix} \implies A'(8,-10) \]
+  </div>
+
+  <h3>Contoh Pergeseran Garis</h3>
+  <p>
+    Diketahui garis \(g : 2y = 5x + 7\). Jika garis \(g\) ditranslasikan oleh
+    \(T = \begin{bmatrix} 3 \\ -4 \end{bmatrix}\), tentukan persamaan garis
+    bayangannya!
+  </p>
+  <p><strong>Penyelesaian:</strong></p>
+  <div class="math-display">
+    \[ \begin{aligned} x' = x + 3 &\implies x = x' - 3 \\ y' = y - 4 &\implies y
+    = y' + 4 \end{aligned} \]
+  </div>
+  <p>Substitusikan nilai \(x\) dan \(y\) ke persamaan awal:</p>
+  <div class="math-display">
+    \[ \begin{aligned} 2(y' + 4) &= 5(x' - 3) + 7 \\ 2y' + 8 &= 5x' - 15 + 7 \\
+    2y' &= 5x' - 16 \\ y' &= \frac{5}{2}x' - 8 \end{aligned} \]
+  </div>
+  <p>
+    Jadi, persamaan garis bayangannya adalah \(2y = 5x - 16\) atau \(y =
+    \frac{5}{2}x - 8\).
+  </p>
+</section>
+
+<section id="refleksi" data-title="Refleksi (Pencerminan)">
+  <h2>2. Refleksi (Pencerminan)</h2>
+  <p>
+    Refleksi adalah transformasi yang memindahkan setiap titik pada bidang
+    menggunakan sifat bayangan cermin datar.
+  </p>
+
+  <h3>Matriks Transformasi Refleksi</h3>
+  <div class="math-display">
+    \[ \begin{aligned} \text{Sumbu-}x &: (x, y) \to (x, -y) \quad \implies
+    \begin{bmatrix} x' \\ y' \end{bmatrix} = \begin{bmatrix} 1 & 0 \\ 0 & -1
+    \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} \\[6pt] \text{Sumbu-}y &:
+    (x, y) \to (-x, y) \quad \implies \begin{bmatrix} x' \\ y' \end{bmatrix} =
+    \begin{bmatrix} -1 & 0 \\ 0 & 1 \end{bmatrix} \begin{bmatrix} x \\ y
+    \end{bmatrix} \\[6pt] \text{Garis } y=x &: (x, y) \to (y, x) \quad \implies
+    \begin{bmatrix} x' \\ y' \end{bmatrix} = \begin{bmatrix} 0 & 1 \\ 1 & 0
+    \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} \\[6pt] \text{Garis }
+    y=-x &: (x, y) \to (-y, -x) \quad \implies \begin{bmatrix} x' \\ y'
+    \end{bmatrix} = \begin{bmatrix} 0 & -1 \\ -1 & 0 \end{bmatrix}
+    \begin{bmatrix} x \\ y \end{bmatrix} \\[6pt] \text{Titik Asal }(0,0) &: (x,
+    y) \to (-x, -y) \quad \implies \begin{bmatrix} x' \\ y' \end{bmatrix} =
+    \begin{bmatrix} -1 & 0 \\ 0 & -1 \end{bmatrix} \begin{bmatrix} x \\ y
+    \end{bmatrix} \end{aligned} \]
+  </div>
+
+  <h3>Refleksi Terhadap Garis \(x = h\) dan \(y = k\)</h3>
+  <div class="math-display">
+    \[ \begin{aligned} \text{Terhadap garis } x = h &: (x,y) \to (2h - x, y) \\
+    \text{Terhadap garis } y = k &: (x,y) \to (x, 2k - y) \end{aligned} \]
+  </div>
+</section>
+
+<section id="rotasi" data-title="Rotasi (Perputaran)">
+  <h2>3. Rotasi (Perputaran)</h2>
+  <p>
+    Rotasi adalah transformasi yang memutar setiap titik pada bidang sebesar
+    sudut tertentu (\(\theta\)) terhadap titik pusat rotasi.
+  </p>
+
+  <h3>Rotasi Berpusat di \(O(0,0)\)</h3>
+  <div class="math-display">
+    \[ \begin{bmatrix} x' \\ y' \end{bmatrix} = \begin{bmatrix} \cos\theta &
+    -\sin\theta \\ \sin\theta & \cos\theta \end{bmatrix} \begin{bmatrix} x \\ y
+    \end{bmatrix} \]
+  </div>
+
+  <h3>Rotasi Berpusat di \(P(a,b)\)</h3>
+  <div class="math-display">
+    \[ \begin{bmatrix} x' \\ y' \end{bmatrix} = \begin{bmatrix} \cos\theta &
+    -\sin\theta \\ \sin\theta & \cos\theta \end{bmatrix} \begin{bmatrix} x-a \\
+    y-b \end{bmatrix} + \begin{bmatrix} a \\ b \end{bmatrix} \]
+  </div>
+</section>
+
+<section id="dilatasi" data-title="Dilatasi (Penskalaan)">
+  <h2>4. Dilatasi (Penskalaan)</h2>
+  <p>
+    Dilatasi adalah transformasi yang mengubah ukuran (memperbesar atau
+    memperkecil) suatu bangun tanpa mengubah bentuknya, ditentukan oleh faktor
+    skala \(k\) dan titik pusat dilatasi.
+  </p>
+
+  <h3>Dilatasi Berpusat di \(O(0,0)\) dengan Faktor Skala \(k\)</h3>
+  <div class="math-display">
+    \[ \begin{bmatrix} x' \\ y' \end{bmatrix} = \begin{bmatrix} k & 0 \\ 0 & k
+    \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} kx \\
+    ky \end{bmatrix} \]
+  </div>
+
+  <h3>Dilatasi Berpusat di \(P(a,b)\) dengan Faktor Skala \(k\)</h3>
+  <div class="math-display">
+    \[ \begin{bmatrix} x' \\ y' \end{bmatrix} = k \begin{bmatrix} x-a \\ y-b
+    \end{bmatrix} + \begin{bmatrix} a \\ b \end{bmatrix} \]
+  </div>
+</section>

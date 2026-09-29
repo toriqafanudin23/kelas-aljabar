@@ -1,0 +1,84 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{setspace}
+
+\title{\textbf{Eksponensial \& Logaritma}}
+
+\begin{document}
+\onehalfspacing
+
+\maketitle
+
+\section{Definisi Eksponensial}
+
+Apabila terdapat $a \in \mathbb{R}$ dengan $a \neq 0$ dan $n \in \mathbb{Z}^+$, maka $a^n$ didefinisikan sebagai perkalian berulang dari $a$ sebanyak $n$ kali, yaitu
+\[
+a^n = \underbrace{a \times a \times a \times \cdots \times a}_{n\text{ faktor}}.
+\]
+
+Eksponensial memiliki beberapa sifat sebagai berikut. Untuk $a \neq 0$ dan $m,n \in \mathbb{Z}$ berlaku:
+
+\[
+\begin{aligned}
+a^m \times a^n &= a^{m+n},\\
+\frac{a^m}{a^n} &= a^{m-n},\\
+(a^m)^n &= a^{m \cdot n},\\
+a^n &= \frac{1}{a^{-n}};a \not= 0,\\
+(a \times b)^n &=a^n \times b^n ,\\
+\left( \frac{a}{b}\right)^n &= \frac{a^n}{b^n};b\not=0,\\
+a^0 &= 1;a \not=0
+\end{aligned}
+\]
+Sebagai contoh
+\[
+\begin{aligned}
+    5^2 \times 5^3 &= 5^{2+3} =5^5\\
+    (4^2)^3 &= 4^{2 \cdot 3} =4^6\\
+    2^{-3} &= \frac{1}{2^3} = \frac{1}{8}\\
+    100^0 &= 1
+\end{aligned}
+\]
+\section{Akar}
+Akar digunakan untuk merepresentasikan pangkat pecahan, misalnya saja
+\[
+\begin{aligned}
+    9^{\frac{1}{2}} &= \sqrt{9} = 3\\
+    16^{\frac{1}{4}} &= \sqrt[4]{16} = 2
+\end{aligned}
+\]
+Adapun sifat-sifat pada bentuk akar meliputi
+\[
+\begin{aligned}
+    \sqrt[n]{a} &= a^{\frac{1}{n}}\\
+    \sqrt[n]{a^m} &= a^{\frac{m}{n}}\\
+    \sqrt[n]{a \times b} &=a^{\frac{1}{n}} \times b^{\frac{1}{n}}\\
+    \sqrt[n]{\frac{a}{b}} &=\frac{a^{\frac{1}{n}}}{b^{\frac{1}{n}}} ;b \not=0
+\end{aligned}
+\]
+Sebagai contoh 
+\[
+\begin{aligned}
+    8^{\frac{2}{3}} &=(\sqrt[3]{8})^2 =2^2=4\\
+    \sqrt{50}&=\sqrt{25 \times2}=\sqrt{25}\cdot\sqrt{2}=5\sqrt{2}\\
+    \sqrt{\frac{16}{100}} &=\frac{\sqrt{16}}{\sqrt{100}}=\frac{4}{10}=\frac{2}{5}
+\end{aligned}
+\]
+Pecahan yang memiliki penyebut berupa akar disebut bilangan tidak rasional, misalnya saja
+\[
+\frac{1}{\sqrt{2}},\frac{5\sqrt{3}}{2\sqrt{6}},\frac{3-\sqrt{2}}{\sqrt{5}-\sqrt{3}}
+\]
+bilangan bilangan tersebut bisa dijadikan biangan rasional dengan cara dikalikan dengan sekawannya, berikut yang dimaksud
+\[
+\begin{aligned}
+    \frac{1}{\sqrt{2}} &= \frac{1}{\sqrt{2}} \times \frac{\sqrt{2}}{\sqrt{2}}=\frac{\sqrt{2}}{2}=\frac{1}{2}\sqrt{2}\\
+    \frac{5\sqrt{3}}{2\sqrt{6}} &= \frac{5\sqrt{3}}{2\sqrt{6}} \times \frac{\sqrt{6}}{\sqrt{6}}=\frac{5\sqrt{18}}{2 \cdot 6}=\frac{5\sqrt{9\cdot 2}}{2 \cdot 6}=\frac{15\sqrt{2}}{12}=\frac{5\sqrt{2}}{4}\\
+    \frac{3-\sqrt{2}}{\sqrt{5}-\sqrt{3}} &=\frac{3-\sqrt{2}}{\sqrt{5}-\sqrt{3}}\times \frac{\sqrt{5}+\sqrt{3}}{\sqrt{5}+\sqrt{3}}\\
+    &=\frac{3\sqrt{5}+3\sqrt{3}-\sqrt{10}-\sqrt{6}}{5-3}\\
+    &=\frac{3\sqrt{5}+3\sqrt{3}-\sqrt{10}-\sqrt{6}}{2}
+\end{aligned}
+\]
+\section{Fungsi Eksponensial}
+\section{Logaritma}
+\end{document}

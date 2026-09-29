@@ -1,0 +1,60 @@
+import eksponensialHtml from "./eksponensial.html?raw";
+import transformasiGeometriHtml from "./transformasi-geometri.html?raw";
+import soalEksponenLogaritmaHtml from "./soal-eksponen-logaritma.html?raw";
+
+export interface Material {
+  id: string;
+  slug: string;
+  number: string;
+  category: string;
+  title: string;
+  grade: string;
+  formula: string;
+  description: string;
+  htmlContent: string;
+}
+
+export const materials: Material[] = [
+  {
+    id: "exponents",
+    slug: "eksponensial",
+    number: "01",
+    category: "Aljabar Matematika",
+    title: "Eksponensial dan Logaritma",
+    grade: "Kelas X",
+    formula: "a^m a^n = a^{m+n} \\qquad \\log_a b = c \\iff a^c=b",
+    description:
+      "Pahami sifat pangkat, bentuk akar, fungsi eksponensial, dan logaritma melalui definisi serta contoh yang runtut.",
+    htmlContent: eksponensialHtml,
+  },
+  {
+    id: "geometry",
+    slug: "transformasi-geometri",
+    number: "02",
+    category: "Geometri Analitik",
+    title: "Transformasi Geometri",
+    grade: "Kelas XI",
+    formula:
+      "\\begin{bmatrix}x'\\\\y'\\end{bmatrix} = \\begin{bmatrix}\\cos\\theta&-\\sin\\theta\\\\\\sin\\theta&\\cos\\theta\\end{bmatrix} \\begin{bmatrix}x\\\\y\\end{bmatrix}",
+    description:
+      "Jelajahi translasi, refleksi, rotasi, dan dilatasi melalui pemetaan titik pada bidang koordinat.",
+    htmlContent: transformasiGeometriHtml,
+  },
+  {
+    id: "soal-exponents",
+    slug: "soal-eksponen-logaritma",
+    number: "03",
+    category: "Latihan & Evaluasi",
+    title: "Soal Tes Sumatif Eksponen & Logaritma",
+    grade: "Kelas X",
+    formula:
+      "\\frac{4\\left(8^{-\\frac{3}{5}}9^{\\frac{5}{4}}\\right)}{\\left(81^{-\\frac{1}{8}}64^{\\frac{1}{5}}\\right)}",
+    description:
+      "Kumpulan soal evaluasi sumatif eksponensial dan logaritma beserta pilihan jawaban dan pembahasannya.",
+    htmlContent: soalEksponenLogaritmaHtml,
+  },
+];
+
+export function getMaterialBySlug(slug: string): Material | undefined {
+  return materials.find((m) => m.slug === slug);
+}
