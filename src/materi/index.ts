@@ -2,7 +2,6 @@ import eksponensialHtml from "./eksponensial.html?raw";
 import transformasiGeometriHtml from "./transformasi-geometri.html?raw";
 import barisanDeretHtml from "./barisan-deret.html?raw";
 import matriksHtml from "./matriks.html?raw";
-import soalEksponenLogaritmaHtml from "./soal-eksponen-logaritma.html?raw";
 
 export interface Material {
   id: string;
@@ -66,19 +65,6 @@ export const materials: Material[] = [
     description:
       "Pelajari konsep dan jenis matriks, operasi, determinan, invers, sistem persamaan linear, aturan Cramer, dan transformasi geometri.",
     htmlContent: matriksHtml,
-  },
-  {
-    id: "soal-exponents",
-    slug: "soal-eksponen-logaritma",
-    number: "05",
-    category: "Latihan & Evaluasi",
-    title: "Soal Tes Sumatif Eksponen & Logaritma",
-    grade: "Kelas X",
-    formula:
-      "\\frac{4\\left(8^{-\\frac{3}{5}}9^{\\frac{5}{4}}\\right)}{\\left(81^{-\\frac{1}{8}}64^{\\frac{1}{5}}\\right)}",
-    description:
-      "Kumpulan soal evaluasi sumatif eksponensial dan logaritma beserta pilihan jawaban dan pembahasannya.",
-    htmlContent: soalEksponenLogaritmaHtml,
   },
 ];
 
