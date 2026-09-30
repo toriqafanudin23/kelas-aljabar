@@ -648,13 +648,26 @@ function LessonPage({ slug, navigate }: { slug: string; navigate: Navigate }) {
             <p>
               Kategori: {material.category} <span>·</span> Catatan akademis
             </p>
-            {downloadUrl && (
-              <a
-                className="button button-primary lesson-download"
-                href={downloadUrl}
-              >
-                Unduh Modul PDF <span aria-hidden="true">↓</span>
-              </a>
+            {(downloadUrl || slug === "eksponensial") && (
+              <div className="lesson-actions">
+                {downloadUrl && (
+                  <a
+                    className="button button-primary lesson-download"
+                    href={downloadUrl}
+                  >
+                    Unduh Modul PDF <span aria-hidden="true">↓</span>
+                  </a>
+                )}
+                {(slug === "eksponensial" ||
+                  slug === "transformasi-geometri") && (
+                  <a
+                    className="button lesson-practice"
+                    href={slug === "eksponensial" ? "#tes-sumatif" : "#latihan"}
+                  >
+                    Latihan Soal <span aria-hidden="true">↓</span>
+                  </a>
+                )}
+              </div>
             )}
           </div>
           {material.description && (

@@ -943,8 +943,24 @@ summary:focus-visible {
 .lesson-heading > p span {
   margin-inline: 6px;
 }
-.lesson-heading .lesson-download {
+.lesson-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
   margin-top: 14px;
+}
+.lesson-heading .lesson-practice {
+  color: var(--navy);
+  background: #fff;
+  border: 1px solid var(--line);
+}
+.lesson-heading .lesson-practice:hover {
+  border-color: var(--navy-bright);
+  background: var(--paper);
+}
+.lesson-practice span {
+  color: var(--navy);
+  font-size: 16px;
 }
 .lesson-lead {
   margin: 22px 0 28px;
