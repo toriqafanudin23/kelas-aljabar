@@ -1052,6 +1052,34 @@ summary:focus-visible {
   border: 1px solid #e0e5ea;
   background: #fff;
 }
+.lesson-table-scroll {
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  -webkit-overflow-scrolling: touch;
+}
+.lesson-table-scroll table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+}
+.lesson-table-scroll th,
+.lesson-table-scroll td {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+.lesson-table-scroll th {
+  background: var(--paper);
+  color: var(--navy);
+  font-size: 12px;
+}
+.lesson-table-scroll td {
+  color: #4f5f70;
+  font-size: 12px;
+}
 .lesson-example h4 {
   margin: 0;
 }
