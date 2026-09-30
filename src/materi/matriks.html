@@ -319,6 +319,36 @@
     </div>
   </div>
 
+  <div class="lesson-example">
+    <h4>Perkalian dengan Ordo Berbeda</h4>
+
+    <p>
+      Misalkan \(A\) berordo \(2 \times 3\) dan \(B\) berordo \(3 \times 4\).
+      Karena banyak kolom \(A\) sama dengan banyak baris \(B\), perkalian \(AB\)
+      dapat dilakukan dan hasilnya berordo \(2 \times 4\).
+    </p>
+
+    <div class="math-display">
+      \[ \begin{aligned} A&=\begin{bmatrix} 1&2&0\\0&-1&3 \end{bmatrix},
+      &B&=\begin{bmatrix} 2&1&0&3\\1&0&2&-1\\4&2&1&0 \end{bmatrix}\\ AB&:\
+      (2\times3)(3\times4)\longrightarrow(2\times4) \end{aligned} \]
+    </div>
+
+    <p>Setiap elemen hasil diperoleh dari perkalian baris dengan kolom:</p>
+
+    <div class="math-display">
+      \[ \begin{aligned} (AB)_{11}&=1(2)+2(1)+0(4)=4,
+      &(AB)_{12}&=1(1)+2(0)+0(2)=1,\\ (AB)_{21}&=0(2)+(-1)(1)+3(4)=11,
+      &(AB)_{24}&=0(3)+(-1)(-1)+3(0)=1. \end{aligned} \]
+    </div>
+
+    <p>Dengan menghitung seluruh elemen, diperoleh:</p>
+
+    <div class="math-display">
+      \[ AB=\begin{bmatrix} 4&1&4&1\\11&6&1&1 \end{bmatrix} \]
+    </div>
+  </div>
+
   <h3>Sifat Perkalian Matriks</h3>
 
   <p>Secara umum, perkalian matriks tidak bersifat komutatif.</p>
@@ -1006,4 +1036,455 @@
   <h3>Determinan Transformasi</h3>
 
   <div class="math-display">\[ L'=|\det(A)|L \]</div>
+</section>
+
+<section id="latihan-mandiri" data-title="Latihan Soal Mandiri">
+  <h2>21. Latihan Soal Mandiri</h2>
+
+  <p>
+    Kerjakan soal-soal berikut secara mandiri. Pilih satu jawaban yang paling
+    tepat. Soal nomor 1–8 memiliki tingkat kesulitan normal, sedangkan soal
+    nomor 9–15 memiliki tingkat penalaran yang lebih menantang seperti soal
+    UTBK.
+  </p>
+
+  <h3>A. Tingkat Kesulitan Normal</h3>
+
+  <!-- Soal 1 -->
+  <div class="lesson-example">
+    <h4>Soal 1</h4>
+
+    <p>Diketahui matriks:</p>
+
+    <div class="math-display">
+      \[ A= \begin{bmatrix} 2 & 0 & -1\\ 3 & 4 & 2 \end{bmatrix} \]
+    </div>
+
+    <p>Ordo matriks \(A\) dan nilai \(a_{23}\) berturut-turut adalah ....</p>
+
+    <ol type="A">
+      <li>\(2\times3\) dan \(2\)</li>
+      <li>\(2\times3\) dan \(3\)</li>
+      <li>\(3\times2\) dan \(2\)</li>
+      <li>\(3\times2\) dan \(4\)</li>
+      <li>\(2\times2\) dan \(2\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 2 -->
+  <div class="lesson-example">
+    <h4>Soal 2</h4>
+
+    <p>Diketahui:</p>
+
+    <div class="math-display">
+      \[ A= \begin{bmatrix} 2x & 3\\ y-1 & 5 \end{bmatrix}, \qquad B=
+      \begin{bmatrix} 8 & 3\\ 4 & 5 \end{bmatrix} \] \[ A=B \]
+    </div>
+
+    <p>Nilai \(x+y\) adalah ....</p>
+
+    <ol type="A">
+      <li>\(5\)</li>
+      <li>\(6\)</li>
+      <li>\(7\)</li>
+      <li>\(8\)</li>
+      <li>\(9\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 3 -->
+  <div class="lesson-example">
+    <h4>Soal 3</h4>
+
+    <p>Diketahui:</p>
+
+    <div class="math-display">
+      \[ A= \begin{bmatrix} 1 & -2\\ 3 & 4 \end{bmatrix}, \qquad B=
+      \begin{bmatrix} 2 & 1\\ -1 & 3 \end{bmatrix} \] \[ C=2A-B \]
+    </div>
+
+    <p>Elemen \(c_{21}\) dari matriks \(C\) adalah ....</p>
+
+    <ol type="A">
+      <li>\(-5\)</li>
+      <li>\(-1\)</li>
+      <li>\(3\)</li>
+      <li>\(5\)</li>
+      <li>\(7\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 4 -->
+  <div class="lesson-example">
+    <h4>Soal 4</h4>
+
+    <p>Diketahui:</p>
+
+    <div class="math-display">
+      \[ A= \begin{bmatrix} 1 & 2\\ 3 & 4 \end{bmatrix}, \qquad B=
+      \begin{bmatrix} 2 & 0\\ 1 & 3 \end{bmatrix} \]
+    </div>
+
+    <p>Hasil perkalian \(AB\) adalah ....</p>
+
+    <ol type="A">
+      <li>\(\begin{bmatrix}4&6\\10&12\end{bmatrix}\)</li>
+      <li>\(\begin{bmatrix}4&6\\7&12\end{bmatrix}\)</li>
+      <li>\(\begin{bmatrix}3&6\\10&12\end{bmatrix}\)</li>
+      <li>\(\begin{bmatrix}2&6\\7&12\end{bmatrix}\)</li>
+      <li>\(\begin{bmatrix}4&3\\10&7\end{bmatrix}\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 5 -->
+  <div class="lesson-example">
+    <h4>Soal 5</h4>
+
+    <p>Diketahui:</p>
+
+    <div class="math-display">
+      \[ A= \begin{bmatrix} 1 & 2 & 3\\ 4 & 5 & 6 \end{bmatrix} \]
+    </div>
+
+    <p>
+      Matriks \(B=A^T\). Pernyataan yang benar mengenai elemen \(B\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(b_{12}=1\)</li>
+      <li>\(b_{21}=2\)</li>
+      <li>\(b_{23}=5\)</li>
+      <li>\(b_{31}=3\)</li>
+      <li>\(b_{32}=6\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 6 -->
+  <div class="lesson-example">
+    <h4>Soal 6</h4>
+
+    <p>Diketahui:</p>
+
+    <div class="math-display">
+      \[ A= \begin{bmatrix} 2 & 1\\ 1 & 1 \end{bmatrix} \]
+    </div>
+
+    <p>Jika \(A^{-1}B=I\), maka matriks \(B\) adalah ....</p>
+
+    <ol type="A">
+      <li>\(\begin{bmatrix}1&1\\1&2\end{bmatrix}\)</li>
+      <li>\(\begin{bmatrix}2&1\\1&1\end{bmatrix}\)</li>
+      <li>\(\begin{bmatrix}1&-1\\-1&2\end{bmatrix}\)</li>
+      <li>\(\begin{bmatrix}2&-1\\-1&1\end{bmatrix}\)</li>
+      <li>\(\begin{bmatrix}1&2\\1&1\end{bmatrix}\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 7 -->
+  <div class="lesson-example">
+    <h4>Soal 7</h4>
+
+    <p>Diketahui:</p>
+
+    <div class="math-display">
+      \[ A= \begin{bmatrix} 1 & 2 & 0\\ 0 & 1 & 3\\ 2 & 0 & 1 \end{bmatrix} \]
+    </div>
+
+    <p>Nilai \(\det(A)\) adalah ....</p>
+
+    <ol type="A">
+      <li>\(-5\)</li>
+      <li>\(-1\)</li>
+      <li>\(1\)</li>
+      <li>\(5\)</li>
+      <li>\(7\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 8 -->
+  <div class="lesson-example">
+    <h4>Soal 8</h4>
+
+    <p>Diketahui sistem persamaan:</p>
+
+    <div class="math-display">
+      \[ \begin{cases} 2x+y=7\\ x-y=2 \end{cases} \]
+    </div>
+
+    <p>Bentuk matriks \(AX=B\) yang tepat adalah ....</p>
+
+    <ol type="A">
+      <li>
+        \(\begin{bmatrix}2&1\\1&-1\end{bmatrix} \begin{bmatrix}x\\y\end{bmatrix}
+        = \begin{bmatrix}7\\2\end{bmatrix}\)
+      </li>
+      <li>
+        \(\begin{bmatrix}2&1\\-1&1\end{bmatrix} \begin{bmatrix}x\\y\end{bmatrix}
+        = \begin{bmatrix}7\\2\end{bmatrix}\)
+      </li>
+      <li>
+        \(\begin{bmatrix}2&-1\\1&1\end{bmatrix} \begin{bmatrix}x\\y\end{bmatrix}
+        = \begin{bmatrix}7\\2\end{bmatrix}\)
+      </li>
+      <li>
+        \(\begin{bmatrix}2&1\\1&1\end{bmatrix} \begin{bmatrix}x\\y\end{bmatrix}
+        = \begin{bmatrix}7\\2\end{bmatrix}\)
+      </li>
+      <li>
+        \(\begin{bmatrix}1&2\\-1&1\end{bmatrix} \begin{bmatrix}x\\y\end{bmatrix}
+        = \begin{bmatrix}7\\2\end{bmatrix}\)
+      </li>
+    </ol>
+  </div>
+
+  <h3>B. Tingkat Kesulitan UTBK</h3>
+
+  <!-- Soal 9 -->
+  <div class="lesson-example">
+    <h4>Soal 9</h4>
+
+    <p>Diketahui:</p>
+
+    <div class="math-display">
+      \[ A= \begin{bmatrix} 1 & 2\\ 2 & 5 \end{bmatrix} \]
+    </div>
+
+    <p>
+      Jika \(A^{-1}= \begin{bmatrix} a&b\\c&d \end{bmatrix}\), maka nilai
+      \(a+b+c+d\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(-2\)</li>
+      <li>\(-1\)</li>
+      <li>\(0\)</li>
+      <li>\(1\)</li>
+      <li>\(2\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 10 -->
+  <div class="lesson-example">
+    <h4>Soal 10</h4>
+
+    <p>Diberikan matriks:</p>
+
+    <div class="math-display">
+      \[ A= \begin{bmatrix} 1 & 2 & 3\\ 0 & 1 & 2\\ 0 & 0 & k \end{bmatrix} \]
+    </div>
+
+    <p>
+      Tanpa menghitung ekspansi kofaktor secara lengkap, tentukan nilai \(k\)
+      jika \(A^{-1}\) memiliki determinan \(\frac{1}{3}\).
+    </p>
+
+    <ol type="A">
+      <li>\(1\)</li>
+      <li>\(2\)</li>
+      <li>\(3\)</li>
+      <li>\(4\)</li>
+      <li>\(6\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 11 -->
+  <div class="lesson-example">
+    <h4>Soal 11</h4>
+
+    <p>Matriks augmented berikut diperoleh dari suatu SPL:</p>
+
+    <div class="math-display">
+      \[ \left[ \begin{array}{cc|c} 1&2&5\\ 2&3&8 \end{array} \right] \]
+    </div>
+
+    <p>
+      Jika dilakukan operasi baris \(R_2\rightarrow R_2-2R_1\), bentuk matriks
+      augmented yang dihasilkan adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(\left[\begin{array}{cc|c}1&2&5\\0&-1&-2\end{array}\right]\)</li>
+      <li>\(\left[\begin{array}{cc|c}1&2&5\\0&1&2\end{array}\right]\)</li>
+      <li>\(\left[\begin{array}{cc|c}1&2&5\\2&1&3\end{array}\right]\)</li>
+      <li>\(\left[\begin{array}{cc|c}1&0&5\\0&-1&-2\end{array}\right]\)</li>
+      <li>\(\left[\begin{array}{cc|c}1&2&5\\0&-1&2\end{array}\right]\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 12 -->
+  <div class="lesson-example">
+    <h4>Soal 12</h4>
+
+    <p>Diketahui matriks:</p>
+
+    <div class="math-display">
+      \[ A= \begin{bmatrix} 2&1&0\\ 1&2&1\\ 0&1&2 \end{bmatrix} \]
+    </div>
+
+    <p>Jika \(AX=B\), dengan</p>
+
+    <div class="math-display">
+      \[ B= \begin{bmatrix} 4\\ 4\\ 4 \end{bmatrix}, \]
+    </div>
+
+    <p>
+      maka nilai \(x+y+z\), dengan \(X=\begin{bmatrix}x&y&z\end{bmatrix}^{T}\),
+      adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(1\)</li>
+      <li>\(2\)</li>
+      <li>\(3\)</li>
+      <li>\(4\)</li>
+      <li>\(6\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 13 -->
+  <div class="lesson-example">
+    <h4>Soal 13</h4>
+
+    <p>Suatu transformasi linear pada bidang dinyatakan oleh matriks:</p>
+
+    <div class="math-display">
+      \[ A= \begin{bmatrix} 2&1\\ 1&2 \end{bmatrix} \]
+    </div>
+
+    <p>
+      Sebuah bangun memiliki luas \(6\) satuan luas. Luas bayangan bangun
+      tersebut setelah ditransformasikan oleh \(A\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(6\)</li>
+      <li>\(12\)</li>
+      <li>\(15\)</li>
+      <li>\(18\)</li>
+      <li>\(24\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 14 -->
+  <div class="lesson-example">
+    <h4>Soal 14</h4>
+
+    <p>Diberikan matriks:</p>
+
+    <div class="math-display">
+      \[ A= \begin{bmatrix} 1&2&1\\ 0&1&2\\ 1&0&1 \end{bmatrix} \]
+    </div>
+
+    <p>Pernyataan yang benar mengenai matriks \(A\) adalah ....</p>
+
+    <ol type="A">
+      <li>\(A\) singular dan tidak mempunyai invers.</li>
+      <li>\(\det(A)=0\), sehingga \(A\) tidak nonsingular.</li>
+      <li>\(A\) mempunyai invers karena \(\det(A)\neq0\).</li>
+      <li>\(\det(A)=1\) sehingga \(A^{-1}=A\).</li>
+      <li>\(A\) merupakan matriks diagonal.</li>
+    </ol>
+  </div>
+
+  <!-- Soal 15 -->
+  <div class="lesson-example">
+    <h4>Soal 15</h4>
+
+    <p>Diketahui matriks:</p>
+
+    <div class="math-display">
+      \[ A= \begin{bmatrix} 1&2&1\\ 2&1&0\\ 1&0&1 \end{bmatrix} \]
+    </div>
+
+    <p>
+      Jika \(A^{-1}=\dfrac{1}{\det(A)}\operatorname{adj}(A)\), maka pernyataan
+      berikut yang benar adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(\det(A)=0\), sehingga \(A\) tidak mempunyai invers.</li>
+      <li>\(\det(A)=1\), sehingga \(A^{-1}=\operatorname{adj}(A)\).</li>
+      <li>\(\det(A)=-1\), sehingga \(A^{-1}=-\operatorname{adj}(A)\).</li>
+      <li>\(\det(A)=2\), sehingga \(A^{-1}=\frac12\operatorname{adj}(A)\).</li>
+      <li>
+        \(\det(A)=-2\), sehingga \(A^{-1}=-\frac12\operatorname{adj}(A)\).
+      </li>
+    </ol>
+  </div>
+
+  <h3>Kunci Jawaban</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table answer-key-table">
+      <thead>
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">Kunci</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>A</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>C</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>D</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>B</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>D</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>B</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>D</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>A</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>D</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>C</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>A</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>C</td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>D</td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td>C</td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td>E</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </section>

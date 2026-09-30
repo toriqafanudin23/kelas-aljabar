@@ -1587,6 +1587,10 @@ summary:focus-visible {
   font-size: 14px;
   line-height: 1.7;
 }
+.lesson-content .answer-key-table {
+  width: min(100%, 360px);
+  min-width: 0;
+}
 .lesson-content .reflection-table--wide {
   min-width: 680px;
 }
