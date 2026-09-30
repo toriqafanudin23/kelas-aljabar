@@ -1,6 +1,7 @@
 import eksponensialHtml from "./eksponensial.html?raw";
 import transformasiGeometriHtml from "./transformasi-geometri.html?raw";
 import barisanDeretHtml from "./barisan-deret.html?raw";
+import matriksHtml from "./matriks.html?raw";
 import soalEksponenLogaritmaHtml from "./soal-eksponen-logaritma.html?raw";
 
 export interface Material {
@@ -54,9 +55,22 @@ export const materials: Material[] = [
     htmlContent: barisanDeretHtml,
   },
   {
+    id: "matrices",
+    slug: "matriks",
+    number: "04",
+    category: "Aljabar Matematika",
+    title: "Matriks",
+    grade: "Kelas XI",
+    formula:
+      "\\det\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}=ad-bc \\qquad AB\\ne BA",
+    description:
+      "Pelajari konsep dan jenis matriks, operasi, determinan, invers, sistem persamaan linear, aturan Cramer, dan transformasi geometri.",
+    htmlContent: matriksHtml,
+  },
+  {
     id: "soal-exponents",
     slug: "soal-eksponen-logaritma",
-    number: "04",
+    number: "05",
     category: "Latihan & Evaluasi",
     title: "Soal Tes Sumatif Eksponen & Logaritma",
     grade: "Kelas X",

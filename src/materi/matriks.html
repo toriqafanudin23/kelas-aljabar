@@ -1,0 +1,994 @@
+<section id="pengertian-matriks" data-title="Pengertian Matriks">
+  <h2>1. Pengertian Matriks</h2>
+
+  <p>
+    Matriks adalah susunan bilangan atau elemen yang disusun dalam bentuk baris
+    dan kolom serta dituliskan di dalam tanda kurung. Matriks banyak digunakan
+    untuk menyajikan data, menyelesaikan sistem persamaan linear, serta
+    merepresentasikan transformasi geometri.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Perhatikan matriks berikut:</p>
+
+    <div class="math-display">
+      \[ A = \begin{bmatrix} 2 & 4 & 1 \\ 3 & 0 & -2 \end{bmatrix} \]
+    </div>
+
+    <p>Matriks \(A\) memiliki 2 baris dan 3 kolom.</p>
+  </div>
+
+  <h3>Notasi Matriks</h3>
+
+  <p>Secara umum, matriks dapat dituliskan sebagai:</p>
+
+  <div class="math-display">
+    \[ A = \begin{bmatrix} a_{11} & a_{12} & \cdots & a_{1n} \\ a_{21} & a_{22}
+    & \cdots & a_{2n} \\ \vdots & \vdots & \ddots & \vdots \\ a_{m1} & a_{m2} &
+    \cdots & a_{mn} \end{bmatrix} \]
+  </div>
+
+  <p>
+    Elemen \(a_{ij}\) menunjukkan elemen yang terletak pada baris ke-\(i\) dan
+    kolom ke-\(j\).
+  </p>
+</section>
+
+<section id="ordo-matriks" data-title="Ordo Matriks">
+  <h2>2. Ordo Matriks</h2>
+
+  <p>
+    Ordo atau ukuran matriks menyatakan banyaknya baris dan kolom yang dimiliki
+    suatu matriks. Jika suatu matriks memiliki \(m\) baris dan \(n\) kolom, maka
+    ordonya adalah \(m \times n\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <div class="math-display">
+      \[ A = \begin{bmatrix} 2 & 5 & 1 \\ 4 & 3 & 7 \end{bmatrix} \]
+    </div>
+
+    <p>Matriks \(A\) memiliki 2 baris dan 3 kolom sehingga:</p>
+
+    <div class="math-display">\[ \text{Ordo } A = 2 \times 3 \]</div>
+  </div>
+
+  <h3>Elemen Matriks</h3>
+
+  <p>
+    Pada matriks \(A\), elemen yang terletak pada baris ke-\(i\) dan kolom
+    ke-\(j\) ditulis sebagai \(a_{ij}\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <div class="math-display">
+      \[ A = \begin{bmatrix} 3 & 5 & 7 \\ 2 & 4 & 6 \end{bmatrix} \]
+    </div>
+
+    <p>Elemen \(a_{12}=5\), karena terletak pada baris pertama kolom kedua.</p>
+
+    <p>Elemen \(a_{23}=6\), karena terletak pada baris kedua kolom ketiga.</p>
+  </div>
+</section>
+
+<section id="jenis-matriks" data-title="Jenis-Jenis Matriks">
+  <h2>3. Jenis-Jenis Matriks</h2>
+
+  <h3>Matriks Baris</h3>
+
+  <p>Matriks baris adalah matriks yang hanya memiliki satu baris.</p>
+
+  <div class="math-display">
+    \[ A = \begin{bmatrix} 2 & 4 & 6 & 8 \end{bmatrix} \]
+  </div>
+
+  <h3>Matriks Kolom</h3>
+
+  <p>Matriks kolom adalah matriks yang hanya memiliki satu kolom.</p>
+
+  <div class="math-display">
+    \[ B = \begin{bmatrix} 2 \\ 4 \\ 6 \end{bmatrix} \]
+  </div>
+
+  <h3>Matriks Persegi</h3>
+
+  <p>
+    Matriks persegi adalah matriks yang jumlah barisnya sama dengan jumlah
+    kolomnya.
+  </p>
+
+  <div class="math-display">
+    \[ C = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix} \]
+  </div>
+
+  <p>Matriks tersebut merupakan matriks persegi berordo \(2 \times 2\).</p>
+
+  <h3>Matriks Nol</h3>
+
+  <p>Matriks nol adalah matriks yang seluruh elemennya bernilai nol.</p>
+
+  <div class="math-display">
+    \[ O = \begin{bmatrix} 0 & 0 \\ 0 & 0 \end{bmatrix} \]
+  </div>
+
+  <h3>Matriks Identitas</h3>
+
+  <p>
+    Matriks identitas adalah matriks persegi yang elemen-elemen diagonal
+    utamanya bernilai 1 dan elemen lainnya bernilai 0.
+  </p>
+
+  <div class="math-display">
+    \[ I_3 = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}
+    \]
+  </div>
+
+  <h3>Matriks Diagonal</h3>
+
+  <p>
+    Matriks diagonal adalah matriks persegi yang semua elemen di luar diagonal
+    utama bernilai nol.
+  </p>
+
+  <div class="math-display">
+    \[ D = \begin{bmatrix} 2 & 0 & 0 \\ 0 & 5 & 0 \\ 0 & 0 & 7 \end{bmatrix} \]
+  </div>
+
+  <h3>Matriks Skalar</h3>
+
+  <p>
+    Matriks skalar adalah matriks diagonal yang semua elemen diagonal utamanya
+    memiliki nilai yang sama.
+  </p>
+
+  <div class="math-display">
+    \[ S = \begin{bmatrix} 4 & 0 \\ 0 & 4 \end{bmatrix} \]
+  </div>
+
+  <h3>Matriks Segitiga</h3>
+
+  <p>
+    Matriks segitiga atas memiliki semua elemen di bawah diagonal utama bernilai
+    nol.
+  </p>
+
+  <div class="math-display">
+    \[ A = \begin{bmatrix} 2 & 3 & 5 \\ 0 & 4 & 6 \\ 0 & 0 & 7 \end{bmatrix} \]
+  </div>
+
+  <p>
+    Matriks segitiga bawah memiliki semua elemen di atas diagonal utama bernilai
+    nol.
+  </p>
+
+  <div class="math-display">
+    \[ B = \begin{bmatrix} 2 & 0 & 0 \\ 3 & 4 & 0 \\ 5 & 6 & 7 \end{bmatrix} \]
+  </div>
+
+  <h3>Matriks Simetris</h3>
+
+  <p>Matriks simetris adalah matriks persegi yang memenuhi:</p>
+
+  <div class="math-display">\[ A^T = A \]</div>
+
+  <div class="math-display">
+    \[ A = \begin{bmatrix} 2 & 3 & 5 \\ 3 & 4 & 6 \\ 5 & 6 & 7 \end{bmatrix} \]
+  </div>
+</section>
+
+<section id="kesamaan-matriks" data-title="Kesamaan Dua Matriks">
+  <h2>4. Kesamaan Dua Matriks</h2>
+
+  <p>
+    Dua matriks dikatakan sama jika kedua matriks tersebut memiliki ordo yang
+    sama dan setiap elemen yang bersesuaian memiliki nilai yang sama.
+  </p>
+
+  <div class="math-display">\[ A = B \]</div>
+
+  <p>Jika:</p>
+
+  <div class="math-display">
+    \[ A = \begin{bmatrix} a & b \\ c & d \end{bmatrix}, \qquad B =
+    \begin{bmatrix} p & q \\ r & s \end{bmatrix} \]
+  </div>
+
+  <p>maka:</p>
+
+  <div class="math-display">\[ a=p,\qquad b=q,\qquad c=r,\qquad d=s \]</div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Diketahui:</p>
+
+    <div class="math-display">
+      \[ \begin{bmatrix} 2x & 3 \\ 4 & y+1 \end{bmatrix} = \begin{bmatrix} 8 & 3
+      \\ 4 & 6 \end{bmatrix} \]
+    </div>
+
+    <p>Dengan menyamakan elemen-elemen yang bersesuaian:</p>
+
+    <div class="math-display">\[ 2x=8 \Rightarrow x=4 \]</div>
+
+    <div class="math-display">\[ y+1=6 \Rightarrow y=5 \]</div>
+  </div>
+</section>
+
+<section
+  id="penjumlahan-pengurangan"
+  data-title="Penjumlahan dan Pengurangan Matriks"
+>
+  <h2>5. Penjumlahan dan Pengurangan Matriks</h2>
+
+  <p>
+    Dua matriks hanya dapat dijumlahkan atau dikurangkan jika memiliki ordo yang
+    sama.
+  </p>
+
+  <h3>Penjumlahan Matriks</h3>
+
+  <p>
+    Penjumlahan dilakukan dengan menjumlahkan elemen-elemen yang bersesuaian.
+  </p>
+
+  <div class="math-display">
+    \[ A+B = \begin{bmatrix} a & b \\ c & d \end{bmatrix} + \begin{bmatrix} e &
+    f \\ g & h \end{bmatrix} = \begin{bmatrix} a+e & b+f \\ c+g & d+h
+    \end{bmatrix} \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <div class="math-display">
+      \[ A = \begin{bmatrix} 2 & 3 \\ 4 & 5 \end{bmatrix}, \qquad B =
+      \begin{bmatrix} 1 & 6 \\ 2 & 3 \end{bmatrix} \]
+    </div>
+
+    <div class="math-display">
+      \[ A+B = \begin{bmatrix} 2+1 & 3+6 \\ 4+2 & 5+3 \end{bmatrix} =
+      \begin{bmatrix} 3 & 9 \\ 6 & 8 \end{bmatrix} \]
+    </div>
+  </div>
+
+  <h3>Pengurangan Matriks</h3>
+
+  <div class="math-display">
+    \[ A-B = \begin{bmatrix} a-e & b-f \\ c-g & d-h \end{bmatrix} \]
+  </div>
+</section>
+
+<section id="perkalian-skalar" data-title="Perkalian Skalar">
+  <h2>6. Perkalian Matriks dengan Skalar</h2>
+
+  <p>
+    Perkalian matriks dengan skalar dilakukan dengan mengalikan setiap elemen
+    matriks dengan bilangan tersebut.
+  </p>
+
+  <div class="math-display">
+    \[ k \begin{bmatrix} a & b \\ c & d \end{bmatrix} = \begin{bmatrix} ka & kb
+    \\ kc & kd \end{bmatrix} \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <div class="math-display">
+      \[ 3 \begin{bmatrix} 2 & -1 \\ 4 & 5 \end{bmatrix} = \begin{bmatrix} 6 &
+      -3 \\ 12 & 15 \end{bmatrix} \]
+    </div>
+  </div>
+</section>
+
+<section id="perkalian-matriks" data-title="Perkalian Dua Matriks">
+  <h2>7. Perkalian Dua Matriks</h2>
+
+  <p>
+    Perkalian matriks \(A\) dengan matriks \(B\) dapat dilakukan apabila banyak
+    kolom matriks \(A\) sama dengan banyak baris matriks \(B\).
+  </p>
+
+  <p>
+    Jika \(A\) berordo \(m \times n\) dan \(B\) berordo \(n \times p\), maka
+    hasil perkalian \(AB\) berordo \(m \times p\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <div class="math-display">
+      \[ A = \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}, \qquad B =
+      \begin{bmatrix} 5 & 6 \\ 7 & 8 \end{bmatrix} \]
+    </div>
+
+    <p>Perkalian dilakukan berdasarkan baris dikali kolom:</p>
+
+    <div class="math-display">
+      \[ \begin{aligned} AB &= \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}
+      \begin{bmatrix} 5 & 6 \\ 7 & 8 \end{bmatrix} \\[4pt] &= \begin{bmatrix}
+      1(5)+2(7) & 1(6)+2(8) \\ 3(5)+4(7) & 3(6)+4(8) \end{bmatrix} \\[4pt] &=
+      \begin{bmatrix} 19 & 22 \\ 43 & 50 \end{bmatrix} \end{aligned} \]
+    </div>
+  </div>
+
+  <h3>Sifat Perkalian Matriks</h3>
+
+  <p>Secara umum, perkalian matriks tidak bersifat komutatif.</p>
+
+  <div class="math-display">\[ AB \neq BA \]</div>
+
+  <p>Namun, perkalian matriks memiliki sifat asosiatif dan distributif:</p>
+
+  <div class="math-display">\[ (AB)C=A(BC) \]</div>
+
+  <div class="math-display">\[ A(B+C)=AB+AC \]</div>
+</section>
+
+<section id="transpose" data-title="Transpose Matriks">
+  <h2>8. Transpose Matriks</h2>
+
+  <p>
+    Transpose suatu matriks diperoleh dengan menukar baris menjadi kolom dan
+    kolom menjadi baris.
+  </p>
+
+  <p>Transpose matriks \(A\) ditulis sebagai \(A^T\).</p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <div class="math-display">
+      \[ A = \begin{bmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{bmatrix} \]
+    </div>
+
+    <div class="math-display">
+      \[ A^T = \begin{bmatrix} 1 & 4 \\ 2 & 5 \\ 3 & 6 \end{bmatrix} \]
+    </div>
+  </div>
+
+  <h3>Sifat Transpose</h3>
+
+  <div class="math-display">\[ (A^T)^T=A \]</div>
+
+  <div class="math-display">\[ (A+B)^T=A^T+B^T \]</div>
+
+  <div class="math-display">\[ (AB)^T=B^TA^T \]</div>
+</section>
+
+<section id="determinan" data-title="Determinan Matriks">
+  <h2>9. Determinan Matriks</h2>
+
+  <p>
+    Determinan merupakan nilai skalar yang dapat dihitung dari suatu matriks
+    persegi. Determinan suatu matriks \(A\) dapat ditulis sebagai \(\det(A)\)
+    atau \(|A|\).
+  </p>
+
+  <h3>Determinan Matriks Ordo \(2 \times 2\)</h3>
+
+  <p>Jika:</p>
+
+  <div class="math-display">
+    \[ A = \begin{bmatrix} a & b \\ c & d \end{bmatrix} \]
+  </div>
+
+  <p>maka:</p>
+
+  <div class="math-display">\[ \det(A)=ad-bc \]</div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <div class="math-display">
+      \[ A = \begin{bmatrix} 3 & 2 \\ 5 & 4 \end{bmatrix} \]
+    </div>
+
+    <div class="math-display">
+      \[ \begin{aligned} \det(A) &=3(4)-2(5)\\ &=12-10\\ &=2 \end{aligned} \]
+    </div>
+  </div>
+
+  <h3>Determinan Matriks Ordo \(3 \times 3\)</h3>
+
+  <p>Untuk:</p>
+
+  <div class="math-display">
+    \[ A = \begin{bmatrix} a & b & c \\ d & e & f \\ g & h & i \end{bmatrix} \]
+  </div>
+
+  <p>Determinan dapat dihitung menggunakan aturan Sarrus:</p>
+
+  <div class="math-display">\[ \det(A) = aei+bfg+cdh-ceg-bdi-afh \]</div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <div class="math-display">
+      \[ A = \begin{bmatrix} 1 & 2 & 3 \\ 0 & 4 & 5 \\ 1 & 0 & 6 \end{bmatrix}
+      \]
+    </div>
+
+    <div class="math-display">
+      \[ \begin{aligned} \det(A) &=1(4)(6)+2(5)(1)+3(0)(0)\\
+      &\quad-3(4)(1)-2(0)(6)-1(5)(0)\\ &=24+10-12\\ &=22 \end{aligned} \]
+    </div>
+  </div>
+</section>
+
+<section id="sifat-determinan" data-title="Sifat-Sifat Determinan">
+  <h2>10. Sifat-Sifat Determinan</h2>
+
+  <p>Beberapa sifat penting determinan adalah sebagai berikut.</p>
+
+  <ul>
+    <li>Jika dua baris atau dua kolom ditukar, tanda determinan berubah.</li>
+    <li>
+      Jika terdapat dua baris atau kolom yang sama, determinan bernilai nol.
+    </li>
+    <li>
+      Jika semua elemen suatu baris dikalikan \(k\), determinan juga dikalikan
+      \(k\).
+    </li>
+    <li>Determinan matriks identitas bernilai 1.</li>
+    <li>
+      Determinan hasil kali dua matriks memenuhi \( \det(AB)=\det(A)\det(B) \).
+    </li>
+    <li>Determinan transpose memenuhi \( \det(A^T)=\det(A) \).</li>
+  </ul>
+
+  <h3>Matriks Singular</h3>
+
+  <p>Matriks persegi disebut singular jika determinannya sama dengan nol.</p>
+
+  <div class="math-display">\[ \det(A)=0 \]</div>
+
+  <h3>Matriks Nonsingular</h3>
+
+  <p>
+    Matriks persegi disebut nonsingular jika determinannya tidak sama dengan
+    nol.
+  </p>
+
+  <div class="math-display">\[ \det(A)\neq0 \]</div>
+</section>
+
+<section id="minor-kofaktor" data-title="Minor dan Kofaktor">
+  <h2>11. Minor dan Kofaktor</h2>
+
+  <p>
+    Minor suatu elemen matriks diperoleh dengan menghapus baris dan kolom tempat
+    elemen tersebut berada, kemudian menghitung determinan matriks yang tersisa.
+  </p>
+
+  <p>Minor elemen \(a_{ij}\) dinotasikan dengan \(M_{ij}\).</p>
+
+  <p>Kofaktor elemen \(a_{ij}\) dirumuskan:</p>
+
+  <div class="math-display">\[ C_{ij}=(-1)^{i+j}M_{ij} \]</div>
+
+  <p>Pola tanda kofaktor adalah:</p>
+
+  <div class="math-display">
+    \[ \begin{bmatrix} + & - & + \\ - & + & - \\ + & - & + \end{bmatrix} \]
+  </div>
+</section>
+
+<section id="invers-matriks" data-title="Invers Matriks">
+  <h2>12. Invers Matriks</h2>
+
+  <p>
+    Invers suatu matriks \(A\) adalah matriks yang jika dikalikan dengan \(A\)
+    menghasilkan matriks identitas.
+  </p>
+
+  <div class="math-display">\[ AA^{-1}=A^{-1}A=I \]</div>
+
+  <p>Suatu matriks persegi mempunyai invers jika dan hanya jika:</p>
+
+  <div class="math-display">\[ \det(A)\neq0 \]</div>
+
+  <h3>Invers Matriks Ordo \(2 \times 2\)</h3>
+
+  <p>Jika:</p>
+
+  <div class="math-display">
+    \[ A = \begin{bmatrix} a & b \\ c & d \end{bmatrix} \]
+  </div>
+
+  <p>maka:</p>
+
+  <div class="math-display">
+    \[ A^{-1} = \frac{1}{ad-bc} \begin{bmatrix} d & -b \\ -c & a \end{bmatrix}
+    \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <div class="math-display">
+      \[ A = \begin{bmatrix} 2 & 1 \\ 3 & 2 \end{bmatrix} \]
+    </div>
+
+    <p>Hitung determinannya:</p>
+
+    <div class="math-display">\[ \det(A)=2(2)-1(3)=1 \]</div>
+
+    <p>Karena determinannya tidak nol, maka \(A\) memiliki invers.</p>
+
+    <div class="math-display">
+      \[ A^{-1} = \begin{bmatrix} 2 & -1 \\ -3 & 2 \end{bmatrix} \]
+    </div>
+  </div>
+
+  <h3>Invers Matriks Ordo \(3 \times 3\)</h3>
+
+  <p>
+    Untuk matriks berordo \(3 \times 3\), invers dapat dicari menggunakan metode
+    kofaktor dan adjoin. Misalkan:
+  </p>
+
+  <div class="math-display">
+    \[ A= \begin{bmatrix} a & b & c\\ d & e & f\\ g & h & i \end{bmatrix} \]
+  </div>
+
+  <p>
+    Langkah pertama adalah menghitung determinan \(A\). Dengan ekspansi kofaktor
+    pada baris pertama:
+  </p>
+
+  <div class="math-display">
+    \[ \begin{aligned} \det(A) &=a\begin{vmatrix}e&f\\h&i\end{vmatrix}
+    -b\begin{vmatrix}d&f\\g&i\end{vmatrix}
+    +c\begin{vmatrix}d&e\\g&h\end{vmatrix}\\ &=a(ei-fh)-b(di-fg)+c(dh-eg)
+    \end{aligned} \]
+  </div>
+
+  <p>Selanjutnya, tentukan matriks kofaktor:</p>
+
+  <div class="math-display">
+    \[ C= \begin{bmatrix} C_{11}&C_{12}&C_{13}\\ C_{21}&C_{22}&C_{23}\\
+    C_{31}&C_{32}&C_{33} \end{bmatrix} \]
+  </div>
+
+  <p>Setiap kofaktor diperoleh dari:</p>
+
+  <div class="math-display">\[ C_{ij}=(-1)^{i+j}M_{ij} \]</div>
+
+  <p>Adjoin matriks \(A\) adalah transpose dari matriks kofaktor:</p>
+
+  <div class="math-display">\[ \operatorname{adj}(A)=C^T \]</div>
+
+  <p>Jika \(\det(A)\neq0\), maka invers matriks \(A\) adalah:</p>
+
+  <div class="math-display">
+    \[ A^{-1}=\frac{1}{\det(A)}\operatorname{adj}(A) \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Diketahui:</p>
+
+    <div class="math-display">
+      \[ A= \begin{bmatrix} 1&2&3\\ 0&1&4\\ 5&6&0 \end{bmatrix} \]
+    </div>
+
+    <p><strong>Langkah 1: Hitung determinan.</strong></p>
+
+    <div class="math-display">
+      \[ \begin{aligned} \det(A) &=1\begin{vmatrix}1&4\\6&0\end{vmatrix}
+      -2\begin{vmatrix}0&4\\5&0\end{vmatrix}
+      +3\begin{vmatrix}0&1\\5&6\end{vmatrix}\\ &=1(1\cdot0-4\cdot6)
+      -2(0\cdot0-4\cdot5) +3(0\cdot6-1\cdot5)\\ &=-24+40-15\\ &=1 \end{aligned}
+      \]
+    </div>
+
+    <p>Karena \(\det(A)=1\neq0\), maka matriks \(A\) memiliki invers.</p>
+
+    <p><strong>Langkah 2: Tentukan matriks kofaktor.</strong></p>
+
+    <div class="math-display">
+      \[ C= \begin{bmatrix} -24&20&-5\\ 18&-15&4\\ 5&-4&1 \end{bmatrix} \]
+    </div>
+
+    <p><strong>Langkah 3: Transpose matriks kofaktor.</strong></p>
+
+    <div class="math-display">
+      \[ \operatorname{adj}(A)=C^T= \begin{bmatrix} -24&18&5\\ 20&-15&-4\\
+      -5&4&1 \end{bmatrix} \]
+    </div>
+
+    <p><strong>Langkah 4: Hitung invers.</strong></p>
+
+    <div class="math-display">
+      \[ \begin{aligned} A^{-1} &=\frac{1}{\det(A)}\operatorname{adj}(A)\\
+      &=\frac{1}{1} \begin{bmatrix} -24&18&5\\ 20&-15&-4\\ -5&4&1
+      \end{bmatrix}\\ &= \begin{bmatrix} -24&18&5\\ 20&-15&-4\\ -5&4&1
+      \end{bmatrix} \end{aligned} \]
+    </div>
+
+    <p>Jadi, invers matriks \(A\) adalah:</p>
+
+    <div class="math-display">
+      \[ A^{-1}= \begin{bmatrix} -24&18&5\\ 20&-15&-4\\ -5&4&1 \end{bmatrix} \]
+    </div>
+  </div>
+
+  <h3>Ringkasan Langkah Invers Matriks \(3\times3\)</h3>
+
+  <ol>
+    <li>Hitung \(\det(A)\).</li>
+    <li>Jika \(\det(A)=0\), matriks tidak memiliki invers.</li>
+    <li>Jika \(\det(A)\neq0\), tentukan semua kofaktor \(C_{ij}\).</li>
+    <li>Bentuk matriks kofaktor \(C\).</li>
+    <li>
+      Transpose matriks kofaktor untuk memperoleh \(\operatorname{adj}(A)\).
+    </li>
+    <li>Gunakan rumus \(A^{-1}=\frac{1}{\det(A)}\operatorname{adj}(A)\).</li>
+  </ol>
+</section>
+
+<section id="persamaan-matriks" data-title="Persamaan Matriks">
+  <h2>13. Persamaan Matriks</h2>
+
+  <p>
+    Persamaan matriks adalah persamaan yang melibatkan satu atau lebih matriks
+    yang elemen-elemennya belum diketahui.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Diketahui:</p>
+
+    <div class="math-display">
+      \[ \begin{bmatrix} x+1 & 2 \\ 3 & y-2 \end{bmatrix} = \begin{bmatrix} 5 &
+      2 \\ 3 & 7 \end{bmatrix} \]
+    </div>
+
+    <p>Dengan menyamakan elemen yang bersesuaian:</p>
+
+    <div class="math-display">\[ x+1=5 \Rightarrow x=4 \]</div>
+
+    <div class="math-display">\[ y-2=7 \Rightarrow y=9 \]</div>
+  </div>
+</section>
+
+<section id="spl-matriks" data-title="Sistem Persamaan Linear dengan Matriks">
+  <h2>14. Sistem Persamaan Linear dengan Matriks</h2>
+
+  <p>
+    Matriks dapat digunakan untuk menyelesaikan sistem persamaan linear (SPL).
+  </p>
+
+  <p>Misalkan diberikan SPL:</p>
+
+  <div class="math-display">
+    \[ \begin{cases} ax+by=e\\ cx+dy=f \end{cases} \]
+  </div>
+
+  <p>SPL tersebut dapat ditulis dalam bentuk matriks:</p>
+
+  <div class="math-display">
+    \[ \begin{bmatrix} a & b\\ c & d \end{bmatrix} \begin{bmatrix} x\\ y
+    \end{bmatrix} = \begin{bmatrix} e\\ f \end{bmatrix} \]
+  </div>
+
+  <p>atau:</p>
+
+  <div class="math-display">\[ AX=B \]</div>
+
+  <p>Jika \(A\) memiliki invers, maka:</p>
+
+  <div class="math-display">\[ X=A^{-1}B \]</div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Selesaikan SPL berikut:</p>
+
+    <div class="math-display">
+      \[ \begin{cases} 2x+y=7\\ x-y=2 \end{cases} \]
+    </div>
+
+    <p>Bentuk matriksnya adalah:</p>
+
+    <div class="math-display">
+      \[ \begin{bmatrix} 2 & 1\\ 1 & -1 \end{bmatrix} \begin{bmatrix} x\\ y
+      \end{bmatrix} = \begin{bmatrix} 7\\ 2 \end{bmatrix} \]
+    </div>
+
+    <p>Misalkan:</p>
+
+    <div class="math-display">
+      \[ A= \begin{bmatrix} 2 & 1\\ 1 & -1 \end{bmatrix} \]
+    </div>
+
+    <p>Determinan \(A\):</p>
+
+    <div class="math-display">\[ \det(A)=2(-1)-1(1)=-3 \]</div>
+
+    <p>Sehingga:</p>
+
+    <div class="math-display">
+      \[ A^{-1} = -\frac{1}{3} \begin{bmatrix} -1 & -1\\ -1 & 2 \end{bmatrix} \]
+    </div>
+
+    <p>Selanjutnya:</p>
+
+    <div class="math-display">
+      \[ \begin{aligned} X &=A^{-1}B\\ &= -\frac{1}{3} \begin{bmatrix} -1 & -1\\
+      -1 & 2 \end{bmatrix} \begin{bmatrix} 7\\ 2 \end{bmatrix}\\ &=
+      \begin{bmatrix} 3\\ 1 \end{bmatrix} \end{aligned} \]
+    </div>
+
+    <p>Jadi, diperoleh \(x=3\) dan \(y=1\).</p>
+  </div>
+</section>
+
+<section id="matriks-augmented" data-title="Matriks Augmented">
+  <h2>15. Matriks Augmented</h2>
+
+  <p>
+    Matriks augmented adalah matriks yang digunakan untuk menyajikan sistem
+    persamaan linear dengan menggabungkan matriks koefisien dan matriks
+    konstanta.
+  </p>
+
+  <p>Misalkan:</p>
+
+  <div class="math-display">\[ \begin{cases} 2x+y=5\\ x-y=1 \end{cases} \]</div>
+
+  <p>Matriks augmented dari SPL tersebut adalah:</p>
+
+  <div class="math-display">
+    \[ \left[ \begin{array}{cc|c} 2 & 1 & 5\\ 1 & -1 & 1 \end{array} \right] \]
+  </div>
+
+  <p>
+    Garis vertikal digunakan untuk memisahkan koefisien variabel dengan
+    konstanta.
+  </p>
+</section>
+
+<section id="operasi-baris" data-title="Operasi Baris Elementer">
+  <h2>16. Operasi Baris Elementer</h2>
+
+  <p>
+    Operasi baris elementer digunakan antara lain dalam penyelesaian SPL dengan
+    metode eliminasi Gauss dan Gauss-Jordan.
+  </p>
+
+  <p>Terdapat tiga operasi baris elementer:</p>
+
+  <ol>
+    <li>Menukar dua baris.</li>
+    <li>Mengalikan suatu baris dengan bilangan tidak nol.</li>
+    <li>Menambahkan kelipatan suatu baris ke baris lainnya.</li>
+  </ol>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Misalkan:</p>
+
+    <div class="math-display">
+      \[ \left[ \begin{array}{cc|c} 1 & 2 & 5\\ 2 & 3 & 8 \end{array} \right] \]
+    </div>
+
+    <p>Kita dapat melakukan operasi:</p>
+
+    <div class="math-display">\[ R_2 \rightarrow R_2-2R_1 \]</div>
+
+    <p>sehingga diperoleh:</p>
+
+    <div class="math-display">
+      \[ \left[ \begin{array}{cc|c} 1 & 2 & 5\\ 0 & -1 & -2 \end{array} \right]
+      \]
+    </div>
+  </div>
+</section>
+
+<section id="metode-cramer" data-title="Aturan Cramer">
+  <h2>17. Aturan Cramer</h2>
+
+  <p>
+    Aturan Cramer merupakan salah satu metode untuk menyelesaikan SPL dengan
+    memanfaatkan determinan.
+  </p>
+
+  <p>Untuk SPL:</p>
+
+  <div class="math-display">
+    \[ \begin{cases} ax+by=e\\ cx+dy=f \end{cases} \]
+  </div>
+
+  <p>Misalkan:</p>
+
+  <div class="math-display">
+    \[ D= \begin{vmatrix} a & b\\ c & d \end{vmatrix} \]
+  </div>
+
+  <p>Jika \(D\neq0\), maka:</p>
+
+  <div class="math-display">
+    \[ x= \frac{ \begin{vmatrix} e & b\\ f & d \end{vmatrix} }{D} \]
+  </div>
+
+  <div class="math-display">
+    \[ y= \frac{ \begin{vmatrix} a & e\\ c & f \end{vmatrix} }{D} \]
+  </div>
+</section>
+
+<section id="matriks-transformasi" data-title="Matriks Transformasi Geometri">
+  <h2>18. Matriks Transformasi Geometri</h2>
+
+  <p>
+    Matriks dapat digunakan untuk merepresentasikan berbagai transformasi
+    geometri pada bidang koordinat.
+  </p>
+
+  <h3>Translasi</h3>
+
+  <p>
+    Translasi memindahkan setiap titik dengan perpindahan yang sama. Jika titik
+    \(P(x,y)\) ditranslasikan oleh \(T(a,b)\), maka:
+  </p>
+
+  <div class="math-display">
+    \[ \begin{bmatrix} x'\\ y' \end{bmatrix} = \begin{bmatrix} x\\ y
+    \end{bmatrix} + \begin{bmatrix} a\\ b \end{bmatrix} \]
+  </div>
+
+  <h3>Rotasi terhadap Titik Asal</h3>
+
+  <p>
+    Rotasi sebesar sudut \(\theta\) berlawanan arah jarum jam terhadap titik
+    asal dapat dinyatakan dengan:
+  </p>
+
+  <div class="math-display">
+    \[ \begin{bmatrix} x'\\ y' \end{bmatrix} = \begin{bmatrix} \cos\theta &
+    -\sin\theta\\ \sin\theta & \cos\theta \end{bmatrix} \begin{bmatrix} x\\ y
+    \end{bmatrix} \]
+  </div>
+
+  <h3>Pencerminan terhadap Sumbu-\(x\)</h3>
+
+  <div class="math-display">
+    \[ \begin{bmatrix} x'\\ y' \end{bmatrix} = \begin{bmatrix} 1 & 0\\ 0 & -1
+    \end{bmatrix} \begin{bmatrix} x\\ y \end{bmatrix} \]
+  </div>
+
+  <h3>Pencerminan terhadap Sumbu-\(y\)</h3>
+
+  <div class="math-display">
+    \[ \begin{bmatrix} x'\\ y' \end{bmatrix} = \begin{bmatrix} -1 & 0\\ 0 & 1
+    \end{bmatrix} \begin{bmatrix} x\\ y \end{bmatrix} \]
+  </div>
+
+  <h3>Perbesaran dan Pengecilan</h3>
+
+  <p>
+    Dilatasi berpusat di titik asal dengan faktor skala \(k\) dapat dinyatakan
+    sebagai:
+  </p>
+
+  <div class="math-display">
+    \[ \begin{bmatrix} x'\\ y' \end{bmatrix} = \begin{bmatrix} k & 0\\ 0 & k
+    \end{bmatrix} \begin{bmatrix} x\\ y \end{bmatrix} \]
+  </div>
+</section>
+
+<section id="determinan-transformasi" data-title="Determinan dan Transformasi">
+  <h2>19. Determinan dan Transformasi Geometri</h2>
+
+  <p>
+    Determinan matriks transformasi dapat digunakan untuk mengetahui perubahan
+    luas suatu bangun.
+  </p>
+
+  <p>
+    Jika suatu transformasi dinyatakan dengan matriks \(A\), maka luas hasil
+    transformasi memenuhi:
+  </p>
+
+  <div class="math-display">\[ L' = |\det(A)|L \]</div>
+
+  <p>Dengan demikian:</p>
+
+  <ul>
+    <li>Jika \(|\det(A)|>1\), luas diperbesar.</li>
+    <li>Jika \(0<|\det(A)|<1\), luas diperkecil.</li>
+    <li>Jika \(|\det(A)|=1\), luas tetap.</li>
+    <li>
+      Jika \(\det(A)=0\), bangun mengalami degenerasi sehingga luasnya menjadi
+      nol.
+    </li>
+  </ul>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Suatu transformasi memiliki matriks:</p>
+
+    <div class="math-display">
+      \[ A= \begin{bmatrix} 2 & 1\\ 1 & 3 \end{bmatrix} \]
+    </div>
+
+    <p>Determinannya adalah:</p>
+
+    <div class="math-display">\[ \det(A)=2(3)-1(1)=5 \]</div>
+
+    <p>
+      Artinya, luas bangun hasil transformasi menjadi \(5\) kali luas bangun
+      semula.
+    </p>
+  </div>
+</section>
+
+<section id="rangkuman-matriks" data-title="Rangkuman Matriks">
+  <h2>20. Rangkuman Rumus Matriks</h2>
+
+  <h3>Penjumlahan</h3>
+
+  <div class="math-display">\[ (A+B)_{ij}=a_{ij}+b_{ij} \]</div>
+
+  <h3>Perkalian Skalar</h3>
+
+  <div class="math-display">\[ (kA)_{ij}=ka_{ij} \]</div>
+
+  <h3>Perkalian Matriks</h3>
+
+  <div class="math-display">\[ (AB)_{ij} = \sum_{k=1}^{n}a_{ik}b_{kj} \]</div>
+
+  <h3>Transpose</h3>
+
+  <div class="math-display">\[ (A^T)_{ij}=a_{ji} \]</div>
+
+  <h3>Determinan Ordo \(2\times2\)</h3>
+
+  <div class="math-display">
+    \[ \begin{vmatrix} a & b\\ c & d \end{vmatrix} =ad-bc \]
+  </div>
+
+  <h3>Invers Ordo \(2\times2\)</h3>
+
+  <div class="math-display">
+    \[ \begin{bmatrix} a & b\\ c & d \end{bmatrix}^{-1} = \frac{1}{ad-bc}
+    \begin{bmatrix} d & -b\\ -c & a \end{bmatrix} \]
+  </div>
+
+  <h3>Determinan Ordo \(3\times3\)</h3>
+
+  <div class="math-display">
+    \[ \begin{aligned} \det\begin{bmatrix}a&b&c\\d&e&f\\g&h&i\end{bmatrix}
+    &=a(ei-fh)-b(di-fg)+c(dh-eg) \end{aligned} \]
+  </div>
+
+  <h3>Invers Ordo \(3\times3\)</h3>
+
+  <div class="math-display">
+    \[ A^{-1}=\frac{1}{\det(A)}\operatorname{adj}(A), \qquad \det(A)\neq0 \]
+  </div>
+
+  <h3>Syarat Matriks Memiliki Invers</h3>
+
+  <div class="math-display">\[ \det(A)\neq0 \]</div>
+
+  <h3>Persamaan Matriks</h3>
+
+  <div class="math-display">\[ AX=B \quad\Rightarrow\quad X=A^{-1}B \]</div>
+
+  <h3>Determinan Transformasi</h3>
+
+  <div class="math-display">\[ L'=|\det(A)|L \]</div>
+</section>
