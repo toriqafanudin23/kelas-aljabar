@@ -1,447 +1,1172 @@
-<section id="translasi" data-title="Translasi (Pergeseran)">
-  <h2>1. Translasi (Pergeseran)</h2>
+<section id="pendahuluan" data-title="Pendahuluan">
+  <h2>Pendahuluan</h2>
   <p>
-    Translasi adalah perpindahan atau pergeseran suatu objek (titik, garis, atau
-    bidang) sepanjang garis lurus dengan arah dan jarak tertentu tanpa mengubah
-    bentuk dan ukurannya.
+    Transformasi geometri adalah perpindahan atau perubahan suatu objek
+    geometri. Dalam modul ini transformasi yang dipelajari meliputi
+    <strong>translasi, refleksi, rotasi, dan dilatasi</strong>.
   </p>
 
-  <h3>Pemetaan Titik</h3>
   <p>
-    Jika titik \(A(x,y)\) ditranslasikan oleh matriks pergeseran \(T =
-    \begin{bmatrix} a \\ b \end{bmatrix}\), maka bayangan titik \(A'(x',y')\)
-    ditentukan oleh:
+    Objek yang ditransformasikan dapat berupa titik, garis, maupun bangun
+    datar pada bidang koordinat Kartesius. Hasil transformasi disebut
+    <strong>bayangan</strong> dan biasanya diberi tanda prima, misalnya
+    \(A'\), \(B'\), atau \(A'B'C'\).
+  </p>
+
+  <h3>Kompetensi yang Diharapkan</h3>
+  <p>Setelah mempelajari modul ini, peserta didik diharapkan mampu:</p>
+  <ol>
+    <li>menjelaskan konsep transformasi geometri;</li>
+    <li>menentukan bayangan titik, garis, dan bangun akibat translasi;</li>
+    <li>menentukan bayangan akibat refleksi terhadap berbagai garis;</li>
+    <li>menentukan bayangan akibat rotasi dengan pusat tertentu;</li>
+    <li>menentukan bayangan akibat dilatasi dengan pusat dan faktor tertentu;</li>
+    <li>merepresentasikan transformasi menggunakan matriks;</li>
+    <li>menentukan hasil komposisi beberapa transformasi;</li>
+    <li>menentukan persamaan garis setelah suatu transformasi;</li>
+    <li>menentukan luas atau ukuran bagian bangun yang mengalami transformasi;</li>
+    <li>menyelesaikan masalah transformasi geometri secara sistematis.</li>
+  </ol>
+
+  <h3>Notasi Dasar</h3>
+  <p>
+    Sebuah titik \(P(x,y)\) setelah transformasi dapat ditulis sebagai
+    \(P'(x',y')\). Dalam bentuk matriks kolom:
   </p>
 
   <div class="math-display">
-    \[ \begin{bmatrix} x' \\ y' \end{bmatrix} = \begin{bmatrix} x \\ y
-    \end{bmatrix} + \begin{bmatrix} a \\ b \end{bmatrix} = \begin{bmatrix} x+a
-    \\ y+b \end{bmatrix} \]
+    \[
+    P=
+    \begin{bmatrix}
+      x\\y
+    \end{bmatrix},
+    \qquad
+    P'=
+    \begin{bmatrix}
+      x'\\y'
+    \end{bmatrix}.
+    \]
+  </div>
+</section>
+
+<section id="translasi" data-title="Translasi">
+  <h2>1. Translasi</h2>
+
+  <h3>Pengertian</h3>
+  <p>
+    Translasi adalah pergeseran suatu objek tanpa mengubah bentuk dan
+    ukurannya. Translasi ditentukan oleh sebuah vektor:
+  </p>
+
+  <div class="math-display">
+    \[
+    T=
+    \begin{bmatrix}
+      a\\b
+    \end{bmatrix}.
+    \]
   </div>
 
-  <h3>Contoh Pergeseran Titik</h3>
   <p>
-    Titik \(A(2,-3)\) digeser oleh \(T = \begin{bmatrix} 6 \\ -7
-    \end{bmatrix}\). Bayangan titik \(A'\) adalah:
+    Jika \(P(x,y)\) ditranslasikan oleh \(T\), maka:
   </p>
+
   <div class="math-display">
-    \[ A' = \begin{bmatrix} 2 \\ -3 \end{bmatrix} + \begin{bmatrix} 6 \\ -7
-    \end{bmatrix} = \begin{bmatrix} 8 \\ -10 \end{bmatrix} \implies A'(8,-10) \]
+    \[
+    P'(x',y')=(x+a,y+b).
+    \]
   </div>
 
-  <h3>Contoh Pergeseran Garis</h3>
+  <p>atau dalam bentuk matriks:</p>
+
+  <div class="math-display">
+    \[
+    \begin{bmatrix}
+      x'\\y'
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+      x\\y
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+      a\\b
+    \end{bmatrix}.
+    \]
+  </div>
+
+  <h3>Contoh 1: Translasi Titik</h3>
   <p>
-    Diketahui garis \(g : 2y = 5x + 7\). Jika garis \(g\) ditranslasikan oleh
-    \(T = \begin{bmatrix} 3 \\ -4 \end{bmatrix}\), tentukan persamaan garis
-    bayangannya!
+    Titik \(A(2,3)\) digeser oleh
+    \(\begin{bmatrix}6\\-7\end{bmatrix}\). Tentukan bayangan titik \(A\).
   </p>
-  <p><strong>Penyelesaian:</strong></p>
+
   <div class="math-display">
-    \[ \begin{aligned} x' = x + 3 &\implies x = x' - 3 \\ y' = y - 4 &\implies y
-    = y' + 4 \end{aligned} \]
+    \[
+    \begin{aligned}
+    A'
+    &=
+    \begin{bmatrix}
+      2\\3
+    \end{bmatrix}
+    +
+    \begin{bmatrix}
+      6\\-7
+    \end{bmatrix}\\
+    &=
+    \begin{bmatrix}
+      8\\-4
+    \end{bmatrix}.
+    \end{aligned}
+    \]
   </div>
-  <p>Substitusikan nilai \(x\) dan \(y\) ke persamaan awal:</p>
-  <div class="math-display">
-    \[ \begin{aligned} 2(y' + 4) &= 5(x' - 3) + 7 \\ 2y' + 8 &= 5x' - 15 + 7 \\
-    2y' &= 5x' - 16 \\ y' &= \frac{5}{2}x' - 8 \end{aligned} \]
-  </div>
+
+  <p>Jadi, \(A'(8,-4)\).</p>
+
+  <h3>Translasi Persamaan Garis</h3>
   <p>
-    Jadi, persamaan garis bayangannya adalah \(2y = 5x - 16\) atau \(y =
-    \frac{5}{2}x - 8\).
+    Jika suatu garis ditranslasikan, setiap titik pada garis mengalami
+    translasi yang sama. Cara yang sistematis adalah menggunakan hubungan
+    koordinat:
+  </p>
+
+  <div class="math-display">
+    \[
+    x'=x+a,\qquad y'=y+b,
+    \]
+    sehingga
+    \[
+    x=x'-a,\qquad y=y'-b.
+    \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2: Translasi Garis</h4>
+    <p>
+      Diketahui garis \(g:2y=5x+7\). Garis tersebut ditranslasikan oleh
+      \(\begin{bmatrix}3\\-4\end{bmatrix}\). Tentukan persamaan bayangannya.
+    </p>
+
+    <p>Dari translasi:</p>
+    <div class="math-display">
+      \[
+      x'=x+3,\qquad y'=y-4.
+      \]
+    </div>
+
+    <p>Sehingga:</p>
+    <div class="math-display">
+      \[
+      x=x'-3,\qquad y=y'+4.
+      \]
+    </div>
+
+    <p>Substitusikan ke persamaan awal:</p>
+    <div class="math-display">
+      \[
+      \begin{aligned}
+      2(y'+4)&=5(x'-3)+7\\
+      2y'+8&=5x'-15+7\\
+      2y'&=5x'-16.
+      \end{aligned}
+      \]
+    </div>
+
+    <p>Dengan mengganti \(x'\) dan \(y'\) menjadi \(x\) dan \(y\), diperoleh:</p>
+    <div class="math-display">
+      \[
+      2y=5x-16
+      \]
+      atau
+      \[
+      y=\frac52x-8.
+      \]
+    </div>
+  </div>
+
+  <h3>Translasi Bangun Datar</h3>
+  <p>
+    Untuk mentranslasikan bangun, translasi diterapkan pada setiap titik
+    sudutnya.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 3: Luas Bagian Segitiga</h4>
+    <p>
+      Diketahui \(A(8,1)\), \(B(12,1)\), dan \(C(10,5)\). Segitiga
+      \(ABC\) ditranslasikan oleh
+      \(\begin{bmatrix}0\\-3\end{bmatrix}\).
+    </p>
+
+    <div class="math-display">
+      \[
+      \begin{aligned}
+      A'&=(8,-2),\\
+      B'&=(12,-2),\\
+      C'&=(10,2).
+      \end{aligned}
+      \]
+    </div>
+
+    <p>
+      Setelah posisi bayangan ditentukan pada bidang koordinat, luas bagian
+      segitiga yang berada pada wilayah yang dimaksud dapat dihitung dari
+      bangun hasil translasi.
+    </p>
+
+    <div class="math-display">
+      \[
+      L=\frac12(4)(4)-\frac12(2)(2)=8-2=6.
+      \]
+    </div>
+
+    <p>Jadi luas bagian tersebut adalah \(6\) satuan luas.</p>
+  </div>
+
+  <h3>Komposisi Translasi</h3>
+  <p>
+    Jika suatu titik mengalami translasi \(T_1=(a,b)\), kemudian
+    \(T_2=(c,d)\), maka hasil akhirnya:
+  </p>
+
+  <div class="math-display">
+    \[
+    T_2\circ T_1=
+    \begin{bmatrix}
+      a+c\\b+d
+    \end{bmatrix}.
+    \]
+  </div>
+
+  <p>
+    Jadi komposisi dua translasi juga merupakan sebuah translasi.
   </p>
 </section>
 
-<section id="refleksi" data-title="Refleksi (Pencerminan)">
-  <h2>2. Refleksi (Pencerminan)</h2>
+<section id="refleksi" data-title="Refleksi">
+  <h2>2. Refleksi</h2>
+
+  <h3>Pengertian</h3>
   <p>
-    Refleksi adalah transformasi yang memindahkan setiap titik pada bidang
-    menggunakan sifat bayangan cermin datar.
+    Refleksi atau pencerminan adalah transformasi yang menghasilkan bayangan
+    suatu objek terhadap sebuah garis cermin. Jarak setiap titik terhadap
+    garis cermin sama dengan jarak bayangannya terhadap garis tersebut.
   </p>
 
-  <h3>Matriks Transformasi Refleksi</h3>
+  <h3>Refleksi terhadap Sumbu Koordinat</h3>
+
   <div class="material-table-wrap">
     <table class="reflection-table">
       <thead>
         <tr>
-          <th scope="col">Pencerminan terhadap</th>
-          <th scope="col">Pemetaan titik</th>
-          <th scope="col">Matriks transformasi</th>
+          <th scope="col">Pencerminan</th>
+          <th scope="col">Aturan bayangan</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <th scope="row">Sumbu-\(x\)</th>
+          <td>Sumbu <span>\(x\)</span></td>
           <td>\((x,y)\mapsto(x,-y)\)</td>
-          <td>\(\begin{bmatrix}1&0\\0&-1\end{bmatrix}\)</td>
         </tr>
         <tr>
-          <th scope="row">Sumbu-\(y\)</th>
+          <td>Sumbu <span>\(y\)</span></td>
           <td>\((x,y)\mapsto(-x,y)\)</td>
-          <td>\(\begin{bmatrix}-1&0\\0&1\end{bmatrix}\)</td>
         </tr>
         <tr>
-          <th scope="row">Garis \(y=x\)</th>
-          <td>\((x,y)\mapsto(y,x)\)</td>
-          <td>\(\begin{bmatrix}0&1\\1&0\end{bmatrix}\)</td>
-        </tr>
-        <tr>
-          <th scope="row">Garis \(y=-x\)</th>
-          <td>\((x,y)\mapsto(-y,-x)\)</td>
-          <td>\(\begin{bmatrix}0&-1\\-1&0\end{bmatrix}\)</td>
-        </tr>
-        <tr>
-          <th scope="row">Titik asal \((0,0)\)</th>
+          <td>Titik asal <span>\(O(0,0)\)</span></td>
           <td>\((x,y)\mapsto(-x,-y)\)</td>
-          <td>\(\begin{bmatrix}-1&0\\0&-1\end{bmatrix}\)</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <h3>Refleksi Terhadap Garis \(x = h\) dan \(y = k\)</h3>
+  <h3>Refleksi terhadap Garis \(y=x\) dan \(y=-x\)</h3>
+
   <div class="math-display">
-    \[ \begin{aligned} \text{Terhadap garis } x = h &: (x,y) \to (2h - x, y) \\
-    \text{Terhadap garis } y = k &: (x,y) \to (x, 2k - y) \end{aligned} \]
+    \[
+    \begin{aligned}
+    y=x &: (x,y)\mapsto(y,x),\\
+    y=-x &: (x,y)\mapsto(-y,-x).
+    \end{aligned}
+    \]
+  </div>
+
+  <h3>Refleksi terhadap Garis Vertikal dan Horizontal</h3>
+  <p>Untuk garis \(x=h\):</p>
+
+  <div class="math-display">
+    \[
+    (x,y)\mapsto(2h-x,y).
+    \]
+  </div>
+
+  <p>Untuk garis \(y=k\):</p>
+
+  <div class="math-display">
+    \[
+    (x,y)\mapsto(x,2k-y).
+    \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+    <p>
+      Titik \(P(-10,-3)\) dicerminkan terhadap sumbu \(x\), kemudian
+      terhadap sumbu \(y\).
+    </p>
+
+    <p>Pencerminan pertama:</p>
+    <div class="math-display">
+      \[
+      (-10,-3)\xrightarrow{\text{sumbu }x}(-10,3).
+      \]
+    </div>
+
+    <p>Pencerminan kedua:</p>
+    <div class="math-display">
+      \[
+      (-10,3)\xrightarrow{\text{sumbu }y}(10,3).
+      \]
+    </div>
+
+    <p>Jadi bayangan akhirnya adalah \(P''(10,3)\).</p>
+  </div>
+
+  <h3>Refleksi terhadap Sebuah Titik</h3>
+  <p>
+    Jika titik \(P(x,y)\) dicerminkan terhadap titik pusat \(C(h,k)\), maka
+    \(C\) merupakan titik tengah ruas \(PP'\). Oleh karena itu:
+  </p>
+
+  <div class="math-display">
+    \[
+    P'(2h-x,\;2k-y).
+    \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2</h4>
+    <p>
+      Titik \(P(6,7)\) dicerminkan terhadap titik \(C(3,1)\).
+    </p>
+
+    <div class="math-display">
+      \[
+      \begin{aligned}
+      P'
+      &=(2(3)-6,\;2(1)-7)\\
+      &=(0,-5).
+      \end{aligned}
+      \]
+    </div>
+
+    <p>Jadi bayangannya adalah \(P'(0,-5)\).</p>
   </div>
 </section>
 
-<section id="rotasi" data-title="Rotasi (Perputaran)">
-  <h2>3. Rotasi (Perputaran)</h2>
+<section id="rotasi" data-title="Rotasi">
+  <h2>3. Rotasi</h2>
+
+  <h3>Pengertian</h3>
   <p>
-    Rotasi adalah transformasi yang memutar setiap titik pada bidang sebesar
-    sudut tertentu (\(\theta\)) terhadap titik pusat rotasi.
+    Rotasi adalah transformasi yang memutar suatu objek terhadap sebuah pusat
+    rotasi melalui sudut tertentu. Rotasi tidak mengubah bentuk dan ukuran
+    objek.
   </p>
 
-  <h3>Rotasi Berpusat di \(O(0,0)\)</h3>
-  <div class="math-display">
-    \[ \begin{bmatrix} x' \\ y' \end{bmatrix} = \begin{bmatrix} \cos\theta &
-    -\sin\theta \\ \sin\theta & \cos\theta \end{bmatrix} \begin{bmatrix} x \\ y
-    \end{bmatrix} \]
-  </div>
-
-  <h3>Rotasi Berpusat di \(P(a,b)\)</h3>
-  <div class="math-display">
-    \[ \begin{bmatrix} x' \\ y' \end{bmatrix} = \begin{bmatrix} \cos\theta &
-    -\sin\theta \\ \sin\theta & \cos\theta \end{bmatrix} \begin{bmatrix} x-a \\
-    y-b \end{bmatrix} + \begin{bmatrix} a \\ b \end{bmatrix} \]
-  </div>
-</section>
-
-<section id="dilatasi" data-title="Dilatasi (Penskalaan)">
-  <h2>4. Dilatasi (Penskalaan)</h2>
+  <h3>Rotasi terhadap Titik Asal</h3>
   <p>
-    Dilatasi adalah transformasi yang mengubah ukuran (memperbesar atau
-    memperkecil) suatu bangun tanpa mengubah bentuknya, ditentukan oleh faktor
-    skala \(k\) dan titik pusat dilatasi.
+    Untuk titik \(P(x,y)\) yang diputar terhadap \(O(0,0)\), aturan rotasi
+    yang paling sering digunakan adalah:
   </p>
 
-  <h3>Dilatasi Berpusat di \(O(0,0)\) dengan Faktor Skala \(k\)</h3>
-  <div class="math-display">
-    \[ \begin{bmatrix} x' \\ y' \end{bmatrix} = \begin{bmatrix} k & 0 \\ 0 & k
-    \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} = \begin{bmatrix} kx \\
-    ky \end{bmatrix} \]
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Rotasi terhadap titik asal</th>
+          <th scope="col">Aturan bayangan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(90^\circ\) berlawanan arah jarum jam</td>
+          <td>\((x,y)\mapsto(-y,x)\)</td>
+        </tr>
+        <tr>
+          <td>\(90^\circ\) searah jarum jam</td>
+          <td>\((x,y)\mapsto(y,-x)\)</td>
+        </tr>
+        <tr>
+          <td>\(180^\circ\)</td>
+          <td>\((x,y)\mapsto(-x,-y)\)</td>
+        </tr>
+        <tr>
+          <td>\(270^\circ\) berlawanan arah jarum jam</td>
+          <td>\((x,y)\mapsto(y,-x)\)</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
-  <h3>Dilatasi Berpusat di \(P(a,b)\) dengan Faktor Skala \(k\)</h3>
-  <div class="math-display">
-    \[ \begin{bmatrix} x' \\ y' \end{bmatrix} = k \begin{bmatrix} x-a \\ y-b
-    \end{bmatrix} + \begin{bmatrix} a \\ b \end{bmatrix} \]
-  </div>
-</section>
-
-<section
-  id="contoh-dan-latihan-transformasi"
-  data-title="Contoh Soal dan Latihan Mandiri"
->
-  <h2>Contoh Soal dan Latihan Mandiri</h2>
+  <h3>Matriks Rotasi</h3>
   <p>
-    Gunakan aturan translasi, refleksi, rotasi, dan dilatasi yang telah
-    dipelajari untuk menyelesaikan soal-soal berikut.
+    Rotasi terhadap titik asal sebesar sudut \(\theta\) berlawanan arah jarum
+    jam dapat ditulis:
   </p>
 
-  <h3>Contoh Soal dan Pembahasan</h3>
+  <div class="math-display">
+    \[
+    R_\theta=
+    \begin{bmatrix}
+      \cos\theta&-\sin\theta\\
+      \sin\theta&\cos\theta
+    \end{bmatrix}.
+    \]
+  </div>
+
+  <p>Khusus untuk beberapa sudut:</p>
+
+  <div class="math-display">
+    \[
+    R_{90^\circ}=
+    \begin{bmatrix}
+      0&-1\\
+      1&0
+    \end{bmatrix},
+    \quad
+    R_{180^\circ}=
+    \begin{bmatrix}
+      -1&0\\
+      0&-1
+    \end{bmatrix},
+    \quad
+    R_{270^\circ}=
+    \begin{bmatrix}
+      0&1\\
+      -1&0
+    \end{bmatrix}.
+    \]
+  </div>
+
+  <h3>Rotasi dengan Pusat \((h,k)\)</h3>
+  <p>
+    Untuk rotasi dengan pusat \(C(h,k)\), lakukan tiga tahap:
+  </p>
   <ol>
-    <li>
-      <p>
-        Bayangan titik \((2,3)\) oleh dilatasi dengan pusat \(P(4,1)\) dan
-        faktor skala \(2\) adalah ....
-      </p>
-
-      <p><strong>Pembahasan:</strong></p>
-
-      <p>
-        Untuk dilatasi dengan pusat \(P(a,b)\) dan faktor skala \(k\), gunakan
-        rumus
-      </p>
-
-      <div class="math-display">
-        \[ \begin{bmatrix}x'\\y'\end{bmatrix} = \begin{bmatrix}a\\b\end{bmatrix}
-        + k\left( \begin{bmatrix}x\\y\end{bmatrix} -
-        \begin{bmatrix}a\\b\end{bmatrix}\right). \]
-      </div>
-
-      <p>
-        Pada soal diketahui \(P(4,1)\), \(k=2\), dan titik \(A(2,3)\).
-        Substitusikan nilai tersebut:
-      </p>
-
-      <div class="math-display">
-        \[ \begin{aligned} \begin{bmatrix}x'\\y'\end{bmatrix} &=
-        \begin{bmatrix}4\\1\end{bmatrix} + 2\left(
-        \begin{bmatrix}2\\3\end{bmatrix} -
-        \begin{bmatrix}4\\1\end{bmatrix}\right) \\[6pt] &=
-        \begin{bmatrix}4\\1\end{bmatrix} + 2 \begin{bmatrix}-2\\2\end{bmatrix}
-        \\[6pt] &= \begin{bmatrix}0\\5\end{bmatrix}. \end{aligned} \]
-      </div>
-
-      <p>Jadi, bayangan titik \(A(2,3)\) adalah \(A'(0,5)\).</p>
-    </li>
-
-    <li>
-      <p>
-        Bayangan titik \((2,3)\) oleh rotasi berpusat di \(P(4,1)\) sebesar
-        \(90^\circ\) berlawanan arah jarum jam adalah ....
-      </p>
-
-      <p><strong>Pembahasan:</strong></p>
-
-      <p>
-        Karena pusat rotasi bukan titik asal, lakukan dalam tiga langkah:
-        tentukan vektor dari pusat ke titik, rotasikan vektor tersebut, lalu
-        tambahkan kembali pusat rotasi.
-      </p>
-
-      <p>
-        <strong>Langkah 1: Menentukan vektor terhadap pusat rotasi.</strong>
-      </p>
-
-      <div class="math-display">
-        \[ \begin{bmatrix}2\\3\end{bmatrix} - \begin{bmatrix}4\\1\end{bmatrix} =
-        \begin{bmatrix}-2\\2\end{bmatrix}. \]
-      </div>
-
-      <p>
-        Jadi, posisi titik \((2,3)\) terhadap pusat \(P(4,1)\) adalah
-        \(\begin{bmatrix}-2\\2\end{bmatrix}\).
-      </p>
-
-      <p>
-        <strong
-          >Langkah 2: Merotasi \(90^\circ\) berlawanan arah jarum jam.</strong
-        >
-      </p>
-
-      <p>
-        Rotasi \(90^\circ\) berlawanan arah jarum jam menggunakan matriks
-        \(\begin{bmatrix}0&-1\\1&0\end{bmatrix}\). Maka
-      </p>
-
-      <div class="math-display">
-        \[ \begin{bmatrix}0&-1\\1&0\end{bmatrix}
-        \begin{bmatrix}-2\\2\end{bmatrix} = \begin{bmatrix}-2\\-2\end{bmatrix}.
-        \]
-      </div>
-
-      <p><strong>Langkah 3: Menambahkan kembali pusat rotasi.</strong></p>
-
-      <div class="math-display">
-        \[ \begin{aligned} \begin{bmatrix}x'\\y'\end{bmatrix} &=
-        \begin{bmatrix}4\\1\end{bmatrix} + \begin{bmatrix}-2\\-2\end{bmatrix}
-        \\[4pt] &= \begin{bmatrix}2\\-1\end{bmatrix}. \end{aligned} \]
-      </div>
-
-      <p>Jadi, bayangan titik tersebut adalah \((2,-1)\).</p>
-    </li>
-
-    <li>
-      <p>
-        Titik \((4,-1)\) ditransformasikan oleh matriks
-        \(\begin{bmatrix}1&2\\0&1\end{bmatrix}\), kemudian diputar \(90^\circ\)
-        searah jarum jam dengan pusat \(O(0,0)\). Tentukan koordinat bayangan
-        akhirnya dan persamaan garis bergradien \(2\) yang melalui titik
-        tersebut.
-      </p>
-
-      <p><strong>Pembahasan:</strong></p>
-
-      <p>
-        Transformasi dilakukan sesuai urutan pada soal. Jadi, kita melakukan
-        transformasi matriks terlebih dahulu, kemudian rotasi \(90^\circ\)
-        searah jarum jam.
-      </p>
-
-      <p><strong>Langkah 1: Menerapkan matriks transformasi.</strong></p>
-
-      <div class="math-display">
-        \[ \begin{aligned} \begin{bmatrix}x_1\\y_1\end{bmatrix} &=
-        \begin{bmatrix}1&2\\0&1\end{bmatrix}
-        \begin{bmatrix}4\\-1\end{bmatrix}\\[4pt] &= \begin{bmatrix} 1(4)+2(-1)\\
-        0(4)+1(-1) \end{bmatrix}\\[4pt] &= \begin{bmatrix}2\\-1\end{bmatrix}.
-        \end{aligned} \]
-      </div>
-
-      <p>Jadi, setelah transformasi matriks, titik menjadi \(A_1(2,-1)\).</p>
-
-      <p>
-        <strong
-          >Langkah 2: Melakukan rotasi \(90^\circ\) searah jarum jam.</strong
-        >
-      </p>
-
-      <p>
-        Rotasi \(90^\circ\) searah jarum jam terhadap titik asal menggunakan
-        matriks \(\begin{bmatrix}0&1\\-1&0\end{bmatrix}\). Oleh karena itu,
-      </p>
-
-      <div class="math-display">
-        \[ \begin{bmatrix}0&1\\-1&0\end{bmatrix}
-        \begin{bmatrix}2\\-1\end{bmatrix} = \begin{bmatrix}-1\\-2\end{bmatrix}.
-        \]
-      </div>
-
-      <p>Jadi, koordinat bayangan akhirnya adalah \((-1,-2)\).</p>
-
-      <p><strong>Langkah 3: Menentukan persamaan garis.</strong></p>
-
-      <p>
-        Garis tersebut memiliki gradien \(m=2\) dan melalui titik \((-1,-2)\).
-        Gunakan bentuk titik-gradien:
-      </p>
-
-      <div class="math-display">\[ y-y_1=m(x-x_1). \]</div>
-
-      <p>Substitusikan \(m=2\), \(x_1=-1\), dan \(y_1=-2\):</p>
-
-      <div class="math-display">
-        \[ \begin{aligned} y-(-2) &= 2\bigl(x-(-1)\bigr)\\ y+2 &= 2(x+1)\\ y+2
-        &= 2x+2\\ y &= 2x. \end{aligned} \]
-      </div>
-
-      <p>Jadi, persamaan garisnya adalah \(y=2x\).</p>
-    </li>
-
-    <li>
-      <p>
-        Titik \(A(3,-2)\) ditranslasikan oleh
-        \(T=\begin{bmatrix}1\\-2\end{bmatrix}\), kemudian dirotasi \(90^\circ\)
-        berlawanan arah jarum jam dengan pusat \(P(1,1)\). Tentukan koordinat
-        bayangan akhirnya.
-      </p>
-
-      <p><strong>Pembahasan:</strong></p>
-
-      <p>
-        Karena terdapat dua transformasi, kerjakan sesuai urutan yang diberikan:
-        pertama translasi, kemudian rotasi.
-      </p>
-
-      <p><strong>Langkah 1: Melakukan translasi.</strong></p>
-
-      <p>
-        Translasi \(T=\begin{bmatrix}1\\-2\end{bmatrix}\) berarti koordinat
-        \(x\) ditambah \(1\), sedangkan koordinat \(y\) dikurangi \(2\).
-      </p>
-
-      <div class="math-display">
-        \[ \begin{aligned} \begin{bmatrix}x_1\\y_1\end{bmatrix} &=
-        \begin{bmatrix}3\\-2\end{bmatrix} + \begin{bmatrix}1\\-2\end{bmatrix}
-        \\[4pt] &= \begin{bmatrix}4\\-4\end{bmatrix}. \end{aligned} \]
-      </div>
-
-      <p>Jadi, setelah translasi diperoleh \(A_1(4,-4)\).</p>
-
-      <p>
-        <strong>Langkah 2: Menentukan vektor terhadap pusat rotasi.</strong>
-      </p>
-
-      <p>Pusat rotasi adalah \(P(1,1)\). Vektor dari \(P\) ke \(A_1\) adalah</p>
-
-      <div class="math-display">
-        \[ \begin{bmatrix}4\\-4\end{bmatrix} - \begin{bmatrix}1\\1\end{bmatrix}
-        = \begin{bmatrix}3\\-5\end{bmatrix}. \]
-      </div>
-
-      <p>
-        <strong
-          >Langkah 3: Merotasi \(90^\circ\) berlawanan arah jarum jam.</strong
-        >
-      </p>
-
-      <p>
-        Matriks rotasi \(90^\circ\) berlawanan arah jarum jam adalah
-        \(\begin{bmatrix}0&-1\\1&0\end{bmatrix}\). Maka
-      </p>
-
-      <div class="math-display">
-        \[ \begin{bmatrix}0&-1\\1&0\end{bmatrix}
-        \begin{bmatrix}3\\-5\end{bmatrix} = \begin{bmatrix}5\\3\end{bmatrix}. \]
-      </div>
-
-      <p><strong>Langkah 4: Menambahkan kembali pusat rotasi.</strong></p>
-
-      <div class="math-display">
-        \[ \begin{aligned} \begin{bmatrix}x'\\y'\end{bmatrix} &=
-        \begin{bmatrix}1\\1\end{bmatrix} + \begin{bmatrix}5\\3\end{bmatrix}
-        \\[4pt] &= \begin{bmatrix}6\\4\end{bmatrix}. \end{aligned} \]
-      </div>
-
-      <p>Jadi, bayangan akhir titik \(A\) adalah \(A'(6,4)\).</p>
-    </li>
+    <li>translasikan pusat \(C\) ke titik asal;</li>
+    <li>lakukan rotasi terhadap titik asal;</li>
+    <li>kembalikan hasilnya dengan translasi kebalikan.</li>
   </ol>
 
-  <h3>Latihan Mandiri</h3>
+  <p>Secara konseptual:</p>
+
+  <div class="math-display">
+    \[
+    P-C
+    \xrightarrow{R_\theta}
+    R_\theta(P-C)
+    \xrightarrow{+C}
+    P'=C+R_\theta(P-C).
+    \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+    <p>
+      Titik \(P(2,3)\) diputar \(90^\circ\) berlawanan arah jarum jam dengan
+      pusat \(C(4,1)\).
+    </p>
+
+    <p>Pertama, pindahkan pusat ke titik asal:</p>
+    <div class="math-display">
+      \[
+      P-C=(2-4,3-1)=(-2,2).
+      \]
+    </div>
+
+    <p>Rotasi \(90^\circ\) berlawanan arah jarum jam:</p>
+    <div class="math-display">
+      \[
+      (-2,2)\mapsto(-2,-2).
+      \]
+    </div>
+
+    <p>Kembalikan pusat:</p>
+    <div class="math-display">
+      \[
+      P'=(4,1)+(-2,-2)=(2,-1).
+      \]
+    </div>
+
+    <p>Jadi bayangannya adalah \(P'(2,-1)\).</p>
+  </div>
+
+  <h3>Komposisi Rotasi dan Transformasi Lain</h3>
+  <p>
+    Pada komposisi transformasi, urutan operasi harus diperhatikan karena
+    transformasi pertama dikerjakan terlebih dahulu. Jika sebuah titik
+    mengalami transformasi \(A\), kemudian transformasi \(B\), maka:
+  </p>
+
+  <div class="math-display">
+    \[
+    P'=B(AP).
+    \]
+  </div>
+</section>
+
+<section id="dilatasi" data-title="Dilatasi">
+  <h2>4. Dilatasi</h2>
+
+  <h3>Pengertian</h3>
+  <p>
+    Dilatasi adalah transformasi yang mengubah ukuran suatu objek terhadap
+    sebuah pusat dengan faktor skala tertentu. Berbeda dari translasi,
+    refleksi, dan rotasi, dilatasi pada umumnya mengubah ukuran objek.
+  </p>
+
+  <h3>Dilatasi Berpusat di Titik Asal</h3>
+  <p>
+    Jika pusat dilatasi adalah \(O(0,0)\) dan faktor skala \(k\), maka:
+  </p>
+
+  <div class="math-display">
+    \[
+    (x,y)\mapsto(kx,ky)
+    \]
+  </div>
+
+  <p>Dalam bentuk matriks:</p>
+
+  <div class="math-display">
+    \[
+    \begin{bmatrix}
+      x'\\y'
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+      k&0\\
+      0&k
+    \end{bmatrix}
+    \begin{bmatrix}
+      x\\y
+    \end{bmatrix}.
+    \]
+  </div>
+
+  <h3>Makna Faktor Dilatasi</h3>
+  <ul>
+    <li>\(k>1\): objek diperbesar.</li>
+    <li>\(0<k<1\): objek diperkecil.</li>
+    <li>\(k=1\): objek tetap.</li>
+    <li>\(k<0\): bayangan berada pada arah berlawanan dari pusat, sekaligus mengalami perubahan skala sebesar \(|k|\).</li>
+  </ul>
+
+  <h3>Dilatasi dengan Pusat \((h,k)\)</h3>
+  <p>
+    Jika pusat dilatasi adalah \(C(h,k)\), maka:
+  </p>
+
+  <div class="math-display">
+    \[
+    P'=C+s(P-C)
+    \]
+  </div>
+
+  <p>atau secara koordinat:</p>
+
+  <div class="math-display">
+    \[
+    (x',y')=
+    \left(
+    h+s(x-h),\;
+    k+s(y-k)
+    \right).
+    \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>
+      Tentukan bayangan titik \(P(2,3)\) oleh dilatasi berpusat di
+      \(C(4,1)\) dengan faktor \(2\).
+    </p>
+
+    <div class="math-display">
+      \[
+      \begin{aligned}
+      P'
+      &=
+      (4,1)+2\big((2,3)-(4,1)\big)\\
+      &=(4,1)+2(-2,2)\\
+      &=(4,1)+(-4,4)\\
+      &=(0,5).
+      \end{aligned}
+      \]
+    </div>
+
+    <p>Jadi bayangan titik \(P\) adalah \(P'(0,5)\).</p>
+  </div>
+
+  <h3>Pengaruh Dilatasi terhadap Ukuran</h3>
+  <p>
+    Jika panjang suatu objek adalah \(l\), maka panjang bayangannya menjadi:
+  </p>
+
+  <div class="math-display">
+    \[
+    l'=|k|l.
+    \]
+  </div>
+
+  <p>
+    Untuk luas bangun datar:
+  </p>
+
+  <div class="math-display">
+    \[
+    L'=k^2L.
+    \]
+  </div>
+
+  <p>
+    Sedangkan untuk volume bangun ruang:
+  </p>
+
+  <div class="math-display">
+    \[
+    V'=|k|^3V.
+    \]
+  </div>
+</section>
+
+<section id="transformasi-matriks" data-title="Transformasi dengan Matriks">
+  <h2>5. Transformasi dengan Matriks</h2>
+
+  <p>
+    Transformasi linear pada bidang dapat dinyatakan dengan matriks \(2\times2\).
+    Jika:
+  </p>
+
+  <div class="math-display">
+    \[
+    A=
+    \begin{bmatrix}
+      a&b\\
+      c&d
+    \end{bmatrix},
+    \qquad
+    P=
+    \begin{bmatrix}
+      x\\y
+    \end{bmatrix},
+    \]
+  </div>
+
+  <p>maka bayangannya:</p>
+
+  <div class="math-display">
+    \[
+    P'=AP.
+    \]
+  </div>
+
+  <h3>Contoh</h3>
+  <p>
+    Titik \(P(4,-1)\) ditransformasikan oleh matriks
+    \[
+    A=
+    \begin{bmatrix}
+      1&2\\
+      0&1
+    \end{bmatrix}.
+    \]
+  </p>
+
+  <div class="math-display">
+    \[
+    \begin{aligned}
+    P'
+    &=
+    \begin{bmatrix}
+      1&2\\
+      0&1
+    \end{bmatrix}
+    \begin{bmatrix}
+      4\\-1
+    \end{bmatrix}\\
+    &=
+    \begin{bmatrix}
+      4-2\\-1
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+      2\\-1
+    \end{bmatrix}.
+    \end{aligned}
+    \]
+  </div>
+
+  <p>Jadi hasil transformasi pertama adalah \(P'(2,-1)\).</p>
+
+  <h3>Komposisi Matriks</h3>
+  <p>
+    Jika transformasi pertama menggunakan matriks \(A\) dan transformasi
+    kedua menggunakan matriks \(B\), maka:
+  </p>
+
+  <div class="math-display">
+    \[
+    P''=B(AP)=(BA)P.
+    \]
+  </div>
+
+  <p>
+    Perhatikan bahwa urutan perkalian matriks harus mengikuti urutan
+    transformasinya.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh Komposisi</h4>
+    <p>
+      Titik \(P(4,-1)\) ditransformasikan oleh
+      \[
+      A=
+      \begin{bmatrix}
+        1&2\\
+        0&1
+      \end{bmatrix}
+      \]
+      kemudian diputar \(90^\circ\) searah jarum jam terhadap titik asal.
+    </p>
+
+    <p>Matriks rotasi \(90^\circ\) searah jarum jam adalah:</p>
+
+    <div class="math-display">
+      \[
+      R=
+      \begin{bmatrix}
+        0&1\\
+        -1&0
+      \end{bmatrix}.
+      \]
+    </div>
+
+    <p>Hasil pertama:</p>
+
+    <div class="math-display">
+      \[
+      P_1=
+      \begin{bmatrix}
+        2\\-1
+      \end{bmatrix}.
+      \]
+    </div>
+
+    <p>Kemudian:</p>
+
+    <div class="math-display">
+      \[
+      \begin{aligned}
+      P_2
+      &=
+      R P_1\\
+      &=
+      \begin{bmatrix}
+        0&1\\
+        -1&0
+      \end{bmatrix}
+      \begin{bmatrix}
+        2\\-1
+      \end{bmatrix}\\
+      &=
+      \begin{bmatrix}
+        -1\\-2
+      \end{bmatrix}.
+      \end{aligned}
+      \]
+    </div>
+
+    <p>
+      Jadi bayangan akhir adalah \(P_2(-1,-2)\).
+    </p>
+
+    <p>
+      Jika diminta persamaan garis bergradien \(2\) yang melalui titik tersebut,
+      gunakan bentuk titik-gradien:
+    </p>
+
+    <div class="math-display">
+      \[
+      y-y_1=m(x-x_1).
+      \]
+    </div>
+
+    <p>Dengan \(m=2\) dan \((-1,-2)\):</p>
+
+    <div class="math-display">
+      \[
+      y+2=2(x+1)
+      \quad\Longrightarrow\quad
+      y=2x.
+      \]
+    </div>
+  </div>
+</section>
+
+<section id="sifat-transformasi" data-title="Sifat-Sifat Transformasi">
+  <h2>6. Sifat-Sifat Transformasi</h2>
+
+  <p>
+    Beberapa sifat penting transformasi geometri dapat dirangkum sebagai
+    berikut:
+  </p>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table reflection-table--wide">
+      <thead>
+        <tr>
+          <th scope="col">Transformasi</th>
+          <th scope="col">Bentuk</th>
+          <th scope="col">Ukuran</th>
+          <th scope="col">Orientasi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Translasi</td>
+          <td>Tetap</td>
+          <td>Tetap</td>
+          <td>Tetap</td>
+        </tr>
+        <tr>
+          <td>Refleksi</td>
+          <td>Tetap</td>
+          <td>Tetap</td>
+          <td>Terbalik</td>
+        </tr>
+        <tr>
+          <td>Rotasi</td>
+          <td>Tetap</td>
+          <td>Tetap</td>
+          <td>Tetap</td>
+        </tr>
+        <tr>
+          <td>Dilatasi</td>
+          <td>Tetap sebangun</td>
+          <td>Berubah jika \(|k|\neq1\)</td>
+          <td>Bergantung pada \(k\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    Dengan demikian, translasi, refleksi, dan rotasi mempertahankan panjang
+    dan luas. Dilatasi mengubah ukuran dengan faktor skala.
+  </p>
+
+  <h3>Invers Transformasi</h3>
+  <p>
+    Setiap transformasi memiliki cara untuk mengembalikan objek ke posisi
+    semula. Beberapa contohnya:
+  </p>
+
+  <ul>
+    <li>invers translasi \(T(a,b)\) adalah \(T(-a,-b)\);</li>
+    <li>invers refleksi terhadap garis yang sama adalah refleksi itu sendiri;</li>
+    <li>invers rotasi sebesar \(\theta\) adalah rotasi sebesar \(-\theta\);</li>
+    <li>
+      invers dilatasi dengan faktor \(k\neq0\) adalah dilatasi dengan faktor
+      \(\frac1k\) pada pusat yang sama.
+    </li>
+  </ul>
+</section>
+
+<section id="strategi" data-title="Strategi Menyelesaikan Soal">
+  <h2>7. Strategi Menyelesaikan Soal Transformasi</h2>
+
   <ol>
     <li>
-      Titik \((-10,-3)\) dicerminkan terhadap sumbu-\(x\), kemudian terhadap
-      sumbu-\(y\). Tentukan koordinat bayangan akhirnya.
-      <ol type="A">
-        <li>\((-3,-10)\)</li>
-        <li>\((-3,10)\)</li>
-        <li>\((3,-10)\)</li>
-        <li>\((3,10)\)</li>
-        <li>\((10,3)\)</li>
-      </ol>
+      <strong>Identifikasi jenis transformasi.</strong>
+      Tentukan apakah soal memuat translasi, refleksi, rotasi, dilatasi,
+      matriks, atau komposisi.
     </li>
     <li>
-      Titik \((6,7)\) direfleksikan terhadap titik \(P(3,1)\). Tentukan
-      koordinat bayangannya.
-      <ol type="A">
-        <li>\((0,5)\)</li>
-        <li>\((5,0)\)</li>
-        <li>\((-5,0)\)</li>
-        <li>\((5,5)\)</li>
-        <li>\((0,-5)\)</li>
-      </ol>
+      <strong>Tuliskan informasi transformasi.</strong>
+      Misalnya vektor translasi, garis cermin, pusat rotasi, sudut rotasi,
+      pusat dilatasi, atau faktor skala.
     </li>
     <li>
-      Benar atau salah: komposisi dua translasi selalu menghasilkan sebuah
-      translasi.
+      <strong>Gunakan aturan koordinat atau matriks yang sesuai.</strong>
     </li>
     <li>
+      <strong>Untuk transformasi dengan pusat bukan titik asal,</strong>
+      perhatikan perpindahan relatif terhadap pusat.
+    </li>
+    <li>
+      <strong>Untuk komposisi, kerjakan sesuai urutan.</strong>
+      Transformasi paling kanan/pertama diterapkan terlebih dahulu pada titik.
+    </li>
+    <li>
+      <strong>Jika yang dicari adalah persamaan garis,</strong>
+      tentukan titik atau beberapa titik bayangan lalu bentuk kembali
+      persamaan garis, atau substitusikan hubungan koordinat.
+    </li>
+    <li>
+      <strong>Periksa hasil.</strong>
+      Pastikan tanda koordinat, arah rotasi, pusat transformasi, dan faktor
+      skala sudah benar.
+    </li>
+  </ol>
+</section>
+
+<section id="latihan" data-title="Latihan Soal">
+  <h2>8. Latihan Soal Transformasi Geometri</h2>
+
+  <p>
+    Latihan berikut disusun berdasarkan soal transformasi yang Anda upload.
+    Gunakan konsep pada bagian sebelumnya dan tuliskan proses penyelesaian
+    secara runtut.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Soal 1</h4>
+    <p>
+      Bayangan dari titik \((2,3)\) oleh dilatasi dengan pusat \((4,1)\) dan
+      faktor dilatasi \(2\) adalah \(\dots\)
+    </p>
+    <ol type="A">
+      <li>\((0,5)\)</li>
+      <li>\((5,0)\)</li>
+      <li>\((0,5)\)</li>
+      <li>\((5,5)\)</li>
+      <li>\((0,-5)\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 2</h4>
+    <p>
+      Bayangan dari titik \((2,3)\) oleh rotasi dengan pusat \((4,1)\) dan
+      sudut putar \(90^\circ\) berlawanan arah jarum jam adalah \(\dots\)
+    </p>
+    <ol type="A">
+      <li>\((2,1)\)</li>
+      <li>\((-2,1)\)</li>
+      <li>\((2,-1)\)</li>
+      <li>\((1,2)\)</li>
+      <li>\((-1,2)\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 3</h4>
+    <p>
+      Titik \((4,-1)\) ditransformasikan oleh matriks
+      \[
+      \begin{bmatrix}
+        1&2\\
+        0&1
+      \end{bmatrix},
+      \]
+      kemudian dilanjutkan dengan rotasi berpusat di \(O(0,0)\) sebesar
+      \(90^\circ\) searah jarum jam.
+    </p>
+    <ol type="a">
+      <li>Tentukan koordinat bayangan akhir titik tersebut.</li>
+      <li>
+        Tentukan persamaan garis yang memiliki gradien \(2\) dan melalui titik
+        bayangan akhir tersebut.
+      </li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 4</h4>
+    <p>
+      Tentukan bayangan titik \((-10,-3)\) yang dicerminkan terhadap sumbu
+      \(x\), kemudian dilanjutkan dengan pencerminan terhadap sumbu \(y\).
+    </p>
+    <ol type="A">
+      <li>\((-3,-10)\)</li>
+      <li>\((-3,10)\)</li>
+      <li>\((3,-10)\)</li>
+      <li>\((3,10)\)</li>
+      <li>\((10,3)\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 5</h4>
+    <p>
+      Diketahui titik \(A(3,-2)\) dipetakan oleh translasi
+      \(T=\begin{bmatrix}1\\-2\end{bmatrix}\), kemudian dilanjutkan oleh
+      rotasi dengan pusat \((1,1)\) sejauh \(90^\circ\).
+      Tentukan koordinat titik hasil peta \(A\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 6</h4>
+    <p>
+      Titik \((6,7)\) direfleksikan terhadap titik \(P(3,1)\).
+      Tentukan bayangannya.
+    </p>
+    <ol type="A">
+      <li>\((0,5)\)</li>
+      <li>\((5,0)\)</li>
+      <li>\((0,5)\)</li>
+      <li>\((5,5)\)</li>
+      <li>\((0,-5)\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 7</h4>
+    <p>
+      Komposisi dari dua buah translasi merupakan sebuah translasi.
+    </p>
+    <ol type="A">
+      <li>Benar</li>
+      <li>Salah</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 8</h4>
+    <p>
       Titik \(A(2,3)\) ditransformasikan oleh matriks
-      \(\begin{bmatrix}4&1\\1&4\end{bmatrix}\), kemudian dicerminkan terhadap
-      garis \(y=x\). Tentukan koordinat bayangan akhirnya.
-      <ol type="A">
-        <li>\((16,12)\)</li>
-        <li>\((14,11)\)</li>
-        <li>\((11,14)\)</li>
-        <li>\((9,11)\)</li>
-        <li>\((11,9)\)</li>
-      </ol>
-    </li>
-    <li>
-      Benar atau salah: transformasi dengan matriks
-      \(\begin{bmatrix}k&0\\0&k\end{bmatrix}\) pada titik \((x,y)\) sama dengan
-      mengalikan setiap koordinatnya dengan \(k\).
-    </li>
-    <li>
-      Benar atau salah: transformasi rotasi terhadap titik asal $(0,0)$ sebesar
-      $90^{\circ}$ berhubungan dengan matriks $\begin{bmatrix} 0&1\\-1&0
-      \end{bmatrix}$.
-    </li>
-    <li>
-      Benar atau salah: semua transformasi geometri mempertahankan ukuran
-      bangun, kecuali translasi.
-    </li>
-  </ol>
+      \[
+      \begin{bmatrix}
+        4&1\\
+        1&4
+      \end{bmatrix}
+      \]
+      kemudian dilanjutkan dengan pencerminan terhadap garis \(y=x\).
+      Tentukan bayangannya.
+    </p>
+    <ol type="A">
+      <li>\((16,12)\)</li>
+      <li>\((14,11)\)</li>
+      <li>\((11,14)\)</li>
+      <li>\((9,11)\)</li>
+      <li>\((11,9)\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 9</h4>
+    <p>
+      Suatu titik \((x,y)\) ditransformasikan terhadap matriks
+      \[
+      \begin{bmatrix}
+        k&0\\
+        0&k
+      \end{bmatrix}.
+      \]
+      Apakah hasilnya sama dengan perkalian skalar \(k\) terhadap
+      \(\begin{bmatrix}x\\y\end{bmatrix}\)?
+    </p>
+    <ol type="A">
+      <li>Benar</li>
+      <li>Salah</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 10</h4>
+    <p>
+      Transformasi rotasi terhadap titik asal \((0,0)\) sebesar \(90^\circ\)
+      searah jarum jam berhubungan dengan matriks
+      \[
+      \begin{bmatrix}
+        0&1\\
+        -1&0
+      \end{bmatrix}.
+      \]
+      Apakah pernyataan tersebut benar?
+    </p>
+    <ol type="A">
+      <li>Benar</li>
+      <li>Salah</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 11</h4>
+    <p>
+      Semua bayangan hasil transformasi geometri bangun datar memiliki ukuran
+      sama dengan bangun datar sebelumnya, kecuali translasi.
+      Apakah pernyataan tersebut benar?
+    </p>
+    <ol type="A">
+      <li>Benar</li>
+      <li>Salah</li>
+    </ol>
+  </div>
+</section>
+
+<section id="rangkuman" data-title="Rangkuman">
+  <h2>9. Rangkuman</h2>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Transformasi</th>
+          <th scope="col">Aturan utama</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(T(a,b)\)</td>
+          <td>\((x,y)\mapsto(x+a,y+b)\)</td>
+        </tr>
+        <tr>
+          <td>Refleksi sumbu \(x\)</td>
+          <td>\((x,y)\mapsto(x,-y)\)</td>
+        </tr>
+        <tr>
+          <td>Refleksi sumbu \(y\)</td>
+          <td>\((x,y)\mapsto(-x,y)\)</td>
+        </tr>
+        <tr>
+          <td>Refleksi \(y=x\)</td>
+          <td>\((x,y)\mapsto(y,x)\)</td>
+        </tr>
+        <tr>
+          <td>Refleksi \(y=-x\)</td>
+          <td>\((x,y)\mapsto(-y,-x)\)</td>
+        </tr>
+        <tr>
+          <td>\(R_{90^\circ}\)</td>
+          <td>\((x,y)\mapsto(-y,x)\)</td>
+        </tr>
+        <tr>
+          <td>\(R_{-90^\circ}\)</td>
+          <td>\((x,y)\mapsto(y,-x)\)</td>
+        </tr>
+        <tr>
+          <td>\(R_{180^\circ}\)</td>
+          <td>\((x,y)\mapsto(-x,-y)\)</td>
+        </tr>
+        <tr>
+          <td>\(D_{O,k}\)</td>
+          <td>\((x,y)\mapsto(kx,ky)\)</td>
+        </tr>
+        <tr>
+          <td>\(D_{(h,k),s}\)</td>
+          <td>\((x,y)\mapsto(h+s(x-h),\,k+s(y-k))\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    Kunci utama dalam mempelajari transformasi adalah memahami posisi pusat,
+    arah transformasi, faktor atau sudut yang digunakan, serta urutan ketika
+    beberapa transformasi dilakukan secara berturut-turut.
+  </p>
 </section>

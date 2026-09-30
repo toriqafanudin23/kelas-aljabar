@@ -1496,35 +1496,54 @@ summary:focus-visible {
   margin-bottom: 6px;
 }
 .lesson-content .material-table-wrap {
-  margin-bottom: 16px;
+  margin: 14px 0 18px;
   overflow-x: auto;
+  border: 1px solid var(--line);
 }
 .lesson-content .reflection-table {
   width: 100%;
-  min-width: 560px;
-  border-collapse: collapse;
+  min-width: 460px;
+  border-collapse: separate;
+  border-spacing: 0;
   color: #485666;
   font-size: 14px;
   line-height: 1.7;
 }
+.lesson-content .reflection-table--wide {
+  min-width: 680px;
+}
 .lesson-content .reflection-table th,
 .lesson-content .reflection-table td {
-  padding: 10px 12px;
-  border: 1px solid var(--line);
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--line);
   text-align: left;
   vertical-align: middle;
 }
 .lesson-content .reflection-table thead {
-  background: #f7f8fa;
-  color: var(--navy);
+  background: var(--navy);
+  color: #fff;
+}
+.lesson-content .reflection-table th {
+  font-size: 13px;
+  font-weight: 600;
+}
+.lesson-content .reflection-table td:first-child {
+  width: 52%;
+  font-weight: 600;
+}
+.lesson-content .reflection-table--wide td:first-child {
+  width: 25%;
+}
+.lesson-content .reflection-table tbody tr:nth-child(even) {
+  background: #f5f7f9;
+}
+.lesson-content .reflection-table tbody tr:last-child td {
+  border-bottom: 0;
 }
 .math-display {
   margin: 16px 0;
-  padding: 16px;
+  padding: 8px 0;
   overflow-x: auto;
-  border: 1px solid #e0e5ea;
-  border-left: 3px solid var(--gold);
-  background: #f7f8fa;
   color: var(--navy);
   text-align: center;
 }
