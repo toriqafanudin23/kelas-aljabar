@@ -603,6 +603,12 @@ function AboutPage() {
 function LessonPage({ slug, navigate }: { slug: string; navigate: Navigate }) {
   const [sections, setSections] = useState<LessonNavItem[]>([]);
   const material: Material | undefined = getMaterialBySlug(slug);
+  const downloadUrl =
+    slug === "eksponensial"
+      ? "https://cmnxalvcfxxwuuewmbgf.supabase.co/storage/v1/object/public/img-kelas-aljabar/modul/modul_eksponen.pdf?download=modul_eksponen.pdf"
+      : slug === "transformasi-geometri"
+        ? "https://cmnxalvcfxxwuuewmbgf.supabase.co/storage/v1/object/public/img-kelas-aljabar/modul/modul_transformasi.pdf?download=modul_transformasi.pdf"
+        : undefined;
 
   const goToCatalog = (event: MouseEvent<HTMLAnchorElement>) => {
     navigate(event, "catalog");
@@ -642,10 +648,10 @@ function LessonPage({ slug, navigate }: { slug: string; navigate: Navigate }) {
             <p>
               Kategori: {material.category} <span>·</span> Catatan akademis
             </p>
-            {slug === "transformasi-geometri" && (
+            {downloadUrl && (
               <a
                 className="button button-primary lesson-download"
-                href="https://cmnxalvcfxxwuuewmbgf.supabase.co/storage/v1/object/public/img-kelas-aljabar/modul/modul_transformasi.pdf?download=modul_transformasi.pdf"
+                href={downloadUrl}
               >
                 Unduh Modul PDF <span aria-hidden="true">↓</span>
               </a>
