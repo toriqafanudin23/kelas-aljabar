@@ -609,6 +609,14 @@ function LessonPage({ slug, navigate }: { slug: string; navigate: Navigate }) {
       : slug === "transformasi-geometri"
         ? "https://cmnxalvcfxxwuuewmbgf.supabase.co/storage/v1/object/public/img-kelas-aljabar/modul/modul_transformasi.pdf?download=modul_transformasi.pdf"
         : undefined;
+  const questionsDownloadUrl =
+    slug === "eksponensial"
+      ? "https://cmnxalvcfxxwuuewmbgf.supabase.co/storage/v1/object/public/img-kelas-aljabar/modul/soal_eksponen_dan_logaritma.pdf?download=soal_eksponen_dan_logaritma.pdf"
+      : undefined;
+  const transformationQuestionsDownloadUrl =
+    slug === "transformasi-geometri"
+      ? "https://cmnxalvcfxxwuuewmbgf.supabase.co/storage/v1/object/public/img-kelas-aljabar/modul/soal_transformasi.pdf?download=soal_transformasi.pdf"
+      : undefined;
 
   const goToCatalog = (event: MouseEvent<HTMLAnchorElement>) => {
     navigate(event, "catalog");
@@ -648,7 +656,10 @@ function LessonPage({ slug, navigate }: { slug: string; navigate: Navigate }) {
             <p>
               Kategori: {material.category} <span>·</span> Catatan akademis
             </p>
-            {(downloadUrl || slug === "eksponensial") && (
+            {(downloadUrl ||
+              questionsDownloadUrl ||
+              transformationQuestionsDownloadUrl ||
+              slug === "eksponensial") && (
               <div className="lesson-actions">
                 {downloadUrl && (
                   <a
@@ -656,6 +667,23 @@ function LessonPage({ slug, navigate }: { slug: string; navigate: Navigate }) {
                     href={downloadUrl}
                   >
                     Unduh Modul PDF <span aria-hidden="true">↓</span>
+                  </a>
+                )}
+                {questionsDownloadUrl && (
+                  <a
+                    className="button lesson-practice"
+                    href={questionsDownloadUrl}
+                  >
+                    Unduh Soal Eksponen PDF <span aria-hidden="true">↓</span>
+                  </a>
+                )}
+                {transformationQuestionsDownloadUrl && (
+                  <a
+                    className="button lesson-practice"
+                    href={transformationQuestionsDownloadUrl}
+                  >
+                    Unduh Soal Transformasi PDF
+                    <span aria-hidden="true">↓</span>
                   </a>
                 )}
                 {(slug === "eksponensial" ||
