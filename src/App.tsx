@@ -713,18 +713,23 @@ function LessonPage({ slug, navigate }: { slug: string; navigate: Navigate }) {
         </article>
 
         {sections.length > 0 && (
-          <aside className="lesson-toc">
-            <span>Dalam modul ini</span>
-            {sections.map((sec, index) => (
-              <a href={`#${sec.id}`} key={sec.id}>
-                <b>0{index + 1}</b>
-                {sec.title}
+          <details className="lesson-toc">
+            <summary>
+              <span>Dalam modul ini</span>
+              <span className="toc-count">{sections.length} bagian</span>
+            </summary>
+            <nav aria-label="Daftar isi modul">
+              {sections.map((sec, index) => (
+                <a href={`#${sec.id}`} key={sec.id}>
+                  <b>{String(index + 1).padStart(2, "0")}</b>
+                  {sec.title}
+                </a>
+              ))}
+              <a className="toc-back" href="/katalog" onClick={goToCatalog}>
+                Semua materi →
               </a>
-            ))}
-            <a className="toc-back" href="/katalog" onClick={goToCatalog}>
-              Semua materi →
-            </a>
-          </aside>
+            </nav>
+          </details>
         )}
       </div>
     </main>

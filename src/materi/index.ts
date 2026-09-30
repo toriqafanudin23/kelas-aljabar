@@ -1,5 +1,6 @@
 import eksponensialHtml from "./eksponensial.html?raw";
 import transformasiGeometriHtml from "./transformasi-geometri.html?raw";
+import barisanDeretHtml from "./barisan-deret.html?raw";
 import soalEksponenLogaritmaHtml from "./soal-eksponen-logaritma.html?raw";
 
 export interface Material {
@@ -41,9 +42,21 @@ export const materials: Material[] = [
     htmlContent: transformasiGeometriHtml,
   },
   {
+    id: "sequences-series",
+    slug: "barisan-deret",
+    number: "03",
+    category: "Aljabar Matematika",
+    title: "Barisan dan Deret",
+    grade: "Kelas XI",
+    formula: "U_n=a+(n-1)b \\qquad U_n=ar^{n-1}",
+    description:
+      "Pelajari barisan dan deret aritmetika serta geometri, rumus suku ke-n, jumlah suku, sisipan, dan deret tak hingga.",
+    htmlContent: barisanDeretHtml,
+  },
+  {
     id: "soal-exponents",
     slug: "soal-eksponen-logaritma",
-    number: "03",
+    number: "04",
     category: "Latihan & Evaluasi",
     title: "Soal Tes Sumatif Eksponen & Logaritma",
     grade: "Kelas X",

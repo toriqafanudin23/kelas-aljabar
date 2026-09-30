@@ -1084,11 +1084,39 @@ summary:focus-visible {
   border-top: 3px solid var(--gold);
   background: #f7f8fa;
 }
-.lesson-toc > span {
-  padding-bottom: 11px;
+.lesson-toc > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
   color: var(--navy);
   font-size: 12px;
   font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+}
+.lesson-toc > summary::-webkit-details-marker {
+  display: none;
+}
+.lesson-toc > summary::after {
+  content: "+";
+  color: #1f6380;
+  font-size: 16px;
+}
+.lesson-toc[open] > summary::after {
+  content: "-";
+}
+.lesson-toc .toc-count {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 400;
+}
+.lesson-toc nav {
+  max-height: min(55vh, 520px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  margin-top: 11px;
 }
 .lesson-toc a {
   display: flex;
@@ -1428,6 +1456,9 @@ summary:focus-visible {
   .lesson-toc {
     position: static;
     grid-row: 1;
+  }
+  .lesson-toc nav {
+    max-height: 40vh;
   }
   .lesson-heading {
     padding-top: 25px;
