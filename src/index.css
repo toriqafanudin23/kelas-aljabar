@@ -943,6 +943,9 @@ summary:focus-visible {
 .lesson-heading > p span {
   margin-inline: 6px;
 }
+.lesson-heading .lesson-download {
+  margin-top: 14px;
+}
 .lesson-lead {
   margin: 22px 0 28px;
   color: #4f5f70;

@@ -642,6 +642,14 @@ function LessonPage({ slug, navigate }: { slug: string; navigate: Navigate }) {
             <p>
               Kategori: {material.category} <span>·</span> Catatan akademis
             </p>
+            {slug === "transformasi-geometri" && (
+              <a
+                className="button button-primary lesson-download"
+                href="https://cmnxalvcfxxwuuewmbgf.supabase.co/storage/v1/object/public/img-kelas-aljabar/modul/modul_transformasi.pdf?download=modul_transformasi.pdf"
+              >
+                Unduh Modul PDF <span aria-hidden="true">↓</span>
+              </a>
+            )}
           </div>
           {material.description && (
             <p className="lesson-lead">{material.description}</p>
