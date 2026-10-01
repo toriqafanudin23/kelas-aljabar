@@ -152,13 +152,31 @@ function SiteHeader({ page, navigate }: { page: Page; navigate: Navigate }) {
           >
             Beranda
           </a>
-          <a
-            className={page === "catalog" ? "active" : ""}
-            href="/katalog"
-            onClick={(event) => handleNavigation(event, "catalog")}
-          >
-            Katalog Materi
-          </a>
+
+          <div className="catalog-menu">
+            <a
+              className={page === "catalog" ? "active" : ""}
+              href="/katalog"
+              onClick={(event) => handleNavigation(event, "catalog")}
+            >
+              Katalog Materi
+            </a>
+            <div className="catalog-dropdown" aria-label="Daftar materi">
+              {materials.map((material) => (
+                <a
+                  key={material.slug}
+                  href={getPathFromPage(material.slug)}
+                  onClick={(event) => {
+                    setMenuOpen(false);
+                    navigate(event, material.slug as Page);
+                  }}
+                >
+                  {material.title}
+                </a>
+              ))}
+            </div>
+          </div>
+
           <a
             className={page === "about" ? "active" : ""}
             href="/tentang"
@@ -196,6 +214,18 @@ function SiteHeader({ page, navigate }: { page: Page; navigate: Navigate }) {
             >
               Katalog Materi
             </a>
+            {materials.map((material) => (
+              <a
+                key={material.slug}
+                className={page === material.slug ? "active" : ""}
+                href={getPathFromPage(material.slug)}
+                onClick={(event) =>
+                  handleNavigation(event, material.slug as Page)
+                }
+              >
+                {material.title}
+              </a>
+            ))}
             <a
               className={page === "about" ? "active" : ""}
               href="/tentang"
@@ -605,6 +635,21 @@ function AboutPage() {
 
 function LessonPage({ slug, navigate }: { slug: string; navigate: Navigate }) {
   const [sections, setSections] = useState<LessonNavItem[]>([]);
+  const [isMobile, setIsMobile] = useState(false);
+  const [mobileTocOpen, setMobileTocOpen] = useState(false);
+
+  useEffect(() => {
+    const updateViewport = () => {
+      const nextIsMobile = window.innerWidth <= 680;
+      setIsMobile(nextIsMobile);
+      if (!nextIsMobile) setMobileTocOpen(false);
+    };
+
+    updateViewport();
+    window.addEventListener("resize", updateViewport);
+    return () => window.removeEventListener("resize", updateViewport);
+  }, []);
+
   const material: Material | undefined = getMaterialBySlug(slug);
   const downloadUrl =
     slug === "eksponensial"
@@ -716,23 +761,41 @@ function LessonPage({ slug, navigate }: { slug: string; navigate: Navigate }) {
         </article>
 
         {sections.length > 0 && (
-          <details className="lesson-toc">
-            <summary>
-              <span>Dalam modul ini</span>
-              <span className="toc-count">{sections.length} bagian</span>
-            </summary>
-            <nav aria-label="Daftar isi modul">
-              {sections.map((sec, index) => (
-                <a href={`#${sec.id}`} key={sec.id}>
-                  <b>{String(index + 1).padStart(2, "0")}</b>
-                  {sec.title}
+          <>
+            {isMobile && (
+              <button
+                type="button"
+                className="lesson-toc-mobile-button"
+                onClick={() => setMobileTocOpen((open) => !open)}
+                aria-label={
+                  mobileTocOpen ? "Tutup daftar isi" : "Buka daftar isi"
+                }
+              >
+                ☰ Daftar isi
+              </button>
+            )}
+
+            <details
+              className="lesson-toc"
+              open={isMobile ? mobileTocOpen : true}
+            >
+              <summary>
+                <span>Dalam modul ini</span>
+                <span className="toc-count">{sections.length} bagian</span>
+              </summary>
+              <nav aria-label="Daftar isi modul">
+                {sections.map((sec, index) => (
+                  <a href={`#${sec.id}`} key={sec.id}>
+                    <b>{String(index + 1).padStart(2, "0")}</b>
+                    {sec.title}
+                  </a>
+                ))}
+                <a className="toc-back" href="/katalog" onClick={goToCatalog}>
+                  Semua materi →
                 </a>
-              ))}
-              <a className="toc-back" href="/katalog" onClick={goToCatalog}>
-                Semua materi →
-              </a>
-            </nav>
-          </details>
+              </nav>
+            </details>
+          </>
         )}
       </div>
     </main>

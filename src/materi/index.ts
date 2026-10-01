@@ -89,8 +89,7 @@ export const materials: Material[] = [
     category: "Peluang",
     title: "Peluang",
     grade: "Kelas XII",
-    formula:
-      "P(A)=\\frac{n(A)}{n(S)} \\qquad P(A\\cup B)=P(A)+P(B)-P(A\\cap B)",
+    formula: "P(A)=\\frac{n(A)}{n(S)}",
     description:
       "Mempelajari ruang sampel, kejadian, peluang dasar, peluang bersyarat, teorema Bayes, dan penerapan dalam soal nyata.",
     htmlContent: peluangHtml,
