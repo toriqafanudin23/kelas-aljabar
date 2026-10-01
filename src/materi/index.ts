@@ -8,6 +8,7 @@ import transformasiGeometriHtml from "./transformasi-geometri.html?raw";
 import kombinatorikaHtml from "./kombinatorika.html?raw";
 import peluangHtml from "./peluang.html?raw";
 import statistikaHtml from "./statistika.html?raw";
+import komposisiFungsiDanInversHtml from "./komposisi-fungsi-dan-invers.html?raw";
 
 export interface Material {
   id: string;
@@ -30,12 +31,14 @@ export interface Material {
  * 1. Eksponensial dan Logaritma (Kelas X) -> Dasar pemangkatan, logaritma, & fungsi dasar
  * 2. Sistem Persamaan & Pertidaksamaan Linear (Kelas X) -> Dasar aljabar linear & daerah penyelesaian
  * 3. Fungsi Kuadrat (Kelas X) -> Karakteristik grafik parabola, diskriminan, titik ekstrim
- * 4. Barisan dan Deret (Kelas X/XI) -> Pola bilangan, notasi sigma, dasar kalkulus diskrit
- * 5. Matriks (Kelas XI) -> Prasyarat langsung dari SPL, aljabar matriks
- * 6. Vektor (Kelas XI) -> Besaran berarah, aljabar vektor analitik R^2 dan R^3
- * 7. Transformasi Geometri (Kelas XI) -> Memerlukan prasyarat matriks & koordinat
- * 8. Kombinatorika (Kelas XII) -> Kaidah pencacahan, permutasi, kombinasi (prasyarat peluang)
- * 9. Teori Peluang (Kelas XII) -> Memerlukan prasyarat mutlak kombinatorika
+ * 4. Statistika (Kelas X) -> Penyajian, pemusatan, penyebaran, & interpretasi data
+ * 5. Komposisi Fungsi dan Invers (Kelas XI) -> Operasi fungsi, domain, & fungsi balik
+ * 6. Barisan dan Deret (Kelas X/XI) -> Pola bilangan, notasi sigma, dasar kalkulus diskrit
+ * 7. Matriks (Kelas XI) -> Prasyarat langsung dari SPL, aljabar matriks
+ * 8. Vektor (Kelas XI) -> Besaran berarah, aljabar vektor analitik R^2 dan R^3
+ * 9. Transformasi Geometri (Kelas XI) -> Memerlukan prasyarat matriks & koordinat
+ * 10. Kombinatorika (Kelas XII) -> Kaidah pencacahan, permutasi, kombinasi (prasyarat peluang)
+ * 11. Teori Peluang (Kelas XII) -> Memerlukan prasyarat mutlak kombinatorika
  */
 export const materials: Material[] = [
   {
@@ -96,9 +99,23 @@ export const materials: Material[] = [
     htmlContent: statistikaHtml,
   },
   {
+    id: "function-composition-inverse",
+    slug: "komposisi-fungsi-dan-invers",
+    number: "05",
+    category: "Aljabar Matematika",
+    title: "Komposisi Fungsi dan Invers",
+    grade: "Kelas XI",
+    phase: "Fase F (Kelas XI)",
+    prerequisite: "Relasi, Fungsi, dan Operasi Aljabar",
+    formula: "(f\\circ g)(x)=f(g(x)) \\qquad f^{-1}(f(x))=x",
+    description:
+      "Pelajari operasi komposisi fungsi, penentuan domain dan range, karakteristik fungsi satu-satu, serta cara menentukan dan menerapkan fungsi invers.",
+    htmlContent: komposisiFungsiDanInversHtml,
+  },
+  {
     id: "sequences-series",
     slug: "barisan-deret",
-    number: "05",
+    number: "06",
     category: "Aljabar Matematika",
     title: "Barisan dan Deret",
     grade: "Kelas X / XI",
@@ -112,7 +129,7 @@ export const materials: Material[] = [
   {
     id: "matrices",
     slug: "matriks",
-    number: "06",
+    number: "07",
     category: "Aljabar Linear",
     title: "Matriks",
     grade: "Kelas XI",
@@ -127,7 +144,7 @@ export const materials: Material[] = [
   {
     id: "vectors",
     slug: "vektor",
-    number: "07",
+    number: "08",
     category: "Geometri Analitik",
     title: "Vektor",
     grade: "Kelas XI",
@@ -142,7 +159,7 @@ export const materials: Material[] = [
   {
     id: "geometry",
     slug: "transformasi-geometri",
-    number: "08",
+    number: "09",
     category: "Geometri Analitik",
     title: "Transformasi Geometri",
     grade: "Kelas XI",
@@ -157,7 +174,7 @@ export const materials: Material[] = [
   {
     id: "combinatorics",
     slug: "kombinatorika",
-    number: "09",
+    number: "10",
     category: "Kaidah Pencacahan",
     title: "Kombinatorika",
     grade: "Kelas XII",
@@ -172,14 +189,13 @@ export const materials: Material[] = [
   {
     id: "probability",
     slug: "peluang",
-    number: "10",
+    number: "11",
     category: "Teori Peluang & Statistika",
     title: "Teori Peluang",
     grade: "Kelas XII",
     phase: "Fase F Tingkat Lanjut (Kelas XII)",
     prerequisite: "Kombinatorika (Kaidah Pencacahan)",
-    formula:
-      "P(A\\cup B)=P(A)+P(B)-P(A\\cap B) \\qquad P(A|B)=\\frac{P(A\\cap B)}{P(B)}",
+    formula: "P(A)=\\frac{n(A)}{n(S)}",
     description:
       "Pelajari ruang sampel, aksioma peluang Kolmogorov, kejadian saling lepas dan saling bebas, peluang bersyarat, hingga penerapan Teorema Bayes.",
     htmlContent: peluangHtml,

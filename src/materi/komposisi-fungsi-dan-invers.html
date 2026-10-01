@@ -1,0 +1,1611 @@
+<section id="dasar-fungsi" data-title="Fungsi: Domain, Kodomain, dan Range">
+  <h2>1. Fungsi: Domain, Kodomain, dan Range</h2>
+
+  <p>
+    Fungsi adalah aturan yang memasangkan setiap anggota himpunan \(A\) dengan
+    <strong>tepat satu</strong> anggota himpunan \(B\). Bayangkan fungsi sebagai
+    sebuah mesin: kita memasukkan bilangan \(x\), mesin memprosesnya, lalu
+    keluarlah hasil \(f(x)\).
+  </p>
+
+  <div class="math-display">\[ f:A\to B,\qquad x\mapsto f(x) \]</div>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Istilah</th>
+          <th scope="col">Arti</th>
+          <th scope="col">Notasi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Domain (daerah asal)</td>
+          <td>Semua nilai \(x\) yang boleh dimasukkan ke mesin</td>
+          <td>\(D_f\)</td>
+        </tr>
+        <tr>
+          <td>Kodomain (daerah kawan)</td>
+          <td>Himpunan tempat hasil boleh berada</td>
+          <td>\(B\)</td>
+        </tr>
+        <tr>
+          <td>Range (daerah hasil)</td>
+          <td>Nilai-nilai yang benar-benar keluar dari mesin</td>
+          <td>\(R_f\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Domain Natural</h3>
+
+  <p>
+    Jika domain tidak disebutkan, kita ambil semua bilangan real yang membuat
+    rumus fungsi tetap bermakna.
+  </p>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Bentuk fungsi</th>
+          <th scope="col">Syarat domain</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(\displaystyle\frac{1}{g(x)}\)</td>
+          <td>\(g(x)\neq0\) (penyebut tidak boleh nol)</td>
+        </tr>
+        <tr>
+          <td>\(\sqrt{g(x)}\)</td>
+          <td>\(g(x)\ge0\) (isi akar tidak negatif)</td>
+        </tr>
+        <tr>
+          <td>\(\log g(x)\)</td>
+          <td>\(g(x)&gt;0\) (numerus positif)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan domain \(f(x)=\displaystyle\frac{\sqrt{x+2}}{x-1}\).</p>
+
+    <p>
+      Isi akar harus tidak negatif: \(x+2\ge0\Rightarrow x\ge-2\). Penyebut
+      tidak boleh nol: \(x\neq1\). Jadi \(D_f=\{x\mid x\ge-2,\ x\neq1\}\).
+    </p>
+  </div>
+
+  <h3>Jenis-Jenis Fungsi</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Jenis</th>
+          <th scope="col">Ciri</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Satu-satu (injektif)</td>
+          <td>
+            Dua input berbeda selalu menghasilkan output berbeda; setiap output
+            hanya "dimiliki" satu input
+          </td>
+        </tr>
+        <tr>
+          <td>Pada (surjektif)</td>
+          <td>
+            Range sama dengan kodomain; tidak ada anggota kodomain yang
+            menganggur
+          </td>
+        </tr>
+        <tr>
+          <td>Korespondensi satu-satu (bijektif)</td>
+          <td>Satu-satu <strong>sekaligus</strong> pada</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    <strong>Uji garis mendatar:</strong> fungsi satu-satu jika setiap garis
+    mendatar memotong grafiknya paling banyak di satu titik. Hanya fungsi
+    <strong>bijektif</strong> yang memiliki invers (dibahas di bagian 4).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Fungsi \(f(x)=x^2\) dengan domain semua bilangan real
+      <strong>bukan</strong>
+      satu-satu, sebab \(f(2)=f(-2)=4\). Namun \(f(x)=x^2\) dengan domain
+      \(x\ge0\) adalah satu-satu, karena setiap hasil hanya berasal dari satu
+      bilangan tak negatif. Dengan membatasi domain, fungsi yang "gagal" bisa
+      dibuat memiliki invers.
+    </p>
+  </div>
+</section>
+
+<section id="komposisi-fungsi" data-title="Komposisi Fungsi">
+  <h2>2. Komposisi Fungsi</h2>
+
+  <h3>Ide Dasar: Dua Mesin Berantai</h3>
+
+  <p>
+    Bayangkan dua mesin disusun berderet. Mesin \(g\) menerima \(x\), hasilnya
+    langsung masuk ke mesin \(f\). Rangkaian dua mesin ini dapat dianggap
+    sebagai satu mesin baru, yang disebut <strong>komposisi</strong> \(f\) dan
+    \(g\).
+  </p>
+
+  <div class="math-display">\[ (f\circ g)(x)=f\big(g(x)\big) \]</div>
+
+  <p>
+    Perhatikan urutannya: yang ditulis di <strong>kanan</strong> (yaitu \(g\))
+    dikerjakan <strong>lebih dulu</strong>.
+  </p>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Notasi</th>
+          <th scope="col">Dibaca</th>
+          <th scope="col">Artinya</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\((f\circ g)(x)\)</td>
+          <td>\(f\) bundaran \(g\)</td>
+          <td>Masukkan \(x\) ke \(g\) dulu, hasilnya ke \(f\)</td>
+        </tr>
+        <tr>
+          <td>\((g\circ f)(x)\)</td>
+          <td>\(g\) bundaran \(f\)</td>
+          <td>Masukkan \(x\) ke \(f\) dulu, hasilnya ke \(g\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+
+    <p>
+      Diketahui \(f(x)=2x+3\) dan \(g(x)=x^2-1\). Tentukan \((f\circ g)(x)\),
+      \((g\circ f)(x)\), \((f\circ g)(2)\), dan \((g\circ f)(1)\).
+    </p>
+
+    <p>Untuk \(f\circ g\), ganti \(x\) pada \(f\) dengan \(g(x)\):</p>
+
+    <div class="math-display">
+      \[ (f\circ g)(x)=f(x^2-1)=2(x^2-1)+3=2x^2+1 \]
+    </div>
+
+    <p>Untuk \(g\circ f\), ganti \(x\) pada \(g\) dengan \(f(x)\):</p>
+
+    <div class="math-display">
+      \[ (g\circ f)(x)=g(2x+3)=(2x+3)^2-1=4x^2+12x+8 \]
+    </div>
+
+    <p>Nilai di titik tertentu:</p>
+
+    <div class="math-display">
+      \[ (f\circ g)(2)=2(2)^2+1=9,\qquad (g\circ f)(1)=g(5)=24 \]
+    </div>
+
+    <p>
+      Pemeriksaan: \(g(2)=3\) lalu \(f(3)=9\); dan \(4+12+8=24\). Hasilnya
+      cocok. Perhatikan bahwa \(f\circ g\) dan \(g\circ f\) menghasilkan rumus
+      yang berbeda.
+    </p>
+  </div>
+
+  <h3>Sifat Komposisi Fungsi</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Sifat</th>
+          <th scope="col">Rumus</th>
+          <th scope="col">Keterangan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Tidak komutatif</td>
+          <td>\(f\circ g\neq g\circ f\) (umumnya)</td>
+          <td>Urutan mesin menentukan hasil</td>
+        </tr>
+        <tr>
+          <td>Asosiatif</td>
+          <td>\((f\circ g)\circ h=f\circ(g\circ h)\)</td>
+          <td>Boleh dikelompokkan bebas, asal urutan tetap</td>
+        </tr>
+        <tr>
+          <td>Fungsi identitas \(I(x)=x\)</td>
+          <td>\(f\circ I=I\circ f=f\)</td>
+          <td>
+            \(I\) tidak mengubah apa pun, seperti angka \(1\) pada perkalian
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2 (Tiga Fungsi)</h4>
+
+    <p>
+      Diketahui \(f(x)=x+1\), \(g(x)=2x\), dan \(h(x)=x^2\). Tentukan \((f\circ
+      g\circ h)(x)\) dan \((h\circ g\circ f)(x)\).
+    </p>
+
+    <div class="math-display">
+      \[ \begin{aligned} (f\circ g\circ
+      h)(x)&amp;=f\big(g(x^2)\big)=f(2x^2)=2x^2+1\\ (h\circ g\circ
+      f)(x)&amp;=h\big(g(x+1)\big)=h(2x+2)=(2x+2)^2=4x^2+8x+4 \end{aligned} \]
+    </div>
+
+    <p>Kerjakan dari fungsi yang paling kanan menuju yang paling kiri.</p>
+  </div>
+
+  <h3>Domain Komposisi</h3>
+
+  <p>
+    Agar \((f\circ g)(x)\) ada, nilai \(x\) harus boleh masuk ke \(g\), dan
+    hasil \(g(x)\) harus boleh masuk ke \(f\). Artinya:
+  </p>
+
+  <div class="math-display">
+    \[ D_{f\circ g}=\{x\in D_g\mid g(x)\in D_f\} \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 3</h4>
+
+    <p>
+      Diketahui \(f(x)=\sqrt{x}\) dan \(g(x)=x-4\). Tentukan rumus dan domain
+      \(f\circ g\) serta \(g\circ f\).
+    </p>
+
+    <ul>
+      <li>
+        \((f\circ g)(x)=\sqrt{x-4}\). Syaratnya \(x-4\ge0\), jadi \(D_{f\circ
+        g}=\{x\mid x\ge4\}\).
+      </li>
+      <li>
+        \((g\circ f)(x)=\sqrt{x}-4\). Syaratnya hanya \(x\ge0\), jadi
+        \(D_{g\circ f}=\{x\mid x\ge0\}\).
+      </li>
+    </ul>
+
+    <p>
+      Rumus komposisi boleh "kelihatan" lebih longgar, tetapi domainnya tetap
+      harus memenuhi syarat <strong>kedua</strong> fungsi.
+    </p>
+  </div>
+</section>
+
+<section
+  id="menentukan-fungsi-penyusun"
+  data-title="Menentukan Fungsi Penyusun Komposisi"
+>
+  <h2>3. Menentukan Fungsi Penyusun Komposisi</h2>
+
+  <p>
+    Kadang yang diketahui adalah hasil komposisinya, dan kita diminta mencari
+    salah satu fungsi penyusunnya. Ada dua situasi.
+  </p>
+
+  <h3>Situasi 1: \(f\) dan \(f\circ g\) Diketahui, Cari \(g\)</h3>
+
+  <p>
+    Tulis \((f\circ g)(x)=f\big(g(x)\big)\), substitusikan rumus \(f\), lalu
+    selesaikan \(g(x)\) seperti persamaan biasa.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+
+    <p>
+      Diketahui \(f(x)=2x+3\) dan \((f\circ g)(x)=6x-1\). Tentukan \(g(x)\).
+    </p>
+
+    <div class="math-display">
+      \[ f\big(g(x)\big)=2g(x)+3=6x-1\Rightarrow 2g(x)=6x-4\Rightarrow g(x)=3x-2
+      \]
+    </div>
+
+    <p>Pemeriksaan: \(f(3x-2)=2(3x-2)+3=6x-1\) (benar).</p>
+  </div>
+
+  <h3>Situasi 2: \(g\) dan \(f\circ g\) Diketahui, Cari \(f\)</h3>
+
+  <p>
+    Misalkan \(t=g(x)\), nyatakan \(x\) dalam \(t\), lalu substitusikan ke rumus
+    \((f\circ g)(x)\). Hasilnya adalah \(f(t)\); ganti \(t\) dengan \(x\) di
+    akhir.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 2</h4>
+
+    <p>
+      Diketahui \(g(x)=x-2\) dan \((f\circ g)(x)=x^2+3x\). Tentukan \(f(x)\).
+    </p>
+
+    <p>Misalkan \(t=x-2\), sehingga \(x=t+2\). Maka:</p>
+
+    <div class="math-display">
+      \[ f(t)=(t+2)^2+3(t+2)=t^2+4t+4+3t+6=t^2+7t+10 \]
+    </div>
+
+    <p>
+      Jadi \(f(x)=x^2+7x+10\). Pemeriksaan di \(x=3\): \(g(3)=1\) dan
+      \(f(1)=18\), sedangkan \((f\circ g)(3)=9+9=18\) (cocok).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 3</h4>
+
+    <p>
+      Diketahui \(g(x)=2x+1\) dan \((f\circ g)(x)=4x^2+8x\). Tentukan \(f(x)\).
+    </p>
+
+    <p>Misalkan \(t=2x+1\), sehingga \(x=\displaystyle\frac{t-1}{2}\). Maka:</p>
+
+    <div class="math-display">
+      \[
+      f(t)=4\left(\frac{t-1}{2}\right)^2+8\cdot\frac{t-1}{2}=(t-1)^2+4(t-1)=t^2+2t-3
+      \]
+    </div>
+
+    <p>
+      Jadi \(f(x)=x^2+2x-3\). Pemeriksaan di \(x=1\): \(g(1)=3\), \(f(3)=12\),
+      dan \(4+8=12\) (cocok).
+    </p>
+  </div>
+</section>
+
+<section id="fungsi-invers" data-title="Fungsi Invers">
+  <h2>4. Fungsi Invers</h2>
+
+  <h3>Ide Dasar: Tombol "Undo"</h3>
+
+  <p>
+    Jika fungsi \(f\) adalah mesin yang mengubah \(x\) menjadi \(y\), maka
+    <strong>fungsi invers</strong> \(f^{-1}\) adalah mesin yang membalikkan
+    proses itu: memasukkan \(y\), keluarnya kembali \(x\). Contohnya, jika \(f\)
+    berarti "kalikan \(2\) lalu tambah \(1\)", maka \(f^{-1}\) berarti "kurangi
+    \(1\) lalu bagi \(2\)".
+  </p>
+
+  <div class="math-display">\[ f(a)=b\iff f^{-1}(b)=a \]</div>
+
+  <h3>Syarat dan Sifat</h3>
+
+  <ul>
+    <li>
+      Fungsi \(f\) memiliki invers jika dan hanya jika \(f\)
+      <strong>bijektif</strong>
+      (satu-satu dan pada).
+    </li>
+    <li>
+      Domain dan range saling bertukar: \(D_{f^{-1}}=R_f\) dan
+      \(R_{f^{-1}}=D_f\).
+    </li>
+    <li>Komposisi dengan inversnya menghasilkan fungsi identitas:</li>
+  </ul>
+
+  <div class="math-display">
+    \[ (f\circ f^{-1})(x)=x,\qquad (f^{-1}\circ f)(x)=x,\qquad (f^{-1})^{-1}=f
+    \]
+  </div>
+
+  <ul>
+    <li>
+      Grafik \(y=f^{-1}(x)\) adalah bayangan grafik \(y=f(x)\) setelah
+      dicerminkan terhadap garis \(y=x\). Titik \((a,b)\) pada \(f\) menjadi
+      titik \((b,a)\) pada \(f^{-1}\).
+    </li>
+  </ul>
+
+  <h3>Langkah Mencari Invers</h3>
+
+  <ol>
+    <li>Tulis \(y=f(x)\).</li>
+    <li>Nyatakan \(x\) dalam \(y\) (isolasi \(x\)).</li>
+    <li>Ganti \(y\) dengan \(x\); hasilnya adalah \(f^{-1}(x)\).</li>
+    <li>Tentukan domain \(f^{-1}\), yaitu range \(f\).</li>
+  </ol>
+
+  <div class="lesson-example">
+    <h4>Contoh 1 (Fungsi Linear)</h4>
+
+    <p>Tentukan invers dari \(f(x)=3x-5\).</p>
+
+    <div class="math-display">
+      \[ y=3x-5\Rightarrow 3x=y+5\Rightarrow x=\frac{y+5}{3}\Rightarrow
+      f^{-1}(x)=\frac{x+5}{3} \]
+    </div>
+
+    <p>
+      Pemeriksaan: \(f(4)=7\) dan \(f^{-1}(7)=\displaystyle\frac{12}{3}=4\)
+      (kembali ke \(4\)).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2 (Fungsi Pecahan)</h4>
+
+    <p>
+      Tentukan invers dari \(f(x)=\displaystyle\frac{2x+1}{x-3}\), \(x\neq3\).
+    </p>
+
+    <div class="math-display">
+      \[ \begin{aligned} y&amp;=\frac{2x+1}{x-3}\\ y(x-3)&amp;=2x+1\\
+      xy-3y&amp;=2x+1\\ xy-2x&amp;=3y+1\\ x(y-2)&amp;=3y+1\\
+      x&amp;=\frac{3y+1}{y-2} \end{aligned} \]
+    </div>
+
+    <p>
+      Jadi \(f^{-1}(x)=\displaystyle\frac{3x+1}{x-2}\), \(x\neq2\). Perhatikan
+      bahwa \(x\neq2\) sesuai dengan range \(f\), yaitu semua bilangan real
+      kecuali \(2\).
+    </p>
+  </div>
+
+  <h3>Rumus Cepat Invers Fungsi Pecahan</h3>
+
+  <div class="math-display">
+    \[ f(x)=\frac{ax+b}{cx+d}\ \Longrightarrow\ f^{-1}(x)=\frac{-dx+b}{cx-a} \]
+  </div>
+
+  <p>
+    Cara mengingatnya: pada pembilang dan penyebut, \(a\) dan \(d\) saling
+    bertukar tempat, dan salah satunya berganti tanda. Cobalah pada Contoh 2:
+    \(a=2,\ b=1,\ c=1,\ d=-3\) memberi \(\displaystyle\frac{3x+1}{x-2}\) (sama).
+  </p>
+
+  <h3>Tabel Invers Fungsi yang Sering Muncul</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">\(f(x)\)</th>
+          <th scope="col">\(f^{-1}(x)\)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(ax+b\)</td>
+          <td>\(\displaystyle\frac{x-b}{a}\)</td>
+        </tr>
+        <tr>
+          <td>\(\displaystyle\frac{ax+b}{cx+d}\)</td>
+          <td>\(\displaystyle\frac{-dx+b}{cx-a}\)</td>
+        </tr>
+        <tr>
+          <td>\(x^3+k\)</td>
+          <td>\(\sqrt[3]{x-k}\)</td>
+        </tr>
+        <tr>
+          <td>\(a^x\)</td>
+          <td>\(\log_a x\)</td>
+        </tr>
+        <tr>
+          <td>\(\log_a x\)</td>
+          <td>\(a^x\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 3 (Fungsi Kuadrat dengan Domain Dibatasi)</h4>
+
+    <p>Tentukan invers dari \(f(x)=x^2-4x+7\) dengan domain \(x\ge2\).</p>
+
+    <p>Ubah ke bentuk kuadrat sempurna: \(f(x)=(x-2)^2+3\). Maka:</p>
+
+    <div class="math-display">
+      \[ y=(x-2)^2+3\Rightarrow (x-2)^2=y-3\Rightarrow x-2=\sqrt{y-3}\Rightarrow
+      x=2+\sqrt{y-3} \]
+    </div>
+
+    <p>
+      Tanda akar yang diambil positif, karena domain \(f\) adalah \(x\ge2\)
+      sehingga \(x-2\ge0\). Range \(f\) adalah \(y\ge3\). Jadi
+      \(f^{-1}(x)=2+\sqrt{x-3}\) dengan domain \(x\ge3\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 4 (Fungsi Akar dan Eksponen)</h4>
+
+    <ul>
+      <li>
+        \(f(x)=\sqrt{x-1}+2\), \(x\ge1\). Dari \(y-2=\sqrt{x-1}\) diperoleh
+        \(x=(y-2)^2+1\). Jadi \(f^{-1}(x)=(x-2)^2+1\) dengan \(x\ge2\).
+      </li>
+      <li>
+        \(f(x)=2^x+1\). Dari \(y-1=2^x\) diperoleh \(x=\log_2(y-1)\). Jadi
+        \(f^{-1}(x)=\log_2(x-1)\) dengan \(x&gt;1\).
+      </li>
+    </ul>
+  </div>
+
+  <h3>Menghitung Nilai Invers Tanpa Mencari Rumusnya</h3>
+
+  <p>
+    Untuk mencari \(f^{-1}(k)\), cukup cari \(a\) yang memenuhi \(f(a)=k\),
+    sebab \(f^{-1}(k)=a\iff f(a)=k\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 5</h4>
+
+    <p>Jika \(f(x)=2x+3\), tentukan \(f^{-1}(7)\).</p>
+
+    <p>
+      Selesaikan \(2a+3=7\Rightarrow a=2\). Jadi \(f^{-1}(7)=2\). Cara ini lebih
+      singkat daripada menurunkan seluruh rumus \(f^{-1}\).
+    </p>
+  </div>
+</section>
+
+<section id="invers-komposisi" data-title="Invers dari Komposisi Fungsi">
+  <h2>5. Invers dari Komposisi Fungsi</h2>
+
+  <h3>Analogi Kaus dan Jaket</h3>
+
+  <p>
+    Pagi hari kita memakai kaus <strong>dulu</strong>, baru jaket. Saat
+    melepasnya kembali, kita tidak bisa melepas kaus lebih dulu; kita harus
+    melepas jaket <strong>dulu</strong>, baru kaus. Urutan pembalikan selalu
+    terbalik. Itulah inti dari invers komposisi.
+  </p>
+
+  <div class="math-display">\[ (f\circ g)^{-1}=g^{-1}\circ f^{-1} \]</div>
+
+  <p>
+    Pada \(f\circ g\), fungsi \(g\) bekerja lebih dulu lalu \(f\). Untuk
+    membaliknya, \(f^{-1}\) harus bekerja lebih dulu lalu \(g^{-1}\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+
+    <p>
+      Diketahui \(f(x)=2x+1\) dan \(g(x)=x-3\). Tentukan \((f\circ g)^{-1}(x)\)
+      dengan dua cara.
+    </p>
+
+    <p>
+      <strong>Cara 1 (cari komposisi dulu).</strong>
+      \((f\circ g)(x)=2(x-3)+1=2x-5\). Dari \(y=2x-5\) diperoleh
+      \(x=\displaystyle\frac{y+5}{2}\), jadi \((f\circ
+      g)^{-1}(x)=\displaystyle\frac{x+5}{2}\).
+    </p>
+
+    <p>
+      <strong>Cara 2 (pakai rumus).</strong>
+      \(f^{-1}(x)=\displaystyle\frac{x-1}{2}\) dan \(g^{-1}(x)=x+3\). Maka:
+    </p>
+
+    <div class="math-display">
+      \[ (g^{-1}\circ
+      f^{-1})(x)=g^{-1}\!\left(\frac{x-1}{2}\right)=\frac{x-1}{2}+3=\frac{x+5}{2}
+      \]
+    </div>
+
+    <p>Kedua cara memberi hasil yang sama.</p>
+  </div>
+
+  <h3>Mencari \(f\) atau \(g\) dengan Bantuan Invers</h3>
+
+  <p>
+    Dari \(h=f\circ g\), kita dapat "membuka" salah satu fungsi dengan
+    menggunakan invers fungsi yang satunya:
+  </p>
+
+  <div class="math-display">\[ g=f^{-1}\circ h,\qquad f=h\circ g^{-1} \]</div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2</h4>
+
+    <p>
+      Diketahui \(g(x)=2x-1\) dan \((f\circ g)(x)=6x+1\). Tentukan \(f(x)\).
+    </p>
+
+    <p>Invers \(g\) adalah \(g^{-1}(x)=\displaystyle\frac{x+1}{2}\). Maka:</p>
+
+    <div class="math-display">
+      \[ f(x)=(f\circ g)\big(g^{-1}(x)\big)=6\cdot\frac{x+1}{2}+1=3x+4 \]
+    </div>
+
+    <p>Pemeriksaan: \(f(g(x))=3(2x-1)+4=6x+1\) (benar).</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 3 (Fungsi yang Sama dengan Inversnya)</h4>
+
+    <p>
+      Fungsi \(f(x)=\displaystyle\frac{x+1}{x-1}\), \(x\neq1\), jika dihitung
+      dengan rumus cepat memiliki invers
+      \(f^{-1}(x)=\displaystyle\frac{x+1}{x-1}\), sama dengan \(f\) sendiri.
+      Fungsi seperti ini disebut <strong>fungsi involusi</strong>, dan berlaku
+      \(f\circ f=I\). Untuk bentuk \(\displaystyle\frac{ax+b}{cx+d}\) dengan
+      \(c\neq0\), syaratnya adalah \(a=-d\).
+    </p>
+  </div>
+</section>
+
+<section
+  id="rangkuman-komposisi-invers"
+  data-title="Rangkuman Komposisi dan Invers"
+>
+  <h2>6. Rangkuman Rumus Komposisi dan Invers</h2>
+
+  <h3>Komposisi Fungsi</h3>
+
+  <div class="math-display">
+    \[ (f\circ g)(x)=f\big(g(x)\big),\qquad f\circ g\neq g\circ f,\qquad (f\circ
+    g)\circ h=f\circ(g\circ h) \]
+  </div>
+
+  <div class="math-display">
+    \[ f\circ I=I\circ f=f,\qquad D_{f\circ g}=\{x\in D_g\mid g(x)\in D_f\} \]
+  </div>
+
+  <h3>Fungsi Invers</h3>
+
+  <div class="math-display">
+    \[ f(a)=b\iff f^{-1}(b)=a,\qquad f\circ f^{-1}=f^{-1}\circ f=I,\qquad
+    D_{f^{-1}}=R_f \]
+  </div>
+
+  <h3>Invers Komposisi dan Pencarian Fungsi</h3>
+
+  <div class="math-display">
+    \[ (f\circ g)^{-1}=g^{-1}\circ f^{-1},\qquad g=f^{-1}\circ(f\circ g),\qquad
+    f=(f\circ g)\circ g^{-1} \]
+  </div>
+
+  <h3>Invers Bentuk yang Sering Muncul</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Bentuk</th>
+          <th scope="col">Invers</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(f(x)=ax+b\)</td>
+          <td>\(\displaystyle\frac{x-b}{a}\)</td>
+        </tr>
+        <tr>
+          <td>\(f(x)=\displaystyle\frac{ax+b}{cx+d}\)</td>
+          <td>\(\displaystyle\frac{-dx+b}{cx-a}\)</td>
+        </tr>
+        <tr>
+          <td>Fungsi sama dengan inversnya</td>
+          <td>\(a=-d\) (untuk \(c\neq0\))</td>
+        </tr>
+        <tr>
+          <td>\(f(x)=a^x\)</td>
+          <td>\(\log_a x\)</td>
+        </tr>
+        <tr>
+          <td>Kuadrat, domain dibatasi</td>
+          <td>Lengkapkan kuadrat, ambil akar sesuai domain</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Kesalahan yang Sering Terjadi</h3>
+
+  <ul>
+    <li>
+      Terbalik membaca urutan: menyangka \((f\circ g)(x)=g(f(x))\). Yang benar
+      adalah \(g\) dikerjakan lebih dulu.
+    </li>
+    <li>
+      Menganggap \(f\circ g=g\circ f\). Bandingkan selalu dengan contoh angka.
+    </li>
+    <li>
+      Menulis \(f^{-1}(x)=\displaystyle\frac{1}{f(x)}\). Pangkat \(-1\) pada
+      fungsi berarti invers, bukan kebalikan.
+    </li>
+    <li>
+      Menulis \((f\circ g)^{-1}=f^{-1}\circ g^{-1}\). Urutannya harus dibalik:
+      \(g^{-1}\circ f^{-1}\).
+    </li>
+    <li>
+      Lupa membatasi domain pada fungsi kuadrat atau akar, sehingga tanda
+      \(\pm\) tidak dipilih dengan benar.
+    </li>
+    <li>
+      Salah tanda saat memindahkan suku pada fungsi pecahan; selalu periksa
+      hasil dengan menghitung \(f(f^{-1}(x))=x\) untuk satu nilai \(x\).
+    </li>
+  </ul>
+</section>
+
+<section
+  id="latihan-mandiri-komposisi-invers"
+  data-title="Latihan Soal Mandiri"
+>
+  <h2>7. Latihan Soal Mandiri</h2>
+
+  <p>
+    Kerjakan soal-soal berikut secara mandiri. Soal nomor 1–9 memiliki tingkat
+    kesulitan sekolah dan soal nomor 10–19 memiliki tingkat penalaran seperti
+    soal UTBK; keduanya berbentuk pilihan ganda (pilih satu jawaban yang paling
+    tepat). Soal nomor 20 adalah soal tingkat olimpiade berbentuk isian singkat.
+  </p>
+
+  <h3>A. Tingkat Kesulitan Sekolah</h3>
+
+  <!-- Soal 1 -->
+  <div class="lesson-example">
+    <h4>Soal 1</h4>
+
+    <p>
+      Diketahui \(f(x)=2x-3\) dan \(g(x)=x^2+1\). Rumus \((f\circ g)(x)\) adalah
+      ....
+    </p>
+
+    <ol type="A">
+      <li>\(4x^2-12x+10\)</li>
+      <li>\(2x^2+1\)</li>
+      <li>\(2x^2-1\)</li>
+      <li>\(2x^2-3\)</li>
+      <li>\(4x^2-12x+9\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 2 -->
+  <div class="lesson-example">
+    <h4>Soal 2</h4>
+
+    <p>
+      Diketahui \(f(x)=3x+1\) dan \(g(x)=x-2\). Nilai \((g\circ f)(4)\) adalah
+      ....
+    </p>
+
+    <ol type="A">
+      <li>\(11\)</li>
+      <li>\(7\)</li>
+      <li>\(9\)</li>
+      <li>\(13\)</li>
+      <li>\(15\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 3 -->
+  <div class="lesson-example">
+    <h4>Soal 3</h4>
+
+    <p>
+      Diketahui \(f(x)=2x-1\) dan \((f\circ g)(x)=6x+5\). Rumus \(g(x)\) adalah
+      ....
+    </p>
+
+    <ol type="A">
+      <li>\(3x+2\)</li>
+      <li>\(3x+3\)</li>
+      <li>\(3x+4\)</li>
+      <li>\(6x+6\)</li>
+      <li>\(6x+4\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 4 -->
+  <div class="lesson-example">
+    <h4>Soal 4</h4>
+
+    <p>
+      Diketahui \(g(x)=x+3\) dan \((f\circ g)(x)=x^2+2x\). Rumus \(f(x)\) adalah
+      ....
+    </p>
+
+    <ol type="A">
+      <li>\(x^2+4x+3\)</li>
+      <li>\(x^2-2x-3\)</li>
+      <li>\(x^2+8x+15\)</li>
+      <li>\(x^2-4x+3\)</li>
+      <li>\(x^2-4x-3\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 5 -->
+  <div class="lesson-example">
+    <h4>Soal 5</h4>
+
+    <p>Invers dari fungsi \(f(x)=3x-7\) adalah \(f^{-1}(x)=\) ....</p>
+
+    <ol type="A">
+      <li>\(3x+7\)</li>
+      <li>\(\displaystyle\frac{x-7}{3}\)</li>
+      <li>\(\displaystyle\frac{7-x}{3}\)</li>
+      <li>\(\displaystyle\frac{1}{3x-7}\)</li>
+      <li>\(\displaystyle\frac{x+7}{3}\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 6 -->
+  <div class="lesson-example">
+    <h4>Soal 6</h4>
+
+    <p>
+      Invers dari fungsi \(f(x)=\displaystyle\frac{x+2}{x-4}\), \(x\neq4\),
+      adalah \(f^{-1}(x)=\) ....
+    </p>
+
+    <ol type="A">
+      <li>\(\displaystyle\frac{4x-2}{x-1}\)</li>
+      <li>\(\displaystyle\frac{x-2}{x+4}\)</li>
+      <li>\(\displaystyle\frac{4x+2}{x-1}\)</li>
+      <li>\(\displaystyle\frac{2x+4}{x-1}\)</li>
+      <li>\(\displaystyle\frac{4x+2}{x+1}\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 7 -->
+  <div class="lesson-example">
+    <h4>Soal 7</h4>
+
+    <p>Jika \(f(x)=5x-3\), maka nilai \(f^{-1}(12)\) adalah ....</p>
+
+    <ol type="A">
+      <li>\(3\)</li>
+      <li>\(2\)</li>
+      <li>\(57\)</li>
+      <li>\(\displaystyle\frac95\)</li>
+      <li>\(4\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 8 -->
+  <div class="lesson-example">
+    <h4>Soal 8</h4>
+
+    <p>
+      Diketahui \(f(x)=x+2\) dan \(g(x)=3x-1\). Invers dari \((g\circ f)(x)\)
+      adalah \((g\circ f)^{-1}(x)=\) ....
+    </p>
+
+    <ol type="A">
+      <li>\(\displaystyle\frac{x+5}{3}\)</li>
+      <li>\(\displaystyle\frac{x-5}{3}\)</li>
+      <li>\(\displaystyle\frac{x-1}{3}\)</li>
+      <li>\(\displaystyle\frac{x+1}{3}\)</li>
+      <li>\(3x-5\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 9 -->
+  <div class="lesson-example">
+    <h4>Soal 9</h4>
+
+    <p>
+      Sebuah toko memberi diskon \(20\%\) untuk setiap barang. Pembeli yang
+      membawa kupon mendapat potongan tambahan Rp10.000 dari harga setelah
+      diskon. Seorang pembeli membayar Rp70.000 setelah memakai diskon dan
+      kupon. Harga awal barang tersebut adalah ....
+    </p>
+
+    <ol type="A">
+      <li>Rp64.000</li>
+      <li>Rp75.000</li>
+      <li>Rp77.500</li>
+      <li>Rp80.000</li>
+      <li>Rp100.000</li>
+    </ol>
+  </div>
+
+  <h3>B. Tingkat Kesulitan UTBK</h3>
+
+  <!-- Soal 10 -->
+  <div class="lesson-example">
+    <h4>Soal 10</h4>
+
+    <p>
+      Diketahui \(f(x)=3x+a\) dan \(g(x)=2x-5\). Jika \((f\circ g)(x)=(g\circ
+      f)(x)\) untuk semua \(x\), maka nilai \(a\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(-10\)</li>
+      <li>\(-5\)</li>
+      <li>\(0\)</li>
+      <li>\(5\)</li>
+      <li>\(10\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 11 -->
+  <div class="lesson-example">
+    <h4>Soal 11</h4>
+
+    <p>Jika \(f(2x-1)=4x^2-6x+5\), maka \(f(x)=\) ....</p>
+
+    <ol type="A">
+      <li>\(x^2+x+3\)</li>
+      <li>\(x^2-x+5\)</li>
+      <li>\(x^2-x+3\)</li>
+      <li>\(x^2-2x+3\)</li>
+      <li>\(4x^2-6x+5\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 12 -->
+  <div class="lesson-example">
+    <h4>Soal 12</h4>
+
+    <p>
+      Diketahui \(f^{-1}(x)=\displaystyle\frac{3x-2}{x+4}\), \(x\neq-4\). Rumus
+      \(f(x)\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(\displaystyle\frac{4x+2}{x-3}\)</li>
+      <li>\(\displaystyle\frac{4x-2}{x+3}\)</li>
+      <li>\(\displaystyle\frac{4x+2}{3-x}\)</li>
+      <li>\(\displaystyle\frac{x+4}{3x-2}\)</li>
+      <li>\(\displaystyle\frac{2-4x}{x+3}\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 13 -->
+  <div class="lesson-example">
+    <h4>Soal 13</h4>
+
+    <p>
+      Diketahui \(f(x)=2x+1\) dan \((f\circ g)(x)=6x-5\). Rumus \(g^{-1}(x)\)
+      adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(\displaystyle\frac{x-3}{3}\)</li>
+      <li>\(3x+3\)</li>
+      <li>\(\displaystyle\frac{x+1}{3}\)</li>
+      <li>\(\displaystyle\frac{x+3}{3}\)</li>
+      <li>\(\displaystyle\frac{x+3}{6}\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 14 -->
+  <div class="lesson-example">
+    <h4>Soal 14</h4>
+
+    <p>
+      Fungsi \(f(x)=x^2-6x+11\) memiliki domain \(x\ge3\). Nilai \(f^{-1}(27)\)
+      adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(-2\)</li>
+      <li>\(3\)</li>
+      <li>\(11\)</li>
+      <li>\(8\)</li>
+      <li>\(14\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 15 -->
+  <div class="lesson-example">
+    <h4>Soal 15</h4>
+
+    <p>
+      Diketahui \(f(x)=\displaystyle\frac{x+1}{x-1}\), \(x\neq1\). Jika \(f\)
+      dikomposisikan dengan dirinya sendiri sebanyak \(2025\) kali, yaitu
+      \(\underbrace{f\circ f\circ\cdots\circ f}_{2025\text{ kali}}\), maka
+      nilainya di \(x=3\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(3\)</li>
+      <li>\(2\)</li>
+      <li>\(4\)</li>
+      <li>\(1\)</li>
+      <li>\(\displaystyle\frac12\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 16 -->
+  <div class="lesson-example">
+    <h4>Soal 16</h4>
+
+    <p>
+      Fungsi linear \(f\) bersifat naik (gradiennya positif) dan memenuhi
+      \((f\circ f)(x)=9x+8\). Nilai \(f^{-1}(14)\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(2\)</li>
+      <li>\(3\)</li>
+      <li>\(6\)</li>
+      <li>\(12\)</li>
+      <li>\(4\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 17 -->
+  <div class="lesson-example">
+    <h4>Soal 17</h4>
+
+    <p>
+      Diketahui \(f(x)=2x-1\) dan \(g(x)=\displaystyle\frac{x+3}{x-2}\),
+      \(x\neq2\). Nilai \((f\circ g)^{-1}(3)\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(7\)</li>
+      <li>\(5\)</li>
+      <li>\(3\)</li>
+      <li>\(2\)</li>
+      <li>\(1\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 18 -->
+  <div class="lesson-example">
+    <h4>Soal 18</h4>
+
+    <p>
+      Diketahui \(f(x)=\displaystyle\frac{ax+2}{x-3}\), \(x\neq3\). Jika
+      \(f^{-1}(x)=f(x)\) untuk semua \(x\) dalam domainnya, maka nilai \(a\)
+      adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(-3\)</li>
+      <li>\(-2\)</li>
+      <li>\(2\)</li>
+      <li>\(3\)</li>
+      <li>\(6\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 19 -->
+  <div class="lesson-example">
+    <h4>Soal 19</h4>
+
+    <p>
+      Diketahui \(f(x)=\sqrt{x-1}\) dan \(g(x)=x^2-3x-3\). Domain fungsi
+      \(f\circ g\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(\{x\mid -1\le x\le4\}\)</li>
+      <li>\(\{x\mid x\le-4\text{ atau }x\ge1\}\)</li>
+      <li>\(\{x\mid x\le-1\text{ atau }x\ge4\}\)</li>
+      <li>\(\{x\mid x\ge4\}\)</li>
+      <li>\(\{x\mid x\ge1\}\)</li>
+    </ol>
+  </div>
+
+  <h3>C. Tingkat Kesulitan Olimpiade</h3>
+
+  <!-- Soal 20 -->
+  <div class="lesson-example">
+    <h4>Soal 20</h4>
+
+    <p>
+      Diketahui \(f(x)=x^3+x+8\) untuk semua bilangan real \(x\). Tentukan semua
+      bilangan real \(x\) yang memenuhi \(f(x)=f^{-1}(x)\).
+    </p>
+  </div>
+</section>
+
+<section
+  id="pembahasan-latihan-komposisi-invers"
+  data-title="Pembahasan Latihan Mandiri"
+>
+  <h2>8. Pembahasan Latihan Mandiri</h2>
+
+  <p>
+    Bagian ini membahas seluruh soal pada latihan mandiri. Soal nomor 1–9
+    berfokus pada penguasaan konsep dan prosedur dasar tingkat sekolah, soal
+    nomor 10–19 menekankan penalaran dan pemilihan strategi yang lebih dekat
+    dengan karakter soal UTBK, dan soal nomor 20 menguji kreativitas seperti
+    pada soal olimpiade. Soal-soal berikut merupakan latihan bergaya UTBK dan
+    olimpiade, bukan soal resmi.
+  </p>
+
+  <h3>A. Pembahasan Tingkat Kesulitan Sekolah</h3>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 1</h4>
+    <p>
+      Pada \((f\circ g)(x)\), fungsi \(g\) dikerjakan lebih dulu, lalu hasilnya
+      dimasukkan ke \(f\):
+    </p>
+    <div class="math-display">
+      \[ (f\circ g)(x)=f(x^2+1)=2(x^2+1)-3=2x^2-1 \]
+    </div>
+    <p>
+      Pilihan A adalah \((g\circ f)(x)=(2x-3)^2+1\), yaitu urutan yang terbalik.
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 2</h4>
+    <p>Kerjakan dari dalam: hitung \(f(4)\) dulu, lalu masukkan ke \(g\).</p>
+    <div class="math-display">
+      \[ f(4)=3(4)+1=13,\qquad (g\circ f)(4)=g(13)=13-2=11 \]
+    </div>
+    <p>
+      Pilihan B (\(7\)) adalah \((f\circ g)(4)=f(2)\), yaitu urutan yang
+      terbalik, dan pilihan D (\(13\)) hanya berhenti di \(f(4)\).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 3</h4>
+    <p>Substitusikan rumus \(f\) pada \(f\big(g(x)\big)\):</p>
+    <div class="math-display">
+      \[ 2g(x)-1=6x+5\Rightarrow 2g(x)=6x+6\Rightarrow g(x)=3x+3 \]
+    </div>
+    <p>
+      Pemeriksaan: \(f(3x+3)=2(3x+3)-1=6x+5\) (benar). Pilihan A muncul bila
+      suku \(-1\) dipindahkan dengan tanda yang salah.
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 4</h4>
+    <p>Misalkan \(t=x+3\), sehingga \(x=t-3\). Maka:</p>
+    <div class="math-display">
+      \[ f(t)=(t-3)^2+2(t-3)=t^2-6t+9+2t-6=t^2-4t+3 \]
+    </div>
+    <p>
+      Pemeriksaan: \(f(x+3)=(x+3)^2-4(x+3)+3=x^2+2x\) (benar). Pilihan C muncul
+      bila \(x\) diganti \(x+3\) (arah substitusi terbalik).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 5</h4>
+    <p>Nyatakan \(x\) dalam \(y\):</p>
+    <div class="math-display">
+      \[ y=3x-7\Rightarrow 3x=y+7\Rightarrow x=\frac{y+7}{3} \]
+    </div>
+    <p>
+      Ganti \(y\) dengan \(x\): \(f^{-1}(x)=\displaystyle\frac{x+7}{3}\).
+      Pemeriksaan: \(f(3)=2\) dan \(f^{-1}(2)=\displaystyle\frac{9}{3}=3\)
+      (kembali ke \(3\)).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 6</h4>
+    <div class="math-display">
+      \[ y(x-4)=x+2\Rightarrow xy-4y=x+2\Rightarrow x(y-1)=4y+2\Rightarrow
+      x=\frac{4y+2}{y-1} \]
+    </div>
+    <p>
+      Jadi \(f^{-1}(x)=\displaystyle\frac{4x+2}{x-1}\). Dengan rumus cepat
+      (\(a=1,\ b=2,\ c=1,\ d=-4\)): \(\displaystyle\frac{-dx+b}{cx-a}
+      =\displaystyle\frac{4x+2}{x-1}\), hasilnya sama.
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 7</h4>
+    <p>\(f^{-1}(12)=a\) berarti \(f(a)=12\). Selesaikan:</p>
+    <div class="math-display">
+      \[ 5a-3=12\Rightarrow 5a=15\Rightarrow a=3 \]
+    </div>
+    <p>
+      Pilihan C (\(57\)) adalah \(f(12)\), bukan \(f^{-1}(12)\); pilihan D
+      muncul dari \(\displaystyle\frac{12-3}{5}\), yaitu salah tanda saat
+      memindahkan \(-3\).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 8</h4>
+    <p>Cari komposisinya dulu:</p>
+    <div class="math-display">\[ (g\circ f)(x)=g(x+2)=3(x+2)-1=3x+5 \]</div>
+    <p>
+      Lalu cari inversnya: \(y=3x+5\Rightarrow x=\displaystyle\frac{y-5}{3}\).
+    </p>
+    <p>
+      Pemeriksaan dengan rumus \((g\circ f)^{-1}=f^{-1}\circ g^{-1}\): karena
+      \(g^{-1}(x)=\displaystyle\frac{x+1}{3}\) dan \(f^{-1}(x)=x-2\), diperoleh
+      \(\displaystyle\frac{x+1}{3}-2=\displaystyle\frac{x-5}{3}\). Pilihan C
+      adalah \((f\circ g)^{-1}\) dan pilihan D adalah \(g^{-1}\) saja.
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 9</h4>
+    <p>
+      Misalkan harga awal \(x\). Diskon \(20\%\) berarti \(f(x)=0{,}8x\), lalu
+      kupon berarti \(g(x)=x-10.000\). Harga yang dibayar adalah komposisi:
+    </p>
+    <div class="math-display">\[ (g\circ f)(x)=0{,}8x-10.000 \]</div>
+    <p>Karena dibayar Rp70.000:</p>
+    <div class="math-display">
+      \[ 0{,}8x-10.000=70.000\Rightarrow 0{,}8x=80.000\Rightarrow x=100.000 \]
+    </div>
+    <p>
+      Pemeriksaan: \(0{,}8(100.000)=80.000\), dikurangi \(10.000\) menjadi
+      \(70.000\) (benar). Pilihan D (Rp80.000) adalah harga setelah diskon,
+      bukan harga awal.
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+  </div>
+
+  <h3>B. Pembahasan Tingkat Kesulitan UTBK</h3>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 10</h4>
+    <p>Hitung kedua komposisi:</p>
+    <div class="math-display">
+      \[ \begin{aligned} (f\circ g)(x)&amp;=3(2x-5)+a=6x-15+a\\ (g\circ
+      f)(x)&amp;=2(3x+a)-5=6x+2a-5 \end{aligned} \]
+    </div>
+    <p>Karena kedua fungsi sama untuk semua \(x\), konstantanya harus sama:</p>
+    <div class="math-display">\[ -15+a=2a-5\Rightarrow a=-10 \]</div>
+    <p>Pemeriksaan: keduanya menjadi \(6x-25\) (sama).</p>
+    <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 11</h4>
+    <p>Misalkan \(t=2x-1\), sehingga \(x=\displaystyle\frac{t+1}{2}\). Maka:</p>
+    <div class="math-display">
+      \[
+      f(t)=4\left(\frac{t+1}{2}\right)^2-6\cdot\frac{t+1}{2}+5=(t+1)^2-3(t+1)+5
+      \]
+    </div>
+    <div class="math-display">\[ f(t)=t^2+2t+1-3t-3+5=t^2-t+3 \]</div>
+    <p>
+      Pemeriksaan di \(x=2\): \(2x-1=3\) sehingga \(f(3)=9-3+3=9\), dan ruas
+      kanan \(16-12+5=9\) (cocok).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 12</h4>
+    <p>
+      \(f\) adalah invers dari \(f^{-1}\). Misalkan
+      \(y=\displaystyle\frac{3x-2}{x+4}\), lalu nyatakan \(x\) dalam \(y\):
+    </p>
+    <div class="math-display">
+      \[ y(x+4)=3x-2\Rightarrow xy+4y=3x-2\Rightarrow x(y-3)=-4y-2\Rightarrow
+      x=\frac{4y+2}{3-y} \]
+    </div>
+    <p>
+      Jadi \(f(x)=\displaystyle\frac{4x+2}{3-x}\), \(x\neq3\). Pemeriksaan:
+      \(f(0)=\displaystyle\frac23\) dan
+      \(f^{-1}\!\left(\displaystyle\frac23\right)
+      =\displaystyle\frac{2-2}{\frac23+4}=0\) (kembali ke \(0\)).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 13</h4>
+    <p>Cari \(g\) lebih dulu:</p>
+    <div class="math-display">
+      \[ f\big(g(x)\big)=2g(x)+1=6x-5\Rightarrow g(x)=3x-3 \]
+    </div>
+    <p>Lalu cari inversnya:</p>
+    <div class="math-display">
+      \[ y=3x-3\Rightarrow x=\frac{y+3}{3}\Rightarrow g^{-1}(x)=\frac{x+3}{3} \]
+    </div>
+    <p>
+      Pemeriksaan dengan jalur lain: \(g^{-1}=(f\circ g)^{-1}\circ f\), dengan
+      \((f\circ g)^{-1}(x)=\displaystyle\frac{x+5}{6}\), sehingga
+      \(\displaystyle\frac{(2x+1)+5}{6}=\displaystyle\frac{x+3}{3}\) (sama).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 14</h4>
+    <p>\(f^{-1}(27)=a\) berarti \(f(a)=27\) dengan \(a\ge3\):</p>
+    <div class="math-display">
+      \[ a^2-6a+11=27\Rightarrow a^2-6a-16=0\Rightarrow(a-8)(a+2)=0 \]
+    </div>
+    <p>
+      Akar-akarnya \(a=8\) atau \(a=-2\). Karena domain \(f\) adalah \(x\ge3\),
+      yang memenuhi hanya \(a=8\). Pilihan A (\(-2\)) adalah jebakan akar yang
+      berada di luar domain.
+    </p>
+    <p>Pemeriksaan: \(f(8)=64-48+11=27\) (benar).</p>
+    <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 15</h4>
+    <p>Hitung \(f\circ f\) terlebih dahulu:</p>
+    <div class="math-display">
+      \[ f\big(f(x)\big)=\frac{\frac{x+1}{x-1}+1}{\frac{x+1}{x-1}-1}
+      =\frac{\frac{2x}{x-1}}{\frac{2}{x-1}}=x \]
+    </div>
+    <p>
+      Jadi \(f\circ f\) adalah fungsi identitas. Pada \(2025\) kali komposisi,
+      kita dapat membentuk \(1012\) pasangan \(f\circ f\) (masing-masing
+      menghasilkan \(x\) kembali), dan masih tersisa <strong>satu</strong>
+      \(f\). Dengan demikian:
+    </p>
+    <div class="math-display">
+      \[ \underbrace{f\circ\cdots\circ f}_{2025\text{
+      kali}}(3)=f(3)=\frac{3+1}{3-1}=2 \]
+    </div>
+    <p>
+      Pilihan A (\(3\)) akan muncul bila banyak komposisinya genap, sebab
+      \(f(f(3))=3\).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 16</h4>
+    <p>Misalkan \(f(x)=ax+b\) dengan \(a&gt;0\). Maka:</p>
+    <div class="math-display">\[ (f\circ f)(x)=a(ax+b)+b=a^2x+(a+1)b \]</div>
+    <p>
+      Samakan dengan \(9x+8\): \(a^2=9\) dan \((a+1)b=8\). Karena \(f\) naik,
+      \(a=3\), sehingga \(4b=8\Rightarrow b=2\). Jadi \(f(x)=3x+2\).
+    </p>
+    <p>
+      Untuk \(f^{-1}(14)\), selesaikan \(3a+2=14\Rightarrow a=4\). Jika \(a=-3\)
+      (fungsi turun), diperoleh \(b=-4\), yang tidak memenuhi syarat naik.
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 17</h4>
+    <p>Cari \((f\circ g)(x)\) terlebih dahulu:</p>
+    <div class="math-display">
+      \[ (f\circ
+      g)(x)=2\cdot\frac{x+3}{x-2}-1=\frac{2x+6-(x-2)}{x-2}=\frac{x+8}{x-2} \]
+    </div>
+    <p>\((f\circ g)^{-1}(3)=a\) berarti \((f\circ g)(a)=3\):</p>
+    <div class="math-display">
+      \[ \frac{a+8}{a-2}=3\Rightarrow a+8=3a-6\Rightarrow a=7 \]
+    </div>
+    <p>
+      Pemeriksaan: \(g(7)=\displaystyle\frac{10}{5}=2\) dan \(f(2)=3\) (benar).
+      Pilihan D (\(2\)) adalah \(f^{-1}(3)\) saja, belum dilanjutkan ke
+      \(g^{-1}\).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 18</h4>
+    <p>
+      Cari invers \(f\) dengan rumus cepat. Di sini koefisien \(x\) pada
+      pembilang tetap ditulis \(a\), sedangkan \(b=2,\ c=1,\ d=-3\), sehingga:
+    </p>
+    <div class="math-display">
+      \[ f^{-1}(x)=\frac{-dx+b}{cx-a}=\frac{3x+2}{x-a} \]
+    </div>
+    <p>
+      Agar \(f^{-1}(x)=f(x)=\displaystyle\frac{ax+2}{x-3}\), pembilang dan
+      penyebut harus sama, yaitu \(a=3\) (dari pembilang) dan \(x-a=x-3\) (dari
+      penyebut). Keduanya konsisten, sehingga \(a=3\).
+    </p>
+    <p>
+      Pemeriksaan dengan syarat fungsi sama dengan inversnya, \(a=-d=3\)
+      (cocok).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 19</h4>
+    <p>
+      Domain \(g\) adalah semua bilangan real. Agar \(f\big(g(x)\big)\) ada, isi
+      akar harus tidak negatif, yaitu \(g(x)-1\ge0\):
+    </p>
+    <div class="math-display">
+      \[ x^2-3x-3-1\ge0\Rightarrow x^2-3x-4\ge0\Rightarrow(x-4)(x+1)\ge0 \]
+    </div>
+    <p>
+      Pembuat nolnya \(x=-1\) dan \(x=4\). Karena parabola terbuka ke atas,
+      hasil kali tak negatif terjadi di luar kedua akar, sehingga \(x\le-1\)
+      atau \(x\ge4\).
+    </p>
+    <p>
+      Pemeriksaan: \(x=0\) memberi \(g(0)=-3\) dan \(f(-3)\) tidak ada (benar,
+      \(0\) bukan anggota domain); \(x=5\) memberi \(g(5)=7\) dan
+      \(f(7)=\sqrt6\) (ada).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <h3>C. Pembahasan Tingkat Kesulitan Olimpiade</h3>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 20</h4>
+    <p>
+      Pertama, pastikan \(f\) punya invers. Fungsi \(x^3\) dan \(x\) keduanya
+      naik murni, sehingga jumlahnya \(f(x)=x^3+x+8\) juga naik murni. Dengan
+      demikian \(f\) satu-satu, dan karena grafiknya kontinu dan tak terbatas ke
+      atas maupun ke bawah, \(f\) pada (bijektif) sehingga \(f^{-1}\) ada.
+    </p>
+    <p>
+      Kunci soal ini: jangan mencari rumus \(f^{-1}\) (akar pangkat tiga dari
+      persamaan kubik sangat rumit). Sebaliknya, ubah syarat \(f(x)=f^{-1}(x)\)
+      menjadi bentuk yang lebih mudah.
+    </p>
+    <p>
+      Misalkan \(f(x)=f^{-1}(x)=y\). Dari \(f^{-1}(x)=y\) diperoleh \(f(y)=x\).
+      Jadi kita punya pasangan:
+    </p>
+    <div class="math-display">\[ f(x)=y\quad\text{dan}\quad f(y)=x \]</div>
+    <p>
+      Andaikan \(x&lt;y\). Karena \(f\) naik murni, \(f(x)&lt;f(y)\), yaitu
+      \(y&lt;x\), bertentangan. Andaikan \(x&gt;y\); dengan cara yang sama
+      diperoleh \(y&gt;x\), juga bertentangan. Jadi haruslah \(x=y\), yang
+      berarti \(f(x)=x\).
+    </p>
+    <p>Dengan demikian persamaan awal ekuivalen dengan \(f(x)=x\):</p>
+    <div class="math-display">
+      \[ x^3+x+8=x\Rightarrow x^3+8=0\Rightarrow(x+2)(x^2-2x+4)=0 \]
+    </div>
+    <p>
+      Faktor kuadrat \(x^2-2x+4\) memiliki diskriminan \(4-16=-12&lt;0\),
+      sehingga tidak punya akar real. Satu-satunya penyelesaian adalah \(x=-2\).
+    </p>
+    <p>
+      Pemeriksaan: \(f(-2)=-8-2+8=-2\), sehingga \(f^{-1}(-2)=-2\) pula, dan
+      \(f(-2)=f^{-1}(-2)\) (benar).
+    </p>
+    <p>Jadi, jawabannya adalah <strong>\(x=-2\)</strong>.</p>
+  </div>
+
+  <h3>Ringkasan Kunci dan Konsep yang Diuji</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table answer-key-table">
+      <thead>
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">Kunci</th>
+          <th scope="col">Konsep Utama</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>C</td>
+          <td>Menentukan rumus komposisi \(f\circ g\)</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>A</td>
+          <td>Nilai komposisi di titik tertentu</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>B</td>
+          <td>Mencari \(g\) jika \(f\) dan \(f\circ g\) diketahui</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>D</td>
+          <td>Mencari \(f\) jika \(g\) dan \(f\circ g\) diketahui</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>E</td>
+          <td>Invers fungsi linear</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>C</td>
+          <td>Invers fungsi pecahan</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>A</td>
+          <td>Nilai invers tanpa mencari rumus</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>B</td>
+          <td>Invers dari komposisi fungsi</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>E</td>
+          <td>Soal cerita komposisi dan invers</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>A</td>
+          <td>Kesamaan dua komposisi dengan parameter</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>C</td>
+          <td>Menentukan \(f(x)\) dari \(f(ax+b)\)</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>C</td>
+          <td>Mencari fungsi dari inversnya</td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>D</td>
+          <td>Invers dari fungsi penyusun komposisi</td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td>D</td>
+          <td>Invers fungsi kuadrat dengan batas domain</td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td>B</td>
+          <td>Komposisi berulang dan fungsi involusi</td>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td>E</td>
+          <td>Fungsi linear dari \(f\circ f\) dan nilai invers</td>
+        </tr>
+        <tr>
+          <td>17</td>
+          <td>A</td>
+          <td>Nilai invers komposisi fungsi pecahan</td>
+        </tr>
+        <tr>
+          <td>18</td>
+          <td>D</td>
+          <td>Syarat fungsi sama dengan inversnya</td>
+        </tr>
+        <tr>
+          <td>19</td>
+          <td>C</td>
+          <td>Domain komposisi dengan akar</td>
+        </tr>
+        <tr>
+          <td>20</td>
+          <td>\(x=-2\)</td>
+          <td>
+            \(f=f^{-1}\) pada fungsi naik murni berubah menjadi \(f(x)=x\)
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

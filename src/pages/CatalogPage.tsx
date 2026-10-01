@@ -64,6 +64,7 @@ export function CatalogPage({ navigate }: CatalogPageProps) {
       items: filteredMaterials.filter((m) =>
         [
           "barisan-deret",
+          "komposisi-fungsi-dan-invers",
           "matriks",
           "vektor",
           "transformasi-geometri",

@@ -24,6 +24,11 @@ export function LessonPage({
   const [tocSearch, setTocSearch] = useState("");
 
   const material: Material | undefined = getMaterialBySlug(slug);
+  const currentDate = new Intl.DateTimeFormat("id-ID", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(new Date());
 
   const currentIndex = materials.findIndex((m) => m.slug === slug);
   const prevMaterial = currentIndex > 0 ? materials[currentIndex - 1] : null;
@@ -115,9 +120,7 @@ export function LessonPage({
   const filteredSections = tocSearch.trim()
     ? sections
         .map((s, idx) => ({ ...s, originalIndex: idx }))
-        .filter((s) =>
-          s.title.toLowerCase().includes(tocSearch.toLowerCase()),
-        )
+        .filter((s) => s.title.toLowerCase().includes(tocSearch.toLowerCase()))
     : sections.map((s, idx) => ({ ...s, originalIndex: idx }));
 
   return (
@@ -240,7 +243,7 @@ export function LessonPage({
 
               <h1>{material.title}</h1>
               <p>
-                Kategori: {material.category} <span>·</span> Catatan ilmiah akademis
+                Penyusun: Toriq Afanudin <span>·</span> {currentDate}
               </p>
 
               {(downloadUrl ||
@@ -277,7 +280,9 @@ export function LessonPage({
                     slug === "transformasi-geometri") && (
                     <a
                       className="button lesson-practice"
-                      href={slug === "eksponensial" ? "#tes-sumatif" : "#latihan"}
+                      href={
+                        slug === "eksponensial" ? "#tes-sumatif" : "#latihan"
+                      }
                     >
                       Latihan Soal <span aria-hidden="true">↓</span>
                     </a>
