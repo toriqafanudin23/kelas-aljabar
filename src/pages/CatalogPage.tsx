@@ -81,6 +81,12 @@ export function CatalogPage({ navigate }: CatalogPageProps) {
         ["kombinatorika", "peluang"].includes(m.slug),
       ),
     },
+    {
+      title: "4. Fase F Tingkat Lanjut (Kelas XII) — Pengantar Kalkulus",
+      subtitle:
+        "Konsep limit sebagai dasar kekontinuan, turunan, dan integral.",
+      items: filteredMaterials.filter((m) => m.slug === "limit"),
+    },
   ];
 
   // Apakah kita menampilkan grup berurutan atau daftar pencarian langsung
@@ -162,8 +168,8 @@ export function CatalogPage({ navigate }: CatalogPageProps) {
                 </span>
                 <h3>Modul Berikutnya</h3>
                 <p>
-                  Topik mendatang mencakup Limit &amp; Turunan Fungsi, Integral
-                  Tak Tentu/Tentu, serta Teori Graf Diskrit.
+                  Topik mendatang mencakup Turunan Fungsi, Integral Tak
+                  Tentu/Tentu, serta Teori Graf Diskrit.
                 </p>
                 <div className="coming-status">
                   <span>Status kurikulum</span>

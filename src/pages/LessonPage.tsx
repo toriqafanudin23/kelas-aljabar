@@ -21,7 +21,6 @@ export function LessonPage({
 }: LessonPageProps) {
   const [sections, setSections] = useState<LessonNavItem[]>([]);
   const [activeSectionId, setActiveSectionId] = useState<string>("");
-  const [tocSearch, setTocSearch] = useState("");
 
   const material: Material | undefined = getMaterialBySlug(slug);
   const currentDate = new Intl.DateTimeFormat("id-ID", {
@@ -117,12 +116,6 @@ export function LessonPage({
     );
   }
 
-  const filteredSections = tocSearch.trim()
-    ? sections
-        .map((s, idx) => ({ ...s, originalIndex: idx }))
-        .filter((s) => s.title.toLowerCase().includes(tocSearch.toLowerCase()))
-    : sections.map((s, idx) => ({ ...s, originalIndex: idx }));
-
   return (
     <>
       {/* Modal / Bottom Sheet Navigasi Daftar Isi untuk Ponsel (Ditekan dari ikon navbar) */}
@@ -153,18 +146,8 @@ export function LessonPage({
               </button>
             </div>
 
-            <div className="mobile-toc-drawer-search">
-              <input
-                type="search"
-                placeholder="Cari bagian materi..."
-                value={tocSearch}
-                onChange={(e) => setTocSearch(e.target.value)}
-                autoFocus
-              />
-            </div>
-
             <div className="mobile-toc-items-container">
-              {filteredSections.map((sec) => (
+              {sections.map((sec, index) => (
                 <button
                   key={sec.id}
                   type="button"
@@ -172,7 +155,7 @@ export function LessonPage({
                   onClick={() => handleSectionJump(sec.id)}
                 >
                   <span className="toc-item-num">
-                    {String(sec.originalIndex + 1).padStart(2, "0")}
+                    {String(index + 1).padStart(2, "0")}
                   </span>
                   <span className="toc-item-title">{sec.title}</span>
                   {activeSectionId === sec.id && (
@@ -180,12 +163,6 @@ export function LessonPage({
                   )}
                 </button>
               ))}
-
-              {filteredSections.length === 0 && (
-                <p className="mobile-toc-empty">
-                  Tidak ada bagian yang cocok dengan “{tocSearch}”.
-                </p>
-              )}
             </div>
 
             <div className="mobile-toc-drawer-footer">

@@ -10,6 +10,7 @@ import peluangHtml from "./peluang.html?raw";
 import statistikaHtml from "./statistika.html?raw";
 import komposisiFungsiDanInversHtml from "./komposisi-fungsi-dan-invers.html?raw";
 import polinomialHtml from "./polinomial.html?raw";
+import limitHtml from "./limit.html?raw";
 
 export interface Material {
   id: string;
@@ -214,6 +215,20 @@ export const materials: Material[] = [
     description:
       "Pelajari bentuk dan derajat polinomial, operasi aljabar, pembagian, teorema sisa dan faktor, serta penentuan akar-akar polinomial.",
     htmlContent: polinomialHtml,
+  },
+  {
+    id: "limits",
+    slug: "limit",
+    number: "13",
+    category: "Kalkulus",
+    title: "Limit Fungsi",
+    grade: "Kelas XII",
+    phase: "Fase F Tingkat Lanjut (Kelas XII)",
+    prerequisite: "Fungsi, Aljabar, & Trigonometri",
+    formula: "\\lim_{x\\to a}f(x)=L",
+    description:
+      "Pelajari limit satu sisi, sifat dan teknik limit aljabar, limit tak hingga dan trigonometri, kekontinuan, serta pengantar aturan L'Hôpital.",
+    htmlContent: limitHtml,
   },
 ];
 
