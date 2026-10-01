@@ -13,7 +13,7 @@
     <strong
       >aturan penjumlahan, aturan perkalian, faktorial, permutasi, kombinasi,
       permutasi dengan unsur yang sama, permutasi melingkar, kombinasi dengan
-      pengulangan, serta koefisien binomial</strong
+      pengulangan, koefisien binomial, serta prinsip sarang merpati</strong
     >.
   </p>
 
@@ -32,6 +32,10 @@
     <li>
       menyelesaikan masalah kombinasi dengan pengulangan dan menggunakan teorema
       binomial;
+    </li>
+    <li>
+      menerapkan prinsip sarang merpati untuk menjamin keberadaan suatu objek
+      atau kejadian;
     </li>
     <li>menerapkan kombinatorika dalam masalah kontekstual;</li>
     <li>memilih konsep kombinatorika yang sesuai untuk suatu masalah;</li>
@@ -197,7 +201,10 @@
     <strong>urutan diperhatikan</strong>.
   </p>
 
-  <p>Banyak permutasi \(r\) objek yang dipilih dari \(n\) objek adalah:</p>
+  <p>
+    Banyak permutasi \(r\) objek yang dipilih dari \(n\) objek, dengan \(0\leq
+    r\leq n\), adalah:
+  </p>
 
   <div class="math-display">\[ {}_nP_r=\frac{n!}{(n-r)!}. \]</div>
 
@@ -246,7 +253,8 @@
     Pada beberapa masalah, terdapat syarat tertentu seperti dua objek harus
     berdampingan, suatu objek harus berada di posisi tertentu, atau beberapa
     objek tidak boleh berdampingan. Untuk masalah seperti ini, biasanya
-    digunakan metode blok, pengurangan kasus, atau pemisahan kasus.
+    digunakan metode blok, metode celah, metode komplemen (pengurangan kasus),
+    atau pemisahan kasus.
   </p>
 
   <div class="lesson-example">
@@ -284,6 +292,53 @@
     <div class="math-display">\[ 5!-4!\times2!=120-48=72. \]</div>
 
     <p>Jadi, terdapat \(72\) susunan.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 5: Tidak Boleh Berdampingan (Metode Celah)</h4>
+
+    <p>
+      Empat siswa putra dan dua siswa putri, semuanya berbeda, akan disusun
+      berjajar. Jika kedua siswa putri tidak boleh berdampingan, banyak
+      susunannya adalah ...
+    </p>
+
+    <p>
+      Pada metode celah, objek yang tidak dibatasi disusun terlebih dahulu.
+      Objek yang dibatasi kemudian ditempatkan pada celah di antara atau di
+      ujung susunan tersebut, dengan paling banyak satu objek pada setiap celah.
+    </p>
+
+    <p><strong>Langkah 1.</strong> Susun 4 siswa putra terlebih dahulu.</p>
+
+    <div class="math-display">\[ 4!=24. \]</div>
+
+    <p>
+      <strong>Langkah 2.</strong> Empat siswa putra (S) membentuk 5 celah, yaitu
+      satu di setiap ujung dan tiga di antara mereka.
+    </p>
+
+    <div class="math-display">
+      \[ \square\;S\;\square\;S\;\square\;S\;\square\;S\;\square. \]
+    </div>
+
+    <p>
+      Dua siswa putri berbeda harus menempati dua celah yang berbeda. Banyak
+      caranya adalah permutasi 2 dari 5 celah:
+    </p>
+
+    <div class="math-display">\[ {}_5P_2=5\times4=20. \]</div>
+
+    <p><strong>Langkah 3.</strong> Kalikan kedua hasil tersebut.</p>
+
+    <div class="math-display">\[ 4!\times{}_5P_2=24\times20=480. \]</div>
+
+    <p>
+      Sebagai pemeriksaan, metode komplemen memberikan hasil yang sama:
+      \(6!-5!\times2!=720-240=480\).
+    </p>
+
+    <p>Jadi, terdapat \(480\) susunan.</p>
   </div>
 </section>
 
@@ -342,6 +397,12 @@
       \frac{10\cdot9\cdot8\cdot7\cdot6\cdot5\cdot4}{2\cdot2} =
       \frac{604\,800}{4} = 151\,200. \]
     </div>
+
+    <p>
+      Pada langkah kedua, \(3!\) dicoret dengan faktor \(3!\) yang muncul dari
+      \(10!=10\cdot9\cdot8\cdot7\cdot6\cdot5\cdot4\cdot3!\), kemudian sisanya
+      dibagi \(2!\cdot2!=4\).
+    </p>
 
     <p>Jadi, terdapat \(151.200\) susunan berbeda.</p>
   </div>
@@ -410,7 +471,10 @@
     ketika <strong>urutan tidak diperhatikan</strong>.
   </p>
 
-  <p>Banyak kombinasi \(r\) objek dari \(n\) objek ditulis:</p>
+  <p>
+    Banyak kombinasi \(r\) objek dari \(n\) objek, dengan \(0\leq r\leq n\),
+    ditulis:
+  </p>
 
   <div class="math-display">
     \[ {}_nC_r = \binom{n}{r} = \frac{n!}{r!(n-r)!}. \]
@@ -614,8 +678,207 @@
   </div>
 </section>
 
+<section id="sarang-merpati" data-title="Prinsip Sarang Merpati">
+  <h2>9. Prinsip Sarang Merpati</h2>
+
+  <p>
+    Prinsip sarang merpati (<em>pigeonhole principle</em>) menyatakan bahwa jika
+    jumlah merpati lebih banyak daripada jumlah sarang, maka pasti ada sarang
+    yang dihuni lebih dari satu merpati. Berbeda dengan permutasi dan kombinasi,
+    prinsip ini <strong>tidak menghitung banyak cara</strong>, tetapi
+    <strong>menjamin keberadaan</strong> suatu objek atau kejadian.
+  </p>
+
+  <h3>Prinsip Sarang Merpati Dasar</h3>
+
+  <p>
+    Jika \(n+1\) objek (merpati) ditempatkan pada \(n\) kotak (sarang), maka
+    terdapat sedikitnya satu kotak yang memuat dua objek atau lebih.
+  </p>
+
+  <p>
+    Alasannya dapat ditunjukkan dengan pengandaian. Andaikan setiap kotak memuat
+    paling banyak satu objek. Maka banyak objek seluruhnya paling banyak \(n\),
+    padahal terdapat \(n+1\) objek. Hal ini bertentangan, sehingga pengandaian
+    salah dan pasti ada kotak yang memuat dua objek atau lebih.
+  </p>
+
+  <h3>Prinsip Sarang Merpati Umum</h3>
+
+  <p>
+    Jika \(N\) objek ditempatkan pada \(k\) kotak, maka terdapat sedikitnya satu
+    kotak yang memuat paling sedikit
+  </p>
+
+  <div class="math-display">\[ \left\lceil \frac{N}{k} \right\rceil \]</div>
+
+  <p>
+    objek. Notasi \(\lceil x\rceil\) menyatakan bilangan bulat terkecil yang
+    lebih besar atau sama dengan \(x\), misalnya \(\lceil 4{,}2\rceil=5\) dan
+    \(\lceil 6\rceil=6\).
+  </p>
+
+  <p>
+    Alasannya, andaikan setiap kotak memuat paling banyak \(\lceil N/k\rceil-1\)
+    objek. Karena \(\lceil N/k\rceil-1\lt N/k\), banyak objek seluruhnya kurang
+    dari \(k\cdot\frac{N}{k}=N\), padahal terdapat \(N\) objek. Jadi pengandaian
+    salah.
+  </p>
+
+  <h3>Banyak Objek Minimal agar Dijamin</h3>
+
+  <p>
+    Pada banyak soal, yang ditanyakan adalah banyak objek minimal agar
+    <em>dijamin</em> terdapat kotak dengan sedikitnya \(r\) objek. Kasus
+    terburuknya adalah setiap kotak berisi tepat \(r-1\) objek, yaitu \(k(r-1)\)
+    objek, dan kejadian yang diinginkan belum pasti terjadi. Satu objek tambahan
+    memaksa suatu kotak memuat \(r\) objek. Jadi, banyak objek minimal adalah:
+  </p>
+
+  <div class="math-display">\[ k(r-1)+1. \]</div>
+
+  <h3>Langkah Menggunakan Prinsip Sarang Merpati</h3>
+
+  <ol>
+    <li>
+      <strong>Tentukan apa yang dijamin.</strong>
+      Misalnya, ada dua objek di kotak yang sama, atau ada kotak dengan
+      sedikitnya \(r\) objek.
+    </li>
+
+    <li>
+      <strong>Tentukan merpati dan sarang.</strong>
+      Merpati adalah objek yang ditempatkan, sedangkan sarang adalah kategori
+      tempat objek tersebut dikelompokkan, misalnya bulan lahir, warna, sisa
+      pembagian, atau pasangan bilangan.
+    </li>
+
+    <li>
+      <strong>Bayangkan kasus terburuk.</strong>
+      Susun objek sedemikian rupa sehingga kejadian yang dijamin belum terjadi,
+      lalu hitung banyak objek pada keadaan tersebut.
+    </li>
+
+    <li>
+      <strong>Tambahkan satu objek.</strong>
+      Objek berikutnya pasti membuat kejadian yang dijamin terjadi.
+    </li>
+
+    <li>
+      <strong>Periksa bahwa satu objek lebih sedikit tidak cukup.</strong>
+      Tunjukkan satu contoh susunan dengan jumlah objek tersebut yang belum
+      memenuhi kejadian, agar terbukti bahwa hasilnya benar-benar minimal.
+    </li>
+  </ol>
+
+  <p>
+    Kata kunci yang sering muncul adalah <em>dijamin</em>, <em>pasti</em>,
+    <em>paling sedikit ada</em>, dan <em>banyak minimal yang harus diambil</em>.
+  </p>
+
+  <p>
+    Perhatikan bahwa rumus \(k(r-1)+1\) hanya berlaku jika setiap kotak sanggup
+    menampung \(r-1\) objek. Jika ada kotak yang kapasitasnya lebih kecil,
+    hitung kasus terburuk secara langsung (lihat Soal 19).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 1: Prinsip Dasar</h4>
+
+    <p>
+      Dalam sebuah pertemuan hadir 13 orang. Tunjukkan bahwa terdapat dua orang
+      yang lahir pada bulan yang sama.
+    </p>
+
+    <p>
+      Misalkan sarang adalah 12 bulan dalam setahun dan merpati adalah 13 orang
+      yang hadir. Setiap orang ditempatkan pada sarang sesuai bulan lahirnya.
+    </p>
+
+    <div class="math-display">\[ 13 = 12+1. \]</div>
+
+    <p>
+      Karena jumlah orang lebih banyak daripada jumlah bulan, terdapat bulan
+      yang memuat sedikitnya dua orang.
+    </p>
+
+    <p>Jadi, pasti ada dua orang yang lahir pada bulan yang sama.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2: Prinsip Umum</h4>
+
+    <p>
+      Terdapat 50 siswa. Paling sedikit berapa siswa yang pasti lahir pada bulan
+      yang sama?
+    </p>
+
+    <p>Sarang adalah 12 bulan dan merpati adalah 50 siswa.</p>
+
+    <div class="math-display">
+      \[ \left\lceil \frac{50}{12} \right\rceil = \lceil 4{,}17\rceil = 5. \]
+    </div>
+
+    <p>
+      Sebagai pemeriksaan, jika setiap bulan memuat paling banyak 4 siswa, maka
+      seluruhnya hanya \(12\times4=48\) siswa, kurang dari 50.
+    </p>
+
+    <p>Jadi, pasti ada bulan yang memuat sedikitnya \(5\) siswa.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 3: Banyak Pengambilan Minimal</h4>
+
+    <p>
+      Sebuah laci berisi banyak kaus kaki berwarna merah, biru, dan hitam yang
+      tercampur. Dalam keadaan gelap, banyak kaus kaki minimal yang harus
+      diambil agar dijamin terdapat 3 kaus kaki yang berwarna sama adalah ...
+    </p>
+
+    <p>
+      Sarangnya adalah 3 warna, sehingga \(k=3\), dan yang dijamin adalah
+      \(r=3\) kaus kaki sewarna.
+    </p>
+
+    <p>
+      Kasus terburuk adalah terambil 2 merah, 2 biru, dan 2 hitam, yaitu 6 kaus
+      kaki, tetapi belum ada tiga yang sewarna. Kaus kaki ketujuh pasti
+      melengkapi tiga yang sewarna.
+    </p>
+
+    <div class="math-display">\[ k(r-1)+1=3\cdot2+1=7. \]</div>
+
+    <p>Jadi, banyak kaus kaki minimal yang harus diambil adalah \(7\).</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 4: Merancang Sarang</h4>
+
+    <p>
+      Buktikan bahwa dari 5 bilangan bulat sembarang, terdapat dua bilangan yang
+      selisihnya habis dibagi 4.
+    </p>
+
+    <p>
+      Sarang tidak selalu terlihat jelas pada soal. Di sini, jadikan sarang
+      sebagai sisa pembagian oleh 4, yaitu \(0,1,2,3\). Terdapat 4 sarang,
+      sedangkan merpatinya adalah 5 bilangan tersebut.
+    </p>
+
+    <p>
+      Karena \(5\gt4\), terdapat dua bilangan, misalnya \(a\) dan \(b\), dengan
+      sisa yang sama, yaitu \(s\). Tulis \(a=4p+s\) dan \(b=4q+s\).
+    </p>
+
+    <div class="math-display">\[ a-b=4p-4q=4(p-q). \]</div>
+
+    <p>Jadi, selisih \(a-b\) habis dibagi \(4\).</p>
+  </div>
+</section>
+
 <section id="strategi" data-title="Strategi Menyelesaikan Soal">
-  <h2>9. Strategi Menyelesaikan Soal Kombinatorika</h2>
+  <h2>10. Strategi Menyelesaikan Soal Kombinatorika</h2>
 
   <ol>
     <li>
@@ -641,10 +904,17 @@
     </li>
 
     <li>
+      <strong>Waspadai kata kunci "dijamin" atau "pasti".</strong>
+      Pertanyaan seperti "berapa objek minimal agar dijamin ..." umumnya
+      diselesaikan dengan prinsip sarang merpati dan kasus terburuk, bukan
+      dengan menghitung banyak cara.
+    </li>
+
+    <li>
       <strong>Pilih rumus atau metode yang sesuai.</strong>
       Gunakan aturan penjumlahan, aturan perkalian, faktorial, permutasi,
-      kombinasi, metode blok, metode celah, atau metode komplemen sesuai kondisi
-      soal.
+      kombinasi, metode blok, metode celah, metode komplemen, atau prinsip
+      sarang merpati sesuai kondisi soal.
     </li>
 
     <li>
@@ -680,12 +950,12 @@
 </section>
 
 <section id="latihan" data-title="Latihan Soal">
-  <h2>10. Latihan Soal Kombinatorika</h2>
+  <h2>11. Latihan Soal Kombinatorika</h2>
 
   <p>
     Kerjakan latihan berikut dengan menggunakan konsep kombinatorika yang telah
-    dipelajari. Soal 1–10 merupakan soal tingkat sekolah, soal 11–18 merupakan
-    soal tingkat UTBK, sedangkan soal 19–20 merupakan soal tingkat olimpiade.
+    dipelajari. Soal 1–10 merupakan soal tingkat sekolah, soal 11–20 merupakan
+    soal tingkat UTBK, sedangkan soal 21–23 merupakan soal tingkat olimpiade.
   </p>
 
   <h3>A. Soal Tingkat Sekolah</h3>
@@ -956,10 +1226,43 @@
     </ol>
   </div>
 
+  <div class="lesson-example">
+    <h4>Soal 19</h4>
+    <p>
+      Sebuah kotak berisi 10 bola merah, 7 bola putih, dan 2 bola biru. Bola
+      diambil satu per satu tanpa melihat warnanya. Banyak bola minimal yang
+      harus diambil agar dijamin terambil sedikitnya 4 bola berwarna sama adalah
+      ...
+    </p>
+
+    <ol type="A">
+      <li>8</li>
+      <li>9</li>
+      <li>10</li>
+      <li>12</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 20</h4>
+    <p>
+      Dari bilangan \(1,2,3,\ldots,20\) diambil sejumlah bilangan berbeda.
+      Banyak bilangan minimal yang harus diambil agar dijamin terdapat dua
+      bilangan yang jumlahnya 21 adalah ...
+    </p>
+
+    <ol type="A">
+      <li>9</li>
+      <li>10</li>
+      <li>11</li>
+      <li>12</li>
+    </ol>
+  </div>
+
   <h3>C. Soal Tingkat Olimpiade</h3>
 
   <div class="lesson-example">
-    <h4>Soal 19</h4>
+    <h4>Soal 21</h4>
     <p>
       Tentukan banyak bilangan lima digit \(a_1a_2a_3a_4a_5\) yang dapat
       dibentuk dari angka \(1,2,3,4,5\) dengan setiap angka digunakan tepat satu
@@ -975,7 +1278,7 @@
   </div>
 
   <div class="lesson-example">
-    <h4>Soal 20</h4>
+    <h4>Soal 22</h4>
     <p>
       Berapa banyak himpunan bagian beranggotakan 4 dari \(\{1,2,3,\ldots,10\}\)
       yang tidak memuat dua bilangan berurutan?
@@ -988,10 +1291,26 @@
       <li>126</li>
     </ol>
   </div>
+
+  <div class="lesson-example">
+    <h4>Soal 23</h4>
+    <p>
+      Dari himpunan \(\{1,2,3,\ldots,50\}\) dipilih sejumlah bilangan. Banyak
+      bilangan minimal yang harus dipilih agar dijamin terdapat dua bilangan di
+      antaranya sehingga salah satunya habis membagi yang lain adalah ...
+    </p>
+
+    <ol type="A">
+      <li>15</li>
+      <li>20</li>
+      <li>25</li>
+      <li>26</li>
+    </ol>
+  </div>
 </section>
 
 <section id="rangkuman" data-title="Rangkuman">
-  <h2>11. Rangkuman</h2>
+  <h2>12. Rangkuman</h2>
 
   <div class="material-table-wrap">
     <table class="reflection-table">
@@ -1108,6 +1427,29 @@
             tidak memenuhi syarat
           </td>
         </tr>
+        <tr>
+          <td>Prinsip sarang merpati (dasar)</td>
+          <td>
+            Jika \(n+1\) objek ditempatkan pada \(n\) kotak, ada kotak yang
+            memuat sedikitnya 2 objek
+          </td>
+        </tr>
+
+        <tr>
+          <td>Prinsip sarang merpati (umum)</td>
+          <td>
+            Jika \(N\) objek ditempatkan pada \(k\) kotak, ada kotak yang memuat
+            sedikitnya \(\left\lceil\dfrac{N}{k}\right\rceil\) objek
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Banyak objek minimal agar dijamin ada kotak dengan sedikitnya \(r\)
+            objek
+          </td>
+          <td>\(k(r-1)+1\)</td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -1115,12 +1457,14 @@
   <p>
     Kunci utama dalam menyelesaikan soal kombinatorika adalah menentukan apakah
     urutan diperhatikan, apakah objek dapat digunakan berulang, serta apakah
-    terdapat syarat khusus pada penyusunan atau pemilihan objek.
+    terdapat syarat khusus pada penyusunan atau pemilihan objek. Untuk
+    pertanyaan yang meminta jaminan ("minimal ... agar pasti ..."), gunakan
+    prinsip sarang merpati dengan meninjau kasus terburuk.
   </p>
 </section>
 
 <section id="pembahasan-latihan" data-title="Pembahasan Latihan">
-  <h2>12. Pembahasan Latihan Soal</h2>
+  <h2>13. Pembahasan Latihan Soal</h2>
 
   <div class="material-table-wrap">
     <table class="reflection-table answer-key-table">
@@ -1243,14 +1587,32 @@
 
         <tr>
           <td>19</td>
+          <td>B</td>
+          <td>Prinsip sarang merpati (kasus terburuk)</td>
+        </tr>
+
+        <tr>
+          <td>20</td>
+          <td>C</td>
+          <td>Prinsip sarang merpati (pasangan bilangan)</td>
+        </tr>
+
+        <tr>
+          <td>21</td>
           <td>C</td>
           <td>Metode celah</td>
         </tr>
 
         <tr>
-          <td>20</td>
+          <td>22</td>
           <td>A</td>
           <td>Kombinasi tanpa dua bilangan berurutan</td>
+        </tr>
+
+        <tr>
+          <td>23</td>
+          <td>D</td>
+          <td>Prinsip sarang merpati (merancang sarang)</td>
         </tr>
       </tbody>
     </table>
@@ -1260,11 +1622,29 @@
     <h4>Pembahasan Soal 1</h4>
 
     <p>
-      Karena siswa memilih satu makanan dan satu minuman, kedua pilihan
-      dilakukan secara bertahap.
+      <strong>Langkah 1 – Identifikasi.</strong> Terdapat 4 jenis makanan dan 3
+      jenis minuman. Siswa memilih satu makanan <em>dan</em> satu minuman,
+      sehingga kedua pilihan harus dilakukan secara bertahap.
+    </p>
+
+    <p>
+      <strong>Langkah 2 – Pilih konsep.</strong> Karena prosesnya bertahap,
+      gunakan aturan perkalian.
+    </p>
+
+    <p>
+      <strong>Langkah 3 – Hitung.</strong> Tahap pertama (memilih makanan) dapat
+      dilakukan dengan 4 cara, dan tahap kedua (memilih minuman) dengan 3 cara.
     </p>
 
     <div class="math-display">\[ 4\times3=12. \]</div>
+
+    <p>
+      <strong>Langkah 4 – Periksa.</strong> Setiap makanan dapat dipasangkan
+      dengan 3 minuman, sehingga terdapat 4 kelompok yang masing-masing berisi 3
+      pasangan. Hasil \(4+3=7\) tidak tepat karena siswa tidak memilih salah
+      satu saja.
+    </p>
 
     <p>Jadi, jawabannya adalah <strong>C</strong>.</p>
   </div>
@@ -1272,9 +1652,26 @@
   <div class="lesson-example">
     <h4>Pembahasan Soal 2</h4>
 
+    <p>
+      <strong>Langkah 1 – Uraikan faktorial yang besar.</strong> Tulis \(8!\)
+      sampai muncul \(6!\), yaitu \(8!=8\cdot7\cdot6!\).
+    </p>
+
     <div class="math-display">
-      \[ \frac{8!}{6!} = \frac{8\cdot7\cdot6!}{6!} = 56. \]
+      \[ \frac{8!}{6!}=\frac{8\cdot7\cdot6!}{6!}. \]
     </div>
+
+    <p>
+      <strong>Langkah 2 – Coret faktor yang sama.</strong> Faktor \(6!\) pada
+      pembilang dan penyebut saling meniadakan.
+    </p>
+
+    <div class="math-display">\[ \frac{8\cdot7\cdot6!}{6!}=8\cdot7=56. \]</div>
+
+    <p>
+      <strong>Langkah 3 – Periksa.</strong> Menghitung langsung \(8!=40.320\)
+      dan \(6!=720\) memberikan \(40.320\div720=56\), hasil yang sama.
+    </p>
 
     <p>Jadi, jawabannya adalah <strong>D</strong>.</p>
   </div>
@@ -1283,11 +1680,22 @@
     <h4>Pembahasan Soal 3</h4>
 
     <p>
-      Lima buku berbeda disusun berjajar sehingga urutan diperhatikan. Oleh
-      karena itu digunakan permutasi seluruh objek.
+      <strong>Langkah 1 – Identifikasi.</strong> Lima buku berbeda disusun
+      berjajar, sehingga semua buku dipakai dan urutan diperhatikan.
     </p>
 
-    <div class="math-display">\[ 5!=120. \]</div>
+    <p>
+      <strong>Langkah 2 – Isi posisi satu per satu.</strong> Posisi pertama
+      dapat diisi 5 buku, posisi kedua 4 buku (satu sudah terpakai), posisi
+      ketiga 3 buku, posisi keempat 2 buku, dan posisi kelima 1 buku.
+    </p>
+
+    <p>
+      <strong>Langkah 3 – Kalikan dengan aturan perkalian.</strong> Hasil kali
+      ini sama dengan \(5!\).
+    </p>
+
+    <div class="math-display">\[ 5\times4\times3\times2\times1=5!=120. \]</div>
 
     <p>Jadi, jawabannya adalah <strong>D</strong>.</p>
   </div>
@@ -1296,13 +1704,30 @@
     <h4>Pembahasan Soal 4</h4>
 
     <p>
-      Pemilihan dua siswa tidak memperhatikan urutan. Oleh karena itu digunakan
-      kombinasi.
+      <strong>Langkah 1 – Tentukan apakah urutan diperhatikan.</strong> Dua
+      siswa wakil kelas tidak memiliki jabatan yang berbeda. Memilih siswa \(A\)
+      lalu \(B\) sama dengan memilih \(B\) lalu \(A\), sehingga urutan tidak
+      diperhatikan dan digunakan kombinasi.
+    </p>
+
+    <p><strong>Langkah 2 – Tulis rumus.</strong> Pilih \(r=2\) dari \(n=7\).</p>
+
+    <div class="math-display">\[ {}_7C_2=\frac{7!}{2!\,5!}. \]</div>
+
+    <p>
+      <strong>Langkah 3 – Uraikan dan coret \(5!\).</strong>
+      \(7!=7\cdot6\cdot5!\).
     </p>
 
     <div class="math-display">
-      \[ {}_7C_2 = \frac{7!}{2!5!} = \frac{7\cdot6}{2} = 21. \]
+      \[ \frac{7\cdot6\cdot5!}{2\cdot1\cdot5!}=\frac{42}{2}=21. \]
     </div>
+
+    <p>
+      <strong>Langkah 4 – Periksa.</strong> Permutasi \({}_7P_2=42\) menghitung
+      setiap pasangan dua kali (urutan \(AB\) dan \(BA\)), sehingga
+      \(42\div2!=21\).
+    </p>
 
     <p>Jadi, jawabannya adalah <strong>B</strong>.</p>
   </div>
@@ -1311,11 +1736,27 @@
     <h4>Pembahasan Soal 5</h4>
 
     <p>
-      Kata KATA terdiri atas 4 huruf, dengan huruf A sebanyak 2, sedangkan huruf
-      K dan T masing-masing hanya satu.
+      <strong>Langkah 1 – Daftar huruf.</strong> KATA terdiri atas huruf K, A,
+      T, A. Banyak huruf \(n=4\), huruf A muncul 2 kali, sedangkan K dan T
+      masing-masing 1 kali.
     </p>
 
-    <div class="math-display">\[ \frac{4!}{2!} = \frac{24}{2} = 12. \]</div>
+    <p>
+      <strong>Langkah 2 – Pilih konsep.</strong> Ada huruf yang sama, sehingga
+      gunakan permutasi dengan unsur yang sama: \(\dfrac{n!}{a!}\) dengan
+      \(a=2\).
+    </p>
+
+    <div class="math-display">
+      \[ \frac{4!}{2!}=\frac{4\cdot3\cdot2!}{2!}=12. \]
+    </div>
+
+    <p>
+      <strong>Langkah 3 – Periksa.</strong> Jika kedua A dibedakan (\(A_1\) dan
+      \(A_2\)), terdapat \(4!=24\) susunan. Setiap susunan sebenarnya dihitung 2
+      kali karena \(A_1\) dan \(A_2\) dapat bertukar tempat, sehingga
+      \(24\div2=12\).
+    </p>
 
     <p>Jadi, jawabannya adalah <strong>A</strong>.</p>
   </div>
@@ -1324,11 +1765,26 @@
     <h4>Pembahasan Soal 6</h4>
 
     <p>
-      Karena enam orang duduk mengelilingi meja bundar, digunakan permutasi
-      melingkar.
+      <strong>Langkah 1 – Identifikasi.</strong> Enam orang duduk mengelilingi
+      meja bundar, dan susunan yang hanya berbeda karena diputar dianggap sama.
+      Gunakan permutasi melingkar.
     </p>
 
-    <div class="math-display">\[ (6-1)!=5!=120. \]</div>
+    <p>
+      <strong>Langkah 2 – Tetapkan satu orang sebagai acuan.</strong> Dengan
+      menetapkan satu orang pada satu kursi, rotasi tidak lagi menghasilkan
+      susunan baru. Lima orang lainnya disusun pada 5 kursi yang tersisa.
+    </p>
+
+    <div class="math-display">
+      \[ (6-1)!=5!=5\cdot4\cdot3\cdot2\cdot1=120. \]
+    </div>
+
+    <p>
+      <strong>Langkah 3 – Periksa.</strong> Jika disusun berjajar terdapat
+      \(6!=720\) susunan. Setiap susunan melingkar muncul 6 kali (satu untuk
+      tiap rotasi), sehingga \(720\div6=120\).
+    </p>
 
     <p>Jadi, jawabannya adalah <strong>C</strong>.</p>
   </div>
@@ -1337,11 +1793,24 @@
     <h4>Pembahasan Soal 7</h4>
 
     <p>
-      Jabatan ketua dan wakil ketua berbeda sehingga urutan pemilihan
-      diperhatikan.
+      <strong>Langkah 1 – Tentukan apakah urutan diperhatikan.</strong> Ketua
+      dan wakil ketua memiliki jabatan berbeda. Memilih \(A\) sebagai ketua dan
+      \(B\) sebagai wakil berbeda dengan \(B\) sebagai ketua dan \(A\) sebagai
+      wakil, sehingga urutan diperhatikan (permutasi).
     </p>
 
-    <div class="math-display">\[ {}_8P_2 = 8\cdot7 = 56. \]</div>
+    <p>
+      <strong>Langkah 2 – Hitung dengan rumus permutasi.</strong> Pilih 2 dari
+      8.
+    </p>
+
+    <div class="math-display">\[ {}_8P_2=\frac{8!}{6!}=8\cdot7=56. \]</div>
+
+    <p>
+      <strong>Langkah 3 – Periksa dengan aturan perkalian.</strong> Ketua dapat
+      dipilih dengan 8 cara, kemudian wakil ketua dengan 7 cara, sehingga
+      \(8\times7=56\).
+    </p>
 
     <p>Jadi, jawabannya adalah <strong>D</strong>.</p>
   </div>
@@ -1350,11 +1819,19 @@
     <h4>Pembahasan Soal 8</h4>
 
     <p>
-      Kata PAPAN memiliki 5 huruf dengan 2 huruf P yang sama dan 2 huruf A yang
-      sama, sedangkan huruf N hanya satu.
+      <strong>Langkah 1 – Daftar huruf.</strong> PAPAN terdiri atas huruf P, A,
+      P, A, N. Banyak huruf \(n=5\), huruf P muncul 2 kali, huruf A muncul 2
+      kali, dan huruf N muncul 1 kali.
     </p>
 
-    <div class="math-display">\[ \frac{5!}{2!2!} = \frac{120}{4} = 30. \]</div>
+    <p>
+      <strong>Langkah 2 – Pilih konsep.</strong> Gunakan permutasi dengan unsur
+      yang sama: \(\dfrac{n!}{a!\,b!}\) dengan \(a=2\) dan \(b=2\).
+    </p>
+
+    <div class="math-display">
+      \[ \frac{5!}{2!\,2!}=\frac{120}{2\cdot2}=\frac{120}{4}=30. \]
+    </div>
 
     <p>Jadi, jawabannya adalah <strong>B</strong>.</p>
   </div>
@@ -1363,12 +1840,28 @@
     <h4>Pembahasan Soal 9</h4>
 
     <p>
-      Karena kelompok hanya terdiri atas anggota tanpa jabatan, urutan tidak
-      diperhatikan.
+      <strong>Langkah 1 – Tentukan apakah urutan diperhatikan.</strong> Kelompok
+      hanya terdiri atas anggota tanpa jabatan, sehingga urutan tidak
+      diperhatikan dan digunakan kombinasi.
+    </p>
+
+    <p>
+      <strong>Langkah 2 – Tulis rumus.</strong> Pilih \(r=3\) dari \(n=10\).
     </p>
 
     <div class="math-display">
-      \[ {}_{10}C_3 = \frac{10!}{3!7!} = \frac{10\cdot9\cdot8}{6} = 120. \]
+      \[
+      {}_{10}C_3=\frac{10!}{3!\,7!}=\frac{10\cdot9\cdot8\cdot7!}{3\cdot2\cdot1\cdot7!}.
+      \]
+    </div>
+
+    <p>
+      <strong>Langkah 3 – Sederhanakan.</strong> Faktor \(7!\) dicoret, kemudian
+      hitung pembilang dan penyebut.
+    </p>
+
+    <div class="math-display">
+      \[ \frac{10\cdot9\cdot8}{3\cdot2\cdot1}=\frac{720}{6}=120. \]
     </div>
 
     <p>Jadi, jawabannya adalah <strong>C</strong>.</p>
@@ -1378,11 +1871,23 @@
     <h4>Pembahasan Soal 10</h4>
 
     <p>
-      Siswa memilih satu roti atau satu selai. Kedua kemungkinan tersebut saling
-      terpisah sehingga digunakan aturan penjumlahan.
+      <strong>Langkah 1 – Identifikasi.</strong> Siswa memilih satu roti
+      <em>atau</em> satu selai. Ia hanya memilih satu barang, bukan keduanya.
+    </p>
+
+    <p>
+      <strong>Langkah 2 – Pilih konsep.</strong> Dua kemungkinan tersebut saling
+      terpisah, sehingga gunakan aturan penjumlahan.
     </p>
 
     <div class="math-display">\[ 3+4=7. \]</div>
+
+    <p>
+      <strong>Langkah 3 – Bandingkan dengan Soal 1.</strong> Pada Soal 1 siswa
+      memilih makanan <em>dan</em> minuman sehingga digunakan perkalian. Di sini
+      yang dipilih hanya salah satu jenis barang, sehingga digunakan
+      penjumlahan.
+    </p>
 
     <p>Jadi, jawabannya adalah <strong>A</strong>.</p>
   </div>
@@ -1391,11 +1896,23 @@
     <h4>Pembahasan Soal 11</h4>
 
     <p>
-      Tiga angka dipilih dari enam angka tanpa pengulangan dan urutannya
-      diperhatikan.
+      <strong>Langkah 1 – Identifikasi.</strong> Kode terdiri atas 3 angka
+      berbeda yang dipilih dari 6 angka. Kode \(123\) berbeda dengan kode
+      \(321\), sehingga urutan diperhatikan dan angka tidak boleh berulang.
     </p>
 
-    <div class="math-display">\[ {}_6P_3 = 6\cdot5\cdot4 = 120. \]</div>
+    <p>
+      <strong>Langkah 2 – Isi posisi satu per satu.</strong> Posisi pertama
+      dapat diisi 6 angka, posisi kedua 5 angka (satu sudah terpakai), dan
+      posisi ketiga 4 angka.
+    </p>
+
+    <div class="math-display">\[ 6\times5\times4=120. \]</div>
+
+    <p>
+      <strong>Langkah 3 – Periksa dengan rumus.</strong> Hasil ini sama dengan
+      \({}_6P_3=\dfrac{6!}{3!}=120\).
+    </p>
 
     <p>Jadi, jawabannya adalah <strong>D</strong>.</p>
   </div>
@@ -1403,11 +1920,35 @@
   <div class="lesson-example">
     <h4>Pembahasan Soal 12</h4>
 
-    <p>Pilih 2 laki-laki dari 6 dan 2 perempuan dari 5.</p>
+    <p>
+      <strong>Langkah 1 – Identifikasi syarat.</strong> Tim terdiri atas tepat 2
+      laki-laki <em>dan</em> 2 perempuan. Pemilihan laki-laki dan pemilihan
+      perempuan merupakan dua tahap yang saling bebas, dan urutan anggota tidak
+      diperhatikan.
+    </p>
 
-    <div class="math-display">
-      \[ {}_6C_2\times{}_5C_2 = 15\times10 = 150. \]
-    </div>
+    <p>
+      <strong>Langkah 2 – Pilih 2 laki-laki dari 6.</strong>
+      \({}_6C_2=\dfrac{6\cdot5}{2\cdot1}=15\).
+    </p>
+
+    <p>
+      <strong>Langkah 3 – Pilih 2 perempuan dari 5.</strong>
+      \({}_5C_2=\dfrac{5\cdot4}{2\cdot1}=10\).
+    </p>
+
+    <p>
+      <strong>Langkah 4 – Kalikan kedua tahap.</strong> Gunakan aturan
+      perkalian.
+    </p>
+
+    <div class="math-display">\[ {}_6C_2\times{}_5C_2=15\times10=150. \]</div>
+
+    <p>
+      <strong>Langkah 5 – Periksa.</strong> Hasil \({}_{11}C_4=330\) tidak
+      dipakai karena menghitung semua tim 4 orang tanpa memperhatikan syarat
+      komposisi.
+    </p>
 
     <p>Jadi, jawabannya adalah <strong>B</strong>.</p>
   </div>
@@ -1415,23 +1956,42 @@
   <div class="lesson-example">
     <h4>Pembahasan Soal 13</h4>
 
-    <p>Hitung seluruh susunan terlebih dahulu:</p>
+    <p>
+      <strong>Langkah 1 – Pilih metode.</strong> Syarat "\(A\) dan \(B\) tidak
+      boleh berdampingan" lebih mudah diselesaikan dengan metode komplemen:
+      seluruh susunan dikurangi susunan ketika \(A\) dan \(B\) berdampingan.
+    </p>
+
+    <p>
+      <strong>Langkah 2 – Hitung seluruh susunan.</strong> Enam orang berbeda
+      disusun berjajar.
+    </p>
 
     <div class="math-display">\[ 6!=720. \]</div>
 
     <p>
-      Selanjutnya hitung susunan ketika \(A\) dan \(B\) berdampingan. Anggap
-      \(A,B\) sebagai satu blok.
+      <strong
+        >Langkah 3 – Hitung susunan ketika \(A\) dan \(B\) berdampingan.</strong
+      >
+      Anggap \(A\) dan \(B\) sebagai satu blok, sehingga terdapat 5 objek: blok,
+      \(C\), \(D\), \(E\), \(F\). Susunan kelima objek adalah \(5!\), dan di
+      dalam blok terdapat 2 susunan (\(AB\) atau \(BA\)).
     </p>
 
     <div class="math-display">\[ 5!\times2!=120\times2=240. \]</div>
 
     <p>
-      Karena yang dicari adalah susunan ketika \(A\) dan \(B\) tidak
-      berdampingan:
+      <strong>Langkah 4 – Kurangkan.</strong> Susunan yang diminta adalah
+      seluruh susunan dikurangi susunan yang tidak memenuhi syarat.
     </p>
 
     <div class="math-display">\[ 720-240=480. \]</div>
+
+    <p>
+      <strong>Langkah 5 – Periksa dengan metode celah.</strong> Susun 4 orang
+      lain dalam \(4!=24\) cara. Terdapat 5 celah, dan \(A\), \(B\) menempati
+      dua celah berbeda dalam \({}_5P_2=20\) cara, sehingga \(24\times20=480\).
+    </p>
 
     <p>Jadi, jawabannya adalah <strong>C</strong>.</p>
   </div>
@@ -1440,11 +2000,35 @@
     <h4>Pembahasan Soal 14</h4>
 
     <p>
-      Anggap \(A\) dan \(B\) sebagai satu blok. Maka terdapat 4 objek yang
-      disusun melingkar.
+      <strong>Langkah 1 – Identifikasi.</strong> Lima orang duduk melingkar dan
+      \(A\), \(B\) harus berdampingan. Gunakan metode blok bersama permutasi
+      melingkar.
     </p>
 
-    <div class="math-display">\[ (4-1)!\times2! = 3!\times2 = 12. \]</div>
+    <p>
+      <strong>Langkah 2 – Bentuk blok.</strong> Anggap \(A\) dan \(B\) sebagai
+      satu blok. Objek yang disusun melingkar menjadi 4, yaitu blok dan 3 orang
+      lainnya.
+    </p>
+
+    <p>
+      <strong>Langkah 3 – Susun objek secara melingkar.</strong> Banyak susunan
+      melingkar untuk 4 objek adalah \((4-1)!=3!=6\).
+    </p>
+
+    <p>
+      <strong>Langkah 4 – Susun di dalam blok.</strong> \(A\) dan \(B\) dapat
+      berada pada urutan \(AB\) atau \(BA\), yaitu 2 cara.
+    </p>
+
+    <div class="math-display">\[ (4-1)!\times2!=6\times2=12. \]</div>
+
+    <p>
+      <strong>Langkah 5 – Periksa.</strong> Tanpa syarat terdapat \(4!=24\)
+      susunan melingkar. Letak \(B\) relatif terhadap \(A\) ada 4 kemungkinan,
+      dan 2 di antaranya berdampingan, sehingga separuh susunan, yaitu 12,
+      memenuhi syarat.
+    </p>
 
     <p>Jadi, jawabannya adalah <strong>B</strong>.</p>
   </div>
@@ -1452,20 +2036,42 @@
   <div class="lesson-example">
     <h4>Pembahasan Soal 15</h4>
 
-    <p>Banyak cara memilih 5 soal dari 8 soal adalah:</p>
-
-    <div class="math-display">\[ {}_8C_5={}_8C_3=56. \]</div>
-
     <p>
-      Sekarang hitung pilihan yang memuat soal 1 dan 2 sekaligus. Jika soal 1
-      dan 2 sudah dipilih, tiga soal lainnya dipilih dari 6 soal:
+      <strong>Langkah 1 – Pilih metode.</strong> Syarat "soal 1 dan 2 tidak
+      boleh dipilih bersamaan" diselesaikan dengan metode komplemen: seluruh
+      pilihan dikurangi pilihan yang memuat soal 1 dan 2 sekaligus.
     </p>
 
-    <div class="math-display">\[ {}_6C_3=20. \]</div>
+    <p>
+      <strong>Langkah 2 – Hitung seluruh pilihan.</strong> Pilih 5 dari 8 soal.
+    </p>
 
-    <p>Maka pilihan yang memenuhi syarat adalah:</p>
+    <div class="math-display">
+      \[ {}_8C_5={}_8C_3=\frac{8\cdot7\cdot6}{3\cdot2\cdot1}=56. \]
+    </div>
+
+    <p>
+      <strong>Langkah 3 – Hitung pilihan yang memuat soal 1 dan 2.</strong> Jika
+      soal 1 dan 2 sudah dipilih, tinggal memilih 3 soal lagi dari 6 soal yang
+      tersisa.
+    </p>
+
+    <div class="math-display">
+      \[ {}_6C_3=\frac{6\cdot5\cdot4}{3\cdot2\cdot1}=20. \]
+    </div>
+
+    <p>
+      <strong>Langkah 4 – Kurangkan.</strong> Banyak pilihan yang memenuhi
+      syarat adalah
+    </p>
 
     <div class="math-display">\[ 56-20=36. \]</div>
+
+    <p>
+      <strong>Langkah 5 – Periksa dengan pemisahan kasus.</strong> Tanpa soal 1
+      dan 2: \({}_6C_5=6\). Hanya soal 1 tanpa soal 2: \({}_6C_4=15\). Hanya
+      soal 2 tanpa soal 1: \({}_6C_4=15\). Jumlahnya \(6+15+15=36\).
+    </p>
 
     <p>Jadi, jawabannya adalah <strong>A</strong>.</p>
   </div>
@@ -1474,11 +2080,28 @@
     <h4>Pembahasan Soal 16</h4>
 
     <p>
-      Agar habis dibagi 5, digit terakhir harus 5. Dua posisi pertama kemudian
-      diisi dengan dua angka berbeda dari \(1,2,3,4\).
+      <strong>Langkah 1 – Terapkan syarat habis dibagi 5.</strong> Bilangan
+      habis dibagi 5 jika digit satuannya 0 atau 5. Angka yang tersedia adalah
+      \(1,2,3,4,5\) (tanpa 0), sehingga digit satuan harus 5.
     </p>
 
-    <div class="math-display">\[ 4\times3=12. \]</div>
+    <p>
+      <strong>Langkah 2 – Isi posisi yang dibatasi lebih dahulu.</strong> Posisi
+      satuan hanya dapat diisi 1 cara, yaitu angka 5.
+    </p>
+
+    <p>
+      <strong>Langkah 3 – Isi dua posisi lainnya.</strong> Angka harus berbeda
+      dan 5 sudah terpakai. Posisi ratusan dapat diisi dari \(\{1,2,3,4\}\),
+      yaitu 4 cara. Posisi puluhan dapat diisi dari 3 angka yang tersisa, yaitu
+      3 cara.
+    </p>
+
+    <div class="math-display">
+      \[
+      \underbrace{4}_{\text{ratusan}}\times\underbrace{3}_{\text{puluhan}}\times\underbrace{1}_{\text{satuan}}=12.
+      \]
+    </div>
 
     <p>Jadi, jawabannya adalah <strong>C</strong>.</p>
   </div>
@@ -1487,12 +2110,29 @@
     <h4>Pembahasan Soal 17</h4>
 
     <p>
-      Persamaan \(x+y+z=7\) memiliki \(n=3\) variabel bilangan bulat taknegatif
-      dengan jumlah \(r=7\). Gunakan kombinasi dengan pengulangan:
+      <strong>Langkah 1 – Kenali bentuk soal.</strong> Persamaan \(x+y+z=7\)
+      dengan \(x,y,z\) bilangan bulat taknegatif berarti membagikan 7 satuan
+      kepada 3 variabel. Gunakan kombinasi dengan pengulangan (bintang dan
+      garis).
+    </p>
+
+    <p>
+      <strong>Langkah 2 – Tentukan \(n\) dan \(r\).</strong> Banyak variabel
+      \(n=3\) dan jumlahnya \(r=7\).
+    </p>
+
+    <p>
+      <strong>Langkah 3 – Ilustrasi bintang dan garis.</strong> Gambarkan 7
+      bintang dan \(n-1=2\) garis pemisah. Contohnya
+      \(\star\star\,|\,\star\star\star\,|\,\star\star\) berarti
+      \(x=2,\;y=3,\;z=2\). Setiap solusi berkorespondensi dengan satu susunan 9
+      simbol, dan kita memilih 2 posisi dari 9 untuk garis.
     </p>
 
     <div class="math-display">
-      \[ \binom{3+7-1}{7} = \binom{9}{7} = \binom{9}{2} = 36. \]
+      \[
+      \binom{n+r-1}{r}=\binom{3+7-1}{7}=\binom{9}{7}=\binom{9}{2}=\frac{9\cdot8}{2}=36.
+      \]
     </div>
 
     <p>Jadi, jawabannya adalah <strong>B</strong>.</p>
@@ -1502,83 +2142,238 @@
     <h4>Pembahasan Soal 18</h4>
 
     <p>
-      Suku yang memuat \(x^3\) diperoleh ketika memilih \((2x)^3\) dan \(1^2\).
+      <strong>Langkah 1 – Tulis suku umum.</strong> Pada \((2x+1)^5\), suku
+      dengan faktor \((2x)^k\) adalah \(\binom{5}{k}(2x)^k\cdot1^{5-k}\).
+    </p>
+
+    <p>
+      <strong>Langkah 2 – Tentukan nilai \(k\).</strong> Suku \(x^3\) muncul
+      ketika \(k=3\).
+    </p>
+
+    <p>
+      <strong>Langkah 3 – Hitung koefisien.</strong> \((2x)^3=8x^3\) dan
+      \(\binom{5}{3}=10\).
     </p>
 
     <div class="math-display">
-      \[ \binom{5}{3}(2x)^3 = 10\cdot8x^3 = 80x^3. \]
+      \[ \binom{5}{3}(2x)^3\cdot1^2=10\cdot8x^3=80x^3. \]
     </div>
 
-    <p>
-      Jadi, koefisien \(x^3\) adalah \(80\), sehingga jawabannya
-      <strong>C</strong>.
-    </p>
+    <p>Jadi, koefisien \(x^3\) adalah \(80\).</p>
+
+    <p>Jadi, jawabannya adalah <strong>C</strong>.</p>
   </div>
 
   <div class="lesson-example">
     <h4>Pembahasan Soal 19</h4>
 
     <p>
-      Dari angka \(1,2,3,4,5\), terdapat tiga angka ganjil \((1,3,5)\) dan dua
-      angka genap \((2,4)\).
+      <strong>Langkah 1 – Tentukan merpati dan sarang.</strong> Sarangnya adalah
+      3 warna (merah, putih, biru), dan merpatinya adalah bola yang terambil.
+      Yang dijamin adalah ada warna dengan sedikitnya 4 bola.
     </p>
 
     <p>
-      Agar kedua angka genap tidak berdampingan, tempatkan terlebih dahulu tiga
-      angka ganjil:
+      <strong>Langkah 2 – Tinjau kasus terburuk.</strong> Agar belum ada 4 bola
+      sewarna, paling banyak terambil 3 merah dan 3 putih. Bola biru hanya
+      tersedia 2, sehingga paling banyak terambil 2 biru.
     </p>
 
-    <div class="math-display">\[ 3! \]</div>
-
-    <p>Tiga angka ganjil tersebut membentuk empat celah:</p>
-
-    <div class="math-display">
-      \[ \square\;G\;\square\;G\;\square\;G\;\square. \]
-    </div>
+    <div class="math-display">\[ 3+3+2=8. \]</div>
 
     <p>
-      Dua angka genap harus ditempatkan pada dua celah yang berbeda. Banyak
-      caranya adalah:
+      <strong>Langkah 3 – Tambahkan satu bola.</strong> Bola kesembilan pasti
+      membuat salah satu warna mencapai 4 bola. Warna biru tidak mungkin
+      mencapai 4 karena hanya ada 2 bola, sehingga warna yang mencapai 4 adalah
+      merah atau putih.
     </p>
 
-    <div class="math-display">\[ {}_4C_2\times2!. \]</div>
+    <p>
+      <strong>Langkah 4 – Periksa.</strong> Rumus \(k(r-1)+1=3\cdot3+1=10\)
+      tidak dipakai karena sarang biru tidak mampu menampung 3 bola. Dengan 9
+      bola, banyak bola biru paling banyak 2, sehingga bola merah dan putih
+      paling sedikit 7. Dua warna ini memuat sedikitnya \(\lceil 7/2\rceil=4\)
+      bola yang sewarna. Dengan 8 bola masih mungkin terambil 3 merah, 3 putih,
+      dan 2 biru, sehingga 9 adalah banyak minimal.
+    </p>
 
-    <p>Jadi banyak susunan:</p>
-
-    <div class="math-display">
-      \[ 3!\times{}_4C_2\times2! = 6\times6\times2 = 72. \]
-    </div>
-
-    <p>Jadi, jawabannya adalah <strong>C</strong>.</p>
+    <p>Jadi, jawabannya adalah <strong>B</strong>.</p>
   </div>
 
   <div class="lesson-example">
     <h4>Pembahasan Soal 20</h4>
 
     <p>
-      Misalkan empat bilangan yang dipilih adalah \(a_1\lt a_2\lt a_3\lt a_4\).
-      Karena tidak boleh ada dua bilangan yang berurutan, harus berlaku:
+      <strong>Langkah 1 – Bentuk sarang dari pasangan.</strong> Dua bilangan
+      berjumlah 21 dapat dikelompokkan sebagai pasangan
+      \((1,20),(2,19),\ldots,(10,11)\). Setiap bilangan dari 1 sampai 20 masuk
+      tepat satu pasangan, sehingga terdapat 10 sarang.
+    </p>
+
+    <div class="math-display">\[ a+b=21\;\Longrightarrow\;b=21-a. \]</div>
+
+    <p>
+      <strong>Langkah 2 – Tinjau kasus terburuk.</strong> Jika diambil paling
+      banyak satu bilangan dari setiap pasangan, tidak ada dua bilangan yang
+      berjumlah 21. Banyak bilangan terbanyak pada keadaan ini adalah 10,
+      misalnya \(1,2,\ldots,10\) dengan jumlah terbesar \(10+9=19\).
+    </p>
+
+    <p>
+      <strong>Langkah 3 – Tambahkan satu bilangan.</strong> Jika diambil 11
+      bilangan, ada dua bilangan yang berasal dari pasangan yang sama. Dua
+      bilangan berbeda dari satu pasangan pasti berjumlah 21.
+    </p>
+
+    <p>
+      <strong>Langkah 4 – Periksa.</strong> Karena 10 bilangan belum menjamin
+      dan 11 bilangan pasti menjamin, banyak minimalnya adalah 11.
+    </p>
+
+    <p>Jadi, jawabannya adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 21</h4>
+
+    <p>
+      <strong>Langkah 1 – Kelompokkan angka.</strong> Angka genap adalah \(2,4\)
+      dan angka ganjil adalah \(1,3,5\). Syaratnya: dua angka genap tidak boleh
+      berdampingan, sehingga gunakan metode celah.
+    </p>
+
+    <p>
+      <strong>Langkah 2 – Susun angka ganjil lebih dahulu.</strong> Tiga angka
+      ganjil disusun dalam \(3!=6\) cara.
+    </p>
+
+    <p>
+      <strong>Langkah 3 – Tentukan celah.</strong> Tiga angka ganjil (G)
+      membentuk 4 celah.
+    </p>
+
+    <div class="math-display">
+      \[ \square\;G\;\square\;G\;\square\;G\;\square. \]
+    </div>
+
+    <p>
+      <strong>Langkah 4 – Tempatkan angka genap.</strong> Angka 2 dan 4 harus
+      menempati dua celah berbeda. Pilih celah untuk angka 2 (4 cara), lalu
+      celah untuk angka 4 (3 cara), sehingga \({}_4P_2=4\cdot3=12\), atau sama
+      dengan \({}_4C_2\times2!=6\times2=12\).
+    </p>
+
+    <p><strong>Langkah 5 – Kalikan.</strong> Gunakan aturan perkalian.</p>
+
+    <div class="math-display">\[ 3!\times{}_4P_2=6\times12=72. \]</div>
+
+    <p>
+      <strong>Langkah 6 – Periksa dengan komplemen.</strong> Seluruh susunan
+      adalah \(5!=120\). Susunan ketika 2 dan 4 berdampingan adalah
+      \(4!\times2!=48\). Maka \(120-48=72\).
+    </p>
+
+    <p>Jadi, jawabannya adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 22</h4>
+
+    <p>
+      <strong>Langkah 1 – Urutkan bilangan yang dipilih.</strong> Misalkan empat
+      bilangan yang dipilih adalah \(a_1\lt a_2\lt a_3\lt a_4\) dari
+      \(\{1,2,\ldots,10\}\). Tidak ada dua bilangan berurutan berarti selisih
+      bilangan yang berdekatan paling sedikit 2.
     </p>
 
     <div class="math-display">
       \[ a_2\geq a_1+2,\qquad a_3\geq a_2+2,\qquad a_4\geq a_3+2. \]
     </div>
 
-    <p>Gunakan transformasi:</p>
+    <p>
+      <strong>Langkah 2 – Buat transformasi.</strong> Kurangi bilangan ke-\(i\)
+      dengan \(i-1\).
+    </p>
 
     <div class="math-display">
       \[ b_1=a_1,\quad b_2=a_2-1,\quad b_3=a_3-2,\quad b_4=a_4-3. \]
     </div>
 
     <p>
-      Dengan transformasi tersebut, diperoleh \(b_1\lt b_2\lt b_3\lt b_4\)
-      dengan \(1\leq b_i\leq7\). Jadi, setiap pilihan empat bilangan yang
-      memenuhi syarat berkorespondensi satu-satu dengan pemilihan empat bilangan
-      berbeda dari \(1,2,\ldots,7\). Banyak pilihannya adalah:
+      <strong>Langkah 3 – Periksa sifat bilangan baru.</strong> Dari \(a_2\geq
+      a_1+2\) diperoleh \(b_2=a_2-1\geq a_1+1=b_1+1\), sehingga \(b_1\lt b_2\).
+      Dengan cara yang sama \(b_2\lt b_3\lt b_4\). Batasnya: \(b_1\geq1\) dan
+      \(b_4=a_4-3\leq10-3=7\).
     </p>
 
-    <div class="math-display">\[ {}_7C_4 = {}_7C_3 = 35. \]</div>
+    <p>
+      <strong>Langkah 4 – Gunakan korespondensi satu-satu.</strong> Setiap
+      pilihan \(a_1,a_2,a_3,a_4\) yang memenuhi syarat menghasilkan empat
+      bilangan berbeda \(b_1\lt b_2\lt b_3\lt b_4\) dari \(\{1,2,\ldots,7\}\).
+      Sebaliknya, setiap empat bilangan berbeda dari \(\{1,2,\ldots,7\}\) dapat
+      dikembalikan dengan \(a_i=b_i+(i-1)\). Jadi, banyaknya pilihan sama.
+    </p>
+
+    <p><strong>Langkah 5 – Hitung.</strong> Pilih 4 bilangan dari 7.</p>
+
+    <div class="math-display">
+      \[ {}_7C_4={}_7C_3=\frac{7\cdot6\cdot5}{3\cdot2\cdot1}=35. \]
+    </div>
+
+    <p>
+      Sebagai bentuk umum, banyak himpunan bagian \(k\) anggota dari
+      \(\{1,\ldots,n\}\) tanpa dua bilangan berurutan adalah
+      \(\binom{n-k+1}{k}=\binom{10-4+1}{4}=35\).
+    </p>
 
     <p>Jadi, jawabannya adalah <strong>A</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 23</h4>
+
+    <p>
+      <strong>Langkah 1 – Tulis setiap bilangan dalam bentuk khusus.</strong>
+      Setiap bilangan bulat positif \(m\) dapat ditulis tepat satu cara sebagai
+      \(n=m\cdot2^k\) dengan \(m\) ganjil dan \(k\geq0\). Contohnya
+      \(40=5\cdot2^3\).
+    </p>
+
+    <p>
+      <strong>Langkah 2 – Tentukan sarang.</strong> Jadikan sarang berdasarkan
+      bagian ganjil \(m\). Untuk bilangan 1 sampai 50,
+      \(m\in\{1,3,5,\ldots,49\}\), yaitu 25 sarang.
+    </p>
+
+    <p>
+      <strong>Langkah 3 – Gunakan prinsip sarang merpati.</strong> Jika dipilih
+      26 bilangan, terdapat dua bilangan yang berada pada sarang yang sama,
+      misalnya \(a=m\cdot2^{i}\) dan \(b=m\cdot2^{j}\) dengan \(i\lt j\).
+    </p>
+
+    <div class="math-display">
+      \[ \frac{b}{a}=\frac{m\cdot2^{j}}{m\cdot2^{i}}=2^{\,j-i}. \]
+    </div>
+
+    <p>
+      Karena \(j-i\) bilangan bulat positif, \(\dfrac{b}{a}\) bilangan bulat
+      sehingga \(a\) habis membagi \(b\).
+    </p>
+
+    <p>
+      <strong>Langkah 4 – Tunjukkan bahwa 25 bilangan belum cukup.</strong>
+      Pilih \(26,27,\ldots,50\) (25 bilangan). Untuk dua bilangan \(a\lt b\)
+      pada himpunan ini, \(b\leq50\lt52=2\cdot26\leq2a\), sehingga
+      \(1\lt\dfrac{b}{a}\lt2\) dan \(\dfrac{b}{a}\) bukan bilangan bulat. Jadi,
+      tidak ada bilangan yang habis membagi yang lain.
+    </p>
+
+    <p>
+      Dengan demikian, banyak bilangan minimal yang harus dipilih adalah
+      \(25+1=26\).
+    </p>
+
+    <p>Jadi, jawabannya adalah <strong>D</strong>.</p>
   </div>
 </section>
