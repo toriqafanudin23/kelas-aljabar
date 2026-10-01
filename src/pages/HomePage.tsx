@@ -26,9 +26,9 @@ export function HomePage({ navigate }: HomePageProps) {
               Kuasai matematika SMA dalam <em>30 hari.</em>
             </h1>
             <p>
-              Sumber terbuka pelajaran matematika SMA yang disusun secara ilmiah,
-              runtut berdasarkan urutan prasyarat, serta disesuaikan untuk persiapan
-              OSN dan UTBK-SNBT.
+              Sumber terbuka pelajaran matematika SMA yang disusun secara
+              ilmiah, runtut berdasarkan urutan prasyarat, serta disesuaikan
+              untuk persiapan OSN dan UTBK-SNBT.
             </p>
             <div className="hero-actions">
               <a
@@ -56,21 +56,28 @@ export function HomePage({ navigate }: HomePageProps) {
               <span className="focus-number">01</span>
               <p>
                 <strong>Matematika SMA</strong>
-                <small>Materi berjenjang Fase E, Fase F, dan Fase F Lanjut</small>
+                <small>
+                  Materi berjenjang Fase E, Fase F, dan Fase F Lanjut
+                </small>
               </p>
             </div>
             <div className="focus-row">
               <span className="focus-number">02</span>
               <p>
                 <strong>Persiapan Olimpiade</strong>
-                <small>Pendalaman konsep teoritis dan pembuktian matematis</small>
+                <small>
+                  Pendalaman konsep teoritis dan pembuktian matematis
+                </small>
               </p>
             </div>
             <div className="focus-row">
               <span className="focus-number">03</span>
               <p>
                 <strong>Persiapan UTBK-SNBT</strong>
-                <small>Penalaran matematika analitis dan pemecahan masalah kuantitatif</small>
+                <small>
+                  Penalaran matematika analitis dan pemecahan masalah
+                  kuantitatif
+                </small>
               </p>
             </div>
             <div className="panel-credit">
@@ -88,7 +95,8 @@ export function HomePage({ navigate }: HomePageProps) {
             <span className="section-kicker">Rekomendasi Alur Belajar</span>
             <h2>Urutan Pembelajaran Berdasarkan Prasyarat</h2>
             <p>
-              Materi matematika saling berkesinambungan. Kuasai konsep fondasi sebelum melanjutkan ke topik tingkat lanjut:
+              Materi matematika saling berkesinambungan. Kuasai konsep fondasi
+              sebelum melanjutkan ke topik tingkat lanjut:
             </p>
           </div>
         </div>
@@ -97,33 +105,86 @@ export function HomePage({ navigate }: HomePageProps) {
           <div className="pathway-card">
             <div className="pathway-step">Tahap 1</div>
             <h4>Fase E (Kelas X)</h4>
-            <p className="pathway-desc">Fondasi aljabar dasar, sistem linear, dan fungsi kuadrat.</p>
+            <p className="pathway-desc">
+              Bangun dasar aljabar, fungsi, dan literasi data sebelum masuk ke
+              materi lanjutan.
+            </p>
             <ul className="pathway-list">
-              <li><strong>Modul 01:</strong> Eksponensial &amp; Logaritma</li>
-              <li><strong>Modul 02:</strong> Sistem Persamaan &amp; Pertidaksamaan Linear</li>
-              <li><strong>Modul 03:</strong> Fungsi Kuadrat</li>
+              <li>
+                <strong>Modul 01:</strong> Eksponensial &amp; Logaritma
+              </li>
+              <li>
+                <strong>Modul 02:</strong> Sistem Persamaan &amp; Pertidaksamaan
+                Linear
+              </li>
+              <li>
+                <strong>Modul 03:</strong> Fungsi Kuadrat
+              </li>
+              <li>
+                <strong>Modul 04:</strong> Statistika
+              </li>
             </ul>
           </div>
 
           <div className="pathway-card">
             <div className="pathway-step">Tahap 2</div>
             <h4>Fase F (Kelas XI)</h4>
-            <p className="pathway-desc">Pengembangan struktur aljabar, matriks, vektor, dan geometri analitik.</p>
+            <p className="pathway-desc">
+              Perkuat fungsi dan aljabar, lalu lanjutkan ke aljabar linear serta
+              geometri analitik.
+            </p>
             <ul className="pathway-list">
-              <li><strong>Modul 04:</strong> Barisan &amp; Deret</li>
-              <li><strong>Modul 05:</strong> Matriks</li>
-              <li><strong>Modul 06:</strong> Vektor</li>
-              <li><strong>Modul 07:</strong> Transformasi Geometri (Prasyarat: Matriks)</li>
+              <li>
+                <strong>Modul 05:</strong> Komposisi Fungsi &amp; Invers
+              </li>
+              <li>
+                <strong>Modul 06:</strong> Barisan &amp; Deret
+              </li>
+              <li>
+                <strong>Modul 07:</strong> Matriks
+              </li>
+              <li>
+                <strong>Modul 08:</strong> Vektor
+              </li>
+              <li>
+                <strong>Modul 09:</strong> Transformasi Geometri (Prasyarat:
+                Matriks)
+              </li>
+              <li>
+                <strong>Modul 12:</strong> Polinomial
+              </li>
             </ul>
           </div>
 
           <div className="pathway-card">
             <div className="pathway-step">Tahap 3</div>
             <h4>Fase F Lanjut (Kelas XII)</h4>
-            <p className="pathway-desc">Pencacahan diskrit dan pemodelan peluang stokastik.</p>
+            <p className="pathway-desc">
+              Pelajari pencacahan sebagai landasan untuk menghitung peluang
+              kejadian.
+            </p>
             <ul className="pathway-list">
-              <li><strong>Modul 08:</strong> Kombinatorika (Kaidah Pencacahan)</li>
-              <li><strong>Modul 09:</strong> Teori Peluang (Prasyarat: Kombinatorika)</li>
+              <li>
+                <strong>Modul 10:</strong> Kombinatorika (Kaidah Pencacahan)
+              </li>
+              <li>
+                <strong>Modul 11:</strong> Teori Peluang (Prasyarat:
+                Kombinatorika)
+              </li>
+            </ul>
+          </div>
+
+          <div className="pathway-card">
+            <div className="pathway-step">Tahap 4</div>
+            <h4>Pengantar Kalkulus (Kelas XII)</h4>
+            <p className="pathway-desc">
+              Gunakan konsep fungsi, aljabar, dan trigonometri sebagai bekal
+              mempelajari limit.
+            </p>
+            <ul className="pathway-list">
+              <li>
+                <strong>Modul 13:</strong> Limit Fungsi
+              </li>
             </ul>
           </div>
         </div>
@@ -136,7 +197,8 @@ export function HomePage({ navigate }: HomePageProps) {
             <span className="section-kicker">Modul Pilihan</span>
             <h2>Contoh Materi Unggulan</h2>
             <p>
-              Pilih modul untuk mempelajari teori formal, sifat-sifat matematis, dan latihan soal.
+              Pilih modul untuk mempelajari teori formal, sifat-sifat matematis,
+              dan latihan soal.
             </p>
           </div>
           <a
@@ -144,7 +206,8 @@ export function HomePage({ navigate }: HomePageProps) {
             href="/katalog"
             onClick={(event) => navigate(event, "catalog")}
           >
-            Lihat Semua 9 Modul di Katalog <span aria-hidden="true">→</span>
+            Lihat Semua {materials.length} Modul di Katalog{" "}
+            <span aria-hidden="true">→</span>
           </a>
         </div>
 
