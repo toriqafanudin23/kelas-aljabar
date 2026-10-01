@@ -14,9 +14,18 @@ function App() {
     getPageFromPath(window.location.pathname),
   );
   const [mobileTocOpen, setMobileTocOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const syncPage = () => setPage(getPageFromPath(window.location.pathname));
+    const timer = window.setTimeout(() => setIsLoading(false), 420);
+    return () => window.clearTimeout(timer);
+  }, [page]);
+
+  useEffect(() => {
+    const syncPage = () => {
+      setIsLoading(true);
+      setPage(getPageFromPath(window.location.pathname));
+    };
     window.addEventListener("popstate", syncPage);
     return () => window.removeEventListener("popstate", syncPage);
   }, []);
@@ -29,8 +38,11 @@ function App() {
   const navigate: Navigate = (event, nextPage) => {
     event.preventDefault();
     if (page !== nextPage) {
-      window.history.pushState({}, "", getPathFromPage(nextPage));
-      setPage(nextPage);
+      setIsLoading(true);
+      window.requestAnimationFrame(() => {
+        window.history.pushState({}, "", getPathFromPage(nextPage));
+        setPage(nextPage);
+      });
     }
     setMobileTocOpen(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -41,6 +53,18 @@ function App() {
 
   return (
     <>
+      {isLoading && (
+        <div className="page-loader" role="status" aria-live="polite">
+          <div className="page-loader-mark" aria-hidden="true">
+            &Sigma;
+          </div>
+          <strong>Math 1729</strong>
+          <span>Menyiapkan materi...</span>
+          <div className="page-loader-track" aria-hidden="true">
+            <span />
+          </div>
+        </div>
+      )}
       <SiteHeader
         page={page}
         navigate={navigate}
