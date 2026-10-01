@@ -635,21 +635,6 @@ function AboutPage() {
 
 function LessonPage({ slug, navigate }: { slug: string; navigate: Navigate }) {
   const [sections, setSections] = useState<LessonNavItem[]>([]);
-  const [isMobile, setIsMobile] = useState(false);
-  const [mobileTocOpen, setMobileTocOpen] = useState(false);
-
-  useEffect(() => {
-    const updateViewport = () => {
-      const nextIsMobile = window.innerWidth <= 680;
-      setIsMobile(nextIsMobile);
-      if (!nextIsMobile) setMobileTocOpen(false);
-    };
-
-    updateViewport();
-    window.addEventListener("resize", updateViewport);
-    return () => window.removeEventListener("resize", updateViewport);
-  }, []);
-
   const material: Material | undefined = getMaterialBySlug(slug);
   const downloadUrl =
     slug === "eksponensial"
@@ -761,41 +746,23 @@ function LessonPage({ slug, navigate }: { slug: string; navigate: Navigate }) {
         </article>
 
         {sections.length > 0 && (
-          <>
-            {isMobile && (
-              <button
-                type="button"
-                className="lesson-toc-mobile-button"
-                onClick={() => setMobileTocOpen((open) => !open)}
-                aria-label={
-                  mobileTocOpen ? "Tutup daftar isi" : "Buka daftar isi"
-                }
-              >
-                ☰ Daftar isi
-              </button>
-            )}
-
-            <details
-              className="lesson-toc"
-              open={isMobile ? mobileTocOpen : true}
-            >
-              <summary>
-                <span>Dalam modul ini</span>
-                <span className="toc-count">{sections.length} bagian</span>
-              </summary>
-              <nav aria-label="Daftar isi modul">
-                {sections.map((sec, index) => (
-                  <a href={`#${sec.id}`} key={sec.id}>
-                    <b>{String(index + 1).padStart(2, "0")}</b>
-                    {sec.title}
-                  </a>
-                ))}
-                <a className="toc-back" href="/katalog" onClick={goToCatalog}>
-                  Semua materi →
+          <details className="lesson-toc">
+            <summary>
+              <span>Dalam modul ini</span>
+              <span className="toc-count">{sections.length} bagian</span>
+            </summary>
+            <nav aria-label="Daftar isi modul">
+              {sections.map((sec, index) => (
+                <a href={`#${sec.id}`} key={sec.id}>
+                  <b>{String(index + 1).padStart(2, "0")}</b>
+                  {sec.title}
                 </a>
-              </nav>
-            </details>
-          </>
+              ))}
+              <a className="toc-back" href="/katalog" onClick={goToCatalog}>
+                Semua materi →
+              </a>
+            </nav>
+          </details>
         )}
       </div>
     </main>
