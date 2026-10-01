@@ -297,40 +297,43 @@ function HomePage({ navigate }: { navigate: Navigate }) {
           </a>
         </div>
         <div className="course-grid">
-          {materials.slice(0, 3).map((material) => (
-            <article className="course-card" key={material.slug}>
-              <div className="course-meta">
-                <span>{material.category}</span>
-                <span>Modul {material.number}</span>
-              </div>
-              <div className="course-content">
-                <p className="course-grade">
-                  {material.grade} <span>·</span> Catatan akademis
-                </p>
-                <h3>
+          {["barisan-deret", "matriks", "kombinatorika"]
+            .map((slug) => materials.find((material) => material.slug === slug))
+            .filter((material): material is Material => Boolean(material))
+            .map((material) => (
+              <article className="course-card" key={material.slug}>
+                <div className="course-meta">
+                  <span>{material.category}</span>
+                  <span>Modul {material.number}</span>
+                </div>
+                <div className="course-content">
+                  <p className="course-grade">
+                    {material.grade} <span>·</span> Catatan akademis
+                  </p>
+                  <h3>
+                    <a
+                      href={getPathFromPage(material.slug)}
+                      onClick={(event) => navigate(event, material.slug)}
+                    >
+                      {material.title}
+                    </a>
+                  </h3>
+                  <div className="formula-preview">
+                    <Formula math={material.formula} />
+                  </div>
+                  <p className="course-description">{material.description}</p>
+                </div>
+                <div className="course-footer">
+                  <span>Akses terbuka</span>
                   <a
                     href={getPathFromPage(material.slug)}
                     onClick={(event) => navigate(event, material.slug)}
                   >
-                    {material.title}
+                    Baca modul <span aria-hidden="true">→</span>
                   </a>
-                </h3>
-                <div className="formula-preview">
-                  <Formula math={material.formula} />
                 </div>
-                <p className="course-description">{material.description}</p>
-              </div>
-              <div className="course-footer">
-                <span>Akses terbuka</span>
-                <a
-                  href={getPathFromPage(material.slug)}
-                  onClick={(event) => navigate(event, material.slug)}
-                >
-                  Baca modul <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            </article>
-          ))}
+              </article>
+            ))}
         </div>
       </section>
 

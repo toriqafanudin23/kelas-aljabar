@@ -4,6 +4,7 @@ import barisanDeretHtml from "./barisan-deret.html?raw";
 import matriksHtml from "./matriks.html?raw";
 import kombinatorikaHtml from "./kombinatorika.html?raw";
 import peluangHtml from "./peluang.html?raw";
+import spplHtml from "./sppl.html?raw";
 
 export interface Material {
   id: string;
@@ -93,6 +94,18 @@ export const materials: Material[] = [
     description:
       "Mempelajari ruang sampel, kejadian, peluang dasar, peluang bersyarat, teorema Bayes, dan penerapan dalam soal nyata.",
     htmlContent: peluangHtml,
+  },
+  {
+    id: "linear-systems",
+    slug: "sppl",
+    number: "07",
+    category: "Aljabar Matematika",
+    title: "Sistem Persamaan dan Pertidaksamaan Linear",
+    grade: "Kelas X",
+    formula: "ax+by=c \\qquad ax+by\\le c",
+    description:
+      "Pelajari SPLDV, SPLTV, pertidaksamaan linear satu variabel, serta sistem pertidaksamaan linear dua variabel dan aplikasinya.",
+    htmlContent: spplHtml,
   },
 ];
 
