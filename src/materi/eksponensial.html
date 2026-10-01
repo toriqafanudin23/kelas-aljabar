@@ -1,64 +1,77 @@
-<section id="pengertian-eksponensial" data-title="Pengertian Eksponensial">
-  <h2>1. Pengertian Eksponensial</h2>
+<section id="pengertian-eksponensial" data-title="Definisi dan Konsep Eksponensial">
+  <h2>1. Definisi dan Konsep Dasar Eksponensial</h2>
 
   <p>
-    Bentuk eksponensial adalah bentuk matematika yang memuat bilangan
-    berpangkat. Secara umum dapat ditulis sebagai \(a^n\), dengan \(a\) disebut
-    <strong>basis</strong> dan \(n\) disebut <strong>eksponen/pangkat</strong>.
+    Secara aljabar, konsep eksponensial berkaitan erat dengan operasi perpangkatan berulang dan fungsi pertumbuhan maupun peluruhan. Bentuk eksponensial elementer didefinisikan sebagai ekspresi matematis yang memuat bilangan pokok (basis) yang dipangkatkan dengan suatu eksponen. Secara formal, bentuk ini ditulis sebagai \(a^n\), di mana \(a \in \mathbb{R}\) dinamakan <strong>basis (bilangan pokok)</strong> dan \(n\) dinamakan <strong>eksponen (pangkat)</strong>.
   </p>
 
   <div class="lesson-example">
-    <h4>Contoh</h4>
-    <div class="math-display">\[2^5=2\cdot2\cdot2\cdot2\cdot2=32\]</div>
+    <h4>Ilustrasi Konsep</h4>
+    <div class="math-display">\[2^5 = 2 \cdot 2 \cdot 2 \cdot 2 \cdot 2 = 32\]</div>
     <p>
-      Pada \(2^5\), basisnya adalah \(2\), sedangkan eksponennya adalah \(5\).
+      Pada ekspresi \(2^5\), basis operasi adalah \(2\) dan eksponennya adalah \(5\), yang merepresentasikan perkalian bilangan \(2\) sebanyak lima faktor berulang.
     </p>
   </div>
 
-  <h3>Makna Pangkat</h3>
+  <h3>Perluasan Definisi Pangkat pada Bilangan Real</h3>
   <ul>
     <li>
-      \(a^n\), untuk \(n\) bilangan bulat positif, berarti \(a\) dikalikan
-      dengan dirinya sendiri sebanyak \(n\) kali.
+      <strong>Pangkat Bulat Positif:</strong> Untuk \(n \in \mathbb{N}\), bentuk \(a^n\) didefinisikan sebagai perkalian bilangan \(a\) dengan dirinya sendiri sebanyak \(n\) kali:
+      \[ a^n = \underbrace{a \cdot a \cdot a \cdots a}_{n\text{ faktor}} \]
     </li>
-    <li>\(a^0=1\), untuk \(a\neq0\).</li>
-    <li>\(\displaystyle a^{-n}=\frac{1}{a^n}\), untuk \(a\neq0\).</li>
     <li>
-      \(a^{\frac{m}{n}}=\sqrt[n]{a^m}\), dengan syarat akar dan domain
-      terdefinisi.
+      <strong>Pangkat Nol:</strong> Untuk setiap bilangan real \(a \neq 0\), didefinisikan identitas:
+      \[ a^0 = 1 \]
+      <em>Catatan:</em> Bentuk \(0^0\) tidak terdefinisi (merupakan bentuk tak tentu).
+    </li>
+    <li>
+      <strong>Pangkat Bulat Negatif:</strong> Untuk \(a \neq 0\) dan \(n \in \mathbb{N}\), pangkat negatif menyatakan kebalikan (invers perkalian):
+      \[ a^{-n} = \frac{1}{a^n} \]
+    </li>
+    <li>
+      <strong>Pangkat Rasional (Bentuk Akar):</strong> Untuk \(a > 0\) serta \(m, n \in \mathbb{Z}\) dengan \(n \ge 2\), pangkat pecahan didefinisikan melalui radikal:
+      \[ a^{\frac{m}{n}} = \sqrt[n]{a^m} = \left(\sqrt[n]{a}\right)^m \]
     </li>
   </ul>
 </section>
 
-<section id="sifat-pangkat" data-title="Sifat-Sifat Pangkat">
-  <h2>2. Sifat-Sifat Pangkat</h2>
+<section id="sifat-pangkat" data-title="Teorema Sifat-Sifat Pangkat">
+  <h2>2. Teorema dan Sifat-Sifat Aljabar Eksponen</h2>
 
-  <p>Beberapa sifat pangkat yang paling sering digunakan adalah:</p>
+  <p>
+    Untuk setiap bilangan real positif \(a, b > 0\) dan eksponen real \(m, n \in \mathbb{R}\), berlaku hukum-hukum eksponen berikut:
+  </p>
 
   <div class="math-display">
-    \[ \begin{aligned} a^m\cdot a^n&=a^{m+n}\\ \frac{a^m}{a^n}&=a^{m-n},\quad
-    a\neq0\\ (a^m)^n&=a^{mn}\\ (ab)^n&=a^n b^n\\ \left(\frac
-    ab\right)^n&=\frac{a^n}{b^n},\quad b\neq0\\ a^{-n}&=\frac1{a^n}\\
-    a^0&=1,\quad a\neq0 \end{aligned} \]
+    \[ \begin{aligned}
+    a^m \cdot a^n &= a^{m+n} && \text{(Perkalian basis sama)} \\
+    \frac{a^m}{a^n} &= a^{m-n}, \quad a \neq 0 && \text{(Pembagian basis sama)} \\
+    (a^m)^n &= a^{mn} && \text{(Pemangkatan bentuk berpangkat)} \\
+    (ab)^n &= a^n b^n && \text{(Perpangkatan hasil kali)} \\
+    \left(\frac{a}{b}\right)^n &= \frac{a^n}{b^n}, \quad b \neq 0 && \text{(Perpangkatan hasil bagi)} \\
+    a^{-n} &= \frac{1}{a^n} && \text{(Invers pangkat negatif)} \\
+    a^0 &= 1, \quad a \neq 0 && \text{(Identitas pangkat nol)}
+    \end{aligned} \]
   </div>
 
   <div class="lesson-example">
-    <h4>Contoh</h4>
-    <p>Sederhanakan \( \displaystyle \frac{2^7\cdot2^{-3}}{2^2} \).</p>
+    <h4>Contoh Analitis</h4>
+    <p>Sederhanakan bentuk aljabar berikut ke dalam pangkat positif: \(\displaystyle \frac{2^7 \cdot 2^{-3}}{2^2}\).</p>
     <div class="math-display">
-      \[ \frac{2^7\cdot2^{-3}}{2^2} =2^{7-3-2} =2^2 =4 \]
+      \[ \frac{2^7 \cdot 2^{-3}}{2^2} = 2^{7 + (-3) - 2} = 2^{2} = 4 \]
     </div>
   </div>
 
-  <h3>Pangkat Pecahan</h3>
+  <h3>Operasi pada Pangkat Pecahan</h3>
   <div class="math-display">
-    \[ a^{\frac{1}{n}}=\sqrt[n]{a},\qquad a^{\frac{m}{n}}=\sqrt[n]{a^m} \]
+    \[ a^{\frac{1}{n}} = \sqrt[n]{a}, \qquad a^{\frac{m}{n}} = \sqrt[n]{a^m} \]
   </div>
 
   <div class="lesson-example">
-    <h4>Contoh</h4>
+    <h4>Contoh Aplikasi</h4>
+    <p>Hitunglah nilai eksak dari \(27^{\frac{2}{3}}\).</p>
     <div class="math-display">
-      \[ 27^{\frac{2}{3}}=(\sqrt[3]{27})^2=3^2=9 \]
+      \[ 27^{\frac{2}{3}} = \left(27^{\frac{1}{3}}\right)^2 = (\sqrt[3]{27})^2 = 3^2 = 9 \]
     </div>
   </div>
 </section>
@@ -67,665 +80,550 @@
   <h2>3. Persamaan Eksponensial</h2>
 
   <p>
-    Persamaan eksponensial adalah persamaan yang variabelnya berada pada
-    pangkat. Strategi utama adalah mengubah kedua ruas menjadi basis yang sama.
+    Persamaan eksponensial adalah persamaan aljabar yang memuat variabel (peubah) bebas pada bagian eksponennya. Prinsip penyelesaian persamaan ini bertumpu pada sifat <strong>injektif (korespondensi satu-satu)</strong> dari fungsi eksponensial: untuk basis konstan \(a > 0\) dan \(a \neq 1\), dua nilai eksponensial bernilai sama jika dan hanya jika eksponennya sama.
   </p>
 
-  <h3>Kasus 1: Basis Sama</h3>
-  <p>Jika \(a>0\), \(a\neq1\), maka:</p>
-  <div class="math-display">\[a^{f(x)}=a^{g(x)}\Rightarrow f(x)=g(x)\]</div>
+  <h3>Tipe I: Persamaan dengan Basis Konstan yang Sama</h3>
+  <p>Apabila kedua ruas dapat dinyatakan dalam basis yang sama \(a > 0\) dan \(a \neq 1\), maka berlaku:</p>
+  <div class="math-display">\[ a^{f(x)} = a^{g(x)} \iff f(x) = g(x) \]</div>
 
   <div class="lesson-example">
-    <h4>Contoh</h4>
-    <p>Selesaikan \(3^{2x-1}=27\).</p>
+    <h4>Contoh Soal</h4>
+    <p>Tentukan nilai \(x\) yang memenuhi persamaan \(3^{2x-1} = 27\).</p>
     <div class="math-display">
-      \[ 3^{2x-1}=3^3 \Rightarrow 2x-1=3 \Rightarrow x=2 \]
+      \[ 3^{2x-1} = 3^3 \iff 2x - 1 = 3 \iff 2x = 4 \iff x = 2 \]
     </div>
   </div>
 
-  <h3>Kasus 2: Substitusi</h3>
+  <h3>Tipe II: Persamaan yang Diredusir Menjadi Persamaan Kuadrat</h3>
   <p>
-    Jika muncul bentuk seperti \(a^{2x}\) dan \(a^x\), gunakan substitusi
-    \(t=a^x\), dengan \(t>0\).
+    Bila persamaan memuat suku-suku dalam bentuk \(a^{2x}\) dan \(a^x\), penyelesaian dilakukan dengan melakukan substitusi variabel perantara:
   </p>
+  <div class="math-display">\[ t = a^x, \quad \text{dengan syarat mutlak } t > 0 \]</div>
 
   <div class="lesson-example">
-    <h4>Contoh</h4>
-    <p>Selesaikan \(2^{2x}-5(2^x)+6=0\).</p>
+    <h4>Contoh Soal</h4>
+    <p>Tentukan himpunan penyelesaian dari \(2^{2x} - 5(2^x) + 6 = 0\).</p>
     <div class="math-display">
-      \[ t=2^x>0 \Rightarrow t^2-5t+6=0 \Rightarrow (t-2)(t-3)=0 \]
-    </div>
-    <p>Jadi \(t=2\) atau \(t=3\), sehingga \(x=1\) atau \(x={}^2\log 3\).</p>
-  </div>
-
-  <h3>Kasus 3: Basis Berbeda</h3>
-  <p>
-    Jika basis tidak dapat disamakan, logaritma dapat digunakan untuk
-    mengisolasi variabel.
-  </p>
-  <div class="math-display">\[a^{f(x)}=b\Rightarrow f(x)={}^a\log b\]</div>
-  <p>
-    Cara ini mensyaratkan \(a>0\), \(a\neq1\), dan \(b>0\). Jika kedua ruas
-    berupa bentuk yang lebih kompleks, logaritma dapat diterapkan pada kedua
-    ruas setelah memastikan kedua ruas bernilai positif.
-  </p>
-</section>
-
-<section
-  id="bentuk-lain-persamaan-eksponensial"
-  data-title="Bentuk Lain Persamaan Eksponensial"
->
-  <h2>4. Bentuk Lain Persamaan Eksponensial</h2>
-
-  <h3>Persamaan yang Memerlukan Logaritma</h3>
-  <p>
-    Jika persamaan tidak dapat diubah ke basis yang sama, logaritma dapat
-    digunakan pada kedua ruas. Untuk \(a>0\) dan \(b>0\) (kedua ruas positif),
-    berlaku:
-  </p>
-  <div class="math-display">
-    \[ a^{f(x)}=b^{g(x)} \Longrightarrow f(x)\log a=g(x)\log b \]
-  </div>
-
-  <div class="lesson-example">
-    <h4>Contoh</h4>
-    <p>Selesaikan \(3^x=5\).</p>
-    <div class="math-display">
-      \[ \log(3^x)=\log 5 \Rightarrow x\log3=\log5 \Rightarrow
-      x=\frac{\log5}{\log3}={}^3\log5 \]
-    </div>
-  </div>
-
-  <h3>Substitusi pada Bentuk Kuadrat</h3>
-  <p>
-    Bentuk \(A\,a^{2x}+B\,a^x+C=0\) dapat diubah menjadi persamaan kuadrat
-    dengan \(t=a^x\), sehingga \(t>0\). Karena \(t\) harus positif, akar
-    persamaan kuadrat yang tidak memenuhi \(t>0\) harus ditolak.
-  </p>
-
-  <div class="lesson-example">
-    <h4>Contoh</h4>
-    <p>Selesaikan \(2^{2x}-3(2^x)-4=0\).</p>
-    <div class="math-display">
-      \[ t=2^x>0 \Rightarrow t^2-3t-4=0 \Rightarrow (t-4)(t+1)=0 \] \[ t=4\
-      \text{atau}\ t=-1 \]
+      \[ \text{Misalkan } t = 2^x > 0 \implies t^2 - 5t + 6 = 0 \implies (t - 2)(t - 3) = 0 \]
     </div>
     <p>
-      Karena \(t>0\), hanya \(t=4\) yang diterima. Jadi \(2^x=4\Rightarrow
-      x=2\).
+      Diperoleh akar-akar \(t_1 = 2\) atau \(t_2 = 3\). Keduanya memenuhi syarat \(t > 0\). Kembalikan ke variabel awal:
+    </p>
+    <ul>
+      <li>Untuk \(t = 2 \implies 2^x = 2^1 \iff x = 1\).</li>
+      <li>Untuk \(t = 3 \implies 2^x = 3 \iff x = {}^2\log 3\).</li>
+    </ul>
+    <p>Himpunan penyelesaian: \(\{1, {}^2\log 3\}\).</p>
+  </div>
+
+  <h3>Tipe III: Persamaan dengan Basis Berbeda</h3>
+  <p>
+    Jika basis pada kedua ruas tidak dapat disamakan secara langsung (\(a^{f(x)} = b\)), penyelesaian diselesaikan dengan mengoperasikan logaritma pada kedua ruas:
+  </p>
+  <div class="math-display">\[ a^{f(x)} = b \iff f(x) = {}^a\log b = \frac{\log b}{\log a} \]</div>
+</section>
+
+<section id="bentuk-lain-persamaan-eksponensial" data-title="Metode Reduksi dan Logaritma">
+  <h2>4. Metode Reduksi dan Aplikasi Logaritma pada Persamaan Eksponensial</h2>
+
+  <h3>Persamaan dengan Eksponen Berbeda dan Basis Tak Sejenis</h3>
+  <p>
+    Apabila persamaan eksponensial berbentuk \(a^{f(x)} = b^{g(x)}\) dengan \(a \neq b\), metode analitis yang digunakan adalah menarik logaritma (baik basis 10 maupun logaritma natural \(\ln\)) pada kedua ruas persamaan:
+  </p>
+  <div class="math-display">
+    \[ a^{f(x)} = b^{g(x)} \implies \log\left(a^{f(x)}\right) = \log\left(b^{g(x)}\right) \iff f(x)\log a = g(x)\log b \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh Soal</h4>
+    <p>Selesaikan persamaan \(3^x = 5\).</p>
+    <div class="math-display">
+      \[ \log(3^x) = \log 5 \iff x\log 3 = \log 5 \iff x = \frac{\log 5}{\log 3} = {}^3\log 5 \]
+    </div>
+  </div>
+
+  <h3>Eliminasi Nilai Irasional / Non-Positif pada Substitusi Kuadrat</h3>
+  <p>
+    Bentuk persamaan kuadratik eksponensial \(A(a^x)^2 + B(a^x) + C = 0\) menuntut ketelitian dalam memeriksa daerah hasil fungsi eksponen. Karena fungsi eksponensial bernilai real selalu positif (\(a^x > 0\)), akar karakteristik kuadratik yang bernilai negatif (\(t \le 0\)) tidak menghasilkan solusi real dan wajib dieliminasi.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh Kasus Eliminasi</h4>
+    <p>Selesaikan persamaan \(2^{2x} - 3(2^x) - 4 = 0\).</p>
+    <div class="math-display">
+      \[ \text{Substitusi } t = 2^x > 0 \implies t^2 - 3t - 4 = 0 \iff (t - 4)(t + 1) = 0 \]
+      \[ t = 4 \quad \text{atau} \quad t = -1 \]
+    </div>
+    <p>
+      Karena daerah hasil eksponensial mensyaratkan \(t > 0\), nilai \(t = -1\) ditolak (tidak memenuhi). Solusi yang berlaku hanyalah \(t = 4\), sehingga \(2^x = 4 \iff x = 2\).
     </p>
   </div>
 </section>
 
-<section id="fungsi-eksponensial" data-title="Fungsi Eksponensial">
-  <h2>5. Fungsi Eksponensial</h2>
+<section id="fungsi-eksponensial" data-title="Karakteristik Fungsi Eksponensial">
+  <h2>5. Karakteristik Analitik Fungsi Eksponensial</h2>
 
-  <p>Fungsi eksponensial berbentuk:</p>
+  <p>
+    Fungsi eksponensial baku didefinisikan sebagai pemetaan bernilai real:
+  </p>
 
-  <div class="math-display">\[f(x)=a^x,\qquad a>0,\ a\neq1\]</div>
+  <div class="math-display">\[ f: \mathbb{R} \to (0, \infty), \qquad f(x) = a^x, \quad \text{dengan } a > 0 \text{ dan } a \neq 1 \]</div>
 
-  <h3>Sifat-Sifat Fungsi</h3>
+  <h3>Sifat-Sifat Analitik Grafik</h3>
   <ul>
-    <li>Domain: semua bilangan real.</li>
-    <li>Range: \(f(x)>0\).</li>
-    <li>Grafik selalu melalui titik \((0,1)\).</li>
-    <li>Jika basis lebih besar dari 1, fungsi naik.</li>
-    <li>Jika basis di antara 0 dan 1, fungsi turun.</li>
-    <li>
-      Grafik mendekati sumbu horizontal (sumbu x), tetapi tidak memotongnya.
-    </li>
+    <li><strong>Daerah Asal (Domain):</strong> Seluruh himpunan bilangan real, \(D_f = (-\infty, \infty) = \mathbb{R}\).</li>
+    <li><strong>Daerah Hasil (Range):</strong> Himpunan bilangan real positif, \(R_f = (0, \infty) = \mathbb{R}^+\).</li>
+    <li><strong>Intersep Vertikal:</strong> Grafik selalu memotong sumbu-\(y\) di titik koordinat \((0, 1)\) karena \(a^0 = 1\).</li>
+    <li><strong>Asimtot Datar:</strong> Garis \(y = 0\) (sumbu-\(x\)) merupakan asimtot horizontal bagi kurva.</li>
+    <li><strong>Monoton Naik Murni:</strong> Untuk \(a > 1\), fungsi bersifat monoton naik (\(x_1 < x_2 \implies f(x_1) < f(x_2)\)).</li>
+    <li><strong>Monoton Turun Murni:</strong> Untuk \(0 < a < 1\), fungsi bersifat monoton turun (\(x_1 < x_2 \implies f(x_1) > f(x_2)\)).</li>
   </ul>
 
   <div class="lesson-example">
-    <h4>Contoh</h4>
-    <p>Untuk \(f(x)=2^x\), diperoleh:</p>
+    <h4>Contoh Evaluasi Titik</h4>
+    <p>Untuk fungsi eksponensial naik \(f(x) = 2^x\):</p>
     <div class="math-display">
-      \[ f(0)=1,\quad f(1)=2,\quad f(2)=4,\quad f(-1)=\frac12 \]
+      \[ f(-1) = \frac{1}{2}, \quad f(0) = 1, \quad f(1) = 2, \quad f(2) = 4 \]
     </div>
-    <p>Karena \(2>1\), grafik \(f(x)=2^x\) merupakan fungsi naik.</p>
+    <p>Kurva bergerak naik secara asimtotik dari mendekati sumbu-\(x\) di kuadran kedua menuju tak hingga di kuadran pertama.</p>
   </div>
 
-  <h3>Transformasi Sederhana</h3>
-  <p>Untuk \(g(x)=A\,a^{x-h}+k\):</p>
+  <h3>Transformasi Geometri Kurva Eksponensial</h3>
+  <p>Untuk bentuk fungsi yang telah ditransformasikan secara umum \(g(x) = A \cdot a^{x-h} + k\):</p>
   <ul>
-    <li>
-      \(h\) menggeser grafik secara horizontal: \(h>0\) ke kanan, \(h&lt;0\) ke
-      kiri.
-    </li>
-    <li>
-      \(k\) menggeser grafik secara vertikal: \(k>0\) ke atas, \(k&lt;0\) ke
-      bawah.
-    </li>
-    <li>\(|A|\) mengubah skala vertikal.</li>
-    <li>Jika \(A&lt;0\), grafik dicerminkan terhadap garis \(y=k\).</li>
-    <li>Asimtot horizontal menjadi \(y=k\).</li>
+    <li>Parameter \(h\) merepresentasikan translasi horizontal: pergeseran sejauh \(h\) satuan ke kanan (\(h > 0\)) atau ke kiri (\(h < 0\)).</li>
+    <li>Parameter \(k\) merepresentasikan translasi vertikal, sekaligus menggeser asimtot datar kurva ke garis \(y = k\).</li>
+    <li>Faktor skala \(|A|\) merepresentasikan dilatasi vertikal. Apabila \(A < 0\), kurva terefleksikan terhadap garis asimtot \(y = k\).</li>
   </ul>
-  <p>Titik acuan yang berguna adalah \((h,A+k)\), karena \(g(h)=A+k\).</p>
 </section>
 
-<section
-  id="pertidaksamaan-eksponensial"
-  data-title="Pertidaksamaan Eksponensial"
->
+<section id="pertidaksamaan-eksponensial" data-title="Pertidaksamaan Eksponensial">
   <h2>6. Pertidaksamaan Eksponensial</h2>
 
-  <p>Arah pertidaksamaan ditentukan oleh basis.</p>
+  <p>
+    Penyelesaian pertidaksamaan eksponensial ditentukan secara ketat oleh sifat kemonotonan kurva basisnya:
+  </p>
 
-  <p>Jika \(a>1\), arah pertidaksamaan tetap:</p>
+  <p><strong>1. Basis Lebih Besar dari Satu (\(a > 1\)):</strong> Karena fungsi monoton naik, tanda relasi ketaksamaan tetap dipertahankan:</p>
   <div class="math-display">
-    \[ a^{f(x)}>a^{g(x)}\Longrightarrow f(x)>g(x) \]
+    \[ a^{f(x)} > a^{g(x)} \iff f(x) > g(x) \]
   </div>
-  <p>Jika \(0&lt;a&lt;1\), arah pertidaksamaan berbalik:</p>
+
+  <p><strong>2. Basis Pecahan di Antara Nol dan Satu (\(0 < a < 1\)):</strong> Karena fungsi monoton turun, tanda relasi ketaksamaan berbalik arah:</p>
   <div class="math-display">
-    \[ a^{f(x)}>a^{g(x)}\Longrightarrow f(x)&lt;g(x) \]
+    \[ a^{f(x)} > a^{g(x)} \iff f(x) < g(x) \]
   </div>
 
   <div class="lesson-example">
-    <h4>Contoh</h4>
-    <p>Selesaikan \(2^{x+1}>16\).</p>
+    <h4>Contoh 1: Basis \(a > 1\)</h4>
+    <p>Tentukan interval penyelesaian dari \(2^{x+1} > 16\).</p>
     <div class="math-display">
-      \[ 2^{x+1}>2^4 \Rightarrow x+1>4 \Rightarrow x>3 \]
+      \[ 2^{x+1} > 2^4 \implies x + 1 > 4 \iff x > 3 \]
     </div>
   </div>
 
   <div class="lesson-example">
-    <h4>Contoh Basis Kurang dari 1</h4>
-    <p>Selesaikan \(\left(\frac12\right)^x>\left(\frac12\right)^3\).</p>
-    <div class="math-display">\[ x&lt;3 \]</div>
+    <h4>Contoh 2: Basis \(0 < a < 1\)</h4>
+    <p>Tentukan interval penyelesaian dari \(\left(\frac{1}{2}\right)^x > \left(\frac{1}{2}\right)^3\).</p>
+    <div class="math-display">\[ x < 3 \]</div>
     <p>
-      Karena \(\displaystyle 0&lt;\frac12&lt;1\), arah pertidaksamaan berbalik
-      saat eksponen dibandingkan.
+      Karena basis \(\frac{1}{2} \in (0, 1)\), tanda ketaksamaan yang semula \(>\) berbalik arah menjadi \(<\).
     </p>
   </div>
 </section>
 
-<section
-  id="pertidaksamaan-eksponensial-lanjutan"
-  data-title="Pertidaksamaan Eksponensial Lanjutan"
->
-  <h2>7. Pertidaksamaan Eksponensial Lanjutan</h2>
+<section id="pertidaksamaan-eksponensial-lanjutan" data-title="Pertidaksamaan Eksponensial Lanjutan">
+  <h2>7. Pertidaksamaan Eksponensial Berderajat Kuadrat</h2>
 
   <p>
-    Jika pertidaksamaan memuat \(a^{2x}\) dan \(a^x\), substitusi \(t=a^x\)
-    dapat mengubahnya menjadi pertidaksamaan kuadrat. Ingat bahwa selalu
-    \(t>0\).
+    Pertidaksamaan yang memuat bentuk kuadratik eksponen diselesaikan melalui substitusi \(t = a^x > 0\), diikuti pemfaktoran interval pada garis bilangan real:
   </p>
 
   <div class="lesson-example">
-    <h4>Contoh</h4>
-    <p>Selesaikan \(2^{2x}-5(2^x)+6\le0\).</p>
+    <h4>Contoh Soal</h4>
+    <p>Selesaikan pertidaksamaan \(2^{2x} - 5(2^x) + 6 \le 0\).</p>
     <div class="math-display">
-      \[ \begin{aligned} t&=2^x>0\\ t^2-5t+6&\le0\\ (t-2)(t-3)&\le0\\ 2\le
-      t&\le3\\ 2\le2^x&\le3\\ 1\le x&\le{}^2\log3 \end{aligned} \]
+      \[ \begin{aligned}
+      \text{Substitusi } t &= 2^x > 0 \\
+      t^2 - 5t + 6 &\le 0 \\
+      (t - 2)(t - 3) &\le 0 \implies 2 \le t \le 3 \\
+      2^1 \le 2^x &\le 3
+      \end{aligned} \]
+    </div>
+    <p>
+      Karena basis \(2 > 1\), operasi logaritma mempertahankan tanda ketaksamaan:
+    </p>
+    <div class="math-display">\[ 1 \le x \le {}^2\log 3 \]</div>
+    <p>Himpunan penyelesaian: \(\{x \in \mathbb{R} \mid 1 \le x \le {}^2\log 3\}\).</p>
+  </div>
+</section>
+
+<section id="aplikasi-eksponensial" data-title="Pemodelan Pertumbuhan dan Peluruhan">
+  <h2>8. Pemodelan Pertumbuhan dan Peluruhan Eksponensial</h2>
+
+  <p>
+    Dalam fenomena alamiah dan terapan, besaran kuantitas yang laju perubahannya sebanding secara langsung terhadap nilai saat itu dimodelkan menggunakan fungsi eksponensial.
+  </p>
+
+  <h3>1. Pertumbuhan Eksponensial Diskrit</h3>
+  <div class="math-display">\[ P(t) = P_0(1 + r)^t \]</div>
+  <p>
+    di mana \(P_0\) menyatakan kuantitas awal pada saat \(t = 0\), \(r > 0\) adalah laju pertumbuhan per satuan waktu, dan \(t\) adalah periode waktu.
+  </p>
+
+  <p>
+    Khusus untuk populasi yang melipatgandakan diri (doubling time) setiap selang periode \(T_d\), persamaannya dirumuskan:
+  </p>
+  <div class="math-display">\[ P(t) = P_0 \cdot 2^{\frac{t}{T_d}} \]</div>
+
+  <div class="lesson-example">
+    <h4>Contoh Pemodelan Biologi</h4>
+    <p>
+      Suatu kultur mikroorganisme mula-mula memiliki populasi 500 sel dan membelah menjadi dua kali lipat setiap 3 jam. Hitung populasi sel setelah 12 jam.
+    </p>
+    <div class="math-display">
+      \[ P(12) = 500 \cdot 2^{\frac{12}{3}} = 500 \cdot 2^4 = 500 \cdot 16 = 8.000\text{ sel} \]
+    </div>
+  </div>
+
+  <h3>2. Peluruhan Eksponensial dan Waktu Paruh</h3>
+  <div class="math-display">\[ P(t) = P_0(1 - r)^t \]</div>
+  <p>
+    di mana \(0 < r < 1\) merupakan laju peluruhan. Pada materi fisika inti, peluruhan unsur radioaktif dengan waktu paruh (half-life) \(T_{1/2}\) dinyatakan oleh:
+  </p>
+  <div class="math-display">\[ P(t) = P_0 \left(\frac{1}{2}\right)^{\frac{t}{T_{1/2}}} \]</div>
+
+  <div class="lesson-example">
+    <h4>Contoh Pemodelan Fisika Inti</h4>
+    <p>
+      Massa sampel isotop radioaktif mula-mula adalah 80 gram dengan waktu paruh 5 hari. Tentukan sisa massa isotop setelah 15 hari.
+    </p>
+    <div class="math-display">
+      \[ P(15) = 80 \left(\frac{1}{2}\right)^{\frac{15}{5}} = 80 \cdot \left(\frac{1}{2}\right)^3 = 80 \cdot \frac{1}{8} = 10\text{ gram} \]
+    </div>
+  </div>
+
+  <h3>3. Matematika Keuangan: Bunga Majemuk</h3>
+  <p>
+    Apabila modal pokok awal \(P\) diinvestasikan dengan suku bunga nominal tahunan \(r\) yang dimajemukkan sebanyak \(m\) periode per tahun selama kurun waktu \(t\) tahun, akumulasi nilai masa depan (\(A\)) dihitung dengan:
+  </p>
+  <div class="math-display">\[ A = P \left(1 + \frac{r}{m}\right)^{mt} \]</div>
+
+  <div class="lesson-example">
+    <h4>Contoh Perhitungan Finansial</h4>
+    <p>
+      Modal investasi sebesar Rp5.000.000 dibungakan dengan bunga majemuk 8% per tahun (\(r = 0{,}08\), \(m = 1\)). Tentukan nilai saldo setelah 3 tahun.
+    </p>
+    <div class="math-display">
+      \[ A = 5.000.000 \cdot (1 + 0{,}08)^3 = 5.000.000 \cdot 1{,}259712 = \text{Rp}6.298.560 \]
     </div>
   </div>
 </section>
 
-<section id="aplikasi-eksponensial" data-title="Aplikasi Eksponensial">
-  <h2>8. Aplikasi Pertumbuhan dan Peluruhan Eksponensial</h2>
-
-  <p>Model pertumbuhan/peluruhan diskrit sering dinyatakan sebagai:</p>
-
-  <div class="math-display">\[P(t)=P_0(1+r)^t\]</div>
-
-  <p>untuk pertumbuhan dengan laju \(r\). Untuk peluruhan:</p>
-
-  <div class="math-display">\[P(t)=P_0(1-r)^t\]</div>
+<section id="pengertian-logaritma" data-title="Konsep dan Definisi Logaritma">
+  <h2>9. Konsep dan Definisi Formal Logaritma</h2>
 
   <p>
-    Jika suatu besaran menjadi dua kali lipat setiap \(T\) satuan waktu,
-    modelnya dapat ditulis:
+    Logaritma merupakan operasi balikan (inversi fungsional) dari fungsi eksponensial. Secara formal, untuk basis real positif \(a > 0\) dengan \(a \neq 1\), dan argumen <strong>numerus</strong> positif \(x > 0\), relasi logaritma didefinisikan secara ekuivalen:
   </p>
 
-  <div class="math-display">\[P(t)=P_0\,2^{\frac{t}{T}}\]</div>
+  <div class="math-display">\[ {}^a\log x = y \iff a^y = x \]</div>
 
   <div class="lesson-example">
-    <h4>Contoh</h4>
-    <p>
-      Banyak bakteri mula-mula 500 dan jumlahnya menjadi dua kali lipat setiap 3
-      jam. Banyak bakteri setelah 12 jam:
-    </p>
-    <div class="math-display">
-      \[ P(12)=500\cdot2^{\frac{12}{3}}=500\cdot2^4=8000 \]
-    </div>
+    <h4>Contoh Verifikasi</h4>
+    <div class="math-display">\[ {}^2\log 32 = 5 \iff 2^5 = 32 \]</div>
+    <p>Nilai logaritma merepresentasikan eksponen yang diperlukan basis \(2\) untuk menghasilkan nilai numerus \(32\).</p>
   </div>
 
-  <h3>Peluruhan dan Waktu Paruh</h3>
-  <p>
-    Jika suatu besaran menjadi setengah kali semula setiap \(T\) satuan waktu
-    (waktu paruh), modelnya dapat ditulis:
-  </p>
-  <div class="math-display">\[P(t)=P_0\left(\frac12\right)^{\frac{t}{T}}\]</div>
-
-  <div class="lesson-example">
-    <h4>Contoh</h4>
-    <p>
-      Massa suatu zat radioaktif mula-mula 80 gram dan waktu paruhnya 5 hari.
-      Massa zat setelah 15 hari:
-    </p>
-    <div class="math-display">
-      \[ P(15)=80\left(\frac12\right)^{\frac{15}{5}}=80\cdot\frac18=10 \]
-    </div>
-    <p>Jadi massa yang tersisa adalah 10 gram.</p>
-  </div>
-
-  <h3>Bunga Majemuk</h3>
-  <div class="math-display">\[A=P(1+r)^n\]</div>
-  <p>
-    \(P\) adalah modal awal, \(r\) suku bunga per periode, \(n\) banyak periode,
-    dan \(A\) nilai akhir. Untuk model bunga majemuk biasa, \(r\ge0\). Jika
-    bunga dikapitalisasi \(m\) kali per tahun selama \(t\) tahun, bentuk yang
-    umum digunakan adalah
-  </p>
-  <div class="math-display">\[A=P\left(1+\frac{r}{m}\right)^{mt}\]</div>
-
-  <div class="lesson-example">
-    <h4>Contoh</h4>
-    <p>
-      Modal Rp5.000.000 dibungakan majemuk 8% per tahun. Nilai akhir setelah 3
-      tahun:
-    </p>
-    <div class="math-display">
-      \[ A=5.000.000\,(1{,}08)^3=5.000.000\,(1{,}259712)=6.298.560 \]
-    </div>
-    <p>Jadi nilai akhirnya adalah Rp6.298.560.</p>
-  </div>
-</section>
-
-<section id="pengertian-logaritma" data-title="Pengertian Logaritma">
-  <h2>9. Pengertian Logaritma</h2>
-
-  <p>
-    Logaritma merupakan operasi kebalikan dari perpangkatan. Untuk \(a>0\),
-    \(a\neq1\), dan \(x>0\):
-  </p>
-
-  <div class="math-display">\[ {}^a\log x=y\Longleftrightarrow a^y=x \]</div>
-
-  <div class="lesson-example">
-    <h4>Contoh</h4>
-    <div class="math-display">\[ {}^2\log 32=5 \]</div>
-    <p>karena \(2^5=32\).</p>
-  </div>
-
-  <p>
-    Hubungan ini penting karena menunjukkan bahwa logaritma dan eksponensial
-    saling membalikkan.
-  </p>
-
-  <h3>Logaritma yang Sering Digunakan</h3>
+  <h3>Konvensi Notasi Logaritma Standar</h3>
   <ul>
     <li>
-      \(\log x\) sering digunakan untuk menyatakan logaritma basis \(10\),
-      terutama dalam konteks sekolah.
+      <strong>Logaritma Umum (Briggsian):</strong> Logaritma dengan basis 10 biasa dituliskan tanpa mencantumkan indeks basis:
+      \[ \log x \equiv {}^{10}\log x \]
     </li>
     <li>
-      \(\ln x\) menyatakan logaritma natural dengan basis \(e\), yaitu
-      \(e\approx2{,}71828\).
+      <strong>Logaritma Natural (Napierian):</strong> Logaritma dengan basis bilangan Euler \(e \approx 2{,}71828\dots\) dinotasikan sebagai \(\ln x\):
+      \[ \ln x \equiv {}^e\log x \]
     </li>
   </ul>
-
-  <div class="math-display">\[ a^x=y\Longleftrightarrow{}^a\log(y)=x \]</div>
 </section>
 
-<section id="sifat-logaritma" data-title="Sifat-Sifat Logaritma">
-  <h2>10. Sifat-Sifat Logaritma</h2>
-
-  <p>Untuk \(M>0\), \(N>0\), \(a>0\), dan \(a\neq1\):</p>
-
-  <div class="math-display">
-    \[ \begin{aligned} {}^a\log(MN)&={}^a\log M+{}^a\log N\\ {}^a\log\left(\frac
-    MN\right)&={}^a\log M-{}^a\log N\\ {}^a\log(M^k)&=k{}^a\log M\\ {}^a\log
-    1&=0\\ {}^a\log a&=1 \end{aligned} \]
-  </div>
-
-  <h3>Hubungan Penting</h3>
-  <div class="math-display">\[ {}^a\log(a^x)=x,\qquad a^{{}^a\log x}=x \]</div>
-
-  <div class="lesson-example">
-    <h4>Contoh</h4>
-    <p>Sederhanakan \({}^2\log 12-{}^2\log 3\).</p>
-    <div class="math-display">\[ {}^2\log\frac{12}{3}={}^2\log 4=2 \]</div>
-  </div>
-</section>
-
-<section id="perubahan-basis" data-title="Perubahan Basis">
-  <h2>11. Perubahan Basis Logaritma</h2>
+<section id="sifat-logaritma" data-title="Teorema Sifat-Sifat Logaritma">
+  <h2>10. Teorema dan Sifat-Sifat Fundamental Logaritma</h2>
 
   <p>
-    Untuk \(a>0,\ a\neq1\), \(b>0\), \(c>0\), dan \(c\neq1\), berlaku rumus
-    perubahan basis:
+    Untuk sembarang numerus riil positif \(M, N > 0\), basis \(a > 0, a \neq 1\), dan konstanta \(k \in \mathbb{R}\), berlaku sifat-sifat fundamental berikut:
   </p>
 
-  <div class="math-display">\[ {}^a\log b=\frac{{}^c\log b}{{}^c\log a} \]</div>
-
-  <p>Basis \(c\) dapat dipilih sesuai kebutuhan, misalnya \(10\) atau \(e\).</p>
-
-  <div class="lesson-example">
-    <h4>Contoh</h4>
-    <div class="math-display">
-      \[ {}^2\log 7=\frac{{}^e\log 7}{{}^e\log 2}=\frac{\ln 7}{\ln 2} \]
-    </div>
-  </div>
-
-  <h3>Sifat Timbal Balik</h3>
-  <p>Untuk \(a,b>0\) dengan \(a\neq1\) dan \(b\neq1\):</p>
-  <div class="math-display">\[ {}^a\log b=\frac1{{}^b\log a} \]</div>
-
-  <h3>Sifat Lain</h3>
   <div class="math-display">
-    \[ {}^{a^n}\log b^m=\frac mn\,{}^a\log b,\qquad {}^a\log b\cdot{}^b\log
-    c={}^a\log c \]
+    \[ \begin{aligned}
+    {}^a\log(M \cdot N) &= {}^a\log M + {}^a\log N && \text{(Logaritma hasil kali)} \\
+    {}^a\log\left(\frac{M}{N}\right) &= {}^a\log M - {}^a\log N && \text{(Logaritma hasil bagi)} \\
+    {}^a\log(M^k) &= k \cdot {}^a\log M && \text{(Logaritma bentuk pangkat)} \\
+    {}^a\log 1 &= 0 && \text{(Karena } a^0 = 1\text{)} \\
+    {}^a\log a &= 1 && \text{(Karena } a^1 = a\text{)}
+    \end{aligned} \]
+  </div>
+
+  <h3>Identitas Inversi Komposisi</h3>
+  <p>Sebagai pasangan fungsi yang saling menginverskan, berlaku identitas komposisi:</p>
+  <div class="math-display">\[ {}^a\log(a^x) = x, \qquad a^{{}^a\log x} = x \quad (\text{untuk } x > 0) \]</div>
+
+  <div class="lesson-example">
+    <h4>Contoh Sifat Hasil Bagi</h4>
+    <p>Sederhanakan ekspresi \({}^2\log 12 - {}^2\log 3\).</p>
+    <div class="math-display">\[ {}^2\log 12 - {}^2\log 3 = {}^2\log\left(\frac{12}{3}\right) = {}^2\log 4 = {}^2\log(2^2) = 2 \]</div>
+  </div>
+</section>
+
+<section id="perubahan-basis" data-title="Teorema Perubahan Basis">
+  <h2>11. Teorema Perubahan Basis dan Identitas Turunannya</h2>
+
+  <p>
+    Teorema perubahan basis memungkinkan konversi nilai logaritma ke sembarang basis baru yang diinginkan. Untuk bilangan real positif \(a, b, c > 0\) dengan \(a \neq 1\) dan \(c \neq 1\):
+  </p>
+
+  <div class="math-display">\[ {}^a\log b = \frac{{}^c\log b}{{}^c\log a} = \frac{\log b}{\log a} = \frac{\ln b}{\ln a} \]</div>
+
+  <h3>Identitas Resiprokal (Sifat Balikan Basis)</h3>
+  <p>Dengan memilih \(c = b\) pada teorema perubahan basis, diperoleh identitas resiprokal:</p>
+  <div class="math-display">\[ {}^a\log b = \frac{1}{{}^b\log a}, \quad \text{untuk } a, b > 0 \text{ dan } a, b \neq 1 \]</div>
+
+  <h3>Sifat Pemangkatan Basis dan Aturan Rantai</h3>
+  <div class="math-display">
+    \[ {}^{a^n}\log(b^m) = \frac{m}{n} \cdot {}^a\log b, \qquad {}^a\log b \cdot {}^b\log c = {}^a\log c \]
   </div>
 
   <div class="lesson-example">
-    <h4>Contoh</h4>
-    <div class="math-display">\[ {}^4\log 8={}^{2^2}\log 2^3=\frac32 \]</div>
+    <h4>Contoh Evaluasi</h4>
+    <div class="math-display">\[ {}^4\log 8 = {}^{2^2}\log(2^3) = \frac{3}{2} \cdot {}^2\log 2 = \frac{3}{2} \]</div>
   </div>
 </section>
 
 <section id="persamaan-logaritma" data-title="Persamaan Logaritma">
-  <h2>12. Persamaan Logaritma</h2>
+  <h2>12. Persamaan Logaritma dan Syarat Eksistensi Domain</h2>
 
   <p>
-    Saat menyelesaikan persamaan logaritma,
-    <strong>syarat domain harus diperiksa terlebih dahulu</strong>. Argumen
-    setiap logaritma harus positif.
+    Dalam menyelesaikan persamaan logaritma, <strong>penentuan syarat eksistensi domain alami (syarat numerus dan syarat basis)</strong> adalah tahapan wajib yang mendahului proses aljabar. Solusi aljabar yang melanggar domain numerus (\(f(x) \le 0\)) merupakan solusi palsu (ekstran) dan wajib dieliminasi.
   </p>
 
-  <h3>Bentuk 1: Logaritma dengan Basis Sama</h3>
+  <h3>Bentuk I: Logaritma Berbasis Konstan Sama</h3>
   <div class="math-display">
-    \[ {}^a\log f(x)={}^a\log g(x)\Rightarrow f(x)=g(x), \qquad f(x)>0,\ g(x)>0
-    \]
+    \[ {}^a\log f(x) = {}^a\log g(x) \iff f(x) = g(x), \quad \text{dengan syarat } f(x) > 0 \text{ dan } g(x) > 0 \]
   </div>
-  <p>Jika ruas kanan berupa bilangan \(c\), ubah ke bentuk pangkat:</p>
+
+  <h3>Bentuk II: Logaritma Disetarakan Terhadap Konstanta</h3>
   <div class="math-display">
-    \[ {}^a\log f(x)=c\Rightarrow f(x)=a^c,\qquad f(x)>0 \]
+    \[ {}^a\log f(x) = c \iff f(x) = a^c, \quad \text{dengan syarat } f(x) > 0 \]
   </div>
 
   <div class="lesson-example">
-    <h4>Contoh</h4>
-    <p>Selesaikan \({}^3\log(x-1)=2\).</p>
-    <div class="math-display">\[ x-1=3^2=9\Rightarrow x=10 \]</div>
-    <p>Syarat \(x-1>0\) terpenuhi karena \(10>1\).</p>
+    <h4>Contoh Soal</h4>
+    <p>Tentukan penyelesaian dari persamaan logaritma: \({}^3\log(x - 1) = 2\).</p>
+    <p><strong>Syarat numerus:</strong> \(x - 1 > 0 \iff x > 1\).</p>
+    <div class="math-display">\[ x - 1 = 3^2 = 9 \iff x = 10 \]</div>
+    <p>Karena \(10 > 1\), syarat numerus terpenuhi sehingga himpunan penyelesaian adalah \(\{10\}\).</p>
   </div>
 
-  <h3>Bentuk 2: Gabungan Logaritma</h3>
   <div class="lesson-example">
-    <h4>Contoh</h4>
-    <p>Selesaikan \({}^2\log(x-1)+{}^2\log(x-3)=3\).</p>
+    <h4>Contoh Penjumlahan Logaritma</h4>
+    <p>Selesaikan \({}^2\log(x - 1) + {}^2\log(x - 3) = 3\).</p>
+    <p><strong>Syarat numerus:</strong> \(x - 1 > 0 \implies x > 1\) dan \(x - 3 > 0 \implies x > 3\). Irisan kedua domain: \(x > 3\).</p>
     <div class="math-display">
-      \[ (x-1)(x-3)=2^3=8 \] \[ x^2-4x-5=0 \Rightarrow (x-5)(x+1)=0 \]
+      \[ {}^2\log[(x - 1)(x - 3)] = 3 \iff (x - 1)(x - 3) = 2^3 = 8 \]
+      \[ x^2 - 4x + 3 = 8 \iff x^2 - 4x - 5 = 0 \iff (x - 5)(x + 1) = 0 \]
     </div>
     <p>
-      Kandidat \(x=5\) dan \(x=-1\). Karena domain mensyaratkan \(x>3\), solusi
-      yang valid adalah \(x=5\).
+      Diperoleh kandidat \(x = 5\) atau \(x = -1\). Karena domain mensyaratkan \(x > 3\), nilai \(x = -1\) tidak memenuhi domain. Jadi satu-satunya penyelesaian yang sah adalah \(x = 5\).
     </p>
   </div>
 </section>
 
-<section
-  id="persamaan-logaritma-lanjutan"
-  data-title="Persamaan Logaritma Lanjutan"
->
-  <h2>13. Persamaan Logaritma Lanjutan</h2>
+<section id="persamaan-logaritma-lanjutan" data-title="Persamaan Logaritma Lanjutan">
+  <h2>13. Persamaan Logaritma Lanjutan dan Variasi Basis</h2>
 
-  <h3>Bentuk Selisih</h3>
-  <p>Untuk argumen yang positif, gunakan sifat hasil bagi:</p>
-  <div class="math-display">
-    \[ {}^a\log f(x)-{}^a\log g(x) ={}^a\log\frac{f(x)}{g(x)} \]
+  <h3>Persamaan dengan Pengurangan Numerus</h3>
+  <div class="lesson-example">
+    <h4>Contoh Soal</h4>
+    <p>Tentukan nilai \(x\) yang memenuhi \({}^2\log(x + 2) - {}^2\log x = 1\).</p>
+    <p><strong>Syarat numerus:</strong> \(x + 2 > 0 \implies x > -2\) dan \(x > 0\). Domain berlaku: \(x > 0\).</p>
+    <div class="math-display">
+      \[ {}^2\log\left(\frac{x + 2}{x}\right) = 1 \iff \frac{x + 2}{x} = 2^1 \iff x + 2 = 2x \iff x = 2 \]
+    </div>
+    <p>Nilai \(x = 2\) memenuhi domain \(x > 0\). Himpunan penyelesaian: \(\{2\}\).</p>
   </div>
 
+  <h3>Persamaan dengan Basis Berbeda yang Berelasi</h3>
   <div class="lesson-example">
-    <h4>Contoh</h4>
-    <p>Selesaikan \({}^2\log(x+2)-{}^2\log x=1\).</p>
-    <p>Syarat domain: \(x>0\).</p>
+    <h4>Contoh Soal</h4>
+    <p>Selesaikan \({}^2\log x + {}^4\log x = 3\).</p>
+    <p><strong>Syarat numerus:</strong> \(x > 0\).</p>
+    <p>Gunakan sifat \({}^4\log x = {}^{2^2}\log x = \frac{1}{2} \cdot {}^2\log x\):</p>
     <div class="math-display">
-      \[ {}^2\log\frac{x+2}{x}=1 \Rightarrow\frac{x+2}{x}=2 \Rightarrow x=2 \]
+      \[ {}^2\log x + \frac{1}{2} \cdot {}^2\log x = 3 \iff \frac{3}{2} \cdot {}^2\log x = 3 \iff {}^2\log x = 2 \iff x = 2^2 = 4 \]
     </div>
-    <p>Nilai \(x=2\) memenuhi domain, sehingga merupakan solusi.</p>
-  </div>
-
-  <h3>Persamaan dengan Basis Berbeda</h3>
-  <p>
-    Jika basis tidak sama, perubahan basis dapat digunakan untuk mengubah
-    persamaan ke bentuk yang lebih mudah. Pada tahap akhir, semua kandidat harus
-    dicek terhadap domain logaritma.
-  </p>
-
-  <div class="lesson-example">
-    <h4>Contoh</h4>
-    <p>Selesaikan \({}^2\log x+{}^4\log x=3\).</p>
-    <p>Syarat domain: \(x>0\).</p>
-    <div class="math-display">
-      \[ \begin{aligned} {}^4\log x&=\frac{{}^2\log x}{{}^2\log
-      4}=\frac12\,{}^2\log x\\ {}^2\log x+\frac12\,{}^2\log x&=3\\
-      \frac32\,{}^2\log x&=3\\ {}^2\log x&=2\Rightarrow x=4 \end{aligned} \]
-    </div>
-    <p>Nilai \(x=4\) memenuhi domain, sehingga merupakan solusi.</p>
+    <p>Solusi \(x = 4\) memenuhi syarat numerus.</p>
   </div>
 </section>
 
 <section id="pertidaksamaan-logaritma" data-title="Pertidaksamaan Logaritma">
-  <h2>14. Pertidaksamaan Logaritma</h2>
+  <h2>14. Pertidaksamaan Logaritma dan Analisis Kemonotonan</h2>
 
-  <p>Sama seperti eksponensial, arah pertidaksamaan bergantung pada basis.</p>
+  <p>
+    Serupa dengan fungsi eksponensial, arah orientasi tanda ketaksamaan logaritma ditentukan langsung oleh kemonotonan kurva:
+  </p>
 
-  <p>Jika \(a>1\), arah pertidaksamaan tetap:</p>
+  <p><strong>1. Basis Lebih Besar dari Satu (\(a > 1\)):</strong> Fungsi logaritma bersifat monoton naik murni, sehingga tanda ketaksamaan tetap:</p>
   <div class="math-display">
-    \[ {}^a\log f(x)>{}^a\log g(x)\Longrightarrow f(x)>g(x) \]
+    \[ {}^a\log f(x) > {}^a\log g(x) \iff f(x) > g(x) > 0 \]
   </div>
-  <p>Jika \(0&lt;a&lt;1\), arah pertidaksamaan berbalik:</p>
+
+  <p><strong>2. Basis di Antara Nol dan Satu (\(0 < a < 1\)):</strong> Fungsi logaritma bersifat monoton turun murni, sehingga tanda ketaksamaan berbalik arah:</p>
   <div class="math-display">
-    \[ {}^a\log f(x)>{}^a\log g(x)\Longrightarrow f(x)&lt;g(x) \]
+    \[ {}^a\log f(x) > {}^a\log g(x) \iff 0 < f(x) < g(x) \]
   </div>
 
   <p>
-    Jangan lupa bahwa \(f(x)>0\) dan \(g(x)>0\) harus dipenuhi agar logaritma
-    terdefinisi.
+    <em>Prinsip Krusial:</em> Solusi aljabar dari perbandingan numerus <strong>wajib selalu diiriskan (interseksi)</strong> dengan syarat eksistensi numerus \(f(x) > 0\) dan \(g(x) > 0\).
   </p>
 
   <div class="lesson-example">
-    <h4>Contoh</h4>
-    <p>Tentukan himpunan penyelesaian \({}^3\log(x^2-4x+3)\ge0\).</p>
-    <p>
-      Karena basis \(3>1\), berlaku \({}^3\log u\ge0\Longleftrightarrow u\ge1\).
-    </p>
+    <h4>Contoh Kasus Basis \(a > 1\)</h4>
+    <p>Tentukan interval penyelesaian dari \({}^3\log(x^2 - 4x + 3) \ge 0\).</p>
+    <p>Karena basis \(3 > 1\), bentuk \({}^3\log u \ge 0 \iff u \ge 3^0 = 1\):</p>
     <div class="math-display">
-      \[ \begin{aligned} x^2-4x+3&\ge1\\ x^2-4x+2&\ge0\\ (x-2)^2&\ge2
-      \end{aligned} \]
+      \[ x^2 - 4x + 3 \ge 1 \iff x^2 - 4x + 2 \ge 0 \]
     </div>
-    <p>Jadi \(x\le2-\sqrt2\) atau \(x\ge2+\sqrt2\).</p>
+    <p>Akar-akar persamaan kuadrat \(x_{1,2} = \frac{4 \pm \sqrt{16 - 8}}{2} = 2 \pm \sqrt{2}\). Karena koefisien \(x^2\) positif, diperoleh interval luar:</p>
+    <div class="math-display">\[ x \le 2 - \sqrt{2} \quad \text{atau} \quad x \ge 2 + \sqrt{2} \]</div>
+    <p>Perhatikan bahwa jika \(u \ge 1\), syarat numerus \(u > 0\) otomatis terpenuhi secara konsisten.</p>
   </div>
 
   <div class="lesson-example">
-    <h4>Contoh Basis Kurang dari 1</h4>
-    <p>Tentukan himpunan penyelesaian \({}^{\frac12}\log(x-1)>2\).</p>
-    <p>
-      Syarat domain: \(x-1>0\), yaitu \(x>1\). Karena \(0&lt;\frac12&lt;1\),
-      arah pertidaksamaan berbalik saat argumen dibandingkan.
-    </p>
+    <h4>Contoh Kasus Basis Pecahan (\(0 < a < 1\))</h4>
+    <p>Tentukan penyelesaian dari \({}^{\frac{1}{2}}\log(x - 1) > 2\).</p>
+    <p><strong>Langkah 1 (Syarat Numerus):</strong> \(x - 1 > 0 \iff x > 1\).</p>
+    <p><strong>Langkah 2 (Pembalikan Arah Ketaksamaan):</strong></p>
     <div class="math-display">
-      \[ \begin{aligned} {}^{\frac12}\log(x-1)&>2={}^{\frac12}\log\frac14\\
-      x-1&\lt\frac14\\ x&\lt\frac54 \end{aligned} \]
+      \[ {}^{\frac{1}{2}}\log(x - 1) > {}^{\frac{1}{2}}\log\left(\frac{1}{2}\right)^2 \implies x - 1 < \left(\frac{1}{2}\right)^2 = \frac{1}{4} \iff x < \frac{5}{4} \]
     </div>
-    <p>Dengan syarat domain, diperoleh \(1&lt;x&lt;\dfrac54\).</p>
+    <p><strong>Langkah 3 (Interseksi Domain):</strong> Irisan dari \(x > 1\) dan \(x < \frac{5}{4}\) menghasilkan interval:</p>
+    <div class="math-display">\[ 1 < x < \frac{5}{4} \]</div>
   </div>
 </section>
 
-<section id="fungsi-logaritma" data-title="Fungsi Logaritma">
-  <h2>15. Fungsi Logaritma</h2>
+<section id="fungsi-logaritma" data-title="Analisis Fungsi Logaritma">
+  <h2>15. Analisis Karakteristik Kurva Fungsi Logaritma</h2>
 
-  <p>Fungsi logaritma berbentuk:</p>
+  <p>Fungsi logaritma real standar dinyatakan sebagai:</p>
+  <div class="math-display">\[ f: (0, \infty) \to \mathbb{R}, \qquad f(x) = {}^a\log x, \quad \text{dengan } a > 0, \ a \neq 1 \]</div>
 
-  <div class="math-display">\[f(x)={}^a\log x,\qquad a>0,\ a\neq1\]</div>
-
-  <h3>Sifat-Sifat Grafik</h3>
+  <h3>Karakteristik Analitik Kurva</h3>
   <ul>
-    <li>Domain: \(x>0\).</li>
-    <li>Range: semua bilangan real.</li>
-    <li>Grafik melalui titik \((1,0)\).</li>
-    <li>Sumbu-\(y\) (\(x=0\)) merupakan asimtot vertikal.</li>
-    <li>Jika basis lebih besar dari 1, grafik naik.</li>
-    <li>Jika basis di antara 0 dan 1, grafik turun.</li>
+    <li><strong>Daerah Asal (Domain Alami):</strong> Seluruh riil positif, \(D_f = (0, \infty) = \mathbb{R}^+\).</li>
+    <li><strong>Daerah Hasil (Range):</strong> Seluruh garis bilangan real, \(R_f = (-\infty, \infty) = \mathbb{R}\).</li>
+    <li><strong>Intersep Horizontal:</strong> Kurva memotong sumbu absis di titik \((1, 0)\) karena \({}^a\log 1 = 0\).</li>
+    <li><strong>Asimtot Tegak (Vertikal):</strong> Garis \(x = 0\) (sumbu-\(y\)) bertindak sebagai asimtot vertikal.</li>
+    <li><strong>Monotonisitas:</strong> Kurva monoton naik murni untuk \(a > 1\), dan monoton turun murni untuk \(0 < a < 1\).</li>
   </ul>
 
-  <h3>Fungsi Invers</h3>
-  <p>Fungsi \(f(x)=a^x\) dan \(g(x)={}^a\log x\) merupakan fungsi invers.</p>
-
-  <div class="math-display">\[ f(g(x))=x,\qquad g(f(x))=x \]</div>
-
-  <p>Grafik keduanya merupakan pencerminan terhadap garis \(y=x\).</p>
+  <h3>Prinsip Kesimetrian Inversi Fungsional</h3>
+  <p>
+    Fungsi eksponensial \(y = a^x\) dan fungsi logaritma \(y = {}^a\log x\) membentuk pasangan bijeksi yang saling invers:
+  </p>
+  <div class="math-display">\[ f(g(x)) = a^{{}^a\log x} = x, \qquad g(f(x)) = {}^a\log(a^x) = x \]</div>
+  <p>
+    Secara geometris pada koordinat Kartesius, grafik \(y = {}^a\log x\) merupakan hasil pencerminan (refleksi) grafik \(y = a^x\) terhadap garis identitas \(y = x\).
+  </p>
 </section>
 
-<section id="aplikasi-logaritma" data-title="Aplikasi Logaritma">
-  <h2>16. Aplikasi Logaritma</h2>
+<section id="aplikasi-logaritma" data-title="Aplikasi Sains dan Pemodelan Logaritma">
+  <h2>16. Aplikasi Sains dan Skala Pengukuran Logaritmik</h2>
 
   <p>
-    Logaritma digunakan ketika variabel yang dicari berada pada eksponen.
-    Misalnya pada model pertumbuhan:
+    Dalam ilmu fisika, kimia, dan teknik, logaritma memegang peranan krusial untuk memetakan fenomena dengan rentang variasi yang sangat lebar (multidekade) ke dalam skala linear yang mudah diinterpretasikan.
   </p>
 
-  <div class="math-display">
-    \[ P=P_0(1+r)^t \] \[ t=\frac{\log(P/P_0)}{\log(1+r)} \]
-  </div>
-
-  <div class="lesson-example">
-    <h4>Contoh</h4>
-    <p>Jika \(P(t)=1200(1{,}05)^t\), maka setelah 4 periode:</p>
-    <div class="math-display">\[ P(4)=1200(1{,}05)^4\approx1458{,}61 \]</div>
-    <p>Jadi jumlahnya sekitar \(1.459\) satuan.</p>
-  </div>
-
-  <div class="lesson-example">
-    <h4>Contoh: Menentukan Waktu</h4>
-    <p>
-      Setelah berapa periode nilai \(P(t)=1200(1{,}05)^t\) menjadi dua kali
-      lipat?
-    </p>
-    <div class="math-display">
-      \[ \begin{aligned} 1200(1{,}05)^t&=2400\\ (1{,}05)^t&=2\\
-      t&=\frac{\log2}{\log1{,}05}\approx\frac{0{,}3010}{0{,}0212}\approx14{,}2
-      \end{aligned} \]
-    </div>
-    <p>Jadi diperlukan sekitar 14,2 periode.</p>
-  </div>
-
-  <h3>Skala Logaritmik</h3>
+  <h3>1. Derajat Keasaman Kimia (Skala pH)</h3>
   <p>
-    Banyak besaran dalam sains menggunakan skala logaritmik. Prinsip umumnya
-    adalah perubahan yang sangat besar dapat dinyatakan lebih ringkas melalui
-    logaritma. Dalam soal, perhatikan basis dan definisi skala yang diberikan.
+    Tingkat keasaman larutan didefinisikan secara kuantitatif melalui konsentrasi molar ion hidrogen \([\mathrm{H}^+]\):
+  </p>
+  <div class="math-display">\[ \mathrm{pH} = -\log[\mathrm{H}^+] \]</div>
+
+  <div class="lesson-example">
+    <h4>Contoh Aplikasi</h4>
+    <p>Jika konsentrasi ion hidrogen suatu larutan kimia adalah \([\mathrm{H}^+] = 10^{-5}\text{ M}\), maka:</p>
+    <div class="math-display">\[ \mathrm{pH} = -\log(10^{-5}) = -(-5) = 5 \]</div>
+  </div>
+
+  <h3>2. Taraf Intensitas Akustik (Skala Desibel)</h3>
+  <p>
+    Sensitivitas pendengaran manusia terhadap intensitas gelombang bunyi dirumuskan melalui taraf intensitas (\(TI\)) bersatuan desibel (\(\text{dB}\)):
+  </p>
+  <div class="math-display">\[ TI = 10 \cdot \log\left(\frac{I}{I_0}\right) \]</div>
+  <p>
+    di mana \(I\) merupakan intensitas bunyi yang diukur dan \(I_0 = 10^{-12}\text{ W/m}^2\) adalah ambang batas intensitas pendengaran manusia.
   </p>
 
   <div class="lesson-example">
-    <h4>Contoh</h4>
-    <p>
-      Derajat keasaman didefinisikan \(\mathrm{pH}=-\log[\mathrm{H}^+]\). Jika
-      \([\mathrm{H}^+]=10^{-5}\) M, maka:
-    </p>
-    <div class="math-display">\[ \mathrm{pH}=-\log10^{-5}=5 \]</div>
-    <p>
-      Taraf intensitas bunyi didefinisikan \(L=10\log\dfrac{I}{I_0}\) (dalam
-      dB). Jika \(I=10^7I_0\), maka:
-    </p>
-    <div class="math-display">\[ L=10\log10^7=70\ \text{dB} \]</div>
+    <h4>Contoh Perhitungan</h4>
+    <p>Apabila suatu sumber suara memiliki intensitas \(I = 10^7 I_0\), taraf intensitasnya adalah:</p>
+    <div class="math-display">\[ TI = 10 \log(10^7) = 10 \cdot 7 = 70\text{ dB} \]</div>
   </div>
 </section>
 
-<section id="strategi-penyelesaian" data-title="Strategi Penyelesaian">
-  <h2>17. Strategi Cepat dan Kesalahan Umum</h2>
+<section id="strategi-penyelesaian" data-title="Metodologi Analisis dan Kesalahan Konseptual">
+  <h2>17. Metodologi Analisis dan Pencegahan Kesalahan Konseptual</h2>
 
-  <h3>Strategi Eksponensial</h3>
+  <h3>Prosedur Standar Penyelesaian Persamaan Eksponen &amp; Logaritma</h3>
   <ol>
-    <li>Coba samakan basis terlebih dahulu.</li>
-    <li>
-      Jika ada \(a^{2x}\) dan \(a^x\), pertimbangkan substitusi \(t=a^x\).
-    </li>
-    <li>
-      Untuk pertidaksamaan, perhatikan apakah basis lebih besar atau lebih kecil
-      dari 1.
-    </li>
-    <li>Jika variabel tetap berada di eksponen, gunakan logaritma.</li>
+    <li><strong>Identifikasi Domain Eksistensi:</strong> Selalu catat syarat numerus (\(f(x) > 0\)) dan syarat basis (\(a > 0, a \neq 1\)) sebelum memulai manipulasi aljabar.</li>
+    <li><strong>Penyetaraan Basis:</strong> Usahakan mengubah basis pada kedua ruas menjadi bilangan prima atau faktor kuadrat yang sejenis.</li>
+    <li><strong>Reduksi Variabel Perantara:</strong> Jika terdapat kombinasi pangkat \(a^{2x}\) dan \(a^x\), gunakan substitusi \(t = a^x\) dengan batasan riil \(t > 0\).</li>
+    <li><strong>Evaluasi Himpunan Penyelesaian:</strong> Lakukan uji kembali (cross-check) terhadap setiap akar aljabar yang diperoleh ke dalam syarat domain awal.</li>
   </ol>
 
-  <h3>Strategi Logaritma</h3>
-  <ol>
-    <li>Tulis semua syarat domain: setiap argumen log harus positif.</li>
-    <li>
-      Gabungkan logaritma dengan sifat hasil kali/hasil bagi bila memungkinkan.
-    </li>
-    <li>
-      Ubah persamaan logaritma ke bentuk eksponensial jika lebih sederhana.
-    </li>
-    <li>Setelah memperoleh kandidat, selalu cek kembali ke domain awal.</li>
-  </ol>
-
-  <h3>Kesalahan yang Sering Terjadi</h3>
+  <h3>Katalog Miskonsepsi Fatal yang Harus Dihindari</h3>
   <ul>
     <li>
-      Menganggap \({}^a\log(M+N)={}^a\log M+{}^a\log N\). Ini
-      <strong>tidak benar</strong>.
+      <strong>Distributivitas Palsu pada Logaritma:</strong> Anggapan bahwa \({}^a\log(M + N) = {}^a\log M + {}^a\log N\) adalah <em>salah secara mutlak</em>. Sifat yang sah adalah \({}^a\log(M \cdot N) = {}^a\log M + {}^a\log N\).
     </li>
-    <li>Lupa bahwa argumen logaritma harus positif.</li>
-    <li>Lupa membalik tanda pertidaksamaan ketika basis \(0&lt;a&lt;1\).</li>
-    <li>Menganggap \(a^0=0\). Yang benar, untuk \(a\neq0\), \(a^0=1\).</li>
-    <li>Menerima semua akar persamaan tanpa memeriksa domain logaritma.</li>
+    <li>
+      <strong>Mengabaikan Syarat Numerus:</strong> Menerima langsung akar aljabar persamaan kuadrat tanpa mengeliminasi nilai yang menyebabkan argumen logaritma negatif (\(x \le 0\)).
+    </li>
+    <li>
+      <strong>Kelalaian Pembalikan Arah Ketaksamaan:</strong> Lupa membalik tanda pertidaksamaan ketika berhadapan dengan basis pecahan \(0 < a < 1\).
+    </li>
+    <li>
+      <strong>Kerancuan Pangkat Nol:</strong> Mengasumsikan \(a^0 = 0\), padahal untuk setiap bilangan real \(a \neq 0\), nilai \(a^0 = 1\).
+    </li>
   </ul>
 </section>
 
-<section id="rangkuman-rumus" data-title="Rangkuman Rumus">
-  <h2>18. Rangkuman Rumus Eksponensial dan Logaritma</h2>
+<section id="rangkuman-rumus" data-title="Kompilasi Rumus Esensial">
+  <h2>18. Kompilasi Rumus Esensial Eksponen dan Logaritma</h2>
 
-  <h3>Sifat Pangkat</h3>
+  <h3>Hukum Aljabar Eksponen</h3>
   <div class="math-display">
-    \[ a^ma^n=a^{m+n},\quad \frac{a^m}{a^n}=a^{m-n},\quad (a^m)^n=a^{mn} \]
-  </div>
-  <div class="math-display">
-    \[ a^{-n}=\frac1{a^n},\qquad a^{\frac{m}{n}}=\sqrt[n]{a^m},\qquad a^0=1 \]
+    \[ a^m \cdot a^n = a^{m+n}, \quad \frac{a^m}{a^n} = a^{m-n}, \quad (a^m)^n = a^{mn}, \quad a^{-n} = \frac{1}{a^n}, \quad a^{\frac{m}{n}} = \sqrt[n]{a^m} \]
   </div>
 
-  <h3>Persamaan Eksponensial</h3>
-  <div class="math-display">\[ a^{f(x)}=a^{g(x)} \Rightarrow f(x)=g(x) \]</div>
-
-  <h3>Definisi Logaritma</h3>
-  <div class="math-display">\[ {}^a\log x=y\Longleftrightarrow a^y=x \]</div>
-
-  <h3>Sifat Logaritma</h3>
+  <h3>Teorema Fundamental Logaritma</h3>
   <div class="math-display">
-    \[ {}^a\log(MN)={}^a\log M+{}^a\log N \] \[ {}^a\log\left(\frac
-    MN\right)={}^a\log M-{}^a\log N \] \[ {}^a\log(M^k)=k{}^a\log M \]
+    \[ {}^a\log(MN) = {}^a\log M + {}^a\log N, \qquad {}^a\log\left(\frac{M}{N}\right) = {}^a\log M - {}^a\log N, \qquad {}^a\log(M^k) = k \cdot {}^a\log M \]
+    \[ {}^a\log b = \frac{{}^c\log b}{{}^c\log a}, \qquad {}^a\log b = \frac{1}{{}^b\log a}, \qquad {}^{a^n}\log(b^m) = \frac{m}{n} \cdot {}^a\log b \]
   </div>
-
-  <h3>Perubahan Basis</h3>
-  <div class="math-display">\[ {}^a\log b=\frac{{}^c\log b}{{}^c\log a} \]</div>
-
-  <h3>Hubungan Invers</h3>
-  <div class="math-display">\[ {}^a\log(a^x)=x,\qquad a^{{}^a\log x}=x \]</div>
 </section>
 
-<section id="cek-domain" data-title="Checklist Domain">
-  <h2>19. Checklist Domain dan Syarat</h2>
+<section id="cek-domain" data-title="Checklist Domain dan Syarat Batas">
+  <h2>19. Checklist Domain dan Syarat Batas Analisis</h2>
   <ul>
-    <li>
-      Eksponensial: basis real yang digunakan sebagai fungsi harus \(a>0\) dan
-      \(a\neq1\).
-    </li>
-    <li>
-      Logaritma: basis harus \(a>0,\ a\neq1\), sedangkan setiap argumen harus
-      \(>0\).
-    </li>
-    <li>
-      Pangkat pecahan: periksa apakah akar real terdefinisi; khusus indeks akar
-      genap, radikan harus nonnegatif.
-    </li>
-    <li>
-      Substitusi \(t=a^x\): selalu \(t>0\), sehingga akar \(t\le0\) harus
-      ditolak.
-    </li>
-    <li>
-      Setelah memperoleh kandidat solusi, substitusikan kembali ke bentuk awal.
-    </li>
+    <li><strong>Basis Fungsi Eksponen:</strong> Wajib memenuhi syarat \(a > 0\) dan \(a \neq 1\).</li>
+    <li><strong>Basis Fungsi Logaritma:</strong> Wajib memenuhi syarat \(a > 0\) dan \(a \neq 1\).</li>
+    <li><strong>Numerus Logaritma:</strong> Setiap ekspresi di dalam kurung logaritma wajib bernilai riil positif (\(f(x) > 0\)).</li>
+    <li><strong>Variabel Substitusi Eksponen:</strong> Jika dimisalkan \(t = a^x\), maka wajib berlaku \(t > 0\). Akar \(t \le 0\) harus ditolak.</li>
+    <li><strong>Pangkat Rasional (Akar Genap):</strong> Radikan di dalam akar berindeks genap (\(\sqrt[2n]{f(x)}\)) harus non-negatif (\(f(x) \ge 0\)).</li>
   </ul>
 </section>
 
