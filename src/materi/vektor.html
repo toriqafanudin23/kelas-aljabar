@@ -1,0 +1,2241 @@
+<section id="pengertian-vektor" data-title="Pengertian Vektor">
+  <h2>1. Pengertian Vektor</h2>
+
+  <p>
+    Dalam kehidupan sehari-hari kita mengenal dua jenis besaran. Besaran
+    <strong>skalar</strong> hanya memiliki nilai (besar), misalnya massa, suhu,
+    waktu, dan jarak. Besaran <strong>vektor</strong> memiliki nilai (besar)
+    sekaligus arah, misalnya perpindahan, kecepatan, percepatan, dan gaya.
+  </p>
+
+  <p>
+    Secara geometri, vektor digambarkan sebagai ruas garis berarah (anak
+    panah). Panjang anak panah menyatakan besar vektor, sedangkan arah anak
+    panah menyatakan arah vektor.
+  </p>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Besaran Skalar</th>
+          <th scope="col">Besaran Vektor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Jarak, massa, suhu, waktu, luas</td>
+          <td>Perpindahan, kecepatan, percepatan, gaya</td>
+        </tr>
+        <tr>
+          <td>Cukup dinyatakan dengan satu bilangan</td>
+          <td>Perlu besar dan arah</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Notasi Vektor</h3>
+
+  <p>
+    Vektor yang digambarkan dari titik \(A\) (titik pangkal) ke titik \(B\)
+    (titik ujung) ditulis \(\overrightarrow{AB}\). Vektor juga dapat dinamai
+    dengan satu huruf kecil, misalnya \(\vec{a}\), \(\vec{b}\), atau
+    \(\mathbf{u}\).
+  </p>
+
+  <div class="math-display">
+    \[ \overrightarrow{AB} = \vec{a} \quad\Longrightarrow\quad A \text{ titik
+    pangkal},\ B \text{ titik ujung} \]
+  </div>
+
+  <p>
+    Besar atau panjang vektor \(\vec{a}\) ditulis \(|\vec{a}|\), dan nilainya
+    selalu tidak negatif.
+  </p>
+
+  <h3>Kesamaan Vektor Secara Geometri</h3>
+
+  <p>
+    Dua vektor dikatakan <strong>sama</strong> apabila keduanya memiliki
+    panjang yang sama dan arah yang sama, walaupun letak titik pangkalnya
+    berbeda. Jadi, sebuah vektor boleh "digeser" ke mana saja asalkan panjang
+    dan arahnya tidak berubah.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Pada jajargenjang \(ABCD\), sisi \(AB\) sejajar dan sama panjang dengan
+      sisi \(DC\), serta searah. Oleh karena itu:
+    </p>
+
+    <div class="math-display">
+      \[ \overrightarrow{AB} = \overrightarrow{DC}, \qquad \overrightarrow{AD}
+      = \overrightarrow{BC} \]
+    </div>
+
+    <p>
+      Sebaliknya, \(\overrightarrow{AB}\) dan \(\overrightarrow{CD}\) memiliki
+      panjang sama tetapi arahnya berlawanan, sehingga
+      \(\overrightarrow{AB} = -\overrightarrow{CD}\).
+    </p>
+  </div>
+</section>
+
+<section id="komponen-vektor" data-title="Vektor di Bidang dan Ruang">
+  <h2>2. Vektor di Bidang dan Ruang</h2>
+
+  <p>
+    Pada bidang koordinat \((x,y)\) maupun ruang koordinat \((x,y,z)\), vektor
+    dapat dinyatakan dengan komponen-komponennya.
+  </p>
+
+  <h3>Vektor di Bidang (\(\mathbb{R}^2\))</h3>
+
+  <p>
+    Misalkan \(\vec{i}\) dan \(\vec{j}\) adalah vektor satuan pada sumbu-\(x\)
+    dan sumbu-\(y\). Vektor \(\vec{a}\) dapat ditulis:
+  </p>
+
+  <div class="math-display">
+    \[ \vec{a} = \begin{bmatrix} a_1\\ a_2 \end{bmatrix} = a_1\vec{i} +
+    a_2\vec{j} \]
+  </div>
+
+  <h3>Vektor di Ruang (\(\mathbb{R}^3\))</h3>
+
+  <p>
+    Dengan tambahan vektor satuan \(\vec{k}\) pada sumbu-\(z\), vektor di ruang
+    ditulis:
+  </p>
+
+  <div class="math-display">
+    \[ \vec{a} = \begin{bmatrix} a_1\\ a_2\\ a_3 \end{bmatrix} = a_1\vec{i} +
+    a_2\vec{j} + a_3\vec{k} \]
+  </div>
+
+  <p>dengan</p>
+
+  <div class="math-display">
+    \[ \vec{i}=\begin{bmatrix}1\\0\\0\end{bmatrix}, \qquad
+    \vec{j}=\begin{bmatrix}0\\1\\0\end{bmatrix}, \qquad
+    \vec{k}=\begin{bmatrix}0\\0\\1\end{bmatrix} \]
+  </div>
+
+  <p>
+    Bilangan \(a_1, a_2, a_3\) disebut komponen vektor. Selain bentuk kolom,
+    vektor juga sering ditulis dalam bentuk baris \(\vec{a}=(a_1,a_2,a_3)\).
+  </p>
+
+  <h3>Vektor Posisi</h3>
+
+  <p>
+    Vektor posisi titik \(A(a_1,a_2,a_3)\) adalah vektor yang berpangkal di
+    titik asal \(O\) dan berujung di \(A\):
+  </p>
+
+  <div class="math-display">
+    \[ \overrightarrow{OA} = \vec{a} = \begin{bmatrix} a_1\\ a_2\\ a_3
+    \end{bmatrix} \]
+  </div>
+
+  <h3>Vektor yang Dibentuk oleh Dua Titik</h3>
+
+  <p>
+    Jika \(A\) dan \(B\) memiliki vektor posisi \(\vec{a}\) dan \(\vec{b}\),
+    maka vektor dari \(A\) ke \(B\) adalah:
+  </p>
+
+  <div class="math-display">
+    \[ \overrightarrow{AB} = \vec{b} - \vec{a} \]
+  </div>
+
+  <p>
+    Cara mengingatnya: <strong>ujung dikurangi pangkal</strong>. Secara
+    komponen, jika \(A(x_1,y_1,z_1)\) dan \(B(x_2,y_2,z_2)\):
+  </p>
+
+  <div class="math-display">
+    \[ \overrightarrow{AB} = \begin{bmatrix} x_2-x_1\\ y_2-y_1\\ z_2-z_1
+    \end{bmatrix} \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Diketahui titik \(A(1,2,-3)\) dan \(B(4,-1,2)\). Tentukan \(\overrightarrow{AB}\) dan \(\overrightarrow{BA}\).</p>
+
+    <div class="math-display">
+      \[ \overrightarrow{AB} = \begin{bmatrix} 4-1\\ -1-2\\ 2-(-3)
+      \end{bmatrix} = \begin{bmatrix} 3\\ -3\\ 5 \end{bmatrix} = 3\vec{i} -
+      3\vec{j} + 5\vec{k} \]
+    </div>
+
+    <div class="math-display">
+      \[ \overrightarrow{BA} = \begin{bmatrix} 1-4\\ 2-(-1)\\ -3-2
+      \end{bmatrix} = \begin{bmatrix} -3\\ 3\\ -5 \end{bmatrix} =
+      -\overrightarrow{AB} \]
+    </div>
+
+    <p>
+      Terlihat bahwa menukar pangkal dan ujung membuat vektor berlawanan arah.
+    </p>
+  </div>
+</section>
+
+<section id="panjang-vektor" data-title="Panjang dan Vektor Satuan">
+  <h2>3. Panjang Vektor dan Vektor Satuan</h2>
+
+  <h3>Panjang Vektor</h3>
+
+  <p>
+    Panjang (besar, norm) vektor diperoleh dari teorema Pythagoras. Untuk
+    \(\vec{a}=(a_1,a_2)\) dan \(\vec{a}=(a_1,a_2,a_3)\):
+  </p>
+
+  <div class="math-display">
+    \[ |\vec{a}| = \sqrt{a_1^2+a_2^2}, \qquad |\vec{a}| =
+    \sqrt{a_1^2+a_2^2+a_3^2} \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan panjang \(\vec{a}=2\vec{i}+3\vec{j}+6\vec{k}\).</p>
+
+    <div class="math-display">
+      \[ \begin{aligned} |\vec{a}| &= \sqrt{2^2+3^2+6^2}\\ &=\sqrt{4+9+36}\\
+      &=\sqrt{49}\\ &=7 \end{aligned} \]
+    </div>
+  </div>
+
+  <h3>Jarak Antara Dua Titik</h3>
+
+  <p>
+    Jarak titik \(A\) dan \(B\) sama dengan panjang vektor \(\overrightarrow{AB}\):
+  </p>
+
+  <div class="math-display">
+    \[ |AB| = |\overrightarrow{AB}| = \sqrt{(x_2-x_1)^2+(y_2-y_1)^2+(z_2-z_1)^2}
+    \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan jarak titik \(P(1,2,3)\) dan \(Q(4,6,3)\).</p>
+
+    <div class="math-display">
+      \[ \overrightarrow{PQ}=\begin{bmatrix}3\\4\\0\end{bmatrix},\qquad
+      |PQ|=\sqrt{9+16+0}=5 \]
+    </div>
+  </div>
+
+  <h3>Vektor Satuan</h3>
+
+  <p>
+    Vektor satuan adalah vektor yang panjangnya \(1\). Vektor satuan yang
+    searah dengan \(\vec{a}\) (\(\vec{a}\neq\vec{0}\)) dirumuskan:
+  </p>
+
+  <div class="math-display">
+    \[ \hat{a} = \frac{\vec{a}}{|\vec{a}|} \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan vektor satuan yang searah dengan \(\vec{a}=(2,3,6)\).</p>
+
+    <p>Panjang \(\vec{a}\) adalah \(7\), sehingga:</p>
+
+    <div class="math-display">
+      \[ \hat{a}=\frac{1}{7}\begin{bmatrix}2\\3\\6\end{bmatrix} =
+      \begin{bmatrix}\frac27\\[2pt]\frac37\\[2pt]\frac67\end{bmatrix} \]
+    </div>
+
+    <p>
+      Periksa: \(\left(\displaystyle\frac27\right)^2+\left(\displaystyle\frac37\right)^2+\left(\displaystyle\frac67\right)^2
+      =\displaystyle\frac{4+9+36}{49}=1\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Vektor dengan Panjang dan Arah Tertentu</h4>
+
+    <p>
+      Vektor yang searah dengan \(\vec{a}\) dan memiliki panjang \(r\) adalah
+      \(r\hat{a}\). Misalnya, vektor yang searah \(\vec{a}=(3,-4)\) dan
+      panjangnya \(10\): karena \(|\vec{a}|=5\),
+    </p>
+
+    <div class="math-display">
+      \[ 10\hat{a}=10\cdot\frac{1}{5}\begin{bmatrix}3\\-4\end{bmatrix} =
+      \begin{bmatrix}6\\-8\end{bmatrix} \]
+    </div>
+  </div>
+</section>
+
+<section id="vektor-khusus" data-title="Kesamaan dan Vektor Khusus">
+  <h2>4. Kesamaan Dua Vektor dan Vektor Khusus</h2>
+
+  <h3>Kesamaan Dua Vektor</h3>
+
+  <p>
+    Dua vektor sama jika komponen-komponen yang bersesuaian sama. Untuk
+    \(\vec{a}=(a_1,a_2,a_3)\) dan \(\vec{b}=(b_1,b_2,b_3)\):
+  </p>
+
+  <div class="math-display">
+    \[ \vec{a}=\vec{b} \iff a_1=b_1,\ a_2=b_2,\ a_3=b_3 \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Jika</p>
+
+    <div class="math-display">
+      \[ \begin{bmatrix}2x\\ y+1\\ 3\end{bmatrix} = \begin{bmatrix}8\\ 5\\
+      z-2\end{bmatrix}, \]
+    </div>
+
+    <p>maka</p>
+
+    <div class="math-display">
+      \[ 2x=8\Rightarrow x=4,\qquad y+1=5\Rightarrow y=4,\qquad 3=z-2\Rightarrow
+      z=5 \]
+    </div>
+  </div>
+
+  <h3>Vektor Nol</h3>
+
+  <p>
+    Vektor nol \(\vec{0}\) adalah vektor yang panjangnya nol dan tidak
+    memiliki arah tertentu.
+  </p>
+
+  <div class="math-display">
+    \[ \vec{0}=\begin{bmatrix}0\\0\\0\end{bmatrix}, \qquad
+    \vec{a}+\vec{0}=\vec{a} \]
+  </div>
+
+  <h3>Vektor Negatif (Lawan Vektor)</h3>
+
+  <p>
+    Lawan dari \(\vec{a}\) adalah \(-\vec{a}\), yaitu vektor yang panjangnya
+    sama dengan \(\vec{a}\) tetapi arahnya berlawanan:
+  </p>
+
+  <div class="math-display">
+    \[ \vec{a}+(-\vec{a})=\vec{0}, \qquad \overrightarrow{BA} =
+    -\overrightarrow{AB} \]
+  </div>
+
+  <h3>Vektor Basis</h3>
+
+  <p>
+    Vektor satuan \(\vec{i},\vec{j},\vec{k}\) disebut vektor basis. Setiap
+    vektor di ruang dapat ditulis tepat satu cara sebagai kombinasi dari
+    ketiganya.
+  </p>
+</section>
+
+<section id="operasi-vektor" data-title="Penjumlahan dan Pengurangan Vektor">
+  <h2>5. Penjumlahan dan Pengurangan Vektor</h2>
+
+  <h3>Penjumlahan Secara Geometri</h3>
+
+  <p>
+    <strong>Aturan segitiga.</strong> Letakkan titik pangkal vektor kedua pada
+    titik ujung vektor pertama. Jumlahnya adalah vektor dari pangkal pertama ke
+    ujung kedua.
+  </p>
+
+  <div class="math-display">
+    \[ \overrightarrow{AB}+\overrightarrow{BC}=\overrightarrow{AC} \]
+  </div>
+
+  <p>
+    Aturan ini dapat diperluas, misalnya
+    \(\overrightarrow{AB}+\overrightarrow{BC}+\overrightarrow{CD}=\overrightarrow{AD}\).
+  </p>
+
+  <p>
+    <strong>Aturan jajargenjang.</strong> Jika kedua vektor digambar dari titik
+    pangkal yang sama, jumlahnya adalah diagonal jajargenjang yang dibentuk
+    kedua vektor itu. Pada jajargenjang \(ABCD\):
+  </p>
+
+  <div class="math-display">
+    \[ \overrightarrow{AC}=\overrightarrow{AB}+\overrightarrow{AD} \]
+  </div>
+
+  <h3>Penjumlahan dan Pengurangan Secara Komponen</h3>
+
+  <div class="math-display">
+    \[ \vec{a}+\vec{b}=\begin{bmatrix}a_1+b_1\\a_2+b_2\\a_3+b_3\end{bmatrix},
+    \qquad
+    \vec{a}-\vec{b}=\begin{bmatrix}a_1-b_1\\a_2-b_2\\a_3-b_3\end{bmatrix} \]
+  </div>
+
+  <p>
+    Pengurangan dapat dipandang sebagai penjumlahan dengan lawan vektor:
+    \(\vec{a}-\vec{b}=\vec{a}+(-\vec{b})\).
+  </p>
+
+  <h3>Sifat-Sifat Penjumlahan Vektor</h3>
+
+  <ul>
+    <li>Komutatif: \(\vec{a}+\vec{b}=\vec{b}+\vec{a}\).</li>
+    <li>
+      Asosiatif: \((\vec{a}+\vec{b})+\vec{c}=\vec{a}+(\vec{b}+\vec{c})\).
+    </li>
+    <li>Unsur identitas: \(\vec{a}+\vec{0}=\vec{a}\).</li>
+    <li>Unsur invers: \(\vec{a}+(-\vec{a})=\vec{0}\).</li>
+  </ul>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Diketahui \(\vec{a}=(2,-1,3)\) dan \(\vec{b}=(1,4,-2)\). Tentukan:</p>
+
+    <div class="math-display">
+      \[ \vec{a}+\vec{b}=\begin{bmatrix}3\\3\\1\end{bmatrix}, \qquad
+      \vec{a}-\vec{b}=\begin{bmatrix}1\\-5\\5\end{bmatrix} \]
+    </div>
+
+    <div class="math-display">
+      \[ \begin{aligned} 2\vec{a}-3\vec{b} &=
+      \begin{bmatrix}4\\-2\\6\end{bmatrix}-\begin{bmatrix}3\\12\\-6\end{bmatrix}\\
+      &=\begin{bmatrix}1\\-14\\12\end{bmatrix} \end{aligned} \]
+    </div>
+  </div>
+
+  <h3>Besar Vektor Hasil Penjumlahan</h3>
+
+  <p>
+    Besar \(\vec{a}+\vec{b}\) bergantung pada sudut \(\theta\) di antara kedua
+    vektor (dibahas pada bagian hasil kali titik):
+  </p>
+
+  <div class="math-display">
+    \[ |\vec{a}+\vec{b}|^2=|\vec{a}|^2+|\vec{b}|^2+2|\vec{a}||\vec{b}|\cos\theta
+    \]
+  </div>
+</section>
+
+<section id="perkalian-skalar-vektor" data-title="Perkalian Vektor dengan Skalar">
+  <h2>6. Perkalian Vektor dengan Skalar</h2>
+
+  <p>
+    Jika \(k\) bilangan real dan \(\vec{a}=(a_1,a_2,a_3)\), maka:
+  </p>
+
+  <div class="math-display">
+    \[ k\vec{a}=\begin{bmatrix}ka_1\\ka_2\\ka_3\end{bmatrix} \]
+  </div>
+
+  <p>Akibat geometris dari perkalian skalar:</p>
+
+  <ul>
+    <li>Panjangnya menjadi \(|k\vec{a}|=|k|\,|\vec{a}|\).</li>
+    <li>Jika \(k>0\), arah \(k\vec{a}\) sama dengan arah \(\vec{a}\).</li>
+    <li>Jika \(k<0\), arah \(k\vec{a}\) berlawanan dengan arah \(\vec{a}\).</li>
+    <li>Jika \(k=0\), hasilnya vektor nol.</li>
+  </ul>
+
+  <h3>Sifat-Sifat Perkalian Skalar</h3>
+
+  <div class="math-display">
+    \[ k(\vec{a}+\vec{b})=k\vec{a}+k\vec{b}, \qquad
+    (k+l)\vec{a}=k\vec{a}+l\vec{a}, \qquad k(l\vec{a})=(kl)\vec{a} \]
+  </div>
+
+  <h3>Dua Vektor Sejajar</h3>
+
+  <p>
+    Dua vektor tak nol \(\vec{a}\) dan \(\vec{b}\) sejajar (kolinear) jika dan
+    hanya jika ada bilangan real \(k\) sehingga:
+  </p>
+
+  <div class="math-display">\[ \vec{a}=k\vec{b} \]</div>
+
+  <p>
+    Secara komponen, vektor-vektor yang sejajar memiliki perbandingan komponen
+    yang sama:
+  </p>
+
+  <div class="math-display">
+    \[ \vec{a}\parallel\vec{b} \iff
+    \frac{a_1}{b_1}=\frac{a_2}{b_2}=\frac{a_3}{b_3}=k \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+
+    <p>Selidiki apakah \(\vec{a}=(2,-4,6)\) dan \(\vec{b}=(-1,2,-3)\) sejajar.</p>
+
+    <div class="math-display">
+      \[ \frac{2}{-1}=\frac{-4}{2}=\frac{6}{-3}=-2 \quad\Rightarrow\quad
+      \vec{a}=-2\vec{b} \]
+    </div>
+
+    <p>
+      Jadi keduanya sejajar dan berlawanan arah (karena \(k=-2<0\)).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2</h4>
+
+    <p>
+      Tentukan \(p\) agar \(\vec{a}=(2,p,3)\) sejajar dengan
+      \(\vec{b}=(4,-6,6)\).
+    </p>
+
+    <p>
+      Dari komponen pertama dan ketiga, \(\vec{b}=2\vec{a}\)
+      (\(4=2\cdot2\) dan \(6=2\cdot3\)). Maka komponen kedua juga harus
+      memenuhi:
+    </p>
+
+    <div class="math-display">\[ -6=2p \Rightarrow p=-3 \]</div>
+  </div>
+</section>
+
+<section id="kolinear" data-title="Kombinasi Linear dan Titik Segaris">
+  <h2>7. Kombinasi Linear dan Titik Segaris</h2>
+
+  <h3>Kombinasi Linear</h3>
+
+  <p>
+    Vektor \(\vec{c}\) disebut kombinasi linear dari \(\vec{a}\) dan \(\vec{b}\)
+    jika ada bilangan \(m\) dan \(n\) sehingga:
+  </p>
+
+  <div class="math-display">\[ \vec{c}=m\vec{a}+n\vec{b} \]</div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Nyatakan \(\vec{c}=(7,7)\) sebagai kombinasi linear dari
+      \(\vec{a}=(1,2)\) dan \(\vec{b}=(3,-1)\).
+    </p>
+
+    <div class="math-display">
+      \[ \begin{bmatrix}7\\7\end{bmatrix}= m\begin{bmatrix}1\\2\end{bmatrix}+
+      n\begin{bmatrix}3\\-1\end{bmatrix} \Rightarrow \begin{cases} m+3n=7\\
+      2m-n=7 \end{cases} \]
+    </div>
+
+    <p>
+      Dari persamaan kedua \(n=2m-7\). Substitusikan ke persamaan pertama:
+      \(m+3(2m-7)=7\), sehingga \(7m=28\), yaitu \(m=4\) dan \(n=1\). Jadi
+      \(\vec{c}=4\vec{a}+\vec{b}\).
+    </p>
+  </div>
+
+  <h3>Tiga Titik Segaris</h3>
+
+  <p>
+    Tiga titik \(A\), \(B\), dan \(C\) terletak pada satu garis lurus
+    (kolinear) jika dan hanya jika \(\overrightarrow{AB}\) sejajar
+    \(\overrightarrow{AC}\), yaitu ada \(k\) sehingga:
+  </p>
+
+  <div class="math-display">
+    \[ \overrightarrow{AC}=k\,\overrightarrow{AB} \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+
+    <p>Apakah \(A(1,2,3)\), \(B(3,5,7)\), dan \(C(5,8,11)\) segaris?</p>
+
+    <div class="math-display">
+      \[ \overrightarrow{AB}=\begin{bmatrix}2\\3\\4\end{bmatrix},\qquad
+      \overrightarrow{AC}=\begin{bmatrix}4\\6\\8\end{bmatrix}=2\overrightarrow{AB}
+      \]
+    </div>
+
+    <p>Karena \(\overrightarrow{AC}=2\overrightarrow{AB}\), ketiga titik segaris.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2</h4>
+
+    <p>
+      Titik \(A(1,2,3)\), \(B(2,4,5)\), dan \(C(4,p,q)\) segaris. Tentukan
+      \(p\) dan \(q\).
+    </p>
+
+    <div class="math-display">
+      \[ \overrightarrow{AB}=\begin{bmatrix}1\\2\\2\end{bmatrix},\qquad
+      \overrightarrow{AC}=\begin{bmatrix}3\\p-2\\q-3\end{bmatrix} \]
+    </div>
+
+    <p>
+      Karena \(\overrightarrow{AC}=k\overrightarrow{AB}\), komponen pertama
+      memberi \(k=3\). Maka \(p-2=3\cdot2=6\Rightarrow p=8\) dan
+      \(q-3=3\cdot2=6\Rightarrow q=9\).
+    </p>
+  </div>
+</section>
+
+<section id="pembagian-ruas" data-title="Pembagian Ruas Garis dan Titik Berat">
+  <h2>8. Pembagian Ruas Garis dan Titik Berat</h2>
+
+  <h3>Pembagian Dalam</h3>
+
+  <p>
+    Titik \(P\) terletak pada ruas garis \(AB\) dan membagi \(AB\) dengan
+    perbandingan \(AP:PB=m:n\). Jika vektor posisi \(A\), \(B\), \(P\) berturut-turut
+    \(\vec{a}\), \(\vec{b}\), \(\vec{p}\), maka:
+  </p>
+
+  <div class="math-display">
+    \[ \vec{p}=\frac{n\vec{a}+m\vec{b}}{m+n} \]
+  </div>
+
+  <p>
+    Mengapa rumusnya demikian? Karena \(\overrightarrow{AP}=\displaystyle\frac{m}{m+n}\overrightarrow{AB}\),
+    sehingga
+    \(\vec{p}=\vec{a}+\displaystyle\frac{m}{m+n}(\vec{b}-\vec{a})=\displaystyle\frac{n\vec{a}+m\vec{b}}{m+n}\).
+  </p>
+
+  <p>
+    Perhatikan "silang": vektor posisi \(A\) dikalikan bagian yang lebih
+    dekat ke \(B\) (yaitu \(n\)), dan sebaliknya.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Diketahui \(A(2,1,-3)\) dan \(B(7,6,2)\). Titik \(P\) pada \(AB\)
+      dengan \(AP:PB=2:3\). Tentukan koordinat \(P\).
+    </p>
+
+    <div class="math-display">
+      \[ \begin{aligned} \vec{p}&=\frac{3\vec{a}+2\vec{b}}{5}
+      =\frac{1}{5}\left(\begin{bmatrix}6\\3\\-9\end{bmatrix}+
+      \begin{bmatrix}14\\12\\4\end{bmatrix}\right)\\
+      &=\frac{1}{5}\begin{bmatrix}20\\15\\-5\end{bmatrix}
+      =\begin{bmatrix}4\\3\\-1\end{bmatrix} \end{aligned} \]
+    </div>
+
+    <p>Jadi \(P(4,3,-1)\).</p>
+  </div>
+
+  <h3>Titik Tengah</h3>
+
+  <p>
+    Titik tengah adalah kasus khusus dengan \(m=n=1\):
+  </p>
+
+  <div class="math-display">
+    \[ \vec{p}=\frac{\vec{a}+\vec{b}}{2} \]
+  </div>
+
+  <h3>Pembagian Luar</h3>
+
+  <p>
+    Jika \(P\) terletak pada perpanjangan garis \(AB\) (di luar ruas \(AB\))
+    dengan \(AP:PB=m:n\) dan \(m\neq n\), maka:
+  </p>
+
+  <div class="math-display">
+    \[ \vec{p}=\frac{m\vec{b}-n\vec{a}}{m-n} \]
+  </div>
+
+  <p>
+    Jika \(m>n\), titik \(P\) berada di luar ujung \(B\); jika \(m<n\), titik
+    \(P\) berada di luar ujung \(A\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Diketahui \(A(1,2)\) dan \(B(3,6)\). Titik \(P\) pada perpanjangan
+      \(AB\) dengan \(AP:PB=3:1\). Tentukan \(P\).
+    </p>
+
+    <div class="math-display">
+      \[ \vec{p}=\frac{3\vec{b}-1\vec{a}}{3-1}
+      =\frac{1}{2}\left(\begin{bmatrix}9\\18\end{bmatrix}-
+      \begin{bmatrix}1\\2\end{bmatrix}\right)=\begin{bmatrix}4\\8\end{bmatrix}
+      \]
+    </div>
+
+    <p>
+      Pemeriksaan: \(\overrightarrow{AP}=(3,6)\) dan \(\overrightarrow{PB}=(-1,-2)\),
+      sehingga panjang \(AP\) tiga kali panjang \(PB\).
+    </p>
+  </div>
+
+  <h3>Titik Berat Segitiga</h3>
+
+  <p>
+    Titik berat segitiga \(ABC\) adalah titik potong ketiga garis berat.
+    Vektor posisinya:
+  </p>
+
+  <div class="math-display">
+    \[ \vec{g}=\frac{\vec{a}+\vec{b}+\vec{c}}{3} \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan titik berat segitiga dengan titik sudut \(A(1,2,3)\), \(B(4,-2,5)\), \(C(7,3,1)\).</p>
+
+    <div class="math-display">
+      \[ \vec{g}=\frac{1}{3}\begin{bmatrix}1+4+7\\2-2+3\\3+5+1\end{bmatrix}
+      =\begin{bmatrix}4\\1\\3\end{bmatrix} \]
+    </div>
+  </div>
+</section>
+
+<section id="dot-product" data-title="Hasil Kali Titik (Dot Product)">
+  <h2>9. Hasil Kali Titik (Dot Product)</h2>
+
+  <p>
+    Hasil kali titik dua vektor menghasilkan <strong>skalar</strong> (bukan
+    vektor). Ada dua rumus yang ekuivalen.
+  </p>
+
+  <h3>Definisi Secara Geometri</h3>
+
+  <div class="math-display">
+    \[ \vec{a}\cdot\vec{b}=|\vec{a}|\,|\vec{b}|\cos\theta \]
+  </div>
+
+  <p>
+    dengan \(\theta\) adalah sudut antara \(\vec{a}\) dan \(\vec{b}\), yaitu
+    \(0^\circ\le\theta\le180^\circ\) ketika keduanya digambar dari titik pangkal
+    yang sama.
+  </p>
+
+  <h3>Rumus Secara Komponen</h3>
+
+  <div class="math-display">
+    \[ \vec{a}\cdot\vec{b}=a_1b_1+a_2b_2+a_3b_3 \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Hitung \(\vec{a}\cdot\vec{b}\) untuk \(\vec{a}=(2,-1,3)\) dan \(\vec{b}=(4,2,-1)\).</p>
+
+    <div class="math-display">
+      \[ \vec{a}\cdot\vec{b}=2(4)+(-1)(2)+3(-1)=8-2-3=3 \]
+    </div>
+  </div>
+
+  <h3>Sifat-Sifat Hasil Kali Titik</h3>
+
+  <ul>
+    <li>Komutatif: \(\vec{a}\cdot\vec{b}=\vec{b}\cdot\vec{a}\).</li>
+    <li>
+      Distributif: \(\vec{a}\cdot(\vec{b}+\vec{c})=\vec{a}\cdot\vec{b}+\vec{a}\cdot\vec{c}\).
+    </li>
+    <li>
+      Skalar: \((k\vec{a})\cdot\vec{b}=k(\vec{a}\cdot\vec{b})=\vec{a}\cdot(k\vec{b})\).
+    </li>
+    <li>Kuadrat panjang: \(\vec{a}\cdot\vec{a}=|\vec{a}|^2\).</li>
+    <li>
+      Vektor basis: \(\vec{i}\cdot\vec{i}=\vec{j}\cdot\vec{j}=\vec{k}\cdot\vec{k}=1\)
+      dan \(\vec{i}\cdot\vec{j}=\vec{j}\cdot\vec{k}=\vec{i}\cdot\vec{k}=0\).
+    </li>
+  </ul>
+
+  <h3>Identitas yang Sering Dipakai</h3>
+
+  <div class="math-display">
+    \[ |\vec{a}\pm\vec{b}|^2=|\vec{a}|^2\pm2\,\vec{a}\cdot\vec{b}+|\vec{b}|^2 \]
+  </div>
+
+  <div class="math-display">
+    \[ (\vec{a}+\vec{b})\cdot(\vec{a}-\vec{b})=|\vec{a}|^2-|\vec{b}|^2 \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Diketahui \(|\vec{a}|=3\), \(|\vec{b}|=4\), dan sudut antara keduanya
+      \(60^\circ\). Hitung \(|\vec{a}+\vec{b}|\) dan \(|\vec{a}-\vec{b}|\).
+    </p>
+
+    <p>Pertama, \(\vec{a}\cdot\vec{b}=3\cdot4\cdot\cos60^\circ=6\). Maka:</p>
+
+    <div class="math-display">
+      \[ |\vec{a}+\vec{b}|^2=9+2(6)+16=37\Rightarrow
+      |\vec{a}+\vec{b}|=\sqrt{37} \]
+    </div>
+
+    <div class="math-display">
+      \[ |\vec{a}-\vec{b}|^2=9-2(6)+16=13\Rightarrow
+      |\vec{a}-\vec{b}|=\sqrt{13} \]
+    </div>
+  </div>
+</section>
+
+<section id="sudut-vektor" data-title="Sudut dan Ortogonalitas">
+  <h2>10. Sudut Antara Dua Vektor dan Ortogonalitas</h2>
+
+  <h3>Menentukan Sudut</h3>
+
+  <p>Dari definisi hasil kali titik diperoleh:</p>
+
+  <div class="math-display">
+    \[ \cos\theta=\frac{\vec{a}\cdot\vec{b}}{|\vec{a}|\,|\vec{b}|} \]
+  </div>
+
+  <p>Tanda hasil kali titik menunjukkan jenis sudutnya:</p>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Hasil \(\vec{a}\cdot\vec{b}\)</th>
+          <th scope="col">Sudut \(\theta\)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(\vec{a}\cdot\vec{b}>0\)</td>
+          <td>lancip (\(0^\circ\le\theta<90^\circ\))</td>
+        </tr>
+        <tr>
+          <td>\(\vec{a}\cdot\vec{b}=0\)</td>
+          <td>siku-siku (\(\theta=90^\circ\))</td>
+        </tr>
+        <tr>
+          <td>\(\vec{a}\cdot\vec{b}<0\)</td>
+          <td>tumpul (\(90^\circ<\theta\le180^\circ\))</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan sudut antara \(\vec{a}=(1,1,0)\) dan \(\vec{b}=(0,1,1)\).</p>
+
+    <div class="math-display">
+      \[ \vec{a}\cdot\vec{b}=0+1+0=1,\qquad |\vec{a}|=|\vec{b}|=\sqrt2 \]
+    </div>
+
+    <div class="math-display">
+      \[ \cos\theta=\frac{1}{\sqrt2\cdot\sqrt2}=\frac12\Rightarrow
+      \theta=60^\circ \]
+    </div>
+  </div>
+
+  <h3>Dua Vektor Tegak Lurus (Ortogonal)</h3>
+
+  <p>Dua vektor tak nol saling tegak lurus jika dan hanya jika:</p>
+
+  <div class="math-display">
+    \[ \vec{a}\perp\vec{b}\iff\vec{a}\cdot\vec{b}=0 \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Tentukan \(p\) agar \(\vec{a}=(p,1,2)\) tegak lurus
+      \(\vec{b}=(3,p-4,-2)\).
+    </p>
+
+    <div class="math-display">
+      \[ \vec{a}\cdot\vec{b}=3p+(p-4)-4=4p-8=0\Rightarrow p=2 \]
+    </div>
+  </div>
+
+  <h3>Sudut yang Dibentuk Vektor dengan Sumbu Koordinat</h3>
+
+  <p>
+    Jika \(\alpha,\beta,\gamma\) adalah sudut antara \(\vec{a}\) dengan sumbu-\(x\),
+    sumbu-\(y\), dan sumbu-\(z\) positif, maka \(\cos\alpha=\displaystyle\frac{a_1}{|\vec{a}|}\),
+    \(\cos\beta=\displaystyle\frac{a_2}{|\vec{a}|}\), \(\cos\gamma=\displaystyle\frac{a_3}{|\vec{a}|}\), dan
+  </p>
+
+  <div class="math-display">
+    \[ \cos^2\alpha+\cos^2\beta+\cos^2\gamma=1 \]
+  </div>
+
+  <h3>Sudut pada Bangun Datar</h3>
+
+  <p>
+    Untuk menentukan sudut \(\angle ABC\) pada segitiga, gunakan
+    \(\overrightarrow{BA}\) dan \(\overrightarrow{BC}\) (keduanya berpangkal di
+    titik sudut \(B\)). Kesalahan yang sering terjadi adalah memakai vektor yang
+    pangkalnya berbeda.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan \(\angle ABC\) jika \(A(1,0,0)\), \(B(0,0,0)\), \(C(0,1,1)\).</p>
+
+    <div class="math-display">
+      \[ \overrightarrow{BA}=(1,0,0),\quad \overrightarrow{BC}=(0,1,1),\quad
+      \overrightarrow{BA}\cdot\overrightarrow{BC}=0 \]
+    </div>
+
+    <p>Jadi \(\angle ABC=90^\circ\).</p>
+  </div>
+</section>
+
+<section id="proyeksi-vektor" data-title="Proyeksi Vektor">
+  <h2>11. Proyeksi Vektor</h2>
+
+  <p>
+    Proyeksi vektor \(\vec{a}\) pada \(\vec{b}\) adalah "bayangan" \(\vec{a}\)
+    pada garis yang searah \(\vec{b}\), seperti bayangan sebuah tongkat yang
+    disinari tepat dari atas.
+  </p>
+
+  <h3>Proyeksi Skalar Ortogonal</h3>
+
+  <p>
+    Panjang (bertanda) bayangan \(\vec{a}\) pada \(\vec{b}\):
+  </p>
+
+  <div class="math-display">
+    \[ c=\frac{\vec{a}\cdot\vec{b}}{|\vec{b}|}=|\vec{a}|\cos\theta \]
+  </div>
+
+  <p>
+    Nilainya bisa negatif jika \(\theta\) tumpul, yang berarti bayangannya
+    berlawanan arah dengan \(\vec{b}\).
+  </p>
+
+  <h3>Proyeksi Vektor Ortogonal</h3>
+
+  <p>
+    Vektor bayangan \(\vec{a}\) pada \(\vec{b}\) adalah proyeksi skalar dikalikan
+    vektor satuan \(\hat{b}\):
+  </p>
+
+  <div class="math-display">
+    \[ \vec{c}=\frac{\vec{a}\cdot\vec{b}}{|\vec{b}|^2}\,\vec{b} \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Diketahui \(\vec{a}=(4,3,1)\) dan \(\vec{b}=(2,2,1)\). Tentukan proyeksi
+      skalar dan proyeksi vektor \(\vec{a}\) pada \(\vec{b}\).
+    </p>
+
+    <p>
+      Hitung \(\vec{a}\cdot\vec{b}=8+6+1=15\) dan \(|\vec{b}|^2=4+4+1=9\),
+      \(|\vec{b}|=3\).
+    </p>
+
+    <div class="math-display">
+      \[ c=\frac{15}{3}=5 \]
+    </div>
+
+    <div class="math-display">
+      \[ \vec{c}=\frac{15}{9}\begin{bmatrix}2\\2\\1\end{bmatrix}
+      =\begin{bmatrix}\frac{10}{3}\\[2pt]\frac{10}{3}\\[2pt]\frac{5}{3}\end{bmatrix}
+      \]
+    </div>
+  </div>
+
+  <h3>Komponen Vektor yang Tegak Lurus</h3>
+
+  <p>
+    Vektor \(\vec{a}\) dapat diuraikan menjadi komponen yang sejajar \(\vec{b}\)
+    dan komponen yang tegak lurus \(\vec{b}\):
+  </p>
+
+  <div class="math-display">
+    \[ \vec{a}=\vec{c}+\vec{d},\qquad \vec{c}\parallel\vec{b},\quad
+    \vec{d}\perp\vec{b},\quad \vec{d}=\vec{a}-\vec{c} \]
+  </div>
+
+  <p>
+    Dengan teorema Pythagoras, \(|\vec{d}|^2=|\vec{a}|^2-c^2\). Pada contoh di
+    atas: \(|\vec{a}|^2=26\) dan \(c^2=25\), sehingga \(|\vec{d}|=1\).
+  </p>
+</section>
+
+<section id="cross-product" data-title="Hasil Kali Silang (Pengayaan)">
+  <h2>12. Hasil Kali Silang (Pengayaan)</h2>
+
+  <p>
+    Berbeda dengan hasil kali titik, hasil kali silang (cross product) dua
+    vektor di ruang menghasilkan <strong>vektor</strong>. Pada kurikulum sekolah
+    topik ini biasanya sebagai pengayaan, tetapi sangat berguna untuk menghitung
+    luas dan volume serta sering muncul pada soal tingkat lanjut.
+  </p>
+
+  <h3>Definisi</h3>
+
+  <div class="math-display">
+    \[ \vec{a}\times\vec{b}=\begin{vmatrix}\vec{i}&\vec{j}&\vec{k}\\a_1&a_2&a_3\\b_1&b_2&b_3\end{vmatrix}
+    =\begin{bmatrix}a_2b_3-a_3b_2\\a_3b_1-a_1b_3\\a_1b_2-a_2b_1\end{bmatrix} \]
+  </div>
+
+  <p>Determinan di atas dihitung dengan ekspansi kofaktor pada baris pertama seperti yang dipelajari pada materi matriks.</p>
+
+  <h3>Sifat-Sifat</h3>
+
+  <ul>
+    <li>
+      \(\vec{a}\times\vec{b}\) tegak lurus terhadap \(\vec{a}\) dan juga
+      terhadap \(\vec{b}\).
+    </li>
+    <li>
+      Panjangnya: \(|\vec{a}\times\vec{b}|=|\vec{a}|\,|\vec{b}|\sin\theta\).
+    </li>
+    <li>Anti-komutatif: \(\vec{a}\times\vec{b}=-(\vec{b}\times\vec{a})\).</li>
+    <li>\(\vec{a}\times\vec{a}=\vec{0}\); dua vektor sejajar menghasilkan vektor nol.</li>
+    <li>
+      Distributif: \(\vec{a}\times(\vec{b}+\vec{c})=\vec{a}\times\vec{b}+\vec{a}\times\vec{c}\).
+    </li>
+    <li>\(\vec{i}\times\vec{j}=\vec{k},\ \vec{j}\times\vec{k}=\vec{i},\ \vec{k}\times\vec{i}=\vec{j}\).</li>
+  </ul>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Hitung \(\vec{a}\times\vec{b}\) untuk \(\vec{a}=(1,2,3)\) dan \(\vec{b}=(2,-1,1)\).</p>
+
+    <div class="math-display">
+      \[ \vec{a}\times\vec{b}=\begin{bmatrix}2(1)-3(-1)\\3(2)-1(1)\\1(-1)-2(2)\end{bmatrix}
+      =\begin{bmatrix}5\\5\\-5\end{bmatrix} \]
+    </div>
+
+    <p>
+      Pemeriksaan ketegaklurusan: \((5,5,-5)\cdot(1,2,3)=5+10-15=0\) dan
+      \((5,5,-5)\cdot(2,-1,1)=10-5-5=0\).
+    </p>
+  </div>
+
+  <h3>Penerapan: Luas Jajargenjang dan Segitiga</h3>
+
+  <p>
+    Jika \(\vec{a}\) dan \(\vec{b}\) adalah dua sisi yang berpangkal sama:
+  </p>
+
+  <div class="math-display">
+    \[ L_{\text{jajargenjang}}=|\vec{a}\times\vec{b}|,\qquad
+    L_{\text{segitiga}}=\frac12|\vec{a}\times\vec{b}| \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan luas segitiga \(ABC\) dengan \(A(1,0,0)\), \(B(0,2,0)\), \(C(0,0,3)\).</p>
+
+    <div class="math-display">
+      \[ \overrightarrow{AB}=(-1,2,0),\quad \overrightarrow{AC}=(-1,0,3),\quad
+      \overrightarrow{AB}\times\overrightarrow{AC}=(6,3,2) \]
+    </div>
+
+    <div class="math-display">
+      \[ L=\frac12\sqrt{6^2+3^2+2^2}=\frac12\sqrt{49}=\frac72 \]
+    </div>
+  </div>
+
+  <h3>Penerapan: Volume Paralelepipedum</h3>
+
+  <p>
+    Paralelepipedum yang dibentuk tiga vektor \(\vec{a},\vec{b},\vec{c}\) yang
+    berpangkal sama memiliki volume
+  </p>
+
+  <div class="math-display">
+    \[ V=\left|\vec{a}\cdot(\vec{b}\times\vec{c})\right|
+    =\left|\det\begin{bmatrix}a_1&a_2&a_3\\b_1&b_2&b_3\\c_1&c_2&c_3\end{bmatrix}\right|
+    \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Hitung volume paralelepipedum dengan \(\vec{a}=(1,2,0)\), \(\vec{b}=(0,1,3)\), \(\vec{c}=(2,0,1)\).</p>
+
+    <div class="math-display">
+      \[ \vec{b}\times\vec{c}=(1,6,-2),\qquad
+      \vec{a}\cdot(\vec{b}\times\vec{c})=1+12+0=13 \]
+    </div>
+
+    <p>Jadi \(V=13\) satuan volume. Nilai ini sama dengan determinan \(\begin{vmatrix}1&2&0\\0&1&3\\2&0&1\end{vmatrix}=13\).</p>
+  </div>
+
+  <p>
+    Jika \(\vec{a}\cdot(\vec{b}\times\vec{c})=0\), ketiga vektor sebidang
+    (koplanar).
+  </p>
+</section>
+
+<section id="garis-vektor" data-title="Persamaan Vektor Garis">
+  <h2>13. Persamaan Vektor Garis Lurus</h2>
+
+  <p>
+    Garis yang melalui titik \(A\) dengan vektor arah \(\vec{d}\) memiliki
+    persamaan vektor:
+  </p>
+
+  <div class="math-display">
+    \[ \vec{r}=\vec{a}+t\,\vec{d},\qquad t\in\mathbb{R} \]
+  </div>
+
+  <p>Dalam bentuk komponen (persamaan parametrik):</p>
+
+  <div class="math-display">
+    \[ \begin{cases} x=a_1+t\,d_1\\ y=a_2+t\,d_2\\ z=a_3+t\,d_3 \end{cases} \]
+  </div>
+
+  <p>
+    Untuk garis melalui dua titik \(A\) dan \(B\), vektor arahnya adalah
+    \(\vec{d}=\overrightarrow{AB}=\vec{b}-\vec{a}\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+
+    <p>
+      Tentukan persamaan vektor garis yang melalui \(A(1,2,3)\) dan
+      \(B(3,1,7)\), lalu periksa apakah \(C(5,0,11)\) terletak pada garis itu.
+    </p>
+
+    <div class="math-display">
+      \[ \vec{d}=\overrightarrow{AB}=(2,-1,4),\qquad
+      \vec{r}=\begin{bmatrix}1\\2\\3\end{bmatrix}+t\begin{bmatrix}2\\-1\\4\end{bmatrix}
+      \]
+    </div>
+
+    <p>
+      Untuk \(C(5,0,11)\): \(1+2t=5\Rightarrow t=2\); \(2-t=0\Rightarrow t=2\);
+      \(3+4t=11\Rightarrow t=2\). Nilai \(t\) sama, sehingga \(C\) terletak pada
+      garis.
+    </p>
+  </div>
+
+  <h3>Jarak Titik ke Garis</h3>
+
+  <p>
+    Jarak titik \(P\) ke garis yang melalui \(A\) dengan vektor arah \(\vec{d}\)
+    adalah panjang komponen \(\overrightarrow{AP}\) yang tegak lurus \(\vec{d}\):
+  </p>
+
+  <div class="math-display">
+    \[ \text{jarak}=\frac{|\overrightarrow{AP}\times\vec{d}|}{|\vec{d}|} \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2</h4>
+
+    <p>
+      Tentukan jarak titik \(P(2,4,4)\) ke garis yang melalui \(A(1,2,3)\)
+      dengan vektor arah \(\vec{d}=(1,2,2)\).
+    </p>
+
+    <div class="math-display">
+      \[ \overrightarrow{AP}=(1,2,1),\qquad
+      \overrightarrow{AP}\times\vec{d}=(2,-1,0),\qquad
+      |\vec{d}|=3 \]
+    </div>
+
+    <div class="math-display">
+      \[ \text{jarak}=\frac{\sqrt{4+1+0}}{3}=\frac{\sqrt5}{3} \]
+    </div>
+  </div>
+</section>
+
+<section id="ketaksamaan-vektor" data-title="Ketaksamaan Vektor">
+  <h2>14. Ketaksamaan pada Vektor</h2>
+
+  <p>
+    Karena \(|\cos\theta|\le1\), diperoleh beberapa ketaksamaan penting yang
+    sering menjadi kunci pada soal tingkat lanjut.
+  </p>
+
+  <h3>Ketaksamaan Cauchy-Schwarz</h3>
+
+  <div class="math-display">
+    \[ |\vec{a}\cdot\vec{b}|\le|\vec{a}|\,|\vec{b}| \]
+  </div>
+
+  <p>
+    Kesamaan terjadi jika dan hanya jika \(\vec{a}\) dan \(\vec{b}\) sejajar.
+    Dalam bentuk komponen:
+  </p>
+
+  <div class="math-display">
+    \[ (a_1b_1+a_2b_2+a_3b_3)^2\le(a_1^2+a_2^2+a_3^2)(b_1^2+b_2^2+b_3^2) \]
+  </div>
+
+  <h3>Ketaksamaan Segitiga</h3>
+
+  <div class="math-display">
+    \[ \big|\,|\vec{a}|-|\vec{b}|\,\big|\le|\vec{a}\pm\vec{b}|\le|\vec{a}|+|\vec{b}| \]
+  </div>
+
+  <p>
+    Nilai \(|\vec{a}+\vec{b}|\) terbesar (\(|\vec{a}|+|\vec{b}|\)) dicapai ketika
+    kedua vektor searah, dan terkecil (\(\big||\vec{a}|-|\vec{b}|\big|\)) ketika
+    berlawanan arah.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+
+    <p>
+      Jika \(x^2+y^2=25\), tentukan nilai maksimum \(3x+4y\).
+    </p>
+
+    <p>
+      Tulis \(3x+4y=(3,4)\cdot(x,y)\). Dengan Cauchy-Schwarz:
+    </p>
+
+    <div class="math-display">
+      \[ 3x+4y\le\sqrt{3^2+4^2}\cdot\sqrt{x^2+y^2}=5\cdot5=25 \]
+    </div>
+
+    <p>
+      Nilai maksimum \(25\) dicapai saat \((x,y)\) sejajar \((3,4)\) dan
+      panjangnya \(5\), yaitu \((x,y)=(3,4)\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2</h4>
+
+    <p>
+      Jika \(|\vec{a}|=5\) dan \(|\vec{b}|=2\), tentukan nilai minimum dan
+      maksimum \(|\vec{a}+\vec{b}|\).
+    </p>
+
+    <div class="math-display">
+      \[ 5-2\le|\vec{a}+\vec{b}|\le5+2\Rightarrow 3\le|\vec{a}+\vec{b}|\le7 \]
+    </div>
+  </div>
+</section>
+
+<section id="rangkuman-vektor" data-title="Rangkuman Vektor">
+  <h2>15. Rangkuman Rumus Vektor</h2>
+
+  <h3>Vektor Posisi dan Vektor antara Dua Titik</h3>
+
+  <div class="math-display">
+    \[ \overrightarrow{AB}=\vec{b}-\vec{a} \]
+  </div>
+
+  <h3>Panjang Vektor</h3>
+
+  <div class="math-display">
+    \[ |\vec{a}|=\sqrt{a_1^2+a_2^2+a_3^2},\qquad |AB|=|\overrightarrow{AB}| \]
+  </div>
+
+  <h3>Vektor Satuan</h3>
+
+  <div class="math-display">\[ \hat{a}=\frac{\vec{a}}{|\vec{a}|} \]</div>
+
+  <h3>Operasi Vektor</h3>
+
+  <div class="math-display">
+    \[ \vec{a}\pm\vec{b}=(a_1\pm b_1,\ a_2\pm b_2,\ a_3\pm b_3),\qquad
+    k\vec{a}=(ka_1,ka_2,ka_3) \]
+  </div>
+
+  <h3>Pembagian Ruas Garis</h3>
+
+  <div class="math-display">
+    \[ \text{dalam: }\ \vec{p}=\frac{n\vec{a}+m\vec{b}}{m+n},\qquad
+    \text{luar: }\ \vec{p}=\frac{m\vec{b}-n\vec{a}}{m-n} \]
+  </div>
+
+  <h3>Titik Berat Segitiga</h3>
+
+  <div class="math-display">
+    \[ \vec{g}=\frac{\vec{a}+\vec{b}+\vec{c}}{3} \]
+  </div>
+
+  <h3>Hasil Kali Titik dan Sudut</h3>
+
+  <div class="math-display">
+    \[ \vec{a}\cdot\vec{b}=a_1b_1+a_2b_2+a_3b_3=|\vec{a}||\vec{b}|\cos\theta,
+    \qquad \cos\theta=\frac{\vec{a}\cdot\vec{b}}{|\vec{a}||\vec{b}|} \]
+  </div>
+
+  <h3>Proyeksi</h3>
+
+  <div class="math-display">
+    \[ \text{skalar: }\ \frac{\vec{a}\cdot\vec{b}}{|\vec{b}|},\qquad
+    \text{vektor: }\ \frac{\vec{a}\cdot\vec{b}}{|\vec{b}|^2}\,\vec{b} \]
+  </div>
+
+  <h3>Hasil Kali Silang, Luas, dan Volume</h3>
+
+  <div class="math-display">
+    \[ |\vec{a}\times\vec{b}|=|\vec{a}||\vec{b}|\sin\theta,\quad
+    L_{\triangle}=\frac12|\vec{a}\times\vec{b}|,\quad
+    V=|\vec{a}\cdot(\vec{b}\times\vec{c})| \]
+  </div>
+
+  <h3>Syarat Hubungan Dua Vektor</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Hubungan</th>
+          <th scope="col">Syarat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Sejajar</td>
+          <td>\(\vec{a}=k\vec{b}\) atau \(\vec{a}\times\vec{b}=\vec{0}\)</td>
+        </tr>
+        <tr>
+          <td>Tegak lurus</td>
+          <td>\(\vec{a}\cdot\vec{b}=0\)</td>
+        </tr>
+        <tr>
+          <td>Tiga titik \(A,B,C\) segaris</td>
+          <td>\(\overrightarrow{AC}=k\overrightarrow{AB}\)</td>
+        </tr>
+        <tr>
+          <td>Tiga vektor sebidang</td>
+          <td>\(\vec{a}\cdot(\vec{b}\times\vec{c})=0\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Identitas Panjang</h3>
+
+  <div class="math-display">
+    \[ |\vec{a}\pm\vec{b}|^2=|\vec{a}|^2\pm2\vec{a}\cdot\vec{b}+|\vec{b}|^2 \]
+  </div>
+
+  <h3>Ketaksamaan</h3>
+
+  <div class="math-display">
+    \[ |\vec{a}\cdot\vec{b}|\le|\vec{a}||\vec{b}|,\qquad
+    |\vec{a}+\vec{b}|\le|\vec{a}|+|\vec{b}| \]
+  </div>
+</section>
+
+<section id="latihan-mandiri-vektor" data-title="Latihan Soal Mandiri">
+  <h2>16. Latihan Soal Mandiri</h2>
+
+  <p>
+    Kerjakan soal-soal berikut secara mandiri. Soal nomor 1–8 memiliki tingkat
+    kesulitan sekolah dan soal nomor 9–18 memiliki tingkat penalaran seperti
+    soal UTBK; keduanya berbentuk pilihan ganda (pilih satu jawaban yang paling
+    tepat). Soal nomor 19–20 adalah soal tingkat olimpiade berbentuk isian
+    singkat.
+  </p>
+
+  <h3>A. Tingkat Kesulitan Sekolah</h3>
+
+  <!-- Soal 1 -->
+  <div class="lesson-example">
+    <h4>Soal 1</h4>
+
+    <p>Diketahui titik \(A(2,-1,3)\) dan \(B(5,3,-1)\). Vektor \(\overrightarrow{AB}\) adalah ....</p>
+
+    <ol type="A">
+      <li>\(3\vec{i}+4\vec{j}-4\vec{k}\)</li>
+      <li>\(7\vec{i}+2\vec{j}+2\vec{k}\)</li>
+      <li>\(-3\vec{i}-4\vec{j}+4\vec{k}\)</li>
+      <li>\(3\vec{i}+4\vec{j}+4\vec{k}\)</li>
+      <li>\(7\vec{i}-2\vec{j}+2\vec{k}\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 2 -->
+  <div class="lesson-example">
+    <h4>Soal 2</h4>
+
+    <p>Diketahui \(\vec{a}=2\vec{i}-\vec{j}+3\vec{k}\) dan \(\vec{b}=\vec{i}+4\vec{j}-2\vec{k}\). Vektor \(2\vec{a}-3\vec{b}\) adalah ....</p>
+
+    <ol type="A">
+      <li>\(7\vec{i}+10\vec{j}\)</li>
+      <li>\(\vec{i}+10\vec{j}+12\vec{k}\)</li>
+      <li>\(-\vec{i}+14\vec{j}-12\vec{k}\)</li>
+      <li>\(\vec{i}-14\vec{j}+12\vec{k}\)</li>
+      <li>\(\vec{i}-14\vec{j}\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 3 -->
+  <div class="lesson-example">
+    <h4>Soal 3</h4>
+
+    <p>Panjang vektor \(\vec{p}=4\vec{i}-4\vec{j}+7\vec{k}\) adalah ....</p>
+
+    <ol type="A">
+      <li>\(5\)</li>
+      <li>\(6\)</li>
+      <li>\(7\)</li>
+      <li>\(8\)</li>
+      <li>\(9\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 4 -->
+  <div class="lesson-example">
+    <h4>Soal 4</h4>
+
+    <p>
+      Diketahui vektor \(\vec{a}=(3,p,-6)\) sejajar dengan vektor
+      \(\vec{b}=(-1,2,q)\). Nilai \(p+q\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(-8\)</li>
+      <li>\(-4\)</li>
+      <li>\(-2\)</li>
+      <li>\(2\)</li>
+      <li>\(4\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 5 -->
+  <div class="lesson-example">
+    <h4>Soal 5</h4>
+
+    <p>
+      Diketahui \(A(-1,4,2)\) dan \(B(9,-1,7)\). Titik \(P\) terletak pada
+      ruas garis \(AB\) dengan \(AP:PB=3:2\). Koordinat titik \(P\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\((4,2,5)\)</li>
+      <li>\((5,2,5)\)</li>
+      <li>\((5,1,5)\)</li>
+      <li>\((6,1,4)\)</li>
+      <li>\((3,3,4)\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 6 -->
+  <div class="lesson-example">
+    <h4>Soal 6</h4>
+
+    <p>
+      Vektor \(\vec{a}=p\vec{i}+\vec{j}+2\vec{k}\) tegak lurus dengan vektor
+      \(\vec{b}=3\vec{i}+(p-4)\vec{j}-2\vec{k}\). Nilai \(p\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(2\)</li>
+      <li>\(-2\)</li>
+      <li>\(1\)</li>
+      <li>\(4\)</li>
+      <li>\(-4\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 7 -->
+  <div class="lesson-example">
+    <h4>Soal 7</h4>
+
+    <p>
+      Diketahui \(\vec{a}=\vec{i}+\vec{k}\) dan \(\vec{b}=-\vec{j}-\vec{k}\).
+      Besar sudut antara \(\vec{a}\) dan \(\vec{b}\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(30^\circ\)</li>
+      <li>\(60^\circ\)</li>
+      <li>\(120^\circ\)</li>
+      <li>\(135^\circ\)</li>
+      <li>\(150^\circ\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 8 -->
+  <div class="lesson-example">
+    <h4>Soal 8</h4>
+
+    <p>
+      Diketahui \(\vec{a}=(1,2,3)\) dan \(\vec{b}=(2,-1,2)\). Proyeksi skalar
+      ortogonal \(\vec{a}\) pada \(\vec{b}\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(1\)</li>
+      <li>\(2\)</li>
+      <li>\(3\)</li>
+      <li>\(6\)</li>
+      <li>\(9\)</li>
+    </ol>
+  </div>
+
+  <h3>B. Tingkat Kesulitan UTBK</h3>
+
+  <!-- Soal 9 -->
+  <div class="lesson-example">
+    <h4>Soal 9</h4>
+
+    <p>
+      Diketahui \(|\vec{a}|=3\), \(|\vec{b}|=5\), dan \(|\vec{a}-\vec{b}|=7\).
+      Nilai \(|\vec{a}+\vec{b}|\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(\sqrt{15}\)</li>
+      <li>\(\sqrt{17}\)</li>
+      <li>\(\sqrt{19}\)</li>
+      <li>\(\sqrt{21}\)</li>
+      <li>\(\sqrt{23}\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 10 -->
+  <div class="lesson-example">
+    <h4>Soal 10</h4>
+
+    <p>
+      Diketahui \(\vec{a}=3\vec{i}+p\vec{j}+\vec{k}\) dan
+      \(\vec{b}=2\vec{i}+\vec{j}+2\vec{k}\). Jika proyeksi skalar ortogonal
+      \(\vec{a}\) pada \(\vec{b}\) sama dengan \(4\), maka nilai \(p\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(1\)</li>
+      <li>\(2\)</li>
+      <li>\(3\)</li>
+      <li>\(4\)</li>
+      <li>\(5\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 11 -->
+  <div class="lesson-example">
+    <h4>Soal 11</h4>
+
+    <p>
+      Diketahui titik \(A(1,1,1)\), \(B(2,3,3)\), dan \(C(3,2,-1)\). Luas
+      segitiga \(ABC\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(9\)</li>
+      <li>\(3\)</li>
+      <li>\(6\)</li>
+      <li>\(18\)</li>
+      <li>\(\displaystyle\frac{9}{2}\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 12 -->
+  <div class="lesson-example">
+    <h4>Soal 12</h4>
+
+    <p>
+      Titik \(A(1,2,-1)\), \(B(3,0,3)\), dan \(C(p,-2,q)\) terletak pada satu
+      garis lurus. Nilai \(p+q\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(8\)</li>
+      <li>\(10\)</li>
+      <li>\(11\)</li>
+      <li>\(12\)</li>
+      <li>\(14\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 13 -->
+  <div class="lesson-example">
+    <h4>Soal 13</h4>
+
+    <p>
+      Vektor \(\vec{a}\) dan \(\vec{b}\) adalah vektor satuan yang membentuk
+      sudut \(60^\circ\). Nilai \((2\vec{a}+\vec{b})\cdot(\vec{a}-\vec{b})\)
+      adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(0\)</li>
+      <li>\(\displaystyle\frac12\)</li>
+      <li>\(1\)</li>
+      <li>\(\displaystyle\frac32\)</li>
+      <li>\(2\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 14 -->
+  <div class="lesson-example">
+    <h4>Soal 14</h4>
+
+    <p>
+      Diketahui \(\vec{a}=(p,1,-1)\) dan \(\vec{b}=(1,p,1)\). Jika sudut antara
+      \(\vec{a}\) dan \(\vec{b}\) adalah \(60^\circ\), maka nilai \(p\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(-2\)</li>
+      <li>\(-1\)</li>
+      <li>\(0\)</li>
+      <li>\(1\)</li>
+      <li>\(2\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 15 -->
+  <div class="lesson-example">
+    <h4>Soal 15</h4>
+
+    <p>
+      Vektor \(\vec{a}=(1,2,2)\) diuraikan menjadi dua komponen, yaitu komponen
+      yang sejajar dan komponen yang tegak lurus terhadap \(\vec{b}=(4,0,3)\).
+      Panjang komponen yang tegak lurus \(\vec{b}\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(1\)</li>
+      <li>\(2\)</li>
+      <li>\(\sqrt5\)</li>
+      <li>\(3\)</li>
+      <li>\(\sqrt{10}\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 16 -->
+  <div class="lesson-example">
+    <h4>Soal 16</h4>
+
+    <p>
+      Titik berat segitiga \(ABC\) adalah \(G(3,-1,2)\). Jika \(A(1,2,4)\) dan
+      \(B(5,-3,1)\), maka jumlah koordinat titik \(C\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(-1\)</li>
+      <li>\(0\)</li>
+      <li>\(1\)</li>
+      <li>\(2\)</li>
+      <li>\(3\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 17 -->
+  <div class="lesson-example">
+    <h4>Soal 17</h4>
+
+    <p>
+      Diketahui \(A(2,-1)\) dan \(B(6,3)\). Titik \(P\) terletak pada
+      perpanjangan garis \(AB\) (di luar ruas \(AB\)) sehingga \(AP:PB=5:3\).
+      Jumlah koordinat titik \(P\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(19\)</li>
+      <li>\(21\)</li>
+      <li>\(23\)</li>
+      <li>\(25\)</li>
+      <li>\(27\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 18 -->
+  <div class="lesson-example">
+    <h4>Soal 18</h4>
+
+    <p>
+      Jika \(x^2+y^2+z^2=4\), maka nilai maksimum \(3x+4y+12z\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(13\)</li>
+      <li>\(26\)</li>
+      <li>\(39\)</li>
+      <li>\(52\)</li>
+      <li>\(169\)</li>
+    </ol>
+  </div>
+
+  <h3>C. Tingkat Kesulitan Olimpiade</h3>
+
+  <!-- Soal 19 -->
+  <div class="lesson-example">
+    <h4>Soal 19</h4>
+
+    <p>
+      Diketahui \(\vec{a}=(1,2,3)\) dan \(\vec{b}=(2,-1,1)\). Tentukan nilai
+      minimum \(|\vec{a}+t\vec{b}|\) untuk semua bilangan real \(t\).
+    </p>
+  </div>
+
+  <!-- Soal 20 -->
+  <div class="lesson-example">
+    <h4>Soal 20</h4>
+
+    <p>
+      Pada segitiga \(ABC\), titik \(D\) terletak pada \(BC\) dengan
+      \(BD:DC=1:2\) dan titik \(E\) adalah titik tengah \(AC\). Garis \(AD\) dan
+      \(BE\) berpotongan di titik \(P\). Jika luas segitiga \(ABC\) adalah
+      \(48\) satuan luas, tentukan luas segitiga \(ABP\).
+    </p>
+  </div>
+</section>
+
+<section
+  id="pembahasan-latihan-vektor"
+  data-title="Pembahasan Latihan Mandiri"
+>
+  <h2>17. Pembahasan Latihan Mandiri</h2>
+
+  <p>
+    Bagian ini membahas seluruh soal pada latihan mandiri. Soal nomor 1–8
+    berfokus pada penguasaan konsep dan prosedur dasar tingkat sekolah, soal
+    nomor 9–18 menekankan penalaran dan pemilihan strategi yang lebih dekat
+    dengan karakter soal UTBK, dan soal nomor 19–20 menguji kreativitas
+    seperti pada soal olimpiade. Soal-soal berikut merupakan latihan bergaya
+    UTBK dan olimpiade, bukan soal resmi.
+  </p>
+
+  <h3>A. Pembahasan Tingkat Kesulitan Sekolah</h3>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 1</h4>
+    <p>Vektor \(\overrightarrow{AB}\) dihitung dengan aturan "ujung dikurangi pangkal":</p>
+    <div class="math-display">
+      \[ \overrightarrow{AB}=\begin{bmatrix}5-2\\3-(-1)\\-1-3\end{bmatrix}
+      =\begin{bmatrix}3\\4\\-4\end{bmatrix}=3\vec{i}+4\vec{j}-4\vec{k} \]
+    </div>
+    <p>
+      Pilihan B adalah hasil penjumlahan \(\vec{a}+\vec{b}\), sedangkan pilihan C
+      adalah \(\overrightarrow{BA}\), keduanya bukan jawaban yang diminta.
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 2</h4>
+    <p>Kalikan masing-masing vektor dengan skalarnya terlebih dahulu:</p>
+    <div class="math-display">
+      \[ 2\vec{a}=\begin{bmatrix}4\\-2\\6\end{bmatrix},\qquad
+      3\vec{b}=\begin{bmatrix}3\\12\\-6\end{bmatrix} \]
+    </div>
+    <p>Selanjutnya kurangkan komponen yang bersesuaian:</p>
+    <div class="math-display">
+      \[ 2\vec{a}-3\vec{b}=\begin{bmatrix}4-3\\-2-12\\6-(-6)\end{bmatrix}
+      =\begin{bmatrix}1\\-14\\12\end{bmatrix} \]
+    </div>
+    <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 3</h4>
+    <p>Gunakan rumus panjang vektor di ruang:</p>
+    <div class="math-display">
+      \[ |\vec{p}|=\sqrt{4^2+(-4)^2+7^2}=\sqrt{16+16+49}=\sqrt{81}=9 \]
+    </div>
+    <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 4</h4>
+    <p>
+      Karena \(\vec{a}\) sejajar \(\vec{b}\), ada bilangan \(k\) sehingga
+      \(\vec{a}=k\vec{b}\):
+    </p>
+    <div class="math-display">
+      \[ \begin{bmatrix}3\\p\\-6\end{bmatrix}=k\begin{bmatrix}-1\\2\\q\end{bmatrix} \]
+    </div>
+    <p>Dari komponen pertama:</p>
+    <div class="math-display">\[ 3=-k\Rightarrow k=-3 \]</div>
+    <p>Dari komponen kedua:</p>
+    <div class="math-display">\[ p=2k=-6 \]</div>
+    <p>Dari komponen ketiga:</p>
+    <div class="math-display">\[ -6=kq=-3q\Rightarrow q=2 \]</div>
+    <p>Maka:</p>
+    <div class="math-display">\[ p+q=-6+2=-4 \]</div>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 5</h4>
+    <p>
+      Dengan \(AP:PB=m:n=3:2\), vektor posisi \(P\) adalah
+      \(\vec{p}=\displaystyle\frac{n\vec{a}+m\vec{b}}{m+n}=\frac{2\vec{a}+3\vec{b}}{5}\).
+    </p>
+    <div class="math-display">
+      \[ 2\vec{a}=\begin{bmatrix}-2\\8\\4\end{bmatrix},\qquad
+      3\vec{b}=\begin{bmatrix}27\\-3\\21\end{bmatrix} \]
+    </div>
+    <div class="math-display">
+      \[ \vec{p}=\frac15\begin{bmatrix}25\\5\\25\end{bmatrix}
+      =\begin{bmatrix}5\\1\\5\end{bmatrix} \]
+    </div>
+    <p>
+      Pemeriksaan: \(P\) harus lebih dekat ke \(B\) daripada ke \(A\), dan
+      memang demikian karena \(AP\) lebih panjang dari \(PB\).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 6</h4>
+    <p>Dua vektor saling tegak lurus jika hasil kali titiknya nol:</p>
+    <div class="math-display">
+      \[ \vec{a}\cdot\vec{b}=p(3)+1(p-4)+2(-2)=3p+p-4-4=4p-8 \]
+    </div>
+    <div class="math-display">\[ 4p-8=0\Rightarrow p=2 \]</div>
+    <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 7</h4>
+    <p>Tulis komponen vektornya: \(\vec{a}=(1,0,1)\) dan \(\vec{b}=(0,-1,-1)\).</p>
+    <div class="math-display">
+      \[ \vec{a}\cdot\vec{b}=1(0)+0(-1)+1(-1)=-1 \]
+    </div>
+    <div class="math-display">
+      \[ |\vec{a}|=\sqrt2,\qquad |\vec{b}|=\sqrt2 \]
+    </div>
+    <p>Maka:</p>
+    <div class="math-display">
+      \[ \cos\theta=\frac{-1}{\sqrt2\cdot\sqrt2}=-\frac12\Rightarrow
+      \theta=120^\circ \]
+    </div>
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 8</h4>
+    <p>Proyeksi skalar \(\vec{a}\) pada \(\vec{b}\) dirumuskan \(\displaystyle\frac{\vec{a}\cdot\vec{b}}{|\vec{b}|}\).</p>
+    <div class="math-display">
+      \[ \vec{a}\cdot\vec{b}=1(2)+2(-1)+3(2)=2-2+6=6 \]
+    </div>
+    <div class="math-display">
+      \[ |\vec{b}|=\sqrt{4+1+4}=3 \]
+    </div>
+    <div class="math-display">\[ \frac{6}{3}=2 \]</div>
+    <p>
+      Nilai \(6\) pada pilihan D adalah \(\vec{a}\cdot\vec{b}\) yang belum dibagi
+      \(|\vec{b}|\).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <h3>B. Pembahasan Tingkat Kesulitan UTBK</h3>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 9</h4>
+    <p>Gunakan identitas \(|\vec{a}-\vec{b}|^2=|\vec{a}|^2-2\vec{a}\cdot\vec{b}+|\vec{b}|^2\):</p>
+    <div class="math-display">
+      \[ 49=9-2\,\vec{a}\cdot\vec{b}+25\Rightarrow
+      \vec{a}\cdot\vec{b}=-\frac{15}{2} \]
+    </div>
+    <p>Kemudian:</p>
+    <div class="math-display">
+      \[ |\vec{a}+\vec{b}|^2=9+2\left(-\frac{15}{2}\right)+25=19 \]
+    </div>
+    <p>
+      Cara cepat: jumlahkan \(|\vec{a}+\vec{b}|^2+|\vec{a}-\vec{b}|^2=2(|\vec{a}|^2+|\vec{b}|^2)=68\)
+      (hukum jajargenjang), sehingga \(|\vec{a}+\vec{b}|^2=68-49=19\).
+    </p>
+    <p>Jadi \(|\vec{a}+\vec{b}|=\sqrt{19}\) dan jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 10</h4>
+    <p>Hitung hasil kali titik dan panjang \(\vec{b}\):</p>
+    <div class="math-display">
+      \[ \vec{a}\cdot\vec{b}=3(2)+p(1)+1(2)=p+8,\qquad |\vec{b}|=\sqrt{4+1+4}=3 \]
+    </div>
+    <p>Proyeksi skalarnya \(4\), sehingga:</p>
+    <div class="math-display">
+      \[ \frac{p+8}{3}=4\Rightarrow p+8=12\Rightarrow p=4 \]
+    </div>
+    <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 11</h4>
+    <p>Bentuk vektor dari titik sudut \(A\):</p>
+    <div class="math-display">
+      \[ \overrightarrow{AB}=(1,2,2),\qquad \overrightarrow{AC}=(2,1,-2) \]
+    </div>
+    <p>Periksa hasil kali titiknya:</p>
+    <div class="math-display">
+      \[ \overrightarrow{AB}\cdot\overrightarrow{AC}=2+2-4=0 \]
+    </div>
+    <p>
+      Artinya \(\overrightarrow{AB}\perp\overrightarrow{AC}\), sehingga segitiga
+      siku-siku di \(A\). Panjang sisinya:
+    </p>
+    <div class="math-display">
+      \[ |AB|=\sqrt{1+4+4}=3,\qquad |AC|=\sqrt{4+1+4}=3 \]
+    </div>
+    <div class="math-display">
+      \[ L=\frac12\cdot3\cdot3=\frac92 \]
+    </div>
+    <p>
+      Dengan hasil kali silang diperoleh hasil yang sama:
+      \(\overrightarrow{AB}\times\overrightarrow{AC}=(-6,6,-3)\) yang panjangnya
+      \(9\), sehingga \(L=\displaystyle\frac12\cdot9\). Nilai \(9\) pada pilihan A
+      adalah luas jajargenjang, bukan luas segitiga.
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 12</h4>
+    <p>Tiga titik segaris jika \(\overrightarrow{AC}=k\,\overrightarrow{AB}\).</p>
+    <div class="math-display">
+      \[ \overrightarrow{AB}=\begin{bmatrix}2\\-2\\4\end{bmatrix},\qquad
+      \overrightarrow{AC}=\begin{bmatrix}p-1\\-4\\q+1\end{bmatrix} \]
+    </div>
+    <p>Komponen kedua tidak memuat variabel, sehingga dipakai untuk mencari \(k\):</p>
+    <div class="math-display">\[ -4=-2k\Rightarrow k=2 \]</div>
+    <p>Kemudian:</p>
+    <div class="math-display">
+      \[ p-1=2(2)=4\Rightarrow p=5,\qquad q+1=2(4)=8\Rightarrow q=7 \]
+    </div>
+    <div class="math-display">\[ p+q=12 \]</div>
+    <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 13</h4>
+    <p>Karena \(\vec{a}\) dan \(\vec{b}\) vektor satuan, \(|\vec{a}|=|\vec{b}|=1\) dan</p>
+    <div class="math-display">
+      \[ \vec{a}\cdot\vec{b}=1\cdot1\cdot\cos60^\circ=\frac12 \]
+    </div>
+    <p>Jabarkan dengan sifat distributif:</p>
+    <div class="math-display">
+      \[ \begin{aligned} (2\vec{a}+\vec{b})\cdot(\vec{a}-\vec{b})
+      &=2\,\vec{a}\cdot\vec{a}-2\,\vec{a}\cdot\vec{b}+\vec{b}\cdot\vec{a}-\vec{b}\cdot\vec{b}\\
+      &=2|\vec{a}|^2-\vec{a}\cdot\vec{b}-|\vec{b}|^2\\
+      &=2-\frac12-1\\ &=\frac12 \end{aligned} \]
+    </div>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 14</h4>
+    <p>Hitung hasil kali titik dan panjang kedua vektor:</p>
+    <div class="math-display">
+      \[ \vec{a}\cdot\vec{b}=p+p-1=2p-1 \]
+    </div>
+    <div class="math-display">
+      \[ |\vec{a}|^2=p^2+1+1=p^2+2,\qquad |\vec{b}|^2=1+p^2+1=p^2+2 \]
+    </div>
+    <p>Karena panjang keduanya sama, \(|\vec{a}||\vec{b}|=p^2+2\). Dengan \(\cos60^\circ=\displaystyle\frac12\):</p>
+    <div class="math-display">
+      \[ \frac{2p-1}{p^2+2}=\frac12\Rightarrow 4p-2=p^2+2\Rightarrow
+      p^2-4p+4=0 \]
+    </div>
+    <div class="math-display">\[ (p-2)^2=0\Rightarrow p=2 \]</div>
+    <p>
+      Pemeriksaan: \(\vec{a}=(2,1,-1)\), \(\vec{b}=(1,2,1)\),
+      \(\vec{a}\cdot\vec{b}=3\), \(|\vec{a}||\vec{b}|=6\), sehingga
+      \(\cos\theta=\displaystyle\frac12\).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 15</h4>
+    <p>
+      Komponen \(\vec{a}\) yang sejajar \(\vec{b}\) adalah proyeksi vektor
+      \(\vec{c}\), dan komponen yang tegak lurus adalah \(\vec{d}=\vec{a}-\vec{c}\).
+      Panjang \(\vec{d}\) dapat dicari dengan teorema Pythagoras:
+      \(|\vec{d}|^2=|\vec{a}|^2-c^2\), dengan \(c\) proyeksi skalar.
+    </p>
+    <div class="math-display">
+      \[ \vec{a}\cdot\vec{b}=4+0+6=10,\qquad |\vec{b}|=\sqrt{16+0+9}=5 \]
+    </div>
+    <div class="math-display">
+      \[ c=\frac{10}{5}=2,\qquad |\vec{a}|^2=1+4+4=9 \]
+    </div>
+    <div class="math-display">
+      \[ |\vec{d}|^2=9-2^2=5\Rightarrow|\vec{d}|=\sqrt5 \]
+    </div>
+    <p>
+      Pemeriksaan langsung: \(\vec{c}=\displaystyle\frac{10}{25}(4,0,3)=\left(\frac85,0,\frac65\right)\)
+      sehingga \(\vec{d}=\left(-\displaystyle\frac35,2,\frac45\right)\) dengan
+      \(|\vec{d}|^2=\displaystyle\frac{9}{25}+4+\frac{16}{25}=5\).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 16</h4>
+    <p>Dari rumus titik berat \(\vec{g}=\displaystyle\frac{\vec{a}+\vec{b}+\vec{c}}{3}\), diperoleh:</p>
+    <div class="math-display">
+      \[ \vec{c}=3\vec{g}-\vec{a}-\vec{b} \]
+    </div>
+    <div class="math-display">
+      \[ \vec{c}=\begin{bmatrix}9\\-3\\6\end{bmatrix}-\begin{bmatrix}1\\2\\4\end{bmatrix}
+      -\begin{bmatrix}5\\-3\\1\end{bmatrix}=\begin{bmatrix}3\\-2\\1\end{bmatrix} \]
+    </div>
+    <p>Jadi \(C(3,-2,1)\) dan jumlah koordinatnya adalah \(3-2+1=2\).</p>
+    <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 17</h4>
+    <p>
+      Karena \(AP:PB=5:3\) dan \(P\) berada di luar ruas \(AB\), digunakan
+      rumus pembagian luar dengan \(m=5\) dan \(n=3\) (\(m>n\), sehingga \(P\)
+      berada di luar ujung \(B\)):
+    </p>
+    <div class="math-display">
+      \[ \vec{p}=\frac{5\vec{b}-3\vec{a}}{5-3}
+      =\frac12\left(\begin{bmatrix}30\\15\end{bmatrix}-\begin{bmatrix}6\\-3\end{bmatrix}\right)
+      =\begin{bmatrix}12\\9\end{bmatrix} \]
+    </div>
+    <p>
+      Pemeriksaan: \(\overrightarrow{AP}=(10,10)\) dan \(\overrightarrow{PB}=(-6,-6)\)
+      sehingga panjang keduanya berbanding \(10:6=5:3\).
+    </p>
+    <p>Jumlah koordinat \(P\) adalah \(12+9=21\).</p>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 18</h4>
+    <p>
+      Nyatakan bentuk \(3x+4y+12z\) sebagai hasil kali titik
+      \((3,4,12)\cdot(x,y,z)\). Dengan ketaksamaan Cauchy-Schwarz:
+    </p>
+    <div class="math-display">
+      \[ 3x+4y+12z\le\sqrt{3^2+4^2+12^2}\cdot\sqrt{x^2+y^2+z^2} \]
+    </div>
+    <div class="math-display">
+      \[ =\sqrt{169}\cdot\sqrt4=13\cdot2=26 \]
+    </div>
+    <p>
+      Nilai maksimum tercapai ketika \((x,y,z)\) sejajar \((3,4,12)\), yaitu
+      \((x,y,z)=\displaystyle\frac{2}{13}(3,4,12)\) yang memenuhi
+      \(x^2+y^2+z^2=4\).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <h3>C. Pembahasan Tingkat Kesulitan Olimpiade</h3>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 19</h4>
+    <p>Jabarkan kuadrat panjangnya:</p>
+    <div class="math-display">
+      \[ |\vec{a}+t\vec{b}|^2=|\vec{a}|^2+2t\,\vec{a}\cdot\vec{b}+t^2|\vec{b}|^2 \]
+    </div>
+    <p>Hitung besaran-besarannya:</p>
+    <div class="math-display">
+      \[ |\vec{a}|^2=1+4+9=14,\qquad \vec{a}\cdot\vec{b}=2-2+3=3,\qquad
+      |\vec{b}|^2=4+1+1=6 \]
+    </div>
+    <p>Sehingga:</p>
+    <div class="math-display">
+      \[ |\vec{a}+t\vec{b}|^2=6t^2+6t+14=6\left(t+\frac12\right)^2+\frac{25}{2} \]
+    </div>
+    <p>
+      Nilai terkecil dicapai pada \(t=-\displaystyle\frac12\), yaitu
+      \(\displaystyle\frac{25}{2}\). Jadi:
+    </p>
+    <div class="math-display">
+      \[ |\vec{a}+t\vec{b}|_{\min}=\sqrt{\frac{25}{2}}=\frac{5}{\sqrt2}
+      =\frac{5\sqrt2}{2} \]
+    </div>
+    <p>
+      Interpretasi geometri: nilai minimum adalah jarak dari ujung \(\vec{a}\)
+      ke garis yang searah \(\vec{b}\) melalui titik asal. Hasil yang sama
+      diperoleh dari \(\displaystyle\frac{|\vec{a}\times\vec{b}|}{|\vec{b}|}=\frac{|(5,5,-5)|}{\sqrt6}=\frac{5\sqrt3}{\sqrt6}=\frac{5}{\sqrt2}\).
+      Pada nilai minimum itu, vektor \(\vec{a}+t\vec{b}\) tegak lurus
+      \(\vec{b}\).
+    </p>
+    <p>Jadi, jawabannya adalah <strong>\(\displaystyle\frac{5\sqrt2}{2}\)</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 20</h4>
+    <p>
+      Jadikan \(A\) sebagai titik asal dan misalkan \(\vec{b}=\overrightarrow{AB}\),
+      \(\vec{c}=\overrightarrow{AC}\). Kedua vektor ini tidak sejajar sehingga
+      setiap vektor di bidang \(ABC\) dapat ditulis tunggal sebagai kombinasi
+      \(x\vec{b}+y\vec{c}\).
+    </p>
+    <p>
+      Titik \(D\) pada \(BC\) dengan \(BD:DC=1:2\), sedangkan \(E\) titik tengah
+      \(AC\):
+    </p>
+    <div class="math-display">
+      \[ \vec{d}=\frac{2\vec{b}+1\vec{c}}{3}=\frac23\vec{b}+\frac13\vec{c},
+      \qquad \vec{e}=\frac12\vec{c} \]
+    </div>
+    <p>Titik \(P\) terletak pada \(AD\), sehingga untuk suatu \(\lambda\):</p>
+    <div class="math-display">
+      \[ \vec{p}=\lambda\vec{d}=\frac{2\lambda}{3}\vec{b}+\frac{\lambda}{3}\vec{c} \]
+    </div>
+    <p>Titik \(P\) juga terletak pada \(BE\), sehingga untuk suatu \(\mu\):</p>
+    <div class="math-display">
+      \[ \vec{p}=\vec{b}+\mu(\vec{e}-\vec{b})=(1-\mu)\vec{b}+\frac{\mu}{2}\vec{c} \]
+    </div>
+    <p>Karena \(\vec{b}\) dan \(\vec{c}\) bebas linear, koefisien-koefisiennya harus sama:</p>
+    <div class="math-display">
+      \[ \frac{2\lambda}{3}=1-\mu,\qquad \frac{\lambda}{3}=\frac{\mu}{2}
+      \Rightarrow\mu=\frac{2\lambda}{3} \]
+    </div>
+    <p>Substitusikan \(\mu\) ke persamaan pertama:</p>
+    <div class="math-display">
+      \[ \frac{2\lambda}{3}=1-\frac{2\lambda}{3}\Rightarrow\lambda=\frac34,
+      \quad\mu=\frac12 \]
+    </div>
+    <p>Dengan demikian:</p>
+    <div class="math-display">
+      \[ \vec{p}=\frac12\vec{b}+\frac14\vec{c} \]
+    </div>
+    <p>
+      Luas segitiga \(ABP\) adalah \(\displaystyle\frac12|\vec{b}\times\vec{p}|\).
+      Karena \(\vec{b}\times\vec{b}=\vec{0}\):
+    </p>
+    <div class="math-display">
+      \[ \vec{b}\times\vec{p}=\frac12(\vec{b}\times\vec{b})+\frac14(\vec{b}\times\vec{c})
+      =\frac14(\vec{b}\times\vec{c}) \]
+    </div>
+    <p>Sehingga:</p>
+    <div class="math-display">
+      \[ L_{ABP}=\frac14\cdot\frac12|\vec{b}\times\vec{c}|=\frac14L_{ABC}
+      =\frac14(48)=12 \]
+    </div>
+    <p>
+      Pemeriksaan dengan perbandingan luas: \(L_{ABD}=\displaystyle\frac13L_{ABC}=16\)
+      dan \(AP:PD=3:1\) (karena \(\lambda=\displaystyle\frac34\)), sehingga
+      \(L_{ABP}=\displaystyle\frac34\cdot16=12\).
+    </p>
+    <p>Jadi, jawabannya adalah <strong>12 satuan luas</strong>.</p>
+  </div>
+
+  <h3>Ringkasan Kunci dan Konsep yang Diuji</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table answer-key-table">
+      <thead>
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">Kunci</th>
+          <th scope="col">Konsep Utama</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>A</td>
+          <td>Vektor dari dua titik (ujung dikurangi pangkal)</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>D</td>
+          <td>Operasi penjumlahan, pengurangan, dan perkalian skalar</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>E</td>
+          <td>Panjang vektor di ruang</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>B</td>
+          <td>Dua vektor sejajar</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>C</td>
+          <td>Pembagian dalam ruas garis</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>A</td>
+          <td>Hasil kali titik dan ketegaklurusan</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>C</td>
+          <td>Sudut antara dua vektor</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>B</td>
+          <td>Proyeksi skalar ortogonal</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>C</td>
+          <td>Identitas panjang jumlah dan selisih vektor</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>D</td>
+          <td>Proyeksi skalar dengan parameter</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>E</td>
+          <td>Luas segitiga dengan vektor</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>D</td>
+          <td>Tiga titik segaris</td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>B</td>
+          <td>Sifat distributif hasil kali titik</td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td>E</td>
+          <td>Sudut antara vektor dengan parameter</td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td>C</td>
+          <td>Penguraian vektor menjadi komponen sejajar dan tegak lurus</td>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td>D</td>
+          <td>Titik berat segitiga</td>
+        </tr>
+        <tr>
+          <td>17</td>
+          <td>B</td>
+          <td>Pembagian luar ruas garis</td>
+        </tr>
+        <tr>
+          <td>18</td>
+          <td>B</td>
+          <td>Ketaksamaan Cauchy-Schwarz</td>
+        </tr>
+        <tr>
+          <td>19</td>
+          <td>\(\displaystyle\frac{5\sqrt2}{2}\)</td>
+          <td>Meminimumkan panjang vektor dan jarak titik ke garis</td>
+        </tr>
+        <tr>
+          <td>20</td>
+          <td>12</td>
+          <td>Kombinasi linear, perpotongan garis, dan perbandingan luas</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

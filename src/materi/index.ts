@@ -5,6 +5,8 @@ import matriksHtml from "./matriks.html?raw";
 import kombinatorikaHtml from "./kombinatorika.html?raw";
 import peluangHtml from "./peluang.html?raw";
 import spplHtml from "./sppl.html?raw";
+import vektorHtml from "./vektor.html?raw";
+import fungsiKuadratHtml from "./fungsi-kuadrat.html?raw";
 
 export interface Material {
   id: string;
@@ -105,6 +107,31 @@ export const materials: Material[] = [
     description:
       "Pelajari SPLDV, SPLTV, pertidaksamaan linear satu variabel, serta sistem pertidaksamaan linear dua variabel dan aplikasinya.",
     htmlContent: spplHtml,
+  },
+  {
+    id: "vectors",
+    slug: "vektor",
+    number: "08",
+    category: "Geometri Analitik",
+    title: "Vektor",
+    grade: "Kelas XI",
+    formula:
+      "\\vec{a}=(a_1,a_2,a_3) \\qquad |\\vec{a}|=\\sqrt{a_1^2+a_2^2+a_3^2}",
+    description:
+      "Pelajari pengertian vektor, operasi vektor, panjang vektor, vektor satuan, serta penerapannya dalam geometri dan fisika.",
+    htmlContent: vektorHtml,
+  },
+  {
+    id: "quadratic-functions",
+    slug: "fungsi-kuadrat",
+    number: "09",
+    category: "Aljabar Matematika",
+    title: "Fungsi Kuadrat",
+    grade: "Kelas X",
+    formula: "f(x)=ax^2+bx+c \\qquad x_p=-\\frac{b}{2a}",
+    description:
+      "Pelajari bentuk umum fungsi kuadrat, titik puncak, akar-akar, grafik parabola, dan penyelesaian pertidaksamaan kuadrat.",
+    htmlContent: fungsiKuadratHtml,
   },
 ];
 

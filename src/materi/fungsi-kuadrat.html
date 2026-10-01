@@ -1,0 +1,2599 @@
+<section id="pengertian-fungsi-kuadrat" data-title="Pengertian Fungsi Kuadrat">
+  <h2>1. Pengertian Fungsi Kuadrat</h2>
+
+  <p>
+    Fungsi kuadrat adalah fungsi yang pangkat tertinggi variabelnya adalah dua.
+    Fungsi ini sering muncul dalam kehidupan sehari-hari, misalnya pada lintasan
+    bola yang ditendang, bentuk kabel jembatan gantung, luas daerah yang berubah
+    mengikuti panjang sisinya, dan keuntungan usaha yang bergantung pada harga
+    jual.
+  </p>
+
+  <h3>Bentuk Umum</h3>
+
+  <p>Fungsi kuadrat dalam variabel \(x\) memiliki bentuk umum:</p>
+
+  <div class="math-display">
+    \[ f(x)=ax^2+bx+c,\qquad a,b,c\in\mathbb{R},\ a\neq0 \]
+  </div>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Bagian</th>
+          <th scope="col">Nama</th>
+          <th scope="col">Keterangan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(a\)</td>
+          <td>Koefisien \(x^2\)</td>
+          <td>Tidak boleh nol; menentukan arah bukaan grafik</td>
+        </tr>
+        <tr>
+          <td>\(b\)</td>
+          <td>Koefisien \(x\)</td>
+          <td>Boleh nol; ikut menentukan letak sumbu simetri</td>
+        </tr>
+        <tr>
+          <td>\(c\)</td>
+          <td>Konstanta</td>
+          <td>Boleh nol; nilai fungsi saat \(x=0\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    Syarat \(a\neq0\) sangat penting. Jika \(a=0\), maka \(f(x)=bx+c\) adalah
+    fungsi linear yang grafiknya garis lurus, bukan lagi fungsi kuadrat.
+  </p>
+
+  <h3>Menentukan Nilai \(a\), \(b\), dan \(c\)</h3>
+
+  <p>
+    Sebelum menentukan koefisien, jabarkan fungsinya sampai berbentuk
+    \(ax^2+bx+c\). Perhatikan juga bahwa suku yang tidak tertulis berarti
+    koefisiennya nol.
+  </p>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Fungsi</th>
+          <th scope="col">Bentuk \(ax^2+bx+c\)</th>
+          <th scope="col">\(a\)</th>
+          <th scope="col">\(b\)</th>
+          <th scope="col">\(c\)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(f(x)=3x^2-5x+2\)</td>
+          <td>\(3x^2-5x+2\)</td>
+          <td>\(3\)</td>
+          <td>\(-5\)</td>
+          <td>\(2\)</td>
+        </tr>
+        <tr>
+          <td>\(f(x)=(x-2)(x+5)\)</td>
+          <td>\(x^2+3x-10\)</td>
+          <td>\(1\)</td>
+          <td>\(3\)</td>
+          <td>\(-10\)</td>
+        </tr>
+        <tr>
+          <td>\(f(x)=4-x^2\)</td>
+          <td>\(-x^2+0x+4\)</td>
+          <td>\(-1\)</td>
+          <td>\(0\)</td>
+          <td>\(4\)</td>
+        </tr>
+        <tr>
+          <td>\(f(x)=2x(x-3)+7\)</td>
+          <td>\(2x^2-6x+7\)</td>
+          <td>\(2\)</td>
+          <td>\(-6\)</td>
+          <td>\(7\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Bukan Fungsi Kuadrat</h3>
+
+  <p>
+    Fungsi \(f(x)=2x+5\) bukan fungsi kuadrat karena tidak ada suku \(x^2\).
+    Fungsi \(f(x)=x^3-x\) juga bukan, karena pangkat tertingginya tiga. Fungsi
+    \(f(x)=\displaystyle\frac{1}{x^2}\) bukan karena \(x\) berada di penyebut.
+    Fungsi \(f(x)=(x+1)^2-x^2\) pun bukan, sebab setelah dijabarkan menjadi
+    \(2x+1\) (suku \(x^2\) saling menghilangkan).
+  </p>
+
+  <h3>Nilai Fungsi</h3>
+
+  <p>
+    Nilai fungsi di \(x=t\) diperoleh dengan mengganti setiap \(x\) dengan
+    \(t\), lalu menghitungnya.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Diketahui \(f(x)=2x^2-3x+1\). Hitunglah \(f(0)\), \(f(2)\), \(f(-1)\),
+      lalu tentukan \(x\) yang memenuhi \(f(x)=10\).
+    </p>
+
+    <div class="math-display">
+      \[ \begin{aligned} f(0)&=0-0+1=1\\ f(2)&=2(4)-3(2)+1=3\\
+      f(-1)&=2(1)-3(-1)+1=6 \end{aligned} \]
+    </div>
+
+    <p>Untuk \(f(x)=10\):</p>
+
+    <div class="math-display">
+      \[ 2x^2-3x+1=10\Rightarrow 2x^2-3x-9=0\Rightarrow(2x+3)(x-3)=0 \]
+    </div>
+
+    <p>
+      Jadi \(x=-\displaystyle\frac32\) atau \(x=3\). Periksa: \(f(3)=18-9+1=10\)
+      (benar).
+    </p>
+  </div>
+
+  <h3>Hubungan Fungsi Kuadrat dan Persamaan Kuadrat</h3>
+
+  <p>
+    Persamaan kuadrat \(ax^2+bx+c=0\) muncul ketika kita mencari nilai \(x\)
+    yang membuat \(f(x)=0\). Nilai \(x\) tersebut disebut
+    <strong>akar</strong> atau <strong>pembuat nol</strong> fungsi, dan secara
+    geometri merupakan titik potong grafik dengan sumbu-\(x\).
+  </p>
+</section>
+
+<section id="unsur-parabola" data-title="Unsur-Unsur Grafik Parabola">
+  <h2>2. Unsur-Unsur Grafik Parabola</h2>
+
+  <p>
+    Grafik fungsi kuadrat berbentuk <strong>parabola</strong>, yaitu kurva mulus
+    yang simetris seperti lintasan bola yang dilempar. Untuk menggambar atau
+    menganalisis parabola, kita cukup menentukan lima hal: arah bukaan, titik
+    potong sumbu-\(y\), titik potong sumbu-\(x\), sumbu simetri, dan titik
+    puncak.
+  </p>
+
+  <h3>Arah Bukaan</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Kondisi</th>
+          <th scope="col">Arah bukaan</th>
+          <th scope="col">Titik puncak</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(a&gt;0\)</td>
+          <td>Terbuka ke atas (seperti mangkuk)</td>
+          <td>Titik terendah (minimum)</td>
+        </tr>
+        <tr>
+          <td>\(a&lt;0\)</td>
+          <td>Terbuka ke bawah (seperti topi)</td>
+          <td>Titik tertinggi (maksimum)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    Selain arah, nilai \(|a|\) menentukan seberapa "langsing" parabola. Semakin
+    besar \(|a|\), semakin sempit parabolanya; semakin kecil \(|a|\), semakin
+    lebar parabolanya.
+  </p>
+
+  <h3>Titik Potong dengan Sumbu-\(y\)</h3>
+
+  <p>
+    Titik pada sumbu-\(y\) memiliki \(x=0\), sehingga \(f(0)=c\). Jadi grafik
+    selalu memotong sumbu-\(y\) di titik \((0,c)\).
+  </p>
+
+  <h3>Titik Potong dengan Sumbu-\(x\)</h3>
+
+  <p>
+    Titik pada sumbu-\(x\) memiliki \(y=0\). Selesaikan \(ax^2+bx+c=0\). Jika
+    akar-akarnya \(x_1\) dan \(x_2\), titik potongnya adalah \((x_1,0)\) dan
+    \((x_2,0)\). Bisa jadi ada dua titik, satu titik, atau tidak ada sama sekali
+    (lihat bagian diskriminan).
+  </p>
+
+  <h3>Sumbu Simetri dan Titik Puncak</h3>
+
+  <p>
+    Parabola simetris terhadap sebuah garis tegak yang disebut sumbu simetri.
+    Untuk mendapatkan rumusnya, ubah \(f(x)\) ke bentuk kuadrat sempurna
+    (melengkapkan kuadrat):
+  </p>
+
+  <div class="math-display">
+    \[ \begin{aligned} f(x)&=a\left(x^2+\frac{b}{a}x\right)+c\\
+    &=a\left(x+\frac{b}{2a}\right)^2-\frac{b^2}{4a}+c\\
+    &=a\left(x+\frac{b}{2a}\right)^2-\frac{b^2-4ac}{4a} \end{aligned} \]
+  </div>
+
+  <p>
+    Bentuk \(\left(x+\displaystyle\frac{b}{2a}\right)^2\) tidak pernah negatif
+    dan bernilai nol tepat ketika \(x=-\displaystyle\frac{b}{2a}\). Itulah letak
+    titik puncak. Bilangan \(D=b^2-4ac\) disebut
+    <strong>diskriminan</strong>.
+  </p>
+
+  <div class="math-display">
+    \[ x_p=-\frac{b}{2a},\qquad y_p=f(x_p)=-\frac{D}{4a},\qquad D=b^2-4ac \]
+  </div>
+
+  <p>
+    Persamaan sumbu simetri adalah \(x=x_p\), dan titik puncaknya
+    \((x_p,\,y_p)\). Nilai \(y_p\) dapat dicari dengan rumus
+    \(-\displaystyle\frac{D}{4a}\) atau dengan mensubstitusikan \(x_p\) ke
+    \(f(x)\); keduanya memberi hasil yang sama.
+  </p>
+
+  <h3>Nilai Ekstrem</h3>
+
+  <p>
+    Nilai \(y_p\) adalah nilai paling kecil jika \(a&gt;0\) (nilai
+    <strong>minimum</strong>) dan nilai paling besar jika \(a&lt;0\) (nilai
+    <strong>maksimum</strong>).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+
+    <p>
+      Tentukan semua unsur grafik \(f(x)=x^2-6x+5\), lalu gambarkan sketsanya.
+    </p>
+
+    <ul>
+      <li>Arah bukaan: \(a=1&gt;0\), terbuka ke atas.</li>
+      <li>Titik potong sumbu-\(y\): \((0,5)\).</li>
+      <li>
+        Titik potong sumbu-\(x\): \(x^2-6x+5=(x-1)(x-5)=0\), diperoleh \((1,0)\)
+        dan \((5,0)\).
+      </li>
+      <li>Sumbu simetri: \(x=-\displaystyle\frac{-6}{2(1)}=3\).</li>
+      <li>
+        Titik puncak: \(f(3)=9-18+5=-4\), sehingga puncaknya \((3,-4)\) dan
+        nilai minimumnya \(-4\).
+      </li>
+    </ul>
+
+    <p>
+      Perhatikan bahwa sumbu simetri \(x=3\) tepat berada di tengah-tengah kedua
+      akar, \(\displaystyle\frac{1+5}{2}=3\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2</h4>
+
+    <p>Tentukan titik puncak dan nilai ekstrem \(f(x)=-2x^2+4x+6\).</p>
+
+    <div class="math-display">\[ D=4^2-4(-2)(6)=16+48=64 \]</div>
+
+    <div class="math-display">
+      \[ x_p=-\frac{4}{2(-2)}=1,\qquad y_p=-\frac{64}{4(-2)}=8 \]
+    </div>
+
+    <p>
+      Karena \(a=-2&lt;0\), parabola terbuka ke bawah sehingga nilai ekstremnya
+      adalah <strong>maksimum</strong> sebesar \(8\) di titik puncak \((1,8)\).
+      Pemeriksaan: \(f(1)=-2+4+6=8\).
+    </p>
+  </div>
+
+  <h3>Langkah Membuat Sketsa Parabola</h3>
+
+  <ul>
+    <li>Tentukan arah bukaan dari tanda \(a\).</li>
+    <li>Tentukan titik potong sumbu-\(y\), yaitu \((0,c)\).</li>
+    <li>Tentukan titik potong sumbu-\(x\) dengan menyelesaikan \(f(x)=0\).</li>
+    <li>
+      Tentukan titik puncak
+      \(\left(-\displaystyle\frac{b}{2a},-\displaystyle\frac{D}{4a}\right)\).
+    </li>
+    <li>
+      Tandai titik-titik tadi, lalu hubungkan dengan kurva mulus yang simetris
+      terhadap sumbu simetri.
+    </li>
+  </ul>
+</section>
+
+<section id="akar-kuadrat" data-title="Akar-Akar dan Titik Potong Sumbu x">
+  <h2>3. Akar-Akar Persamaan Kuadrat</h2>
+
+  <p>
+    Ada tiga cara menyelesaikan \(ax^2+bx+c=0\): memfaktorkan, melengkapkan
+    kuadrat, dan memakai rumus kuadrat (rumus abc). Pilih cara yang paling cepat
+    untuk soal yang dihadapi.
+  </p>
+
+  <h3>Cara 1: Memfaktorkan</h3>
+
+  <p>
+    Untuk \(a=1\), cari dua bilangan yang hasil kalinya \(c\) dan jumlahnya
+    \(b\):
+  </p>
+
+  <div class="math-display">\[ x^2+(p+q)x+pq=(x+p)(x+q) \]</div>
+
+  <p>
+    Untuk \(a\neq1\), gunakan cara "\(ac\)": cari dua bilangan yang hasil
+    kalinya \(ac\) dan jumlahnya \(b\), pecah suku tengah, lalu faktorkan secara
+    berkelompok. Setelah difaktorkan, gunakan sifat: jika \(PQ=0\) maka \(P=0\)
+    atau \(Q=0\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+
+    <p>Selesaikan \(x^2-5x+6=0\).</p>
+
+    <p>
+      Cari dua bilangan yang hasil kalinya \(6\) dan jumlahnya \(-5\), yaitu
+      \(-2\) dan \(-3\).
+    </p>
+
+    <div class="math-display">
+      \[ (x-2)(x-3)=0\Rightarrow x=2\ \text{atau}\ x=3 \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2</h4>
+
+    <p>Selesaikan \(6x^2+x-2=0\).</p>
+
+    <p>
+      Di sini \(ac=6\cdot(-2)=-12\). Dua bilangan yang hasil kalinya \(-12\) dan
+      jumlahnya \(1\) adalah \(4\) dan \(-3\). Pecah suku tengah:
+    </p>
+
+    <div class="math-display">
+      \[ \begin{aligned} 6x^2+4x-3x-2&=0\\ 2x(3x+2)-1(3x+2)&=0\\ (2x-1)(3x+2)&=0
+      \end{aligned} \]
+    </div>
+
+    <p>Jadi \(x=\displaystyle\frac12\) atau \(x=-\displaystyle\frac23\).</p>
+  </div>
+
+  <h3>Cara 2: Melengkapkan Kuadrat</h3>
+
+  <p>
+    Ubah persamaan menjadi bentuk \((x+p)^2=q\), lalu tarik akar kedua ruas
+    (ingat dua kemungkinan, positif dan negatif).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 3</h4>
+
+    <p>Selesaikan \(x^2+6x-7=0\).</p>
+
+    <div class="math-display">
+      \[ \begin{aligned} x^2+6x&=7\\ x^2+6x+9&=7+9\\ (x+3)^2&=16\\ x+3&=\pm4
+      \end{aligned} \]
+    </div>
+
+    <p>Jadi \(x=1\) atau \(x=-7\).</p>
+  </div>
+
+  <h3>Cara 3: Rumus Kuadrat (Rumus abc)</h3>
+
+  <p>
+    Rumus ini diperoleh dari melengkapkan kuadrat pada bentuk umum, dan berlaku
+    untuk <em>semua</em> persamaan kuadrat:
+  </p>
+
+  <div class="math-display">
+    \[ x_{1,2}=\frac{-b\pm\sqrt{b^2-4ac}}{2a}=\frac{-b\pm\sqrt{D}}{2a} \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 4</h4>
+
+    <p>Selesaikan \(2x^2-4x-1=0\).</p>
+
+    <div class="math-display">
+      \[ D=(-4)^2-4(2)(-1)=16+8=24,\qquad \sqrt{24}=2\sqrt6 \]
+    </div>
+
+    <div class="math-display">
+      \[ x=\frac{4\pm2\sqrt6}{4}=\frac{2\pm\sqrt6}{2} \]
+    </div>
+
+    <p>
+      Jadi \(x_1=\displaystyle\frac{2+\sqrt6}{2}\) dan
+      \(x_2=\displaystyle\frac{2-\sqrt6}{2}\).
+    </p>
+  </div>
+
+  <h3>Hubungan dengan Titik Puncak</h3>
+
+  <p>
+    Jumlah kedua akar adalah \(-\displaystyle\frac{b}{a}\), sehingga titik
+    tengah kedua akar adalah \(-\displaystyle\frac{b}{2a}\), yaitu tepat sumbu
+    simetri. Artinya,
+    <strong
+      >sumbu simetri selalu berada di tengah kedua titik potong
+      sumbu-\(x\)</strong
+    >. Sifat ini sering dipakai untuk mencari puncak tanpa menghitung
+    diskriminan.
+  </p>
+</section>
+
+<section id="diskriminan" data-title="Diskriminan dan Posisi Grafik">
+  <h2>4. Diskriminan dan Posisi Grafik</h2>
+
+  <p>
+    Diskriminan \(D=b^2-4ac\) adalah bilangan yang "membedakan" jenis akar. Ia
+    berasal dari bagian di bawah tanda akar pada rumus kuadrat, sehingga
+    menentukan apakah akarnya ada atau tidak.
+  </p>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Nilai \(D\)</th>
+          <th scope="col">Akar-akar</th>
+          <th scope="col">Posisi grafik terhadap sumbu-\(x\)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(D&gt;0\)</td>
+          <td>Dua akar real berbeda</td>
+          <td>Memotong sumbu-\(x\) di dua titik</td>
+        </tr>
+        <tr>
+          <td>\(D=0\)</td>
+          <td>Dua akar real sama (akar kembar)</td>
+          <td>Menyinggung sumbu-\(x\) di titik puncak</td>
+        </tr>
+        <tr>
+          <td>\(D&lt;0\)</td>
+          <td>Tidak ada akar real</td>
+          <td>Tidak memotong maupun menyinggung sumbu-\(x\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    Jika \(a,b,c\) bilangan rasional dan \(D\) merupakan kuadrat sempurna
+    (misalnya \(1,4,9,16,\dots\)), maka kedua akar berupa bilangan rasional
+    sehingga persamaannya dapat difaktorkan.
+  </p>
+
+  <h3>Definit Positif dan Definit Negatif</h3>
+
+  <p>
+    Fungsi kuadrat disebut <strong>definit positif</strong> jika nilainya selalu
+    positif untuk setiap \(x\) real, artinya grafik seluruhnya berada di atas
+    sumbu-\(x\). Gabungkan dua syarat: parabola terbuka ke atas dan tidak
+    menyentuh sumbu-\(x\).
+  </p>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Jenis</th>
+          <th scope="col">Syarat</th>
+          <th scope="col">Arti</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Definit positif</td>
+          <td>\(a&gt;0\) dan \(D&lt;0\)</td>
+          <td>\(f(x)&gt;0\) untuk semua \(x\)</td>
+        </tr>
+        <tr>
+          <td>Definit negatif</td>
+          <td>\(a&lt;0\) dan \(D&lt;0\)</td>
+          <td>\(f(x)&lt;0\) untuk semua \(x\)</td>
+        </tr>
+        <tr>
+          <td>Semidefinit positif</td>
+          <td>\(a&gt;0\) dan \(D\le0\)</td>
+          <td>\(f(x)\ge0\) untuk semua \(x\)</td>
+        </tr>
+        <tr>
+          <td>Semidefinit negatif</td>
+          <td>\(a&lt;0\) dan \(D\le0\)</td>
+          <td>\(f(x)\le0\) untuk semua \(x\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Bentuk Kuadrat Sempurna</h3>
+
+  <p>
+    Bentuk \(ax^2+bx+c\) merupakan kuadrat sempurna, yaitu dapat ditulis
+    \(a(x-p)^2\), tepat ketika \(D=0\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+
+    <p>Fungsi \(f(x)=x^2-4x+k\) menyinggung sumbu-\(x\). Tentukan \(k\).</p>
+
+    <div class="math-display">
+      \[ D=(-4)^2-4(1)(k)=16-4k=0\Rightarrow k=4 \]
+    </div>
+
+    <p>Periksa: \(x^2-4x+4=(x-2)^2\), menyinggung sumbu-\(x\) di \((2,0)\).</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2</h4>
+
+    <p>
+      Tentukan batas nilai \(m\) agar \(f(x)=x^2-2mx+3m+4\) memotong sumbu-\(x\)
+      di dua titik berbeda.
+    </p>
+
+    <div class="math-display">\[ D=4m^2-4(3m+4)=4(m^2-3m-4)=4(m-4)(m+1) \]</div>
+
+    <p>
+      Syarat dua titik potong adalah \(D&gt;0\), sehingga \((m-4)(m+1)&gt;0\).
+      Pembuat nolnya \(m=-1\) dan \(m=4\); karena pertidaksamaannya "lebih
+      dari", himpunan penyelesaiannya berada di luar akar-akar:
+    </p>
+
+    <div class="math-display">\[ m&lt;-1\ \ \text{atau}\ \ m&gt;4 \]</div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 3</h4>
+
+    <p>Tentukan nilai \(m\) agar \(f(x)=mx^2-4x+m\) definit positif.</p>
+
+    <p>Syaratnya \(a&gt;0\) dan \(D&lt;0\):</p>
+
+    <div class="math-display">
+      \[ m&gt;0,\qquad D=16-4m^2&lt;0\Rightarrow m^2&gt;4\Rightarrow m&lt;-2\
+      \text{atau}\ m&gt;2 \]
+    </div>
+
+    <p>Irisan kedua syarat adalah \(m&gt;2\).</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 4</h4>
+
+    <p>Tentukan banyak titik potong \(f(x)=2x^2-3x+5\) dengan sumbu-\(x\).</p>
+
+    <div class="math-display">\[ D=(-3)^2-4(2)(5)=9-40=-31&lt;0 \]</div>
+
+    <p>
+      Karena \(D&lt;0\), grafik tidak memotong sumbu-\(x\). Karena juga
+      \(a=2&gt;0\), seluruh grafik berada di atas sumbu-\(x\) (definit positif).
+    </p>
+  </div>
+</section>
+
+<section id="tanda-koefisien" data-title="Membaca Tanda a, b, c, dan D">
+  <h2>5. Membaca Tanda \(a\), \(b\), \(c\), dan \(D\) dari Grafik</h2>
+
+  <p>
+    Soal yang sering muncul pada UTBK adalah menentukan tanda koefisien dari
+    gambar atau deskripsi grafik. Kuncinya, setiap koefisien "terbaca" dari satu
+    ciri grafik.
+  </p>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Besaran</th>
+          <th scope="col">Ciri pada grafik</th>
+          <th scope="col">Tanda</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(a\)</td>
+          <td>Arah bukaan</td>
+          <td>Ke atas \(a&gt;0\); ke bawah \(a&lt;0\)</td>
+        </tr>
+        <tr>
+          <td>\(c\)</td>
+          <td>Titik potong sumbu-\(y\) di \((0,c)\)</td>
+          <td>
+            Di atas titik asal \(c&gt;0\); di bawah \(c&lt;0\); tepat di titik
+            asal \(c=0\)
+          </td>
+        </tr>
+        <tr>
+          <td>\(D\)</td>
+          <td>Banyak titik potong sumbu-\(x\)</td>
+          <td>
+            Dua titik \(D&gt;0\); menyinggung \(D=0\); tidak memotong \(D&lt;0\)
+          </td>
+        </tr>
+        <tr>
+          <td>\(b\)</td>
+          <td>Letak sumbu simetri \(x=-\displaystyle\frac{b}{2a}\)</td>
+          <td>
+            Sumbu di kiri sumbu-\(y\): \(ab&gt;0\); di kanan: \(ab&lt;0\); tepat
+            di sumbu-\(y\): \(b=0\)
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    Mengapa tanda \(b\) harus dilihat bersama \(a\)? Karena letak sumbu simetri
+    adalah \(x_p=-\displaystyle\frac{b}{2a}\). Jika \(x_p&lt;0\), maka
+    \(\displaystyle\frac{b}{a}&gt;0\), yaitu \(a\) dan \(b\) bertanda sama. Jika
+    \(x_p&gt;0\), maka \(a\) dan \(b\) berlawanan tanda.
+  </p>
+
+  <p>
+    Trik tambahan: nilai \(f(1)=a+b+c\) dan \(f(-1)=a-b+c\) dapat dibaca
+    tandanya dari posisi grafik pada \(x=1\) dan \(x=-1\) (di atas atau di bawah
+    sumbu-\(x\)).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+
+    <p>
+      Grafik \(y=ax^2+bx+c\) terbuka ke bawah, memotong sumbu-\(y\) di titik
+      positif, memiliki sumbu simetri di sebelah kanan sumbu-\(y\), dan memotong
+      sumbu-\(x\) di dua titik. Tentukan tanda \(a,b,c,D\).
+    </p>
+
+    <ul>
+      <li>Terbuka ke bawah: \(a&lt;0\).</li>
+      <li>Memotong sumbu-\(y\) di titik positif: \(c&gt;0\).</li>
+      <li>
+        Sumbu simetri di kanan: \(x_p&gt;0\), sehingga \(a\) dan \(b\)
+        berlawanan tanda; karena \(a&lt;0\), maka \(b&gt;0\).
+      </li>
+      <li>Dua titik potong sumbu-\(x\): \(D&gt;0\).</li>
+    </ul>
+
+    <p>Akibatnya \(abc&lt;0\).</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2</h4>
+
+    <p>
+      Grafik \(y=ax^2+bx+c\) terbuka ke atas dan menyinggung sumbu-\(x\) di
+      titik yang berada di sebelah kiri sumbu-\(y\). Tentukan tanda \(a,b,c,D\).
+    </p>
+
+    <ul>
+      <li>Terbuka ke atas: \(a&gt;0\).</li>
+      <li>Menyinggung sumbu-\(x\): \(D=0\).</li>
+      <li>
+        Titik singgungnya adalah titik puncak, sehingga \(x_p&lt;0\) dan \(a,b\)
+        bertanda sama: \(b&gt;0\).
+      </li>
+      <li>
+        Karena puncak di kiri sumbu-\(y\) dan grafik terbuka ke atas, nilai
+        \(f(0)=c\) berada di atas sumbu-\(x\): \(c&gt;0\).
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="vieta" data-title="Jumlah dan Hasil Kali Akar (Vieta)">
+  <h2>6. Jumlah dan Hasil Kali Akar (Rumus Vieta)</h2>
+
+  <p>
+    Jika \(x_1\) dan \(x_2\) adalah akar-akar \(ax^2+bx+c=0\), maka jumlah dan
+    hasil kali akar dapat diketahui <em>tanpa</em> menghitung akarnya satu per
+    satu:
+  </p>
+
+  <div class="math-display">
+    \[ x_1+x_2=-\frac{b}{a},\qquad x_1x_2=\frac{c}{a},\qquad
+    |x_1-x_2|=\frac{\sqrt{D}}{|a|} \]
+  </div>
+
+  <p>
+    Rumus ini berasal dari penjumlahan dan perkalian
+    \(x_{1,2}=\displaystyle\frac{-b\pm\sqrt{D}}{2a}\). Jumlahnya
+    \(\displaystyle\frac{-2b}{2a}=-\displaystyle\frac{b}{a}\) dan hasil kalinya
+    \(\displaystyle\frac{b^2-D}{4a^2}=\displaystyle\frac{4ac}{4a^2}=\displaystyle\frac{c}{a}\).
+  </p>
+
+  <h3>Bentuk Simetri Akar</h3>
+
+  <p>
+    Banyak soal meminta nilai suatu ekspresi yang bentuknya "adil" terhadap
+    \(x_1\) dan \(x_2\). Ubah ekspresi itu menjadi bentuk yang memuat
+    \(x_1+x_2\) dan \(x_1x_2\):
+  </p>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Ekspresi</th>
+          <th scope="col">Diubah menjadi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(x_1^2+x_2^2\)</td>
+          <td>\((x_1+x_2)^2-2x_1x_2\)</td>
+        </tr>
+        <tr>
+          <td>\((x_1-x_2)^2\)</td>
+          <td>\((x_1+x_2)^2-4x_1x_2\)</td>
+        </tr>
+        <tr>
+          <td>\(x_1^3+x_2^3\)</td>
+          <td>\((x_1+x_2)^3-3x_1x_2(x_1+x_2)\)</td>
+        </tr>
+        <tr>
+          <td>\(\displaystyle\frac{1}{x_1}+\displaystyle\frac{1}{x_2}\)</td>
+          <td>\(\displaystyle\frac{x_1+x_2}{x_1x_2}\)</td>
+        </tr>
+        <tr>
+          <td>\(\displaystyle\frac{x_1}{x_2}+\displaystyle\frac{x_2}{x_1}\)</td>
+          <td>\(\displaystyle\frac{x_1^2+x_2^2}{x_1x_2}\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+
+    <p>
+      Jika \(x_1\) dan \(x_2\) akar-akar \(x^2-5x+3=0\), hitung \(x_1^2+x_2^2\),
+      \(x_1^3+x_2^3\), dan
+      \(\displaystyle\frac{1}{x_1}+\displaystyle\frac{1}{x_2}\).
+    </p>
+
+    <p>Diketahui \(x_1+x_2=5\) dan \(x_1x_2=3\).</p>
+
+    <div class="math-display">\[ x_1^2+x_2^2=5^2-2(3)=19 \]</div>
+
+    <div class="math-display">\[ x_1^3+x_2^3=5^3-3(3)(5)=125-45=80 \]</div>
+
+    <div class="math-display">
+      \[ \frac{1}{x_1}+\frac{1}{x_2}=\frac{x_1+x_2}{x_1x_2}=\frac53 \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2</h4>
+
+    <p>Selisih akar-akar \(2x^2-8x+m=0\) adalah \(2\). Tentukan \(m\).</p>
+
+    <div class="math-display">\[ x_1+x_2=4,\qquad x_1x_2=\frac{m}{2} \]</div>
+
+    <div class="math-display">
+      \[ (x_1-x_2)^2=(x_1+x_2)^2-4x_1x_2\Rightarrow 4=16-2m\Rightarrow m=6 \]
+    </div>
+
+    <p>
+      Periksa: \(2x^2-8x+6=0\Leftrightarrow x^2-4x+3=0\), akarnya \(1\) dan
+      \(3\) yang selisihnya \(2\).
+    </p>
+  </div>
+
+  <h3>Syarat Akar-Akar Khusus</h3>
+
+  <p>
+    Syarat berikut berlaku untuk persamaan \(ax^2+bx+c=0\). Pada semua kasus,
+    pastikan akarnya real, yaitu \(D\ge0\).
+  </p>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Keadaan akar</th>
+          <th scope="col">Syarat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Satu akar sama dengan nol</td>
+          <td>\(c=0\)</td>
+        </tr>
+        <tr>
+          <td>Akar berlawanan (\(x_1=-x_2\))</td>
+          <td>\(b=0\) dan \(\displaystyle\frac{c}{a}&lt;0\)</td>
+        </tr>
+        <tr>
+          <td>Akar berkebalikan (\(x_1x_2=1\))</td>
+          <td>\(c=a\)</td>
+        </tr>
+        <tr>
+          <td>Dua akar positif</td>
+          <td>
+            \(D\ge0,\ -\displaystyle\frac{b}{a}&gt;0,\
+            \displaystyle\frac{c}{a}&gt;0\)
+          </td>
+        </tr>
+        <tr>
+          <td>Dua akar negatif</td>
+          <td>
+            \(D\ge0,\ -\displaystyle\frac{b}{a}&lt;0,\
+            \displaystyle\frac{c}{a}&gt;0\)
+          </td>
+        </tr>
+        <tr>
+          <td>Dua akar berbeda tanda</td>
+          <td>\(\displaystyle\frac{c}{a}&lt;0\) (otomatis \(D&gt;0\))</td>
+        </tr>
+        <tr>
+          <td>Satu akar \(n\) kali akar yang lain</td>
+          <td>\(n\,b^2=(n+1)^2\,ac\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Menyusun Persamaan Kuadrat Baru</h3>
+
+  <p>
+    Jika akar-akar persamaan baru adalah \(\alpha\) dan \(\beta\), maka
+    persamaannya adalah:
+  </p>
+
+  <div class="math-display">\[ x^2-(\alpha+\beta)x+\alpha\beta=0 \]</div>
+
+  <div class="lesson-example">
+    <h4>Contoh 3</h4>
+
+    <p>
+      Akar-akar \(x^2-3x+1=0\) adalah \(x_1\) dan \(x_2\). Susun persamaan
+      kuadrat yang akar-akarnya \(x_1+2\) dan \(x_2+2\).
+    </p>
+
+    <div class="math-display">\[ (x_1+2)+(x_2+2)=(x_1+x_2)+4=3+4=7 \]</div>
+
+    <div class="math-display">
+      \[ (x_1+2)(x_2+2)=x_1x_2+2(x_1+x_2)+4=1+6+4=11 \]
+    </div>
+
+    <p>Jadi persamaan barunya adalah \(x^2-7x+11=0\).</p>
+  </div>
+</section>
+
+<section id="menyusun-fungsi" data-title="Menyusun Fungsi Kuadrat">
+  <h2>7. Menyusun Fungsi Kuadrat</h2>
+
+  <p>
+    Fungsi kuadrat dapat ditulis dalam tiga bentuk. Pilih bentuk yang paling
+    cocok dengan informasi yang diberikan pada soal.
+  </p>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Bentuk</th>
+          <th scope="col">Rumus</th>
+          <th scope="col">Dipakai jika diketahui</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Umum</td>
+          <td>\(f(x)=ax^2+bx+c\)</td>
+          <td>Tiga titik sembarang pada grafik</td>
+        </tr>
+        <tr>
+          <td>Faktor</td>
+          <td>\(f(x)=a(x-x_1)(x-x_2)\)</td>
+          <td>Titik potong sumbu-\(x\) dan satu titik lain</td>
+        </tr>
+        <tr>
+          <td>Puncak</td>
+          <td>\(f(x)=a(x-x_p)^2+y_p\)</td>
+          <td>Titik puncak dan satu titik lain</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 1: Diketahui Titik Potong Sumbu-\(x\)</h4>
+
+    <p>
+      Grafik memotong sumbu-\(x\) di \((1,0)\) dan \((5,0)\), serta melalui
+      \((0,10)\). Tentukan fungsinya.
+    </p>
+
+    <div class="math-display">
+      \[ f(x)=a(x-1)(x-5),\qquad f(0)=5a=10\Rightarrow a=2 \]
+    </div>
+
+    <div class="math-display">\[ f(x)=2(x-1)(x-5)=2x^2-12x+10 \]</div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2: Diketahui Titik Puncak</h4>
+
+    <p>
+      Grafik berpuncak di \((2,-3)\) dan melalui \((0,5)\). Tentukan fungsinya.
+    </p>
+
+    <div class="math-display">
+      \[ f(x)=a(x-2)^2-3,\qquad f(0)=4a-3=5\Rightarrow a=2 \]
+    </div>
+
+    <div class="math-display">\[ f(x)=2(x-2)^2-3=2x^2-8x+5 \]</div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 3: Diketahui Tiga Titik</h4>
+
+    <p>
+      Grafik melalui \((0,1)\), \((1,0)\), dan \((2,3)\). Tentukan fungsinya.
+    </p>
+
+    <p>Dari \((0,1)\) diperoleh \(c=1\). Substitusikan dua titik lainnya:</p>
+
+    <div class="math-display">
+      \[ a+b+1=0\Rightarrow a+b=-1,\qquad 4a+2b+1=3\Rightarrow 2a+b=1 \]
+    </div>
+
+    <p>
+      Kurangkan kedua persamaan: \(a=2\), sehingga \(b=-3\). Jadi
+      \(f(x)=2x^2-3x+1\). Periksa: \(f(1)=0\) dan \(f(2)=8-6+1=3\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 4: Menyinggung Sumbu-\(x\)</h4>
+
+    <p>
+      Grafik menyinggung sumbu-\(x\) di \((3,0)\) dan melalui \((0,18)\).
+      Tentukan fungsinya.
+    </p>
+
+    <p>
+      Menyinggung sumbu-\(x\) berarti akar kembar \(x=3\), sehingga
+      \(f(x)=a(x-3)^2\).
+    </p>
+
+    <div class="math-display">
+      \[ f(0)=9a=18\Rightarrow a=2,\qquad f(x)=2(x-3)^2=2x^2-12x+18 \]
+    </div>
+  </div>
+</section>
+
+<section id="nilai-ekstrem" data-title="Nilai Maksimum dan Minimum">
+  <h2>8. Nilai Maksimum dan Minimum</h2>
+
+  <h3>Pada Seluruh Bilangan Real</h3>
+
+  <p>Nilai ekstrem fungsi kuadrat terjadi di titik puncak:</p>
+
+  <div class="math-display">
+    \[ f_{\text{ekstrem}}=-\frac{D}{4a}\quad\text{di}\quad x=-\frac{b}{2a} \]
+  </div>
+
+  <p>
+    Nilai ini minimum jika \(a&gt;0\) dan maksimum jika \(a&lt;0\). Daerah hasil
+    fungsi: \(\{y\mid y\ge y_p\}\) untuk \(a&gt;0\), dan \(\{y\mid y\le y_p\}\)
+    untuk \(a&lt;0\).
+  </p>
+
+  <h3>Pada Interval Tertutup \([m,n]\)</h3>
+
+  <p>
+    Jika daerah asal dibatasi pada interval \([m,n]\), titik puncak belum tentu
+    berada di dalam interval. Bandingkan nilai di tiga tempat berikut, lalu
+    ambil yang terbesar dan terkecil:
+  </p>
+
+  <ul>
+    <li>nilai di ujung kiri, \(f(m)\);</li>
+    <li>nilai di ujung kanan, \(f(n)\);</li>
+    <li>
+      nilai di titik puncak, \(f(x_p)\), <em>hanya jika</em> \(m\le x_p\le n\).
+    </li>
+  </ul>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+
+    <p>
+      Tentukan nilai maksimum dan minimum \(f(x)=x^2-4x+1\) pada \(0\le x\le5\).
+    </p>
+
+    <p>
+      Titik puncak berada di \(x_p=2\) (di dalam interval) dengan \(f(2)=-3\).
+      Nilai di ujung: \(f(0)=1\) dan \(f(5)=25-20+1=6\).
+    </p>
+
+    <p>Jadi nilai minimumnya \(-3\) dan nilai maksimumnya \(6\).</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2</h4>
+
+    <p>
+      Tentukan nilai maksimum dan minimum \(f(x)=-x^2+2x+3\) pada \(2\le
+      x\le4\).
+    </p>
+
+    <p>
+      Titik puncak \(x_p=1\) berada di luar interval, sehingga ekstremnya ada di
+      ujung: \(f(2)=-4+4+3=3\) dan \(f(4)=-16+8+3=-5\).
+    </p>
+
+    <p>Jadi nilai maksimumnya \(3\) dan nilai minimumnya \(-5\).</p>
+  </div>
+
+  <h3>Soal Cerita</h3>
+
+  <p>
+    Langkah menyelesaikan soal cerita: (1) tentukan besaran yang dicari dan beri
+    variabel; (2) nyatakan semua besaran lain dalam satu variabel; (3) bentuk
+    fungsi kuadratnya; (4) cari titik puncak.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 3: Luas Maksimum</h4>
+
+    <p>
+      Pak Budi memiliki kawat sepanjang \(60\) m untuk membuat kandang berbentuk
+      persegi panjang. Salah satu sisinya berupa tembok sehingga tidak perlu
+      dipagari. Berapa luas maksimum kandang?
+    </p>
+
+    <p>
+      Misalkan dua sisi yang tegak lurus tembok masing-masing \(x\) meter, maka
+      sisi yang sejajar tembok \(60-2x\) meter.
+    </p>
+
+    <div class="math-display">\[ L(x)=x(60-2x)=-2x^2+60x \]</div>
+
+    <div class="math-display">
+      \[ x_p=-\frac{60}{2(-2)}=15,\qquad L(15)=-2(225)+900=450 \]
+    </div>
+
+    <p>
+      Jadi luas maksimumnya \(450\ \text{m}^2\), dengan ukuran \(15\) m
+      \(\times\) \(30\) m.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 4: Gerak Bola</h4>
+
+    <p>
+      Tinggi bola (meter) setelah \(t\) detik dinyatakan \(h(t)=20t-5t^2\).
+      Tentukan tinggi maksimum dan waktu bola kembali ke tanah.
+    </p>
+
+    <div class="math-display">
+      \[ t_p=-\frac{20}{2(-5)}=2,\qquad h(2)=40-20=20 \]
+    </div>
+
+    <p>
+      Tinggi maksimum \(20\) m dicapai saat \(t=2\) detik. Bola kembali ke tanah
+      saat \(h=0\):
+    </p>
+
+    <div class="math-display">
+      \[ 20t-5t^2=0\Rightarrow5t(4-t)=0\Rightarrow t=4 \]
+    </div>
+
+    <p>Jadi bola tiba di tanah setelah \(4\) detik.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 5: Hasil Kali Dua Bilangan</h4>
+
+    <p>
+      Dua bilangan real berjumlah \(10\). Tentukan hasil kali terbesar keduanya.
+    </p>
+
+    <p>
+      Misalkan bilangannya \(x\) dan \(10-x\). Hasil kalinya
+      \(P(x)=x(10-x)=-x^2+10x\), dengan puncak di \(x=5\) dan \(P(5)=25\). Jadi
+      hasil kali terbesarnya \(25\), dicapai ketika kedua bilangan sama besar.
+    </p>
+  </div>
+</section>
+
+<section id="garis-parabola" data-title="Hubungan Garis dan Parabola">
+  <h2>9. Hubungan Garis dan Parabola</h2>
+
+  <p>
+    Garis \(y=mx+n\) dan parabola \(y=ax^2+bx+c\) berpotongan di titik-titik
+    yang nilai \(y\)-nya sama. Samakan kedua persamaan:
+  </p>
+
+  <div class="math-display">
+    \[ ax^2+bx+c=mx+n\ \Longrightarrow\ ax^2+(b-m)x+(c-n)=0 \]
+  </div>
+
+  <p>
+    Diskriminan persamaan kuadrat gabungan ini menentukan posisi garis terhadap
+    parabola:
+  </p>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Diskriminan gabungan</th>
+          <th scope="col">Posisi garis terhadap parabola</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(D&gt;0\)</td>
+          <td>Garis memotong parabola di dua titik</td>
+        </tr>
+        <tr>
+          <td>\(D=0\)</td>
+          <td>Garis menyinggung parabola (tepat satu titik sentuh)</td>
+        </tr>
+        <tr>
+          <td>\(D&lt;0\)</td>
+          <td>Garis tidak memotong parabola</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 1: Titik Potong</h4>
+
+    <p>Tentukan titik potong parabola \(y=x^2-4x+3\) dengan garis \(y=x-1\).</p>
+
+    <div class="math-display">
+      \[ x^2-4x+3=x-1\Rightarrow x^2-5x+4=0\Rightarrow(x-1)(x-4)=0 \]
+    </div>
+
+    <p>
+      Diperoleh \(x=1\) dengan \(y=0\), dan \(x=4\) dengan \(y=3\). Titik
+      potongnya \((1,0)\) dan \((4,3)\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2: Garis Menyinggung Parabola</h4>
+
+    <p>Garis \(y=2x+k\) menyinggung parabola \(y=x^2-2x+5\). Tentukan \(k\).</p>
+
+    <div class="math-display">
+      \[ x^2-2x+5=2x+k\Rightarrow x^2-4x+(5-k)=0 \]
+    </div>
+
+    <div class="math-display">\[ D=16-4(5-k)=4k-4=0\Rightarrow k=1 \]</div>
+  </div>
+
+  <h3>Persamaan Garis Singgung di Titik \((x_0,y_0)\)</h3>
+
+  <p>
+    Gradien garis singgung di titik berabsis \(x_0\) pada parabola
+    \(y=ax^2+bx+c\) adalah turunannya:
+  </p>
+
+  <div class="math-display">\[ m=2ax_0+b,\qquad y-y_0=m(x-x_0) \]</div>
+
+  <div class="lesson-example">
+    <h4>Contoh 3</h4>
+
+    <p>
+      Tentukan garis singgung parabola \(y=x^2-4x+3\) di titik berabsis \(3\).
+    </p>
+
+    <div class="math-display">\[ y_0=9-12+3=0,\qquad m=2(1)(3)-4=2 \]</div>
+
+    <div class="math-display">\[ y-0=2(x-3)\Rightarrow y=2x-6 \]</div>
+
+    <p>
+      Pemeriksaan dengan diskriminan: \(x^2-4x+3=2x-6\) memberi \(x^2-6x+9=0\)
+      dengan \(D=0\), sehingga memang menyinggung.
+    </p>
+  </div>
+</section>
+
+<section
+  id="transformasi-parabola"
+  data-title="Transformasi Grafik Fungsi Kuadrat"
+>
+  <h2>10. Transformasi Grafik Fungsi Kuadrat</h2>
+
+  <p>
+    Grafik \(y=f(x)\) dapat digeser, dicerminkan, atau diregangkan. Cara paling
+    aman adalah menggantikan variabelnya sesuai tabel berikut.
+  </p>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Transformasi</th>
+          <th scope="col">Persamaan bayangan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Digeser \(h\) satuan ke kanan</td>
+          <td>\(y=f(x-h)\)</td>
+        </tr>
+        <tr>
+          <td>Digeser \(k\) satuan ke atas</td>
+          <td>\(y=f(x)+k\)</td>
+        </tr>
+        <tr>
+          <td>Dicerminkan terhadap sumbu-\(x\)</td>
+          <td>\(y=-f(x)\)</td>
+        </tr>
+        <tr>
+          <td>Dicerminkan terhadap sumbu-\(y\)</td>
+          <td>\(y=f(-x)\)</td>
+        </tr>
+        <tr>
+          <td>Dicerminkan terhadap garis \(y=c\)</td>
+          <td>\(y=2c-f(x)\)</td>
+        </tr>
+        <tr>
+          <td>Dicerminkan terhadap garis \(x=h\)</td>
+          <td>\(y=f(2h-x)\)</td>
+        </tr>
+        <tr>
+          <td>Diregangkan vertikal dengan faktor \(k\)</td>
+          <td>\(y=k\,f(x)\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    Karena titik puncak ikut bergeser, cara cepat untuk pergeseran adalah
+    menggeser titik puncaknya saja, lalu menulis bentuk puncak dengan koefisien
+    \(a\) yang sama.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 1: Pergeseran</h4>
+
+    <p>
+      Parabola \(y=x^2\) digeser \(3\) satuan ke kanan dan \(2\) satuan ke
+      bawah. Tentukan persamaannya.
+    </p>
+
+    <div class="math-display">\[ y=(x-3)^2-2=x^2-6x+7 \]</div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2: Pencerminan</h4>
+
+    <p>
+      Tentukan bayangan \(f(x)=x^2-4x+3\) jika dicerminkan terhadap sumbu-\(x\),
+      sumbu-\(y\), garis \(y=2\), dan garis \(x=1\).
+    </p>
+
+    <div class="math-display">
+      \[ \begin{aligned} \text{sumbu-}x&:\ y=-f(x)=-x^2+4x-3\\ \text{sumbu-}y&:\
+      y=f(-x)=x^2+4x+3\\ y=2&:\ y=4-f(x)=-x^2+4x+1\\ x=1&:\ y=f(2-x)=x^2-1
+      \end{aligned} \]
+    </div>
+
+    <p>
+      Untuk garis \(x=1\): \(f(2-x)=(2-x)^2-4(2-x)+3=x^2-4x+4-8+4x+3=x^2-1\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 3: Menggeser Titik Puncak</h4>
+
+    <p>
+      Parabola \(y=x^2-4x+3\) berpuncak di \((2,-1)\). Setelah digeser \(3\)
+      satuan ke kanan dan \(2\) satuan ke bawah, puncaknya menjadi \((5,-3)\)
+      dan koefisien \(a=1\) tidak berubah:
+    </p>
+
+    <div class="math-display">\[ y=(x-5)^2-3=x^2-10x+22 \]</div>
+  </div>
+</section>
+
+<section id="pertidaksamaan-kuadrat" data-title="Pertidaksamaan Kuadrat">
+  <h2>11. Pertidaksamaan Kuadrat</h2>
+
+  <p>
+    Pertidaksamaan kuadrat paling mudah diselesaikan dengan membayangkan sketsa
+    parabola: tentukan akar-akarnya, lihat arah bukaan, lalu tentukan bagian
+    grafik yang berada di atas atau di bawah sumbu-\(x\).
+  </p>
+
+  <h3>Langkah Penyelesaian</h3>
+
+  <ul>
+    <li>
+      Pindahkan semua suku ke satu ruas sehingga ruas lainnya nol, usahakan
+      \(a&gt;0\).
+    </li>
+    <li>Tentukan akar-akar dengan memfaktorkan atau rumus abc.</li>
+    <li>
+      Buat sketsa atau garis bilangan, lalu tentukan daerah yang memenuhi.
+    </li>
+  </ul>
+
+  <p>Untuk \(a&gt;0\) dengan akar \(x_1&lt;x_2\):</p>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Bentuk</th>
+          <th scope="col">Penyelesaian</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(ax^2+bx+c&gt;0\)</td>
+          <td>\(x&lt;x_1\) atau \(x&gt;x_2\) (di luar akar)</td>
+        </tr>
+        <tr>
+          <td>\(ax^2+bx+c&lt;0\)</td>
+          <td>\(x_1&lt;x&lt;x_2\) (di antara akar)</td>
+        </tr>
+        <tr>
+          <td>\(ax^2+bx+c\ge0\)</td>
+          <td>\(x\le x_1\) atau \(x\ge x_2\)</td>
+        </tr>
+        <tr>
+          <td>\(ax^2+bx+c\le0\)</td>
+          <td>\(x_1\le x\le x_2\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+
+    <p>Selesaikan \(x^2-5x+6&lt;0\).</p>
+
+    <div class="math-display">\[ (x-2)(x-3)&lt;0\Rightarrow 2&lt;x&lt;3 \]</div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2</h4>
+
+    <p>Selesaikan \(-x^2+2x+8\ge0\).</p>
+
+    <p>
+      Kalikan kedua ruas dengan \(-1\) sehingga tanda pertidaksamaan berbalik:
+    </p>
+
+    <div class="math-display">
+      \[ x^2-2x-8\le0\Rightarrow(x-4)(x+2)\le0\Rightarrow-2\le x\le4 \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 3: Tanpa Akar Real atau Akar Kembar</h4>
+
+    <p>
+      Untuk \(x^2-2x+5&gt;0\): diskriminannya \(4-20=-16&lt;0\) dan \(a&gt;0\),
+      sehingga bentuk tersebut selalu positif. Himpunan penyelesaiannya seluruh
+      bilangan real.
+    </p>
+
+    <p>
+      Untuk \(x^2-4x+4\le0\): bentuknya \((x-2)^2\le0\), yang hanya terpenuhi
+      saat \(x=2\). Himpunan penyelesaiannya \(\{2\}\).
+    </p>
+  </div>
+</section>
+
+<section id="pengayaan-kuadrat" data-title="Pengayaan: Teknik Soal Olimpiade">
+  <h2>12. Pengayaan: Teknik untuk Soal Olimpiade</h2>
+
+  <p>
+    Soal olimpiade jarang meminta rumus langsung. Biasanya diperlukan
+    kreativitas memakai sifat-sifat fungsi kuadrat. Berikut empat teknik yang
+    sering berguna.
+  </p>
+
+  <h3>1. Selisih Berurutan</h3>
+
+  <p>Untuk \(f(x)=ax^2+bx+c\):</p>
+
+  <div class="math-display">
+    \[ f(x+1)-f(x)=2ax+a+b,\qquad
+    \big[f(x+2)-f(x+1)\big]-\big[f(x+1)-f(x)\big]=2a \]
+  </div>
+
+  <p>
+    Artinya, selisih kedua dari nilai fungsi di bilangan berurutan selalu
+    konstan sebesar \(2a\). Sifat ini membantu melanjutkan barisan kuadrat tanpa
+    mencari rumusnya.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Fungsi kuadrat \(f\) memenuhi \(f(1)=3\), \(f(2)=8\), \(f(3)=15\).
+      Tentukan \(f(4)\).
+    </p>
+
+    <p>
+      Selisih pertama: \(8-3=5\) dan \(15-8=7\). Selisih kedua: \(7-5=2\). Maka
+      selisih berikutnya \(7+2=9\), sehingga \(f(4)=15+9=24\). (Fungsinya
+      \(f(x)=x^2+2x\).)
+    </p>
+  </div>
+
+  <h3>2. Teorema Akar Rasional</h3>
+
+  <p>
+    Jika \(ax^2+bx+c=0\) dengan koefisien bilangan bulat memiliki akar rasional
+    \(\displaystyle\frac{p}{q}\) (pecahan paling sederhana), maka \(p\) membagi
+    \(c\) dan \(q\) membagi \(a\). Dengan demikian daftar akar yang mungkin
+    menjadi terbatas dan bisa dicoba satu per satu. Untuk \(2x^2-5x-3=0\),
+    kandidatnya \(\pm1,\pm3,\pm\displaystyle\frac12,\pm\displaystyle\frac32\);
+    ternyata \(x=3\) dan \(x=-\displaystyle\frac12\) yang memenuhi.
+  </p>
+
+  <h3>3. Daerah Hasil dengan Diskriminan</h3>
+
+  <p>
+    Untuk mencari daerah hasil fungsi pecahan dengan penyebut dan pembilang
+    kuadrat, tulis \(y=f(x)\), lalu ubah menjadi persamaan kuadrat dalam \(x\).
+    Agar ada \(x\) real, syaratnya \(D\ge0\), yang berupa pertidaksamaan dalam
+    \(y\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan daerah hasil \(y=\displaystyle\frac{x^2-x+1}{x^2+x+1}\).</p>
+
+    <p>
+      Penyebut selalu positif (diskriminannya \(1-4=-3&lt;0\)). Kalikan silang:
+    </p>
+
+    <div class="math-display">
+      \[ y(x^2+x+1)=x^2-x+1\Rightarrow(y-1)x^2+(y+1)x+(y-1)=0 \]
+    </div>
+
+    <p>Untuk \(y\neq1\), persamaan ini memiliki akar real jika \(D\ge0\):</p>
+
+    <div class="math-display">
+      \[ (y+1)^2-4(y-1)^2\ge0\Rightarrow(3-y)(3y-1)\ge0\Rightarrow \frac13\le
+      y\le3 \]
+    </div>
+
+    <p>
+      Nilai \(y=1\) tercapai pada \(x=0\), sehingga daerah hasilnya
+      \(\left[\displaystyle\frac13,\,3\right]\).
+    </p>
+  </div>
+
+  <h3>4. Memfaktorkan agar Tersisa Bentuk Perkalian</h3>
+
+  <p>
+    Persamaan dengan dua variabel bulat sering diselesaikan dengan menambah
+    konstanta agar dapat difaktorkan, mengingat \((a-p)(b-q)=ab-qa-pb+pq\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Tentukan semua bilangan bulat positif \(a,b\) yang memenuhi
+      \(\displaystyle\frac1a+\displaystyle\frac1b=\displaystyle\frac12\).
+    </p>
+
+    <div class="math-display">
+      \[ 2(a+b)=ab\Rightarrow ab-2a-2b=0\Rightarrow(a-2)(b-2)=4 \]
+    </div>
+
+    <p>
+      Karena \(a,b&gt;2\) (sebab
+      \(\displaystyle\frac1a&lt;\displaystyle\frac12\)), pasangan faktor positif
+      dari \(4\) adalah \((1,4),(2,2),(4,1)\), sehingga
+      \((a,b)=(3,6),(4,4),(6,3)\).
+    </p>
+  </div>
+</section>
+
+<section id="rangkuman-fungsi-kuadrat" data-title="Rangkuman Fungsi Kuadrat">
+  <h2>13. Rangkuman Rumus Fungsi Kuadrat</h2>
+
+  <h3>Bentuk Umum dan Diskriminan</h3>
+
+  <div class="math-display">
+    \[ f(x)=ax^2+bx+c\ (a\neq0),\qquad D=b^2-4ac \]
+  </div>
+
+  <h3>Akar-Akar</h3>
+
+  <div class="math-display">
+    \[ x_{1,2}=\frac{-b\pm\sqrt{D}}{2a},\qquad x_1+x_2=-\frac{b}{a},\qquad
+    x_1x_2=\frac{c}{a} \]
+  </div>
+
+  <h3>Titik Puncak dan Nilai Ekstrem</h3>
+
+  <div class="math-display">
+    \[ x_p=-\frac{b}{2a},\qquad y_p=-\frac{D}{4a},\qquad x_p=\frac{x_1+x_2}{2}
+    \]
+  </div>
+
+  <h3>Tiga Bentuk Fungsi</h3>
+
+  <div class="math-display">
+    \[ f(x)=ax^2+bx+c=a(x-x_1)(x-x_2)=a(x-x_p)^2+y_p \]
+  </div>
+
+  <h3>Bentuk Simetri Akar</h3>
+
+  <div class="math-display">
+    \[ x_1^2+x_2^2=(x_1+x_2)^2-2x_1x_2,\qquad
+    x_1^3+x_2^3=(x_1+x_2)^3-3x_1x_2(x_1+x_2) \]
+  </div>
+
+  <h3>Persamaan Kuadrat Baru</h3>
+
+  <div class="math-display">\[ x^2-(\alpha+\beta)x+\alpha\beta=0 \]</div>
+
+  <h3>Garis dan Parabola</h3>
+
+  <div class="math-display">
+    \[ ax^2+(b-m)x+(c-n)=0,\qquad m_{\text{singgung}}=2ax_0+b \]
+  </div>
+
+  <h3>Hubungan Diskriminan dan Grafik</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Keadaan</th>
+          <th scope="col">Syarat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Memotong sumbu-\(x\) di dua titik</td>
+          <td>\(D&gt;0\)</td>
+        </tr>
+        <tr>
+          <td>Menyinggung sumbu-\(x\)</td>
+          <td>\(D=0\)</td>
+        </tr>
+        <tr>
+          <td>Tidak memotong sumbu-\(x\)</td>
+          <td>\(D&lt;0\)</td>
+        </tr>
+        <tr>
+          <td>Definit positif</td>
+          <td>\(a&gt;0\) dan \(D&lt;0\)</td>
+        </tr>
+        <tr>
+          <td>Definit negatif</td>
+          <td>\(a&lt;0\) dan \(D&lt;0\)</td>
+        </tr>
+        <tr>
+          <td>Akar berlawanan</td>
+          <td>\(b=0\)</td>
+        </tr>
+        <tr>
+          <td>Akar berkebalikan</td>
+          <td>\(c=a\)</td>
+        </tr>
+        <tr>
+          <td>Satu akar nol</td>
+          <td>\(c=0\)</td>
+        </tr>
+        <tr>
+          <td>Akar berbeda tanda</td>
+          <td>\(\displaystyle\frac{c}{a}&lt;0\)</td>
+        </tr>
+        <tr>
+          <td>Satu akar \(n\) kali akar lain</td>
+          <td>\(n\,b^2=(n+1)^2ac\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Kesalahan yang Sering Terjadi</h3>
+
+  <ul>
+    <li>
+      Lupa membalik tanda pertidaksamaan saat mengalikan atau membagi dengan
+      bilangan negatif.
+    </li>
+    <li>
+      Menulis sumbu simetri \(x=\displaystyle\frac{b}{2a}\); tanda minusnya
+      sering terlupa.
+    </li>
+    <li>
+      Memakai nilai di titik puncak sebagai nilai ekstrem pada interval
+      tertutup, padahal puncaknya berada di luar interval.
+    </li>
+    <li>
+      Menghitung \(D\) dengan salah tanda, terutama saat \(a\) atau \(c\)
+      negatif: tuliskan \(b^2-4ac\) dengan tanda kurung, misalnya
+      \(4-4(-2)(3)\).
+    </li>
+    <li>
+      Pada soal parameter, tidak memeriksa syarat \(a\neq0\) atau \(a&gt;0\)
+      sebelum memakai syarat diskriminan.
+    </li>
+    <li>
+      Pada soal "jumlah kuadrat akar minimum", lupa bahwa akarnya harus real
+      sehingga \(D\ge0\) membatasi nilai parameter.
+    </li>
+  </ul>
+</section>
+
+<section id="latihan-mandiri-fungsi-kuadrat" data-title="Latihan Soal Mandiri">
+  <h2>14. Latihan Soal Mandiri</h2>
+
+  <p>
+    Kerjakan soal-soal berikut secara mandiri. Soal nomor 1–8 memiliki tingkat
+    kesulitan sekolah dan soal nomor 9–18 memiliki tingkat penalaran seperti
+    soal UTBK; keduanya berbentuk pilihan ganda (pilih satu jawaban yang paling
+    tepat). Soal nomor 19–20 adalah soal tingkat olimpiade berbentuk isian
+    singkat.
+  </p>
+
+  <h3>A. Tingkat Kesulitan Sekolah</h3>
+
+  <!-- Soal 1 -->
+  <div class="lesson-example">
+    <h4>Soal 1</h4>
+
+    <p>Koordinat titik puncak grafik fungsi \(f(x)=x^2-8x+10\) adalah ....</p>
+
+    <ol type="A">
+      <li>\((4,10)\)</li>
+      <li>\((-4,-6)\)</li>
+      <li>\((4,-6)\)</li>
+      <li>\((8,10)\)</li>
+      <li>\((4,6)\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 2 -->
+  <div class="lesson-example">
+    <h4>Soal 2</h4>
+
+    <p>Himpunan penyelesaian dari \(2x^2-x-6=0\) adalah ....</p>
+
+    <ol type="A">
+      <li>\(\left\{-2,\ \displaystyle\frac32\right\}\)</li>
+      <li>\(\left\{-\displaystyle\frac32,\ 2\right\}\)</li>
+      <li>\(\left\{\displaystyle\frac32,\ 2\right\}\)</li>
+      <li>\(\left\{-\displaystyle\frac12,\ \displaystyle\frac23\right\}\)</li>
+      <li>\(\{-2,\ 3\}\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 3 -->
+  <div class="lesson-example">
+    <h4>Soal 3</h4>
+
+    <p>Nilai minimum fungsi \(f(x)=2x^2-8x+3\) adalah ....</p>
+
+    <ol type="A">
+      <li>\(-5\)</li>
+      <li>\(-4\)</li>
+      <li>\(-2\)</li>
+      <li>\(2\)</li>
+      <li>\(3\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 4 -->
+  <div class="lesson-example">
+    <h4>Soal 4</h4>
+
+    <p>
+      Grafik fungsi kuadrat memotong sumbu-\(x\) di titik \((-1,0)\) dan
+      \((3,0)\), serta melalui titik \((0,-6)\). Persamaan fungsi tersebut
+      adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(f(x)=x^2-2x-3\)</li>
+      <li>\(f(x)=-2x^2+4x+6\)</li>
+      <li>\(f(x)=2x^2+4x-6\)</li>
+      <li>\(f(x)=2x^2-4x-6\)</li>
+      <li>\(f(x)=2x^2-4x+6\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 5 -->
+  <div class="lesson-example">
+    <h4>Soal 5</h4>
+
+    <p>
+      Persamaan kuadrat \(x^2+(m-1)x+9=0\) mempunyai dua akar real yang sama
+      (kembar). Nilai \(m\) yang memenuhi adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(m=-6\) atau \(m=6\)</li>
+      <li>\(m=-7\) atau \(m=5\)</li>
+      <li>\(m=5\) atau \(m=7\)</li>
+      <li>\(m=-5\) atau \(m=6\)</li>
+      <li>\(m=-5\) atau \(m=7\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 6 -->
+  <div class="lesson-example">
+    <h4>Soal 6</h4>
+
+    <p>
+      Jika \(x_1\) dan \(x_2\) adalah akar-akar persamaan \(2x^2-6x+1=0\), maka
+      nilai \(x_1^2+x_2^2\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(5\)</li>
+      <li>\(8\)</li>
+      <li>\(\displaystyle\frac{17}{2}\)</li>
+      <li>\(9\)</li>
+      <li>\(10\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 7 -->
+  <div class="lesson-example">
+    <h4>Soal 7</h4>
+
+    <p>Himpunan penyelesaian pertidaksamaan \(x^2-3x-10&lt;0\) adalah ....</p>
+
+    <ol type="A">
+      <li>\(\{x\mid-2&lt;x&lt;5\}\)</li>
+      <li>\(\{x\mid x&lt;-2\ \text{atau}\ x&gt;5\}\)</li>
+      <li>\(\{x\mid-5&lt;x&lt;2\}\)</li>
+      <li>\(\{x\mid x&lt;-5\ \text{atau}\ x&gt;2\}\)</li>
+      <li>\(\{x\mid2&lt;x&lt;5\}\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 8 -->
+  <div class="lesson-example">
+    <h4>Soal 8</h4>
+
+    <p>
+      Sebuah bola dilempar vertikal ke atas. Tinggi bola (dalam meter) setelah
+      \(t\) detik dinyatakan dengan \(h(t)=30t-5t^2\). Tinggi maksimum yang
+      dicapai bola adalah ... meter.
+    </p>
+
+    <ol type="A">
+      <li>\(30\)</li>
+      <li>\(40\)</li>
+      <li>\(45\)</li>
+      <li>\(60\)</li>
+      <li>\(90\)</li>
+    </ol>
+  </div>
+
+  <h3>B. Tingkat Kesulitan UTBK</h3>
+
+  <!-- Soal 9 -->
+  <div class="lesson-example">
+    <h4>Soal 9</h4>
+
+    <p>
+      Grafik fungsi \(f(x)=ax^2+bx+c\) terbuka ke bawah, tidak memotong
+      sumbu-\(x\), dan titik puncaknya berada di sebelah kiri sumbu-\(y\).
+      Pernyataan yang benar adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(a&gt;0,\ b&gt;0,\ c&gt;0,\ b^2-4ac&lt;0\)</li>
+      <li>\(a&lt;0,\ b&gt;0,\ c&lt;0,\ b^2-4ac&lt;0\)</li>
+      <li>\(a&lt;0,\ b&lt;0,\ c&gt;0,\ b^2-4ac&lt;0\)</li>
+      <li>\(a&lt;0,\ b&lt;0,\ c&lt;0,\ b^2-4ac&lt;0\)</li>
+      <li>\(a&lt;0,\ b&lt;0,\ c&lt;0,\ b^2-4ac&gt;0\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 10 -->
+  <div class="lesson-example">
+    <h4>Soal 10</h4>
+
+    <p>
+      Fungsi \(f(x)=x^2+2px+p+6\) bernilai positif untuk semua bilangan real
+      \(x\). Nilai \(p\) yang memenuhi adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(p&lt;-2\) atau \(p&gt;3\)</li>
+      <li>\(-2&lt;p&lt;3\)</li>
+      <li>\(-3&lt;p&lt;2\)</li>
+      <li>\(p&lt;-3\) atau \(p&gt;2\)</li>
+      <li>\(-2\le p\le3\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 11 -->
+  <div class="lesson-example">
+    <h4>Soal 11</h4>
+
+    <p>
+      Garis \(y=2x+k\) tidak memotong parabola \(y=x^2-4x+7\). Batas nilai \(k\)
+      yang memenuhi adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(k&gt;2\)</li>
+      <li>\(k&lt;2\)</li>
+      <li>\(k&gt;-2\)</li>
+      <li>\(k\le-2\)</li>
+      <li>\(k&lt;-2\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 12 -->
+  <div class="lesson-example">
+    <h4>Soal 12</h4>
+
+    <p>
+      Grafik fungsi kuadrat \(f\) mempunyai titik puncak \((2,5)\) dan melalui
+      titik \((0,1)\). Nilai \(f(5)\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(-4\)</li>
+      <li>\(-2\)</li>
+      <li>\(0\)</li>
+      <li>\(1\)</li>
+      <li>\(5\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 13 -->
+  <div class="lesson-example">
+    <h4>Soal 13</h4>
+
+    <p>
+      Akar-akar persamaan \(x^2-6x+k=0\) adalah \(x_1\) dan \(x_2\). Jika
+      \(x_1=2x_2\), maka nilai \(k\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(4\)</li>
+      <li>\(6\)</li>
+      <li>\(8\)</li>
+      <li>\(9\)</li>
+      <li>\(12\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 14 -->
+  <div class="lesson-example">
+    <h4>Soal 14</h4>
+
+    <p>
+      Persamaan kuadrat \(x^2-2mx+m+2=0\) mempunyai dua akar real \(x_1\) dan
+      \(x_2\) (boleh kembar). Nilai minimum dari \(x_1^2+x_2^2\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(-\displaystyle\frac{17}{4}\)</li>
+      <li>\(-2\)</li>
+      <li>\(0\)</li>
+      <li>\(2\)</li>
+      <li>\(8\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 15 -->
+  <div class="lesson-example">
+    <h4>Soal 15</h4>
+
+    <p>
+      Akar-akar persamaan \(x^2-4x+2=0\) adalah \(\alpha\) dan \(\beta\).
+      Persamaan kuadrat yang akar-akarnya \(\alpha^2\) dan \(\beta^2\) adalah
+      ....
+    </p>
+
+    <ol type="A">
+      <li>\(x^2-12x+2=0\)</li>
+      <li>\(x^2-12x+4=0\)</li>
+      <li>\(x^2-16x+4=0\)</li>
+      <li>\(x^2+12x+4=0\)</li>
+      <li>\(x^2-8x+4=0\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 16 -->
+  <div class="lesson-example">
+    <h4>Soal 16</h4>
+
+    <p>
+      Selisih antara nilai maksimum dan nilai minimum fungsi \(f(x)=x^2-6x+4\)
+      pada interval \(-1\le x\le5\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(6\)</li>
+      <li>\(10\)</li>
+      <li>\(11\)</li>
+      <li>\(12\)</li>
+      <li>\(16\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 17 -->
+  <div class="lesson-example">
+    <h4>Soal 17</h4>
+
+    <p>
+      Persamaan garis singgung parabola \(y=x^2+2x-3\) di titik yang berabsis
+      \(2\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(y=6x-7\)</li>
+      <li>\(y=6x+7\)</li>
+      <li>\(y=6x-12\)</li>
+      <li>\(y=4x-3\)</li>
+      <li>\(y=5x-5\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 18 -->
+  <div class="lesson-example">
+    <h4>Soal 18</h4>
+
+    <p>
+      Parabola \(y=x^2-2x+3\) dicerminkan terhadap garis \(y=1\). Persamaan
+      bayangannya adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(y=-x^2+2x-3\)</li>
+      <li>\(y=-x^2+2x+1\)</li>
+      <li>\(y=-x^2+2x-1\)</li>
+      <li>\(y=x^2+2x+3\)</li>
+      <li>\(y=-x^2+2x-5\)</li>
+    </ol>
+  </div>
+
+  <h3>C. Tingkat Kesulitan Olimpiade</h3>
+
+  <!-- Soal 19 -->
+  <div class="lesson-example">
+    <h4>Soal 19</h4>
+
+    <p>
+      Tentukan nilai maksimum dan nilai minimum dari
+      \(y=\displaystyle\frac{x^2+2x+3}{x^2+1}\) untuk semua bilangan real \(x\).
+    </p>
+  </div>
+
+  <!-- Soal 20 -->
+  <div class="lesson-example">
+    <h4>Soal 20</h4>
+
+    <p>
+      Tentukan semua bilangan bulat \(k\) sehingga persamaan kuadrat
+      \(x^2-kx+(k+3)=0\) mempunyai dua akar yang keduanya bilangan bulat.
+    </p>
+  </div>
+</section>
+
+<section
+  id="pembahasan-latihan-fungsi-kuadrat"
+  data-title="Pembahasan Latihan Mandiri"
+>
+  <h2>15. Pembahasan Latihan Mandiri</h2>
+
+  <p>
+    Bagian ini membahas seluruh soal pada latihan mandiri. Soal nomor 1–8
+    berfokus pada penguasaan konsep dan prosedur dasar tingkat sekolah, soal
+    nomor 9–18 menekankan penalaran dan pemilihan strategi yang lebih dekat
+    dengan karakter soal UTBK, dan soal nomor 19–20 menguji kreativitas seperti
+    pada soal olimpiade. Soal-soal berikut merupakan latihan bergaya UTBK dan
+    olimpiade, bukan soal resmi.
+  </p>
+
+  <h3>A. Pembahasan Tingkat Kesulitan Sekolah</h3>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 1</h4>
+    <p>
+      Pada \(f(x)=x^2-8x+10\) diketahui \(a=1\), \(b=-8\), \(c=10\). Absis titik
+      puncak:
+    </p>
+    <div class="math-display">\[ x_p=-\frac{b}{2a}=-\frac{-8}{2(1)}=4 \]</div>
+    <p>Ordinatnya diperoleh dengan mensubstitusikan \(x=4\):</p>
+    <div class="math-display">\[ y_p=f(4)=16-32+10=-6 \]</div>
+    <p>
+      Jadi titik puncaknya \((4,-6)\). Pilihan A hanya benar pada absisnya
+      (ordinat diambil dari \(c\)), pilihan B salah tanda pada rumus \(x_p\),
+      dan pilihan D memakai \(-\displaystyle\frac{b}{a}\) tanpa membagi dua.
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 2</h4>
+    <p>
+      Faktorkan dengan cara \(ac\): \(ac=2\cdot(-6)=-12\), dan dua bilangan yang
+      hasil kalinya \(-12\) serta jumlahnya \(-1\) adalah \(-4\) dan \(3\).
+    </p>
+    <div class="math-display">
+      \[ 2x^2-4x+3x-6=0\Rightarrow2x(x-2)+3(x-2)=0\Rightarrow(2x+3)(x-2)=0 \]
+    </div>
+    <p>
+      Diperoleh \(x=-\displaystyle\frac32\) atau \(x=2\). Pemeriksaan dengan
+      rumus Vieta: jumlah akar
+      \(=-\displaystyle\frac32+2=\displaystyle\frac12=-\displaystyle\frac{b}{a}\)
+      dan hasil kali \(=-3=\displaystyle\frac{c}{a}\), keduanya cocok.
+    </p>
+    <p>
+      Pilihan E adalah akar dari \(x^2-x-6=0\) (koefisien \(2\) diabaikan),
+      sedangkan pilihan D adalah akar jika \(a\) dan \(c\) tertukar.
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 3</h4>
+    <p>
+      Karena \(a=2&gt;0\), parabola terbuka ke atas sehingga memiliki nilai
+      minimum. Hitung diskriminan:
+    </p>
+    <div class="math-display">\[ D=(-8)^2-4(2)(3)=64-24=40 \]</div>
+    <div class="math-display">
+      \[ y_{\min}=-\frac{D}{4a}=-\frac{40}{8}=-5 \]
+    </div>
+    <p>
+      Pemeriksaan: \(x_p=\displaystyle\frac{8}{4}=2\) dan \(f(2)=8-16+3=-5\).
+      Pilihan D (\(2\)) adalah nilai \(x\) di titik puncak, bukan nilai
+      fungsinya.
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 4</h4>
+    <p>Karena titik potong sumbu-\(x\) diketahui, gunakan bentuk faktor:</p>
+    <div class="math-display">\[ f(x)=a(x+1)(x-3) \]</div>
+    <p>Grafik melalui \((0,-6)\):</p>
+    <div class="math-display">\[ f(0)=a(1)(-3)=-3a=-6\Rightarrow a=2 \]</div>
+    <div class="math-display">\[ f(x)=2(x+1)(x-3)=2(x^2-2x-3)=2x^2-4x-6 \]</div>
+    <p>
+      Pilihan B tidak melalui \((0,-6)\) karena \(f(0)=6\), dan pilihan C
+      memiliki akar \(-3\) dan \(1\) (tanda akar terbalik).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 5</h4>
+    <p>Akar kembar terjadi ketika \(D=0\):</p>
+    <div class="math-display">\[ D=(m-1)^2-4(1)(9)=(m-1)^2-36=0 \]</div>
+    <div class="math-display">
+      \[ (m-1)^2=36\Rightarrow m-1=\pm6\Rightarrow m=7\ \text{atau}\ m=-5 \]
+    </div>
+    <p>
+      Hati-hati: koefisien \(x\) adalah \((m-1)\), bukan \(m\). Pilihan A muncul
+      jika koefisiennya dianggap \(m\).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 6</h4>
+    <p>Dari persamaan \(2x^2-6x+1=0\):</p>
+    <div class="math-display">
+      \[ x_1+x_2=-\frac{-6}{2}=3,\qquad x_1x_2=\frac12 \]
+    </div>
+    <div class="math-display">
+      \[ x_1^2+x_2^2=(x_1+x_2)^2-2x_1x_2=9-2\cdot\frac12=8 \]
+    </div>
+    <p>
+      Pilihan C diperoleh jika rumusnya keliru ditulis
+      \((x_1+x_2)^2-x_1x_2=9-\displaystyle\frac12\).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 7</h4>
+    <p>Faktorkan terlebih dahulu:</p>
+    <div class="math-display">
+      \[ x^2-3x-10&lt;0\Rightarrow(x-5)(x+2)&lt;0 \]
+    </div>
+    <p>
+      Pembuat nolnya \(x=-2\) dan \(x=5\). Parabola terbuka ke atas
+      (\(a=1&gt;0\)), sehingga nilai fungsi negatif di <em>antara</em> kedua
+      akar. Jadi penyelesaiannya \(-2&lt;x&lt;5\).
+    </p>
+    <p>
+      Uji titik: \(x=0\) memberi \(-10&lt;0\) (benar), dan \(0\) berada di
+      antara \(-2\) dan \(5\).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 8</h4>
+    <p>
+      Karena \(a=-5&lt;0\), tinggi maksimum terjadi di titik puncak. Waktunya:
+    </p>
+    <div class="math-display">\[ t_p=-\frac{30}{2(-5)}=3 \]</div>
+    <div class="math-display">\[ h(3)=30(3)-5(9)=90-45=45 \]</div>
+    <p>
+      Pilihan E (\(90\)) adalah nilai suku \(30t\) saja, tanpa dikurangi
+      \(5t^2\).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <h3>B. Pembahasan Tingkat Kesulitan UTBK</h3>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 9</h4>
+    <p>Terjemahkan setiap ciri grafik menjadi syarat koefisien:</p>
+    <ul>
+      <li>Terbuka ke bawah: \(a&lt;0\).</li>
+      <li>Tidak memotong sumbu-\(x\): \(b^2-4ac&lt;0\).</li>
+      <li>
+        Puncak di kiri sumbu-\(y\): \(x_p=-\displaystyle\frac{b}{2a}&lt;0\),
+        sehingga \(a\) dan \(b\) bertanda sama. Karena \(a&lt;0\), maka
+        \(b&lt;0\).
+      </li>
+    </ul>
+    <p>
+      Untuk \(c\): grafik terbuka ke bawah dan tidak menyentuh sumbu-\(x\), maka
+      seluruh grafik berada di bawah sumbu-\(x\) (definit negatif). Akibatnya
+      \(f(0)=c&lt;0\).
+    </p>
+    <p>
+      Pilihan E salah karena diskriminan \(&gt;0\) berarti ada titik potong
+      sumbu-\(x\).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 10</h4>
+    <p>
+      Bernilai positif untuk semua \(x\) berarti definit positif: \(a=1&gt;0\)
+      (sudah terpenuhi) dan \(D&lt;0\).
+    </p>
+    <div class="math-display">
+      \[ D=(2p)^2-4(1)(p+6)=4p^2-4p-24=4(p^2-p-6)=4(p-3)(p+2) \]
+    </div>
+    <p>
+      Syarat \(D&lt;0\) memberi \((p-3)(p+2)&lt;0\), yaitu \(p\) berada di
+      antara akar-akarnya: \(-2&lt;p&lt;3\).
+    </p>
+    <p>
+      Tanda sama dengan tidak boleh dipakai: jika \(D=0\), grafik menyinggung
+      sumbu-\(x\) sehingga ada \(x\) dengan \(f(x)=0\), padahal soal meminta
+      selalu positif. Itulah sebabnya pilihan E salah.
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 11</h4>
+    <p>Samakan persamaan garis dan parabola:</p>
+    <div class="math-display">
+      \[ x^2-4x+7=2x+k\Rightarrow x^2-6x+(7-k)=0 \]
+    </div>
+    <p>
+      Tidak berpotongan berarti persamaan ini tidak memiliki akar real, yaitu
+      \(D&lt;0\):
+    </p>
+    <div class="math-display">
+      \[ D=(-6)^2-4(7-k)=36-28+4k=8+4k&lt;0\Rightarrow k&lt;-2 \]
+    </div>
+    <p>
+      Uji: untuk \(k=-3\) diperoleh \(x^2-6x+10=0\) dengan \(D=-4&lt;0\) (tidak
+      berpotongan). Untuk \(k=-2\), \(D=0\) sehingga garis menyinggung, yang
+      bukan "tidak memotong" (pilihan D salah).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 12</h4>
+    <p>Titik puncak diketahui, maka gunakan bentuk puncak:</p>
+    <div class="math-display">\[ f(x)=a(x-2)^2+5 \]</div>
+    <p>Substitusikan titik \((0,1)\):</p>
+    <div class="math-display">\[ 1=a(0-2)^2+5=4a+5\Rightarrow a=-1 \]</div>
+    <div class="math-display">\[ f(5)=-(5-2)^2+5=-9+5=-4 \]</div>
+    <p>
+      Sebagai pemeriksaan, parabola terbuka ke bawah (\(a=-1\)) dengan nilai
+      maksimum \(5\), dan \(f(5)=-4\) memang berada di bawah \(5\).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 13</h4>
+    <p>
+      Dari persamaan \(x^2-6x+k=0\), jumlah akarnya \(x_1+x_2=6\). Substitusikan
+      \(x_1=2x_2\):
+    </p>
+    <div class="math-display">
+      \[ 2x_2+x_2=6\Rightarrow x_2=2,\qquad x_1=4 \]
+    </div>
+    <div class="math-display">\[ k=x_1x_2=4\cdot2=8 \]</div>
+    <p>
+      Pemeriksaan dengan rumus khusus "satu akar \(n\) kali akar lain":
+      \(n\,b^2=(n+1)^2ac\Rightarrow2(36)=9(1)k\Rightarrow k=8\). Diskriminan
+      \(36-32=4&gt;0\), jadi akarnya real.
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 14</h4>
+    <p>Dari \(x^2-2mx+m+2=0\):</p>
+    <div class="math-display">\[ x_1+x_2=2m,\qquad x_1x_2=m+2 \]</div>
+    <div class="math-display">\[ x_1^2+x_2^2=(2m)^2-2(m+2)=4m^2-2m-4 \]</div>
+    <p>
+      Akar harus real, sehingga \(D\ge0\). Syarat ini membatasi nilai \(m\):
+    </p>
+    <div class="math-display">
+      \[ 4m^2-4(m+2)\ge0\Rightarrow m^2-m-2\ge0\Rightarrow(m-2)(m+1)\ge0 \]
+    </div>
+    <p>Jadi \(m\le-1\) atau \(m\ge2\).</p>
+    <p>
+      Misalkan
+      \(g(m)=4m^2-2m-4=4\left(m-\displaystyle\frac14\right)^2-\displaystyle\frac{17}{4}\).
+      Titik puncaknya berada di \(m=\displaystyle\frac14\), yang <em>tidak</em>
+      termasuk daerah yang diperbolehkan, sehingga nilai
+      \(-\displaystyle\frac{17}{4}\) (pilihan A) tidak pernah tercapai.
+    </p>
+    <ul>
+      <li>
+        Pada \(m\le-1\), \(g\) menurun menuju puncak, jadi nilai terkecil di
+        \(m=-1\): \(g(-1)=4+2-4=2\).
+      </li>
+      <li>
+        Pada \(m\ge2\), \(g\) menaik, jadi nilai terkecil di \(m=2\):
+        \(g(2)=16-4-4=8\).
+      </li>
+    </ul>
+    <p>
+      Nilai minimum keseluruhan adalah \(2\), tercapai saat \(m=-1\), yaitu
+      persamaan \(x^2+2x+1=0\) dengan akar kembar \(-1\) sehingga
+      \(x_1^2+x_2^2=1+1=2\).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 15</h4>
+    <p>
+      Dari \(x^2-4x+2=0\): \(\alpha+\beta=4\) dan \(\alpha\beta=2\). Hitung
+      jumlah dan hasil kali akar-akar baru:
+    </p>
+    <div class="math-display">
+      \[ \alpha^2+\beta^2=(\alpha+\beta)^2-2\alpha\beta=16-4=12 \]
+    </div>
+    <div class="math-display">\[ \alpha^2\cdot\beta^2=(\alpha\beta)^2=4 \]</div>
+    <p>Persamaan barunya:</p>
+    <div class="math-display">\[ x^2-12x+4=0 \]</div>
+    <p>
+      Pilihan A memakai \(\alpha\beta=2\) sebagai hasil kali (lupa
+      dikuadratkan), pilihan C memakai \((\alpha+\beta)^2\) sebagai jumlah akar
+      baru, dan pilihan D salah tanda pada suku \(x\).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 16</h4>
+    <p>
+      Titik puncak \(f(x)=x^2-6x+4\) berada di \(x_p=3\), yang berada di dalam
+      interval \([-1,5]\). Hitung nilai di puncak dan di kedua ujung:
+    </p>
+    <div class="math-display">
+      \[ f(3)=9-18+4=-5,\qquad f(-1)=1+6+4=11,\qquad f(5)=25-30+4=-1 \]
+    </div>
+    <p>
+      Karena parabola terbuka ke atas, nilai minimum di puncak, yaitu \(-5\),
+      dan nilai maksimum di ujung yang lebih jauh dari sumbu simetri (\(x=-1\)),
+      yaitu \(11\).
+    </p>
+    <div class="math-display">\[ 11-(-5)=16 \]</div>
+    <p>
+      Pilihan D (\(12\)) muncul bila puncak diabaikan sehingga minimum dianggap
+      \(-1\) (ujung kanan), yaitu \(11-(-1)=12\).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 17</h4>
+    <p>Titik singgung berabsis \(2\) memiliki ordinat:</p>
+    <div class="math-display">\[ y_0=2^2+2(2)-3=5 \]</div>
+    <p>Gradien garis singgung sama dengan turunan di \(x=2\):</p>
+    <div class="math-display">\[ m=2ax_0+b=2(1)(2)+2=6 \]</div>
+    <div class="math-display">\[ y-5=6(x-2)\Rightarrow y=6x-7 \]</div>
+    <p>
+      Pemeriksaan dengan diskriminan: \(x^2+2x-3=6x-7\) memberi \(x^2-4x+4=0\)
+      dengan \(D=0\), sehingga garis memang menyinggung. Pilihan C muncul bila
+      ordinat titik singgung dianggap nol, dan pilihan D bila gradien dihitung
+      \(2ax_0\) saja (lupa menambah \(b\)).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 18</h4>
+    <p>
+      Titik \((x,y)\) dicerminkan terhadap garis \(y=1\) menjadi \((x,\,2-y)\).
+      Jadi bayangan memenuhi \(y'=2(1)-f(x)\):
+    </p>
+    <div class="math-display">\[ y'=2-(x^2-2x+3)=-x^2+2x-1 \]</div>
+    <p>
+      Pemeriksaan titik puncak: parabola asal berpuncak di \((1,2)\); titik
+      \((1,2)\) dicerminkan terhadap \(y=1\) menjadi \((1,0)\). Pada bayangan,
+      \(y'(1)=-1+2-1=0\), cocok.
+    </p>
+    <p>
+      Pilihan A adalah pencerminan terhadap sumbu-\(x\), pilihan D terhadap
+      sumbu-\(y\), dan pilihan E terhadap garis \(y=-1\).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <h3>C. Pembahasan Tingkat Kesulitan Olimpiade</h3>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 19</h4>
+    <p>
+      Penyebut \(x^2+1\) selalu positif. Gunakan teknik daerah hasil: tulis
+      \(y\) sebagai persamaan kuadrat dalam \(x\), lalu syaratkan ada \(x\)
+      real.
+    </p>
+    <div class="math-display">
+      \[ y(x^2+1)=x^2+2x+3\Rightarrow(y-1)x^2-2x+(y-3)=0 \]
+    </div>
+    <p>
+      <strong>Kasus \(y=1\).</strong> Persamaan menjadi \(-2x-2=0\), sehingga
+      \(x=-1\). Jadi \(y=1\) dapat dicapai.
+    </p>
+    <p>
+      <strong>Kasus \(y\neq1\).</strong> Persamaan kuadrat memiliki akar real
+      jika \(D\ge0\):
+    </p>
+    <div class="math-display">
+      \[ D=(-2)^2-4(y-1)(y-3)=4-4(y^2-4y+3)=-4(y^2-4y+2)\ge0 \]
+    </div>
+    <div class="math-display">
+      \[ y^2-4y+2\le0\Rightarrow2-\sqrt2\le y\le2+\sqrt2 \]
+    </div>
+    <p>
+      Karena \(1\) berada di dalam interval itu (\(2-\sqrt2\approx0{,}59\) dan
+      \(2+\sqrt2\approx3{,}41\)), daerah hasil seluruhnya adalah
+      \(\left[2-\sqrt2,\ 2+\sqrt2\right]\).
+    </p>
+    <p>
+      Pemeriksaan bahwa batasnya benar-benar tercapai: saat \(D=0\), akar
+      kembarnya \(x=\displaystyle\frac{1}{y-1}\). Untuk \(y=2+\sqrt2\) diperoleh
+      \(x=\sqrt2-1\), dan
+      \(\displaystyle\frac{x^2+2x+3}{x^2+1}=\displaystyle\frac{4}{4-2\sqrt2}=2+\sqrt2\).
+      Untuk \(y=2-\sqrt2\) diperoleh \(x=-1-\sqrt2\) dengan hasil
+      \(\displaystyle\frac{4}{4+2\sqrt2}=2-\sqrt2\).
+    </p>
+    <p>
+      Jadi, jawabannya adalah nilai maksimum
+      <strong>\(2+\sqrt2\)</strong> dan nilai minimum
+      <strong>\(2-\sqrt2\)</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 20</h4>
+    <p>
+      Misalkan kedua akarnya bilangan bulat \(p\) dan \(q\) (boleh sama).
+      Menurut rumus Vieta:
+    </p>
+    <div class="math-display">\[ p+q=k,\qquad pq=k+3 \]</div>
+    <p>
+      Hilangkan \(k\) dengan mengurangkan kedua persamaan, lalu faktorkan dengan
+      menambah konstanta \(1\) pada kedua ruas:
+    </p>
+    <div class="math-display">
+      \[ pq=p+q+3\Rightarrow pq-p-q+1=4\Rightarrow(p-1)(q-1)=4 \]
+    </div>
+    <p>
+      Karena \(p-1\) dan \(q-1\) bilangan bulat yang hasil kalinya \(4\),
+      pasangan faktornya adalah \((1,4),(2,2),(4,1),(-1,-4),(-2,-2),(-4,-1)\).
+      Dengan demikian:
+    </p>
+    <div class="material-table-wrap">
+      <table class="reflection-table">
+        <thead>
+          <tr>
+            <th scope="col">\((p-1,\ q-1)\)</th>
+            <th scope="col">\((p,\ q)\)</th>
+            <th scope="col">\(k=p+q\)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>\((1,4)\) atau \((4,1)\)</td>
+            <td>\((2,5)\) atau \((5,2)\)</td>
+            <td>\(7\)</td>
+          </tr>
+          <tr>
+            <td>\((2,2)\)</td>
+            <td>\((3,3)\)</td>
+            <td>\(6\)</td>
+          </tr>
+          <tr>
+            <td>\((-1,-4)\) atau \((-4,-1)\)</td>
+            <td>\((0,-3)\) atau \((-3,0)\)</td>
+            <td>\(-3\)</td>
+          </tr>
+          <tr>
+            <td>\((-2,-2)\)</td>
+            <td>\((-1,-1)\)</td>
+            <td>\(-2\)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Pemeriksaan setiap nilai \(k\):</p>
+    <ul>
+      <li>\(k=7\): \(x^2-7x+10=0\), akarnya \(2\) dan \(5\).</li>
+      <li>\(k=6\): \(x^2-6x+9=0\), akarnya \(3\) dan \(3\).</li>
+      <li>\(k=-3\): \(x^2+3x=0\), akarnya \(0\) dan \(-3\).</li>
+      <li>\(k=-2\): \(x^2+2x+1=0\), akarnya \(-1\) dan \(-1\).</li>
+    </ul>
+    <p>Jadi, jawabannya adalah <strong>\(k\in\{-3,-2,6,7\}\)</strong>.</p>
+  </div>
+
+  <h3>Ringkasan Kunci dan Konsep yang Diuji</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table answer-key-table">
+      <thead>
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">Kunci</th>
+          <th scope="col">Konsep Utama</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>C</td>
+          <td>Titik puncak grafik fungsi kuadrat</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>B</td>
+          <td>Menyelesaikan persamaan kuadrat dengan memfaktorkan</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>A</td>
+          <td>Nilai minimum fungsi kuadrat</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>D</td>
+          <td>Menyusun fungsi dari titik potong sumbu-\(x\)</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>E</td>
+          <td>Diskriminan dan akar kembar</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>B</td>
+          <td>Jumlah kuadrat akar dengan rumus Vieta</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>A</td>
+          <td>Pertidaksamaan kuadrat</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>C</td>
+          <td>Soal cerita nilai maksimum</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>D</td>
+          <td>Membaca tanda \(a,b,c,D\) dari ciri grafik</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>B</td>
+          <td>Definit positif dengan parameter</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>E</td>
+          <td>Garis yang tidak memotong parabola</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>A</td>
+          <td>Menyusun fungsi dari titik puncak</td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>C</td>
+          <td>Hubungan antar akar dan rumus Vieta</td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td>D</td>
+          <td>Nilai minimum bentuk simetri akar dengan syarat \(D\ge0\)</td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td>B</td>
+          <td>Menyusun persamaan kuadrat baru</td>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td>E</td>
+          <td>Nilai ekstrem pada interval tertutup</td>
+        </tr>
+        <tr>
+          <td>17</td>
+          <td>A</td>
+          <td>Garis singgung parabola</td>
+        </tr>
+        <tr>
+          <td>18</td>
+          <td>C</td>
+          <td>Pencerminan parabola terhadap garis \(y=c\)</td>
+        </tr>
+        <tr>
+          <td>19</td>
+          <td>\(2+\sqrt2\) dan \(2-\sqrt2\)</td>
+          <td>Daerah hasil fungsi pecahan dengan diskriminan</td>
+        </tr>
+        <tr>
+          <td>20</td>
+          <td>\(k\in\{-3,-2,6,7\}\)</td>
+          <td>Akar bilangan bulat, rumus Vieta, dan pemfaktoran</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
