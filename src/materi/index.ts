@@ -3,6 +3,7 @@ import transformasiGeometriHtml from "./transformasi-geometri.html?raw";
 import barisanDeretHtml from "./barisan-deret.html?raw";
 import matriksHtml from "./matriks.html?raw";
 import kombinatorikaHtml from "./kombinatorika.html?raw";
+import peluangHtml from "./peluang.html?raw";
 
 export interface Material {
   id: string;
@@ -79,6 +80,19 @@ export const materials: Material[] = [
     description:
       "Mempelajari aturan penjumlahan, aturan perkalian, faktorial, permutasi, kombinasi, dan teknik penyelesaian soal pencacahan.",
     htmlContent: kombinatorikaHtml,
+  },
+  {
+    id: "probability",
+    slug: "peluang",
+    number: "06",
+    category: "Peluang",
+    title: "Peluang",
+    grade: "Kelas XII",
+    formula:
+      "P(A)=\\frac{n(A)}{n(S)} \\qquad P(A\\cup B)=P(A)+P(B)-P(A\\cap B)",
+    description:
+      "Mempelajari ruang sampel, kejadian, peluang dasar, peluang bersyarat, teorema Bayes, dan penerapan dalam soal nyata.",
+    htmlContent: peluangHtml,
   },
 ];
 

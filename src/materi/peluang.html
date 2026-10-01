@@ -1,0 +1,3529 @@
+<section id="pendahuluan" data-title="Pendahuluan">
+  <h2>Pendahuluan</h2>
+
+  <p>
+    Peluang merupakan cabang matematika yang digunakan untuk mempelajari
+    kemungkinan terjadinya suatu kejadian. Dalam kehidupan sehari-hari, kita
+    sering berhadapan dengan situasi yang hasilnya belum dapat diketahui secara
+    pasti, seperti pelemparan koin, pelemparan dadu, pengambilan kartu, atau
+    pemilihan suatu objek secara acak.
+  </p>
+
+  <p>
+    Konsep peluang membantu kita mengukur seberapa besar kemungkinan suatu
+    kejadian terjadi. Nilai peluang berada antara \(0\) dan \(1\). Peluang
+    \(0\) menunjukkan kejadian yang mustahil, sedangkan peluang \(1\)
+    menunjukkan kejadian yang pasti.
+  </p>
+
+  <p>
+    Dalam materi ini, konsep yang dipelajari meliputi
+    <strong>
+      ruang sampel, titik sampel, kejadian, peluang suatu kejadian, peluang
+      empiris, peluang komplemen, peluang gabungan, peluang kejadian saling
+      lepas, peluang kejadian saling bebas, peluang bersyarat, aturan perkalian,
+      peluang total dan teorema Bayes, permutasi dan kombinasi dalam
+      peluang, peluang binomial, frekuensi harapan, serta nilai harapan
+    </strong>.
+  </p>
+
+  <h3>Kompetensi yang Diharapkan</h3>
+
+  <p>Setelah mempelajari materi ini, peserta didik diharapkan mampu:</p>
+
+  <ol>
+    <li>menjelaskan pengertian peluang dan ruang sampel;</li>
+    <li>menentukan titik sampel dari suatu percobaan acak;</li>
+    <li>menghitung peluang suatu kejadian;</li>
+    <li>menentukan peluang menggunakan metode pencacahan;</li>
+    <li>menentukan peluang empiris dan frekuensi harapan;</li>
+    <li>menggunakan aturan komplemen dalam perhitungan peluang;</li>
+    <li>menghitung peluang gabungan dua kejadian;</li>
+    <li>membedakan kejadian saling lepas dan kejadian saling bebas;</li>
+    <li>menghitung peluang bersyarat;</li>
+    <li>menggunakan aturan perkalian dalam masalah peluang;</li>
+    <li>menggunakan peluang total dan teorema Bayes;</li>
+    <li>menggunakan kombinasi dan permutasi dalam masalah peluang;</li>
+    <li>menentukan peluang kejadian berulang menggunakan distribusi binomial;</li>
+    <li>menghitung nilai harapan suatu peubah acak;</li>
+    <li>menyelesaikan masalah peluang dalam konteks kehidupan sehari-hari;</li>
+    <li>menyelesaikan soal peluang tingkat sekolah, UTBK, dan olimpiade.</li>
+  </ol>
+</section>
+
+
+<section id="ruang-sampel" data-title="Ruang Sampel dan Kejadian">
+  <h2>1. Ruang Sampel dan Kejadian</h2>
+
+  <h3>Pengertian Percobaan Acak</h3>
+
+  <p>
+    Percobaan acak adalah suatu percobaan yang hasil akhirnya belum dapat
+    diketahui secara pasti sebelum percobaan dilakukan, meskipun seluruh
+    kemungkinan hasilnya dapat diketahui.
+  </p>
+
+  <p>
+    Contohnya adalah melempar sebuah dadu. Sebelum dadu dilempar, kita tidak
+    mengetahui angka yang akan muncul. Namun, kita mengetahui bahwa hasil yang
+    mungkin adalah \(1,2,3,4,5,\) atau \(6\).
+  </p>
+
+  <h3>Ruang Sampel</h3>
+
+  <p>
+    Ruang sampel adalah himpunan seluruh hasil yang mungkin dari suatu
+    percobaan acak. Ruang sampel biasanya dilambangkan dengan \(S\).
+  </p>
+
+  <div class="math-display">
+    \[
+    S=\{\text{seluruh hasil yang mungkin}\}.
+    \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 1: Ruang Sampel Dadu</h4>
+
+    <p>
+      Sebuah dadu bersisi enam dilempar satu kali. Tentukan ruang sampelnya.
+    </p>
+
+    <p>
+      Hasil yang mungkin adalah muncul mata dadu \(1,2,3,4,5,\) atau \(6\).
+    </p>
+
+    <div class="math-display">
+      \[
+      S=\{1,2,3,4,5,6\}.
+      \]
+    </div>
+
+    <p>
+      Jadi, banyak titik sampel adalah
+      \[
+      n(S)=6.
+      \]
+    </p>
+  </div>
+
+  <h3>Titik Sampel</h3>
+
+  <p>
+    Setiap anggota ruang sampel disebut titik sampel. Misalnya, pada pelemparan
+    satu dadu, angka \(4\) merupakan salah satu titik sampel.
+  </p>
+
+  <h3>Kejadian</h3>
+
+  <p>
+    Kejadian adalah himpunan bagian dari ruang sampel. Kejadian biasanya
+    dilambangkan dengan huruf kapital seperti \(A\), \(B\), atau \(C\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 2: Menentukan Kejadian</h4>
+
+    <p>
+      Sebuah dadu dilempar satu kali. Misalkan \(A\) adalah kejadian muncul
+      bilangan genap. Tentukan kejadian \(A\).
+    </p>
+
+    <p>
+      Bilangan genap pada dadu adalah \(2,4,\) dan \(6\).
+    </p>
+
+    <div class="math-display">
+      \[
+      A=\{2,4,6\}.
+      \]
+    </div>
+
+    <p>
+      Jadi,
+      \[
+      n(A)=3.
+      \]
+    </p>
+  </div>
+
+  <h3>Kejadian Pasti dan Kejadian Mustahil</h3>
+
+  <p>
+    Kejadian pasti adalah kejadian yang selalu terjadi sehingga peluangnya
+    adalah \(1\). Sebaliknya, kejadian mustahil adalah kejadian yang tidak
+    mungkin terjadi sehingga peluangnya adalah \(0\).
+  </p>
+
+  <div class="math-display">
+    \[
+    P(S)=1,\qquad P(\varnothing)=0.
+    \]
+  </div>
+
+  <h3>Ruang Sampel pada Pelemparan Beberapa Benda</h3>
+
+  <p>
+    Jika suatu percobaan terdiri atas beberapa tahap, banyak titik sampel dapat dihitung dengan aturan perkalian. Misalnya, melempar \(k\) koin menghasilkan \(2^k\) titik sampel, dan melempar dua dadu menghasilkan \(6\cdot6=36\) titik sampel.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 3: Dua Koin</h4>
+
+    <p>
+      Dua koin dilempar bersamaan. Tentukan ruang sampel dan kejadian \(E\) muncul tepat satu gambar.
+    </p>
+
+    <p>
+      Misalkan A menyatakan angka dan G menyatakan gambar. Ruang sampelnya adalah
+    </p>
+
+    <div class="math-display">
+      \[
+      S=\{\text{AA},\text{AG},\text{GA},\text{GG}\},\qquad n(S)=4.
+      \]
+    </div>
+
+    <p>
+      Kejadian muncul tepat satu gambar adalah
+    </p>
+
+    <div class="math-display">
+      \[
+      E=\{\text{AG},\text{GA}\},\qquad n(E)=2.
+      \]
+    </div>
+
+    <p>
+      Jadi, \(P(E)=\dfrac24=\dfrac12\).
+    </p>
+  </div>
+</section>
+
+
+<section id="peluang-dasar" data-title="Peluang Suatu Kejadian">
+  <h2>2. Peluang Suatu Kejadian</h2>
+
+  <p>
+    Jika seluruh titik sampel memiliki kemungkinan yang sama untuk terjadi,
+    peluang kejadian \(A\) dapat dihitung dengan membandingkan banyak titik
+    sampel dalam kejadian \(A\) dengan banyak seluruh titik sampel.
+  </p>
+
+  <div class="math-display">
+    \[
+    P(A)=\frac{n(A)}{n(S)}.
+    \]
+  </div>
+
+  <p>
+    Dengan demikian, peluang suatu kejadian merupakan bilangan antara \(0\) dan
+    \(1\):
+  </p>
+
+  <div class="math-display">
+    \[
+    0\leq P(A)\leq1.
+    \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 1: Peluang Dadu</h4>
+
+    <p>
+      Sebuah dadu dilempar satu kali. Tentukan peluang muncul bilangan prima.
+    </p>
+
+    <p>
+      Ruang sampelnya adalah
+      \[
+      S=\{1,2,3,4,5,6\}.
+      \]
+      Bilangan prima yang mungkin muncul adalah \(2,3,\) dan \(5\).
+    </p>
+
+    <div class="math-display">
+      \[
+      A=\{2,3,5\}.
+      \]
+    </div>
+
+    <p>
+      Jadi,
+      \[
+      n(A)=3,\qquad n(S)=6.
+      \]
+    </p>
+
+    <div class="math-display">
+      \[
+      P(A)=\frac{3}{6}=\frac12.
+      \]
+    </div>
+
+    <p>
+      Jadi, peluang muncul bilangan prima adalah \(\frac12\).
+    </p>
+  </div>
+
+  <h3>Peluang Menggunakan Kombinatorika</h3>
+
+  <p>
+    Pada masalah yang memiliki banyak kemungkinan, ruang sampel sering kali
+    tidak perlu dituliskan satu per satu. Banyaknya kemungkinan dapat dihitung
+    menggunakan aturan pencacahan, permutasi, atau kombinasi.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 2: Pemilihan Siswa</h4>
+
+    <p>
+      Dari 5 siswa laki-laki dan 4 siswa perempuan dipilih 2 siswa secara acak.
+      Tentukan peluang kedua siswa yang terpilih adalah perempuan.
+    </p>
+
+    <p>
+      Banyak cara memilih 2 siswa dari 9 siswa adalah
+      \[
+      \binom{9}{2}=36.
+      \]
+    </p>
+
+    <p>
+      Banyak cara memilih 2 perempuan dari 4 perempuan adalah
+      \[
+      \binom{4}{2}=6.
+      \]
+    </p>
+
+    <p>
+      Maka peluangnya:
+    </p>
+
+    <div class="math-display">
+      \[
+      P(A)=\frac{\binom{4}{2}}{\binom{9}{2}}
+      =\frac{6}{36}
+      =\frac16.
+      \]
+    </div>
+
+    <p>
+      Jadi, peluang kedua siswa yang terpilih adalah perempuan adalah
+      \(\frac16\).
+    </p>
+  </div>
+
+  <h3>Peluang pada Pelemparan Dua Dadu</h3>
+
+  <p>
+    Pada pelemparan dua dadu terdapat \(36\) hasil berurutan. Tabel berikut menunjukkan banyak hasil untuk setiap jumlah mata dadu.
+  </p>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Jumlah mata dadu</th>
+          <th scope="col">Banyak hasil</th>
+          <th scope="col">Peluang</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2</td>
+          <td>1</td>
+          <td>\(\frac1{36}\)</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>2</td>
+          <td>\(\frac1{18}\)</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>3</td>
+          <td>\(\frac1{12}\)</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>4</td>
+          <td>\(\frac19\)</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>5</td>
+          <td>\(\frac5{36}\)</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>6</td>
+          <td>\(\frac16\)</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>5</td>
+          <td>\(\frac5{36}\)</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>4</td>
+          <td>\(\frac19\)</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>3</td>
+          <td>\(\frac1{12}\)</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>2</td>
+          <td>\(\frac1{18}\)</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>1</td>
+          <td>\(\frac1{36}\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 3: Jumlah Mata Dua Dadu</h4>
+
+    <p>
+      Dua dadu dilempar bersamaan. Tentukan peluang jumlah kedua mata dadu sama dengan \(7\).
+    </p>
+
+    <p>
+      Hasil yang memenuhi adalah
+    </p>
+
+    <div class="math-display">
+      \[
+      (1,6),(2,5),(3,4),(4,3),(5,2),(6,1),
+      \]
+    </div>
+
+    <p>
+      yaitu \(6\) hasil dari \(36\) hasil yang mungkin.
+    </p>
+
+    <div class="math-display">
+      \[
+      P(\text{jumlah }7)=\frac6{36}=\frac16.
+      \]
+    </div>
+
+    <p>
+      Jadi, peluang jumlah kedua mata dadu sama dengan \(7\) adalah \(\frac16\).
+    </p>
+  </div>
+</section>
+
+
+<section id="peluang-empiris" data-title="Peluang Empiris dan Frekuensi Harapan">
+  <h2>3. Peluang Empiris dan Frekuensi Harapan</h2>
+
+  <p>
+    Peluang empiris diperoleh berdasarkan hasil pengamatan atau percobaan yang
+    dilakukan berulang kali.
+  </p>
+
+  <div class="math-display">
+    \[
+    P(A)\approx\frac{\text{frekuensi kejadian }A}
+    {\text{jumlah seluruh percobaan}}.
+    \]
+  </div>
+
+  <p>
+    Semakin banyak percobaan dilakukan, frekuensi relatif suatu kejadian
+    biasanya semakin mendekati peluang teoritisnya.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 1: Peluang Empiris</h4>
+
+    <p>
+      Sebuah koin dilempar sebanyak 100 kali dan diperoleh 47 kali muncul sisi
+      gambar. Tentukan peluang empiris muncul sisi gambar.
+    </p>
+
+    <div class="math-display">
+      \[
+      P(\text{gambar})=\frac{47}{100}=0{,}47.
+      \]
+    </div>
+
+    <p>
+      Jadi, peluang empiris muncul sisi gambar berdasarkan percobaan tersebut
+      adalah \(0{,}47\).
+    </p>
+  </div>
+
+  <h3>Frekuensi Harapan</h3>
+
+  <p>
+    Frekuensi harapan suatu kejadian \(A\) adalah perkiraan banyak kemunculan \(A\) jika percobaan dilakukan sebanyak \(n\) kali. Nilai ini merupakan perkiraan rata-rata, bukan jaminan hasil sebenarnya.
+  </p>
+
+  <div class="math-display">
+    \[
+    F_h(A)=n\cdot P(A).
+    \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2: Frekuensi Harapan Dadu</h4>
+
+    <p>
+      Sebuah dadu dilempar \(120\) kali. Tentukan frekuensi harapan muncul mata dadu \(5\).
+    </p>
+
+    <p>
+      Peluang muncul mata dadu \(5\) adalah \(\frac16\). Maka
+    </p>
+
+    <div class="math-display">
+      \[
+      F_h=120\cdot\frac16=20.
+      \]
+    </div>
+
+    <p>
+      Jadi, mata dadu \(5\) diharapkan muncul sebanyak \(20\) kali.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 3: Peluang Hujan</h4>
+
+    <p>
+      Peluang turun hujan pada suatu hari di bulan tertentu adalah \(0{,}3\). Tentukan perkiraan banyak hari hujan dalam \(30\) hari.
+    </p>
+
+    <div class="math-display">
+      \[
+      F_h=30\cdot0{,}3=9.
+      \]
+    </div>
+
+    <p>
+      Jadi, diperkirakan terdapat \(9\) hari hujan.
+    </p>
+  </div>
+</section>
+
+
+<section id="komplemen" data-title="Peluang Komplemen">
+  <h2>4. Peluang Komplemen</h2>
+
+  <p>
+    Komplemen suatu kejadian \(A\), ditulis \(A^c\), adalah kejadian bahwa
+    \(A\) tidak terjadi.
+  </p>
+
+  <p>
+    Karena kejadian \(A\) dan \(A^c\) bersama-sama membentuk seluruh ruang
+    sampel, berlaku:
+  </p>
+
+  <div class="math-display">
+    \[
+    P(A)+P(A^c)=1.
+    \]
+  </div>
+
+  <p>Sehingga:</p>
+
+  <div class="math-display">
+    \[
+    P(A^c)=1-P(A).
+    \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 1: Komplemen</h4>
+
+    <p>
+      Peluang seorang siswa lulus suatu ujian adalah \(0{,}8\). Tentukan peluang
+      siswa tersebut tidak lulus.
+    </p>
+
+    <p>
+      Kejadian tidak lulus merupakan komplemen dari kejadian lulus.
+    </p>
+
+    <div class="math-display">
+      \[
+      P(A^c)=1-P(A)=1-0{,}8=0{,}2.
+      \]
+    </div>
+
+    <p>
+      Jadi, peluang siswa tersebut tidak lulus adalah \(0{,}2\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2: "Paling Sedikit Satu"</h4>
+
+    <p>
+      Sebuah koin dilempar 3 kali. Tentukan peluang muncul gambar paling sedikit
+      satu kali.
+    </p>
+
+    <p>
+      Frasa "paling sedikit satu kali" lebih mudah dihitung menggunakan
+      komplemen. Komplemennya adalah tidak muncul gambar sama sekali, artinya
+      semua lemparan menghasilkan angka.
+    </p>
+
+    <p>
+      Peluang semua lemparan menghasilkan angka adalah
+      \[
+      \left(\frac12\right)^3=\frac18.
+      \]
+    </p>
+
+    <p>
+      Maka:
+    </p>
+
+    <div class="math-display">
+      \[
+      P(\text{minimal satu gambar})
+      =1-\frac18
+      =\frac78.
+      \]
+    </div>
+
+    <p>
+      Jadi, peluang muncul gambar paling sedikit satu kali adalah
+      \(\frac78\).
+    </p>
+  </div>
+</section>
+
+
+<section id="gabungan" data-title="Peluang Gabungan">
+  <h2>5. Peluang Gabungan Dua Kejadian</h2>
+
+  <p>
+    Untuk dua kejadian \(A\) dan \(B\), kejadian \(A\) atau \(B\) terjadi
+    dinyatakan dengan \(A\cup B\). Sementara kejadian \(A\) dan \(B\) terjadi
+    bersama-sama dinyatakan dengan \(A\cap B\).
+  </p>
+
+  <h3>Rumus Penjumlahan Peluang</h3>
+
+  <p>
+    Secara umum, peluang gabungan dua kejadian adalah:
+  </p>
+
+  <div class="math-display">
+    \[
+    P(A\cup B)=P(A)+P(B)-P(A\cap B).
+    \]
+  </div>
+
+  <p>
+    Bagian \(P(A\cap B)\) dikurangkan karena kejadian yang berada di \(A\) dan
+    \(B\) telah dihitung dua kali.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 1: Dua Kejadian pada Dadu</h4>
+
+    <p>
+      Sebuah dadu dilempar satu kali. Misalkan \(A\) adalah kejadian muncul
+      bilangan genap dan \(B\) adalah kejadian muncul bilangan lebih dari 3.
+      Tentukan \(P(A\cup B)\).
+    </p>
+
+    <p>
+      Kita memiliki:
+    </p>
+
+    <div class="math-display">
+      \[
+      A=\{2,4,6\},
+      \qquad
+      B=\{4,5,6\}.
+      \]
+    </div>
+
+    <p>
+      Irisannya adalah:
+    </p>
+
+    <div class="math-display">
+      \[
+      A\cap B=\{4,6\}.
+      \]
+    </div>
+
+    <p>
+      Maka:
+    </p>
+
+    <div class="math-display">
+      \[
+      P(A)=\frac36,\qquad
+      P(B)=\frac36,\qquad
+      P(A\cap B)=\frac26.
+      \]
+    </div>
+
+    <p>
+      Dengan rumus penjumlahan:
+    </p>
+
+    <div class="math-display">
+      \[
+      P(A\cup B)
+      =\frac36+\frac36-\frac26
+      =\frac46
+      =\frac23.
+      \]
+    </div>
+
+    <p>
+      Jadi, peluang muncul bilangan genap atau bilangan lebih dari 3 adalah
+      \(\frac23\).
+    </p>
+  </div>
+
+  <h3>Gabungan Tiga Kejadian</h3>
+
+  <p>
+    Untuk tiga kejadian \(A\), \(B\), dan \(C\), berlaku prinsip inklusi-eksklusi:
+  </p>
+
+  <div class="math-display">
+    \[
+    P(A\cup B\cup C)
+    =P(A)+P(B)+P(C)-P(A\cap B)-P(A\cap C)-P(B\cap C)+P(A\cap B\cap C).
+    \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2: Kelipatan 2, 3, atau 5</h4>
+
+    <p>
+      Sebuah bilangan dipilih secara acak dari \(1,2,\ldots,30\). Tentukan peluang bilangan tersebut habis dibagi \(2\), \(3\), atau \(5\).
+    </p>
+
+    <p>
+      Misalkan \(A,B,C\) berturut-turut adalah kejadian habis dibagi \(2,3,5\). Maka
+    </p>
+
+    <div class="math-display">
+      \[
+      n(A)=15,\quad n(B)=10,\quad n(C)=6,
+      \]
+    </div>
+
+    <div class="math-display">
+      \[
+      n(A\cap B)=5,\quad n(A\cap C)=3,\quad n(B\cap C)=2,\quad n(A\cap B\cap C)=1.
+      \]
+    </div>
+
+    <div class="math-display">
+      \[
+      P(A\cup B\cup C)=\frac{15+10+6-5-3-2+1}{30}=\frac{22}{30}=\frac{11}{15}.
+      \]
+    </div>
+
+    <p>
+      Jadi, peluangnya adalah \(\frac{11}{15}\).
+    </p>
+  </div>
+</section>
+
+
+<section id="saling-lepas" data-title="Kejadian Saling Lepas">
+  <h2>6. Kejadian Saling Lepas</h2>
+
+  <p>
+    Dua kejadian disebut saling lepas jika keduanya tidak dapat terjadi secara
+    bersamaan. Dengan kata lain, tidak terdapat titik sampel yang menjadi
+    anggota kedua kejadian.
+  </p>
+
+  <div class="math-display">
+    \[
+    A\cap B=\varnothing.
+    \]
+  </div>
+
+  <p>
+    Untuk kejadian saling lepas, rumus peluang gabungan menjadi:
+  </p>
+
+  <div class="math-display">
+    \[
+    P(A\cup B)=P(A)+P(B).
+    \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh: Angka 1 atau 6 pada Dadu</h4>
+
+    <p>
+      Sebuah dadu dilempar satu kali. Misalkan \(A\) adalah kejadian muncul
+      angka 1 dan \(B\) adalah kejadian muncul angka 6. Tentukan
+      \(P(A\cup B)\).
+    </p>
+
+    <p>
+      Angka 1 dan angka 6 tidak dapat muncul bersamaan dalam satu kali
+      pelemparan dadu. Jadi, kedua kejadian saling lepas.
+    </p>
+
+    <div class="math-display">
+      \[
+      P(A)=\frac16,\qquad P(B)=\frac16.
+      \]
+    </div>
+
+    <div class="math-display">
+      \[
+      P(A\cup B)=\frac16+\frac16=\frac13.
+      \]
+    </div>
+
+    <p>
+      Jadi, peluang muncul angka 1 atau 6 adalah \(\frac13\).
+    </p>
+  </div>
+
+  <p>
+    Kejadian \(A\) dan komplemennya \(A^c\) selalu saling lepas, sehingga \(P(A)+P(A^c)=P(S)=1\). Untuk beberapa kejadian yang saling lepas berpasangan, peluang gabungannya adalah jumlah peluang masing-masing kejadian.
+  </p>
+</section>
+
+
+<section id="independen" data-title="Kejadian Saling Bebas">
+  <h2>7. Kejadian Saling Bebas</h2>
+
+  <p>
+    Dua kejadian disebut saling bebas jika terjadinya salah satu kejadian tidak
+    memengaruhi peluang terjadinya kejadian lainnya.
+  </p>
+
+  <p>
+    Untuk kejadian saling bebas berlaku:
+  </p>
+
+  <div class="math-display">
+    \[
+    P(A\cap B)=P(A)P(B).
+    \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 1: Koin dan Dadu</h4>
+
+    <p>
+      Sebuah koin dan sebuah dadu dilempar secara bersamaan. Tentukan peluang
+      muncul sisi gambar pada koin dan bilangan genap pada dadu.
+    </p>
+
+    <p>
+      Hasil koin tidak memengaruhi hasil dadu, sehingga kedua kejadian saling
+      bebas.
+    </p>
+
+    <p>
+      Peluang muncul gambar adalah
+      \[
+      P(A)=\frac12.
+      \]
+      Peluang muncul bilangan genap pada dadu adalah
+      \[
+      P(B)=\frac36=\frac12.
+      \]
+    </p>
+
+    <p>
+      Karena saling bebas:
+    </p>
+
+    <div class="math-display">
+      \[
+      P(A\cap B)=P(A)P(B)
+      =\frac12\cdot\frac12
+      =\frac14.
+      \]
+    </div>
+
+    <p>
+      Jadi, peluang muncul gambar dan bilangan genap adalah \(\frac14\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2: Menguji Kejadian Saling Bebas</h4>
+
+    <p>
+      Sebuah dadu dilempar satu kali. Misalkan \(A\) adalah kejadian muncul bilangan genap, \(B\) adalah kejadian muncul bilangan kurang dari atau sama dengan \(4\), dan \(C\) adalah kejadian muncul bilangan lebih dari \(3\). Selidiki apakah \(A\) dan \(B\) saling bebas, serta apakah \(A\) dan \(C\) saling bebas.
+    </p>
+
+    <div class="math-display">
+      \[
+      A=\{2,4,6\},\qquad B=\{1,2,3,4\},\qquad C=\{4,5,6\}.
+      \]
+    </div>
+
+    <p>
+      Untuk \(A\) dan \(B\): \(A\cap B=\{2,4\}\), sehingga
+    </p>
+
+    <div class="math-display">
+      \[
+      P(A\cap B)=\frac26=\frac13,\qquad P(A)P(B)=\frac12\cdot\frac23=\frac13.
+      \]
+    </div>
+
+    <p>
+      Karena keduanya sama, \(A\) dan \(B\) saling bebas.
+    </p>
+
+    <p>
+      Untuk \(A\) dan \(C\): \(A\cap C=\{4,6\}\), sehingga
+    </p>
+
+    <div class="math-display">
+      \[
+      P(A\cap C)=\frac26=\frac13,\qquad P(A)P(C)=\frac12\cdot\frac12=\frac14.
+      \]
+    </div>
+
+    <p>
+      Karena keduanya tidak sama, \(A\) dan \(C\) tidak saling bebas.
+    </p>
+  </div>
+
+  <h3>Perbedaan Saling Lepas dan Saling Bebas</h3>
+
+  <p>
+    Kedua istilah ini harus dibedakan. Saling lepas berarti dua kejadian tidak
+    dapat terjadi bersamaan, sedangkan saling bebas berarti terjadinya suatu
+    kejadian tidak memengaruhi peluang kejadian lainnya.
+  </p>
+
+  <p>
+    Jika dua kejadian saling lepas dan keduanya memiliki peluang positif, maka
+    keduanya tidak saling bebas karena
+    \[
+    P(A\cap B)=0
+    \]
+    sedangkan
+    \[
+    P(A)P(B)>0.
+    \]
+  </p>
+</section>
+
+
+<section id="bersyarat" data-title="Peluang Bersyarat">
+  <h2>8. Peluang Bersyarat</h2>
+
+  <p>
+    Peluang bersyarat digunakan ketika peluang suatu kejadian ditentukan dengan
+    mempertimbangkan bahwa kejadian lain telah terjadi.
+  </p>
+
+  <p>
+    Peluang kejadian \(A\) dengan syarat \(B\) telah terjadi ditulis
+    \(P(A\mid B)\).
+  </p>
+
+  <div class="math-display">
+    \[
+    P(A\mid B)=\frac{P(A\cap B)}{P(B)},
+    \qquad P(B)>0.
+    \]
+  </div>
+
+  <p>
+    Rumus tersebut dapat diubah menjadi aturan perkalian:
+  </p>
+
+  <div class="math-display">
+    \[
+    P(A\cap B)=P(A\mid B)P(B).
+    \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 1: Pengambilan Bola</h4>
+
+    <p>
+      Sebuah kotak berisi 5 bola merah dan 3 bola biru. Dua bola diambil
+      berturut-turut tanpa pengembalian. Tentukan peluang bola kedua berwarna
+      merah jika bola pertama diketahui merah.
+    </p>
+
+    <p>
+      Karena bola pertama sudah diketahui merah, tersisa 4 bola merah dan
+      3 bola biru, sehingga total tersisa 7 bola.
+    </p>
+
+    <div class="math-display">
+      \[
+      P(\text{merah kedua}\mid\text{merah pertama})
+      =\frac47.
+      \]
+    </div>
+
+    <p>
+      Jadi, peluang bola kedua merah dengan syarat bola pertama merah adalah
+      \(\frac47\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2: Data Kelompok Siswa</h4>
+
+    <p>
+      Dalam suatu kelas terdapat 20 siswa. Sebanyak 12 siswa menyukai
+      matematika, 8 di antaranya juga menyukai fisika. Jika seorang siswa yang
+      dipilih secara acak diketahui menyukai matematika, tentukan peluang siswa
+      tersebut juga menyukai fisika.
+    </p>
+
+    <p>
+      Karena telah diketahui bahwa siswa menyukai matematika, ruang yang
+      diperhatikan hanya 12 siswa yang menyukai matematika. Dari 12 siswa
+      tersebut, 8 juga menyukai fisika.
+    </p>
+
+    <p>
+      Dengan rumus peluang bersyarat, misalkan \(M\) adalah kejadian menyukai matematika dan \(F\) adalah kejadian menyukai fisika. Maka \(P(M\cap F)=\frac8{20}\) dan \(P(M)=\frac{12}{20}\), sehingga:
+    </p>
+
+    <div class="math-display">
+      \[
+      P(F\mid M)=\frac{P(M\cap F)}{P(M)}=\frac{8/20}{12/20}=\frac8{12}=\frac23.
+      \]
+    </div>
+
+
+    <p>
+      Jadi, peluangnya adalah \(\frac23\).
+    </p>
+  </div>
+</section>
+
+
+<section id="aturan-perkalian" data-title="Aturan Perkalian Peluang">
+  <h2>9. Aturan Perkalian Peluang</h2>
+
+  <p>
+    Aturan perkalian digunakan untuk menghitung peluang dua kejadian yang
+    terjadi secara berturut-turut.
+  </p>
+
+  <div class="math-display">
+    \[
+    P(A\cap B)=P(A)P(B\mid A).
+    \]
+  </div>
+
+  <p>
+    Jika \(A\) dan \(B\) saling bebas, maka
+    \(P(B\mid A)=P(B)\), sehingga:
+  </p>
+
+  <div class="math-display">
+    \[
+    P(A\cap B)=P(A)P(B).
+    \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 1: Tanpa Pengembalian</h4>
+
+    <p>
+      Sebuah kotak berisi 4 bola merah dan 6 bola putih. Dua bola diambil
+      berturut-turut tanpa pengembalian. Tentukan peluang kedua bola berwarna
+      merah.
+    </p>
+
+    <p>
+      Peluang bola pertama merah:
+      \[
+      P(A)=\frac4{10}.
+      \]
+    </p>
+
+    <p>
+      Setelah satu bola merah diambil, tersisa 3 bola merah dari total 9 bola.
+      Jadi:
+      \[
+      P(B\mid A)=\frac39.
+      \]
+    </p>
+
+    <p>
+      Gunakan aturan perkalian:
+    </p>
+
+    <div class="math-display">
+      \[
+      P(A\cap B)
+      =\frac4{10}\cdot\frac39
+      =\frac{12}{90}
+      =\frac2{15}.
+      \]
+    </div>
+
+    <p>
+      Jadi, peluang kedua bola berwarna merah adalah \(\frac2{15}\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2: Dengan Pengembalian</h4>
+
+    <p>
+      Sebuah kotak berisi \(4\) bola merah dan \(6\) bola putih. Dua bola diambil berturut-turut <strong>dengan pengembalian</strong>. Tentukan peluang kedua bola berwarna merah.
+    </p>
+
+    <p>
+      Karena bola pertama dikembalikan, kotak kembali berisi \(10\) bola sebelum pengambilan kedua. Kedua pengambilan saling bebas, sehingga
+    </p>
+
+    <div class="math-display">
+      \[
+      P(A\cap B)=\frac4{10}\cdot\frac4{10}=\frac{16}{100}=\frac4{25}.
+      \]
+    </div>
+
+    <p>
+      Jadi, peluangnya adalah \(\frac4{25}\). Bandingkan dengan pengambilan tanpa pengembalian pada Contoh 1 yang menghasilkan \(\frac2{15}\).
+    </p>
+  </div>
+</section>
+
+
+<section id="bayes" data-title="Peluang Total dan Teorema Bayes">
+  <h2>10. Peluang Total dan Teorema Bayes</h2>
+
+  <p>
+    Kadang suatu kejadian dapat terjadi melalui beberapa kasus yang saling lepas. Misalkan \(B_1,B_2,\ldots,B_k\) adalah kejadian-kejadian yang saling lepas, gabungannya adalah seluruh ruang sampel, dan \(P(B_i)>0\). Untuk sembarang kejadian \(A\), berlaku <strong>rumus peluang total</strong>:
+  </p>
+
+  <div class="math-display">
+    \[
+    P(A)=\sum_{i=1}^{k}P(B_i)P(A\mid B_i).
+    \]
+  </div>
+
+  <h3>Teorema Bayes</h3>
+
+  <p>
+    Jika \(A\) diketahui telah terjadi, peluang bahwa \(A\) berasal dari kasus \(B_j\) dihitung dengan:
+  </p>
+
+  <div class="math-display">
+    \[
+    P(B_j\mid A)
+    =\frac{P(B_j)P(A\mid B_j)}{\sum_{i=1}^{k}P(B_i)P(A\mid B_i)}.
+    \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 1: Peluang Total</h4>
+
+    <p>
+      Kotak I berisi \(3\) bola merah dan \(2\) bola putih, sedangkan kotak II berisi \(1\) bola merah dan \(4\) bola putih. Sebuah kotak dipilih secara acak, lalu satu bola diambil dari kotak tersebut. Tentukan peluang bola yang terambil berwarna merah.
+    </p>
+
+    <p>
+      Misalkan \(K_1\) dan \(K_2\) adalah kejadian terpilihnya kotak I dan kotak II, serta \(M\) adalah kejadian terambil bola merah. Maka
+    </p>
+
+    <div class="math-display">
+      \[
+      P(K_1)=P(K_2)=\frac12,\qquad P(M\mid K_1)=\frac35,\qquad P(M\mid K_2)=\frac15.
+      \]
+    </div>
+
+    <p>
+      Dengan rumus peluang total:
+    </p>
+
+    <div class="math-display">
+      \[
+      P(M)=\frac12\cdot\frac35+\frac12\cdot\frac15=\frac3{10}+\frac1{10}=\frac4{10}=\frac25.
+      \]
+    </div>
+
+    <p>
+      Jadi, peluang terambil bola merah adalah \(\frac25\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2: Teorema Bayes</h4>
+
+    <p>
+      Pada Contoh 1, jika bola yang terambil ternyata merah, tentukan peluang bola tersebut berasal dari kotak I.
+    </p>
+
+    <p>
+      Kita gunakan teorema Bayes dengan \(P(M)=\frac25\):
+    </p>
+
+    <div class="math-display">
+      \[
+      P(K_1\mid M)=\frac{P(K_1)P(M\mid K_1)}{P(M)}=\frac{3/10}{4/10}=\frac34.
+      \]
+    </div>
+
+    <p>
+      Jadi, peluang bola merah tersebut berasal dari kotak I adalah \(\frac34\).
+    </p>
+  </div>
+</section>
+
+
+<section id="permutasi-kombinasi" data-title="Permutasi dan Kombinasi dalam Peluang">
+  <h2>11. Permutasi dan Kombinasi dalam Peluang</h2>
+
+  <p>
+    Pada beberapa masalah peluang, banyaknya kejadian yang mungkin dihitung
+    menggunakan permutasi atau kombinasi.
+  </p>
+
+  <p>
+    Jika urutan hasil diperhatikan, kita dapat menggunakan permutasi. Jika
+    urutan tidak diperhatikan, kita dapat menggunakan kombinasi.
+  </p>
+
+  <div class="math-display">
+    \[
+    {}_nP_r=\frac{n!}{(n-r)!}
+    \]
+  </div>
+
+  <div class="math-display">
+    \[
+    \binom nr=\frac{n!}{r!(n-r)!}.
+    \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 1: Kartu (Kombinasi)</h4>
+
+    <p>
+      Dari satu set kartu bernomor \(1\) sampai \(10\), dipilih dua kartu secara
+      acak tanpa pengembalian. Tentukan peluang kedua kartu yang dipilih
+      merupakan bilangan genap.
+    </p>
+
+    <p>
+      Terdapat 5 bilangan genap, yaitu \(2,4,6,8,10\).
+    </p>
+
+    <p>
+      Karena kita memilih dua kartu dan urutan tidak penting, banyak seluruh
+      kemungkinan adalah
+      \[
+      \binom{10}{2}=45.
+      \]
+    </p>
+
+    <p>
+      Banyak cara memilih dua bilangan genap:
+      \[
+      \binom52=10.
+      \]
+    </p>
+
+    <p>
+      Maka:
+    </p>
+
+    <div class="math-display">
+      \[
+      P(A)=\frac{\binom52}{\binom{10}{2}}
+      =\frac{10}{45}
+      =\frac29.
+      \]
+    </div>
+
+    <p>
+      Jadi, peluang kedua kartu merupakan bilangan genap adalah
+      \(\frac29\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2: Susunan Berjajar (Permutasi)</h4>
+
+    <p>
+      Lima orang, termasuk A dan B, duduk berjajar secara acak pada lima kursi. Tentukan peluang A dan B duduk berdampingan.
+    </p>
+
+    <p>
+      Karena urutan diperhatikan, banyak seluruh susunan adalah \(5!=120\).
+    </p>
+
+    <p>
+      Agar A dan B berdampingan, anggap A dan B sebagai satu kelompok. Terdapat \(4!\) susunan untuk empat "unit", dan A, B dapat bertukar tempat dengan \(2!\) cara:
+    </p>
+
+    <div class="math-display">
+      \[
+      2!\cdot4!=2\cdot24=48.
+      \]
+    </div>
+
+    <div class="math-display">
+      \[
+      P=\frac{48}{120}=\frac25.
+      \]
+    </div>
+
+    <p>
+      Jadi, peluang A dan B duduk berdampingan adalah \(\frac25\).
+    </p>
+  </div>
+</section>
+
+
+<section id="binomial" data-title="Peluang Binomial">
+  <h2>12. Peluang Binomial</h2>
+
+  <p>
+    Distribusi binomial digunakan ketika suatu percobaan dilakukan sebanyak
+    \(n\) kali, setiap percobaan hanya memiliki dua hasil yang diperhatikan,
+    peluang keberhasilan tetap, dan hasil setiap percobaan saling bebas.
+  </p>
+
+  <p>
+    Jika peluang keberhasilan adalah \(p\), maka peluang kegagalan adalah
+    \(1-p\).
+  </p>
+
+  <p>
+    Peluang tepat \(r\) keberhasilan dalam \(n\) percobaan adalah:
+  </p>
+
+  <div class="math-display">
+    \[
+    P(X=r)=\binom nr p^r(1-p)^{n-r}.
+    \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh: Percobaan Binomial</h4>
+
+    <p>
+      Sebuah koin seimbang dilempar 4 kali. Tentukan peluang muncul tepat 2 kali
+      gambar.
+    </p>
+
+    <p>
+      Banyak percobaan adalah \(n=4\), banyak keberhasilan yang diinginkan
+      adalah \(r=2\), dan peluang gambar adalah \(p=\frac12\).
+    </p>
+
+    <p>
+      Gunakan rumus binomial:
+    </p>
+
+    <div class="math-display">
+      \[
+      P(X=2)
+      =\binom42
+      \left(\frac12\right)^2
+      \left(\frac12\right)^2.
+      \]
+    </div>
+
+    <p>
+      Karena
+      \[
+      \binom42=6,
+      \]
+      maka:
+    </p>
+
+    <div class="math-display">
+      \[
+      P(X=2)=6\cdot\frac1{16}
+      =\frac38.
+      \]
+    </div>
+
+    <p>
+      Jadi, peluang muncul tepat 2 gambar adalah \(\frac38\).
+    </p>
+  </div>
+
+  <h3>Nilai Harapan Distribusi Binomial</h3>
+
+  <p>
+    Jika \(X\) mengikuti distribusi binomial dengan parameter \(n\) dan \(p\),
+    maka nilai harapan \(X\) adalah:
+  </p>
+
+  <div class="math-display">
+    \[
+    E(X)=np.
+    \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh: Nilai Harapan Binomial</h4>
+
+    <p>
+      Sebuah percobaan dilakukan 20 kali dengan peluang keberhasilan \(0{,}3\)
+      pada setiap percobaan. Tentukan banyak keberhasilan yang diharapkan.
+    </p>
+
+    <div class="math-display">
+      \[
+      E(X)=np=20(0{,}3)=6.
+      \]
+    </div>
+
+    <p>
+      Jadi, banyak keberhasilan yang diharapkan adalah \(6\).
+    </p>
+  </div>
+
+  <h3>Variansi Distribusi Binomial</h3>
+
+  <p>
+    Selain nilai harapan, ukuran sebaran distribusi binomial dinyatakan dengan variansi:
+  </p>
+
+  <div class="math-display">
+    \[
+    \operatorname{Var}(X)=np(1-p).
+    \]
+  </div>
+
+  <p>
+    Pada contoh sebelumnya, \(n=20\) dan \(p=0{,}3\), sehingga \(\operatorname{Var}(X)=20(0{,}3)(0{,}7)=4{,}2\).
+  </p>
+</section>
+
+
+<section id="nilai-harapan" data-title="Nilai Harapan">
+  <h2>13. Nilai Harapan</h2>
+
+  <p>
+    Nilai harapan adalah rata-rata teoretis suatu peubah acak jika percobaan
+    dilakukan berulang kali dalam kondisi yang sama.
+  </p>
+
+  <p>
+    Jika peubah acak \(X\) mempunyai nilai \(x_1,x_2,\ldots,x_n\) dengan
+    peluang masing-masing \(P(X=x_i)\), maka:
+  </p>
+
+  <div class="math-display">
+    \[
+    E(X)=\sum x_iP(X=x_i).
+    \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 1: Hadiah Permainan</h4>
+
+    <p>
+      Sebuah permainan memberikan hadiah Rp10.000 dengan peluang
+      \(\frac12\), hadiah Rp20.000 dengan peluang \(\frac14\), dan hadiah
+      Rp40.000 dengan peluang \(\frac14\). Tentukan nilai harapan hadiah.
+    </p>
+
+    <div class="math-display">
+      \[
+      E(X)
+      =10.000\left(\frac12\right)
+      +20.000\left(\frac14\right)
+      +40.000\left(\frac14\right).
+      \]
+    </div>
+
+    <div class="math-display">
+      \[
+      E(X)=5.000+5.000+10.000=20.000.
+      \]
+    </div>
+
+    <p>
+      Jadi, nilai harapan hadiah adalah Rp20.000.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2: Permainan yang Adil</h4>
+
+    <p>
+      Sebuah dadu dilempar satu kali. Jika muncul angka \(6\), pemain menerima Rp25.000. Jika tidak, pemain membayar Rp5.000. Tentukan nilai harapan keuntungan pemain.
+    </p>
+
+    <div class="math-display">
+      \[
+      E(X)=25.000\left(\frac16\right)+(-5.000)\left(\frac56\right)=\frac{25.000}{6}-\frac{25.000}{6}=0.
+      \]
+    </div>
+
+    <p>
+      Karena nilai harapannya \(0\), permainan tersebut adil: dalam jangka panjang, pemain tidak untung maupun rugi.
+    </p>
+  </div>
+</section>
+
+
+<section id="strategi" data-title="Strategi Menyelesaikan Soal">
+  <h2>14. Strategi Menyelesaikan Soal Peluang</h2>
+
+  <ol>
+    <li>
+      <strong>Tentukan percobaan acaknya.</strong>
+      Pahami terlebih dahulu apa yang dilakukan dalam soal.
+    </li>
+
+    <li>
+      <strong>Tentukan ruang sampel.</strong>
+      Tentukan seluruh hasil yang mungkin atau hitung banyaknya dengan
+      kombinatorika.
+    </li>
+
+    <li>
+      <strong>Tentukan kejadian yang ditanyakan.</strong>
+      Misalnya kejadian muncul angka genap, terpilih dua perempuan, atau
+      sedikitnya satu keberhasilan.
+    </li>
+
+    <li>
+      <strong>Periksa apakah semua hasil memiliki kemungkinan yang sama.</strong>
+      Jika ya, gunakan
+      \[
+      P(A)=\frac{n(A)}{n(S)}.
+      \]
+    </li>
+
+    <li>
+      <strong>Perhatikan kata "dan" serta "atau".</strong>
+      Kata "dan" sering berkaitan dengan irisan atau aturan perkalian,
+      sedangkan "atau" berkaitan dengan gabungan atau aturan penjumlahan.
+    </li>
+
+    <li>
+      <strong>Periksa apakah kejadian saling lepas.</strong>
+      Jika \(A\) dan \(B\) tidak mungkin terjadi bersamaan, gunakan
+      \[
+      P(A\cup B)=P(A)+P(B).
+      \]
+    </li>
+
+    <li>
+      <strong>Periksa apakah kejadian saling bebas.</strong>
+      Jika suatu kejadian tidak memengaruhi kejadian lainnya, gunakan
+      \[
+      P(A\cap B)=P(A)P(B).
+      \]
+    </li>
+
+    <li>
+      <strong>Gunakan komplemen untuk kejadian "paling sedikit".</strong>
+      Misalnya:
+      "paling sedikit satu" sering lebih mudah dihitung sebagai
+      \[
+      1-P(\text{tidak ada}).
+      \]
+    </li>
+
+    <li>
+      <strong>Gunakan kombinasi atau permutasi jika diperlukan.</strong>
+      Kombinasi digunakan ketika urutan tidak diperhatikan, sedangkan
+      permutasi digunakan ketika urutan diperhatikan.
+    </li>
+
+    <li>
+      <strong>Perhatikan pengambilan dengan atau tanpa pengembalian.</strong>
+      Tanpa pengembalian, peluang pengambilan berikutnya berubah (gunakan peluang bersyarat atau kombinasi). Dengan pengembalian, setiap pengambilan saling bebas.
+    </li>
+
+    <li>
+      <strong>Gunakan peluang total dan teorema Bayes untuk masalah bertahap.</strong>
+      Jika suatu hasil dapat berasal dari beberapa kasus (misalnya beberapa kotak atau mesin), jumlahkan peluang tiap kasus, lalu gunakan teorema Bayes untuk menelusuri asal hasil tersebut.
+    </li>
+
+    <li>
+      <strong>Periksa kembali hasil.</strong>
+      Nilai peluang harus memenuhi
+      \[
+      0\leq P(A)\leq1.
+      \]
+    </li>
+  </ol>
+
+  <div class="lesson-example">
+    <h4>Contoh: Memilih Metode</h4>
+
+    <p>
+      Dari 10 siswa dipilih 3 siswa secara acak. Tentukan peluang bahwa tepat
+      2 siswa yang terpilih adalah perempuan jika terdapat 6 perempuan dan
+      4 laki-laki.
+    </p>
+
+    <p>
+      Karena kita memilih kelompok siswa dan urutan tidak diperhatikan,
+      gunakan kombinasi.
+    </p>
+
+    <p>
+      Banyak seluruh pilihan:
+      \[
+      \binom{10}{3}.
+      \]
+    </p>
+
+    <p>
+      Agar tepat 2 perempuan, pilih 2 dari 6 perempuan dan 1 dari 4 laki-laki:
+      \[
+      \binom62\binom41.
+      \]
+    </p>
+
+    <p>
+      Jadi:
+    </p>
+
+    <div class="math-display">
+      \[
+      P(A)=
+      \frac{\binom62\binom41}{\binom{10}{3}}
+      =
+      \frac{15\cdot4}{120}
+      =
+      \frac12.
+      \]
+    </div>
+
+    <p>
+      Jadi, peluang terpilih tepat 2 perempuan adalah \(\frac12\).
+    </p>
+  </div>
+</section>
+
+
+<section id="latihan" data-title="Latihan Soal">
+  <h2>15. Latihan Mandiri Peluang</h2>
+
+  <p>
+    Kerjakan latihan berikut dengan menggunakan konsep peluang yang telah dipelajari. Soal 1–10 merupakan soal tingkat sekolah, soal 11–23 merupakan soal tingkat UTBK, sedangkan soal 24–27 merupakan soal tingkat olimpiade.
+  </p>
+
+  <h3>A. Soal Tingkat Sekolah</h3>
+
+  <div class="lesson-example">
+    <h4>Soal 1</h4>
+    <p>
+      Sebuah dadu bersisi enam dilempar satu kali. Peluang muncul bilangan
+      genap adalah ...
+    </p>
+
+    <ol type="A">
+      <li>\(\frac16\)</li>
+      <li>\(\frac13\)</li>
+      <li>\(\frac12\)</li>
+      <li>\(\frac23\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 2</h4>
+    <p>
+      Sebuah koin dilempar sebanyak 3 kali. Peluang muncul tepat 2 sisi gambar
+      adalah ...
+    </p>
+
+    <ol type="A">
+      <li>\(\frac18\)</li>
+      <li>\(\frac14\)</li>
+      <li>\(\frac38\)</li>
+      <li>\(\frac12\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 3</h4>
+    <p>
+      Sebuah kotak berisi 5 bola merah dan 3 bola biru. Satu bola diambil
+      secara acak. Peluang terambil bola merah adalah ...
+    </p>
+
+    <ol type="A">
+      <li>\(\frac38\)</li>
+      <li>\(\frac12\)</li>
+      <li>\(\frac58\)</li>
+      <li>\(\frac34\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 4</h4>
+    <p>
+      Sebuah dadu dilempar satu kali. Peluang muncul bilangan prima atau bilangan
+      genap adalah ...
+    </p>
+
+    <ol type="A">
+      <li>\(\frac12\)</li>
+      <li>\(\frac23\)</li>
+      <li>\(\frac56\)</li>
+      <li>1</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 5</h4>
+    <p>
+      Dari 5 siswa laki-laki dan 4 siswa perempuan dipilih 2 siswa secara acak.
+      Peluang keduanya perempuan adalah ...
+    </p>
+
+    <ol type="A">
+      <li>\(\frac19\)</li>
+      <li>\(\frac16\)</li>
+      <li>\(\frac29\)</li>
+      <li>\(\frac13\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 6</h4>
+    <p>
+      Sebuah dadu dilempar dua kali. Peluang kedua hasil lemparan merupakan
+      bilangan genap adalah ...
+    </p>
+
+    <ol type="A">
+      <li>\(\frac16\)</li>
+      <li>\(\frac14\)</li>
+      <li>\(\frac13\)</li>
+      <li>\(\frac12\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 7</h4>
+    <p>
+      Sebuah kotak berisi 4 bola merah dan 6 bola putih. Dua bola diambil
+      berturut-turut tanpa pengembalian. Peluang kedua bola berwarna merah
+      adalah ...
+    </p>
+
+    <ol type="A">
+      <li>\(\frac1{10}\)</li>
+      <li>\(\frac2{15}\)</li>
+      <li>\(\frac14\)</li>
+      <li>\(\frac13\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 8</h4>
+    <p>
+      Sebuah koin dilempar 4 kali. Peluang muncul gambar paling sedikit satu kali
+      adalah ...
+    </p>
+
+    <ol type="A">
+      <li>\(\frac7{16}\)</li>
+      <li>\(\frac12\)</li>
+      <li>\(\frac{13}{16}\)</li>
+      <li>\(\frac{15}{16}\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 9</h4>
+    <p>
+      Sebuah dadu dilempar sebanyak 180 kali. Frekuensi harapan muncul mata dadu lebih dari 4 adalah ...
+    </p>
+
+    <ol type="A">
+      <li>30</li>
+      <li>45</li>
+      <li>60</li>
+      <li>90</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 10</h4>
+    <p>
+      Sebuah kartu diambil secara acak dari kartu bernomor \(1\) sampai \(20\). Peluang terambil kartu bernomor kelipatan \(3\) atau kelipatan \(4\) adalah ...
+    </p>
+
+    <ol type="A">
+      <li>\(\frac25\)</li>
+      <li>\(\frac9{20}\)</li>
+      <li>\(\frac12\)</li>
+      <li>\(\frac{11}{20}\)</li>
+    </ol>
+  </div>
+
+
+  <h3>B. Soal Tingkat UTBK</h3>
+
+  <div class="lesson-example">
+    <h4>Soal 11</h4>
+    <p>
+      Dari angka \(1,2,3,4,5,6\) dipilih tiga angka berbeda dan disusun menjadi
+      bilangan tiga digit. Jika dipilih secara acak dari seluruh bilangan yang
+      mungkin, peluang bilangan tersebut genap adalah ...
+    </p>
+
+    <ol type="A">
+      <li>\(\frac13\)</li>
+      <li>\(\frac25\)</li>
+      <li>\(\frac12\)</li>
+      <li>\(\frac35\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 12</h4>
+    <p>
+      Sebuah kotak berisi 6 bola merah dan 4 bola putih. Tiga bola diambil
+      sekaligus secara acak. Peluang terambil tepat 2 bola merah adalah ...
+    </p>
+
+    <ol type="A">
+      <li>\(\frac25\)</li>
+      <li>\(\frac12\)</li>
+      <li>\(\frac35\)</li>
+      <li>\(\frac23\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 13</h4>
+    <p>
+      Sebuah kelas terdiri atas 6 siswa laki-laki dan 4 siswa perempuan. Tiga
+      siswa dipilih secara acak. Peluang bahwa paling sedikit satu siswa
+      perempuan terpilih adalah ...
+    </p>
+
+    <ol type="A">
+      <li>\(\frac13\)</li>
+      <li>\(\frac12\)</li>
+      <li>\(\frac56\)</li>
+      <li>\(\frac9{10}\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 14</h4>
+    <p>
+      Dua buah dadu dilempar bersamaan. Peluang jumlah mata dadu sama dengan 8
+      atau 10 adalah ...
+    </p>
+
+    <ol type="A">
+      <li>\(\frac5{36}\)</li>
+      <li>\(\frac29\)</li>
+      <li>\(\frac14\)</li>
+      <li>\(\frac{11}{36}\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 15</h4>
+    <p>
+      Sebuah kartu dipilih secara acak dari kartu bernomor \(1\) sampai \(20\).
+      Jika diketahui kartu yang terambil merupakan bilangan genap, peluang
+      bilangan tersebut juga habis dibagi 3 adalah ...
+    </p>
+
+    <ol type="A">
+      <li>\(\frac15\)</li>
+      <li>\(\frac14\)</li>
+      <li>\(\frac3{10}\)</li>
+      <li>\(\frac25\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 16</h4>
+    <p>
+      Dari 8 siswa yang terdiri atas 5 laki-laki dan 3 perempuan dipilih 3 siswa
+      secara acak. Peluang terpilih tepat 2 laki-laki adalah ...
+    </p>
+
+    <ol type="A">
+      <li>\(\frac{15}{56}\)</li>
+      <li>\(\frac{25}{56}\)</li>
+      <li>\(\frac{15}{28}\)</li>
+      <li>\(\frac{35}{56}\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 17</h4>
+    <p>
+      Sebuah koin tidak seimbang memiliki peluang muncul gambar sebesar
+      \(\frac35\). Koin dilempar 4 kali secara bebas. Peluang muncul gambar
+      tepat 3 kali adalah ...
+    </p>
+
+    <ol type="A">
+      <li>\(\frac{108}{625}\)</li>
+      <li>\(\frac{216}{625}\)</li>
+      <li>\(\frac{324}{625}\)</li>
+      <li>\(\frac{432}{625}\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 18</h4>
+    <p>
+      Dalam sebuah kotak terdapat 5 bola merah, 4 bola biru, dan 3 bola hijau.
+      Dua bola diambil berturut-turut tanpa pengembalian. Peluang bola kedua
+      berwarna biru jika bola pertama diketahui bukan biru adalah ...
+    </p>
+
+    <ol type="A">
+      <li>\(\frac13\)</li>
+      <li>\(\frac4{11}\)</li>
+      <li>\(\frac5{12}\)</li>
+      <li>\(\frac7{12}\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 19</h4>
+    <p>
+      Dua dadu dilempar bersamaan. Diketahui jumlah kedua mata dadu adalah
+      bilangan genap. Peluang kedua mata dadu sama adalah ...
+    </p>
+
+    <ol type="A">
+      <li>\(\frac16\)</li>
+      <li>\(\frac13\)</li>
+      <li>\(\frac12\)</li>
+      <li>\(\frac23\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 20</h4>
+    <p>
+      Sebuah tim terdiri atas 4 orang yang dipilih secara acak dari 6 laki-laki
+      dan 5 perempuan. Peluang tim tersebut memiliki lebih banyak perempuan
+      daripada laki-laki adalah ...
+    </p>
+
+    <ol type="A">
+      <li>\(\frac2{11}\)</li>
+      <li>\(\frac16\)</li>
+      <li>\(\frac{13}{66}\)</li>
+      <li>\(\frac5{11}\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 21</h4>
+    <p>
+      Kotak I berisi 4 bola merah dan 6 bola putih, sedangkan kotak II berisi 7 bola merah dan 3 bola putih. Sebuah kotak dipilih secara acak, kemudian satu bola diambil dari kotak tersebut. Peluang terambil bola merah adalah ...
+    </p>
+
+    <ol type="A">
+      <li>\(\frac12\)</li>
+      <li>\(\frac{11}{20}\)</li>
+      <li>\(\frac35\)</li>
+      <li>\(\frac7{10}\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 22</h4>
+    <p>
+      Mesin A dan mesin B menghasilkan berturut-turut 60% dan 40% dari seluruh produk sebuah pabrik. Peluang produk cacat dari mesin A adalah 2%, sedangkan dari mesin B adalah 5%. Jika sebuah produk diambil secara acak dan ternyata cacat, peluang produk tersebut berasal dari mesin A adalah ...
+    </p>
+
+    <ol type="A">
+      <li>\(\frac14\)</li>
+      <li>\(\frac38\)</li>
+      <li>\(\frac12\)</li>
+      <li>\(\frac58\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 23</h4>
+    <p>
+      Dua koin seimbang dilempar bersamaan. Pemain mendapat Rp8.000 jika muncul dua gambar, Rp4.000 jika muncul satu gambar, dan tidak mendapat apa-apa jika tidak muncul gambar. Nilai harapan hadiah yang diterima pemain adalah ...
+    </p>
+
+    <ol type="A">
+      <li>Rp3.000</li>
+      <li>Rp4.000</li>
+      <li>Rp5.000</li>
+      <li>Rp6.000</li>
+    </ol>
+  </div>
+
+
+  <h3>C. Soal Tingkat Olimpiade</h3>
+
+  <div class="lesson-example">
+    <h4>Soal 24</h4>
+    <p>
+      Dari himpunan
+      \[
+      \{1,2,3,\ldots,10\}
+      \]
+      dipilih secara acak sebuah himpunan bagian beranggotakan 3. Tentukan
+      peluang bahwa tidak ada dua anggota yang berurutan.
+    </p>
+
+    <ol type="A">
+      <li>\(\frac7{24}\)</li>
+      <li>\(\frac13\)</li>
+      <li>\(\frac7{15}\)</li>
+      <li>\(\frac8{15}\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 25</h4>
+    <p>
+      Sebuah dadu bersisi enam dilempar \(n\) kali. Tentukan nilai minimum
+      \(n\) sehingga peluang muncul angka 6 sedikitnya satu kali lebih besar
+      dari \(\frac{99}{100}\).
+    </p>
+
+    <ol type="A">
+      <li>24</li>
+      <li>25</li>
+      <li>26</li>
+      <li>27</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 26</h4>
+    <p>
+      Dua orang, A dan B, bergiliran melempar sebuah koin seimbang dengan A melempar lebih dahulu. Orang yang pertama kali mendapat sisi gambar dinyatakan menang. Peluang A menang adalah ...
+    </p>
+
+    <ol type="A">
+      <li>\(\frac12\)</li>
+      <li>\(\frac35\)</li>
+      <li>\(\frac23\)</li>
+      <li>\(\frac34\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 27</h4>
+    <p>
+      Empat orang masing-masing menaruh satu topi miliknya ke dalam sebuah kotak, kemudian masing-masing mengambil satu topi secara acak. Peluang tidak ada seorang pun yang mengambil topinya sendiri adalah ...
+    </p>
+
+    <ol type="A">
+      <li>\(\frac13\)</li>
+      <li>\(\frac38\)</li>
+      <li>\(\frac5{12}\)</li>
+      <li>\(\frac12\)</li>
+    </ol>
+  </div>
+</section>
+
+
+<section id="rangkuman" data-title="Rangkuman">
+  <h2>16. Rangkuman</h2>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Konsep</th>
+          <th scope="col">Rumus / Prinsip</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Peluang dasar</td>
+          <td>\(P(A)=\dfrac{n(A)}{n(S)}\)</td>
+        </tr>
+
+        <tr>
+          <td>Batas peluang</td>
+          <td>\(0\leq P(A)\leq1\)</td>
+        </tr>
+
+        <tr>
+          <td>Kejadian pasti</td>
+          <td>\(P(S)=1\)</td>
+        </tr>
+
+        <tr>
+          <td>Kejadian mustahil</td>
+          <td>\(P(\varnothing)=0\)</td>
+        </tr>
+
+        <tr>
+          <td>Peluang empiris</td>
+          <td>\(\dfrac{\text{frekuensi kejadian}}{\text{jumlah percobaan}}\)</td>
+        </tr>
+
+        <tr>
+          <td>Frekuensi harapan</td>
+          <td>\(F_h(A)=n\cdot P(A)\)</td>
+        </tr>
+
+        <tr>
+          <td>Komplemen</td>
+          <td>\(P(A^c)=1-P(A)\)</td>
+        </tr>
+
+        <tr>
+          <td>Peluang gabungan</td>
+          <td>\(P(A\cup B)=P(A)+P(B)-P(A\cap B)\)</td>
+        </tr>
+
+        <tr>
+          <td>Gabungan tiga kejadian</td>
+          <td>\(P(A\cup B\cup C)=P(A)+P(B)+P(C)-P(A\cap B)-P(A\cap C)-P(B\cap C)+P(A\cap B\cap C)\)</td>
+        </tr>
+
+        <tr>
+          <td>Kejadian saling lepas</td>
+          <td>\(A\cap B=\varnothing\)</td>
+        </tr>
+
+        <tr>
+          <td>Peluang kejadian saling lepas</td>
+          <td>\(P(A\cup B)=P(A)+P(B)\)</td>
+        </tr>
+
+        <tr>
+          <td>Peluang kejadian saling bebas</td>
+          <td>\(P(A\cap B)=P(A)P(B)\)</td>
+        </tr>
+
+        <tr>
+          <td>Peluang bersyarat</td>
+          <td>\(P(A\mid B)=\dfrac{P(A\cap B)}{P(B)}\)</td>
+        </tr>
+
+        <tr>
+          <td>Aturan perkalian</td>
+          <td>\(P(A\cap B)=P(A)P(B\mid A)\)</td>
+        </tr>
+
+        <tr>
+          <td>Peluang total</td>
+          <td>\(P(A)=\sum P(B_i)P(A\mid B_i)\)</td>
+        </tr>
+
+        <tr>
+          <td>Teorema Bayes</td>
+          <td>\(P(B_j\mid A)=\dfrac{P(B_j)P(A\mid B_j)}{\sum P(B_i)P(A\mid B_i)}\)</td>
+        </tr>
+
+        <tr>
+          <td>Permutasi</td>
+          <td>\({}_nP_r=\dfrac{n!}{(n-r)!}\)</td>
+        </tr>
+
+        <tr>
+          <td>Kombinasi</td>
+          <td>\(\binom nr=\dfrac{n!}{r!(n-r)!}\)</td>
+        </tr>
+
+        <tr>
+          <td>Peluang binomial</td>
+          <td>\(P(X=r)=\binom nr p^r(1-p)^{n-r}\)</td>
+        </tr>
+
+        <tr>
+          <td>Nilai harapan binomial</td>
+          <td>\(E(X)=np\)</td>
+        </tr>
+
+        <tr>
+          <td>Variansi binomial</td>
+          <td>\(\operatorname{Var}(X)=np(1-p)\)</td>
+        </tr>
+
+        <tr>
+          <td>Nilai harapan umum</td>
+          <td>\(E(X)=\sum x_iP(X=x_i)\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    Kunci utama dalam menyelesaikan soal peluang adalah memahami terlebih dahulu
+    ruang sampel dan kejadian yang ditanyakan. Setelah itu, tentukan apakah soal
+    lebih mudah diselesaikan dengan peluang langsung, komplemen, aturan
+    penjumlahan, aturan perkalian, peluang bersyarat, peluang total dan teorema Bayes, kombinasi,
+    permutasi, atau distribusi binomial.
+  </p>
+</section>
+
+
+<section id="pembahasan-latihan" data-title="Pembahasan Latihan">
+  <h2>17. Pembahasan Latihan Soal</h2>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table answer-key-table">
+      <thead>
+        <tr>
+          <th scope="col">Soal</th>
+          <th scope="col">Jawaban</th>
+          <th scope="col">Konsep</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>C</td>
+          <td>Peluang dasar</td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td>C</td>
+          <td>Binomial / pencacahan</td>
+        </tr>
+
+        <tr>
+          <td>3</td>
+          <td>C</td>
+          <td>Peluang dasar</td>
+        </tr>
+
+        <tr>
+          <td>4</td>
+          <td>C</td>
+          <td>Peluang gabungan</td>
+        </tr>
+
+        <tr>
+          <td>5</td>
+          <td>B</td>
+          <td>Kombinasi dalam peluang</td>
+        </tr>
+
+        <tr>
+          <td>6</td>
+          <td>B</td>
+          <td>Kejadian saling bebas</td>
+        </tr>
+
+        <tr>
+          <td>7</td>
+          <td>B</td>
+          <td>Aturan perkalian</td>
+        </tr>
+
+        <tr>
+          <td>8</td>
+          <td>D</td>
+          <td>Komplemen</td>
+        </tr>
+
+        <tr>
+          <td>9</td>
+          <td>C</td>
+          <td>Frekuensi harapan</td>
+        </tr>
+
+        <tr>
+          <td>10</td>
+          <td>C</td>
+          <td>Peluang gabungan</td>
+        </tr>
+
+        <tr>
+          <td>11</td>
+          <td>C</td>
+          <td>Pencacahan dan peluang</td>
+        </tr>
+
+        <tr>
+          <td>12</td>
+          <td>B</td>
+          <td>Kombinasi</td>
+        </tr>
+
+        <tr>
+          <td>13</td>
+          <td>C</td>
+          <td>Komplemen dan kombinasi</td>
+        </tr>
+
+        <tr>
+          <td>14</td>
+          <td>B</td>
+          <td>Peluang gabungan</td>
+        </tr>
+
+        <tr>
+          <td>15</td>
+          <td>C</td>
+          <td>Peluang bersyarat</td>
+        </tr>
+
+        <tr>
+          <td>16</td>
+          <td>C</td>
+          <td>Kombinasi</td>
+        </tr>
+
+        <tr>
+          <td>17</td>
+          <td>B</td>
+          <td>Distribusi binomial</td>
+        </tr>
+
+        <tr>
+          <td>18</td>
+          <td>B</td>
+          <td>Peluang bersyarat</td>
+        </tr>
+
+        <tr>
+          <td>19</td>
+          <td>B</td>
+          <td>Peluang bersyarat</td>
+        </tr>
+
+        <tr>
+          <td>20</td>
+          <td>C</td>
+          <td>Kombinasi</td>
+        </tr>
+
+        <tr>
+          <td>21</td>
+          <td>B</td>
+          <td>Peluang total</td>
+        </tr>
+
+        <tr>
+          <td>22</td>
+          <td>B</td>
+          <td>Teorema Bayes</td>
+        </tr>
+
+        <tr>
+          <td>23</td>
+          <td>B</td>
+          <td>Nilai harapan</td>
+        </tr>
+
+        <tr>
+          <td>24</td>
+          <td>C</td>
+          <td>Kombinatorika dalam peluang</td>
+        </tr>
+
+        <tr>
+          <td>25</td>
+          <td>C</td>
+          <td>Komplemen dan pertidaksamaan</td>
+        </tr>
+
+        <tr>
+          <td>26</td>
+          <td>C</td>
+          <td>Peluang berulang (deret geometri)</td>
+        </tr>
+
+        <tr>
+          <td>27</td>
+          <td>B</td>
+          <td>Inklusi-eksklusi dan komplemen</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 1</h4>
+
+    <p>
+      <strong>Langkah 1 – Tentukan ruang sampel.</strong>
+      Sebuah dadu memiliki enam hasil yang mungkin:
+    </p>
+
+    <div class="math-display">
+      \[
+      S=\{1,2,3,4,5,6\}.
+      \]
+    </div>
+
+    <p>
+      <strong>Langkah 2 – Tentukan kejadian.</strong>
+      Bilangan genap adalah \(2,4,6\), sehingga terdapat 3 hasil yang memenuhi.
+    </p>
+
+    <div class="math-display">
+      \[
+      n(A)=3,\qquad n(S)=6.
+      \]
+    </div>
+
+    <p>
+      <strong>Langkah 3 – Hitung peluang.</strong>
+    </p>
+
+    <div class="math-display">
+      \[
+      P(A)=\frac{3}{6}=\frac12.
+      \]
+    </div>
+
+    <p>
+      Jadi, jawabannya adalah <strong>C</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 2</h4>
+
+    <p>
+      Kita ingin mendapatkan tepat 2 gambar dari 3 kali pelemparan koin.
+    </p>
+
+    <p>
+      Banyak posisi untuk menempatkan 2 gambar dari 3 lemparan adalah
+      \[
+      \binom32=3.
+      \]
+    </p>
+
+    <p>
+      Setiap urutan memiliki peluang:
+      \[
+      \left(\frac12\right)^3=\frac18.
+      \]
+    </p>
+
+    <div class="math-display">
+      \[
+      P(X=2)
+      =\binom32\left(\frac12\right)^2
+      \left(\frac12\right)
+      =3\cdot\frac18
+      =\frac38.
+      \]
+    </div>
+
+    <p>
+      Jadi, jawabannya adalah <strong>C</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 3</h4>
+
+    <p>
+      Total bola:
+    </p>
+
+    <div class="math-display">
+      \[
+      5+3=8.
+      \]
+    </div>
+
+    <p>
+      Banyak bola merah adalah 5. Maka:
+    </p>
+
+    <div class="math-display">
+      \[
+      P(\text{merah})=\frac58.
+      \]
+    </div>
+
+    <p>
+      Jadi, jawabannya adalah <strong>C</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 4</h4>
+
+    <p>
+      Misalkan \(A\) adalah kejadian bilangan prima dan \(B\) adalah kejadian
+      bilangan genap.
+    </p>
+
+    <p>
+      Bilangan prima pada dadu:
+      \[
+      A=\{2,3,5\}.
+      \]
+      Bilangan genap:
+      \[
+      B=\{2,4,6\}.
+      \]
+    </p>
+
+    <p>
+      Irisannya:
+      \[
+      A\cap B=\{2\}.
+      \]
+    </p>
+
+    <p>
+      Maka:
+    </p>
+
+    <div class="math-display">
+      \[
+      P(A\cup B)
+      =P(A)+P(B)-P(A\cap B)
+      \]
+    </div>
+
+    <div class="math-display">
+      \[
+      =\frac36+\frac36-\frac16
+      =\frac56.
+      \]
+    </div>
+
+    <p>
+      Jadi, jawabannya adalah <strong>C</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 5</h4>
+
+    <p>
+      Terdapat \(5+4=9\) siswa.
+    </p>
+
+    <p>
+      Banyak cara memilih dua siswa dari 9 siswa:
+    </p>
+
+    <div class="math-display">
+      \[
+      \binom92=36.
+      \]
+    </div>
+
+    <p>
+      Banyak cara memilih dua perempuan dari 4 perempuan:
+    </p>
+
+    <div class="math-display">
+      \[
+      \binom42=6.
+      \]
+    </div>
+
+    <p>
+      Maka:
+    </p>
+
+    <div class="math-display">
+      \[
+      P(A)=\frac{\binom42}{\binom92}
+      =\frac6{36}
+      =\frac16.
+      \]
+    </div>
+
+    <p>
+      Jadi, jawabannya adalah <strong>B</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 6</h4>
+
+    <p>
+      Peluang satu kali pelemparan menghasilkan bilangan genap adalah
+      \[
+      \frac36=\frac12.
+      \]
+    </p>
+
+    <p>
+      Hasil pelemparan pertama tidak memengaruhi pelemparan kedua, sehingga
+      kedua kejadian saling bebas.
+    </p>
+
+    <div class="math-display">
+      \[
+      P(\text{genap dan genap})
+      =\frac12\cdot\frac12
+      =\frac14.
+      \]
+    </div>
+
+    <p>
+      Jadi, jawabannya adalah <strong>B</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 7</h4>
+
+    <p>
+      Pada pengambilan pertama terdapat 4 bola merah dari 10 bola:
+    </p>
+
+    <div class="math-display">
+      \[
+      P(A)=\frac4{10}.
+      \]
+    </div>
+
+    <p>
+      Jika bola pertama merah, tersisa 3 bola merah dari 9 bola:
+    </p>
+
+    <div class="math-display">
+      \[
+      P(B\mid A)=\frac39.
+      \]
+    </div>
+
+    <p>
+      Karena kedua kejadian terjadi secara berturut-turut:
+    </p>
+
+    <div class="math-display">
+      \[
+      P(A\cap B)
+      =\frac4{10}\cdot\frac39
+      =\frac2{15}.
+      \]
+    </div>
+
+    <p>
+      Jadi, jawabannya adalah <strong>B</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 8</h4>
+
+    <p>
+      "Paling sedikit satu gambar" lebih mudah dihitung menggunakan komplemen.
+      Komplemennya adalah tidak ada gambar sama sekali.
+    </p>
+
+    <p>
+      Jika tidak ada gambar, keempat lemparan harus menghasilkan angka.
+    </p>
+
+    <div class="math-display">
+      \[
+      P(\text{tidak ada gambar})
+      =\left(\frac12\right)^4
+      =\frac1{16}.
+      \]
+    </div>
+
+    <p>
+      Maka:
+    </p>
+
+    <div class="math-display">
+      \[
+      P(\text{minimal satu gambar})
+      =1-\frac1{16}
+      =\frac{15}{16}.
+      \]
+    </div>
+
+    <p>
+      Jadi, jawabannya adalah <strong>D</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 9</h4>
+
+    <p>
+      <strong>Langkah 1 – Tentukan peluang kejadian.</strong> Mata dadu lebih dari 4 adalah \(5\) dan \(6\), sehingga
+    </p>
+
+    <div class="math-display">
+      \[
+      P(A)=\frac26=\frac13.
+      \]
+    </div>
+
+    <p>
+      <strong>Langkah 2 – Hitung frekuensi harapan.</strong> Dadu dilempar \(n=180\) kali, sehingga
+    </p>
+
+    <div class="math-display">
+      \[
+      F_h(A)=n\cdot P(A)=180\cdot\frac13=60.
+      \]
+    </div>
+
+    <p>
+      Jadi, jawabannya adalah <strong>C</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 10</h4>
+
+    <p>
+      Misalkan \(A\) adalah kejadian kelipatan \(3\) dan \(B\) adalah kejadian kelipatan \(4\).
+    </p>
+
+    <p>
+      <strong>Langkah 1 – Tentukan anggota kejadian.</strong>
+    </p>
+
+    <div class="math-display">
+      \[
+      A=\{3,6,9,12,15,18\},\qquad B=\{4,8,12,16,20\},\qquad A\cap B=\{12\}.
+      \]
+    </div>
+
+    <p>
+      <strong>Langkah 2 – Gunakan rumus gabungan.</strong>
+    </p>
+
+    <div class="math-display">
+      \[
+      P(A\cup B)=\frac6{20}+\frac5{20}-\frac1{20}=\frac{10}{20}=\frac12.
+      \]
+    </div>
+
+    <p>
+      Jadi, jawabannya adalah <strong>C</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 11</h4>
+
+    <p>
+      Bilangan tiga digit dibentuk dari \(1,2,3,4,5,6\) tanpa pengulangan.
+    </p>
+
+    <p>
+      <strong>Langkah 1 – Hitung seluruh bilangan.</strong>
+      Untuk ratusan terdapat 6 pilihan, puluhan 5 pilihan, dan satuan 4 pilihan.
+    </p>
+
+    <div class="math-display">
+      \[
+      6\cdot5\cdot4=120.
+      \]
+    </div>
+
+    <p>
+      <strong>Langkah 2 – Hitung bilangan genap.</strong>
+      Agar genap, digit satuan harus \(2,4,\) atau \(6\), sehingga ada 3 pilihan.
+      Setelah satuan dipilih, ratusan memiliki 5 pilihan dan puluhan 4 pilihan.
+    </p>
+
+    <div class="math-display">
+      \[
+      3\cdot5\cdot4=60.
+      \]
+    </div>
+
+    <p>
+      <strong>Langkah 3 – Hitung peluang.</strong>
+    </p>
+
+    <div class="math-display">
+      \[
+      P(A)=\frac{60}{120}=\frac12.
+      \]
+    </div>
+
+    <p>
+      Jadi, jawaban yang benar adalah <strong>C</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 12</h4>
+
+    <p>
+      Total bola adalah:
+      \[
+      6+4=10.
+      \]
+    </p>
+
+    <p>
+      Karena tiga bola diambil sekaligus, urutan tidak diperhatikan. Gunakan
+      kombinasi.
+    </p>
+
+    <p>
+      Banyak cara mengambil 3 bola dari 10:
+    </p>
+
+    <div class="math-display">
+      \[
+      \binom{10}{3}=120.
+      \]
+    </div>
+
+    <p>
+      Tepat 2 merah berarti memilih 2 dari 6 merah dan 1 dari 4 putih:
+    </p>
+
+    <div class="math-display">
+      \[
+      \binom62\binom41
+      =15\cdot4
+      =60.
+      \]
+    </div>
+
+    <p>
+      Maka:
+    </p>
+
+    <div class="math-display">
+      \[
+      P(A)=\frac{60}{120}=\frac12.
+      \]
+    </div>
+
+    <p>
+      Jadi, jawaban yang benar adalah <strong>B</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 13</h4>
+
+    <p>
+      Kita gunakan komplemen. Kejadian yang ditanyakan adalah "paling sedikit
+      satu perempuan". Komplemennya adalah "tidak ada perempuan", artinya
+      ketiga siswa yang terpilih semuanya laki-laki.
+    </p>
+
+    <p>
+      Banyak seluruh pilihan:
+      \[
+      \binom{10}{3}=120.
+      \]
+    </p>
+
+    <p>
+      Banyak pilihan tiga laki-laki dari enam:
+      \[
+      \binom63=20.
+      \]
+    </p>
+
+    <p>
+      Maka:
+    </p>
+
+    <div class="math-display">
+      \[
+      P(\text{minimal satu perempuan})
+      =1-\frac{20}{120}
+      =1-\frac16
+      =\frac56.
+      \]
+    </div>
+
+    <p>
+      Jadi, jawabannya adalah <strong>C</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 14</h4>
+
+    <p>
+      Dengan dua dadu terdapat \(36\) kemungkinan hasil berurutan.
+    </p>
+
+    <p>
+      Jumlah 8 terjadi pada:
+    </p>
+
+    <div class="math-display">
+      \[
+      (2,6),(3,5),(4,4),(5,3),(6,2).
+      \]
+    </div>
+
+    <p>
+      Jadi terdapat 5 hasil.
+    </p>
+
+    <p>
+      Jumlah 10 terjadi pada:
+    </p>
+
+    <div class="math-display">
+      \[
+      (4,6),(5,5),(6,4).
+      \]
+    </div>
+
+    <p>
+      Jadi terdapat 3 hasil.
+    </p>
+
+    <p>
+      Kedua kejadian saling lepas karena jumlah dua dadu tidak mungkin sekaligus
+      8 dan 10.
+    </p>
+
+    <div class="math-display">
+      \[
+      P(A\cup B)=\frac5{36}+\frac3{36}
+      =\frac8{36}
+      =\frac29.
+      \]
+    </div>
+
+    <p>
+      Jadi, peluangnya adalah \(\frac29\), sehingga jawabannya adalah <strong>B</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 15</h4>
+
+    <p>
+      Diketahui kartu yang terambil merupakan bilangan genap. Artinya kita
+      mempersempit ruang sampel hanya pada bilangan genap dari 1 sampai 20.
+    </p>
+
+    <p>
+      Bilangan genapnya adalah:
+      \[
+      2,4,6,8,10,12,14,16,18,20.
+      \]
+      Jadi terdapat 10 kemungkinan.
+    </p>
+
+    <p>
+      Di antara bilangan tersebut, yang habis dibagi 3 adalah:
+      \[
+      6,12,18.
+      \]
+      Jadi terdapat 3 kemungkinan.
+    </p>
+
+    <div class="math-display">
+      \[
+      P(A\mid B)=\frac3{10}.
+      \]
+    </div>
+
+    <p>
+      Jadi, peluangnya adalah \(\frac3{10}\), sehingga jawabannya adalah <strong>C</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 16</h4>
+
+    <p>
+      Total cara memilih 3 siswa dari 8 siswa:
+    </p>
+
+    <div class="math-display">
+      \[
+      \binom83=56.
+      \]
+    </div>
+
+    <p>
+      Tepat 2 laki-laki berarti memilih 2 dari 5 laki-laki dan 1 dari 3
+      perempuan:
+    </p>
+
+    <div class="math-display">
+      \[
+      \binom52\binom31
+      =10\cdot3
+      =30.
+      \]
+    </div>
+
+    <p>
+      Maka:
+    </p>
+
+    <div class="math-display">
+      \[
+      P(A)=\frac{30}{56}=\frac{15}{28}.
+      \]
+    </div>
+
+    <p>
+      Jadi, peluangnya adalah \(\frac{15}{28}\), sehingga jawabannya adalah <strong>C</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 17</h4>
+
+    <p>
+      Diketahui:
+      \[
+      n=4,\qquad p=\frac35.
+      \]
+      Kita ingin tepat 3 kali muncul gambar, sehingga \(r=3\).
+    </p>
+
+    <p>
+      Gunakan rumus binomial:
+    </p>
+
+    <div class="math-display">
+      \[
+      P(X=3)
+      =\binom43
+      \left(\frac35\right)^3
+      \left(\frac25\right).
+      \]
+    </div>
+
+    <p>
+      Hitung masing-masing bagian:
+    </p>
+
+    <div class="math-display">
+      \[
+      \binom43=4,
+      \qquad
+      \left(\frac35\right)^3=\frac{27}{125}.
+      \]
+    </div>
+
+    <p>
+      Maka:
+    </p>
+
+    <div class="math-display">
+      \[
+      P(X=3)
+      =4\cdot\frac{27}{125}\cdot\frac25
+      =\frac{216}{625}.
+      \]
+    </div>
+
+    <p>
+      Jadi, jawabannya adalah <strong>B</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 18</h4>
+
+    <p>
+      Diketahui bola pertama bukan biru. Bola yang mungkin terambil pertama
+      adalah merah atau hijau.
+    </p>
+
+    <p>
+      Jumlah bola yang bukan biru:
+      \[
+      5+3=8.
+      \]
+    </p>
+
+    <p>
+      Setelah satu bola bukan biru diambil, tersisa 11 bola. Banyak bola biru
+      masih tetap 4 karena bola pertama bukan biru.
+    </p>
+
+    <div class="math-display">
+      \[
+      P(\text{biru kedua}\mid\text{bukan biru pertama})
+      =\frac4{11}.
+      \]
+    </div>
+
+    <p>
+      Jadi, peluangnya adalah \(\frac4{11}\), sehingga jawabannya adalah <strong>B</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 19</h4>
+
+    <p>
+      Kita diberi informasi bahwa jumlah dua mata dadu adalah genap.
+      Jumlah genap terjadi jika kedua dadu sama-sama genap atau sama-sama
+      ganjil.
+    </p>
+
+    <p>
+      Ada 3 angka genap dan 3 angka ganjil. Maka banyak hasil yang menghasilkan
+      jumlah genap adalah:
+    </p>
+
+    <div class="math-display">
+      \[
+      3\cdot3+3\cdot3=18.
+      \]
+    </div>
+
+    <p>
+      Dari 18 hasil tersebut, kedua dadu sama hanya pada:
+    </p>
+
+    <div class="math-display">
+      \[
+      (1,1),(2,2),(3,3),(4,4),(5,5),(6,6),
+      \]
+    </div>
+
+    <p>
+      yaitu 6 hasil.
+    </p>
+
+    <div class="math-display">
+      \[
+      P(\text{sama}\mid\text{jumlah genap})
+      =\frac6{18}
+      =\frac13.
+      \]
+    </div>
+
+    <p>
+      Jadi, jawaban yang benar adalah <strong>B</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 20</h4>
+
+    <p>
+      Agar jumlah perempuan lebih banyak daripada laki-laki dalam tim berisi
+      4 orang, terdapat dua kemungkinan:
+    </p>
+
+    <ol>
+      <li>3 perempuan dan 1 laki-laki;</li>
+      <li>4 perempuan dan 0 laki-laki.</li>
+    </ol>
+
+    <p>
+      Banyak seluruh tim:
+    </p>
+
+    <div class="math-display">
+      \[
+      \binom{11}{4}=330.
+      \]
+    </div>
+
+    <p>
+      Kasus pertama:
+    </p>
+
+    <div class="math-display">
+      \[
+      \binom53\binom61
+      =10\cdot6
+      =60.
+      \]
+    </div>
+
+    <p>
+      Kasus kedua:
+    </p>
+
+    <div class="math-display">
+      \[
+      \binom54=5.
+      \]
+    </div>
+
+    <p>
+      Jadi banyak tim yang memenuhi syarat:
+    </p>
+
+    <div class="math-display">
+      \[
+      60+5=65.
+      \]
+    </div>
+
+    <p>
+      Maka:
+    </p>
+
+    <div class="math-display">
+      \[
+      P(A)=\frac{65}{330}
+      =\frac{13}{66}.
+      \]
+    </div>
+
+    <p>
+      Jadi, peluangnya adalah \(\frac{13}{66}\), sehingga jawabannya adalah <strong>C</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 21</h4>
+
+    <p>
+      Misalkan \(K_1\) dan \(K_2\) adalah kejadian terpilihnya kotak I dan II, serta \(M\) adalah kejadian terambil bola merah.
+    </p>
+
+    <div class="math-display">
+      \[
+      P(K_1)=P(K_2)=\frac12,\qquad P(M\mid K_1)=\frac4{10},\qquad P(M\mid K_2)=\frac7{10}.
+      \]
+    </div>
+
+    <p>
+      Dengan rumus peluang total:
+    </p>
+
+    <div class="math-display">
+      \[
+      P(M)=\frac12\cdot\frac4{10}+\frac12\cdot\frac7{10}=\frac4{20}+\frac7{20}=\frac{11}{20}.
+      \]
+    </div>
+
+    <p>
+      Jadi, jawabannya adalah <strong>B</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 22</h4>
+
+    <p>
+      Misalkan \(A\) dan \(B\) adalah kejadian produk berasal dari mesin A dan mesin B, serta \(C\) adalah kejadian produk cacat.
+    </p>
+
+    <div class="math-display">
+      \[
+      P(A)=0{,}6,\quad P(B)=0{,}4,\quad P(C\mid A)=0{,}02,\quad P(C\mid B)=0{,}05.
+      \]
+    </div>
+
+    <p>
+      <strong>Langkah 1 – Hitung peluang produk cacat.</strong>
+    </p>
+
+    <div class="math-display">
+      \[
+      P(C)=0{,}6\cdot0{,}02+0{,}4\cdot0{,}05=0{,}012+0{,}020=0{,}032.
+      \]
+    </div>
+
+    <p>
+      <strong>Langkah 2 – Gunakan teorema Bayes.</strong>
+    </p>
+
+    <div class="math-display">
+      \[
+      P(A\mid C)=\frac{P(A)P(C\mid A)}{P(C)}=\frac{0{,}012}{0{,}032}=\frac{12}{32}=\frac38.
+      \]
+    </div>
+
+    <p>
+      Jadi, jawabannya adalah <strong>B</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 23</h4>
+
+    <p>
+      Ruang sampel dua koin adalah \(\{\text{GG},\text{GA},\text{AG},\text{AA}\}\). Misalkan \(X\) adalah hadiah yang diterima. Maka
+    </p>
+
+    <div class="math-display">
+      \[
+      P(X=8.000)=\frac14,\qquad P(X=4.000)=\frac24=\frac12,\qquad P(X=0)=\frac14.
+      \]
+    </div>
+
+    <p>
+      Nilai harapannya:
+    </p>
+
+    <div class="math-display">
+      \[
+      E(X)=8.000\left(\frac14\right)+4.000\left(\frac12\right)+0\left(\frac14\right)=2.000+2.000+0=4.000.
+      \]
+    </div>
+
+    <p>
+      Jadi, nilai harapan hadiah adalah Rp4.000, sehingga jawabannya adalah <strong>B</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 24</h4>
+
+    <p>
+      Kita memilih 3 anggota dari
+      \[
+      \{1,2,\ldots,10\}.
+      \]
+      Banyak seluruh himpunan bagian beranggotakan 3 adalah:
+    </p>
+
+    <div class="math-display">
+      \[
+      \binom{10}{3}=120.
+      \]
+    </div>
+
+    <p>
+      Sekarang hitung banyak pilihan 3 bilangan yang tidak memiliki dua bilangan
+      berurutan.
+    </p>
+
+    <p>
+      Misalkan tiga bilangan yang dipilih adalah
+      \[
+      a<b<c.
+      \]
+      Syarat tidak berurutan berarti:
+      \[
+      b\geq a+2,\qquad c\geq b+2.
+      \]
+    </p>
+
+    <p>
+      Gunakan transformasi:
+      \[
+      x_1=a,\qquad x_2=b-1,\qquad x_3=c-2.
+      \]
+      Maka:
+      \[
+      1\leq x_1<x_2<x_3\leq8.
+      \]
+    </p>
+
+    <p>
+      Jadi, banyak pilihan yang memenuhi syarat adalah:
+    </p>
+
+    <div class="math-display">
+      \[
+      \binom83=56.
+      \]
+    </div>
+
+    <p>
+      Maka peluangnya:
+    </p>
+
+    <div class="math-display">
+      \[
+      P(A)=\frac{56}{120}
+      =\frac7{15}.
+      \]
+    </div>
+
+    <p>
+      Jadi, peluangnya adalah \(\frac7{15}\), sehingga jawabannya adalah <strong>C</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 25</h4>
+
+    <p>
+      Kita ingin peluang muncul angka 6 sedikitnya satu kali lebih besar dari
+      \(\frac{99}{100}\).
+    </p>
+
+    <p>
+      Gunakan komplemen. Peluang tidak muncul angka 6 dalam satu lemparan adalah
+      \(\frac56\). Dalam \(n\) lemparan:
+    </p>
+
+    <div class="math-display">
+      \[
+      P(\text{tidak ada angka 6})
+      =\left(\frac56\right)^n.
+      \]
+    </div>
+
+    <p>
+      Maka:
+    </p>
+
+    <div class="math-display">
+      \[
+      P(\text{minimal satu angka 6})
+      =1-\left(\frac56\right)^n.
+      \]
+    </div>
+
+    <p>
+      Syarat soal:
+    </p>
+
+    <div class="math-display">
+      \[
+      1-\left(\frac56\right)^n>\frac{99}{100}.
+      \]
+    </div>
+
+    <p>
+      Pindahkan ruas:
+    </p>
+
+    <div class="math-display">
+      \[
+      \left(\frac56\right)^n<\frac1{100}.
+      \]
+    </div>
+
+    <p>
+      Dengan pendekatan logaritma:
+    </p>
+
+    <div class="math-display">
+      \[
+      n\ln\left(\frac56\right)<\ln\left(\frac1{100}\right).
+      \]
+    </div>
+
+    <p>
+      Karena
+      \[
+      \ln\left(\frac56\right)<0,
+      \]
+      arah pertidaksamaan berubah:
+    </p>
+
+    <div class="math-display">
+      \[
+      n>
+      \frac{\ln(1/100)}{\ln(5/6)}
+      \approx25{,}26.
+      \]
+    </div>
+
+    <p>
+      Karena \(n\) harus bilangan bulat, periksa dua bilangan bulat di sekitar \(25{,}26\):
+    </p>
+
+    <div class="math-display">
+      \[
+      \left(\frac56\right)^{25}\approx0{,}0105>0{,}01,\qquad \left(\frac56\right)^{26}\approx0{,}0087<0{,}01.
+      \]
+    </div>
+
+    <p>
+      Jadi, nilai minimum \(n\) yang memenuhi adalah \(26\) lemparan, sehingga jawabannya adalah <strong>C</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 26</h4>
+
+    <p>
+      Misalkan \(p\) adalah peluang A menang. Perhatikan lemparan pertama oleh A.
+    </p>
+
+    <p>
+      <strong>Langkah 1 – Uraikan kasus.</strong> A menang langsung jika lemparan pertamanya gambar, dengan peluang \(\frac12\). Jika tidak, B melempar; jika B juga tidak mendapat gambar (peluang \(\frac12\cdot\frac12=\frac14\)), permainan kembali ke keadaan awal dengan A melempar lebih dahulu.
+    </p>
+
+    <div class="math-display">
+      \[
+      p=\frac12+\frac14\,p.
+      \]
+    </div>
+
+    <p>
+      <strong>Langkah 2 – Selesaikan persamaan.</strong>
+    </p>
+
+    <div class="math-display">
+      \[
+      \frac34\,p=\frac12\quad\Longrightarrow\quad p=\frac23.
+      \]
+    </div>
+
+    <p>
+      <strong>Pemeriksaan dengan deret geometri.</strong> A menang pada lemparan ke-1, ke-3, ke-5, dan seterusnya:
+    </p>
+
+    <div class="math-display">
+      \[
+      p=\frac12+\left(\frac12\right)^3+\left(\frac12\right)^5+\cdots=\frac{1/2}{1-1/4}=\frac23.
+      \]
+    </div>
+
+    <p>
+      Jadi, jawabannya adalah <strong>C</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 27</h4>
+
+    <p>
+      Banyak seluruh cara membagikan empat topi adalah \(4!=24\). Misalkan \(A_i\) adalah kejadian orang ke-\(i\) mengambil topinya sendiri.
+    </p>
+
+    <p>
+      <strong>Langkah 1 – Hitung banyak susunan dengan paling sedikit satu orang mengambil topinya sendiri</strong> memakai prinsip inklusi-eksklusi. Jika \(k\) orang tertentu mengambil topinya sendiri, sisa \(4-k\) topi dapat dibagikan dengan \((4-k)!\) cara:
+    </p>
+
+    <div class="math-display">
+      \[
+      \left|A_1\cup A_2\cup A_3\cup A_4\right|=\binom41 3!-\binom42 2!+\binom43 1!-\binom44 0!=24-12+4-1=15.
+      \]
+    </div>
+
+    <p>
+      <strong>Langkah 2 – Gunakan komplemen.</strong> Banyak susunan tanpa seorang pun mengambil topinya sendiri adalah \(24-15=9\).
+    </p>
+
+    <div class="math-display">
+      \[
+      P=\frac9{24}=\frac38.
+      \]
+    </div>
+
+    <p>
+      Jadi, jawabannya adalah <strong>B</strong>.
+    </p>
+  </div>
+</section>
