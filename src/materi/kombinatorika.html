@@ -1,0 +1,1584 @@
+<section id="pendahuluan" data-title="Pendahuluan">
+  <h2>Pendahuluan</h2>
+
+  <p>
+    Kombinatorika merupakan cabang matematika yang mempelajari cara menghitung
+    banyaknya kemungkinan atau susunan suatu objek tanpa harus mencatat seluruh
+    kemungkinan tersebut satu per satu. Konsep ini banyak digunakan dalam
+    masalah penyusunan, pemilihan, pembagian, dan pengaturan objek.
+  </p>
+
+  <p>
+    Dalam materi ini, konsep yang dipelajari meliputi
+    <strong
+      >aturan penjumlahan, aturan perkalian, faktorial, permutasi, kombinasi,
+      permutasi dengan unsur yang sama, permutasi melingkar, kombinasi dengan
+      pengulangan, serta koefisien binomial</strong
+    >.
+  </p>
+
+  <h3>Kompetensi yang Diharapkan</h3>
+
+  <p>Setelah mempelajari materi ini, peserta didik diharapkan mampu:</p>
+
+  <ol>
+    <li>menjelaskan konsep dasar kombinatorika;</li>
+    <li>menerapkan aturan penjumlahan dan aturan perkalian;</li>
+    <li>menggunakan notasi faktorial dalam perhitungan;</li>
+    <li>menentukan banyak susunan menggunakan permutasi;</li>
+    <li>menentukan banyak pilihan menggunakan kombinasi;</li>
+    <li>menyelesaikan masalah permutasi dengan unsur yang sama;</li>
+    <li>menyelesaikan masalah permutasi melingkar;</li>
+    <li>
+      menyelesaikan masalah kombinasi dengan pengulangan dan menggunakan teorema
+      binomial;
+    </li>
+    <li>menerapkan kombinatorika dalam masalah kontekstual;</li>
+    <li>memilih konsep kombinatorika yang sesuai untuk suatu masalah;</li>
+    <li>
+      menyelesaikan masalah kombinatorika tingkat sekolah, UTBK, dan olimpiade.
+    </li>
+  </ol>
+
+  <h3>Notasi Dasar</h3>
+
+  <p>
+    Banyaknya objek yang digunakan biasanya dinyatakan dengan \(n\), sedangkan
+    banyak objek yang dipilih dinyatakan dengan \(r\).
+  </p>
+
+  <div class="math-display">\[ n! = n(n-1)(n-2)\cdots 2\cdot1 \]</div>
+
+  <p>Secara khusus, didefinisikan:</p>
+
+  <div class="math-display">\[ 0! = 1. \]</div>
+</section>
+
+<section id="aturan-dasar" data-title="Aturan Dasar Pencacahan">
+  <h2>1. Aturan Dasar Pencacahan</h2>
+
+  <h3>Aturan Penjumlahan</h3>
+
+  <p>
+    Aturan penjumlahan digunakan ketika suatu kegiatan dapat dilakukan dengan
+    beberapa cara yang saling terpisah. Jika suatu kegiatan dapat dilakukan
+    dengan \(a\) cara atau \(b\) cara, dan kedua kemungkinan tersebut tidak
+    dapat dilakukan secara bersamaan, maka banyak caranya adalah:
+  </p>
+
+  <div class="math-display">\[ a+b. \]</div>
+
+  <p>
+    Aturan ini berlaku juga untuk lebih dari dua kemungkinan: banyak cara
+    seluruhnya adalah jumlah banyak cara pada setiap kemungkinan.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 1: Aturan Penjumlahan</h4>
+
+    <p>
+      Seorang siswa dapat memilih satu buku dari 5 buku matematika atau 3 buku
+      fisika. Banyak pilihan buku yang dapat dipilih adalah ...
+    </p>
+
+    <div class="math-display">\[ 5+3=8. \]</div>
+
+    <p>Jadi, terdapat \(8\) pilihan buku.</p>
+  </div>
+
+  <h3>Aturan Perkalian</h3>
+
+  <p>
+    Aturan perkalian digunakan apabila suatu kegiatan dilakukan melalui beberapa
+    tahap yang semuanya harus dilakukan. Jika tahap pertama dapat dilakukan
+    dengan \(a\) cara dan tahap kedua dengan \(b\) cara, maka banyak cara untuk
+    melakukan seluruh kegiatan adalah:
+  </p>
+
+  <div class="math-display">\[ a\times b. \]</div>
+
+  <p>
+    Aturan ini berlaku juga untuk tiga tahap atau lebih: banyak cara seluruhnya
+    adalah hasil kali banyak cara pada setiap tahap.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 2: Aturan Perkalian</h4>
+
+    <p>
+      Sebuah kode terdiri atas satu huruf yang diikuti dua angka. Jika tersedia
+      4 huruf dan 5 angka serta angka boleh digunakan berulang, banyak kode yang
+      dapat dibuat adalah ...
+    </p>
+
+    <div class="math-display">\[ 4\times5\times5=100. \]</div>
+
+    <p>Jadi, terdapat \(100\) kode yang dapat dibuat.</p>
+  </div>
+
+  <h3>Prinsip Dasar</h3>
+
+  <p>
+    Sebelum menggunakan rumus permutasi atau kombinasi, perhatikan terlebih
+    dahulu apakah masalah tersebut merupakan proses bertahap atau pemilihan
+    beberapa kemungkinan. Identifikasi juga apakah urutan objek diperhatikan.
+  </p>
+
+  <p>
+    Sebagai pedoman, kata <em>atau</em> pada suatu masalah umumnya menandakan
+    aturan penjumlahan, sedangkan kata <em>dan</em> (beberapa tahap yang
+    semuanya dilakukan) umumnya menandakan aturan perkalian.
+  </p>
+</section>
+
+<section id="faktorial" data-title="Faktorial">
+  <h2>2. Faktorial</h2>
+
+  <p>
+    Faktorial suatu bilangan bulat positif \(n\), ditulis \(n!\), merupakan
+    hasil perkalian semua bilangan bulat positif dari \(n\) sampai \(1\).
+  </p>
+
+  <div class="math-display">\[ n!=n(n-1)(n-2)\cdots2\cdot1. \]</div>
+
+  <p>Dengan demikian:</p>
+
+  <div class="math-display">\[ 5!=5\cdot4\cdot3\cdot2\cdot1=120. \]</div>
+
+  <p>Hubungan penting yang sering digunakan adalah:</p>
+
+  <div class="math-display">\[ n!=n(n-1)!. \]</div>
+
+  <div class="lesson-example">
+    <h4>Contoh 1: Menghitung Faktorial</h4>
+
+    <p>Tentukan nilai dari \(\frac{7!}{5!}\).</p>
+
+    <div class="math-display">
+      \[ \frac{7!}{5!} = \frac{7\cdot6\cdot5!}{5!} = 42. \]
+    </div>
+
+    <p>Jadi, nilainya adalah \(42\).</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2: Penyederhanaan Faktorial</h4>
+
+    <p>Tentukan nilai dari \(\frac{8!}{6!2!}\).</p>
+
+    <div class="math-display">
+      \[ \frac{8!}{6!2!} = \frac{8\cdot7\cdot6!}{6!\cdot2} = \frac{56}{2} = 28.
+      \]
+    </div>
+
+    <p>Jadi, hasilnya adalah \(28\).</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 3: Faktorial Bentuk Aljabar</h4>
+
+    <p>Sederhanakan \(\frac{(n+2)!}{n!}\) untuk bilangan bulat \(n\geq0\).</p>
+
+    <div class="math-display">
+      \[ \frac{(n+2)!}{n!} = \frac{(n+2)(n+1)\,n!}{n!} = (n+2)(n+1). \]
+    </div>
+
+    <p>Jadi, bentuk sederhananya adalah \((n+2)(n+1)\).</p>
+  </div>
+</section>
+
+<section id="permutasi" data-title="Permutasi">
+  <h2>3. Permutasi</h2>
+
+  <h3>Pengertian Permutasi</h3>
+
+  <p>
+    Permutasi digunakan untuk menghitung banyak susunan objek ketika
+    <strong>urutan diperhatikan</strong>.
+  </p>
+
+  <p>Banyak permutasi \(r\) objek yang dipilih dari \(n\) objek adalah:</p>
+
+  <div class="math-display">\[ {}_nP_r=\frac{n!}{(n-r)!}. \]</div>
+
+  <div class="lesson-example">
+    <h4>Contoh 1: Permutasi</h4>
+
+    <p>
+      Dari 6 siswa akan dipilih ketua, wakil ketua, dan sekretaris. Banyak
+      susunan pengurus yang mungkin adalah ...
+    </p>
+
+    <p>Karena jabatan berbeda, urutan pemilihan diperhatikan.</p>
+
+    <div class="math-display">
+      \[ {}_6P_3 = \frac{6!}{3!} = 6\cdot5\cdot4 = 120. \]
+    </div>
+
+    <p>Jadi, terdapat \(120\) susunan pengurus.</p>
+  </div>
+
+  <h3>Permutasi Seluruh Objek</h3>
+
+  <p>
+    Jika seluruh \(n\) objek disusun dan semua objek berbeda, banyak susunannya
+    adalah:
+  </p>
+
+  <div class="math-display">\[ n!. \]</div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2</h4>
+
+    <p>
+      Lima buku berbeda akan disusun berjajar pada sebuah rak. Banyak susunan
+      yang mungkin adalah ...
+    </p>
+
+    <div class="math-display">\[ 5!=120. \]</div>
+
+    <p>Jadi, terdapat \(120\) susunan.</p>
+  </div>
+
+  <h3>Permutasi dengan Syarat Tertentu</h3>
+
+  <p>
+    Pada beberapa masalah, terdapat syarat tertentu seperti dua objek harus
+    berdampingan, suatu objek harus berada di posisi tertentu, atau beberapa
+    objek tidak boleh berdampingan. Untuk masalah seperti ini, biasanya
+    digunakan metode blok, pengurangan kasus, atau pemisahan kasus.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 3: Metode Blok</h4>
+
+    <p>
+      Empat siswa \(A,B,C,D\) akan disusun berjajar. Jika \(A\) dan \(B\) harus
+      berdampingan, banyak susunannya adalah ...
+    </p>
+
+    <p>
+      Anggap \(A\) dan \(B\) sebagai satu blok. Maka objek yang disusun adalah
+      \((AB),C,D\), sehingga terdapat \(3!\) susunan. Di dalam blok, \(A\) dan
+      \(B\) dapat disusun dalam \(2!\) cara.
+    </p>
+
+    <div class="math-display">\[ 3!\times2!=6\times2=12. \]</div>
+
+    <p>Jadi, terdapat \(12\) susunan.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 4: Tidak Boleh Berdampingan (Metode Komplemen)</h4>
+
+    <p>
+      Lima orang \(A,B,C,D,E\) akan disusun berjajar. Jika \(A\) dan \(B\) tidak
+      boleh berdampingan, banyak susunannya adalah ...
+    </p>
+
+    <p>
+      Hitung seluruh susunan, lalu kurangi dengan susunan ketika \(A\) dan \(B\)
+      berdampingan (metode blok).
+    </p>
+
+    <div class="math-display">\[ 5!-4!\times2!=120-48=72. \]</div>
+
+    <p>Jadi, terdapat \(72\) susunan.</p>
+  </div>
+</section>
+
+<section
+  id="permutasi-unsur-sama"
+  data-title="Permutasi dengan Unsur yang Sama"
+>
+  <h2>4. Permutasi dengan Unsur yang Sama</h2>
+
+  <p>
+    Jika terdapat beberapa objek yang memiliki jenis atau karakter yang sama,
+    pertukaran objek yang identik tidak menghasilkan susunan baru.
+  </p>
+
+  <p>
+    Jika terdapat \(n\) objek dengan beberapa kelompok objek yang sama sebanyak
+    \(a,b,c,\ldots\), maka banyak susunan berbeda adalah:
+  </p>
+
+  <div class="math-display">\[ \frac{n!}{a!b!c!\cdots}. \]</div>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+
+    <p>
+      Banyak susunan berbeda dari huruf-huruf pada kata
+      <strong>MAMA</strong> adalah ...
+    </p>
+
+    <p>
+      Kata MAMA terdiri atas 4 huruf, dengan huruf M sebanyak 2 dan huruf A
+      sebanyak 2.
+    </p>
+
+    <div class="math-display">\[ \frac{4!}{2!2!} = \frac{24}{4} = 6. \]</div>
+
+    <p>Jadi, terdapat \(6\) susunan berbeda.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2: Tiga Kelompok Huruf Sama</h4>
+
+    <p>
+      Banyak susunan berbeda dari huruf-huruf pada kata
+      <strong>MATEMATIKA</strong> adalah ...
+    </p>
+
+    <p>
+      Kata MATEMATIKA terdiri atas 10 huruf, dengan huruf M sebanyak 2, huruf A
+      sebanyak 3, dan huruf T sebanyak 2. Huruf E, I, dan K masing-masing hanya
+      satu.
+    </p>
+
+    <div class="math-display">
+      \[ \frac{10!}{2!\,3!\,2!} =
+      \frac{10\cdot9\cdot8\cdot7\cdot6\cdot5\cdot4}{2\cdot2} =
+      \frac{604\,800}{4} = 151\,200. \]
+    </div>
+
+    <p>Jadi, terdapat \(151.200\) susunan berbeda.</p>
+  </div>
+</section>
+
+<section id="permutasi-melingkar" data-title="Permutasi Melingkar">
+  <h2>5. Permutasi Melingkar</h2>
+
+  <p>
+    Permutasi melingkar digunakan ketika objek disusun membentuk lingkaran dan
+    susunan yang hanya berbeda karena rotasi dianggap sama.
+  </p>
+
+  <p>
+    Jika terdapat \(n\) objek berbeda yang disusun melingkar, banyak susunan
+    berbeda adalah:
+  </p>
+
+  <div class="math-display">\[ (n-1)!. \]</div>
+
+  <p>
+    Alasannya, satu objek dijadikan acuan (posisi awal), sehingga rotasi tidak
+    lagi menghasilkan susunan baru. Sisa \(n-1\) objek kemudian disusun pada
+    posisi-posisi lainnya, yaitu dalam \((n-1)!\) cara.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+
+    <p>
+      Enam orang duduk mengelilingi sebuah meja bundar. Banyak susunan tempat
+      duduk yang berbeda adalah ...
+    </p>
+
+    <div class="math-display">\[ (6-1)!=5!=120. \]</div>
+
+    <p>Jadi, terdapat \(120\) susunan.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2: Dua Orang Harus Berdampingan</h4>
+
+    <p>
+      Enam orang duduk mengelilingi meja bundar. Jika \(A\) dan \(B\) harus
+      berdampingan, banyak susunan yang mungkin adalah ...
+    </p>
+
+    <p>
+      Anggap \(A\) dan \(B\) sebagai satu blok. Dengan demikian terdapat 5 objek
+      yang disusun melingkar.
+    </p>
+
+    <div class="math-display">\[ (5-1)!\times2! = 4!\times2 = 48. \]</div>
+
+    <p>Jadi, terdapat \(48\) susunan.</p>
+  </div>
+</section>
+
+<section id="kombinasi" data-title="Kombinasi">
+  <h2>6. Kombinasi</h2>
+
+  <h3>Pengertian Kombinasi</h3>
+
+  <p>
+    Kombinasi digunakan untuk menghitung banyak cara memilih beberapa objek
+    ketika <strong>urutan tidak diperhatikan</strong>.
+  </p>
+
+  <p>Banyak kombinasi \(r\) objek dari \(n\) objek ditulis:</p>
+
+  <div class="math-display">
+    \[ {}_nC_r = \binom{n}{r} = \frac{n!}{r!(n-r)!}. \]
+  </div>
+
+  <p>Beberapa sifat penting kombinasi:</p>
+
+  <div class="math-display">
+    \[ \binom{n}{r}=\binom{n}{n-r},\qquad \binom{n}{0}=\binom{n}{n}=1. \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+
+    <p>
+      Dari 8 siswa akan dipilih 3 siswa sebagai perwakilan kelas. Banyak cara
+      memilih siswa tersebut adalah ...
+    </p>
+
+    <div class="math-display">
+      \[ {}_8C_3 = \frac{8!}{3!5!} = \frac{8\cdot7\cdot6}{3\cdot2\cdot1} = 56.
+      \]
+    </div>
+
+    <p>Jadi, terdapat \(56\) cara.</p>
+  </div>
+
+  <h3>Hubungan Permutasi dan Kombinasi</h3>
+
+  <p>
+    Permutasi memperhatikan urutan, sedangkan kombinasi tidak memperhatikan
+    urutan. Hubungan keduanya dapat dituliskan:
+  </p>
+
+  <div class="math-display">\[ {}_nP_r={}_nC_r\cdot r!. \]</div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2</h4>
+
+    <p>
+      Dari 5 siswa dipilih 2 siswa untuk menjadi anggota tim. Karena tidak ada
+      jabatan yang membedakan kedua siswa tersebut, digunakan kombinasi.
+    </p>
+
+    <div class="math-display">\[ {}_5C_2 = \frac{5!}{2!3!} = 10. \]</div>
+
+    <p>Jadi, terdapat \(10\) pilihan tim.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 3: Kombinasi dengan Komplemen</h4>
+
+    <p>
+      Dari 5 putra dan 4 putri akan dipilih 4 orang. Jika tim harus memuat
+      sedikitnya 1 putri, banyak cara memilih adalah ...
+    </p>
+
+    <p>
+      Hitung seluruh pilihan, lalu kurangi dengan pilihan yang tidak memuat
+      putri (seluruhnya putra).
+    </p>
+
+    <div class="math-display">\[ {}_9C_4-{}_5C_4=126-5=121. \]</div>
+
+    <p>Jadi, terdapat \(121\) cara.</p>
+  </div>
+</section>
+
+<section id="kombinasi-pengulangan" data-title="Kombinasi dengan Pengulangan">
+  <h2>7. Kombinasi dengan Pengulangan</h2>
+
+  <p>
+    Kombinasi dengan pengulangan digunakan ketika kita memilih \(r\) objek dari
+    \(n\) jenis objek dan suatu jenis objek boleh dipilih lebih dari satu kali.
+  </p>
+
+  <p>Banyak cara memilih tersebut adalah:</p>
+
+  <div class="math-display">\[ \binom{n+r-1}{r}. \]</div>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+
+    <p>
+      Tersedia 4 jenis rasa es krim. Seseorang memilih 3 es krim dan boleh
+      memilih rasa yang sama lebih dari sekali. Banyak pilihan yang mungkin
+      adalah ...
+    </p>
+
+    <div class="math-display">\[ \binom{4+3-1}{3} = \binom{6}{3} = 20. \]</div>
+
+    <p>Jadi, terdapat \(20\) pilihan.</p>
+  </div>
+
+  <h3>Metode Bintang dan Garis</h3>
+
+  <p>
+    Kombinasi dengan pengulangan dapat dipahami menggunakan metode
+    <em>bintang dan garis</em>. Misalkan \(x_1+x_2+\cdots+x_n=r\), dengan
+    \(x_i\geq0\). Banyak solusi bilangan bulat taknegatifnya adalah:
+  </p>
+
+  <div class="math-display">\[ \binom{n+r-1}{r}. \]</div>
+
+  <p>
+    Ilustrasinya, \(r\) objek yang dipilih digambarkan sebagai \(r\) bintang,
+    sedangkan \(n-1\) garis digunakan untuk memisahkan \(n\) jenis objek. Banyak
+    susunan bintang dan garis tersebut adalah \(\binom{n+r-1}{r}\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 2: Solusi Bilangan Bulat Taknegatif</h4>
+
+    <p>
+      Tentukan banyak solusi bilangan bulat taknegatif dari
+      \(x_1+x_2+x_3+x_4=10\).
+    </p>
+
+    <div class="math-display">
+      \[ \binom{4+10-1}{10} = \binom{13}{10} = \binom{13}{3} = 286. \]
+    </div>
+
+    <p>Jadi, terdapat \(286\) solusi.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 3: Solusi Bilangan Bulat Positif</h4>
+
+    <p>Tentukan banyak solusi bilangan bulat positif dari \(x+y+z=12\).</p>
+
+    <p>
+      Karena setiap variabel minimal \(1\), misalkan \(x=x'+1\), \(y=y'+1\), dan
+      \(z=z'+1\) dengan \(x',y',z'\geq0\). Persamaan menjadi \(x'+y'+z'=9\).
+    </p>
+
+    <div class="math-display">
+      \[ \binom{3+9-1}{9} = \binom{11}{9} = \binom{11}{2} = 55. \]
+    </div>
+
+    <p>Jadi, terdapat \(55\) solusi.</p>
+  </div>
+</section>
+
+<section id="binomial" data-title="Koefisien Binomial">
+  <h2>8. Koefisien Binomial</h2>
+
+  <p>
+    Kombinasi juga muncul dalam pengembangan bentuk binomial. Teorema binomial
+    menyatakan:
+  </p>
+
+  <div class="math-display">
+    \[ (a+b)^n = \sum_{r=0}^{n} \binom{n}{r}a^{n-r}b^r. \]
+  </div>
+
+  <p>
+    Suku ke-\((r+1)\) pada pengembangan tersebut adalah
+    \(\binom{n}{r}a^{n-r}b^r\), dengan \(r=0,1,2,\ldots,n\).
+  </p>
+
+  <p>
+    Beberapa baris awal koefisien binomial dapat disusun dalam Segitiga Pascal.
+  </p>
+
+  <div class="math-display">
+    \[ \begin{array}{ccccccccc} &&&&1&&&&\\ &&&1&&1&&&\\ &&1&&2&&1&&\\
+    &1&&3&&3&&1&\\ 1&&4&&6&&4&&1 \end{array} \]
+  </div>
+
+  <p>
+    Setiap bilangan pada Segitiga Pascal adalah jumlah dua bilangan tepat di
+    atasnya. Baris ke-\(n\) (dimulai dari \(n=0\)) memuat
+    \(\binom{n}{0},\binom{n}{1},\ldots,\binom{n}{n}\), dan jumlah seluruh
+    bilangan pada baris tersebut adalah \(2^n\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan koefisien \(x^2\) pada pengembangan \((x+2)^4\).</p>
+
+    <p>Suku yang memuat \(x^2\) diperoleh ketika pangkat \(x\) adalah 2.</p>
+
+    <div class="math-display">
+      \[ \binom{4}{2}x^2(2)^2 = 6\cdot4x^2 = 24x^2. \]
+    </div>
+
+    <p>Jadi, koefisien \(x^2\) adalah \(24\).</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2: Jumlah Seluruh Koefisien</h4>
+
+    <p>Tentukan jumlah seluruh koefisien pada pengembangan \((2x+1)^5\).</p>
+
+    <p>Jumlah seluruh koefisien diperoleh dengan mensubstitusi \(x=1\).</p>
+
+    <div class="math-display">\[ (2\cdot1+1)^5=3^5=243. \]</div>
+
+    <p>Jadi, jumlah seluruh koefisien adalah \(243\).</p>
+  </div>
+</section>
+
+<section id="strategi" data-title="Strategi Menyelesaikan Soal">
+  <h2>9. Strategi Menyelesaikan Soal Kombinatorika</h2>
+
+  <ol>
+    <li>
+      <strong>Identifikasi objek yang tersedia.</strong>
+      Tentukan banyak objek atau jenis objek yang terlibat.
+    </li>
+
+    <li>
+      <strong>Tentukan apakah urutan diperhatikan.</strong>
+      Jika urutan penting, pertimbangkan permutasi. Jika urutan tidak penting,
+      pertimbangkan kombinasi.
+    </li>
+
+    <li>
+      <strong>Perhatikan apakah objek boleh digunakan kembali.</strong>
+      Pengulangan dapat mengubah metode pencacahan yang digunakan.
+    </li>
+
+    <li>
+      <strong>Identifikasi adanya syarat khusus.</strong>
+      Misalnya objek harus berdampingan, tidak boleh berdampingan, harus berada
+      pada posisi tertentu, atau terdapat objek yang sama.
+    </li>
+
+    <li>
+      <strong>Pilih rumus atau metode yang sesuai.</strong>
+      Gunakan aturan penjumlahan, aturan perkalian, faktorial, permutasi,
+      kombinasi, metode blok, metode celah, atau metode komplemen sesuai kondisi
+      soal.
+    </li>
+
+    <li>
+      <strong>Sederhanakan perhitungan.</strong>
+      Hindari menghitung faktorial secara penuh jika terdapat bentuk yang dapat
+      dicoret.
+    </li>
+
+    <li>
+      <strong>Periksa kembali hasil.</strong>
+      Pastikan setiap kemungkinan telah dihitung tepat satu kali dan tidak ada
+      kemungkinan yang terlewat.
+    </li>
+  </ol>
+
+  <div class="lesson-example">
+    <h4>Contoh: Memilih Metode</h4>
+
+    <p>
+      Dari 10 siswa akan dipilih 3 siswa sebagai anggota tim tanpa jabatan.
+      Apakah digunakan permutasi atau kombinasi?
+    </p>
+
+    <p>
+      Karena ketiga siswa hanya menjadi anggota tim dan tidak terdapat jabatan
+      yang membedakan, urutan tidak diperhatikan.
+    </p>
+
+    <div class="math-display">\[ {}_{10}C_3=120. \]</div>
+
+    <p>Jadi, metode yang digunakan adalah kombinasi.</p>
+  </div>
+</section>
+
+<section id="latihan" data-title="Latihan Soal">
+  <h2>10. Latihan Soal Kombinatorika</h2>
+
+  <p>
+    Kerjakan latihan berikut dengan menggunakan konsep kombinatorika yang telah
+    dipelajari. Soal 1–10 merupakan soal tingkat sekolah, soal 11–18 merupakan
+    soal tingkat UTBK, sedangkan soal 19–20 merupakan soal tingkat olimpiade.
+  </p>
+
+  <h3>A. Soal Tingkat Sekolah</h3>
+
+  <div class="lesson-example">
+    <h4>Soal 1</h4>
+    <p>
+      Sebuah kantin menyediakan 4 jenis makanan dan 3 jenis minuman. Seorang
+      siswa memilih satu makanan dan satu minuman. Banyak pilihan yang tersedia
+      adalah ...
+    </p>
+
+    <ol type="A">
+      <li>7</li>
+      <li>10</li>
+      <li>12</li>
+      <li>14</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 2</h4>
+    <p>Nilai dari \(\frac{8!}{6!}\) adalah ...</p>
+
+    <ol type="A">
+      <li>12</li>
+      <li>24</li>
+      <li>48</li>
+      <li>56</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 3</h4>
+    <p>
+      Lima buku berbeda akan disusun berjajar pada sebuah rak. Banyak susunan
+      yang mungkin adalah ...
+    </p>
+
+    <ol type="A">
+      <li>25</li>
+      <li>60</li>
+      <li>100</li>
+      <li>120</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 4</h4>
+    <p>
+      Dari 7 siswa akan dipilih 2 siswa sebagai wakil kelas. Banyak cara memilih
+      kedua siswa tersebut adalah ...
+    </p>
+
+    <ol type="A">
+      <li>14</li>
+      <li>21</li>
+      <li>28</li>
+      <li>42</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 5</h4>
+    <p>
+      Banyak susunan berbeda dari huruf-huruf pada kata <strong>KATA</strong>
+      adalah ...
+    </p>
+
+    <ol type="A">
+      <li>12</li>
+      <li>18</li>
+      <li>24</li>
+      <li>36</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 6</h4>
+    <p>
+      Enam orang duduk mengelilingi meja bundar. Banyak susunan tempat duduk
+      yang berbeda adalah ...
+    </p>
+
+    <ol type="A">
+      <li>24</li>
+      <li>60</li>
+      <li>120</li>
+      <li>720</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 7</h4>
+    <p>
+      Dari 8 siswa akan dipilih seorang ketua dan seorang wakil ketua. Banyak
+      susunan pengurus yang mungkin adalah ...
+    </p>
+
+    <ol type="A">
+      <li>16</li>
+      <li>28</li>
+      <li>42</li>
+      <li>56</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 8</h4>
+    <p>
+      Banyak susunan berbeda dari huruf-huruf pada kata <strong>PAPAN</strong>
+      adalah ...
+    </p>
+
+    <ol type="A">
+      <li>15</li>
+      <li>30</li>
+      <li>60</li>
+      <li>120</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 9</h4>
+    <p>
+      Dari 10 siswa akan dipilih 3 siswa untuk menjadi anggota sebuah kelompok.
+      Banyak kelompok yang dapat dibentuk adalah ...
+    </p>
+
+    <ol type="A">
+      <li>30</li>
+      <li>90</li>
+      <li>120</li>
+      <li>720</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 10</h4>
+    <p>
+      Tersedia 3 jenis roti dan 4 jenis selai. Jika seseorang memilih satu roti
+      atau satu selai, banyak pilihan yang tersedia adalah ...
+    </p>
+
+    <ol type="A">
+      <li>7</li>
+      <li>10</li>
+      <li>12</li>
+      <li>14</li>
+    </ol>
+  </div>
+
+  <h3>B. Soal Tingkat UTBK</h3>
+
+  <div class="lesson-example">
+    <h4>Soal 11</h4>
+    <p>
+      Sebuah kode terdiri atas 3 angka berbeda yang dipilih dari angka
+      \(1,2,3,4,5,6\). Banyak kode yang dapat dibuat adalah ...
+    </p>
+
+    <ol type="A">
+      <li>18</li>
+      <li>20</li>
+      <li>60</li>
+      <li>120</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 12</h4>
+    <p>
+      Dari 6 laki-laki dan 5 perempuan akan dipilih 4 orang sebagai tim. Jika
+      tim harus terdiri atas tepat 2 laki-laki dan 2 perempuan, banyak tim yang
+      dapat dibentuk adalah ...
+    </p>
+
+    <ol type="A">
+      <li>120</li>
+      <li>150</li>
+      <li>200</li>
+      <li>300</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 13</h4>
+    <p>
+      Enam orang \(A,B,C,D,E,F\) akan disusun berjajar. Jika \(A\) dan \(B\)
+      tidak boleh berdampingan, banyak susunan yang mungkin adalah ...
+    </p>
+
+    <ol type="A">
+      <li>240</li>
+      <li>360</li>
+      <li>480</li>
+      <li>600</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 14</h4>
+    <p>
+      Lima orang akan duduk mengelilingi meja bundar. Jika \(A\) dan \(B\) harus
+      berdampingan, banyak susunan yang mungkin adalah ...
+    </p>
+
+    <ol type="A">
+      <li>6</li>
+      <li>12</li>
+      <li>18</li>
+      <li>24</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 15</h4>
+    <p>
+      Dari 8 soal yang tersedia, seorang siswa harus mengerjakan tepat 5 soal.
+      Jika soal nomor 1 dan 2 tidak boleh dipilih bersamaan, banyak pilihan soal
+      yang dapat dikerjakan adalah ...
+    </p>
+
+    <ol type="A">
+      <li>36</li>
+      <li>46</li>
+      <li>50</li>
+      <li>56</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 16</h4>
+    <p>
+      Banyak bilangan tiga digit berbeda yang dapat dibentuk dari angka
+      \(1,2,3,4,5\) dan habis dibagi 5 adalah ...
+    </p>
+
+    <ol type="A">
+      <li>8</li>
+      <li>10</li>
+      <li>12</li>
+      <li>16</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 17</h4>
+    <p>Banyak solusi bilangan bulat taknegatif dari \(x+y+z=7\) adalah ...</p>
+
+    <ol type="A">
+      <li>28</li>
+      <li>36</li>
+      <li>45</li>
+      <li>56</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 18</h4>
+    <p>Koefisien \(x^3\) dalam pengembangan \((2x+1)^5\) adalah ...</p>
+
+    <ol type="A">
+      <li>40</li>
+      <li>60</li>
+      <li>80</li>
+      <li>100</li>
+    </ol>
+  </div>
+
+  <h3>C. Soal Tingkat Olimpiade</h3>
+
+  <div class="lesson-example">
+    <h4>Soal 19</h4>
+    <p>
+      Tentukan banyak bilangan lima digit \(a_1a_2a_3a_4a_5\) yang dapat
+      dibentuk dari angka \(1,2,3,4,5\) dengan setiap angka digunakan tepat satu
+      kali, sehingga tidak ada dua angka genap yang berdampingan.
+    </p>
+
+    <ol type="A">
+      <li>48</li>
+      <li>60</li>
+      <li>72</li>
+      <li>84</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 20</h4>
+    <p>
+      Berapa banyak himpunan bagian beranggotakan 4 dari \(\{1,2,3,\ldots,10\}\)
+      yang tidak memuat dua bilangan berurutan?
+    </p>
+
+    <ol type="A">
+      <li>35</li>
+      <li>70</li>
+      <li>105</li>
+      <li>126</li>
+    </ol>
+  </div>
+</section>
+
+<section id="rangkuman" data-title="Rangkuman">
+  <h2>11. Rangkuman</h2>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Konsep</th>
+          <th scope="col">Rumus / Prinsip</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Aturan penjumlahan</td>
+          <td>\(a+b\)</td>
+        </tr>
+
+        <tr>
+          <td>Aturan perkalian</td>
+          <td>\(a\times b\)</td>
+        </tr>
+
+        <tr>
+          <td>Faktorial</td>
+          <td>\(n!=n(n-1)\cdots2\cdot1\)</td>
+        </tr>
+
+        <tr>
+          <td>Permutasi</td>
+          <td>\({}_nP_r=\dfrac{n!}{(n-r)!}\)</td>
+        </tr>
+
+        <tr>
+          <td>Permutasi seluruh objek</td>
+          <td>\(n!\)</td>
+        </tr>
+
+        <tr>
+          <td>Permutasi unsur sama</td>
+          <td>\(\dfrac{n!}{a!b!c!\cdots}\)</td>
+        </tr>
+
+        <tr>
+          <td>Permutasi melingkar</td>
+          <td>\((n-1)!\)</td>
+        </tr>
+
+        <tr>
+          <td>Kombinasi</td>
+          <td>\({}_nC_r=\dfrac{n!}{r!(n-r)!}\)</td>
+        </tr>
+
+        <tr>
+          <td>Hubungan permutasi dan kombinasi</td>
+          <td>\({}_nP_r={}_nC_r\cdot r!\)</td>
+        </tr>
+
+        <tr>
+          <td>Kombinasi dengan pengulangan</td>
+          <td>\(\binom{n+r-1}{r}\)</td>
+        </tr>
+
+        <tr>
+          <td>Teorema binomial</td>
+          <td>
+            \((a+b)^n=\displaystyle\sum_{r=0}^{n} \binom{n}{r}a^{n-r}b^r\)
+          </td>
+        </tr>
+
+        <tr>
+          <td>Sifat kombinasi</td>
+          <td>\(\dbinom{n}{r}=\dbinom{n}{n-r}\)</td>
+        </tr>
+
+        <tr>
+          <td>Solusi bulat taknegatif \(x_1+\cdots+x_n=r\)</td>
+          <td>\(\dbinom{n+r-1}{r}\)</td>
+        </tr>
+
+        <tr>
+          <td>Solusi bulat positif \(x_1+\cdots+x_n=r\)</td>
+          <td>\(\dbinom{r-1}{n-1}\)</td>
+        </tr>
+
+        <tr>
+          <td>Suku ke-\((r+1)\) binomial</td>
+          <td>\(\dbinom{n}{r}a^{n-r}b^r\)</td>
+        </tr>
+
+        <tr>
+          <td>Jumlah koefisien baris ke-\(n\) Segitiga Pascal</td>
+          <td>\(\dbinom{n}{0}+\dbinom{n}{1}+\cdots+\dbinom{n}{n}=2^n\)</td>
+        </tr>
+
+        <tr>
+          <td>Metode blok (harus berdampingan)</td>
+          <td>
+            Anggap objek yang berdampingan sebagai satu blok, lalu kalikan
+            dengan susunan di dalam blok
+          </td>
+        </tr>
+
+        <tr>
+          <td>Metode celah (tidak boleh berdampingan)</td>
+          <td>
+            Susun objek lain terlebih dahulu, lalu tempatkan objek yang dibatasi
+            pada celah
+          </td>
+        </tr>
+
+        <tr>
+          <td>Metode komplemen</td>
+          <td>
+            Banyak kemungkinan seluruhnya dikurangi banyak kemungkinan yang
+            tidak memenuhi syarat
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    Kunci utama dalam menyelesaikan soal kombinatorika adalah menentukan apakah
+    urutan diperhatikan, apakah objek dapat digunakan berulang, serta apakah
+    terdapat syarat khusus pada penyusunan atau pemilihan objek.
+  </p>
+</section>
+
+<section id="pembahasan-latihan" data-title="Pembahasan Latihan">
+  <h2>12. Pembahasan Latihan Soal</h2>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table answer-key-table">
+      <thead>
+        <tr>
+          <th scope="col">Soal</th>
+          <th scope="col">Jawaban</th>
+          <th scope="col">Konsep</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>C</td>
+          <td>Aturan perkalian</td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td>D</td>
+          <td>Faktorial</td>
+        </tr>
+
+        <tr>
+          <td>3</td>
+          <td>D</td>
+          <td>Permutasi seluruh objek</td>
+        </tr>
+
+        <tr>
+          <td>4</td>
+          <td>B</td>
+          <td>Kombinasi</td>
+        </tr>
+
+        <tr>
+          <td>5</td>
+          <td>A</td>
+          <td>Permutasi unsur sama</td>
+        </tr>
+
+        <tr>
+          <td>6</td>
+          <td>C</td>
+          <td>Permutasi melingkar</td>
+        </tr>
+
+        <tr>
+          <td>7</td>
+          <td>D</td>
+          <td>Permutasi</td>
+        </tr>
+
+        <tr>
+          <td>8</td>
+          <td>B</td>
+          <td>Permutasi unsur sama</td>
+        </tr>
+
+        <tr>
+          <td>9</td>
+          <td>C</td>
+          <td>Kombinasi</td>
+        </tr>
+
+        <tr>
+          <td>10</td>
+          <td>A</td>
+          <td>Aturan penjumlahan</td>
+        </tr>
+
+        <tr>
+          <td>11</td>
+          <td>D</td>
+          <td>Permutasi</td>
+        </tr>
+
+        <tr>
+          <td>12</td>
+          <td>B</td>
+          <td>Kombinasi bersyarat</td>
+        </tr>
+
+        <tr>
+          <td>13</td>
+          <td>C</td>
+          <td>Metode blok dan komplemen</td>
+        </tr>
+
+        <tr>
+          <td>14</td>
+          <td>B</td>
+          <td>Permutasi melingkar dengan blok</td>
+        </tr>
+
+        <tr>
+          <td>15</td>
+          <td>A</td>
+          <td>Kombinasi dengan komplemen</td>
+        </tr>
+
+        <tr>
+          <td>16</td>
+          <td>C</td>
+          <td>Pencacahan bersyarat</td>
+        </tr>
+
+        <tr>
+          <td>17</td>
+          <td>B</td>
+          <td>Kombinasi dengan pengulangan</td>
+        </tr>
+
+        <tr>
+          <td>18</td>
+          <td>C</td>
+          <td>Teorema binomial</td>
+        </tr>
+
+        <tr>
+          <td>19</td>
+          <td>C</td>
+          <td>Metode celah</td>
+        </tr>
+
+        <tr>
+          <td>20</td>
+          <td>A</td>
+          <td>Kombinasi tanpa dua bilangan berurutan</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 1</h4>
+
+    <p>
+      Karena siswa memilih satu makanan dan satu minuman, kedua pilihan
+      dilakukan secara bertahap.
+    </p>
+
+    <div class="math-display">\[ 4\times3=12. \]</div>
+
+    <p>Jadi, jawabannya adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 2</h4>
+
+    <div class="math-display">
+      \[ \frac{8!}{6!} = \frac{8\cdot7\cdot6!}{6!} = 56. \]
+    </div>
+
+    <p>Jadi, jawabannya adalah <strong>D</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 3</h4>
+
+    <p>
+      Lima buku berbeda disusun berjajar sehingga urutan diperhatikan. Oleh
+      karena itu digunakan permutasi seluruh objek.
+    </p>
+
+    <div class="math-display">\[ 5!=120. \]</div>
+
+    <p>Jadi, jawabannya adalah <strong>D</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 4</h4>
+
+    <p>
+      Pemilihan dua siswa tidak memperhatikan urutan. Oleh karena itu digunakan
+      kombinasi.
+    </p>
+
+    <div class="math-display">
+      \[ {}_7C_2 = \frac{7!}{2!5!} = \frac{7\cdot6}{2} = 21. \]
+    </div>
+
+    <p>Jadi, jawabannya adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 5</h4>
+
+    <p>
+      Kata KATA terdiri atas 4 huruf, dengan huruf A sebanyak 2, sedangkan huruf
+      K dan T masing-masing hanya satu.
+    </p>
+
+    <div class="math-display">\[ \frac{4!}{2!} = \frac{24}{2} = 12. \]</div>
+
+    <p>Jadi, jawabannya adalah <strong>A</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 6</h4>
+
+    <p>
+      Karena enam orang duduk mengelilingi meja bundar, digunakan permutasi
+      melingkar.
+    </p>
+
+    <div class="math-display">\[ (6-1)!=5!=120. \]</div>
+
+    <p>Jadi, jawabannya adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 7</h4>
+
+    <p>
+      Jabatan ketua dan wakil ketua berbeda sehingga urutan pemilihan
+      diperhatikan.
+    </p>
+
+    <div class="math-display">\[ {}_8P_2 = 8\cdot7 = 56. \]</div>
+
+    <p>Jadi, jawabannya adalah <strong>D</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 8</h4>
+
+    <p>
+      Kata PAPAN memiliki 5 huruf dengan 2 huruf P yang sama dan 2 huruf A yang
+      sama, sedangkan huruf N hanya satu.
+    </p>
+
+    <div class="math-display">\[ \frac{5!}{2!2!} = \frac{120}{4} = 30. \]</div>
+
+    <p>Jadi, jawabannya adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 9</h4>
+
+    <p>
+      Karena kelompok hanya terdiri atas anggota tanpa jabatan, urutan tidak
+      diperhatikan.
+    </p>
+
+    <div class="math-display">
+      \[ {}_{10}C_3 = \frac{10!}{3!7!} = \frac{10\cdot9\cdot8}{6} = 120. \]
+    </div>
+
+    <p>Jadi, jawabannya adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 10</h4>
+
+    <p>
+      Siswa memilih satu roti atau satu selai. Kedua kemungkinan tersebut saling
+      terpisah sehingga digunakan aturan penjumlahan.
+    </p>
+
+    <div class="math-display">\[ 3+4=7. \]</div>
+
+    <p>Jadi, jawabannya adalah <strong>A</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 11</h4>
+
+    <p>
+      Tiga angka dipilih dari enam angka tanpa pengulangan dan urutannya
+      diperhatikan.
+    </p>
+
+    <div class="math-display">\[ {}_6P_3 = 6\cdot5\cdot4 = 120. \]</div>
+
+    <p>Jadi, jawabannya adalah <strong>D</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 12</h4>
+
+    <p>Pilih 2 laki-laki dari 6 dan 2 perempuan dari 5.</p>
+
+    <div class="math-display">
+      \[ {}_6C_2\times{}_5C_2 = 15\times10 = 150. \]
+    </div>
+
+    <p>Jadi, jawabannya adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 13</h4>
+
+    <p>Hitung seluruh susunan terlebih dahulu:</p>
+
+    <div class="math-display">\[ 6!=720. \]</div>
+
+    <p>
+      Selanjutnya hitung susunan ketika \(A\) dan \(B\) berdampingan. Anggap
+      \(A,B\) sebagai satu blok.
+    </p>
+
+    <div class="math-display">\[ 5!\times2!=120\times2=240. \]</div>
+
+    <p>
+      Karena yang dicari adalah susunan ketika \(A\) dan \(B\) tidak
+      berdampingan:
+    </p>
+
+    <div class="math-display">\[ 720-240=480. \]</div>
+
+    <p>Jadi, jawabannya adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 14</h4>
+
+    <p>
+      Anggap \(A\) dan \(B\) sebagai satu blok. Maka terdapat 4 objek yang
+      disusun melingkar.
+    </p>
+
+    <div class="math-display">\[ (4-1)!\times2! = 3!\times2 = 12. \]</div>
+
+    <p>Jadi, jawabannya adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 15</h4>
+
+    <p>Banyak cara memilih 5 soal dari 8 soal adalah:</p>
+
+    <div class="math-display">\[ {}_8C_5={}_8C_3=56. \]</div>
+
+    <p>
+      Sekarang hitung pilihan yang memuat soal 1 dan 2 sekaligus. Jika soal 1
+      dan 2 sudah dipilih, tiga soal lainnya dipilih dari 6 soal:
+    </p>
+
+    <div class="math-display">\[ {}_6C_3=20. \]</div>
+
+    <p>Maka pilihan yang memenuhi syarat adalah:</p>
+
+    <div class="math-display">\[ 56-20=36. \]</div>
+
+    <p>Jadi, jawabannya adalah <strong>A</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 16</h4>
+
+    <p>
+      Agar habis dibagi 5, digit terakhir harus 5. Dua posisi pertama kemudian
+      diisi dengan dua angka berbeda dari \(1,2,3,4\).
+    </p>
+
+    <div class="math-display">\[ 4\times3=12. \]</div>
+
+    <p>Jadi, jawabannya adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 17</h4>
+
+    <p>
+      Persamaan \(x+y+z=7\) memiliki \(n=3\) variabel bilangan bulat taknegatif
+      dengan jumlah \(r=7\). Gunakan kombinasi dengan pengulangan:
+    </p>
+
+    <div class="math-display">
+      \[ \binom{3+7-1}{7} = \binom{9}{7} = \binom{9}{2} = 36. \]
+    </div>
+
+    <p>Jadi, jawabannya adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 18</h4>
+
+    <p>
+      Suku yang memuat \(x^3\) diperoleh ketika memilih \((2x)^3\) dan \(1^2\).
+    </p>
+
+    <div class="math-display">
+      \[ \binom{5}{3}(2x)^3 = 10\cdot8x^3 = 80x^3. \]
+    </div>
+
+    <p>
+      Jadi, koefisien \(x^3\) adalah \(80\), sehingga jawabannya
+      <strong>C</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 19</h4>
+
+    <p>
+      Dari angka \(1,2,3,4,5\), terdapat tiga angka ganjil \((1,3,5)\) dan dua
+      angka genap \((2,4)\).
+    </p>
+
+    <p>
+      Agar kedua angka genap tidak berdampingan, tempatkan terlebih dahulu tiga
+      angka ganjil:
+    </p>
+
+    <div class="math-display">\[ 3! \]</div>
+
+    <p>Tiga angka ganjil tersebut membentuk empat celah:</p>
+
+    <div class="math-display">
+      \[ \square\;G\;\square\;G\;\square\;G\;\square. \]
+    </div>
+
+    <p>
+      Dua angka genap harus ditempatkan pada dua celah yang berbeda. Banyak
+      caranya adalah:
+    </p>
+
+    <div class="math-display">\[ {}_4C_2\times2!. \]</div>
+
+    <p>Jadi banyak susunan:</p>
+
+    <div class="math-display">
+      \[ 3!\times{}_4C_2\times2! = 6\times6\times2 = 72. \]
+    </div>
+
+    <p>Jadi, jawabannya adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 20</h4>
+
+    <p>
+      Misalkan empat bilangan yang dipilih adalah \(a_1\lt a_2\lt a_3\lt a_4\).
+      Karena tidak boleh ada dua bilangan yang berurutan, harus berlaku:
+    </p>
+
+    <div class="math-display">
+      \[ a_2\geq a_1+2,\qquad a_3\geq a_2+2,\qquad a_4\geq a_3+2. \]
+    </div>
+
+    <p>Gunakan transformasi:</p>
+
+    <div class="math-display">
+      \[ b_1=a_1,\quad b_2=a_2-1,\quad b_3=a_3-2,\quad b_4=a_4-3. \]
+    </div>
+
+    <p>
+      Dengan transformasi tersebut, diperoleh \(b_1\lt b_2\lt b_3\lt b_4\)
+      dengan \(1\leq b_i\leq7\). Jadi, setiap pilihan empat bilangan yang
+      memenuhi syarat berkorespondensi satu-satu dengan pemilihan empat bilangan
+      berbeda dari \(1,2,\ldots,7\). Banyak pilihannya adalah:
+    </p>
+
+    <div class="math-display">\[ {}_7C_4 = {}_7C_3 = 35. \]</div>
+
+    <p>Jadi, jawabannya adalah <strong>A</strong>.</p>
+  </div>
+</section>

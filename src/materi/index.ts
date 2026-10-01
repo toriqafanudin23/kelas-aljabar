@@ -2,6 +2,7 @@ import eksponensialHtml from "./eksponensial.html?raw";
 import transformasiGeometriHtml from "./transformasi-geometri.html?raw";
 import barisanDeretHtml from "./barisan-deret.html?raw";
 import matriksHtml from "./matriks.html?raw";
+import kombinatorikaHtml from "./kombinatorika.html?raw";
 
 export interface Material {
   id: string;
@@ -65,6 +66,19 @@ export const materials: Material[] = [
     description:
       "Pelajari konsep dan jenis matriks, operasi, determinan, invers, sistem persamaan linear, aturan Cramer, dan transformasi geometri.",
     htmlContent: matriksHtml,
+  },
+  {
+    id: "combinatorics",
+    slug: "kombinatorika",
+    number: "05",
+    category: "Kaidah Pencacahan",
+    title: "Kombinatorika",
+    grade: "Kelas XII",
+    formula:
+      "{}_nP_r=\\frac{n!}{(n-r)!} \\qquad \\binom{n}{r}=\\frac{n!}{r!(n-r)!}",
+    description:
+      "Mempelajari aturan penjumlahan, aturan perkalian, faktorial, permutasi, kombinasi, dan teknik penyelesaian soal pencacahan.",
+    htmlContent: kombinatorikaHtml,
   },
 ];
 

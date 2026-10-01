@@ -53,11 +53,11 @@
     Translasi ditentukan oleh sebuah vektor:
   </p>
 
-  <div class="math-display">\[ T= \begin{bmatrix} a\\b \end{bmatrix}. \]</div>
+  <div class="math-display">\[T= \begin{bmatrix} a\\b \end{bmatrix}.\]</div>
 
   <p>Jika \(P(x,y)\) ditranslasikan oleh \(T\), maka:</p>
 
-  <div class="math-display">\[ P'(x',y')=(x+a,y+b). \]</div>
+  <div class="math-display">\[P'(x',y')=(x+a,y+b).\]</div>
 
   <p>atau dalam bentuk matriks:</p>
 
@@ -87,7 +87,7 @@
   </p>
 
   <div class="math-display">
-    \[ x'=x+a,\qquad y'=y+b, \] sehingga \[ x=x'-a,\qquad y=y'-b. \]
+    \[ x'=x+a,\quad y'=y+b\quad\Longrightarrow\quad x=x'-a,\quad y=y'-b. \]
   </div>
 
   <div class="lesson-example">
@@ -98,10 +98,10 @@
     </p>
 
     <p>Dari translasi:</p>
-    <div class="math-display">\[ x'=x+3,\qquad y'=y-4. \]</div>
+    <div class="math-display">\[x'=x+3,\qquad y'=y-4.\]</div>
 
     <p>Sehingga:</p>
-    <div class="math-display">\[ x=x'-3,\qquad y=y'+4. \]</div>
+    <div class="math-display">\[x=x'-3,\qquad y=y'+4.\]</div>
 
     <p>Substitusikan ke persamaan awal:</p>
     <div class="math-display">
@@ -112,7 +112,9 @@
     <p>
       Dengan mengganti \(x'\) dan \(y'\) menjadi \(x\) dan \(y\), diperoleh:
     </p>
-    <div class="math-display">\[ 2y=5x-16 \] atau \[ y=\frac52x-8. \]</div>
+    <div class="math-display">
+      \[2y=5x-16\quad\text{atau}\quad y=\frac52x-8.\]
+    </div>
   </div>
 
   <h3>Translasi Bangun Datar</h3>
@@ -139,15 +141,16 @@
       \(4\) dan tinggi segitiga terhadap alas tersebut adalah \(4\), sehingga:
     </p>
 
-    <div class="math-display">\[ L_{A'B'C'}=\frac12(4)(4)=8. \]</div>
+    <div class="math-display">\[L_{A'B'C'}=\frac12(4)(4)=8.\]</div>
 
     <p>Jadi luas bayangan segitiga adalah \(8\) satuan luas.</p>
   </div>
 
   <h3>Komposisi Translasi</h3>
   <p>
-    Jika suatu titik mengalami translasi \(T_1=(a,b)\), kemudian \(T_2=(c,d)\),
-    maka hasil akhirnya:
+    Jika suatu titik mengalami translasi
+    \(T_1=\begin{bmatrix}a\\b\end{bmatrix}\), kemudian
+    \(T_2=\begin{bmatrix}c\\d\end{bmatrix}\), maka hasil akhirnya:
   </p>
 
   <div class="math-display">
@@ -204,11 +207,11 @@
   <h3>Refleksi terhadap Garis Vertikal dan Horizontal</h3>
   <p>Untuk garis \(x=h\):</p>
 
-  <div class="math-display">\[ (x,y)\mapsto(2h-x,y). \]</div>
+  <div class="math-display">\[(x,y)\mapsto(2h-x,y).\]</div>
 
   <p>Untuk garis \(y=k\):</p>
 
-  <div class="math-display">\[ (x,y)\mapsto(x,2k-y). \]</div>
+  <div class="math-display">\[(x,y)\mapsto(x,2k-y).\]</div>
 
   <div class="lesson-example">
     <h4>Contoh 1</h4>
@@ -219,12 +222,12 @@
 
     <p>Pencerminan pertama:</p>
     <div class="math-display">
-      \[ (-10,-3)\xrightarrow{\text{sumbu }x}(-10,3). \]
+      \[(-10,-3)\xrightarrow{\text{sumbu }x}(-10,3).\]
     </div>
 
     <p>Pencerminan kedua:</p>
     <div class="math-display">
-      \[ (-10,3)\xrightarrow{\text{sumbu }y}(10,3). \]
+      \[(-10,3)\xrightarrow{\text{sumbu }y}(10,3).\]
     </div>
 
     <p>Jadi bayangan akhirnya adalah \(P''(10,3)\).</p>
@@ -236,7 +239,7 @@
     \(C\) merupakan titik tengah ruas \(PP'\). Oleh karena itu:
   </p>
 
-  <div class="math-display">\[ P'(2h-x,\;2k-y). \]</div>
+  <div class="math-display">\[P'(2h-x,\;2k-y).\]</div>
 
   <div class="lesson-example">
     <h4>Contoh 2</h4>
@@ -247,6 +250,22 @@
     </div>
 
     <p>Jadi bayangannya adalah \(P'(0,-5)\).</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 3: Refleksi Garis</h4>
+    <p>
+      Tentukan bayangan garis \(2x-3y=6\) oleh refleksi terhadap sumbu \(x\).
+    </p>
+    <p>
+      Refleksi terhadap sumbu \(x\) memberi \(x'=x\) dan \(y'=-y\), sehingga:
+    </p>
+    <div class="math-display">\[x=x',\qquad y=-y'.\]</div>
+    <p>Substitusikan ke persamaan awal:</p>
+    <div class="math-display">
+      \[ \begin{aligned} 2x'-3(-y')&=6\\ 2x'+3y'&=6. \end{aligned} \]
+    </div>
+    <p>Jadi bayangannya adalah \(2x+3y=6\).</p>
   </div>
 </section>
 
@@ -337,13 +356,13 @@
     </p>
 
     <p>Pertama, pindahkan pusat ke titik asal:</p>
-    <div class="math-display">\[ P-C=(2-4,3-1)=(-2,2). \]</div>
+    <div class="math-display">\[P-C=(2-4,3-1)=(-2,2).\]</div>
 
     <p>Rotasi \(90^\circ\) berlawanan arah jarum jam:</p>
-    <div class="math-display">\[ (-2,2)\mapsto(-2,-2). \]</div>
+    <div class="math-display">\[(-2,2)\mapsto(-2,-2).\]</div>
 
     <p>Kembalikan pusat:</p>
-    <div class="math-display">\[ P'=(4,1)+(-2,-2)=(2,-1). \]</div>
+    <div class="math-display">\[P'=(4,1)+(-2,-2)=(2,-1).\]</div>
 
     <p>Jadi bayangannya adalah \(P'(2,-1)\).</p>
   </div>
@@ -355,7 +374,36 @@
     transformasi \(A\), kemudian transformasi \(B\), maka:
   </p>
 
-  <div class="math-display">\[ P'=B(AP). \]</div>
+  <div class="math-display">\[P'=B(AP).\]</div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2: Komposisi Refleksi dan Rotasi</h4>
+    <p>
+      Titik \(P(3,2)\) dicerminkan terhadap garis \(y=x\), kemudian diputar
+      \(90^\circ\) berlawanan arah jarum jam terhadap \(O(0,0)\).
+    </p>
+    <div class="math-display">
+      \[ (3,2)\xrightarrow{y=x}(2,3)\xrightarrow{R_{90^\circ}}(-3,2). \]
+    </div>
+    <p>Jadi bayangan akhirnya adalah \(P''(-3,2)\).</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 3: Rotasi Garis</h4>
+    <p>
+      Tentukan bayangan garis \(y=x+1\) oleh rotasi \(90^\circ\) berlawanan arah
+      jarum jam terhadap titik asal.
+    </p>
+    <p>
+      Aturan rotasi \((x,y)\mapsto(-y,x)\) memberi \(x'=-y\) dan \(y'=x\),
+      sehingga:
+    </p>
+    <div class="math-display">\[x=y',\qquad y=-x'.\]</div>
+    <div class="math-display">
+      \[ \begin{aligned} -x'&=y'+1\\ x'+y'+1&=0. \end{aligned} \]
+    </div>
+    <p>Jadi bayangannya adalah \(x+y+1=0\).</p>
+  </div>
 </section>
 
 <section id="dilatasi" data-title="Dilatasi">
@@ -371,7 +419,7 @@
   <h3>Dilatasi Berpusat di Titik Asal</h3>
   <p>Jika pusat dilatasi adalah \(O(0,0)\) dan faktor skala \(k\), maka:</p>
 
-  <div class="math-display">\[ (x,y)\mapsto(kx,ky) \]</div>
+  <div class="math-display">\[(x,y)\mapsto(kx,ky)\]</div>
 
   <p>Dalam bentuk matriks:</p>
 
@@ -382,37 +430,32 @@
 
   <h3>Makna Faktor Dilatasi</h3>
   <p>
-    Misalkan faktor skala dilatasi adalah \(s\) dan pusatnya \(C\). Jika
+    Misalkan faktor skala dilatasi adalah \(k\) dan pusatnya \(C\). Jika
     \(d(A,B)\) menyatakan jarak antara titik \(A\) dan \(B\), maka
-    \(d(C,P')=|s|\,d(C,P)\). Nilai \(|s|\) menentukan perubahan ukuran,
-    sedangkan tanda \(s\) menentukan letak bayangan terhadap pusat.
+    \(d(C,P')=|k|\,d(C,P)\). Nilai \(|k|\) menentukan perubahan ukuran,
+    sedangkan tanda \(k\) menentukan letak bayangan terhadap pusat.
   </p>
   <ul>
-    <li>\(|s|>1\): bayangan diperbesar.</li>
-    <li>\(0<|s|<1\): bayangan diperkecil.</li>
-    <li>\(s=1\): objek dan bayangannya berimpit.</li>
+    <li>\(|k|>1\): bayangan diperbesar.</li>
+    <li>\(0&lt;|k|&lt;1\): bayangan diperkecil.</li>
+    <li>\(k=1\): objek dan bayangannya berimpit.</li>
     <li>
-      \(s=-1\): ukuran bayangan tetap, tetapi letaknya berlawanan terhadap pusat
+      \(k=-1\): ukuran bayangan tetap, tetapi letaknya berlawanan terhadap pusat
       dilatasi.
     </li>
-    <li>\(s=0\): semua titik bayangan berhimpit di pusat dilatasi.</li>
+    <li>\(k=0\): semua titik bayangan berhimpit di pusat dilatasi.</li>
   </ul>
   <p>
-    Untuk titik \(P\neq C\), jika \(s>0\), bayangan berada pada sinar yang sama
-    dari \(C\) melalui \(P\). Jika \(s<0\), bayangan berada pada sinar yang
+    Untuk titik \(P\neq C\), jika \(k>0\), bayangan berada pada sinar yang sama
+    dari \(C\) melalui \(P\). Jika \(k&lt;0\), bayangan berada pada sinar yang
     berlawanan.
   </p>
 
-  <h3>Dilatasi dengan Pusat \((h,k)\)</h3>
-  <p>Jika pusat dilatasi adalah \(C(h,k)\), maka:</p>
-
-  <div class="math-display">\[ P'=C+s(P-C) \]</div>
-
+  <h3>Dilatasi dengan Pusat \((p,q)\)</h3>
+  <p>Jika pusat dilatasi adalah \(C(p,q)\) dan faktor skalanya \(k\), maka:</p>
+  <div class="math-display">\[P'=C+k(P-C)\]</div>
   <p>atau secara koordinat:</p>
-
-  <div class="math-display">
-    \[ (x',y')= \left( h+s(x-h),\; k+s(y-k) \right). \]
-  </div>
+  <div class="math-display">\[(x',y')=\left(p+k(x-p),\;q+k(y-q)\right).\]</div>
 
   <div class="lesson-example">
     <h4>Contoh</h4>
@@ -420,12 +463,10 @@
       Tentukan bayangan titik \(P(2,3)\) oleh dilatasi berpusat di \(C(4,1)\)
       dengan faktor \(2\).
     </p>
-
     <div class="math-display">
-      \[ \begin{aligned} P' &= (4,1)+2\big((2,3)-(4,1)\big)\\ &=(4,1)+2(-2,2)\\
+      \[ \begin{aligned} P'&=(4,1)+2\big((2,3)-(4,1)\big)\\ &=(4,1)+2(-2,2)\\
       &=(4,1)+(-4,4)\\ &=(0,5). \end{aligned} \]
     </div>
-
     <p>Jadi bayangan titik \(P\) adalah \(P'(0,5)\).</p>
   </div>
 
@@ -434,15 +475,41 @@
     Jika panjang suatu objek adalah \(l\), maka panjang bayangannya menjadi:
   </p>
 
-  <div class="math-display">\[ l'=|k|l. \]</div>
+  <div class="math-display">\[l'=|k|l.\]</div>
 
   <p>Untuk luas bangun datar:</p>
 
-  <div class="math-display">\[ L'=k^2L. \]</div>
+  <div class="math-display">\[L'=k^2L.\]</div>
 
   <p>Sedangkan untuk volume bangun ruang:</p>
 
-  <div class="math-display">\[ V'=|k|^3V. \]</div>
+  <div class="math-display">\[V'=|k|^3V.\]</div>
+
+  <div class="lesson-example">
+    <h4>Contoh: Luas Bayangan</h4>
+    <p>
+      Sebuah segitiga berluas \(6\) satuan luas didilatasi dengan faktor \(-3\).
+    </p>
+    <div class="math-display">\[L'=(-3)^2\cdot6=54.\]</div>
+    <p>Jadi luas bayangannya adalah \(54\) satuan luas.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh: Dilatasi Garis</h4>
+    <p>
+      Tentukan bayangan garis \(3x+2y=6\) oleh dilatasi berpusat di \(O\) dengan
+      faktor \(2\).
+    </p>
+    <p>
+      Dari \(x'=2x\) dan \(y'=2y\) diperoleh \(x=\dfrac{x'}{2}\) dan
+      \(y=\dfrac{y'}{2}\):
+    </p>
+    <div class="math-display">
+      \[ \begin{aligned} 3\cdot\frac{x'}{2}+2\cdot\frac{y'}{2}&=6\\ 3x'+2y'&=12.
+      \end{aligned} \]
+    </div>
+    <p>Jadi bayangannya adalah \(3x+2y=12\).</p>
+  </div>
 </section>
 
 <section id="transformasi-matriks" data-title="Transformasi dengan Matriks">
@@ -460,13 +527,13 @@
 
   <p>maka bayangannya:</p>
 
-  <div class="math-display">\[ P'=AP. \]</div>
+  <div class="math-display">\[P'=AP.\]</div>
 
   <h3>Contoh</h3>
-  <p>
-    Titik \(P(4,-1)\) ditransformasikan oleh matriks \[ A= \begin{bmatrix} 1&2\\
-    0&1 \end{bmatrix}. \]
-  </p>
+  <p>Titik \(P(4,-1)\) ditransformasikan oleh matriks</p>
+  <div class="math-display">
+    \[A= \begin{bmatrix} 1&2\\ 0&1 \end{bmatrix}.\]
+  </div>
 
   <div class="math-display">
     \[ \begin{aligned} P' &= \begin{bmatrix} 1&2\\ 0&1 \end{bmatrix}
@@ -476,13 +543,59 @@
 
   <p>Jadi hasil transformasi pertama adalah \(P'(2,-1)\).</p>
 
+  <h3>Matriks Transformasi Baku</h3>
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Transformasi</th>
+          <th scope="col">Matriks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Refleksi sumbu \(x\)</td>
+          <td>\(\begin{bmatrix}1&0\\0&-1\end{bmatrix}\)</td>
+        </tr>
+        <tr>
+          <td>Refleksi sumbu \(y\)</td>
+          <td>\(\begin{bmatrix}-1&0\\0&1\end{bmatrix}\)</td>
+        </tr>
+        <tr>
+          <td>Refleksi \(y=x\)</td>
+          <td>\(\begin{bmatrix}0&1\\1&0\end{bmatrix}\)</td>
+        </tr>
+        <tr>
+          <td>Refleksi \(y=-x\)</td>
+          <td>\(\begin{bmatrix}0&-1\\-1&0\end{bmatrix}\)</td>
+        </tr>
+        <tr>
+          <td>Rotasi \(90^\circ\) berlawanan arah jarum jam</td>
+          <td>\(\begin{bmatrix}0&-1\\1&0\end{bmatrix}\)</td>
+        </tr>
+        <tr>
+          <td>Rotasi \(180^\circ\)</td>
+          <td>\(\begin{bmatrix}-1&0\\0&-1\end{bmatrix}\)</td>
+        </tr>
+        <tr>
+          <td>Dilatasi berpusat \(O\), faktor \(k\)</td>
+          <td>\(\begin{bmatrix}k&0\\0&k\end{bmatrix}\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p>
+    Translasi tidak dapat ditulis sebagai \(P'=AP\) karena bukan transformasi
+    linear; translasi dinyatakan dengan penjumlahan vektor.
+  </p>
+
   <h3>Komposisi Matriks</h3>
   <p>
     Jika transformasi pertama menggunakan matriks \(A\) dan transformasi kedua
     menggunakan matriks \(B\), maka:
   </p>
 
-  <div class="math-display">\[ P''=B(AP)=(BA)P. \]</div>
+  <div class="math-display">\[P''=B(AP)=(BA)P.\]</div>
 
   <p>
     Perhatikan bahwa urutan perkalian matriks harus mengikuti urutan
@@ -491,22 +604,22 @@
 
   <div class="lesson-example">
     <h4>Contoh Komposisi</h4>
-    <p>
-      Titik \(P(4,-1)\) ditransformasikan oleh \[ A= \begin{bmatrix} 1&2\\ 0&1
-      \end{bmatrix} \] kemudian diputar \(90^\circ\) searah jarum jam terhadap
-      titik asal.
-    </p>
+    <p>Titik \(P(4,-1)\) ditransformasikan oleh</p>
+    <div class="math-display">
+      \[A= \begin{bmatrix} 1&2\\ 0&1 \end{bmatrix}\]
+    </div>
+    <p>kemudian diputar \(90^\circ\) searah jarum jam terhadap titik asal.</p>
 
     <p>Matriks rotasi \(90^\circ\) searah jarum jam adalah:</p>
 
     <div class="math-display">
-      \[ R= \begin{bmatrix} 0&1\\ -1&0 \end{bmatrix}. \]
+      \[R= \begin{bmatrix} 0&1\\ -1&0 \end{bmatrix}.\]
     </div>
 
     <p>Hasil pertama:</p>
 
     <div class="math-display">
-      \[ P_1= \begin{bmatrix} 2\\-1 \end{bmatrix}. \]
+      \[P_1= \begin{bmatrix} 2\\-1 \end{bmatrix}.\]
     </div>
 
     <p>Kemudian:</p>
@@ -524,13 +637,38 @@
       gunakan bentuk titik-gradien:
     </p>
 
-    <div class="math-display">\[ y-y_1=m(x-x_1). \]</div>
+    <div class="math-display">\[y-y_1=m(x-x_1).\]</div>
 
     <p>Dengan \(m=2\) dan \((-1,-2)\):</p>
 
     <div class="math-display">
-      \[ y+2=2(x+1) \quad\Longrightarrow\quad y=2x. \]
+      \[y+2=2(x+1) \quad\Longrightarrow\quad y=2x.\]
     </div>
+  </div>
+
+  <h3>Luas Bayangan oleh Matriks</h3>
+  <p>
+    Jika suatu bangun berluas \(L\) ditransformasikan oleh matriks \(A\), maka
+    luas bayangannya:
+  </p>
+  <div class="math-display">\[L'=|\det A|\,L,\qquad \det A=ad-bc.\]</div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>
+      Segitiga dengan titik sudut \(O(0,0)\), \(P(2,0)\), dan \(Q(0,3)\)
+      ditransformasikan oleh \(A=\begin{bmatrix}2&1\\1&3\end{bmatrix}\).
+      Tentukan luas bayangannya.
+    </p>
+    <p>
+      Luas semula \(=\frac12(2)(3)=3\) dan \(\det A=2\cdot3-1\cdot1=5\),
+      sehingga:
+    </p>
+    <div class="math-display">\[L'=|5|\cdot3=15.\]</div>
+    <p>
+      Sebagai pemeriksaan, \(P'(4,2)\) dan \(Q'(3,9)\), sehingga
+      \(L'=\frac12|4\cdot9-3\cdot2|=15\).
+    </p>
   </div>
 </section>
 
@@ -628,7 +766,8 @@
     </li>
     <li>
       <strong>Untuk komposisi, kerjakan sesuai urutan.</strong>
-      Transformasi paling kanan/pertama diterapkan terlebih dahulu pada titik.
+      Pada penulisan \(B\circ A\), transformasi \(A\) (paling kanan) dikerjakan
+      lebih dahulu.
     </li>
     <li>
       <strong>Jika yang dicari adalah persamaan garis,</strong>
@@ -647,9 +786,9 @@
   <h2>8. Latihan Soal Transformasi Geometri</h2>
 
   <p>
-    Latihan berikut disusun berdasarkan soal transformasi yang Anda upload.
-    Gunakan konsep pada bagian sebelumnya dan tuliskan proses penyelesaian
-    secara runtut.
+    Kerjakan latihan berikut dengan konsep pada bagian sebelumnya dan tuliskan
+    proses penyelesaian secara runtut. Pembahasan tersedia pada bagian akhir
+    modul; cobalah mengerjakan terlebih dahulu sebelum membukanya.
   </p>
 
   <div class="lesson-example">
@@ -684,10 +823,11 @@
 
   <div class="lesson-example">
     <h4>Soal 3</h4>
+    <p>Titik \((4,-1)\) ditransformasikan oleh matriks</p>
+    <div class="math-display">\[\begin{bmatrix} 1&2\\ 0&1 \end{bmatrix},\]</div>
     <p>
-      Titik \((4,-1)\) ditransformasikan oleh matriks \[ \begin{bmatrix} 1&2\\
-      0&1 \end{bmatrix}, \] kemudian dilanjutkan dengan rotasi berpusat di
-      \(O(0,0)\) sebesar \(90^\circ\) searah jarum jam.
+      kemudian dilanjutkan dengan rotasi berpusat di \(O(0,0)\) sebesar
+      \(90^\circ\) searah jarum jam.
     </p>
     <ol type="a">
       <li>Tentukan koordinat bayangan akhir titik tersebut.</li>
@@ -749,10 +889,11 @@
 
   <div class="lesson-example">
     <h4>Soal 8</h4>
+    <p>Titik \(A(2,3)\) ditransformasikan oleh matriks</p>
+    <div class="math-display">\[\begin{bmatrix} 4&1\\ 1&4 \end{bmatrix}\]</div>
     <p>
-      Titik \(A(2,3)\) ditransformasikan oleh matriks \[ \begin{bmatrix} 4&1\\
-      1&4 \end{bmatrix} \] kemudian dilanjutkan dengan pencerminan terhadap
-      garis \(y=x\). Tentukan bayangannya.
+      kemudian dilanjutkan dengan pencerminan terhadap garis \(y=x\). Tentukan
+      bayangannya.
     </p>
     <ol type="A">
       <li>\((16,12)\)</li>
@@ -765,10 +906,11 @@
 
   <div class="lesson-example">
     <h4>Soal 9</h4>
+    <p>Suatu titik \((x,y)\) ditransformasikan terhadap matriks</p>
+    <div class="math-display">\[\begin{bmatrix} k&0\\ 0&k \end{bmatrix}.\]</div>
     <p>
-      Suatu titik \((x,y)\) ditransformasikan terhadap matriks \[
-      \begin{bmatrix} k&0\\ 0&k \end{bmatrix}. \] Apakah hasilnya sama dengan
-      perkalian skalar \(k\) terhadap \(\begin{bmatrix}x\\y\end{bmatrix}\)?
+      Apakah hasilnya sama dengan perkalian skalar \(k\) terhadap
+      \(\begin{bmatrix}x\\y\end{bmatrix}\)?
     </p>
     <ol type="A">
       <li>Benar</li>
@@ -780,9 +922,12 @@
     <h4>Soal 10</h4>
     <p>
       Transformasi rotasi terhadap titik asal \((0,0)\) sebesar \(90^\circ\)
-      searah jarum jam berhubungan dengan matriks \[ \begin{bmatrix} 0&1\\ -1&0
-      \end{bmatrix}. \] Apakah pernyataan tersebut benar?
+      searah jarum jam berhubungan dengan matriks
     </p>
+    <div class="math-display">
+      \[\begin{bmatrix} 0&1\\ -1&0 \end{bmatrix}.\]
+    </div>
+    <p>Apakah pernyataan tersebut benar?</p>
     <ol type="A">
       <li>Benar</li>
       <li>Salah</li>
@@ -848,12 +993,28 @@
           <td>\((x,y)\mapsto(-x,-y)\)</td>
         </tr>
         <tr>
+          <td>Refleksi garis \(x=h\)</td>
+          <td>\((x,y)\mapsto(2h-x,\,y)\)</td>
+        </tr>
+        <tr>
+          <td>Refleksi garis \(y=k\)</td>
+          <td>\((x,y)\mapsto(x,\,2k-y)\)</td>
+        </tr>
+        <tr>
+          <td>Refleksi terhadap titik \(C(h,k)\)</td>
+          <td>\((x,y)\mapsto(2h-x,\,2k-y)\)</td>
+        </tr>
+        <tr>
+          <td>Rotasi \(\theta\) berpusat \(C(h,k)\)</td>
+          <td>\(P'=C+R_\theta(P-C)\)</td>
+        </tr>
+        <tr>
           <td>\(D_{O,k}\)</td>
           <td>\((x,y)\mapsto(kx,ky)\)</td>
         </tr>
         <tr>
-          <td>\(D_{(h,k),s}\)</td>
-          <td>\((x,y)\mapsto(h+s(x-h),\,k+s(y-k))\)</td>
+          <td>\(D_{(p,q),k}\)</td>
+          <td>\((x,y)\mapsto(p+k(x-p),\,q+k(y-q))\)</td>
         </tr>
       </tbody>
     </table>
@@ -864,4 +1025,655 @@
     arah transformasi, faktor atau sudut yang digunakan, serta urutan ketika
     beberapa transformasi dilakukan secara berturut-turut.
   </p>
+</section>
+
+<section id="pembahasan-latihan" data-title="Pembahasan Latihan">
+  <h2>10. Pembahasan Latihan Soal</h2>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table answer-key-table">
+      <thead>
+        <tr>
+          <th scope="col">Soal</th>
+          <th scope="col">Jawaban</th>
+          <th scope="col">Konsep</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>A</td>
+          <td>Dilatasi berpusat sembarang</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>C</td>
+          <td>Rotasi berpusat sembarang</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>(a) \((-1,-2)\); (b) \(y=2x\)</td>
+          <td>Komposisi matriks dan persamaan garis</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>E</td>
+          <td>Dua refleksi berurutan</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>\((6,4)\)</td>
+          <td>Translasi dilanjutkan rotasi</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>E</td>
+          <td>Refleksi terhadap titik</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>A (Benar)</td>
+          <td>Komposisi translasi</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>B</td>
+          <td>Matriks dilanjutkan refleksi</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>A (Benar)</td>
+          <td>Matriks dilatasi</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>A (Benar)</td>
+          <td>Matriks rotasi</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>B (Salah)</td>
+          <td>Sifat transformasi</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 1</h4>
+    <div class="math-display">
+      \[ \begin{aligned} P'&=(4,1)+2\big((2,3)-(4,1)\big)\\ &=(4,1)+2(-2,2)\\
+      &=(0,5). \end{aligned} \]
+    </div>
+    <p>Jawaban: <strong>A</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 2</h4>
+    <div class="math-display">
+      \[ \begin{aligned} P-C&=(2-4,3-1)=(-2,2)\\ R_{90^\circ}(-2,2)&=(-2,-2)\\
+      P'&=(4,1)+(-2,-2)=(2,-1). \end{aligned} \]
+    </div>
+    <p>Jawaban: <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 3</h4>
+    <p><strong>(a)</strong> Transformasi pertama:</p>
+    <div class="math-display">
+      \[
+      \begin{bmatrix}1&2\\0&1\end{bmatrix}\begin{bmatrix}4\\-1\end{bmatrix}=\begin{bmatrix}2\\-1\end{bmatrix}.
+      \]
+    </div>
+    <p>
+      Rotasi \(90^\circ\) searah jarum jam menggunakan
+      \(R=\begin{bmatrix}0&1\\-1&0\end{bmatrix}\):
+    </p>
+    <div class="math-display">
+      \[
+      \begin{bmatrix}0&1\\-1&0\end{bmatrix}\begin{bmatrix}2\\-1\end{bmatrix}=\begin{bmatrix}-1\\-2\end{bmatrix}.
+      \]
+    </div>
+    <p>Jadi bayangan akhirnya adalah \((-1,-2)\).</p>
+    <p><strong>(b)</strong> Dengan \(m=2\) dan titik \((-1,-2)\):</p>
+    <div class="math-display">
+      \[y+2=2(x+1)\quad\Longrightarrow\quad y=2x.\]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 4</h4>
+    <div class="math-display">
+      \[ (-10,-3)\xrightarrow{\text{sumbu }x}(-10,3)\xrightarrow{\text{sumbu
+      }y}(10,3). \]
+    </div>
+    <p>Jawaban: <strong>E</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 5</h4>
+    <p>Translasi:</p>
+    <div class="math-display">\[A'=(3+1,\,-2-2)=(4,-4).\]</div>
+    <p>
+      Rotasi \(90^\circ\) berlawanan arah jarum jam dengan pusat \(C(1,1)\):
+    </p>
+    <div class="math-display">
+      \[ \begin{aligned} A'-C&=(3,-5)\\ R_{90^\circ}(3,-5)&=(5,3)\\
+      A''&=(1,1)+(5,3)=(6,4). \end{aligned} \]
+    </div>
+    <p>Jadi titik hasil peta \(A\) adalah \((6,4)\).</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 6</h4>
+    <div class="math-display">\[P'=(2\cdot3-6,\;2\cdot1-7)=(0,-5).\]</div>
+    <p>Jawaban: <strong>E</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 7</h4>
+    <p>
+      Jika \(T_1=\begin{bmatrix}a\\b\end{bmatrix}\) dan
+      \(T_2=\begin{bmatrix}c\\d\end{bmatrix}\), maka \(T_2\circ
+      T_1=\begin{bmatrix}a+c\\b+d\end{bmatrix}\), yang juga merupakan translasi.
+      Jawaban: <strong>A (Benar)</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 8</h4>
+    <div class="math-display">
+      \[
+      \begin{bmatrix}4&1\\1&4\end{bmatrix}\begin{bmatrix}2\\3\end{bmatrix}=\begin{bmatrix}11\\14\end{bmatrix}.
+      \]
+    </div>
+    <p>
+      Refleksi terhadap \(y=x\) menukar koordinat: \((11,14)\mapsto(14,11)\).
+    </p>
+    <p>
+      Jawaban: <strong>B</strong>. Pilihan C adalah hasil jika pencerminan
+      terlewat.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 9</h4>
+    <div class="math-display">
+      \[
+      \begin{bmatrix}k&0\\0&k\end{bmatrix}\begin{bmatrix}x\\y\end{bmatrix}=\begin{bmatrix}kx\\ky\end{bmatrix}=k\begin{bmatrix}x\\y\end{bmatrix}.
+      \]
+    </div>
+    <p>Jawaban: <strong>A (Benar)</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 10</h4>
+    <p>
+      Rotasi \(-90^\circ\) memiliki \(\cos(-90^\circ)=0\) dan
+      \(\sin(-90^\circ)=-1\), sehingga:
+    </p>
+    <div class="math-display">
+      \[ R_{-90^\circ}=\begin{bmatrix}0&1\\-1&0\end{bmatrix}. \]
+    </div>
+    <p>Jawaban: <strong>A (Benar)</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 11</h4>
+    <p>
+      Translasi, refleksi, dan rotasi semuanya mempertahankan ukuran bangun.
+      Yang mengubah ukuran (jika \(|k|\neq1\)) adalah <strong>dilatasi</strong>,
+      bukan translasi. Jadi pernyataan tersebut salah. Jawaban:
+      <strong>B (Salah)</strong>.
+    </p>
+  </div>
+</section>
+<section id="latihan-lanjutan" data-title="Latihan Lanjutan">
+  <h2>11. Latihan Soal Lanjutan: UTBK dan Olimpiade</h2>
+
+  <p>
+    Soal-soal berikut menggabungkan beberapa konsep sekaligus. Soal 12 sampai 20
+    bertingkat UTBK, sedangkan Soal 21 bertingkat olimpiade dan dikerjakan dalam
+    bentuk uraian. Kunci dan pembahasan ada pada bagian akhir.
+  </p>
+
+  <h3>A. Soal Tingkat UTBK</h3>
+
+  <div class="lesson-example">
+    <h4>Soal 12</h4>
+    <p>
+      Parabola \(y=x^2-6x+5\) ditranslasikan oleh
+      \(T=\begin{bmatrix}a\\b\end{bmatrix}\) sehingga bayangannya adalah
+      \(y=x^2+2x-1\). Nilai \(a+b\) adalah \(\dots\)
+    </p>
+    <ol type="A">
+      <li>\(-6\)</li>
+      <li>\(0\)</li>
+      <li>\(2\)</li>
+      <li>\(-2\)</li>
+      <li>\(6\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 13</h4>
+    <p>
+      Garis \(y=2x+1\) dicerminkan terhadap garis \(x=3\), kemudian hasilnya
+      dicerminkan terhadap garis \(y=-1\). Persamaan bayangan akhirnya adalah
+      \(\dots\)
+    </p>
+    <ol type="A">
+      <li>\(y=2x-15\)</li>
+      <li>\(y=-2x+13\)</li>
+      <li>\(y=2x+15\)</li>
+      <li>\(y=-2x-15\)</li>
+      <li>\(y=2x-13\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 14</h4>
+    <p>
+      Garis \(2x-y+3=0\) diputar sebesar \(90^\circ\) berlawanan arah jarum jam
+      dengan pusat \((1,2)\). Persamaan bayangannya adalah \(\dots\)
+    </p>
+    <ol type="A">
+      <li>\(x+2y+3=0\)</li>
+      <li>\(x+2y-8=0\)</li>
+      <li>\(x+2y-2=0\)</li>
+      <li>\(2x+y-3=0\)</li>
+      <li>\(x-2y+3=0\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 15</h4>
+    <p>
+      Suatu dilatasi dengan faktor \(-2\) memetakan titik \(A(2,1)\) ke
+      \(A'(-1,4)\). Bayangan titik \(B(3,-2)\) oleh dilatasi yang sama adalah
+      \(\dots\)
+    </p>
+    <ol type="A">
+      <li>\((-6,4)\)</li>
+      <li>\((-5,8)\)</li>
+      <li>\((-3,-2)\)</li>
+      <li>\((-1,10)\)</li>
+      <li>\((-3,10)\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 16</h4>
+    <p>
+      Transformasi dengan matriks \(\begin{bmatrix}a&1\\2&a\end{bmatrix}\)
+      memetakan sebuah segitiga berluas \(10\) satuan luas menjadi segitiga
+      berluas \(30\) satuan luas. Hasil kali semua nilai \(a\) yang mungkin
+      adalah \(\dots\)
+    </p>
+    <ol type="A">
+      <li>\(-2\)</li>
+      <li>\(-5\)</li>
+      <li>\(1\)</li>
+      <li>\(5\)</li>
+      <li>\(10\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 17</h4>
+    <p>
+      Transformasi linear \(T\) memetakan \((1,0)\) ke \((2,1)\) dan \((0,1)\)
+      ke \((-1,3)\). Bayangan garis \(x+y=3\) oleh \(T\) adalah \(\dots\)
+    </p>
+    <ol type="A">
+      <li>\(3x+2y=3\)</li>
+      <li>\(2x+3y=3\)</li>
+      <li>\(4x+y=21\)</li>
+      <li>\(2x+3y=21\)</li>
+      <li>\(3x+2y=21\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 18</h4>
+    <p>
+      Titik \(P(a,b)\) ditranslasikan oleh
+      \(\begin{bmatrix}2\\-1\end{bmatrix}\), dicerminkan terhadap garis \(y=x\),
+      kemudian diputar \(90^\circ\) berlawanan arah jarum jam dengan pusat
+      \((1,1)\). Bayangan akhirnya adalah \((-4,2)\). Koordinat titik \(P\)
+      adalah \(\dots\)
+    </p>
+    <ol type="A">
+      <li>\((4,3)\)</li>
+      <li>\((3,4)\)</li>
+      <li>\((-4,3)\)</li>
+      <li>\((4,-3)\)</li>
+      <li>\((-3,4)\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 19</h4>
+    <p>Perhatikan pernyataan-pernyataan berikut.</p>
+    <ol>
+      <li>
+        Komposisi dua refleksi terhadap dua garis yang sejajar merupakan sebuah
+        translasi.
+      </li>
+      <li>
+        Komposisi dua refleksi terhadap dua garis yang berpotongan di \(O\)
+        merupakan sebuah rotasi dengan pusat \(O\).
+      </li>
+      <li>Dilatasi dengan faktor \(k&lt;0\) membalik orientasi bangun.</li>
+      <li>Determinan matriks refleksi bernilai \(-1\).</li>
+    </ol>
+    <p>Pernyataan yang benar adalah \(\dots\)</p>
+    <ol type="A">
+      <li>(1), (2), dan (3)</li>
+      <li>(1), (2), dan (4)</li>
+      <li>(1), (3), dan (4)</li>
+      <li>(2), (3), dan (4)</li>
+      <li>(1), (2), (3), dan (4)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 20</h4>
+    <p>
+      Lingkaran \(x^2+y^2-4x+6y-12=0\) dicerminkan terhadap garis \(y=x\),
+      kemudian didilatasi dengan pusat \(O(0,0)\) dan faktor \(2\). Persamaan
+      bayangan akhirnya adalah \(\dots\)
+    </p>
+    <ol type="A">
+      <li>\(x^2+y^2+12x-8y+27=0\)</li>
+      <li>\(x^2+y^2-8x+12y-48=0\)</li>
+      <li>\(x^2+y^2+12x-8y-48=0\)</li>
+      <li>\(x^2+y^2+12x-8y+2=0\)</li>
+      <li>\(x^2+y^2+6x-4y-87=0\)</li>
+    </ol>
+  </div>
+
+  <h3>B. Soal Tingkat Olimpiade</h3>
+
+  <div class="lesson-example">
+    <h4>Soal 21</h4>
+    <p>
+      Diberikan titik \(A(4,2)\) dan \(B(2,6)\). Titik \(P\) bergerak pada sumbu
+      \(x\) dan titik \(Q\) bergerak pada sumbu \(y\). Tentukan nilai minimum
+      dari
+    </p>
+    <div class="math-display">\[AP+PQ+QB,\]</div>
+    <p>
+      beserta koordinat \(P\) dan \(Q\) yang menghasilkannya. Jelaskan mengapa
+      nilai tersebut tidak dapat dibuat lebih kecil.
+    </p>
+  </div>
+</section>
+
+<section id="pembahasan-lanjutan" data-title="Pembahasan Lanjutan">
+  <h2>12. Pembahasan Latihan Soal Lanjutan</h2>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table answer-key-table">
+      <thead>
+        <tr>
+          <th scope="col">Soal</th>
+          <th scope="col">Jawaban</th>
+          <th scope="col">Konsep</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>12</td>
+          <td>D</td>
+          <td>Translasi parabola</td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>A</td>
+          <td>Dua refleksi pada garis tegak lurus</td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td>C</td>
+          <td>Rotasi garis berpusat sembarang</td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td>E</td>
+          <td>Mencari pusat dilatasi</td>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td>B</td>
+          <td>Determinan dan luas bayangan</td>
+        </tr>
+        <tr>
+          <td>17</td>
+          <td>D</td>
+          <td>Matriks dari bayangan vektor basis</td>
+        </tr>
+        <tr>
+          <td>18</td>
+          <td>A</td>
+          <td>Komposisi tiga transformasi (balik)</td>
+        </tr>
+        <tr>
+          <td>19</td>
+          <td>B</td>
+          <td>Sifat komposisi dan determinan</td>
+        </tr>
+        <tr>
+          <td>20</td>
+          <td>C</td>
+          <td>Refleksi dan dilatasi lingkaran</td>
+        </tr>
+        <tr>
+          <td>21</td>
+          <td>\(10\)</td>
+          <td>Refleksi untuk meminimumkan lintasan</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 12</h4>
+    <p>
+      Dari translasi, \(x=x'-a\) dan \(y=y'-b\). Substitusikan ke persamaan
+      awal:
+    </p>
+    <div class="math-display">
+      \[ \begin{aligned} y'-b&=(x'-a)^2-6(x'-a)+5\\
+      y'&=x'^2-(2a+6)x'+a^2+6a+5+b. \end{aligned} \]
+    </div>
+    <p>Samakan dengan \(y=x^2+2x-1\):</p>
+    <div class="math-display">
+      \[ \begin{aligned} -(2a+6)&=2\Rightarrow a=-4\\ 16-24+5+b&=-1\Rightarrow
+      b=2. \end{aligned} \]
+    </div>
+    <p>
+      Jadi \(a+b=-2\). Pemeriksaan: puncak semula \((3,-4)\) bergeser oleh
+      \((-4,2)\) menjadi \((-1,-2)\), yaitu puncak \(y=(x+1)^2-2\). Jawaban:
+      <strong>D</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 13</h4>
+    <p>Refleksi terhadap \(x=3\) memberi \(x=6-x'\) dan \(y=y'\):</p>
+    <div class="math-display">\[y'=2(6-x')+1=13-2x'.\]</div>
+    <p>
+      Refleksi terhadap \(y=-1\) memberi \((x,y)\mapsto(x,-2-y)\), sehingga:
+    </p>
+    <div class="math-display">\[y''=-2-(13-2x'')=2x''-15.\]</div>
+    <p>
+      Pemeriksaan: kedua refleksi ini sama dengan rotasi \(180^\circ\) berpusat
+      di \((3,-1)\), sehingga gradien garis tetap \(2\). Titik \((3,7)\) pada
+      garis semula menjadi \((3,-9)\), dan \(2(3)-15=-9\). Jawaban:
+      <strong>A</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 14</h4>
+    <p>
+      Misalkan \(u=x-1\) dan \(v=y-2\). Rotasi \(90^\circ\) berlawanan arah
+      jarum jam memberi \((u,v)\mapsto(-v,u)\), sehingga:
+    </p>
+    <div class="math-display">
+      \[ \begin{aligned} x'&=1-(y-2)=3-y\Rightarrow y=3-x'\\
+      y'&=2+(x-1)=x+1\Rightarrow x=y'-1. \end{aligned} \]
+    </div>
+    <p>Substitusikan ke \(2x-y+3=0\):</p>
+    <div class="math-display">
+      \[ \begin{aligned} 2(y'-1)-(3-x')+3&=0\\ x'+2y'-2&=0. \end{aligned} \]
+    </div>
+    <p>
+      Pemeriksaan: titik \((0,3)\) pada garis semula menjadi \((0,1)\), dan
+      \(0+2-2=0\). Jawaban: <strong>C</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 15</h4>
+    <p>Untuk pusat \(C\) dan faktor \(k\), berlaku \(A'=kA+(1-k)C\). Maka:</p>
+    <div class="math-display">
+      \[ \begin{aligned} (-1,4)&=-2(2,1)+3C\\ 3C&=(3,6)\Rightarrow C=(1,2).
+      \end{aligned} \]
+    </div>
+    <div class="math-display">\[B'=-2(3,-2)+3(1,2)=(-6+3,\;4+6)=(-3,10).\]</div>
+    <p>Jawaban: <strong>E</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 16</h4>
+    <p>
+      Luas bayangan \(=|\det A|\times\) luas semula, dengan \(\det A=a^2-2\):
+    </p>
+    <div class="math-display">
+      \[ \begin{aligned} |a^2-2|\cdot10&=30\\ a^2-2&=3\quad\text{atau}\quad
+      a^2-2=-3. \end{aligned} \]
+    </div>
+    <p>
+      Kasus kedua memberi \(a^2=-1\) sehingga tidak ada solusi real. Kasus
+      pertama memberi \(a=\pm\sqrt5\), dan hasil kalinya \(-5\). Jawaban:
+      <strong>B</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 17</h4>
+    <p>Kolom matriks adalah bayangan vektor basis:</p>
+    <div class="math-display">
+      \[ M=\begin{bmatrix}2&-1\\1&3\end{bmatrix},\qquad \det M=7,\qquad
+      M^{-1}=\frac17\begin{bmatrix}3&1\\-1&2\end{bmatrix}. \]
+    </div>
+    <p>Dari \((x',y')=M(x,y)\) diperoleh:</p>
+    <div class="math-display">
+      \[x=\frac{3x'+y'}{7},\qquad y=\frac{-x'+2y'}{7}.\]
+    </div>
+    <p>Substitusikan ke \(x+y=3\):</p>
+    <div class="math-display">
+      \[\frac{2x'+3y'}{7}=3\quad\Longrightarrow\quad 2x'+3y'=21.\]
+    </div>
+    <p>
+      Pemeriksaan: \((3,0)\mapsto(6,3)\) dan \(2(6)+3(3)=21\). Jawaban:
+      <strong>D</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 18</h4>
+    <p>Kerjakan secara maju untuk \(P(a,b)\):</p>
+    <div class="math-display">
+      \[ (a,b)\xrightarrow{T}(a+2,\,b-1)\xrightarrow{y=x}(b-1,\,a+2). \]
+    </div>
+    <p>
+      Rotasi \(90^\circ\) berlawanan arah jarum jam dengan pusat \(C(1,1)\):
+    </p>
+    <div class="math-display">
+      \[ \begin{aligned} P-C&=(b-2,\,a+1)\\ R_{90^\circ}(P-C)&=(-(a+1),\,b-2)\\
+      P'&=(1,1)+(-(a+1),\,b-2)=(-a,\,b-1). \end{aligned} \]
+    </div>
+    <p>
+      Samakan dengan \((-4,2)\): \(-a=-4\) sehingga \(a=4\), dan \(b-1=2\)
+      sehingga \(b=3\). Jadi \(P(4,3)\). Jawaban: <strong>A</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 19</h4>
+    <ol>
+      <li>
+        <strong>Benar.</strong> Dua refleksi pada garis sejajar menghasilkan
+        translasi sejauh dua kali jarak kedua garis, tegak lurus garis.
+      </li>
+      <li>
+        <strong>Benar.</strong> Dua refleksi pada garis yang berpotongan di
+        \(O\) menghasilkan rotasi berpusat \(O\) dengan sudut dua kali sudut
+        antara kedua garis.
+      </li>
+      <li>
+        <strong>Salah.</strong> Matriks dilatasi
+        \(k\begin{bmatrix}1&0\\0&1\end{bmatrix}\) berdeterminan \(k^2&gt;0\),
+        sehingga orientasi tetap untuk \(k\neq0\).
+      </li>
+      <li>
+        <strong>Benar.</strong> Misalnya refleksi sumbu \(x\) memiliki
+        determinan \(1\cdot(-1)-0=-1\).
+      </li>
+    </ol>
+    <p>Jawaban: <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 20</h4>
+    <p>Bentuk baku lingkaran semula:</p>
+    <div class="math-display">\[(x-2)^2+(y+3)^2=25,\]</div>
+    <p>
+      dengan pusat \((2,-3)\) dan jari-jari \(5\). Transformasi pusat dan
+      jari-jari:
+    </p>
+    <div class="math-display">
+      \[ (2,-3)\xrightarrow{y=x}(-3,2)\xrightarrow{D_{O,2}}(-6,4),\qquad
+      r=5\mapsto2\cdot5=10. \]
+    </div>
+    <p>Jadi bayangannya:</p>
+    <div class="math-display">
+      \[ \begin{aligned} (x+6)^2+(y-4)^2&=100\\ x^2+y^2+12x-8y-48&=0.
+      \end{aligned} \]
+    </div>
+    <p>Jawaban: <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 21</h4>
+    <p>
+      Cerminkan \(A\) terhadap sumbu \(x\) menjadi \(A'(4,-2)\), dan cerminkan
+      \(B\) terhadap sumbu \(y\) menjadi \(B'(-2,6)\). Karena \(P\) berada pada
+      sumbu \(x\) dan \(Q\) berada pada sumbu \(y\):
+    </p>
+    <div class="math-display">\[AP=A'P,\qquad QB=QB'.\]</div>
+    <p>Dengan ketaksamaan segitiga berulang:</p>
+    <div class="math-display">
+      \[AP+PQ+QB=A'P+PQ+QB'\ge A'B'=\sqrt{6^2+8^2}=10.\]
+    </div>
+    <p>
+      Kesamaan terjadi jika \(A',P,Q,B'\) segaris dengan urutan tersebut. Garis
+      \(A'B'\) bergradien \(-\frac43\):
+    </p>
+    <div class="math-display">\[y+2=-\frac43(x-4).\]</div>
+    <p>
+      Perpotongan dengan sumbu \(x\) (\(y=0\)) memberi
+      \(P\left(\frac52,0\right)\), dan dengan sumbu \(y\) (\(x=0\)) memberi
+      \(Q\left(0,\frac{10}{3}\right)\). Absis \(4,\ \frac52,\ 0,\ -2\) menurun,
+      sehingga urutan \(A',P,Q,B'\) memang terpenuhi dan batas bawah \(10\)
+      tercapai.
+    </p>
+    <p>
+      Jadi nilai minimumnya adalah \(10\), dicapai di
+      \(P\left(\frac52,0\right)\) dan \(Q\left(0,\frac{10}{3}\right)\).
+    </p>
+  </div>
 </section>
