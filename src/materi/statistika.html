@@ -1,0 +1,6120 @@
+<section id="pengertian-statistika" data-title="Pengertian Statistika dan Data">
+  <h2>1. Pengertian Statistika dan Data</h2>
+
+  <p>
+    Statistika adalah cabang matematika yang mempelajari cara mengumpulkan,
+    menyajikan, mengolah, dan menafsirkan data agar kita dapat mengambil
+    kesimpulan. Kita menjumpainya setiap hari: rata-rata nilai rapor, hasil
+    survei kepuasan pelanggan, ukuran sepatu yang paling laris, sampai tinggi
+    badan "tipikal" siswa satu angkatan. Pada materi ini kita fokus pada tiga
+    ukuran yang paling sering dipakai untuk menggambarkan pusat data, yaitu
+    <strong>mean</strong> (rata-rata), <strong>median</strong> (nilai tengah),
+    dan <strong>modus</strong> (nilai yang paling sering muncul).
+  </p>
+
+  <h3>Istilah Dasar</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Istilah</th>
+          <th scope="col">Arti</th>
+          <th scope="col">Contoh</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Data</td>
+          <td>Kumpulan keterangan (angka atau kategori) hasil pengamatan</td>
+          <td>Nilai ulangan 30 siswa</td>
+        </tr>
+        <tr>
+          <td>Datum</td>
+          <td>Satu satuan keterangan dalam data</td>
+          <td>Nilai \(78\) milik Budi</td>
+        </tr>
+        <tr>
+          <td>Populasi</td>
+          <td>Seluruh objek yang ingin diteliti</td>
+          <td>Seluruh siswa kelas XII di suatu kota</td>
+        </tr>
+        <tr>
+          <td>Sampel</td>
+          <td>Sebagian populasi yang benar-benar diamati</td>
+          <td>\(200\) siswa kelas XII yang dipilih secara acak</td>
+        </tr>
+        <tr>
+          <td>Ukuran pemusatan</td>
+          <td>Satu nilai yang mewakili "pusat" data</td>
+          <td>Mean, median, dan modus</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Jenis Data</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Jenis</th>
+          <th scope="col">Ciri</th>
+          <th scope="col">Contoh</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Kualitatif nominal</td>
+          <td>Berupa kategori, tidak ada urutan</td>
+          <td>Warna favorit, jurusan, jenis kelamin</td>
+        </tr>
+        <tr>
+          <td>Kualitatif ordinal</td>
+          <td>Berupa kategori yang berurutan</td>
+          <td>Predikat A, B, C; tingkat kepuasan</td>
+        </tr>
+        <tr>
+          <td>Kuantitatif diskrit</td>
+          <td>Berupa bilangan hasil <em>mencacah</em></td>
+          <td>Banyak buku yang dibaca, jumlah saudara</td>
+        </tr>
+        <tr>
+          <td>Kuantitatif kontinu</td>
+          <td>Berupa bilangan hasil <em>mengukur</em></td>
+          <td>Tinggi badan, berat badan, waktu tempuh</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    Mean dan median hanya bermakna untuk data kuantitatif. Modus bisa dipakai
+    untuk semua jenis data, bahkan menjadi satu-satunya ukuran pemusatan yang
+    masuk akal untuk data nominal (misalnya "warna paling banyak dipilih").
+  </p>
+
+  <h3>Data Tunggal dan Data Berkelompok</h3>
+
+  <p>
+    <strong>Data tunggal</strong> adalah data yang disajikan nilai demi nilai,
+    baik dalam bentuk daftar maupun tabel frekuensi sederhana. Contohnya
+    \(6,7,7,8,9\). <strong>Data berkelompok</strong> adalah data yang nilainya
+    dikelompokkan ke dalam interval-interval yang disebut kelas, misalnya "nilai
+    \(41\)–\(50\) ada \(3\) siswa". Pengelompokan dipakai ketika datanya sangat
+    banyak atau nilainya sangat bervariasi, sehingga daftar nilai demi nilai
+    terlalu panjang untuk dibaca.
+  </p>
+
+  <h3>Notasi yang Dipakai</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Lambang</th>
+          <th scope="col">Dibaca / Arti</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(n\)</td>
+          <td>Banyak data</td>
+        </tr>
+        <tr>
+          <td>\(x_i\)</td>
+          <td>
+            Data ke-\(i\) (pada data berkelompok: titik tengah kelas ke-\(i\))
+          </td>
+        </tr>
+        <tr>
+          <td>\(f_i\)</td>
+          <td>Frekuensi, yaitu banyaknya kemunculan \(x_i\)</td>
+        </tr>
+        <tr>
+          <td>\(\bar{x}\)</td>
+          <td>Mean (dibaca "x bar")</td>
+        </tr>
+        <tr>
+          <td>\(\mathrm{Me}\)</td>
+          <td>Median</td>
+        </tr>
+        <tr>
+          <td>\(\mathrm{Mo}\)</td>
+          <td>Modus</td>
+        </tr>
+        <tr>
+          <td>\(\sum\)</td>
+          <td>Sigma, tanda penjumlahan</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Notasi sigma hanyalah cara singkat menulis penjumlahan:</p>
+
+  <div class="math-display">\[ \sum_{i=1}^{n}x_i=x_1+x_2+x_3+\cdots+x_n \]</div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Diketahui data \(x_1=3,\ x_2=5,\ x_3=8,\ x_4=10\) dengan frekuensi
+      masing-masing \(f_1=2,\ f_2=1,\ f_3=4,\ f_4=3\). Hitunglah \(\sum x_i\),
+      \(\sum f_i\), dan \(\sum f_ix_i\).
+    </p>
+
+    <div class="math-display">
+      \[ \begin{aligned} \sum x_i&=3+5+8+10=26\\ \sum f_i&=2+1+4+3=10\\ \sum
+      f_ix_i&=2(3)+1(5)+4(8)+3(10)=6+5+32+30=73 \end{aligned} \]
+    </div>
+  </div>
+
+  <h3>Tiga Ukuran Pemusatan Data</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Ukuran</th>
+          <th scope="col">Gagasan</th>
+          <th scope="col">Cara memperoleh</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Mean</td>
+          <td>
+            Titik seimbang; nilai yang sama rata jika semua data "dibagi rata"
+          </td>
+          <td>Jumlahkan semua data, bagi dengan banyak data</td>
+        </tr>
+        <tr>
+          <td>Median</td>
+          <td>Nilai tengah; setengah data berada di bawahnya</td>
+          <td>Urutkan data, ambil data yang di tengah</td>
+        </tr>
+        <tr>
+          <td>Modus</td>
+          <td>Nilai yang paling "populer"</td>
+          <td>Cari data dengan frekuensi terbesar</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Latihan Mengenali Jenis Data</h4>
+
+    <p>
+      Tentukan jenis data berikut: (a) merek ponsel siswa, (b) banyak anggota
+      keluarga, (c) suhu tubuh pasien, (d) peringkat kelas.
+    </p>
+
+    <ul>
+      <li>(a) Kualitatif nominal, karena berupa kategori tanpa urutan.</li>
+      <li>(b) Kuantitatif diskrit, karena diperoleh dengan mencacah.</li>
+      <li>(c) Kuantitatif kontinu, karena diperoleh dengan mengukur.</li>
+      <li>(d) Kualitatif ordinal, karena berupa kategori yang berurutan.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="mean-data-tunggal" data-title="Mean (Rata-Rata) Data Tunggal">
+  <h2>2. Mean (Rata-Rata) Data Tunggal</h2>
+
+  <p>
+    Mean adalah ukuran pemusatan yang paling dikenal. Idenya sederhana: jika
+    semua data "dibagi rata", setiap data akan sama dengan mean.
+  </p>
+
+  <h3>Definisi dan Rumus</h3>
+
+  <div class="math-display">
+    \[ \bar{x}=\frac{x_1+x_2+\cdots+x_n}{n}=\frac{\sum_{i=1}^{n}x_i}{n} \]
+  </div>
+
+  <p>
+    Dalam kata-kata: mean sama dengan
+    <strong>jumlah seluruh data dibagi banyak data</strong>.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+
+    <p>
+      Nilai ulangan lima siswa adalah \(70,\ 85,\ 90,\ 75,\ 80\). Hitunglah
+      mean-nya.
+    </p>
+
+    <div class="math-display">
+      \[ \bar{x}=\frac{70+85+90+75+80}{5}=\frac{400}{5}=80 \]
+    </div>
+  </div>
+
+  <h3>Makna Mean: Titik Seimbang</h3>
+
+  <p>
+    Bayangkan data sebagai beban pada papan jungkat-jungkit yang diletakkan pada
+    garis bilangan. Mean adalah titik tumpu yang membuat papan seimbang.
+    Akibatnya,
+    <strong>jumlah selisih setiap data terhadap mean selalu nol</strong>:
+  </p>
+
+  <div class="math-display">\[ \sum_{i=1}^{n}(x_i-\bar{x})=0 \]</div>
+
+  <p>
+    Mengapa? Karena \(\sum(x_i-\bar{x})=\sum x_i-n\bar{x}=\sum x_i-\sum x_i=0\).
+    Sebagai gambaran, data \(2,3,7\) memiliki mean \(\bar{x}=4\). Selisihnya
+    terhadap mean adalah \(-2,\ -1,\ 3\), dan jumlahnya memang \(0\).
+  </p>
+
+  <figure style="margin: 1.25rem auto; text-align: center">
+    <svg
+      viewBox="0 0 640 220"
+      role="img"
+      aria-label="Papan seimbang pada garis bilangan: data 2, 3, dan 7 seimbang di titik mean 4"
+      style="
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        color: inherit;
+      "
+      font-family="inherit"
+      font-size="13"
+    >
+      <line
+        x1="40.0"
+        y1="130.0"
+        x2="600.0"
+        y2="130.0"
+        stroke="currentColor"
+        stroke-width="3"
+        stroke-opacity="1"
+      />
+      <line
+        x1="50.0"
+        y1="125.0"
+        x2="50.0"
+        y2="135.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <text
+        x="50.0"
+        y="152.0"
+        text-anchor="middle"
+        font-size="13"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        0
+      </text>
+      <line
+        x1="104.0"
+        y1="125.0"
+        x2="104.0"
+        y2="135.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <text
+        x="104.0"
+        y="152.0"
+        text-anchor="middle"
+        font-size="13"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        1
+      </text>
+      <line
+        x1="158.0"
+        y1="125.0"
+        x2="158.0"
+        y2="135.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <text
+        x="158.0"
+        y="152.0"
+        text-anchor="middle"
+        font-size="13"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        2
+      </text>
+      <line
+        x1="212.0"
+        y1="125.0"
+        x2="212.0"
+        y2="135.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <text
+        x="212.0"
+        y="152.0"
+        text-anchor="middle"
+        font-size="13"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        3
+      </text>
+      <line
+        x1="266.0"
+        y1="125.0"
+        x2="266.0"
+        y2="135.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <text
+        x="266.0"
+        y="152.0"
+        text-anchor="middle"
+        font-size="13"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        4
+      </text>
+      <line
+        x1="320.0"
+        y1="125.0"
+        x2="320.0"
+        y2="135.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <text
+        x="320.0"
+        y="152.0"
+        text-anchor="middle"
+        font-size="13"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        5
+      </text>
+      <line
+        x1="374.0"
+        y1="125.0"
+        x2="374.0"
+        y2="135.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <text
+        x="374.0"
+        y="152.0"
+        text-anchor="middle"
+        font-size="13"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        6
+      </text>
+      <line
+        x1="428.0"
+        y1="125.0"
+        x2="428.0"
+        y2="135.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <text
+        x="428.0"
+        y="152.0"
+        text-anchor="middle"
+        font-size="13"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        7
+      </text>
+      <line
+        x1="482.0"
+        y1="125.0"
+        x2="482.0"
+        y2="135.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <text
+        x="482.0"
+        y="152.0"
+        text-anchor="middle"
+        font-size="13"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        8
+      </text>
+      <line
+        x1="536.0"
+        y1="125.0"
+        x2="536.0"
+        y2="135.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <text
+        x="536.0"
+        y="152.0"
+        text-anchor="middle"
+        font-size="13"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        9
+      </text>
+      <line
+        x1="590.0"
+        y1="125.0"
+        x2="590.0"
+        y2="135.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <text
+        x="590.0"
+        y="152.0"
+        text-anchor="middle"
+        font-size="13"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        10
+      </text>
+      <polygon
+        points="266,133 250,170 282,170"
+        fill="#e8743b"
+        fill-opacity="0.85"
+      />
+      <text
+        x="266.0"
+        y="190.0"
+        text-anchor="middle"
+        font-size="13"
+        fill="#e8743b"
+        font-weight="bold"
+      >
+        titik tumpu = mean = 4
+      </text>
+      <circle cx="158" cy="116" r="10" fill="#4f7cff" fill-opacity="0.8" />
+      <text
+        x="158.0"
+        y="119.0"
+        text-anchor="middle"
+        font-size="11"
+        fill="#fff"
+        font-weight="bold"
+      >
+        2
+      </text>
+      <circle cx="212" cy="116" r="10" fill="#4f7cff" fill-opacity="0.8" />
+      <text
+        x="212.0"
+        y="119.0"
+        text-anchor="middle"
+        font-size="11"
+        fill="#fff"
+        font-weight="bold"
+      >
+        3
+      </text>
+      <circle cx="428" cy="116" r="10" fill="#4f7cff" fill-opacity="0.8" />
+      <text
+        x="428.0"
+        y="119.0"
+        text-anchor="middle"
+        font-size="11"
+        fill="#fff"
+        font-weight="bold"
+      >
+        7
+      </text>
+      <line
+        x1="158.0"
+        y1="85.0"
+        x2="266.0"
+        y2="85.0"
+        stroke="#d6455d"
+        stroke-width="1.5"
+        stroke-opacity="1"
+      />
+      <text
+        x="212.0"
+        y="78.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="#d6455d"
+        font-weight="normal"
+      >
+        selisih −2
+      </text>
+      <line
+        x1="212.0"
+        y1="58.0"
+        x2="266.0"
+        y2="58.0"
+        stroke="#d6455d"
+        stroke-width="1.5"
+        stroke-opacity="1"
+      />
+      <text
+        x="239.0"
+        y="51.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="#d6455d"
+        font-weight="normal"
+      >
+        selisih −1
+      </text>
+      <line
+        x1="266.0"
+        y1="85.0"
+        x2="428.0"
+        y2="85.0"
+        stroke="#2e9e6b"
+        stroke-width="1.5"
+        stroke-opacity="1"
+      />
+      <text
+        x="347.0"
+        y="78.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="#2e9e6b"
+        font-weight="normal"
+      >
+        selisih +3
+      </text>
+      <text
+        x="347.0"
+        y="30.0"
+        text-anchor="middle"
+        font-size="13"
+        fill="currentColor"
+        font-weight="bold"
+      >
+        (−2) + (−1) + 3 = 0
+      </text>
+    </svg>
+    <figcaption style="font-size: 0.9em; opacity: 0.85; margin-top: 0.5rem">
+      <strong>Gambar 1.</strong> Mean sebagai titik seimbang. Selisih data ke
+      kiri (−2 dan −1) saling meniadakan dengan selisih data ke kanan (+3).
+    </figcaption>
+  </figure>
+
+  <h3>Kunci Penting: Jumlah Data = n × Mean</h3>
+
+  <p>
+    Dari rumus mean diperoleh \(\sum x_i=n\cdot\bar{x}\). Hubungan ini adalah
+    "pintu masuk" untuk hampir semua soal tentang menambah, menghapus, atau
+    mengubah data. Langkahnya: ubah mean lama menjadi jumlah lama, perbarui
+    jumlahnya, lalu bagi dengan banyak data yang baru.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 2 (Menambah Data)</h4>
+
+    <p>
+      Rata-rata nilai \(9\) siswa adalah \(70\). Seorang siswa lain mengikuti
+      ujian susulan dengan nilai \(80\). Berapa rata-rata nilai sekarang?
+    </p>
+
+    <div class="math-display">
+      \[ \text{jumlah lama}=9\times70=630,\qquad
+      \bar{x}_{\text{baru}}=\frac{630+80}{10}=71 \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 3 (Data Keluar)</h4>
+
+    <p>
+      Berat badan rata-rata \(6\) orang adalah \(45\) kg. Setelah satu orang
+      pergi, rata-ratanya menjadi \(43\) kg. Berapa berat orang yang pergi?
+    </p>
+
+    <div class="math-display">
+      \[ \text{jumlah lama}=6\times45=270,\qquad \text{jumlah
+      baru}=5\times43=215 \]
+    </div>
+
+    <p>Orang yang pergi memiliki berat \(270-215=55\) kg.</p>
+  </div>
+
+  <h3>Mean dari Tabel Distribusi Frekuensi</h3>
+
+  <p>
+    Jika nilai \(x_i\) muncul sebanyak \(f_i\) kali, kita tidak perlu menulis
+    nilai itu berulang-ulang. Cukup kalikan nilai dengan frekuensinya:
+  </p>
+
+  <div class="math-display">
+    \[ \bar{x}=\frac{f_1x_1+f_2x_2+\cdots+f_kx_k}{f_1+f_2+\cdots+f_k}=\frac{\sum
+    f_ix_i}{\sum f_i} \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 4</h4>
+
+    <p>
+      Tabel berikut menunjukkan banyak buku yang dibaca \(20\) siswa dalam satu
+      bulan. Hitunglah mean-nya.
+    </p>
+
+    <div class="material-table-wrap">
+      <table class="reflection-table">
+        <thead>
+          <tr>
+            <th scope="col">Banyak buku (\(x_i\))</th>
+            <th scope="col">Frekuensi (\(f_i\))</th>
+            <th scope="col">\(f_ix_i\)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>\(1\)</td>
+            <td>\(4\)</td>
+            <td>\(4\)</td>
+          </tr>
+          <tr>
+            <td>\(2\)</td>
+            <td>\(7\)</td>
+            <td>\(14\)</td>
+          </tr>
+          <tr>
+            <td>\(3\)</td>
+            <td>\(5\)</td>
+            <td>\(15\)</td>
+          </tr>
+          <tr>
+            <td>\(4\)</td>
+            <td>\(3\)</td>
+            <td>\(12\)</td>
+          </tr>
+          <tr>
+            <td>\(5\)</td>
+            <td>\(1\)</td>
+            <td>\(5\)</td>
+          </tr>
+          <tr>
+            <td><strong>Jumlah</strong></td>
+            <td>\(20\)</td>
+            <td>\(50\)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="math-display">\[ \bar{x}=\frac{50}{20}=2{,}5 \]</div>
+
+    <p>
+      Jadi, rata-rata siswa membaca \(2{,}5\) buku per bulan. Perhatikan bahwa
+      mean tidak harus berupa bilangan yang ada dalam data.
+    </p>
+  </div>
+
+  <h3>Mean Gabungan</h3>
+
+  <p>
+    Jika kelompok pertama berisi \(n_1\) data dengan mean \(\bar{x}_1\) dan
+    kelompok kedua berisi \(n_2\) data dengan mean \(\bar{x}_2\), maka mean
+    gabungannya adalah rata-rata <em>tertimbang</em>:
+  </p>
+
+  <div class="math-display">
+    \[ \bar{x}_{\text{gab}}=\frac{n_1\bar{x}_1+n_2\bar{x}_2}{n_1+n_2} \]
+  </div>
+
+  <p>
+    Kelompok yang anggotanya lebih banyak memiliki "bobot" lebih besar, sehingga
+    mean gabungan selalu lebih dekat ke mean kelompok yang lebih besar. Mean
+    gabungan <strong>bukan</strong> sekadar
+    \(\displaystyle\frac{\bar{x}_1+\bar{x}_2}{2}\), kecuali jika \(n_1=n_2\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 5</h4>
+
+    <p>
+      Kelas XI-A terdiri dari \(30\) siswa dengan rata-rata \(78\), dan kelas
+      XI-B terdiri dari \(20\) siswa dengan rata-rata \(83\). Tentukan rata-rata
+      gabungan kedua kelas.
+    </p>
+
+    <div class="math-display">
+      \[
+      \bar{x}_{\text{gab}}=\frac{30(78)+20(83)}{30+20}=\frac{2340+1660}{50}=\frac{4000}{50}=80
+      \]
+    </div>
+
+    <p>
+      Hasil \(80\) lebih dekat ke \(78\) daripada ke \(83\), sesuai dengan
+      kenyataan bahwa kelas XI-A lebih banyak anggotanya.
+    </p>
+  </div>
+
+  <h3>Pengaruh Operasi pada Seluruh Data</h3>
+
+  <p>
+    Jika setiap data diubah menjadi \(y_i=ax_i+b\), maka mean ikut berubah
+    dengan aturan yang sama:
+  </p>
+
+  <div class="math-display">
+    \[ \bar{y}=\frac{\sum(ax_i+b)}{n}=\frac{a\sum x_i+nb}{n}=a\bar{x}+b \]
+  </div>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Operasi pada setiap data</th>
+          <th scope="col">Mean baru</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Ditambah \(k\)</td>
+          <td>\(\bar{x}+k\)</td>
+        </tr>
+        <tr>
+          <td>Dikurangi \(k\)</td>
+          <td>\(\bar{x}-k\)</td>
+        </tr>
+        <tr>
+          <td>Dikalikan \(k\)</td>
+          <td>\(k\bar{x}\)</td>
+        </tr>
+        <tr>
+          <td>Dibagi \(k\)</td>
+          <td>\(\displaystyle\frac{\bar{x}}{k}\)</td>
+        </tr>
+        <tr>
+          <td>Diubah menjadi \(ax+b\)</td>
+          <td>\(a\bar{x}+b\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 6</h4>
+
+    <p>
+      Data \(5,\ 7,\ 9,\ 11\) memiliki mean \(8\). Jika setiap data diubah
+      menjadi \(2x-3\), tentukan mean data baru.
+    </p>
+
+    <div class="math-display">\[ \bar{y}=2(8)-3=13 \]</div>
+
+    <p>
+      Pemeriksaan: data baru \(7,\ 11,\ 15,\ 19\) berjumlah \(52\), dan
+      \(\displaystyle\frac{52}{4}=13\).
+    </p>
+  </div>
+
+  <h3>Kelebihan dan Kelemahan Mean</h3>
+
+  <p>
+    Mean memakai <em>semua</em> data sehingga informasinya paling lengkap.
+    Namun, justru karena itu mean mudah tergeser oleh <strong>pencilan</strong>
+    (nilai yang sangat jauh dari data lainnya). Satu data yang ekstrem dapat
+    menarik mean menjauh dari kebanyakan data. Hal ini dibahas lebih lanjut di
+    bagian 5.
+  </p>
+</section>
+
+<section
+  id="median-data-tunggal"
+  data-title="Median (Nilai Tengah) Data Tunggal"
+>
+  <h2>3. Median (Nilai Tengah) Data Tunggal</h2>
+
+  <p>
+    Median adalah nilai yang membagi data yang sudah terurut menjadi dua bagian
+    sama banyak: separuh data berada di bawah atau sama dengan median, separuh
+    lagi di atas atau sama dengan median.
+  </p>
+
+  <h3>Langkah Menentukan Median</h3>
+
+  <ol>
+    <li><strong>Urutkan</strong> data dari yang terkecil ke yang terbesar.</li>
+    <li>Hitung banyak data \(n\).</li>
+    <li>
+      Jika \(n\) ganjil, median adalah data paling tengah. Jika \(n\) genap,
+      median adalah rata-rata dua data paling tengah.
+    </li>
+  </ol>
+
+  <div class="math-display">
+    \[ \mathrm{Me}=x_{\frac{n+1}{2}}\ \ (n\text{ ganjil}),\qquad
+    \mathrm{Me}=\frac{x_{\frac{n}{2}}+x_{\frac{n}{2}+1}}{2}\ \ (n\text{ genap})
+    \]
+  </div>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Banyak data \(n\)</th>
+          <th scope="col">Letak median</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(7\)</td>
+          <td>Data ke-\(4\)</td>
+        </tr>
+        <tr>
+          <td>\(8\)</td>
+          <td>Rata-rata data ke-\(4\) dan ke-\(5\)</td>
+        </tr>
+        <tr>
+          <td>\(25\)</td>
+          <td>Data ke-\(13\)</td>
+        </tr>
+        <tr>
+          <td>\(100\)</td>
+          <td>Rata-rata data ke-\(50\) dan ke-\(51\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 1 (n Ganjil)</h4>
+
+    <p>Tentukan median dari \(8,\ 3,\ 9,\ 5,\ 7,\ 6,\ 4\).</p>
+
+    <p>
+      Urutkan terlebih dahulu: \(3,\ 4,\ 5,\ 6,\ 7,\ 8,\ 9\). Karena \(n=7\),
+      median adalah data ke-\(4\).
+    </p>
+
+    <div class="math-display">\[ \mathrm{Me}=6 \]</div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2 (n Genap)</h4>
+
+    <p>Tentukan median dari \(12,\ 7,\ 9,\ 15,\ 11,\ 8\).</p>
+
+    <p>
+      Setelah diurutkan: \(7,\ 8,\ 9,\ 11,\ 12,\ 15\). Karena \(n=6\), median
+      adalah rata-rata data ke-\(3\) dan ke-\(4\).
+    </p>
+
+    <div class="math-display">\[ \mathrm{Me}=\frac{9+11}{2}=10 \]</div>
+
+    <p>
+      Perhatikan bahwa median pada \(n\) genap belum tentu merupakan anggota
+      data. Sebagai contoh, jika dua data tengahnya \(4\) dan \(5\), maka
+      mediannya \(4{,}5\).
+    </p>
+  </div>
+
+  <h3>Median dari Tabel Frekuensi</h3>
+
+  <p>
+    Untuk data dalam tabel frekuensi, tidak perlu menuliskan seluruh data.
+    Buatlah kolom <strong>frekuensi kumulatif</strong> (jumlah frekuensi dari
+    atas sampai baris tersebut), lalu cari baris yang memuat data tengah.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 3</h4>
+
+    <p>Tentukan median dari data nilai berikut.</p>
+
+    <div class="material-table-wrap">
+      <table class="reflection-table">
+        <thead>
+          <tr>
+            <th scope="col">Nilai</th>
+            <th scope="col">Frekuensi</th>
+            <th scope="col">Frekuensi kumulatif</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>\(5\)</td>
+            <td>\(3\)</td>
+            <td>\(3\)</td>
+          </tr>
+          <tr>
+            <td>\(6\)</td>
+            <td>\(7\)</td>
+            <td>\(10\)</td>
+          </tr>
+          <tr>
+            <td>\(7\)</td>
+            <td>\(6\)</td>
+            <td>\(16\)</td>
+          </tr>
+          <tr>
+            <td>\(8\)</td>
+            <td>\(4\)</td>
+            <td>\(20\)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Banyak data \(n=20\) (genap), sehingga median adalah rata-rata data
+      ke-\(10\) dan ke-\(11\). Data ke-\(10\) berada pada baris nilai \(6\)
+      (kumulatif \(10\)), sedangkan data ke-\(11\) sudah masuk baris nilai \(7\)
+      (kumulatif \(16\)).
+    </p>
+
+    <div class="math-display">\[ \mathrm{Me}=\frac{6+7}{2}=6{,}5 \]</div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 4</h4>
+
+    <p>
+      Ukuran sepatu \(25\) siswa: ukuran \(36\) ada \(2\) orang, \(37\) ada
+      \(5\) orang, \(38\) ada \(9\) orang, \(39\) ada \(6\) orang, dan \(40\)
+      ada \(3\) orang. Tentukan median ukuran sepatu.
+    </p>
+
+    <p>
+      Frekuensi kumulatifnya \(2,\ 7,\ 16,\ 22,\ 25\). Karena \(n=25\), median
+      adalah data ke-\(13\). Data ke-\(8\) sampai ke-\(16\) bernilai \(38\),
+      sehingga data ke-\(13\) bernilai \(38\). Jadi \(\mathrm{Me}=38\).
+    </p>
+  </div>
+
+  <h3>Median Tahan terhadap Pencilan</h3>
+
+  <p>
+    Median hanya bergantung pada data di posisi tengah, bukan pada seberapa
+    besar data ekstremnya. Pada data pendapatan lima karyawan (juta rupiah)
+    \(4,\ 5,\ 5,\ 6,\ 40\), mediannya \(5\), sedangkan meannya
+    \(\displaystyle\frac{60}{5}=12\). Angka \(12\) jelas tidak mewakili
+    kebanyakan karyawan, sementara median \(5\) cukup mewakili.
+  </p>
+
+  <h3>Pengaruh Operasi pada Seluruh Data</h3>
+
+  <p>
+    Sama seperti mean, jika setiap data diubah menjadi \(y=ax+b\), maka
+    \(\mathrm{Me}_y=a\cdot\mathrm{Me}_x+b\). Untuk \(a\) negatif urutan data
+    terbalik, tetapi data yang tadinya di tengah tetap di tengah, sehingga rumus
+    tersebut tetap berlaku.
+  </p>
+</section>
+
+<section id="modus-data-tunggal" data-title="Modus Data Tunggal">
+  <h2>4. Modus Data Tunggal</h2>
+
+  <p>
+    Modus adalah nilai yang paling sering muncul, yaitu nilai dengan frekuensi
+    terbesar. Modus menjawab pertanyaan "mana yang paling banyak?" atau "mana
+    yang paling laris?".
+  </p>
+
+  <h3>Jenis Modus Berdasarkan Banyaknya</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Keadaan</th>
+          <th scope="col">Sebutan</th>
+          <th scope="col">Contoh</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Satu nilai dengan frekuensi tertinggi</td>
+          <td>Unimodal</td>
+          <td>\(3,5,5,6,7,5,8\) memiliki modus \(5\)</td>
+        </tr>
+        <tr>
+          <td>Dua nilai berbagi frekuensi tertinggi</td>
+          <td>Bimodal</td>
+          <td>\(2,3,3,4,5,5,6\) memiliki modus \(3\) dan \(5\)</td>
+        </tr>
+        <tr>
+          <td>Lebih dari dua nilai berbagi frekuensi tertinggi</td>
+          <td>Multimodal</td>
+          <td>\(1,1,2,2,3,3,4\) memiliki modus \(1,2,3\)</td>
+        </tr>
+        <tr>
+          <td>Semua nilai berfrekuensi sama</td>
+          <td>Tidak ada modus</td>
+          <td>\(1,2,3,4\) tidak memiliki modus</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+
+    <p>Tentukan modus dari \(3,\ 5,\ 5,\ 6,\ 7,\ 5,\ 8\).</p>
+
+    <p>
+      Hitung kemunculan tiap nilai: \(3\) muncul \(1\) kali, \(5\) muncul \(3\)
+      kali, \(6\) muncul \(1\) kali, \(7\) muncul \(1\) kali, dan \(8\) muncul
+      \(1\) kali. Nilai \(5\) paling sering muncul, sehingga \(\mathrm{Mo}=5\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2 (Data Kategori)</h4>
+
+    <p>
+      Sebuah toko mencatat penjualan kaus: ukuran S sebanyak \(5\), M sebanyak
+      \(12\), L sebanyak \(9\), dan XL sebanyak \(4\). Ukuran apa yang sebaiknya
+      paling banyak distok?
+    </p>
+
+    <p>
+      Modusnya adalah ukuran <strong>M</strong>, karena frekuensinya terbesar
+      (\(12\)). Pada data kategori seperti ini mean dan median tidak bermakna,
+      jadi modus adalah satu-satunya ukuran pemusatan yang bisa dipakai.
+    </p>
+  </div>
+
+  <h3>Modus pada Tabel Frekuensi</h3>
+
+  <p>
+    Pada tabel frekuensi, modus adalah <strong>nilai datanya</strong> yang
+    frekuensinya terbesar, bukan frekuensinya. Pada tabel buku di Contoh 4
+    bagian 2, frekuensi terbesar adalah \(7\) yang dimiliki nilai \(2\), jadi
+    \(\mathrm{Mo}=2\) (bukan \(7\)).
+  </p>
+
+  <h3>Pengaruh Operasi pada Seluruh Data</h3>
+
+  <p>
+    Karena modus adalah suatu nilai data, modus ikut berubah mengikuti operasi
+    yang sama: jika \(y=ax+b\), maka \(\mathrm{Mo}_y=a\cdot\mathrm{Mo}_x+b\).
+  </p>
+
+  <h3>Kelebihan dan Kelemahan Modus</h3>
+
+  <ul>
+    <li>Tidak terpengaruh pencilan dan bisa dipakai untuk data kategori.</li>
+    <li>Bisa lebih dari satu, bahkan bisa tidak ada.</li>
+    <li>Hanya memperhatikan frekuensi, bukan besar nilai data lainnya.</li>
+  </ul>
+</section>
+
+<section
+  id="hubungan-ukuran-pemusatan"
+  data-title="Hubungan Mean, Median, dan Modus"
+>
+  <h2>5. Hubungan Mean, Median, dan Modus</h2>
+
+  <p>
+    Ketiga ukuran pemusatan sering memberi angka berbeda untuk data yang sama.
+    Perbedaannya bukan kebetulan: ia menceritakan
+    <strong>bentuk sebaran</strong> data.
+  </p>
+
+  <h3>Bentuk Sebaran Data</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Bentuk sebaran</th>
+          <th scope="col">Hubungan</th>
+          <th scope="col">Ciri</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Simetris</td>
+          <td>\(\bar{x}=\mathrm{Me}=\mathrm{Mo}\)</td>
+          <td>Data tersebar seimbang di kiri dan kanan</td>
+        </tr>
+        <tr>
+          <td>Condong ke kanan (positif)</td>
+          <td>\(\mathrm{Mo}&lt;\mathrm{Me}&lt;\bar{x}\)</td>
+          <td>Ada data besar yang menarik mean ke kanan</td>
+        </tr>
+        <tr>
+          <td>Condong ke kiri (negatif)</td>
+          <td>\(\bar{x}&lt;\mathrm{Me}&lt;\mathrm{Mo}\)</td>
+          <td>Ada data kecil yang menarik mean ke kiri</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    Mean paling "mudah ditarik" oleh data ekstrem, median agak kurang, dan modus
+    tidak terpengaruh sama sekali. Itulah sebabnya pada sebaran yang condong,
+    mean berada paling jauh di arah ekor yang panjang, sedangkan median berada
+    di antara modus dan mean.
+  </p>
+
+  <figure style="margin: 1.25rem auto; text-align: center">
+    <svg
+      viewBox="0 0 720 215"
+      role="img"
+      aria-label="Tiga bentuk sebaran data: simetris, condong kanan, dan condong kiri, beserta letak mean, median, dan modus"
+      style="
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        color: inherit;
+      "
+      font-family="inherit"
+      font-size="13"
+    >
+      <path
+        d="M20.0,148.7 L22.5,148.3 L25.0,147.9 L27.5,147.4 L30.0,146.9 L32.5,146.2 L35.0,145.4 L37.5,144.4 L40.0,143.3 L42.5,142.0 L45.0,140.5 L47.5,138.7 L50.0,136.8 L52.5,134.6 L55.0,132.1 L57.5,129.3 L60.0,126.3 L62.5,122.9 L65.0,119.2 L67.5,115.3 L70.0,111.0 L72.5,106.5 L75.0,101.8 L77.5,96.8 L80.0,91.6 L82.5,86.3 L85.0,80.9 L87.5,75.4 L90.0,70.0 L92.5,64.6 L95.0,59.4 L97.5,54.4 L100.0,49.8 L102.5,45.4 L105.0,41.6 L107.5,38.1 L110.0,35.3 L112.5,33.0 L115.0,31.3 L117.5,30.3 L120.0,30.0 L122.5,30.3 L125.0,31.3 L127.5,33.0 L130.0,35.3 L132.5,38.1 L135.0,41.6 L137.5,45.4 L140.0,49.8 L142.5,54.4 L145.0,59.4 L147.5,64.6 L150.0,70.0 L152.5,75.4 L155.0,80.9 L157.5,86.3 L160.0,91.6 L162.5,96.8 L165.0,101.8 L167.5,106.5 L170.0,111.0 L172.5,115.3 L175.0,119.2 L177.5,122.9 L180.0,126.3 L182.5,129.3 L185.0,132.1 L187.5,134.6 L190.0,136.8 L192.5,138.7 L195.0,140.5 L197.5,142.0 L200.0,143.3 L202.5,144.4 L205.0,145.4 L207.5,146.2 L210.0,146.9 L212.5,147.4 L215.0,147.9 L217.5,148.3 L220.0,148.7 L220.0,150 L20.0,150 Z"
+        fill="#4f7cff"
+        fill-opacity="0.22"
+        stroke="#4f7cff"
+        stroke-width="1.8"
+      />
+      <line
+        x1="15.0"
+        y1="150.0"
+        x2="225.0"
+        y2="150.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <text
+        x="120.0"
+        y="172.0"
+        text-anchor="middle"
+        font-size="13"
+        fill="currentColor"
+        font-weight="bold"
+      >
+        Simetris
+      </text>
+      <line
+        x1="120.0"
+        y1="150.0"
+        x2="120.0"
+        y2="34.0"
+        stroke="#e8743b"
+        stroke-width="2"
+        stroke-dasharray="5 3"
+        stroke-opacity="1"
+      />
+      <text
+        x="120.0"
+        y="24.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="#e8743b"
+        font-weight="bold"
+      >
+        Mean = Median = Modus
+      </text>
+      <path
+        d="M260.0,150.0 L262.0,148.7 L264.0,145.2 L266.0,140.0 L268.0,133.5 L270.0,126.2 L272.0,118.4 L274.0,110.3 L276.0,102.1 L278.0,94.1 L280.0,86.3 L282.0,78.8 L284.0,71.8 L286.0,65.3 L288.0,59.3 L290.0,53.9 L292.0,49.0 L294.0,44.8 L296.0,41.1 L298.0,38.0 L300.0,35.4 L302.0,33.4 L304.0,31.9 L306.0,30.8 L308.0,30.2 L310.0,30.0 L312.0,30.2 L314.0,30.7 L316.0,31.6 L318.0,32.7 L320.0,34.2 L322.0,35.8 L324.0,37.7 L326.0,39.7 L328.0,42.0 L330.0,44.3 L332.0,46.8 L334.0,49.4 L336.0,52.0 L338.0,54.7 L340.0,57.5 L342.0,60.3 L344.0,63.1 L346.0,65.9 L348.0,68.7 L350.0,71.5 L352.0,74.3 L354.0,77.0 L356.0,79.7 L358.0,82.4 L360.0,85.0 L362.0,87.6 L364.0,90.1 L366.0,92.6 L368.0,95.0 L370.0,97.3 L372.0,99.6 L374.0,101.8 L376.0,103.9 L378.0,106.0 L380.0,108.0 L382.0,109.9 L384.0,111.8 L386.0,113.5 L388.0,115.3 L390.0,116.9 L392.0,118.5 L394.0,120.1 L396.0,121.5 L398.0,122.9 L400.0,124.3 L402.0,125.6 L404.0,126.8 L406.0,128.0 L408.0,129.1 L410.0,130.2 L412.0,131.2 L414.0,132.2 L416.0,133.2 L418.0,134.1 L420.0,134.9 L422.0,135.7 L424.0,136.5 L426.0,137.2 L428.0,137.9 L430.0,138.6 L432.0,139.2 L434.0,139.8 L436.0,140.4 L438.0,140.9 L440.0,141.4 L442.0,141.9 L444.0,142.4 L446.0,142.8 L448.0,143.2 L450.0,143.6 L452.0,144.0 L454.0,144.3 L456.0,144.6 L458.0,144.9 L460.0,145.2 L460.0,150 L260.0,150 Z"
+        fill="#4f7cff"
+        fill-opacity="0.22"
+        stroke="#4f7cff"
+        stroke-width="1.8"
+      />
+      <line
+        x1="255.0"
+        y1="150.0"
+        x2="465.0"
+        y2="150.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <text
+        x="360.0"
+        y="172.0"
+        text-anchor="middle"
+        font-size="13"
+        fill="currentColor"
+        font-weight="bold"
+      >
+        Condong kanan
+      </text>
+      <line
+        x1="310.0"
+        y1="150.0"
+        x2="310.0"
+        y2="28.0"
+        stroke="#2e9e6b"
+        stroke-width="2"
+        stroke-dasharray="5 3"
+        stroke-opacity="1"
+      />
+      <text
+        x="310.0"
+        y="24.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="#2e9e6b"
+        font-weight="bold"
+      >
+        Mo
+      </text>
+      <line
+        x1="326.9"
+        y1="150.0"
+        x2="326.9"
+        y2="42.0"
+        stroke="#e8743b"
+        stroke-width="2"
+        stroke-dasharray="5 3"
+        stroke-opacity="1"
+      />
+      <text
+        x="326.9"
+        y="38.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="#e8743b"
+        font-weight="bold"
+      >
+        Me
+      </text>
+      <line
+        x1="335.0"
+        y1="150.0"
+        x2="335.0"
+        y2="56.0"
+        stroke="#d6455d"
+        stroke-width="2"
+        stroke-dasharray="5 3"
+        stroke-opacity="1"
+      />
+      <text
+        x="335.0"
+        y="52.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="#d6455d"
+        font-weight="bold"
+      >
+        Mean
+      </text>
+      <path
+        d="M500.0,145.2 L502.0,144.9 L504.0,144.6 L506.0,144.3 L508.0,144.0 L510.0,143.6 L512.0,143.2 L514.0,142.8 L516.0,142.4 L518.0,141.9 L520.0,141.4 L522.0,140.9 L524.0,140.4 L526.0,139.8 L528.0,139.2 L530.0,138.6 L532.0,137.9 L534.0,137.2 L536.0,136.5 L538.0,135.7 L540.0,134.9 L542.0,134.1 L544.0,133.2 L546.0,132.2 L548.0,131.2 L550.0,130.2 L552.0,129.1 L554.0,128.0 L556.0,126.8 L558.0,125.6 L560.0,124.3 L562.0,122.9 L564.0,121.5 L566.0,120.1 L568.0,118.5 L570.0,116.9 L572.0,115.3 L574.0,113.5 L576.0,111.8 L578.0,109.9 L580.0,108.0 L582.0,106.0 L584.0,103.9 L586.0,101.8 L588.0,99.6 L590.0,97.3 L592.0,95.0 L594.0,92.6 L596.0,90.1 L598.0,87.6 L600.0,85.0 L602.0,82.4 L604.0,79.7 L606.0,77.0 L608.0,74.3 L610.0,71.5 L612.0,68.7 L614.0,65.9 L616.0,63.1 L618.0,60.3 L620.0,57.5 L622.0,54.7 L624.0,52.0 L626.0,49.4 L628.0,46.8 L630.0,44.3 L632.0,42.0 L634.0,39.7 L636.0,37.7 L638.0,35.8 L640.0,34.2 L642.0,32.7 L644.0,31.6 L646.0,30.7 L648.0,30.2 L650.0,30.0 L652.0,30.2 L654.0,30.8 L656.0,31.9 L658.0,33.4 L660.0,35.4 L662.0,38.0 L664.0,41.1 L666.0,44.8 L668.0,49.0 L670.0,53.9 L672.0,59.3 L674.0,65.3 L676.0,71.8 L678.0,78.8 L680.0,86.3 L682.0,94.1 L684.0,102.1 L686.0,110.3 L688.0,118.4 L690.0,126.2 L692.0,133.5 L694.0,140.0 L696.0,145.2 L698.0,148.7 L700.0,150.0 L700.0,150 L500.0,150 Z"
+        fill="#4f7cff"
+        fill-opacity="0.22"
+        stroke="#4f7cff"
+        stroke-width="1.8"
+      />
+      <line
+        x1="495.0"
+        y1="150.0"
+        x2="705.0"
+        y2="150.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <text
+        x="600.0"
+        y="172.0"
+        text-anchor="middle"
+        font-size="13"
+        fill="currentColor"
+        font-weight="bold"
+      >
+        Condong kiri
+      </text>
+      <line
+        x1="650.0"
+        y1="150.0"
+        x2="650.0"
+        y2="28.0"
+        stroke="#2e9e6b"
+        stroke-width="2"
+        stroke-dasharray="5 3"
+        stroke-opacity="1"
+      />
+      <text
+        x="650.0"
+        y="24.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="#2e9e6b"
+        font-weight="bold"
+      >
+        Mo
+      </text>
+      <line
+        x1="633.1"
+        y1="150.0"
+        x2="633.1"
+        y2="42.0"
+        stroke="#e8743b"
+        stroke-width="2"
+        stroke-dasharray="5 3"
+        stroke-opacity="1"
+      />
+      <text
+        x="633.1"
+        y="38.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="#e8743b"
+        font-weight="bold"
+      >
+        Me
+      </text>
+      <line
+        x1="625.0"
+        y1="150.0"
+        x2="625.0"
+        y2="56.0"
+        stroke="#d6455d"
+        stroke-width="2"
+        stroke-dasharray="5 3"
+        stroke-opacity="1"
+      />
+      <text
+        x="625.0"
+        y="52.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="#d6455d"
+        font-weight="bold"
+      >
+        Mean
+      </text>
+    </svg>
+    <figcaption style="font-size: 0.9em; opacity: 0.85; margin-top: 0.5rem">
+      <strong>Gambar 2.</strong> Letak modus (Mo), median (Me), dan mean pada
+      tiga bentuk sebaran. Mean selalu paling dekat ke ekor yang panjang.
+    </figcaption>
+  </figure>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+
+    <p>
+      Bandingkan ketiga ukuran pemusatan untuk tiga data berikut, lalu tentukan
+      bentuk sebarannya.
+    </p>
+
+    <div class="material-table-wrap">
+      <table class="reflection-table">
+        <thead>
+          <tr>
+            <th scope="col">Data</th>
+            <th scope="col">Mean</th>
+            <th scope="col">Median</th>
+            <th scope="col">Modus</th>
+            <th scope="col">Bentuk</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>\(2,4,4,4,6\)</td>
+            <td>\(4\)</td>
+            <td>\(4\)</td>
+            <td>\(4\)</td>
+            <td>Simetris</td>
+          </tr>
+          <tr>
+            <td>\(1,2,2,3,4,6,12\)</td>
+            <td>\(\displaystyle\frac{30}{7}\approx4{,}29\)</td>
+            <td>\(3\)</td>
+            <td>\(2\)</td>
+            <td>Condong kanan</td>
+          </tr>
+          <tr>
+            <td>\(2,8,10,11,12,12,13\)</td>
+            <td>\(\displaystyle\frac{68}{7}\approx9{,}71\)</td>
+            <td>\(11\)</td>
+            <td>\(12\)</td>
+            <td>Condong kiri</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Pada data kedua, nilai \(12\) menarik mean ke kanan sehingga
+      \(\mathrm{Mo}&lt;\mathrm{Me}&lt;\bar{x}\). Pada data ketiga, nilai \(2\)
+      menarik mean ke kiri sehingga \(\bar{x}&lt;\mathrm{Me}&lt;\mathrm{Mo}\).
+    </p>
+  </div>
+
+  <h3>Memilih Ukuran yang Tepat</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Keadaan data</th>
+          <th scope="col">Ukuran yang cocok</th>
+          <th scope="col">Alasan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Simetris, tanpa pencilan</td>
+          <td>Mean</td>
+          <td>Memakai seluruh data dan paling informatif</td>
+        </tr>
+        <tr>
+          <td>
+            Ada pencilan atau sebaran sangat condong (misalnya data gaji atau
+            harga rumah)
+          </td>
+          <td>Median</td>
+          <td>Tidak terseret oleh nilai ekstrem</td>
+        </tr>
+        <tr>
+          <td>Data kategori, atau ingin tahu yang paling banyak/laris</td>
+          <td>Modus</td>
+          <td>Hanya modus yang bermakna untuk kategori</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2</h4>
+
+    <p>
+      Gaji lima karyawan sebuah toko (juta rupiah) adalah \(4,\ 5,\ 5,\ 6,\
+      40\). Pemilik toko berkata, "Rata-rata gaji di sini \(12\) juta." Apakah
+      pernyataan itu menyesatkan?
+    </p>
+
+    <p>
+      Mean memang \(12\) juta, tetapi hanya satu orang yang bergaji di atas
+      \(6\) juta. Median (\(5\) juta) dan modus (\(5\) juta) jauh lebih mewakili
+      gaji kebanyakan karyawan. Karena sebaran condong ke kanan akibat satu
+      pencilan, pernyataan tentang mean memang menyesatkan.
+    </p>
+  </div>
+
+  <h3>Pengayaan: Hubungan Empiris Pearson</h3>
+
+  <p>Untuk sebaran yang tidak terlalu condong, berlaku hubungan hampiran:</p>
+
+  <div class="math-display">
+    \[ \mathrm{Mo}\approx3\,\mathrm{Me}-2\,\bar{x} \]
+  </div>
+
+  <p>
+    Rumus ini bukan kesamaan pasti, melainkan taksiran. Pada data berkelompok di
+    bagian 7 sampai 9 nanti diperoleh \(\bar{x}=68{,}5\) dan \(\mathrm{Me}=68\),
+    sehingga taksirannya \(3(68)-2(68{,}5)=67\). Hasil ini sangat dekat dengan
+    modus hasil hitungan sebenarnya, yaitu \(\approx67{,}17\).
+  </p>
+</section>
+
+<section
+  id="tabel-distribusi-frekuensi"
+  data-title="Data Berkelompok dan Tabel Distribusi Frekuensi"
+>
+  <h2>6. Data Berkelompok dan Tabel Distribusi Frekuensi</h2>
+
+  <p>
+    Bayangkan guru mencatat nilai \(30\) siswa dalam daftar yang acak. Sulit
+    melihat polanya. Dengan mengelompokkan nilai ke dalam interval (kelas) dan
+    menghitung berapa siswa pada tiap kelas, kita memperoleh
+    <strong>tabel distribusi frekuensi</strong> yang rapi dan mudah dianalisis.
+  </p>
+
+  <h3>Istilah pada Tabel Distribusi Frekuensi</h3>
+
+  <p>
+    Perhatikan kelas \(51\)–\(60\) sebagai contoh. Nilai yang termasuk kelas ini
+    adalah bilangan bulat dari \(51\) sampai \(60\).
+  </p>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Istilah</th>
+          <th scope="col">Arti</th>
+          <th scope="col">Pada kelas \(51\)–\(60\)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Batas bawah kelas</td>
+          <td>Nilai terkecil yang masuk kelas</td>
+          <td>\(51\)</td>
+        </tr>
+        <tr>
+          <td>Batas atas kelas</td>
+          <td>Nilai terbesar yang masuk kelas</td>
+          <td>\(60\)</td>
+        </tr>
+        <tr>
+          <td>Tepi bawah \(t_b\)</td>
+          <td>Batas bawah dikurangi setengah satuan ukur</td>
+          <td>\(51-0{,}5=50{,}5\)</td>
+        </tr>
+        <tr>
+          <td>Tepi atas \(t_a\)</td>
+          <td>Batas atas ditambah setengah satuan ukur</td>
+          <td>\(60+0{,}5=60{,}5\)</td>
+        </tr>
+        <tr>
+          <td>Panjang kelas \(p\)</td>
+          <td>\(t_a-t_b\) (bukan batas atas dikurangi batas bawah)</td>
+          <td>\(60{,}5-50{,}5=10\)</td>
+        </tr>
+        <tr>
+          <td>Titik tengah \(x_i\)</td>
+          <td>Rata-rata batas bawah dan batas atas</td>
+          <td>\(\displaystyle\frac{51+60}{2}=55{,}5\)</td>
+        </tr>
+        <tr>
+          <td>Frekuensi \(f_i\)</td>
+          <td>Banyak data dalam kelas</td>
+          <td>Dari tabel</td>
+        </tr>
+        <tr>
+          <td>Frekuensi kumulatif \(F\)</td>
+          <td>Jumlah frekuensi dari kelas pertama sampai kelas tersebut</td>
+          <td>Dari tabel</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    Mengapa perlu tepi kelas? Antara nilai \(60\) dan \(61\) ada "celah" pada
+    garis bilangan. Nilai \(60{,}5\) adalah titik tengah celah itu, dan di situ
+    kelas \(51\)–\(60\) bertemu kelas \(61\)–\(70\). Dengan tepi kelas, kelas
+    saling bersambung tanpa celah dan semua bagian garis bilangan tercakup.
+    Untuk data bilangan bulat, setengah satuan ukur adalah \(0{,}5\). Jika data
+    diukur sampai satu angka desimal, maka setengah satuan ukur adalah
+    \(0{,}05\).
+  </p>
+
+  <figure style="margin: 1.25rem auto; text-align: center">
+    <svg
+      viewBox="0 0 640 200"
+      role="img"
+      aria-label="Garis bilangan: kelas 51 sampai 60 dan 61 sampai 70 dengan tepi kelas 50,5; 60,5; 70,5"
+      style="
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        color: inherit;
+      "
+      font-family="inherit"
+      font-size="13"
+    >
+      <line
+        x1="40.0"
+        y1="100.0"
+        x2="634.0"
+        y2="100.0"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-opacity="1"
+      />
+      <line
+        x1="53.5"
+        y1="96.0"
+        x2="53.5"
+        y2="104.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="0.6"
+      />
+      <line
+        x1="80.5"
+        y1="96.0"
+        x2="80.5"
+        y2="104.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="0.6"
+      />
+      <line
+        x1="107.5"
+        y1="96.0"
+        x2="107.5"
+        y2="104.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="0.6"
+      />
+      <line
+        x1="134.5"
+        y1="96.0"
+        x2="134.5"
+        y2="104.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="0.6"
+      />
+      <line
+        x1="161.5"
+        y1="96.0"
+        x2="161.5"
+        y2="104.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="0.6"
+      />
+      <line
+        x1="188.5"
+        y1="96.0"
+        x2="188.5"
+        y2="104.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="0.6"
+      />
+      <line
+        x1="215.5"
+        y1="96.0"
+        x2="215.5"
+        y2="104.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="0.6"
+      />
+      <line
+        x1="242.5"
+        y1="96.0"
+        x2="242.5"
+        y2="104.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="0.6"
+      />
+      <line
+        x1="269.5"
+        y1="96.0"
+        x2="269.5"
+        y2="104.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="0.6"
+      />
+      <line
+        x1="296.5"
+        y1="96.0"
+        x2="296.5"
+        y2="104.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="0.6"
+      />
+      <line
+        x1="323.5"
+        y1="96.0"
+        x2="323.5"
+        y2="104.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="0.6"
+      />
+      <line
+        x1="350.5"
+        y1="96.0"
+        x2="350.5"
+        y2="104.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="0.6"
+      />
+      <line
+        x1="377.5"
+        y1="96.0"
+        x2="377.5"
+        y2="104.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="0.6"
+      />
+      <line
+        x1="404.5"
+        y1="96.0"
+        x2="404.5"
+        y2="104.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="0.6"
+      />
+      <line
+        x1="431.5"
+        y1="96.0"
+        x2="431.5"
+        y2="104.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="0.6"
+      />
+      <line
+        x1="458.5"
+        y1="96.0"
+        x2="458.5"
+        y2="104.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="0.6"
+      />
+      <line
+        x1="485.5"
+        y1="96.0"
+        x2="485.5"
+        y2="104.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="0.6"
+      />
+      <line
+        x1="512.5"
+        y1="96.0"
+        x2="512.5"
+        y2="104.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="0.6"
+      />
+      <line
+        x1="539.5"
+        y1="96.0"
+        x2="539.5"
+        y2="104.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="0.6"
+      />
+      <line
+        x1="566.5"
+        y1="96.0"
+        x2="566.5"
+        y2="104.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="0.6"
+      />
+      <line
+        x1="593.5"
+        y1="96.0"
+        x2="593.5"
+        y2="104.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="0.6"
+      />
+      <line
+        x1="620.5"
+        y1="96.0"
+        x2="620.5"
+        y2="104.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="0.6"
+      />
+      <circle cx="80.5" cy="100" r="4.5" fill="#4f7cff" />
+      <text
+        x="80.5"
+        y="122.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        51
+      </text>
+      <circle cx="323.5" cy="100" r="4.5" fill="#4f7cff" />
+      <text
+        x="323.5"
+        y="122.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        60
+      </text>
+      <circle cx="350.5" cy="100" r="4.5" fill="#4f7cff" />
+      <text
+        x="350.5"
+        y="122.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        61
+      </text>
+      <circle cx="593.5" cy="100" r="4.5" fill="#4f7cff" />
+      <text
+        x="593.5"
+        y="122.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        70
+      </text>
+      <line
+        x1="67.0"
+        y1="62.0"
+        x2="67.0"
+        y2="110.0"
+        stroke="#e8743b"
+        stroke-width="2.2"
+        stroke-dasharray="4 3"
+        stroke-opacity="1"
+      />
+      <text
+        x="67.0"
+        y="140.0"
+        text-anchor="middle"
+        font-size="13"
+        fill="#e8743b"
+        font-weight="bold"
+      >
+        50,5
+      </text>
+      <line
+        x1="337.0"
+        y1="62.0"
+        x2="337.0"
+        y2="110.0"
+        stroke="#e8743b"
+        stroke-width="2.2"
+        stroke-dasharray="4 3"
+        stroke-opacity="1"
+      />
+      <text
+        x="337.0"
+        y="140.0"
+        text-anchor="middle"
+        font-size="13"
+        fill="#e8743b"
+        font-weight="bold"
+      >
+        60,5
+      </text>
+      <line
+        x1="607.0"
+        y1="62.0"
+        x2="607.0"
+        y2="110.0"
+        stroke="#e8743b"
+        stroke-width="2.2"
+        stroke-dasharray="4 3"
+        stroke-opacity="1"
+      />
+      <text
+        x="607.0"
+        y="140.0"
+        text-anchor="middle"
+        font-size="13"
+        fill="#e8743b"
+        font-weight="bold"
+      >
+        70,5
+      </text>
+      <text
+        x="202.0"
+        y="38.0"
+        text-anchor="middle"
+        font-size="13"
+        fill="currentColor"
+        font-weight="bold"
+      >
+        kelas 51–60
+      </text>
+      <line
+        x1="67.0"
+        y1="48.0"
+        x2="337.0"
+        y2="48.0"
+        stroke="#e8743b"
+        stroke-width="1.8"
+        stroke-opacity="1"
+      />
+      <text
+        x="202.0"
+        y="58.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="#e8743b"
+        font-weight="normal"
+      >
+        p = 60,5 − 50,5 = 10
+      </text>
+      <polygon points="202.0,92 197.0,84 207.0,84" fill="#2e9e6b" />
+      <text
+        x="202.0"
+        y="122.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="#2e9e6b"
+        font-weight="bold"
+      >
+        55,5
+      </text>
+      <text
+        x="472.0"
+        y="38.0"
+        text-anchor="middle"
+        font-size="13"
+        fill="currentColor"
+        font-weight="bold"
+      >
+        kelas 61–70
+      </text>
+      <line
+        x1="337.0"
+        y1="48.0"
+        x2="607.0"
+        y2="48.0"
+        stroke="#e8743b"
+        stroke-width="1.8"
+        stroke-opacity="1"
+      />
+      <text
+        x="337.0"
+        y="162.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        60 dan 61 bertemu di tepi 60,5 (tidak ada celah)
+      </text>
+      <text
+        x="202.0"
+        y="162.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      ></text>
+    </svg>
+    <figcaption style="font-size: 0.9em; opacity: 0.85; margin-top: 0.5rem">
+      <strong>Gambar 3.</strong> Batas kelas dan tepi kelas. Tepi kelas (jingga)
+      berada di tengah celah antara dua kelas yang bersebelahan, sehingga
+      panjang kelas \(p=10\).
+    </figcaption>
+  </figure>
+
+  <p>
+    <strong>Kesalahan umum:</strong> menghitung panjang kelas sebagai
+    \(60-51=9\). Panjang kelas yang benar adalah \(10\), karena kelas memuat
+    \(51,52,\dots,60\), yaitu sepuluh nilai bulat.
+  </p>
+
+  <h3>Langkah Menyusun Tabel Distribusi Frekuensi</h3>
+
+  <ol>
+    <li>Tentukan data terbesar dan data terkecil.</li>
+    <li>Hitung <strong>jangkauan</strong> \(R=x_{\max}-x_{\min}\).</li>
+    <li>
+      Tentukan <strong>banyak kelas</strong> \(k\). Salah satu pedoman adalah
+      aturan Sturges: \(k\approx1+3{,}3\log n\).
+    </li>
+    <li>
+      Tentukan
+      <strong>panjang kelas</strong> \(p\approx\displaystyle\frac{R}{k}\), lalu
+      bulatkan ke atas ke bilangan yang mudah (misalnya kelipatan \(5\) atau
+      \(10\)).
+    </li>
+    <li>
+      Tentukan batas bawah kelas pertama (tidak boleh lebih besar dari data
+      terkecil), lalu susun kelas-kelas berikutnya.
+    </li>
+    <li>Hitung frekuensi tiap kelas dengan turus, lalu buat kolom lainnya.</li>
+  </ol>
+
+  <div class="lesson-example">
+    <h4>Contoh 1 (Dari Data Mentah ke Tabel)</h4>
+
+    <p>Nilai ulangan matematika \(30\) siswa (belum terurut):</p>
+
+    <div class="math-display">
+      \[ \begin{array}{cccccccccc}
+      72&amp;58&amp;65&amp;43&amp;80&amp;61&amp;67&amp;55&amp;90&amp;70\\
+      63&amp;52&amp;77&amp;85&amp;64&amp;46&amp;68&amp;74&amp;57&amp;82\\
+      66&amp;49&amp;71&amp;93&amp;60&amp;78&amp;54&amp;87&amp;75&amp;98
+      \end{array} \]
+    </div>
+
+    <ul>
+      <li>
+        Data terkecil \(43\), data terbesar \(98\), sehingga \(R=98-43=55\).
+      </li>
+      <li>
+        Banyak kelas:
+        \(k\approx1+3{,}3\log30\approx1+3{,}3(1{,}477)\approx5{,}9\), dibulatkan
+        menjadi \(6\) kelas.
+      </li>
+      <li>
+        Panjang kelas: \(p\approx\displaystyle\frac{55}{6}\approx9{,}2\),
+        dibulatkan ke atas menjadi \(10\).
+      </li>
+      <li>
+        Kelas pertama dimulai dari \(41\) (tidak melebihi \(43\)), sehingga
+        kelasnya \(41\)–\(50\), \(51\)–\(60\), dan seterusnya sampai
+        \(91\)–\(100\).
+      </li>
+    </ul>
+
+    <p>
+      Hitung turus dan lengkapi kolom tepi kelas, titik tengah, dan frekuensi
+      kumulatif "kurang dari" (jumlah data yang nilainya di bawah tepi atas
+      kelas itu):
+    </p>
+
+    <div class="material-table-wrap">
+      <table class="reflection-table">
+        <thead>
+          <tr>
+            <th scope="col">Kelas</th>
+            <th scope="col">Turus</th>
+            <th scope="col">\(f_i\)</th>
+            <th scope="col">\(t_b\)</th>
+            <th scope="col">\(t_a\)</th>
+            <th scope="col">\(x_i\)</th>
+            <th scope="col">\(F\)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>\(41\)–\(50\)</td>
+            <td>|||</td>
+            <td>\(3\)</td>
+            <td>\(40{,}5\)</td>
+            <td>\(50{,}5\)</td>
+            <td>\(45{,}5\)</td>
+            <td>\(3\)</td>
+          </tr>
+          <tr>
+            <td>\(51\)–\(60\)</td>
+            <td>||||| |</td>
+            <td>\(6\)</td>
+            <td>\(50{,}5\)</td>
+            <td>\(60{,}5\)</td>
+            <td>\(55{,}5\)</td>
+            <td>\(9\)</td>
+          </tr>
+          <tr>
+            <td>\(61\)–\(70\)</td>
+            <td>||||| |||</td>
+            <td>\(8\)</td>
+            <td>\(60{,}5\)</td>
+            <td>\(70{,}5\)</td>
+            <td>\(65{,}5\)</td>
+            <td>\(17\)</td>
+          </tr>
+          <tr>
+            <td>\(71\)–\(80\)</td>
+            <td>||||| ||</td>
+            <td>\(7\)</td>
+            <td>\(70{,}5\)</td>
+            <td>\(80{,}5\)</td>
+            <td>\(75{,}5\)</td>
+            <td>\(24\)</td>
+          </tr>
+          <tr>
+            <td>\(81\)–\(90\)</td>
+            <td>||||</td>
+            <td>\(4\)</td>
+            <td>\(80{,}5\)</td>
+            <td>\(90{,}5\)</td>
+            <td>\(85{,}5\)</td>
+            <td>\(28\)</td>
+          </tr>
+          <tr>
+            <td>\(91\)–\(100\)</td>
+            <td>||</td>
+            <td>\(2\)</td>
+            <td>\(90{,}5\)</td>
+            <td>\(100{,}5\)</td>
+            <td>\(95{,}5\)</td>
+            <td>\(30\)</td>
+          </tr>
+          <tr>
+            <td><strong>Jumlah</strong></td>
+            <td></td>
+            <td>\(30\)</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Pemeriksaan: jumlah frekuensi harus sama dengan banyak data, yaitu
+      \(3+6+8+7+4+2=30\). Tabel ini akan kita pakai sebagai contoh utama pada
+      bagian 7 sampai 10.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2 (Membaca Unsur Kelas)</h4>
+
+    <p>
+      Tinggi badan (cm) dikelompokkan ke dalam kelas \(151\)–\(155\),
+      \(156\)–\(160\), dan seterusnya. Tentukan tepi bawah, tepi atas, panjang
+      kelas, dan titik tengah kelas \(156\)–\(160\).
+    </p>
+
+    <div class="math-display">
+      \[ t_b=156-0{,}5=155{,}5,\qquad t_a=160+0{,}5=160{,}5,\qquad
+      p=160{,}5-155{,}5=5,\qquad x_i=\frac{156+160}{2}=158 \]
+    </div>
+  </div>
+
+  <h3>Mengapa Data Kelompok Hanya Memberi Taksiran?</h3>
+
+  <p>
+    Begitu data dimasukkan ke dalam kelas, kita kehilangan informasi tentang
+    nilai persisnya. Kita hanya tahu bahwa ada \(8\) siswa bernilai
+    \(61\)–\(70\), tetapi tidak tahu apakah mereka bernilai \(61\) atau \(70\).
+    Karena itu, mean, median, dan modus yang dihitung dari tabel adalah
+    <strong>taksiran</strong> (perkiraan) yang biasanya sangat dekat dengan
+    nilai sebenarnya. Pada contoh di atas, mean data asli adalah
+    \(\displaystyle\frac{2060}{30}\approx68{,}67\), sedangkan hasil dari tabel
+    nanti \(68{,}5\); keduanya hampir sama.
+  </p>
+</section>
+
+<section id="mean-data-berkelompok" data-title="Mean Data Berkelompok">
+  <h2>7. Mean Data Berkelompok</h2>
+
+  <p>
+    Pada data berkelompok, kita tidak lagi mengetahui nilai tiap data. Sebagai
+    gantinya, setiap data dalam satu kelas
+    <strong>diwakili oleh titik tengah kelasnya</strong>. Dengan anggapan itu,
+    rumus mean dari tabel frekuensi langsung dapat dipakai.
+  </p>
+
+  <div class="math-display">
+    \[ \bar{x}=\frac{\sum f_ix_i}{\sum
+    f_i}=\frac{f_1x_1+f_2x_2+\cdots+f_kx_k}{f_1+f_2+\cdots+f_k} \]
+  </div>
+
+  <p>
+    Dengan \(x_i\) adalah titik tengah kelas ke-\(i\) dan \(f_i\) adalah
+    frekuensinya.
+  </p>
+
+  <h3>Cara 1: Titik Tengah Langsung</h3>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+
+    <p>Hitunglah mean dari tabel nilai \(30\) siswa pada bagian 6.</p>
+
+    <div class="material-table-wrap">
+      <table class="reflection-table">
+        <thead>
+          <tr>
+            <th scope="col">Kelas</th>
+            <th scope="col">\(f_i\)</th>
+            <th scope="col">\(x_i\)</th>
+            <th scope="col">\(f_ix_i\)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>\(41\)–\(50\)</td>
+            <td>\(3\)</td>
+            <td>\(45{,}5\)</td>
+            <td>\(136{,}5\)</td>
+          </tr>
+          <tr>
+            <td>\(51\)–\(60\)</td>
+            <td>\(6\)</td>
+            <td>\(55{,}5\)</td>
+            <td>\(333\)</td>
+          </tr>
+          <tr>
+            <td>\(61\)–\(70\)</td>
+            <td>\(8\)</td>
+            <td>\(65{,}5\)</td>
+            <td>\(524\)</td>
+          </tr>
+          <tr>
+            <td>\(71\)–\(80\)</td>
+            <td>\(7\)</td>
+            <td>\(75{,}5\)</td>
+            <td>\(528{,}5\)</td>
+          </tr>
+          <tr>
+            <td>\(81\)–\(90\)</td>
+            <td>\(4\)</td>
+            <td>\(85{,}5\)</td>
+            <td>\(342\)</td>
+          </tr>
+          <tr>
+            <td>\(91\)–\(100\)</td>
+            <td>\(2\)</td>
+            <td>\(95{,}5\)</td>
+            <td>\(191\)</td>
+          </tr>
+          <tr>
+            <td><strong>Jumlah</strong></td>
+            <td>\(30\)</td>
+            <td></td>
+            <td>\(2055\)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="math-display">\[ \bar{x}=\frac{2055}{30}=68{,}5 \]</div>
+
+    <p>
+      Rata-rata nilai siswa sekitar \(68{,}5\). Sebagai pembanding, mean data
+      mentahnya \(\approx68{,}67\), sehingga taksiran dari tabel sangat baik.
+    </p>
+  </div>
+
+  <h3>Cara 2: Rataan Sementara</h3>
+
+  <p>
+    Mengalikan titik tengah yang besar (apalagi berdesimal) cukup merepotkan.
+    Cara yang lebih ringan adalah memilih satu titik tengah sebagai
+    <strong>rataan sementara</strong> \(x_s\) (biasanya titik tengah kelas
+    dengan frekuensi terbesar), lalu bekerja dengan <em>simpangan</em>
+    \(d_i=x_i-x_s\) yang angkanya kecil:
+  </p>
+
+  <div class="math-display">
+    \[ \bar{x}=x_s+\frac{\sum f_id_i}{\sum f_i},\qquad d_i=x_i-x_s \]
+  </div>
+
+  <p>
+    Rumus ini benar karena menggeser seluruh data sebesar \(x_s\) hanya
+    menggeser mean sebesar \(x_s\) pula. Jadi kita hitung mean dari simpangan,
+    lalu "menggeser balik" dengan menambahkan \(x_s\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 2</h4>
+
+    <p>
+      Hitung kembali mean tabel di atas dengan rataan sementara \(x_s=65{,}5\).
+    </p>
+
+    <div class="material-table-wrap">
+      <table class="reflection-table">
+        <thead>
+          <tr>
+            <th scope="col">Kelas</th>
+            <th scope="col">\(f_i\)</th>
+            <th scope="col">\(x_i\)</th>
+            <th scope="col">\(d_i=x_i-65{,}5\)</th>
+            <th scope="col">\(f_id_i\)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>\(41\)–\(50\)</td>
+            <td>\(3\)</td>
+            <td>\(45{,}5\)</td>
+            <td>\(-20\)</td>
+            <td>\(-60\)</td>
+          </tr>
+          <tr>
+            <td>\(51\)–\(60\)</td>
+            <td>\(6\)</td>
+            <td>\(55{,}5\)</td>
+            <td>\(-10\)</td>
+            <td>\(-60\)</td>
+          </tr>
+          <tr>
+            <td>\(61\)–\(70\)</td>
+            <td>\(8\)</td>
+            <td>\(65{,}5\)</td>
+            <td>\(0\)</td>
+            <td>\(0\)</td>
+          </tr>
+          <tr>
+            <td>\(71\)–\(80\)</td>
+            <td>\(7\)</td>
+            <td>\(75{,}5\)</td>
+            <td>\(10\)</td>
+            <td>\(70\)</td>
+          </tr>
+          <tr>
+            <td>\(81\)–\(90\)</td>
+            <td>\(4\)</td>
+            <td>\(85{,}5\)</td>
+            <td>\(20\)</td>
+            <td>\(80\)</td>
+          </tr>
+          <tr>
+            <td>\(91\)–\(100\)</td>
+            <td>\(2\)</td>
+            <td>\(95{,}5\)</td>
+            <td>\(30\)</td>
+            <td>\(60\)</td>
+          </tr>
+          <tr>
+            <td><strong>Jumlah</strong></td>
+            <td>\(30\)</td>
+            <td></td>
+            <td></td>
+            <td>\(90\)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="math-display">
+      \[ \bar{x}=65{,}5+\frac{90}{30}=65{,}5+3=68{,}5 \]
+    </div>
+
+    <p>Hasilnya sama dengan Cara 1, tetapi hitungannya jauh lebih ringan.</p>
+  </div>
+
+  <h3>Cara 3: Pengkodean (Coding)</h3>
+
+  <p>
+    Karena semua kelas memiliki panjang yang sama \(p\), simpangan \(d_i\)
+    selalu kelipatan \(p\). Bagilah dengan \(p\) untuk mendapatkan bilangan
+    bulat kecil \(u_i=\displaystyle\frac{d_i}{p}\)
+    (\(\ldots,-2,-1,0,1,2,\ldots\)):
+  </p>
+
+  <div class="math-display">
+    \[ \bar{x}=x_s+p\cdot\frac{\sum f_iu_i}{\sum f_i},\qquad
+    u_i=\frac{x_i-x_s}{p} \]
+  </div>
+
+  <p>
+    Pada tabel di atas, \(u_i=-2,-1,0,1,2,3\) sehingga \(f_iu_i=-6,-6,0,7,8,6\)
+    dengan jumlah \(9\). Maka
+  </p>
+
+  <div class="math-display">
+    \[ \bar{x}=65{,}5+10\cdot\frac{9}{30}=65{,}5+3=68{,}5 \]
+  </div>
+
+  <h3>Mencari Frekuensi atau Nilai yang Hilang</h3>
+
+  <div class="lesson-example">
+    <h4>Contoh 3</h4>
+
+    <p>Diketahui tabel berikut dengan mean \(35{,}5\). Tentukan nilai \(x\).</p>
+
+    <div class="material-table-wrap">
+      <table class="reflection-table">
+        <thead>
+          <tr>
+            <th scope="col">Kelas</th>
+            <th scope="col">\(10\)–\(19\)</th>
+            <th scope="col">\(20\)–\(29\)</th>
+            <th scope="col">\(30\)–\(39\)</th>
+            <th scope="col">\(40\)–\(49\)</th>
+            <th scope="col">\(50\)–\(59\)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Frekuensi</td>
+            <td>\(3\)</td>
+            <td>\(7\)</td>
+            <td>\(x\)</td>
+            <td>\(6\)</td>
+            <td>\(5\)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Titik tengahnya \(14{,}5;\ 24{,}5;\ 34{,}5;\ 44{,}5;\ 54{,}5\). Pilih
+      \(x_s=34{,}5\) sehingga simpangannya \(-20,-10,0,10,20\).
+    </p>
+
+    <div class="math-display">
+      \[ \sum f_id_i=3(-20)+7(-10)+x(0)+6(10)+5(20)=-60-70+60+100=30 \]
+    </div>
+
+    <div class="math-display">
+      \[ \sum f_i=21+x,\qquad
+      34{,}5+\frac{30}{21+x}=35{,}5\Rightarrow\frac{30}{21+x}=1\Rightarrow x=9
+      \]
+    </div>
+
+    <p>
+      Pemeriksaan: banyak data \(21+9=30\) dan \(\sum f_ix_i=1065\), sehingga
+      mean \(=\displaystyle\frac{1065}{30}=35{,}5\) (benar).
+    </p>
+  </div>
+</section>
+
+<section id="median-data-berkelompok" data-title="Median Data Berkelompok">
+  <h2>8. Median Data Berkelompok</h2>
+
+  <p>
+    Median adalah nilai yang membagi data menjadi dua bagian sama banyak. Pada
+    data berkelompok, kita mencari dulu <strong>kelas median</strong>
+    (kelas tempat data tengah berada), lalu memperkirakan posisi median di dalam
+    kelas tersebut.
+  </p>
+
+  <h3>Gagasan di Balik Rumus</h3>
+
+  <p>
+    Misalkan banyak data \(n\), sehingga data tengah ada di urutan
+    \(\displaystyle\frac{n}{2}\). Misalkan pula kelas-kelas sebelum kelas median
+    memuat \(F_s\) data. Artinya, untuk mencapai data tengah kita masih
+    memerlukan \(\displaystyle\frac{n}{2}-F_s\) data lagi dari kelas median.
+    Kelas median memuat \(f\) data yang kita anggap tersebar merata sepanjang
+    lebar kelas \(p\). Maka tambahan \(\displaystyle\frac{n}{2}-F_s\) data tadi
+    menempuh jarak sebanding:
+  </p>
+
+  <div class="math-display">
+    \[ \text{jarak dari }t_b=\frac{\frac{n}{2}-F_s}{f}\times p \]
+  </div>
+
+  <p>Inilah rumus median data berkelompok:</p>
+
+  <div class="math-display">
+    \[ \mathrm{Me}=t_b+\left(\frac{\frac{n}{2}-F_s}{f}\right)p \]
+  </div>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Lambang</th>
+          <th scope="col">Arti</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(t_b\)</td>
+          <td>Tepi bawah kelas median</td>
+        </tr>
+        <tr>
+          <td>\(n\)</td>
+          <td>Jumlah seluruh frekuensi</td>
+        </tr>
+        <tr>
+          <td>\(F_s\)</td>
+          <td>
+            Frekuensi kumulatif <em>sebelum</em> kelas median (nilai kolom \(F\)
+            pada baris di atas kelas median)
+          </td>
+        </tr>
+        <tr>
+          <td>\(f\)</td>
+          <td>Frekuensi kelas median</td>
+        </tr>
+        <tr>
+          <td>\(p\)</td>
+          <td>Panjang kelas</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Langkah Menentukan Median</h3>
+
+  <ol>
+    <li>Hitung \(\displaystyle\frac{n}{2}\).</li>
+    <li>
+      Buat kolom frekuensi kumulatif, lalu tentukan
+      <strong>kelas median</strong>: kelas pertama yang frekuensi kumulatifnya
+      sudah mencapai atau melebihi \(\displaystyle\frac{n}{2}\).
+    </li>
+    <li>Catat \(t_b\), \(F_s\), \(f\), dan \(p\) dari kelas median.</li>
+    <li>Substitusikan ke rumus.</li>
+  </ol>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+
+    <p>Tentukan median dari tabel nilai \(30\) siswa pada bagian 6.</p>
+
+    <p>
+      Karena \(n=30\), maka \(\displaystyle\frac{n}{2}=15\). Frekuensi
+      kumulatifnya \(3,\ 9,\ 17,\ 24,\ 28,\ 30\). Kumulatif pertama yang
+      mencapai \(15\) adalah \(17\), yaitu pada kelas \(61\)–\(70\). Jadi kelas
+      median adalah \(61\)–\(70\) dengan
+    </p>
+
+    <div class="math-display">
+      \[ t_b=60{,}5,\qquad F_s=9,\qquad f=8,\qquad p=10 \]
+    </div>
+
+    <div class="math-display">
+      \[ \mathrm{Me}=60{,}5+\left(\frac{15-9}{8}\right)10=60{,}5+7{,}5=68 \]
+    </div>
+
+    <p>
+      Pembanding: median data mentah adalah \(67{,}5\) (rata-rata data ke-15 dan
+      ke-16), sehingga taksiran \(68\) cukup akurat.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2</h4>
+
+    <p>Tentukan median dari tabel berikut.</p>
+
+    <div class="material-table-wrap">
+      <table class="reflection-table">
+        <thead>
+          <tr>
+            <th scope="col">Kelas</th>
+            <th scope="col">\(f\)</th>
+            <th scope="col">\(F\)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>\(20\)–\(29\)</td>
+            <td>\(5\)</td>
+            <td>\(5\)</td>
+          </tr>
+          <tr>
+            <td>\(30\)–\(39\)</td>
+            <td>\(9\)</td>
+            <td>\(14\)</td>
+          </tr>
+          <tr>
+            <td>\(40\)–\(49\)</td>
+            <td>\(12\)</td>
+            <td>\(26\)</td>
+          </tr>
+          <tr>
+            <td>\(50\)–\(59\)</td>
+            <td>\(10\)</td>
+            <td>\(36\)</td>
+          </tr>
+          <tr>
+            <td>\(60\)–\(69\)</td>
+            <td>\(4\)</td>
+            <td>\(40\)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Karena \(n=40\), \(\displaystyle\frac{n}{2}=20\). Kumulatif pertama yang
+      mencapai \(20\) adalah \(26\), sehingga kelas median adalah \(40\)–\(49\)
+      dengan \(t_b=39{,}5\), \(F_s=14\), \(f=12\), dan \(p=10\).
+    </p>
+
+    <div class="math-display">
+      \[ \mathrm{Me}=39{,}5+\left(\frac{20-14}{12}\right)10=39{,}5+5=44{,}5 \]
+    </div>
+  </div>
+
+  <h3>Kesalahan yang Sering Terjadi</h3>
+
+  <ul>
+    <li>
+      Memakai batas bawah kelas (misalnya \(61\)) sebagai pengganti tepi bawah
+      \(t_b\) (yang benar \(60{,}5\)).
+    </li>
+    <li>
+      Memakai kumulatif <em>termasuk</em> kelas median sebagai \(F_s\). Yang
+      dipakai adalah kumulatif kelas <em>tepat sebelumnya</em>.
+    </li>
+    <li>
+      Memilih kelas median dari frekuensi terbesar. Kelas median ditentukan oleh
+      kumulatif, bukan oleh frekuensi terbesar (itu untuk modus).
+    </li>
+  </ul>
+</section>
+
+<section id="modus-data-berkelompok" data-title="Modus Data Berkelompok">
+  <h2>9. Modus Data Berkelompok</h2>
+
+  <p>
+    Pada data berkelompok, kita tidak bisa menunjuk satu nilai yang paling
+    sering muncul. Yang bisa ditentukan adalah <strong>kelas modus</strong>,
+    yaitu kelas dengan frekuensi terbesar. Setelah itu, nilai modus diperkirakan
+    dengan melihat kelas-kelas tetangganya.
+  </p>
+
+  <h3>Gagasan di Balik Rumus</h3>
+
+  <p>
+    Modus akan bergeser ke arah tetangga yang frekuensinya lebih besar. Ukuran
+    "tarikan" itu dinyatakan oleh dua selisih frekuensi:
+  </p>
+
+  <div class="math-display">
+    \[ d_1=f-f_{\text{sebelum}},\qquad d_2=f-f_{\text{sesudah}} \]
+  </div>
+
+  <p>
+    Selisih \(d_1\) kecil berarti kelas sebelumnya hampir setinggi kelas modus
+    sehingga modus tertarik ke bawah. Sebaliknya, \(d_2\) kecil berarti modus
+    tertarik ke atas. Posisi modus di dalam kelas diperoleh dari perbandingan
+    \(d_1\) terhadap \(d_1+d_2\):
+  </p>
+
+  <div class="math-display">
+    \[ \mathrm{Mo}=t_b+\left(\frac{d_1}{d_1+d_2}\right)p \]
+  </div>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Lambang</th>
+          <th scope="col">Arti</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(t_b\)</td>
+          <td>Tepi bawah kelas modus</td>
+        </tr>
+        <tr>
+          <td>\(d_1\)</td>
+          <td>Frekuensi kelas modus dikurangi frekuensi kelas sebelumnya</td>
+        </tr>
+        <tr>
+          <td>\(d_2\)</td>
+          <td>Frekuensi kelas modus dikurangi frekuensi kelas sesudahnya</td>
+        </tr>
+        <tr>
+          <td>\(p\)</td>
+          <td>Panjang kelas</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+
+    <p>Tentukan modus dari tabel nilai \(30\) siswa pada bagian 6.</p>
+
+    <p>
+      Frekuensi terbesar adalah \(8\), yaitu kelas \(61\)–\(70\). Kelas
+      sebelumnya berfrekuensi \(6\) dan kelas sesudahnya \(7\). Jadi
+    </p>
+
+    <div class="math-display">
+      \[ t_b=60{,}5,\qquad d_1=8-6=2,\qquad d_2=8-7=1,\qquad p=10 \]
+    </div>
+
+    <div class="math-display">
+      \[
+      \mathrm{Mo}=60{,}5+\left(\frac{2}{2+1}\right)10=60{,}5+6{,}67\approx67{,}17
+      \]
+    </div>
+
+    <p>
+      Karena \(d_1&gt;d_2\), modus terletak di bagian atas kelas, yaitu condong
+      ke kelas sesudahnya yang lebih tinggi (\(7\) lawan \(6\)).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2 (Kelas Modus di Ujung)</h4>
+
+    <p>
+      Berat paket (kg) yang diterima sebuah kurir: kelas \(10\)–\(14\) ada
+      \(12\) paket, \(15\)–\(19\) ada \(8\) paket, \(20\)–\(24\) ada \(6\)
+      paket, dan \(25\)–\(29\) ada \(4\) paket. Tentukan modusnya.
+    </p>
+
+    <p>
+      Kelas modus adalah \(10\)–\(14\) (frekuensi \(12\)). Karena tidak ada
+      kelas sebelumnya, frekuensi sebelumnya dianggap \(0\).
+    </p>
+
+    <div class="math-display">
+      \[ t_b=9{,}5,\qquad d_1=12-0=12,\qquad d_2=12-8=4,\qquad p=5 \]
+    </div>
+
+    <div class="math-display">
+      \[ \mathrm{Mo}=9{,}5+\left(\frac{12}{12+4}\right)5=9{,}5+3{,}75=13{,}25 \]
+    </div>
+  </div>
+
+  <h3>Catatan Penting</h3>
+
+  <ul>
+    <li>
+      Jika dua kelas atau lebih sama-sama berfrekuensi terbesar, datanya bimodal
+      atau multimodal, dan modus dihitung untuk setiap kelas tersebut.
+    </li>
+    <li>
+      Kelas modus tidak harus kelas median. Pada contoh 1 keduanya kebetulan
+      sama (\(61\)–\(70\)), tetapi umumnya bisa berbeda.
+    </li>
+    <li>
+      Setelah menghitung, periksa bahwa nilai modus berada di dalam kelas modus.
+      Jika tidak, ada yang salah.
+    </li>
+  </ul>
+</section>
+
+<section
+  id="penyajian-data"
+  data-title="Histogram, Poligon Frekuensi, dan Ogive"
+>
+  <h2>10. Histogram, Poligon Frekuensi, dan Ogive</h2>
+
+  <p>
+    Data berkelompok sering ditampilkan dalam bentuk grafik. Ada tiga grafik
+    yang perlu dikenal, dan dua di antaranya berhubungan langsung dengan median
+    dan modus.
+  </p>
+
+  <h3>Histogram dan Poligon Frekuensi</h3>
+
+  <ul>
+    <li>
+      <strong>Histogram</strong> adalah diagram batang yang batang-batangnya
+      saling menempel. Alas tiap batang membentang dari tepi bawah sampai tepi
+      atas kelas, dan tingginya sama dengan frekuensi kelas.
+    </li>
+    <li>
+      <strong>Poligon frekuensi</strong> dibuat dengan menghubungkan titik
+      \((x_i,\ f_i)\), yaitu titik tengah kelas dan frekuensinya, dengan garis
+      lurus. Agar poligon tertutup, tambahkan satu kelas kosong di kiri dan di
+      kanan (frekuensi \(0\)).
+    </li>
+  </ul>
+
+  <figure style="margin: 1.25rem auto; text-align: center">
+    <svg
+      viewBox="0 0 660 340"
+      role="img"
+      aria-label="Histogram dan poligon frekuensi untuk nilai 30 siswa"
+      style="
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        color: inherit;
+      "
+      font-family="inherit"
+      font-size="13"
+    >
+      <line
+        x1="60.0"
+        y1="280.0"
+        x2="630.0"
+        y2="280.0"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-opacity="0.8"
+      />
+      <text
+        x="50.0"
+        y="284.0"
+        text-anchor="end"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        0
+      </text>
+      <line
+        x1="60.0"
+        y1="252.2"
+        x2="630.0"
+        y2="252.2"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-opacity="0.12"
+      />
+      <text
+        x="50.0"
+        y="256.2"
+        text-anchor="end"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        1
+      </text>
+      <line
+        x1="60.0"
+        y1="224.4"
+        x2="630.0"
+        y2="224.4"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-opacity="0.12"
+      />
+      <text
+        x="50.0"
+        y="228.4"
+        text-anchor="end"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        2
+      </text>
+      <line
+        x1="60.0"
+        y1="196.7"
+        x2="630.0"
+        y2="196.7"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-opacity="0.12"
+      />
+      <text
+        x="50.0"
+        y="200.7"
+        text-anchor="end"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        3
+      </text>
+      <line
+        x1="60.0"
+        y1="168.9"
+        x2="630.0"
+        y2="168.9"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-opacity="0.12"
+      />
+      <text
+        x="50.0"
+        y="172.9"
+        text-anchor="end"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        4
+      </text>
+      <line
+        x1="60.0"
+        y1="141.1"
+        x2="630.0"
+        y2="141.1"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-opacity="0.12"
+      />
+      <text
+        x="50.0"
+        y="145.1"
+        text-anchor="end"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        5
+      </text>
+      <line
+        x1="60.0"
+        y1="113.3"
+        x2="630.0"
+        y2="113.3"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-opacity="0.12"
+      />
+      <text
+        x="50.0"
+        y="117.3"
+        text-anchor="end"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        6
+      </text>
+      <line
+        x1="60.0"
+        y1="85.6"
+        x2="630.0"
+        y2="85.6"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-opacity="0.12"
+      />
+      <text
+        x="50.0"
+        y="89.6"
+        text-anchor="end"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        7
+      </text>
+      <line
+        x1="60.0"
+        y1="57.8"
+        x2="630.0"
+        y2="57.8"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-opacity="0.12"
+      />
+      <text
+        x="50.0"
+        y="61.8"
+        text-anchor="end"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        8
+      </text>
+      <line
+        x1="60.0"
+        y1="30.0"
+        x2="630.0"
+        y2="30.0"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-opacity="0.12"
+      />
+      <line
+        x1="60.0"
+        y1="30.0"
+        x2="60.0"
+        y2="280.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <rect
+        x="131.2"
+        y="196.7"
+        width="71.2"
+        height="83.3"
+        fill="#4f7cff"
+        fill-opacity="0.3"
+        stroke="#4f7cff"
+        stroke-width="1.5"
+      />
+      <text
+        x="166.9"
+        y="214.7"
+        text-anchor="middle"
+        font-size="13"
+        fill="currentColor"
+        font-weight="bold"
+      >
+        3
+      </text>
+      <rect
+        x="202.5"
+        y="113.3"
+        width="71.2"
+        height="166.7"
+        fill="#4f7cff"
+        fill-opacity="0.3"
+        stroke="#4f7cff"
+        stroke-width="1.5"
+      />
+      <text
+        x="238.1"
+        y="131.3"
+        text-anchor="middle"
+        font-size="13"
+        fill="currentColor"
+        font-weight="bold"
+      >
+        6
+      </text>
+      <rect
+        x="273.8"
+        y="57.8"
+        width="71.2"
+        height="222.2"
+        fill="#4f7cff"
+        fill-opacity="0.3"
+        stroke="#4f7cff"
+        stroke-width="1.5"
+      />
+      <text
+        x="309.4"
+        y="75.8"
+        text-anchor="middle"
+        font-size="13"
+        fill="currentColor"
+        font-weight="bold"
+      >
+        8
+      </text>
+      <rect
+        x="345.0"
+        y="85.6"
+        width="71.2"
+        height="194.4"
+        fill="#4f7cff"
+        fill-opacity="0.3"
+        stroke="#4f7cff"
+        stroke-width="1.5"
+      />
+      <text
+        x="380.6"
+        y="103.6"
+        text-anchor="middle"
+        font-size="13"
+        fill="currentColor"
+        font-weight="bold"
+      >
+        7
+      </text>
+      <rect
+        x="416.2"
+        y="168.9"
+        width="71.2"
+        height="111.1"
+        fill="#4f7cff"
+        fill-opacity="0.3"
+        stroke="#4f7cff"
+        stroke-width="1.5"
+      />
+      <text
+        x="451.9"
+        y="186.9"
+        text-anchor="middle"
+        font-size="13"
+        fill="currentColor"
+        font-weight="bold"
+      >
+        4
+      </text>
+      <rect
+        x="487.5"
+        y="224.4"
+        width="71.2"
+        height="55.6"
+        fill="#4f7cff"
+        fill-opacity="0.3"
+        stroke="#4f7cff"
+        stroke-width="1.5"
+      />
+      <text
+        x="523.1"
+        y="242.4"
+        text-anchor="middle"
+        font-size="13"
+        fill="currentColor"
+        font-weight="bold"
+      >
+        2
+      </text>
+      <polyline
+        fill="none"
+        stroke="#e8743b"
+        stroke-width="2.2"
+        points="95.6,280.0 166.9,196.7 238.1,113.3 309.4,57.8 380.6,85.6 451.9,168.9 523.1,224.4 594.4,280.0"
+      />
+      <circle cx="95.6" cy="280.0" r="3.8" fill="#e8743b" />
+      <circle cx="166.9" cy="196.7" r="3.8" fill="#e8743b" />
+      <circle cx="238.1" cy="113.3" r="3.8" fill="#e8743b" />
+      <circle cx="309.4" cy="57.8" r="3.8" fill="#e8743b" />
+      <circle cx="380.6" cy="85.6" r="3.8" fill="#e8743b" />
+      <circle cx="451.9" cy="168.9" r="3.8" fill="#e8743b" />
+      <circle cx="523.1" cy="224.4" r="3.8" fill="#e8743b" />
+      <circle cx="594.4" cy="280.0" r="3.8" fill="#e8743b" />
+      <line
+        x1="60.0"
+        y1="280.0"
+        x2="630.0"
+        y2="280.0"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-opacity="1"
+      />
+      <line
+        x1="131.2"
+        y1="280.0"
+        x2="131.2"
+        y2="285.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <text
+        x="131.2"
+        y="300.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        40,5
+      </text>
+      <line
+        x1="202.5"
+        y1="280.0"
+        x2="202.5"
+        y2="285.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <text
+        x="202.5"
+        y="300.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        50,5
+      </text>
+      <line
+        x1="273.8"
+        y1="280.0"
+        x2="273.8"
+        y2="285.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <text
+        x="273.8"
+        y="300.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        60,5
+      </text>
+      <line
+        x1="345.0"
+        y1="280.0"
+        x2="345.0"
+        y2="285.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <text
+        x="345.0"
+        y="300.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        70,5
+      </text>
+      <line
+        x1="416.2"
+        y1="280.0"
+        x2="416.2"
+        y2="285.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <text
+        x="416.2"
+        y="300.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        80,5
+      </text>
+      <line
+        x1="487.5"
+        y1="280.0"
+        x2="487.5"
+        y2="285.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <text
+        x="487.5"
+        y="300.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        90,5
+      </text>
+      <line
+        x1="558.8"
+        y1="280.0"
+        x2="558.8"
+        y2="285.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <text
+        x="558.8"
+        y="300.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        100,5
+      </text>
+      <text
+        x="345.0"
+        y="326.0"
+        text-anchor="middle"
+        font-size="13"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        Nilai (tepi kelas)
+      </text>
+      <text
+        transform="translate(16,155.0) rotate(-90)"
+        text-anchor="middle"
+        fill="currentColor"
+      >
+        Frekuensi
+      </text>
+      <rect
+        x="445"
+        y="26"
+        width="12"
+        height="12"
+        fill="#4f7cff"
+        fill-opacity="0.3"
+        stroke="#4f7cff"
+      />
+      <text
+        x="463.0"
+        y="37.0"
+        text-anchor="start"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        histogram
+      </text>
+      <line
+        x1="530.0"
+        y1="31.0"
+        x2="550.0"
+        y2="31.0"
+        stroke="#e8743b"
+        stroke-width="2.2"
+        stroke-opacity="1"
+      />
+      <circle cx="540" cy="31" r="3.5" fill="#e8743b" />
+      <text
+        x="555.0"
+        y="37.0"
+        text-anchor="start"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        poligon
+      </text>
+    </svg>
+    <figcaption style="font-size: 0.9em; opacity: 0.85; margin-top: 0.5rem">
+      <strong>Gambar 4.</strong> Histogram (batang) dan poligon frekuensi (garis
+      jingga) dari tabel nilai 30 siswa. Poligon ditutup dengan dua kelas kosong
+      di ujung.
+    </figcaption>
+  </figure>
+
+  <h3>Ogive (Poligon Frekuensi Kumulatif)</h3>
+
+  <p>Ogive adalah grafik frekuensi kumulatif. Ada dua jenis:</p>
+
+  <ul>
+    <li>
+      <strong>Ogive positif ("kurang dari")</strong>: titik \((t_a,\
+      F_{\text{kurang dari}})\), yaitu tepi atas dengan banyak data yang
+      nilainya di bawah tepi atas tersebut. Grafiknya naik.
+    </li>
+    <li>
+      <strong>Ogive negatif ("lebih dari")</strong>: titik \((t_b,\
+      F_{\text{lebih dari}})\), yaitu tepi bawah dengan banyak data yang
+      nilainya di atas tepi bawah tersebut. Grafiknya turun.
+    </li>
+  </ul>
+
+  <p>
+    Untuk tabel nilai \(30\) siswa pada bagian 6 diperoleh titik-titik berikut.
+  </p>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Tepi</th>
+          <th scope="col">Banyak data kurang dari tepi</th>
+          <th scope="col">Banyak data lebih dari tepi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(40{,}5\)</td>
+          <td>\(0\)</td>
+          <td>\(30\)</td>
+        </tr>
+        <tr>
+          <td>\(50{,}5\)</td>
+          <td>\(3\)</td>
+          <td>\(27\)</td>
+        </tr>
+        <tr>
+          <td>\(60{,}5\)</td>
+          <td>\(9\)</td>
+          <td>\(21\)</td>
+        </tr>
+        <tr>
+          <td>\(70{,}5\)</td>
+          <td>\(17\)</td>
+          <td>\(13\)</td>
+        </tr>
+        <tr>
+          <td>\(80{,}5\)</td>
+          <td>\(24\)</td>
+          <td>\(6\)</td>
+        </tr>
+        <tr>
+          <td>\(90{,}5\)</td>
+          <td>\(28\)</td>
+          <td>\(2\)</td>
+        </tr>
+        <tr>
+          <td>\(100{,}5\)</td>
+          <td>\(30\)</td>
+          <td>\(0\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Membaca Median dari Ogive</h3>
+
+  <p>
+    Median adalah nilai yang membuat banyak data di bawahnya sama dengan
+    \(\displaystyle\frac{n}{2}\). Jadi, pada ogive positif tarik garis mendatar
+    setinggi \(\displaystyle\frac{n}{2}=15\), lalu turunkan garis tegak dari
+    titik potongnya ke sumbu mendatar. Dua ogive juga berpotongan tepat di
+    median, karena di titik itu banyak data "kurang dari" sama dengan banyak
+    data "lebih dari", yakni \(15\).
+  </p>
+
+  <p>
+    Ini juga menjelaskan asal rumus median. Titik \(15\) berada di antara titik
+    \((60{,}5;\ 9)\) dan \((70{,}5;\ 17)\) pada ogive. Dengan interpolasi linear
+    (ruas garis lurus) diperoleh
+  </p>
+
+  <div class="math-display">
+    \[
+    x=60{,}5+\frac{15-9}{17-9}\times(70{,}5-60{,}5)=60{,}5+\frac{6}{8}\times10=68
+    \]
+  </div>
+
+  <p>
+    Hasilnya sama dengan rumus median. Pemeriksaan di \(x=68\): ogive positif
+    bernilai \(9+0{,}75\times8=15\) dan ogive negatif bernilai
+    \(21-0{,}75\times8=15\); keduanya memang bertemu di tinggi \(15\).
+  </p>
+
+  <figure style="margin: 1.25rem auto; text-align: center">
+    <svg
+      viewBox="0 0 660 350"
+      role="img"
+      aria-label="Ogive positif dan ogive negatif berpotongan di median 68 pada tinggi 15"
+      style="
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        color: inherit;
+      "
+      font-family="inherit"
+      font-size="13"
+    >
+      <line
+        x1="60.0"
+        y1="285.0"
+        x2="630.0"
+        y2="285.0"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-opacity="0.8"
+      />
+      <text
+        x="50.0"
+        y="289.0"
+        text-anchor="end"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        0
+      </text>
+      <line
+        x1="60.0"
+        y1="242.5"
+        x2="630.0"
+        y2="242.5"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-opacity="0.12"
+      />
+      <text
+        x="50.0"
+        y="246.5"
+        text-anchor="end"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        5
+      </text>
+      <line
+        x1="60.0"
+        y1="200.0"
+        x2="630.0"
+        y2="200.0"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-opacity="0.12"
+      />
+      <text
+        x="50.0"
+        y="204.0"
+        text-anchor="end"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        10
+      </text>
+      <line
+        x1="60.0"
+        y1="157.5"
+        x2="630.0"
+        y2="157.5"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-opacity="0.12"
+      />
+      <text
+        x="50.0"
+        y="161.5"
+        text-anchor="end"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        15
+      </text>
+      <line
+        x1="60.0"
+        y1="115.0"
+        x2="630.0"
+        y2="115.0"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-opacity="0.12"
+      />
+      <text
+        x="50.0"
+        y="119.0"
+        text-anchor="end"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        20
+      </text>
+      <line
+        x1="60.0"
+        y1="72.5"
+        x2="630.0"
+        y2="72.5"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-opacity="0.12"
+      />
+      <text
+        x="50.0"
+        y="76.5"
+        text-anchor="end"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        25
+      </text>
+      <line
+        x1="60.0"
+        y1="30.0"
+        x2="630.0"
+        y2="30.0"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-opacity="0.12"
+      />
+      <text
+        x="50.0"
+        y="34.0"
+        text-anchor="end"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        30
+      </text>
+      <line
+        x1="60.0"
+        y1="30.0"
+        x2="60.0"
+        y2="285.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <line
+        x1="60.0"
+        y1="285.0"
+        x2="630.0"
+        y2="285.0"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-opacity="1"
+      />
+      <line
+        x1="60.0"
+        y1="285.0"
+        x2="60.0"
+        y2="290.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <text
+        x="60.0"
+        y="305.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        40,5
+      </text>
+      <line
+        x1="155.0"
+        y1="285.0"
+        x2="155.0"
+        y2="290.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <text
+        x="155.0"
+        y="305.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        50,5
+      </text>
+      <line
+        x1="250.0"
+        y1="285.0"
+        x2="250.0"
+        y2="290.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <text
+        x="250.0"
+        y="305.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        60,5
+      </text>
+      <line
+        x1="345.0"
+        y1="285.0"
+        x2="345.0"
+        y2="290.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <text
+        x="345.0"
+        y="305.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        70,5
+      </text>
+      <line
+        x1="440.0"
+        y1="285.0"
+        x2="440.0"
+        y2="290.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <text
+        x="440.0"
+        y="305.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        80,5
+      </text>
+      <line
+        x1="535.0"
+        y1="285.0"
+        x2="535.0"
+        y2="290.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <text
+        x="535.0"
+        y="305.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        90,5
+      </text>
+      <line
+        x1="630.0"
+        y1="285.0"
+        x2="630.0"
+        y2="290.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <text
+        x="630.0"
+        y="305.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        100,5
+      </text>
+      <polyline
+        fill="none"
+        stroke="#4f7cff"
+        stroke-width="2.4"
+        points="60.0,285.0 155.0,259.5 250.0,208.5 345.0,140.5 440.0,81.0 535.0,47.0 630.0,30.0"
+      />
+      <polyline
+        fill="none"
+        stroke="#2e9e6b"
+        stroke-width="2.4"
+        points="60.0,30.0 155.0,55.5 250.0,106.5 345.0,174.5 440.0,234.0 535.0,268.0 630.0,285.0"
+      />
+      <circle cx="60.0" cy="285.0" r="3.6" fill="#4f7cff" />
+      <circle cx="155.0" cy="259.5" r="3.6" fill="#4f7cff" />
+      <circle cx="250.0" cy="208.5" r="3.6" fill="#4f7cff" />
+      <circle cx="345.0" cy="140.5" r="3.6" fill="#4f7cff" />
+      <circle cx="440.0" cy="81.0" r="3.6" fill="#4f7cff" />
+      <circle cx="535.0" cy="47.0" r="3.6" fill="#4f7cff" />
+      <circle cx="630.0" cy="30.0" r="3.6" fill="#4f7cff" />
+      <circle cx="60.0" cy="30.0" r="3.6" fill="#2e9e6b" />
+      <circle cx="155.0" cy="55.5" r="3.6" fill="#2e9e6b" />
+      <circle cx="250.0" cy="106.5" r="3.6" fill="#2e9e6b" />
+      <circle cx="345.0" cy="174.5" r="3.6" fill="#2e9e6b" />
+      <circle cx="440.0" cy="234.0" r="3.6" fill="#2e9e6b" />
+      <circle cx="535.0" cy="268.0" r="3.6" fill="#2e9e6b" />
+      <circle cx="630.0" cy="285.0" r="3.6" fill="#2e9e6b" />
+      <line
+        x1="60.0"
+        y1="157.5"
+        x2="321.2"
+        y2="157.5"
+        stroke="#e8743b"
+        stroke-width="1.8"
+        stroke-dasharray="6 4"
+        stroke-opacity="1"
+      />
+      <line
+        x1="321.2"
+        y1="157.5"
+        x2="321.2"
+        y2="285.0"
+        stroke="#e8743b"
+        stroke-width="1.8"
+        stroke-dasharray="6 4"
+        stroke-opacity="1"
+      />
+      <circle
+        cx="321.2"
+        cy="157.5"
+        r="6"
+        fill="none"
+        stroke="#e8743b"
+        stroke-width="2.5"
+      />
+      <text
+        x="321.2"
+        y="277.0"
+        text-anchor="end"
+        font-size="13"
+        fill="#e8743b"
+        font-weight="bold"
+        dx="-6"
+      >
+        Me = 68
+      </text>
+      <text
+        x="68.0"
+        y="149.5"
+        text-anchor="start"
+        font-size="13"
+        fill="#e8743b"
+        font-weight="bold"
+      >
+        n/2 = 15
+      </text>
+      <text
+        x="492.2"
+        y="90.0"
+        text-anchor="start"
+        font-size="12"
+        fill="#4f7cff"
+        font-weight="bold"
+      >
+        ogive positif (kurang dari)
+      </text>
+      <text
+        x="131.2"
+        y="67.0"
+        text-anchor="start"
+        font-size="12"
+        fill="#2e9e6b"
+        font-weight="bold"
+      >
+        ogive negatif (lebih dari)
+      </text>
+      <text
+        x="345.0"
+        y="331.0"
+        text-anchor="middle"
+        font-size="13"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        Tepi kelas
+      </text>
+      <text
+        transform="translate(16,157.5) rotate(-90)"
+        text-anchor="middle"
+        fill="currentColor"
+      >
+        Frekuensi kumulatif
+      </text>
+    </svg>
+    <figcaption style="font-size: 0.9em; opacity: 0.85; margin-top: 0.5rem">
+      <strong>Gambar 5.</strong> Ogive positif dan ogive negatif berpotongan di
+      median, yaitu \(x=68\) pada tinggi \(\displaystyle\frac{n}{2}=15\).
+    </figcaption>
+  </figure>
+
+  <h3>Membaca Modus dari Histogram</h3>
+
+  <p>
+    Pilih batang tertinggi (kelas modus). Hubungkan titik sudut kanan-atas
+    batang sebelumnya dengan titik sudut kanan-atas batang modus. Lalu hubungkan
+    titik sudut kiri-atas batang modus dengan titik sudut kiri-atas batang
+    sesudahnya. Kedua garis berpotongan di suatu titik, dan absis titik potong
+    itu adalah modus.
+  </p>
+
+  <p>
+    Mengapa hasilnya sama dengan rumus? Misalkan
+    \(t=\displaystyle\frac{\mathrm{Mo}-t_b}{p}\) adalah posisi relatif modus di
+    dalam kelas (nilainya antara \(0\) dan \(1\)). Ketinggian kedua garis di
+    posisi itu harus sama:
+  </p>
+
+  <div class="math-display">
+    \[ f_{\text{sebelum}}+d_1\,t=f-d_2\,t\ \Rightarrow\
+    (d_1+d_2)\,t=f-f_{\text{sebelum}}=d_1\ \Rightarrow\ t=\frac{d_1}{d_1+d_2} \]
+  </div>
+
+  <p>
+    Jadi \(\mathrm{Mo}=t_b+\displaystyle\frac{d_1}{d_1+d_2}\,p\), tepat seperti
+    rumus modus.
+  </p>
+
+  <figure style="margin: 1.25rem auto; text-align: center">
+    <svg
+      viewBox="0 0 660 340"
+      role="img"
+      aria-label="Cara membaca modus dari histogram: perpotongan dua garis pada batang modus"
+      style="
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        color: inherit;
+      "
+      font-family="inherit"
+      font-size="13"
+    >
+      <line
+        x1="60.0"
+        y1="275.0"
+        x2="630.0"
+        y2="275.0"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-opacity="0.8"
+      />
+      <text
+        x="50.0"
+        y="279.0"
+        text-anchor="end"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        0
+      </text>
+      <line
+        x1="60.0"
+        y1="247.8"
+        x2="630.0"
+        y2="247.8"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-opacity="0.12"
+      />
+      <text
+        x="50.0"
+        y="251.8"
+        text-anchor="end"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        1
+      </text>
+      <line
+        x1="60.0"
+        y1="220.6"
+        x2="630.0"
+        y2="220.6"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-opacity="0.12"
+      />
+      <text
+        x="50.0"
+        y="224.6"
+        text-anchor="end"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        2
+      </text>
+      <line
+        x1="60.0"
+        y1="193.3"
+        x2="630.0"
+        y2="193.3"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-opacity="0.12"
+      />
+      <text
+        x="50.0"
+        y="197.3"
+        text-anchor="end"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        3
+      </text>
+      <line
+        x1="60.0"
+        y1="166.1"
+        x2="630.0"
+        y2="166.1"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-opacity="0.12"
+      />
+      <text
+        x="50.0"
+        y="170.1"
+        text-anchor="end"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        4
+      </text>
+      <line
+        x1="60.0"
+        y1="138.9"
+        x2="630.0"
+        y2="138.9"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-opacity="0.12"
+      />
+      <text
+        x="50.0"
+        y="142.9"
+        text-anchor="end"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        5
+      </text>
+      <line
+        x1="60.0"
+        y1="111.7"
+        x2="630.0"
+        y2="111.7"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-opacity="0.12"
+      />
+      <text
+        x="50.0"
+        y="115.7"
+        text-anchor="end"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        6
+      </text>
+      <line
+        x1="60.0"
+        y1="84.4"
+        x2="630.0"
+        y2="84.4"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-opacity="0.12"
+      />
+      <text
+        x="50.0"
+        y="88.4"
+        text-anchor="end"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        7
+      </text>
+      <line
+        x1="60.0"
+        y1="57.2"
+        x2="630.0"
+        y2="57.2"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-opacity="0.12"
+      />
+      <text
+        x="50.0"
+        y="61.2"
+        text-anchor="end"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        8
+      </text>
+      <line
+        x1="60.0"
+        y1="30.0"
+        x2="630.0"
+        y2="30.0"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-opacity="0.12"
+      />
+      <text
+        x="50.0"
+        y="34.0"
+        text-anchor="end"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        9
+      </text>
+      <line
+        x1="60.0"
+        y1="30.0"
+        x2="60.0"
+        y2="275.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <rect
+        x="131.2"
+        y="111.7"
+        width="142.5"
+        height="163.3"
+        fill="#4f7cff"
+        fill-opacity="0.28"
+        stroke="#4f7cff"
+        stroke-width="1.6"
+      />
+      <text
+        x="202.5"
+        y="131.7"
+        text-anchor="middle"
+        font-size="13"
+        fill="currentColor"
+        font-weight="bold"
+      >
+        f = 6
+      </text>
+      <text
+        x="202.5"
+        y="265.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        kelas sebelumnya
+      </text>
+      <rect
+        x="273.8"
+        y="57.2"
+        width="142.5"
+        height="217.8"
+        fill="#e8743b"
+        fill-opacity="0.28"
+        stroke="#e8743b"
+        stroke-width="1.6"
+      />
+      <text
+        x="345.0"
+        y="77.2"
+        text-anchor="middle"
+        font-size="13"
+        fill="currentColor"
+        font-weight="bold"
+      >
+        f = 8
+      </text>
+      <text
+        x="345.0"
+        y="265.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        kelas modus
+      </text>
+      <rect
+        x="416.2"
+        y="84.4"
+        width="142.5"
+        height="190.6"
+        fill="#4f7cff"
+        fill-opacity="0.28"
+        stroke="#4f7cff"
+        stroke-width="1.6"
+      />
+      <text
+        x="487.5"
+        y="104.4"
+        text-anchor="middle"
+        font-size="13"
+        fill="currentColor"
+        font-weight="bold"
+      >
+        f = 7
+      </text>
+      <text
+        x="487.5"
+        y="265.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        kelas sesudahnya
+      </text>
+      <line
+        x1="60.0"
+        y1="275.0"
+        x2="630.0"
+        y2="275.0"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-opacity="1"
+      />
+      <line
+        x1="131.2"
+        y1="275.0"
+        x2="131.2"
+        y2="280.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <text
+        x="131.2"
+        y="295.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        50,5
+      </text>
+      <line
+        x1="273.8"
+        y1="275.0"
+        x2="273.8"
+        y2="280.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <text
+        x="273.8"
+        y="295.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        60,5
+      </text>
+      <line
+        x1="416.2"
+        y1="275.0"
+        x2="416.2"
+        y2="280.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <text
+        x="416.2"
+        y="295.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        70,5
+      </text>
+      <line
+        x1="558.8"
+        y1="275.0"
+        x2="558.8"
+        y2="280.0"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-opacity="1"
+      />
+      <text
+        x="558.8"
+        y="295.0"
+        text-anchor="middle"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        80,5
+      </text>
+      <line
+        x1="273.8"
+        y1="111.7"
+        x2="416.2"
+        y2="57.2"
+        stroke="#d6455d"
+        stroke-width="2.2"
+        stroke-opacity="1"
+      />
+      <line
+        x1="273.8"
+        y1="57.2"
+        x2="416.2"
+        y2="84.4"
+        stroke="#2e9e6b"
+        stroke-width="2.2"
+        stroke-opacity="1"
+      />
+      <circle cx="368.8" cy="75.4" r="5" fill="currentColor" />
+      <line
+        x1="368.8"
+        y1="75.4"
+        x2="368.8"
+        y2="275.0"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-dasharray="5 4"
+        stroke-opacity="1"
+      />
+      <text
+        x="368.8"
+        y="317.0"
+        text-anchor="middle"
+        font-size="13"
+        fill="currentColor"
+        font-weight="bold"
+      >
+        Mo ≈ 67,17
+      </text>
+      <text
+        x="269.8"
+        y="103.7"
+        text-anchor="end"
+        font-size="11"
+        fill="#d6455d"
+        font-weight="normal"
+      >
+        (60,5; 6)
+      </text>
+      <text
+        x="420.2"
+        y="49.2"
+        text-anchor="start"
+        font-size="11"
+        fill="#d6455d"
+        font-weight="normal"
+      >
+        (70,5; 8)
+      </text>
+      <text
+        x="269.8"
+        y="49.2"
+        text-anchor="end"
+        font-size="11"
+        fill="#2e9e6b"
+        font-weight="normal"
+      >
+        (60,5; 8)
+      </text>
+      <text
+        x="422.2"
+        y="76.4"
+        text-anchor="start"
+        font-size="11"
+        fill="#2e9e6b"
+        font-weight="normal"
+      >
+        (70,5; 7)
+      </text>
+      <text
+        x="64.0"
+        y="34.0"
+        text-anchor="start"
+        font-size="12"
+        fill="currentColor"
+        font-weight="normal"
+      >
+        garis merah: d₁ = 8 − 6 = 2 | garis hijau: d₂ = 8 − 7 = 1
+      </text>
+    </svg>
+    <figcaption style="font-size: 0.9em; opacity: 0.85; margin-top: 0.5rem">
+      <strong>Gambar 6.</strong> Perpotongan dua garis pada batang modus
+      menunjukkan nilai modus. Posisinya
+      \(\displaystyle\frac{d_1}{d_1+d_2}=\displaystyle\frac{2}{3}\) dari tepi
+      bawah kelas.
+    </figcaption>
+  </figure>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Sebuah histogram memiliki lima batang dengan tepi kelas \(24{,}5;\
+      29{,}5;\ 34{,}5;\ 39{,}5;\ 44{,}5;\ 49{,}5\) dan tinggi batang
+      berturut-turut \(3,\ 6,\ 12,\ 8,\ 2\). Tentukan modus dan banyak data
+      seluruhnya.
+    </p>
+
+    <p>
+      Batang tertinggi adalah batang ketiga (tinggi \(12\)) dengan
+      \(t_b=34{,}5\) dan \(p=5\). Tetangganya bertinggi \(6\) dan \(8\),
+      sehingga \(d_1=12-6=6\) dan \(d_2=12-8=4\).
+    </p>
+
+    <div class="math-display">
+      \[ \mathrm{Mo}=34{,}5+\left(\frac{6}{6+4}\right)5=34{,}5+3=37{,}5 \]
+    </div>
+
+    <p>
+      Banyak data seluruhnya adalah jumlah tinggi batang: \(3+6+12+8+2=31\).
+    </p>
+  </div>
+</section>
+
+<section
+  id="pengayaan-statistika"
+  data-title="Pengayaan Teknik untuk UTBK dan Olimpiade"
+>
+  <h2>11. Pengayaan Teknik untuk UTBK dan Olimpiade</h2>
+
+  <p>
+    Soal UTBK dan olimpiade jarang meminta sekadar "hitung mean". Biasanya
+    datanya tidak diberikan lengkap, sehingga kita harus bernalar dengan sifat
+    mean, median, dan modus. Berikut enam teknik yang sering dipakai.
+  </p>
+
+  <h3>1. Gunakan Selisih Jumlah untuk Mengoreksi Data</h3>
+
+  <p>
+    Jika beberapa data diubah, mean berubah sebesar
+    <strong>perubahan jumlah dibagi banyak data</strong>. Kita tidak perlu
+    menghitung ulang seluruh data.
+  </p>
+
+  <div class="math-display">
+    \[ \bar{x}_{\text{baru}}=\bar{x}_{\text{lama}}+\frac{\text{perubahan
+    jumlah}}{n} \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Rata-rata \(40\) data adalah \(15\). Ternyata ada dua kesalahan baca: data
+      \(28\) terbaca \(18\), dan data \(12\) terbaca \(14\). Tentukan rata-rata
+      yang benar.
+    </p>
+
+    <p>
+      Data pertama terbaca terlalu kecil \(10\) (perlu ditambah \(10\)), data
+      kedua terbaca terlalu besar \(2\) (perlu dikurangi \(2\)). Perubahan
+      jumlah \(=10-2=8\).
+    </p>
+
+    <div class="math-display">
+      \[ \bar{x}_{\text{baru}}=15+\frac{8}{40}=15{,}2 \]
+    </div>
+  </div>
+
+  <h3>2. Selisih Silang untuk Mean Gabungan</h3>
+
+  <p>
+    Mean gabungan \(\bar{x}_g\) selalu berada di antara mean kedua kelompok.
+    Karena jumlah selisih terhadap mean gabungan harus nol,
+  </p>
+
+  <div class="math-display">
+    \[ n_1(\bar{x}_1-\bar{x}_g)+n_2(\bar{x}_2-\bar{x}_g)=0\ \Rightarrow\
+    \frac{n_1}{n_2}=\frac{\bar{x}_2-\bar{x}_g}{\bar{x}_g-\bar{x}_1} \]
+  </div>
+
+  <p>
+    Cara mengingatnya: perbandingan banyak anggota sama dengan perbandingan
+    selisih mean <em>secara silang</em>. Kelompok yang meannya lebih dekat ke
+    mean gabungan memiliki anggota lebih banyak.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Kelompok A beranggota rata-rata \(62\), kelompok B rata-rata \(77\), dan
+      gabungan keduanya rata-rata \(70\). Tentukan perbandingan banyak anggota A
+      dan B.
+    </p>
+
+    <div class="math-display">
+      \[ \frac{n_A}{n_B}=\frac{77-70}{70-62}=\frac{7}{8} \]
+    </div>
+
+    <p>
+      Pemeriksaan dengan \(n_A=7\) dan \(n_B=8\):
+      \(\displaystyle\frac{7(62)+8(77)}{15}=\frac{434+616}{15}=70\) (benar).
+    </p>
+  </div>
+
+  <h3>3. Menyusun Data dari Ciri-Cirinya</h3>
+
+  <p>
+    Soal bergaya "empat bilangan asli memiliki mean ..., median ..., dan modus
+    ..." diselesaikan dengan urutan berpikir: (i) urutkan sebagai \(a\le b\le
+    c\le d\); (ii) median menentukan nilai di posisi tengah; (iii) modus
+    menentukan nilai mana yang berulang dan di posisi mana; (iv) mean menentukan
+    jumlah total, sehingga bilangan yang tersisa dapat dihitung.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Empat bilangan asli \(a\le b\le c\le d\) memiliki mean \(6\), median
+      \(5\), dan modus \(4\) (hanya satu modus). Tentukan keempat bilangan itu.
+    </p>
+
+    <ul>
+      <li>Mean \(6\): \(a+b+c+d=24\).</li>
+      <li>
+        Median \(5\): \(\displaystyle\frac{b+c}{2}=5\), sehingga \(b+c=10\).
+      </li>
+      <li>
+        Modus \(4\) berarti \(4\) muncul paling sedikit dua kali. Jika salah
+        satu angka \(4\) berada di posisi \(c\) atau \(d\), maka \(b\le c\le4\)
+        sehingga \(b+c\le8\), padahal \(b+c=10\). Jadi angka \(4\) hanya boleh
+        berada di posisi paling kiri, yaitu \(a=b=4\).
+      </li>
+      <li>Maka \(c=10-4=6\) dan \(d=24-4-4-6=10\).</li>
+    </ul>
+
+    <p>
+      Datanya \(4,\ 4,\ 6,\ 10\). Pemeriksaan: mean
+      \(=\displaystyle\frac{24}{4}=6\), median
+      \(=\displaystyle\frac{4+6}{2}=5\), modus \(=4\). Semuanya cocok.
+    </p>
+  </div>
+
+  <h3>4. Dua Informasi Menentukan Transformasi \(ax+b\)</h3>
+
+  <p>
+    Karena mean, median, dan modus semuanya mengikuti aturan \(y=ax+b\), dua
+    pasang nilai sebelum dan sesudah cukup untuk mencari \(a\) dan \(b\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Data \(x\) memiliki mean \(12\) dan median \(11\). Data \(y_i=ax_i+b\)
+      memiliki mean \(31\) dan median \(28\). Tentukan \(a\) dan \(b\).
+    </p>
+
+    <div class="math-display">
+      \[ 12a+b=31,\qquad 11a+b=28\ \Rightarrow\ a=3,\quad b=31-36=-5 \]
+    </div>
+
+    <p>
+      Jadi \(y=3x-5\). Dengan aturan yang sama, jika modus \(x\) adalah \(10\),
+      maka modus \(y\) adalah \(3(10)-5=25\).
+    </p>
+  </div>
+
+  <h3>5. Barisan Aritmetika: Mean Sama dengan Median</h3>
+
+  <p>
+    Jika data membentuk barisan aritmetika (selisih berurutan tetap, misalnya
+    bilangan berurutan atau bilangan genap berurutan), maka mean dan mediannya
+    sama, yaitu rata-rata suku pertama dan suku terakhir:
+  </p>
+
+  <div class="math-display">\[ \bar{x}=\mathrm{Me}=\frac{x_1+x_n}{2} \]</div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Sembilan bilangan genap berurutan memiliki rata-rata \(30\). Tentukan
+      bilangan terkecil dan terbesarnya.
+    </p>
+
+    <p>
+      Mean sama dengan median, yaitu bilangan ke-\(5\). Jadi bilangan ke-\(5\)
+      adalah \(30\); empat bilangan di bawahnya adalah \(28,26,24,22\) dan empat
+      di atasnya \(32,34,36,38\). Bilangan terkecil \(22\) dan terbesar \(38\).
+    </p>
+  </div>
+
+  <h3>6. Mean dan Median sebagai Peminimum</h3>
+
+  <p>
+    Dua fakta berikut sering muncul pada soal olimpiade. Untuk data
+    \(x_1,\dots,x_n\) dan bilangan real \(t\):
+  </p>
+
+  <ul>
+    <li>
+      Jumlah kuadrat selisih \(\sum(x_i-t)^2\) paling kecil ketika
+      \(t=\bar{x}\).
+    </li>
+    <li>
+      Jumlah selisih mutlak \(\sum|x_i-t|\) paling kecil ketika
+      \(t=\mathrm{Me}\).
+    </li>
+  </ul>
+
+  <p>
+    Fakta pertama mudah dibuktikan dengan fungsi kuadrat (materi sebelumnya!).
+    Jabarkan:
+  </p>
+
+  <div class="math-display">
+    \[ g(t)=\sum(x_i-t)^2=nt^2-2\Big(\sum x_i\Big)t+\sum x_i^2 \]
+  </div>
+
+  <p>
+    Ini fungsi kuadrat dalam \(t\) dengan \(a=n&gt;0\), sehingga minimum di
+    titik puncak \(t=-\displaystyle\frac{-2\sum x_i}{2n}=\displaystyle\frac{\sum
+    x_i}{n}=\bar{x}\). Fakta kedua dapat dipahami secara intuitif: jika \(t\)
+    digeser ke kanan sejauh kecil, jarak ke data di kiri \(t\) bertambah dan
+    jarak ke data di kanan \(t\) berkurang. Jumlahnya turun selama data di kanan
+    lebih banyak daripada di kiri, dan itu berhenti tepat di median.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Untuk data \(1,\ 3,\ 8,\ 10,\ 20\) (mean \(8{,}4\), median \(8\)):</p>
+
+    <div class="material-table-wrap">
+      <table class="reflection-table">
+        <thead>
+          <tr>
+            <th scope="col">\(t\)</th>
+            <th scope="col">\(\sum|x_i-t|\)</th>
+            <th scope="col">\(\sum(x_i-t)^2\)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>\(8\) (median)</td>
+            <td>\(26\) (terkecil)</td>
+            <td>\(222\)</td>
+          </tr>
+          <tr>
+            <td>\(8{,}4\) (mean)</td>
+            <td>\(26{,}4\)</td>
+            <td>\(221{,}2\) (terkecil)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section
+  id="rangkuman-statistika"
+  data-title="Rangkuman Mean, Median, dan Modus"
+>
+  <h2>12. Rangkuman Rumus Mean, Median, dan Modus</h2>
+
+  <h3>Data Tunggal</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Ukuran</th>
+          <th scope="col">Data tunggal (daftar)</th>
+          <th scope="col">Tabel frekuensi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Mean</td>
+          <td>\(\bar{x}=\displaystyle\frac{\sum x_i}{n}\)</td>
+          <td>\(\bar{x}=\displaystyle\frac{\sum f_ix_i}{\sum f_i}\)</td>
+        </tr>
+        <tr>
+          <td>Median</td>
+          <td>
+            Urutkan; ganjil: data ke-\(\displaystyle\frac{n+1}{2}\); genap:
+            rata-rata data ke-\(\displaystyle\frac{n}{2}\) dan
+            ke-\(\displaystyle\frac{n}{2}+1\)
+          </td>
+          <td>Cari posisi tengah memakai frekuensi kumulatif</td>
+        </tr>
+        <tr>
+          <td>Modus</td>
+          <td>Nilai yang paling sering muncul</td>
+          <td>Nilai dengan frekuensi terbesar</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Mean Gabungan dan Perubahan Data</h3>
+
+  <div class="math-display">
+    \[ \sum x_i=n\bar{x},\qquad
+    \bar{x}_g=\frac{n_1\bar{x}_1+n_2\bar{x}_2}{n_1+n_2},\qquad y=ax+b\Rightarrow
+    \bar{y}=a\bar{x}+b,\ \mathrm{Me}_y=a\mathrm{Me}_x+b,\
+    \mathrm{Mo}_y=a\mathrm{Mo}_x+b \]
+  </div>
+
+  <h3>Unsur Kelas pada Data Berkelompok</h3>
+
+  <div class="math-display">
+    \[ t_b=\text{batas bawah}-0{,}5,\qquad p=t_a-t_b,\qquad
+    x_i=\frac{\text{batas bawah}+\text{batas atas}}{2} \]
+  </div>
+
+  <h3>Mean Data Berkelompok</h3>
+
+  <div class="math-display">
+    \[ \bar{x}=\frac{\sum f_ix_i}{\sum f_i}=x_s+\frac{\sum f_id_i}{\sum
+    f_i}=x_s+p\cdot\frac{\sum f_iu_i}{\sum f_i} \]
+  </div>
+
+  <h3>Median Data Berkelompok</h3>
+
+  <div class="math-display">
+    \[ \mathrm{Me}=t_b+\left(\frac{\frac{n}{2}-F_s}{f}\right)p \]
+  </div>
+
+  <h3>Modus Data Berkelompok</h3>
+
+  <div class="math-display">
+    \[ \mathrm{Mo}=t_b+\left(\frac{d_1}{d_1+d_2}\right)p,\qquad
+    d_1=f-f_{\text{sebelum}},\ d_2=f-f_{\text{sesudah}} \]
+  </div>
+
+  <h3>Hubungan Bentuk Sebaran</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Bentuk</th>
+          <th scope="col">Hubungan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Simetris</td>
+          <td>\(\bar{x}=\mathrm{Me}=\mathrm{Mo}\)</td>
+        </tr>
+        <tr>
+          <td>Condong kanan</td>
+          <td>\(\mathrm{Mo}&lt;\mathrm{Me}&lt;\bar{x}\)</td>
+        </tr>
+        <tr>
+          <td>Condong kiri</td>
+          <td>\(\bar{x}&lt;\mathrm{Me}&lt;\mathrm{Mo}\)</td>
+        </tr>
+        <tr>
+          <td>Hampiran Pearson</td>
+          <td>\(\mathrm{Mo}\approx3\mathrm{Me}-2\bar{x}\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Kesalahan yang Sering Terjadi</h3>
+
+  <ul>
+    <li>Menghitung median tanpa mengurutkan data terlebih dahulu.</li>
+    <li>
+      Pada \(n\) genap, hanya mengambil satu data tengah. Yang benar adalah
+      rata-rata dua data tengah.
+    </li>
+    <li>
+      Menjawab modus dengan frekuensinya, padahal modus adalah nilai datanya.
+    </li>
+    <li>
+      Menghitung mean gabungan sebagai rata-rata dari dua mean, tanpa
+      memperhatikan banyak anggota tiap kelompok.
+    </li>
+    <li>
+      Pada data berkelompok, memakai batas bawah kelas sebagai \(t_b\), bukan
+      tepi bawah (batas bawah \(-0{,}5\)).
+    </li>
+    <li>
+      Menghitung panjang kelas sebagai batas atas dikurangi batas bawah
+      (sehingga kurang \(1\)), padahal \(p=t_a-t_b\).
+    </li>
+    <li>
+      Salah memilih kelas median (memakai frekuensi terbesar, padahal harus
+      memakai frekuensi kumulatif) atau salah memilih \(F_s\) (memakai kumulatif
+      termasuk kelas median).
+    </li>
+    <li>
+      Lupa bahwa kelas pertama atau kelas terakhir tidak punya tetangga di satu
+      sisi, sehingga frekuensi tetangganya dianggap \(0\) pada rumus modus.
+    </li>
+    <li>
+      Menganggap mean selalu lebih baik daripada median, padahal untuk data
+      dengan pencilan median lebih mewakili.
+    </li>
+  </ul>
+</section>
+
+<section id="latihan-mandiri-statistika" data-title="Latihan Soal Mandiri">
+  <h2>13. Latihan Soal Mandiri</h2>
+
+  <p>
+    Kerjakan soal-soal berikut secara mandiri. Soal nomor 1–8 memiliki tingkat
+    kesulitan sekolah dan soal nomor 9–18 memiliki tingkat penalaran seperti
+    soal UTBK; keduanya berbentuk pilihan ganda (pilih satu jawaban yang paling
+    tepat). Soal nomor 19–20 adalah soal tingkat olimpiade berbentuk isian
+    singkat.
+  </p>
+
+  <h3>A. Tingkat Kesulitan Sekolah</h3>
+
+  <!-- Soal 1 -->
+  <div class="lesson-example">
+    <h4>Soal 1</h4>
+
+    <p>
+      Nilai ulangan delapan siswa adalah \(6,\ 7,\ 8,\ 7,\ 9,\ 10,\ 5,\ 8\).
+      Rata-rata nilai tersebut adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(6{,}5\)</li>
+      <li>\(7\)</li>
+      <li>\(7{,}25\)</li>
+      <li>\(7{,}5\)</li>
+      <li>\(8\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 2 -->
+  <div class="lesson-example">
+    <h4>Soal 2</h4>
+
+    <p>Median dari data \(12,\ 7,\ 9,\ 15,\ 11,\ 8,\ 10,\ 14\) adalah ....</p>
+
+    <ol type="A">
+      <li>\(10\)</li>
+      <li>\(10{,}5\)</li>
+      <li>\(10{,}75\)</li>
+      <li>\(11\)</li>
+      <li>\(11{,}5\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 3 -->
+  <div class="lesson-example">
+    <h4>Soal 3</h4>
+
+    <p>Perhatikan tabel nilai berikut.</p>
+
+    <div class="material-table-wrap">
+      <table class="reflection-table">
+        <thead>
+          <tr>
+            <th scope="col">Nilai</th>
+            <th scope="col">\(4\)</th>
+            <th scope="col">\(5\)</th>
+            <th scope="col">\(6\)</th>
+            <th scope="col">\(7\)</th>
+            <th scope="col">\(8\)</th>
+            <th scope="col">\(9\)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Frekuensi</td>
+            <td>\(2\)</td>
+            <td>\(3\)</td>
+            <td>\(5\)</td>
+            <td>\(6\)</td>
+            <td>\(3\)</td>
+            <td>\(1\)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Rata-rata nilai pada tabel tersebut adalah ....</p>
+
+    <ol type="A">
+      <li>\(6{,}4\)</li>
+      <li>\(6{,}5\)</li>
+      <li>\(6{,}6\)</li>
+      <li>\(6{,}8\)</li>
+      <li>\(7\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 4 -->
+  <div class="lesson-example">
+    <h4>Soal 4</h4>
+
+    <p>
+      Kelas A terdiri dari \(30\) siswa dengan rata-rata nilai \(72\), dan kelas
+      B terdiri dari \(20\) siswa dengan rata-rata nilai \(82\). Rata-rata nilai
+      gabungan kedua kelas adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(74\)</li>
+      <li>\(75\)</li>
+      <li>\(76\)</li>
+      <li>\(77\)</li>
+      <li>\(78\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 5 -->
+  <div class="lesson-example">
+    <h4>Soal 5</h4>
+
+    <p>
+      Rata-rata lima bilangan adalah \(8\). Setelah satu bilangan ditambahkan,
+      rata-ratanya menjadi \(9\). Bilangan yang ditambahkan adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(9\)</li>
+      <li>\(10\)</li>
+      <li>\(12\)</li>
+      <li>\(13\)</li>
+      <li>\(14\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 6 -->
+  <div class="lesson-example">
+    <h4>Soal 6</h4>
+
+    <p>Tinggi badan \(40\) siswa disajikan pada tabel berikut.</p>
+
+    <div class="material-table-wrap">
+      <table class="reflection-table">
+        <thead>
+          <tr>
+            <th scope="col">Tinggi (cm)</th>
+            <th scope="col">Frekuensi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>\(151\)–\(155\)</td>
+            <td>\(2\)</td>
+          </tr>
+          <tr>
+            <td>\(156\)–\(160\)</td>
+            <td>\(11\)</td>
+          </tr>
+          <tr>
+            <td>\(161\)–\(165\)</td>
+            <td>\(14\)</td>
+          </tr>
+          <tr>
+            <td>\(166\)–\(170\)</td>
+            <td>\(7\)</td>
+          </tr>
+          <tr>
+            <td>\(171\)–\(175\)</td>
+            <td>\(6\)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Rata-rata tinggi badan siswa tersebut adalah ... cm.</p>
+
+    <ol type="A">
+      <li>\(162{,}5\)</li>
+      <li>\(163{,}5\)</li>
+      <li>\(164\)</li>
+      <li>\(164{,}5\)</li>
+      <li>\(165\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 7 -->
+  <div class="lesson-example">
+    <h4>Soal 7</h4>
+
+    <p>Nilai ulangan \(40\) siswa disajikan pada tabel berikut.</p>
+
+    <div class="material-table-wrap">
+      <table class="reflection-table">
+        <thead>
+          <tr>
+            <th scope="col">Nilai</th>
+            <th scope="col">Frekuensi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>\(31\)–\(40\)</td>
+            <td>\(6\)</td>
+          </tr>
+          <tr>
+            <td>\(41\)–\(50\)</td>
+            <td>\(11\)</td>
+          </tr>
+          <tr>
+            <td>\(51\)–\(60\)</td>
+            <td>\(12\)</td>
+          </tr>
+          <tr>
+            <td>\(61\)–\(70\)</td>
+            <td>\(7\)</td>
+          </tr>
+          <tr>
+            <td>\(71\)–\(80\)</td>
+            <td>\(4\)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Median dari data tersebut adalah ....</p>
+
+    <ol type="A">
+      <li>\(51{,}5\)</li>
+      <li>\(52\)</li>
+      <li>\(53\)</li>
+      <li>\(54{,}5\)</li>
+      <li>\(55\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 8 -->
+  <div class="lesson-example">
+    <h4>Soal 8</h4>
+
+    <p>
+      Waktu tempuh (menit) \(50\) siswa dari rumah ke sekolah disajikan pada
+      tabel berikut.
+    </p>
+
+    <div class="material-table-wrap">
+      <table class="reflection-table">
+        <thead>
+          <tr>
+            <th scope="col">Waktu (menit)</th>
+            <th scope="col">Frekuensi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>\(20\)–\(24\)</td>
+            <td>\(2\)</td>
+          </tr>
+          <tr>
+            <td>\(25\)–\(29\)</td>
+            <td>\(6\)</td>
+          </tr>
+          <tr>
+            <td>\(30\)–\(34\)</td>
+            <td>\(15\)</td>
+          </tr>
+          <tr>
+            <td>\(35\)–\(39\)</td>
+            <td>\(14\)</td>
+          </tr>
+          <tr>
+            <td>\(40\)–\(44\)</td>
+            <td>\(13\)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Modus dari data tersebut adalah ....</p>
+
+    <ol type="A">
+      <li>\(34\)</li>
+      <li>\(34{,}5\)</li>
+      <li>\(35\)</li>
+      <li>\(36\)</li>
+      <li>\(37{,}5\)</li>
+    </ol>
+  </div>
+
+  <h3>B. Tingkat Kesulitan UTBK</h3>
+
+  <!-- Soal 9 -->
+  <div class="lesson-example">
+    <h4>Soal 9</h4>
+
+    <p>
+      Rata-rata dari \(12\) bilangan adalah \(8\). Jika bilangan terbesar \(22\)
+      dan bilangan terkecil \(4\) dikeluarkan, maka rata-rata \(10\) bilangan
+      yang tersisa adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(6\)</li>
+      <li>\(6{,}5\)</li>
+      <li>\(6{,}8\)</li>
+      <li>\(7\)</li>
+      <li>\(8\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 10 -->
+  <div class="lesson-example">
+    <h4>Soal 10</h4>
+
+    <p>
+      Data \(x\) memiliki rata-rata \(8\) dan median \(7\). Setiap data diubah
+      menjadi \(y=ax+b\) sehingga rata-rata data \(y\) menjadi \(20\) dan
+      mediannya menjadi \(17\). Jika modus data \(x\) adalah \(6\), maka modus
+      data \(y\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(12\)</li>
+      <li>\(14\)</li>
+      <li>\(15\)</li>
+      <li>\(16\)</li>
+      <li>\(18\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 11 -->
+  <div class="lesson-example">
+    <h4>Soal 11</h4>
+
+    <p>
+      Pada suatu kelas terdapat \(45\) siswa dengan rata-rata nilai ujian
+      \(78\). Rata-rata nilai siswa laki-laki \(74\) dan rata-rata nilai siswa
+      perempuan \(80\). Banyak siswa perempuan di kelas tersebut adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(15\)</li>
+      <li>\(20\)</li>
+      <li>\(24\)</li>
+      <li>\(27\)</li>
+      <li>\(30\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 12 -->
+  <div class="lesson-example">
+    <h4>Soal 12</h4>
+
+    <p>
+      Lima bilangan asli \(a\le b\le c\le d\le e\) memiliki rata-rata \(8\),
+      median \(8\), dan modus \(10\) (modusnya hanya satu). Nilai \(a\) adalah
+      ....
+    </p>
+
+    <ol type="A">
+      <li>\(5\)</li>
+      <li>\(6\)</li>
+      <li>\(7\)</li>
+      <li>\(8\)</li>
+      <li>\(9\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 13 -->
+  <div class="lesson-example">
+    <h4>Soal 13</h4>
+
+    <p>Tabel distribusi frekuensi berikut memiliki rata-rata \(68{,}5\).</p>
+
+    <div class="material-table-wrap">
+      <table class="reflection-table">
+        <thead>
+          <tr>
+            <th scope="col">Nilai</th>
+            <th scope="col">\(40\)–\(49\)</th>
+            <th scope="col">\(50\)–\(59\)</th>
+            <th scope="col">\(60\)–\(69\)</th>
+            <th scope="col">\(70\)–\(79\)</th>
+            <th scope="col">\(80\)–\(89\)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Frekuensi</td>
+            <td>\(4\)</td>
+            <td>\(6\)</td>
+            <td>\(x\)</td>
+            <td>\(12\)</td>
+            <td>\(8\)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Nilai \(x\) adalah ....</p>
+
+    <ol type="A">
+      <li>\(3\)</li>
+      <li>\(4\)</li>
+      <li>\(5\)</li>
+      <li>\(6\)</li>
+      <li>\(8\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 14 -->
+  <div class="lesson-example">
+    <h4>Soal 14</h4>
+
+    <p>Median dari data pada tabel berikut adalah \(56\).</p>
+
+    <div class="material-table-wrap">
+      <table class="reflection-table">
+        <thead>
+          <tr>
+            <th scope="col">Nilai</th>
+            <th scope="col">\(31\)–\(40\)</th>
+            <th scope="col">\(41\)–\(50\)</th>
+            <th scope="col">\(51\)–\(60\)</th>
+            <th scope="col">\(61\)–\(70\)</th>
+            <th scope="col">\(71\)–\(80\)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Frekuensi</td>
+            <td>\(6\)</td>
+            <td>\(10\)</td>
+            <td>\(p\)</td>
+            <td>\(14\)</td>
+            <td>\(4\)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Nilai \(p\) adalah ....</p>
+
+    <ol type="A">
+      <li>\(10\)</li>
+      <li>\(12\)</li>
+      <li>\(15\)</li>
+      <li>\(20\)</li>
+      <li>\(25\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 15 -->
+  <div class="lesson-example">
+    <h4>Soal 15</h4>
+
+    <p>Modus dari data pada tabel berikut adalah \(56{,}5\).</p>
+
+    <div class="material-table-wrap">
+      <table class="reflection-table">
+        <thead>
+          <tr>
+            <th scope="col">Nilai</th>
+            <th scope="col">\(31\)–\(40\)</th>
+            <th scope="col">\(41\)–\(50\)</th>
+            <th scope="col">\(51\)–\(60\)</th>
+            <th scope="col">\(61\)–\(70\)</th>
+            <th scope="col">\(71\)–\(80\)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Frekuensi</td>
+            <td>\(6\)</td>
+            <td>\(9\)</td>
+            <td>\(12\)</td>
+            <td>\(q\)</td>
+            <td>\(8\)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Nilai \(q\) adalah ....</p>
+
+    <ol type="A">
+      <li>\(4\)</li>
+      <li>\(5\)</li>
+      <li>\(6\)</li>
+      <li>\(8\)</li>
+      <li>\(10\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 16 -->
+  <div class="lesson-example">
+    <h4>Soal 16</h4>
+
+    <p>Perhatikan pernyataan-pernyataan berikut.</p>
+
+    <ol>
+      <li>
+        Jika setiap data dikalikan \(-2\), maka mean, median, dan modus data
+        yang baru juga dikalikan \(-2\).
+      </li>
+      <li>
+        Pada data dengan banyak data lebih dari \(2\), jika data terbesar
+        diganti dengan bilangan yang lebih besar, maka mean bertambah tetapi
+        median tidak berubah.
+      </li>
+      <li>Mean suatu data selalu lebih besar daripada mediannya.</li>
+      <li>
+        Jika ke dalam suatu data ditambahkan satu data yang nilainya sama dengan
+        mean, maka mean dan median data itu pasti tidak berubah.
+      </li>
+    </ol>
+
+    <p>Pernyataan yang benar adalah ....</p>
+
+    <ol type="A">
+      <li>(1) dan (3) saja</li>
+      <li>(2) dan (4) saja</li>
+      <li>(1) dan (2) saja</li>
+      <li>(1), (2), dan (3) saja</li>
+      <li>(1), (2), (3), dan (4)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 17 -->
+  <div class="lesson-example">
+    <h4>Soal 17</h4>
+
+    <p>
+      Seorang guru mencatat nilai \(25\) siswa dengan rata-rata \(72\). Setelah
+      diperiksa ulang, ternyata nilai \(90\) tercatat \(60\) dan nilai \(75\)
+      tercatat \(55\). Rata-rata nilai yang benar adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(72{,}8\)</li>
+      <li>\(73\)</li>
+      <li>\(73{,}2\)</li>
+      <li>\(73{,}5\)</li>
+      <li>\(74\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 18 -->
+  <div class="lesson-example">
+    <h4>Soal 18</h4>
+
+    <p>
+      Lima bilangan real \(a\le b\le c\le d\le e\) memiliki rata-rata \(6\),
+      median \(6\), dan jangkauan \(6\) (yaitu \(e-a=6\)). Nilai terbesar yang
+      mungkin untuk \(e\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(7\)</li>
+      <li>\(8\)</li>
+      <li>\(9\)</li>
+      <li>\(10\)</li>
+      <li>\(11\)</li>
+    </ol>
+  </div>
+
+  <h3>C. Tingkat Kesulitan Olimpiade</h3>
+
+  <!-- Soal 19 -->
+  <div class="lesson-example">
+    <h4>Soal 19</h4>
+
+    <p>
+      Dari bilangan \(1,\ 2,\ 3,\ \ldots,\ n\), satu bilangan dihapus. Rata-rata
+      bilangan yang tersisa adalah \(40\displaystyle\frac{3}{13}\). Tentukan
+      \(n\) dan bilangan yang dihapus.
+    </p>
+  </div>
+
+  <!-- Soal 20 -->
+  <div class="lesson-example">
+    <h4>Soal 20</h4>
+
+    <p>
+      Tentukan banyaknya himpunan \(\{a,b,c,d,e\}\) yang terdiri dari lima
+      bilangan bulat positif berbeda dengan \(a&lt;b&lt;c&lt;d&lt;e\), yang mean
+      dan mediannya sama-sama bernilai \(10\).
+    </p>
+  </div>
+</section>
+
+<section
+  id="pembahasan-latihan-statistika"
+  data-title="Pembahasan Latihan Mandiri"
+>
+  <h2>14. Pembahasan Latihan Mandiri</h2>
+
+  <p>
+    Bagian ini membahas seluruh soal pada latihan mandiri. Soal nomor 1–8
+    berfokus pada penguasaan konsep dan prosedur dasar tingkat sekolah, soal
+    nomor 9–18 menekankan penalaran dan pemilihan strategi yang lebih dekat
+    dengan karakter soal UTBK, dan soal nomor 19–20 menguji kreativitas seperti
+    pada soal olimpiade. Soal-soal berikut merupakan latihan bergaya UTBK dan
+    olimpiade, bukan soal resmi.
+  </p>
+
+  <h3>A. Pembahasan Tingkat Kesulitan Sekolah</h3>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 1</h4>
+    <p>Jumlahkan seluruh nilai, lalu bagi dengan banyak data \(n=8\):</p>
+    <div class="math-display">
+      \[ \sum x_i=6+7+8+7+9+10+5+8=60,\qquad \bar{x}=\frac{60}{8}=7{,}5 \]
+    </div>
+    <p>
+      Nilai \(7\) dan \(8\) pada pilihan B dan E adalah modus data ini
+      (masing-masing muncul dua kali), bukan mean-nya.
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 2</h4>
+    <p>Median memerlukan data yang terurut. Urutkan terlebih dahulu:</p>
+    <div class="math-display">\[ 7,\ 8,\ 9,\ 10,\ 11,\ 12,\ 14,\ 15 \]</div>
+    <p>
+      Karena \(n=8\) (genap), median adalah rata-rata data ke-\(4\) dan
+      ke-\(5\):
+    </p>
+    <div class="math-display">\[ \mathrm{Me}=\frac{10+11}{2}=10{,}5 \]</div>
+    <p>
+      Pilihan C (\(10{,}75\)) adalah mean data ini, yaitu
+      \(\displaystyle\frac{86}{8}\). Pilihan A dan D hanya mengambil satu dari
+      dua data tengah.
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 3</h4>
+    <p>
+      Banyak data \(\sum f_i=2+3+5+6+3+1=20\). Hitung jumlah hasil kali nilai
+      dan frekuensinya:
+    </p>
+    <div class="math-display">
+      \[ \sum f_ix_i=4(2)+5(3)+6(5)+7(6)+8(3)+9(1)=8+15+30+42+24+9=128 \]
+    </div>
+    <div class="math-display">\[ \bar{x}=\frac{128}{20}=6{,}4 \]</div>
+    <p>
+      Pilihan B (\(6{,}5\)) adalah median (data ke-10 bernilai \(6\) dan data
+      ke-11 bernilai \(7\)), sedangkan pilihan E (\(7\)) adalah modus.
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 4</h4>
+    <p>Gunakan rumus mean gabungan:</p>
+    <div class="math-display">
+      \[
+      \bar{x}_{\text{gab}}=\frac{30(72)+20(82)}{30+20}=\frac{2160+1640}{50}=\frac{3800}{50}=76
+      \]
+    </div>
+    <p>
+      Pilihan D (\(77\)) adalah hasil kesalahan memakai rata-rata sederhana
+      \(\displaystyle\frac{72+82}{2}\), padahal banyak siswa kedua kelas
+      berbeda. Karena kelas A lebih banyak, mean gabungan memang harus lebih
+      dekat ke \(72\) daripada ke \(82\).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 5</h4>
+    <p>Ubah mean menjadi jumlah dengan hubungan jumlah \(=n\times\) mean:</p>
+    <div class="math-display">
+      \[ \text{jumlah lama}=5\times8=40,\qquad \text{jumlah baru}=6\times9=54 \]
+    </div>
+    <p>Bilangan yang ditambahkan adalah selisih kedua jumlah:</p>
+    <div class="math-display">\[ 54-40=14 \]</div>
+    <p>Pemeriksaan: \(\displaystyle\frac{40+14}{6}=\frac{54}{6}=9\) (benar).</p>
+    <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 6</h4>
+    <p>
+      Titik tengah kelas adalah \(153,\ 158,\ 163,\ 168,\ 173\). Pilih rataan
+      sementara \(x_s=163\) (kelas dengan frekuensi terbesar), sehingga
+      simpangannya \(-10,\ -5,\ 0,\ 5,\ 10\).
+    </p>
+    <div class="math-display">
+      \[ \sum f_id_i=2(-10)+11(-5)+14(0)+7(5)+6(10)=-20-55+0+35+60=20 \]
+    </div>
+    <div class="math-display">\[ \bar{x}=163+\frac{20}{40}=163{,}5 \]</div>
+    <p>
+      Pemeriksaan dengan titik tengah langsung: \(\sum
+      f_ix_i=306+1738+2282+1176+1038=6540\), dan
+      \(\displaystyle\frac{6540}{40}=163{,}5\).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 7</h4>
+    <p>
+      Karena \(n=6+11+12+7+4=40\), data tengah ada di urutan
+      \(\displaystyle\frac{n}{2}=20\). Frekuensi kumulatifnya \(6,\ 17,\ 29,\
+      36,\ 40\). Kumulatif pertama yang mencapai \(20\) adalah \(29\), sehingga
+      kelas median adalah \(51\)–\(60\) dengan
+    </p>
+    <div class="math-display">
+      \[ t_b=50{,}5,\qquad F_s=17,\qquad f=12,\qquad p=10 \]
+    </div>
+    <div class="math-display">
+      \[ \mathrm{Me}=50{,}5+\left(\frac{20-17}{12}\right)10=50{,}5+2{,}5=53 \]
+    </div>
+    <p>
+      Perhatikan bahwa \(F_s=17\) adalah kumulatif kelas <em>sebelum</em> kelas
+      median, bukan \(29\).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 8</h4>
+    <p>
+      Frekuensi terbesar adalah \(15\), sehingga kelas modus adalah
+      \(30\)–\(34\). Kelas sebelumnya berfrekuensi \(6\) dan kelas sesudahnya
+      \(14\):
+    </p>
+    <div class="math-display">
+      \[ t_b=29{,}5,\qquad d_1=15-6=9,\qquad d_2=15-14=1,\qquad p=5 \]
+    </div>
+    <div class="math-display">
+      \[ \mathrm{Mo}=29{,}5+\left(\frac{9}{9+1}\right)5=29{,}5+4{,}5=34 \]
+    </div>
+    <p>
+      Pilihan B (\(34{,}5\)) muncul jika batas bawah \(30\) dipakai sebagai
+      \(t_b\) (yang benar \(29{,}5\)).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+  </div>
+
+  <h3>B. Pembahasan Tingkat Kesulitan UTBK</h3>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 9</h4>
+    <p>
+      Soal ini tidak memberi datanya, jadi gunakan hubungan jumlah \(=n\times\)
+      mean:
+    </p>
+    <div class="math-display">\[ \text{jumlah awal}=12\times8=96 \]</div>
+    <p>Setelah dua bilangan dikeluarkan, jumlah menjadi</p>
+    <div class="math-display">\[ 96-(22+4)=70 \]</div>
+    <p>dan banyak bilangan menjadi \(10\). Maka</p>
+    <div class="math-display">\[ \bar{x}_{\text{baru}}=\frac{70}{10}=7 \]</div>
+    <p>
+      Pilihan E (\(8\)) akan benar hanya jika bilangan yang dikeluarkan
+      rata-ratanya \(8\) (sementara rata-rata \(22\) dan \(4\) adalah \(13\)),
+      sehingga mean pasti berubah.
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 10</h4>
+    <p>
+      Mean, median, dan modus semuanya mengikuti aturan transformasi \(y=ax+b\).
+      Dari mean dan median diperoleh dua persamaan:
+    </p>
+    <div class="math-display">\[ 8a+b=20,\qquad 7a+b=17 \]</div>
+    <p>
+      Kurangkan kedua persamaan: \(a=3\), lalu \(b=20-24=-4\). Jadi \(y=3x-4\).
+      Modus data \(y\):
+    </p>
+    <div class="math-display">\[ \mathrm{Mo}_y=3(6)-4=14 \]</div>
+    <p>
+      Pilihan E (\(18\)) muncul jika konstanta \(b\) terlupa (\(3\times6\)).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 11</h4>
+    <p>
+      Gunakan selisih silang. Mean gabungan \(78\) berada di antara \(74\)
+      (laki-laki) dan \(80\) (perempuan):
+    </p>
+    <div class="math-display">
+      \[ \frac{n_L}{n_P}=\frac{80-78}{78-74}=\frac{2}{4}=\frac{1}{2} \]
+    </div>
+    <p>
+      Jadi perbandingan laki-laki : perempuan \(=1:2\). Dari total \(45\) siswa,
+      banyak perempuan adalah \(\displaystyle\frac{2}{3}\times45=30\) (laki-laki
+      \(15\)).
+    </p>
+    <p>
+      Pemeriksaan:
+      \(\displaystyle\frac{15(74)+30(80)}{45}=\frac{1110+2400}{45}=78\) (benar).
+      Pilihan A (\(15\)) adalah banyak siswa laki-laki.
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 12</h4>
+    <p>
+      Rata-rata \(8\) berarti jumlah kelima bilangan \(40\). Median \(8\)
+      berarti \(c=8\). Modus \(10\) harus muncul paling sedikit dua kali. Karena
+      \(a\le b\le c=8\) semuanya tidak lebih dari \(8\), bilangan \(10\) hanya
+      bisa berada di posisi \(d\) dan \(e\), sehingga \(d=e=10\).
+    </p>
+    <div class="math-display">\[ a+b=40-8-10-10=12,\qquad a\le b\le8 \]</div>
+    <p>Pasangan \((a,b)\) yang mungkin dan pemeriksaannya:</p>
+    <div class="material-table-wrap">
+      <table class="reflection-table">
+        <thead>
+          <tr>
+            <th scope="col">\((a,b)\)</th>
+            <th scope="col">Data</th>
+            <th scope="col">Modus</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>\((4,8)\)</td>
+            <td>\(4,8,8,10,10\)</td>
+            <td>\(8\) dan \(10\) (tidak tunggal)</td>
+          </tr>
+          <tr>
+            <td>\((5,7)\)</td>
+            <td>\(5,7,8,10,10\)</td>
+            <td>\(10\) saja</td>
+          </tr>
+          <tr>
+            <td>\((6,6)\)</td>
+            <td>\(6,6,8,10,10\)</td>
+            <td>\(6\) dan \(10\) (tidak tunggal)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Hanya pasangan \((5,7)\) yang menghasilkan modus tunggal \(10\). Jadi
+      \(a=5\).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 13</h4>
+    <p>
+      Titik tengah kelas: \(44{,}5;\ 54{,}5;\ 64{,}5;\ 74{,}5;\ 84{,}5\). Pilih
+      \(x_s=64{,}5\) sehingga simpangan \(-20,\ -10,\ 0,\ 10,\ 20\).
+    </p>
+    <div class="math-display">
+      \[ \sum f_id_i=4(-20)+6(-10)+x(0)+12(10)+8(20)=-80-60+120+160=140 \]
+    </div>
+    <p>Banyak data \(\sum f_i=30+x\), sehingga</p>
+    <div class="math-display">
+      \[
+      64{,}5+\frac{140}{30+x}=68{,}5\Rightarrow\frac{140}{30+x}=4\Rightarrow30+x=35\Rightarrow
+      x=5 \]
+    </div>
+    <p>
+      Pemeriksaan: untuk \(x=5\), \(\sum
+      f_ix_i=178+327+322{,}5+894+676=2397{,}5\) dan
+      \(\displaystyle\frac{2397{,}5}{35}=68{,}5\) (benar).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 14</h4>
+    <p>
+      Banyak data \(n=6+10+p+14+4=34+p\). Frekuensi kumulatif sebelum kelas
+      \(51\)–\(60\) adalah \(6+10=16\). Misalkan kelas median adalah
+      \(51\)–\(60\) (akan diperiksa di akhir), dengan \(t_b=50{,}5\),
+      \(F_s=16\), \(f=p\), dan \(p_{\text{kelas}}=10\):
+    </p>
+    <div class="math-display">
+      \[ 56=50{,}5+\left(\frac{\frac{34+p}{2}-16}{p}\right)10 \]
+    </div>
+    <p>
+      Sederhanakan pembilangnya:
+      \(\displaystyle\frac{34+p}{2}-16=\frac{p+2}{2}\), sehingga
+    </p>
+    <div class="math-display">
+      \[ 5{,}5=\frac{p+2}{2p}\times10\Rightarrow
+      0{,}55=\frac{p+2}{2p}\Rightarrow 1{,}1p=p+2\Rightarrow p=20 \]
+    </div>
+    <p>
+      Pemeriksaan asumsi: \(n=54\), sehingga \(\displaystyle\frac{n}{2}=27\).
+      Kumulatifnya \(6,\ 16,\ 36,\ \ldots\) dan \(27\) memang berada di kelas
+      ketiga (\(51\)–\(60\)). Asumsi kelas median benar.
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 15</h4>
+    <p>
+      Kelas \(51\)–\(60\) berfrekuensi \(12\), yang merupakan frekuensi terbesar
+      selama \(q&lt;12\). Anggap kelas modus adalah \(51\)–\(60\) dengan
+      \(t_b=50{,}5\), \(p=10\), \(d_1=12-9=3\), dan \(d_2=12-q\):
+    </p>
+    <div class="math-display">
+      \[
+      56{,}5=50{,}5+\left(\frac{3}{3+12-q}\right)10\Rightarrow6=\frac{30}{15-q}\Rightarrow15-q=5\Rightarrow
+      q=10 \]
+    </div>
+    <p>
+      Pemeriksaan: \(q=10&lt;12\), sehingga kelas \(51\)–\(60\) memang kelas
+      modus, dan \(d_2=2\) sehingga
+      \(\mathrm{Mo}=50{,}5+\displaystyle\frac{3}{5}(10)=56{,}5\) (benar).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 16</h4>
+    <p>Periksa setiap pernyataan satu per satu.</p>
+    <ul>
+      <li>
+        <strong>(1) Benar.</strong> Mean, median, dan modus semuanya mengikuti
+        aturan \(y=ax+b\). Untuk \(a=-2\) dan \(b=0\), ketiganya ikut dikalikan
+        \(-2\).
+      </li>
+      <li>
+        <strong>(2) Benar.</strong> Jika \(n&gt;2\), data terbesar bukan penentu
+        median (median ditentukan data posisi tengah), sehingga penggantian data
+        terbesar tidak mengubah median. Jumlah data bertambah sehingga mean
+        bertambah.
+      </li>
+      <li>
+        <strong>(3) Salah.</strong> Contoh penyangkal: data \(1,\ 9,\ 10\)
+        memiliki mean \(\displaystyle\frac{20}{3}\approx6{,}67\) yang lebih
+        kecil dari median \(9\). Untuk data simetris, mean juga sama dengan
+        median.
+      </li>
+      <li>
+        <strong>(4) Salah.</strong> Mean memang tidak berubah, tetapi median
+        bisa berubah. Contoh: data \(1,\ 2,\ 9\) (mean \(4\), median \(2\)).
+        Setelah ditambah \(4\) menjadi \(1,\ 2,\ 4,\ 9\), mean tetap \(4\)
+        tetapi median menjadi \(\displaystyle\frac{2+4}{2}=3\).
+      </li>
+    </ul>
+    <p>Pernyataan yang benar hanya (1) dan (2).</p>
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 17</h4>
+    <p>
+      Hitung perubahan jumlah, bukan jumlah seluruhnya. Nilai \(90\) yang
+      tercatat \(60\) kurang \(30\), dan nilai \(75\) yang tercatat \(55\)
+      kurang \(20\). Jumlah yang benar lebih besar dari jumlah tercatat sebesar
+    </p>
+    <div class="math-display">\[ 30+20=50 \]</div>
+    <p>Maka mean bertambah \(\displaystyle\frac{50}{25}=2\):</p>
+    <div class="math-display">\[ \bar{x}_{\text{benar}}=72+2=74 \]</div>
+    <p>
+      Pemeriksaan: jumlah tercatat \(25\times72=1800\), jumlah benar \(1850\),
+      dan \(\displaystyle\frac{1850}{25}=74\).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 18</h4>
+    <p>
+      Rata-rata \(6\) berarti jumlah kelima bilangan \(30\). Median \(6\)
+      berarti \(c=6\). Jangkauan \(6\) berarti \(e=a+6\). Substitusikan ke
+      jumlah:
+    </p>
+    <div class="math-display">\[ a+b+6+d+(a+6)=30\Rightarrow 2a+b+d=18 \]</div>
+    <p>
+      Kita ingin \(e=a+6\) sebesar mungkin, artinya \(a\) harus sebesar mungkin.
+      Gunakan batas urutan \(b\ge a\) dan \(d\ge c=6\):
+    </p>
+    <div class="math-display">
+      \[ 18=2a+b+d\ge 2a+a+6=3a+6\Rightarrow a\le4 \]
+    </div>
+    <p>
+      Nilai \(a=4\) dapat dicapai: dari \(2a+b+d=18\) diperoleh \(b+d=10\)
+      dengan \(b\ge4\) dan \(d\ge6\), sehingga \(b=4\) dan \(d=6\). Datanya
+      \(4,\ 4,\ 6,\ 6,\ 10\): rata-rata \(\displaystyle\frac{30}{5}=6\), median
+      \(6\), dan jangkauan \(10-4=6\) (semua syarat terpenuhi).
+    </p>
+    <p>Nilai terbesar yang mungkin untuk \(e\) adalah \(4+6=10\).</p>
+    <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+  </div>
+
+  <h3>C. Pembahasan Tingkat Kesulitan Olimpiade</h3>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 19</h4>
+    <p>
+      Misalkan bilangan yang dihapus adalah \(k\) dengan \(1\le k\le n\).
+      Rata-rata \(40\displaystyle\frac{3}{13}=\displaystyle\frac{523}{13}\).
+      Jumlah semua bilangan \(\displaystyle\frac{n(n+1)}{2}\), dan tersisa
+      \(n-1\) bilangan:
+    </p>
+    <div class="math-display">
+      \[ \frac{\frac{n(n+1)}{2}-k}{n-1}=\frac{523}{13} \]
+    </div>
+    <p>
+      <strong>Langkah 1: batasi \(n\).</strong> Rata-rata sisa paling kecil
+      terjadi saat \(k=n\) dan paling besar saat \(k=1\):
+    </p>
+    <div class="math-display">
+      \[ \frac{\frac{n(n+1)}{2}-n}{n-1}=\frac{n}{2}\ \le\ \frac{523}{13}\ \le\
+      \frac{\frac{n(n+1)}{2}-1}{n-1}=\frac{n+2}{2} \]
+    </div>
+    <p>
+      Dari \(\displaystyle\frac{n}{2}\le\frac{523}{13}\approx40{,}23\) diperoleh
+      \(n\le80{,}46\), dan dari \(\displaystyle\frac{n+2}{2}\ge40{,}23\)
+      diperoleh \(n\ge78{,}46\). Jadi \(n=79\) atau \(n=80\).
+    </p>
+    <p>
+      <strong>Langkah 2: pakai keterbagian.</strong> Kalikan silang persamaan di
+      atas: \(13\left(\displaystyle\frac{n(n+1)}{2}-k\right)=523(n-1)\). Ruas
+      kiri kelipatan \(13\), sehingga \(13\mid523(n-1)\). Karena
+      \(523=13\times40+3\) tidak habis dibagi \(13\), haruslah \(13\mid(n-1)\).
+      Untuk \(n=79\) diperoleh \(n-1=78=13\times6\) (memenuhi), sedangkan untuk
+      \(n=80\) diperoleh \(79\) (tidak habis dibagi \(13\)). Jadi \(n=79\).
+    </p>
+    <p>
+      <strong>Langkah 3: cari \(k\).</strong> Jumlah bilangan yang tersisa
+      adalah \(78\times\displaystyle\frac{523}{13}=6\times523=3138\), sedangkan
+      jumlah semula \(\displaystyle\frac{79\cdot80}{2}=3160\). Maka
+    </p>
+    <div class="math-display">\[ k=3160-3138=22 \]</div>
+    <p>
+      Jadi, jawabannya adalah <strong>\(n=79\)</strong> dan bilangan yang
+      dihapus adalah <strong>\(22\)</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 20</h4>
+    <p>
+      Karena kelimanya berbeda dan terurut, median adalah \(c=10\). Mean \(10\)
+      berarti jumlah kelima bilangan \(50\), sehingga
+    </p>
+    <div class="math-display">
+      \[ a+b+d+e=40,\qquad a&lt;b&lt;10&lt;d&lt;e \]
+    </div>
+    <p>
+      Pisahkan menjadi dua bagian. Pasangan \((a,b)\) memenuhi \(1\le
+      a&lt;b\le9\) dengan jumlah \(u=a+b\), dan pasangan \((d,e)\) memenuhi
+      \(11\le d&lt;e\) dengan jumlah \(v=d+e=40-u\). Untuk setiap nilai \(u\),
+      banyak himpunan adalah hasil kali banyak pasangan \((a,b)\) dan banyak
+      pasangan \((d,e)\).
+    </p>
+    <ul>
+      <li>
+        Karena \(a&lt;b\le9\), nilai \(u\) berkisar dari \(1+2=3\) sampai
+        \(8+9=17\).
+      </li>
+      <li>
+        Banyak pasangan \((a,b)\) dengan jumlah \(u\) adalah banyak bilangan
+        bulat \(a\) dengan \(\max(1,\,u-9)\le
+        a\le\left\lfloor\displaystyle\frac{u-1}{2}\right\rfloor\) (syarat
+        \(b=u-a\le9\) dan \(a&lt;b\)).
+      </li>
+      <li>
+        Banyak pasangan \((d,e)\) dengan jumlah \(v\) adalah banyak \(d\) dari
+        \(11\) sampai \(\left\lfloor\displaystyle\frac{v-1}{2}\right\rfloor\),
+        yaitu \(\left\lfloor\displaystyle\frac{v-1}{2}\right\rfloor-10\).
+      </li>
+    </ul>
+    <div class="material-table-wrap">
+      <table class="reflection-table">
+        <thead>
+          <tr>
+            <th scope="col">\(u=a+b\)</th>
+            <th scope="col">Banyak \((a,b)\)</th>
+            <th scope="col">\(v=40-u\)</th>
+            <th scope="col">Banyak \((d,e)\)</th>
+            <th scope="col">Hasil kali</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>\(3\)</td>
+            <td>\(1\)</td>
+            <td>\(37\)</td>
+            <td>\(8\)</td>
+            <td>\(8\)</td>
+          </tr>
+          <tr>
+            <td>\(4\)</td>
+            <td>\(1\)</td>
+            <td>\(36\)</td>
+            <td>\(7\)</td>
+            <td>\(7\)</td>
+          </tr>
+          <tr>
+            <td>\(5\)</td>
+            <td>\(2\)</td>
+            <td>\(35\)</td>
+            <td>\(7\)</td>
+            <td>\(14\)</td>
+          </tr>
+          <tr>
+            <td>\(6\)</td>
+            <td>\(2\)</td>
+            <td>\(34\)</td>
+            <td>\(6\)</td>
+            <td>\(12\)</td>
+          </tr>
+          <tr>
+            <td>\(7\)</td>
+            <td>\(3\)</td>
+            <td>\(33\)</td>
+            <td>\(6\)</td>
+            <td>\(18\)</td>
+          </tr>
+          <tr>
+            <td>\(8\)</td>
+            <td>\(3\)</td>
+            <td>\(32\)</td>
+            <td>\(5\)</td>
+            <td>\(15\)</td>
+          </tr>
+          <tr>
+            <td>\(9\)</td>
+            <td>\(4\)</td>
+            <td>\(31\)</td>
+            <td>\(5\)</td>
+            <td>\(20\)</td>
+          </tr>
+          <tr>
+            <td>\(10\)</td>
+            <td>\(4\)</td>
+            <td>\(30\)</td>
+            <td>\(4\)</td>
+            <td>\(16\)</td>
+          </tr>
+          <tr>
+            <td>\(11\)</td>
+            <td>\(4\)</td>
+            <td>\(29\)</td>
+            <td>\(4\)</td>
+            <td>\(16\)</td>
+          </tr>
+          <tr>
+            <td>\(12\)</td>
+            <td>\(3\)</td>
+            <td>\(28\)</td>
+            <td>\(3\)</td>
+            <td>\(9\)</td>
+          </tr>
+          <tr>
+            <td>\(13\)</td>
+            <td>\(3\)</td>
+            <td>\(27\)</td>
+            <td>\(3\)</td>
+            <td>\(9\)</td>
+          </tr>
+          <tr>
+            <td>\(14\)</td>
+            <td>\(2\)</td>
+            <td>\(26\)</td>
+            <td>\(2\)</td>
+            <td>\(4\)</td>
+          </tr>
+          <tr>
+            <td>\(15\)</td>
+            <td>\(2\)</td>
+            <td>\(25\)</td>
+            <td>\(2\)</td>
+            <td>\(4\)</td>
+          </tr>
+          <tr>
+            <td>\(16\)</td>
+            <td>\(1\)</td>
+            <td>\(24\)</td>
+            <td>\(1\)</td>
+            <td>\(1\)</td>
+          </tr>
+          <tr>
+            <td>\(17\)</td>
+            <td>\(1\)</td>
+            <td>\(23\)</td>
+            <td>\(1\)</td>
+            <td>\(1\)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Menjumlahkan kolom terakhir:</p>
+    <div class="math-display">
+      \[ 8+7+14+12+18+15+20+16+16+9+9+4+4+1+1=154 \]
+    </div>
+    <p>
+      Sebagai contoh satu himpunan: \(u=9\) dengan \((a,b)=(2,7)\) dan \(v=31\)
+      dengan \((d,e)=(13,18)\) memberi \(\{2,7,10,13,18\}\), yang berjumlah
+      \(50\) dan bermedian \(10\).
+    </p>
+    <p>Jadi, jawabannya adalah <strong>\(154\)</strong> himpunan.</p>
+  </div>
+
+  <h3>Ringkasan Kunci dan Konsep yang Diuji</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table answer-key-table">
+      <thead>
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">Kunci</th>
+          <th scope="col">Konsep Utama</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>D</td>
+          <td>Mean data tunggal</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>B</td>
+          <td>Median data genap</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>A</td>
+          <td>Mean dari tabel frekuensi</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>C</td>
+          <td>Mean gabungan dua kelompok</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>E</td>
+          <td>Menambah data dengan hubungan jumlah \(=n\times\) mean</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>B</td>
+          <td>Mean data berkelompok dengan rataan sementara</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>C</td>
+          <td>Median data berkelompok</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>A</td>
+          <td>Modus data berkelompok</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>D</td>
+          <td>Mean setelah data terbesar dan terkecil dikeluarkan</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>B</td>
+          <td>Transformasi \(ax+b\) pada mean, median, dan modus</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>E</td>
+          <td>Selisih silang pada mean gabungan</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>A</td>
+          <td>Menyusun data dari mean, median, dan modus tunggal</td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>C</td>
+          <td>Frekuensi yang hilang dari mean data berkelompok</td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td>D</td>
+          <td>Frekuensi yang hilang dari median data berkelompok</td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td>E</td>
+          <td>Frekuensi yang hilang dari modus data berkelompok</td>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td>C</td>
+          <td>Sifat mean, median, modus dan contoh penyangkal</td>
+        </tr>
+        <tr>
+          <td>17</td>
+          <td>E</td>
+          <td>Koreksi data lewat perubahan jumlah</td>
+        </tr>
+        <tr>
+          <td>18</td>
+          <td>D</td>
+          <td>Optimasi data dengan syarat mean, median, dan jangkauan</td>
+        </tr>
+        <tr>
+          <td>19</td>
+          <td>\(n=79\), bilangan yang dihapus \(22\)</td>
+          <td>Batas rata-rata, keterbagian, dan jumlah deret</td>
+        </tr>
+        <tr>
+          <td>20</td>
+          <td>\(154\)</td>
+          <td>Mean, median, dan pencacahan pasangan bilangan</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

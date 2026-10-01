@@ -47,25 +47,32 @@ export function CatalogPage({ navigate }: CatalogPageProps) {
   // Pengelompokan materi sesuai urutan prasyarat kurikulum sekolah
   const groups = [
     {
-      title: "1. Fase E (Kelas X) — Fondasi Aljabar & Fungsi",
+      title: "1. Fase E (Kelas X) — Fondasi Aljabar, Fungsi & Statistika",
       subtitle:
         "Materi awal prasyarat untuk seluruh konsep matematika lanjutan di SMA.",
       items: filteredMaterials.filter((m) =>
-        ["eksponensial", "sppl", "fungsi-kuadrat"].includes(m.slug),
-      ),
-    },
-    {
-      title: "2. Fase F (Kelas XI) — Aljabar Matriks, Deret & Geometri Analitik",
-      subtitle:
-        "Pengembangan kalkulus diskrit, aljabar linear, dan pemetaan koordinat berprasyarat matriks.",
-      items: filteredMaterials.filter((m) =>
-        ["barisan-deret", "matriks", "vektor", "transformasi-geometri"].includes(
+        ["eksponensial", "sppl", "fungsi-kuadrat", "statistika"].includes(
           m.slug,
         ),
       ),
     },
     {
-      title: "3. Fase F Tingkat Lanjut (Kelas XII) — Pencacahan Diskrit & Peluang",
+      title:
+        "2. Fase F (Kelas XI) — Aljabar Matriks, Deret & Geometri Analitik",
+      subtitle:
+        "Pengembangan kalkulus diskrit, aljabar linear, dan pemetaan koordinat berprasyarat matriks.",
+      items: filteredMaterials.filter((m) =>
+        [
+          "barisan-deret",
+          "matriks",
+          "vektor",
+          "transformasi-geometri",
+        ].includes(m.slug),
+      ),
+    },
+    {
+      title:
+        "3. Fase F Tingkat Lanjut (Kelas XII) — Pencacahan Diskrit & Peluang",
       subtitle:
         "Kaidah pencacahan sebagai prasyarat mutlak dalam membangun aksioma teori peluang.",
       items: filteredMaterials.filter((m) =>
@@ -91,8 +98,10 @@ export function CatalogPage({ navigate }: CatalogPageProps) {
         <span className="section-kicker">Kurikulum Terstruktur</span>
         <h1>Katalog Materi Pembelajaran Matematika</h1>
         <p>
-          Disusun berurutan berdasarkan prasyarat keilmuan dan jenjang sekolah (Fase E, Fase F, hingga Fase F Lanjut).
-          Setiap modul dilengkapi definisi formal, pembuktian sifat, contoh aplikatif, serta latihan mandiri.
+          Disusun berurutan berdasarkan prasyarat keilmuan dan jenjang sekolah
+          (Fase E, Fase F, hingga Fase F Lanjut). Setiap modul dilengkapi
+          definisi formal, pembuktian sifat, contoh aplikatif, serta latihan
+          mandiri.
         </p>
       </div>
 
@@ -151,8 +160,8 @@ export function CatalogPage({ navigate }: CatalogPageProps) {
                 </span>
                 <h3>Modul Berikutnya</h3>
                 <p>
-                  Topik mendatang mencakup Limit &amp; Turunan Fungsi, Integral Tak Tentu/Tentu,
-                  serta Teori Graf Diskrit.
+                  Topik mendatang mencakup Limit &amp; Turunan Fungsi, Integral
+                  Tak Tentu/Tentu, serta Teori Graf Diskrit.
                 </p>
                 <div className="coming-status">
                   <span>Status kurikulum</span>

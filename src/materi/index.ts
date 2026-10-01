@@ -7,6 +7,7 @@ import vektorHtml from "./vektor.html?raw";
 import transformasiGeometriHtml from "./transformasi-geometri.html?raw";
 import kombinatorikaHtml from "./kombinatorika.html?raw";
 import peluangHtml from "./peluang.html?raw";
+import statistikaHtml from "./statistika.html?raw";
 
 export interface Material {
   id: string;
@@ -25,7 +26,7 @@ export interface Material {
 /**
  * Urutan materi disusun secara sistematis berdasarkan prasyarat keilmuan (pedagogis)
  * dan kesinambungan kurikulum matematika SMA (Fase E, Fase F, dan Fase F Lanjut):
- * 
+ *
  * 1. Eksponensial dan Logaritma (Kelas X) -> Dasar pemangkatan, logaritma, & fungsi dasar
  * 2. Sistem Persamaan & Pertidaksamaan Linear (Kelas X) -> Dasar aljabar linear & daerah penyelesaian
  * 3. Fungsi Kuadrat (Kelas X) -> Karakteristik grafik parabola, diskriminan, titik ekstrim
@@ -80,9 +81,24 @@ export const materials: Material[] = [
     htmlContent: fungsiKuadratHtml,
   },
   {
+    id: "statistics",
+    slug: "statistika",
+    number: "04",
+    category: "Teori Peluang & Statistika",
+    title: "Statistika",
+    grade: "Kelas X",
+    phase: "Fase E (Kelas X)",
+    prerequisite: "Penyajian Data & Aritmetika Dasar",
+    formula:
+      "\\bar{x}=\\frac{\\sum x_i}{n} \\qquad s^2=\\frac{\\sum (x_i-\\bar{x})^2}{n-1}",
+    description:
+      "Pelajari pengumpulan data, penyajian data, ukuran pemusatan, ukuran penyebaran, dan interpretasi data dalam kehidupan sehari-hari.",
+    htmlContent: statistikaHtml,
+  },
+  {
     id: "sequences-series",
     slug: "barisan-deret",
-    number: "04",
+    number: "05",
     category: "Aljabar Matematika",
     title: "Barisan dan Deret",
     grade: "Kelas X / XI",
@@ -96,7 +112,7 @@ export const materials: Material[] = [
   {
     id: "matrices",
     slug: "matriks",
-    number: "05",
+    number: "06",
     category: "Aljabar Linear",
     title: "Matriks",
     grade: "Kelas XI",
@@ -111,7 +127,7 @@ export const materials: Material[] = [
   {
     id: "vectors",
     slug: "vektor",
-    number: "06",
+    number: "07",
     category: "Geometri Analitik",
     title: "Vektor",
     grade: "Kelas XI",
@@ -126,7 +142,7 @@ export const materials: Material[] = [
   {
     id: "geometry",
     slug: "transformasi-geometri",
-    number: "07",
+    number: "08",
     category: "Geometri Analitik",
     title: "Transformasi Geometri",
     grade: "Kelas XI",
@@ -141,7 +157,7 @@ export const materials: Material[] = [
   {
     id: "combinatorics",
     slug: "kombinatorika",
-    number: "08",
+    number: "09",
     category: "Kaidah Pencacahan",
     title: "Kombinatorika",
     grade: "Kelas XII",
@@ -156,13 +172,14 @@ export const materials: Material[] = [
   {
     id: "probability",
     slug: "peluang",
-    number: "09",
+    number: "10",
     category: "Teori Peluang & Statistika",
     title: "Teori Peluang",
     grade: "Kelas XII",
     phase: "Fase F Tingkat Lanjut (Kelas XII)",
     prerequisite: "Kombinatorika (Kaidah Pencacahan)",
-    formula: "P(A\\cup B)=P(A)+P(B)-P(A\\cap B) \\qquad P(A|B)=\\frac{P(A\\cap B)}{P(B)}",
+    formula:
+      "P(A\\cup B)=P(A)+P(B)-P(A\\cap B) \\qquad P(A|B)=\\frac{P(A\\cap B)}{P(B)}",
     description:
       "Pelajari ruang sampel, aksioma peluang Kolmogorov, kejadian saling lepas dan saling bebas, peluang bersyarat, hingga penerapan Teorema Bayes.",
     htmlContent: peluangHtml,
