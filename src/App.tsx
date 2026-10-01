@@ -13,6 +13,7 @@ function App() {
   const [page, setPage] = useState<Page>(() =>
     getPageFromPath(window.location.pathname),
   );
+  const [mobileTocOpen, setMobileTocOpen] = useState(false);
 
   useEffect(() => {
     const syncPage = () => setPage(getPageFromPath(window.location.pathname));
@@ -20,12 +21,18 @@ function App() {
     return () => window.removeEventListener("popstate", syncPage);
   }, []);
 
+  // Tutup drawer TOC jika berpindah halaman
+  useEffect(() => {
+    setMobileTocOpen(false);
+  }, [page]);
+
   const navigate: Navigate = (event, nextPage) => {
     event.preventDefault();
     if (page !== nextPage) {
       window.history.pushState({}, "", getPathFromPage(nextPage));
       setPage(nextPage);
     }
+    setMobileTocOpen(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -34,11 +41,24 @@ function App() {
 
   return (
     <>
-      <SiteHeader page={page} navigate={navigate} />
+      <SiteHeader
+        page={page}
+        navigate={navigate}
+        showTocButton={isMaterialPage}
+        isTocOpen={mobileTocOpen}
+        onToggleToc={() => setMobileTocOpen(!mobileTocOpen)}
+      />
       {page === "home" && <HomePage navigate={navigate} />}
       {page === "catalog" && <CatalogPage navigate={navigate} />}
       {page === "about" && <AboutPage />}
-      {isMaterialPage && <LessonPage slug={page} navigate={navigate} />}
+      {isMaterialPage && (
+        <LessonPage
+          slug={page}
+          navigate={navigate}
+          mobileTocOpen={mobileTocOpen}
+          setMobileTocOpen={setMobileTocOpen}
+        />
+      )}
       <SiteFooter navigate={navigate} />
     </>
   );
