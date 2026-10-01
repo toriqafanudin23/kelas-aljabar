@@ -352,6 +352,10 @@ export function LessonPage({
                   <a
                     href={`#${sec.id}`}
                     key={sec.id}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      handleSectionJump(sec.id);
+                    }}
                     className={
                       activeSectionId === sec.id ? "active-toc-link" : ""
                     }

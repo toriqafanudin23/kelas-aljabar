@@ -9,6 +9,7 @@ import kombinatorikaHtml from "./kombinatorika.html?raw";
 import peluangHtml from "./peluang.html?raw";
 import statistikaHtml from "./statistika.html?raw";
 import komposisiFungsiDanInversHtml from "./komposisi-fungsi-dan-invers.html?raw";
+import polinomialHtml from "./polinomial.html?raw";
 
 export interface Material {
   id: string;
@@ -199,6 +200,20 @@ export const materials: Material[] = [
     description:
       "Pelajari ruang sampel, aksioma peluang Kolmogorov, kejadian saling lepas dan saling bebas, peluang bersyarat, hingga penerapan Teorema Bayes.",
     htmlContent: peluangHtml,
+  },
+  {
+    id: "polynomials",
+    slug: "polinomial",
+    number: "12",
+    category: "Aljabar Matematika",
+    title: "Polinomial",
+    grade: "Kelas XI",
+    phase: "Fase F (Kelas XI)",
+    prerequisite: "Operasi Aljabar & Fungsi",
+    formula: "P(x)=a_nx^n+a_{n-1}x^{n-1}+\\cdots+a_1x+a_0 \\qquad a_n\\ne0",
+    description:
+      "Pelajari bentuk dan derajat polinomial, operasi aljabar, pembagian, teorema sisa dan faktor, serta penentuan akar-akar polinomial.",
+    htmlContent: polinomialHtml,
   },
 ];
 

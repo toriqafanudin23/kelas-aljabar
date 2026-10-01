@@ -65,6 +65,7 @@ export function CatalogPage({ navigate }: CatalogPageProps) {
         [
           "barisan-deret",
           "komposisi-fungsi-dan-invers",
+          "polinomial",
           "matriks",
           "vektor",
           "transformasi-geometri",

@@ -1,0 +1,1745 @@
+<section id="pengertian-polinomial" data-title="Pengertian Polinomial">
+  <h2>1. Pengertian Polinomial (Suku Banyak)</h2>
+
+  <p>
+    Polinomial atau suku banyak adalah bentuk aljabar yang tersusun dari
+    variabel dengan pangkat bilangan cacah (\(0, 1, 2, 3, \ldots\)) yang
+    dikalikan dengan koefisien tertentu. Polinomial banyak digunakan untuk
+    memodelkan lintasan benda, perubahan volume, laba usaha, hingga bentuk
+    kurva pada grafik fungsi.
+  </p>
+
+  <p>Bentuk umum polinomial dalam variabel \(x\) adalah:</p>
+
+  <div class="math-display">
+    \[ P(x)=a_nx^n+a_{n-1}x^{n-1}+\cdots+a_2x^2+a_1x+a_0, \qquad a_n\neq0 \]
+  </div>
+
+  <p>
+    dengan \(n\) bilangan cacah, sedangkan \(a_n, a_{n-1}, \ldots, a_0\)
+    adalah bilangan real yang disebut koefisien.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh Polinomial</h4>
+
+    <div class="math-display">
+      \[ P(x)=3x^2-5x+2, \qquad Q(x)=x^4-7x+1, \qquad R(x)=6 \]
+    </div>
+
+    <p>
+      Ketiganya adalah polinomial karena semua pangkat variabelnya merupakan
+      bilangan cacah. Bentuk \(R(x)=6\) juga polinomial karena dapat ditulis
+      sebagai \(6x^0\).
+    </p>
+  </div>
+
+  <h3>Bukan Polinomial</h3>
+
+  <p>
+    Suatu bentuk aljabar bukan polinomial jika variabelnya berada di penyebut,
+    di dalam akar, atau di pangkat.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh Bukan Polinomial</h4>
+
+    <div class="math-display">
+      \[ x^{-1}+2=\frac{1}{x}+2, \qquad \sqrt{x}+1=x^{1/2}+1, \qquad 2^x+3 \]
+    </div>
+
+    <p>
+      Bentuk pertama berpangkat \(-1\), bentuk kedua berpangkat \(\tfrac12\),
+      dan bentuk ketiga memiliki variabel di dalam pangkat. Ketiganya tidak
+      memenuhi syarat pangkat bilangan cacah.
+    </p>
+  </div>
+</section>
+
+<section id="derajat-koefisien" data-title="Derajat, Koefisien, dan Suku Tetap">
+  <h2>2. Derajat, Koefisien, dan Suku Tetap</h2>
+
+  <p>Pada polinomial</p>
+
+  <div class="math-display">
+    \[ P(x)=a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0, \qquad a_n\neq0 \]
+  </div>
+
+  <h3>Istilah Penting</h3>
+
+  <p>
+    <strong>Derajat</strong> polinomial adalah pangkat tertinggi variabelnya,
+    yaitu \(n\), ditulis \(\deg P=n\).
+  </p>
+
+  <p>
+    <strong>Koefisien utama</strong> adalah koefisien dari suku berpangkat
+    tertinggi, yaitu \(a_n\).
+  </p>
+
+  <p>
+    <strong>Suku tetap</strong> (konstanta) adalah suku yang tidak memuat
+    variabel, yaitu \(a_0\). Nilai \(a_0\) sama dengan \(P(0)\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <div class="math-display">\[ P(x)=5x^4-2x^3+x-7 \]</div>
+
+    <p>Dari polinomial tersebut diperoleh:</p>
+
+    <p>Derajat \(=4\), koefisien utama \(=5\), suku tetap \(=-7\).</p>
+
+    <p>
+      Koefisien \(x^3\) adalah \(-2\), koefisien \(x^2\) adalah \(0\) (karena
+      suku \(x^2\) tidak tertulis), dan koefisien \(x\) adalah \(1\).
+    </p>
+  </div>
+
+  <h3>Nama Polinomial Menurut Derajatnya</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Derajat</th>
+          <th scope="col">Nama</th>
+          <th scope="col">Contoh</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>0</td>
+          <td>Konstan</td>
+          <td>\(P(x)=7\)</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Linear</td>
+          <td>\(P(x)=2x-3\)</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Kuadrat</td>
+          <td>\(P(x)=x^2-4x+3\)</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Kubik</td>
+          <td>\(P(x)=x^3-2x+5\)</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Kuartik</td>
+          <td>\(P(x)=x^4-1\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Polinomial Nol</h3>
+
+  <p>
+    Polinomial nol adalah polinomial \(P(x)=0\). Derajat polinomial nol tidak
+    didefinisikan.
+  </p>
+</section>
+
+<section id="kesamaan-polinomial" data-title="Kesamaan Dua Polinomial">
+  <h2>3. Kesamaan Dua Polinomial</h2>
+
+  <p>
+    Dua polinomial dikatakan sama (identik), ditulis \(P(x)\equiv Q(x)\),
+    jika keduanya memiliki derajat yang sama dan koefisien suku-suku sejenis
+    bernilai sama. Dengan kata lain, nilai kedua polinomial sama untuk setiap
+    nilai \(x\).
+  </p>
+
+  <div class="math-display">
+    \[ ax^2+bx+c\equiv px^2+qx+r \quad\Longleftrightarrow\quad a=p,\; b=q,\;
+    c=r \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan \(a\), \(b\), dan \(c\) jika:</p>
+
+    <div class="math-display">
+      \[ x^2+3x+2\equiv a(x+1)^2+b(x+1)+c \]
+    </div>
+
+    <p><strong>Cara 1: menyamakan koefisien.</strong> Jabarkan ruas kanan:</p>
+
+    <div class="math-display">
+      \[ a(x+1)^2+b(x+1)+c=ax^2+(2a+b)x+(a+b+c) \]
+    </div>
+
+    <p>Samakan koefisien suku-suku sejenis:</p>
+
+    <div class="math-display">
+      \[ a=1,\qquad 2a+b=3\Rightarrow b=1,\qquad a+b+c=2\Rightarrow c=0 \]
+    </div>
+
+    <p><strong>Cara 2: substitusi nilai.</strong> Substitusi \(x=-1\):</p>
+
+    <div class="math-display">\[ 0=c \Rightarrow c=0 \]</div>
+
+    <p>Substitusi \(x=0\) dan \(x=1\):</p>
+
+    <div class="math-display">
+      \[ 2=a+b+c\Rightarrow a+b=2, \qquad 6=4a+2b+c\Rightarrow 2a+b=3 \]
+    </div>
+
+    <p>Kurangkan kedua persamaan terakhir sehingga \(a=1\) dan \(b=1\).</p>
+  </div>
+</section>
+
+<section id="nilai-polinomial" data-title="Nilai Polinomial">
+  <h2>4. Nilai Polinomial</h2>
+
+  <p>
+    Nilai polinomial \(P(x)\) untuk \(x=k\) adalah hasil yang diperoleh dengan
+    mengganti setiap \(x\) dengan \(k\), ditulis \(P(k)\).
+  </p>
+
+  <h3>Cara Substitusi</h3>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan \(P(2)\) jika \(P(x)=x^3-2x^2+3x-4\).</p>
+
+    <div class="math-display">
+      \[ P(2)=2^3-2(2)^2+3(2)-4=8-8+6-4=2 \]
+    </div>
+  </div>
+
+  <h3>Cara Skema Horner</h3>
+
+  <p>
+    Skema Horner menghitung \(P(k)\) tanpa perlu menghitung pangkat. Idenya
+    adalah menulis polinomial dalam bentuk bersarang, misalnya:
+  </p>
+
+  <div class="math-display">
+    \[ x^3-2x^2+3x-4=\big((x-2)x+3\big)x-4 \]
+  </div>
+
+  <p>
+    Dalam bentuk tabel, tulis koefisien pada baris pertama. Turunkan koefisien
+    pertama, kalikan dengan \(k\), tuliskan hasilnya di bawah koefisien
+    berikutnya, lalu jumlahkan. Ulangi sampai akhir. Untuk \(k=2\):
+  </p>
+
+  <div class="math-display">
+    \[ \begin{array}{r|rrrr} 2 & 1 & -2 & 3 & -4\\ & & 2 & 0 & 6\\ \hline & 1 &
+    0 & 3 & 2 \end{array} \]
+  </div>
+
+  <p>Bilangan paling kanan pada baris hasil adalah \(P(2)=2\).</p>
+
+  <h3>Tiga Nilai Istimewa</h3>
+
+  <div class="math-display">
+    \[ P(0)=a_0, \qquad P(1)=a_n+a_{n-1}+\cdots+a_1+a_0 \]
+  </div>
+
+  <div class="math-display">
+    \[ P(-1)=\text{jumlah koefisien dengan tanda berselang-seling} \]
+  </div>
+
+  <p>
+    Artinya, \(P(1)\) adalah jumlah semua koefisien. Sifat ini sering dipakai
+    untuk mengecek hasil atau menyelesaikan soal tanpa menjabarkan polinomial.
+  </p>
+</section>
+
+<section id="operasi-polinomial" data-title="Penjumlahan, Pengurangan, dan Perkalian Polinomial">
+  <h2>5. Penjumlahan, Pengurangan, dan Perkalian Polinomial</h2>
+
+  <h3>Penjumlahan dan Pengurangan</h3>
+
+  <p>
+    Jumlahkan atau kurangkan koefisien dari suku-suku yang sejenis (pangkat
+    sama). Derajat hasilnya paling tinggi sama dengan derajat terbesar dari
+    kedua polinomial.
+  </p>
+
+  <h3>Perkalian</h3>
+
+  <p>
+    Kalikan setiap suku pada polinomial pertama dengan setiap suku pada
+    polinomial kedua, kemudian gabungkan suku-suku sejenis. Jika
+    \(\deg A=m\) dan \(\deg B=n\), maka:
+  </p>
+
+  <div class="math-display">\[ \deg(A\cdot B)=m+n \]</div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Diketahui \(A(x)=2x^2+3x-1\) dan \(B(x)=x-4\).</p>
+
+    <div class="math-display">
+      \[ A(x)+B(x)=2x^2+(3x+x)+(-1-4)=2x^2+4x-5 \]
+    </div>
+
+    <div class="math-display">
+      \[ \begin{aligned} A(x)\cdot B(x)&=(2x^2+3x-1)(x-4)\\
+      &=2x^3-8x^2+3x^2-12x-x+4\\ &=2x^3-5x^2-13x+4 \end{aligned} \]
+    </div>
+
+    <p>
+      Pengecekan dengan \(x=1\): \(A(1)=4\) dan \(B(1)=-3\), sehingga
+      \(A(1)\cdot B(1)=-12\). Hasil perkalian di atas memberikan
+      \(2-5-13+4=-12\), jadi hasilnya sesuai.
+    </p>
+  </div>
+</section>
+
+<section id="pembagian-polinomial" data-title="Pembagian Polinomial">
+  <h2>6. Pembagian Polinomial</h2>
+
+  <p>
+    Jika polinomial \(P(x)\) dibagi oleh polinomial \(H(x)\), maka terdapat
+    hasil bagi \(Q(x)\) dan sisa \(S(x)\) sehingga:
+  </p>
+
+  <div class="math-display">
+    \[ P(x)=H(x)\cdot Q(x)+S(x), \qquad \deg S\lt\deg H \ \text{ atau } \ S(x)=0
+    \]
+  </div>
+
+  <p>
+    Jika pembagi berderajat \(m\), maka sisa paling tinggi berderajat
+    \(m-1\). Jadi, pembagi linear menghasilkan sisa konstanta, dan pembagi
+    kuadrat menghasilkan sisa berbentuk \(px+q\). Jika \(S(x)=0\), maka
+    \(P(x)\) habis dibagi \(H(x)\).
+  </p>
+
+  <h3>Pembagian Bersusun</h3>
+
+  <p>
+    Pembagian bersusun dilakukan seperti pembagian bilangan biasa: bagi suku
+    berpangkat tertinggi, kalikan dengan pembagi, kurangkan, lalu ulangi
+    sampai derajat sisa lebih kecil daripada derajat pembagi.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan hasil bagi dan sisa dari:</p>
+
+    <div class="math-display">
+      \[ (2x^3-x^2-5x+4)\div(x^2-x+1) \]
+    </div>
+
+    <p><strong>Langkah 1.</strong> Bagi \(2x^3\) dengan \(x^2\), diperoleh \(2x\). Kalikan:</p>
+
+    <div class="math-display">
+      \[ 2x(x^2-x+1)=2x^3-2x^2+2x \]
+    </div>
+
+    <p>Kurangkan dari polinomial semula:</p>
+
+    <div class="math-display">
+      \[ (2x^3-x^2-5x+4)-(2x^3-2x^2+2x)=x^2-7x+4 \]
+    </div>
+
+    <p><strong>Langkah 2.</strong> Bagi \(x^2\) dengan \(x^2\), diperoleh \(1\). Kalikan:</p>
+
+    <div class="math-display">\[ 1\cdot(x^2-x+1)=x^2-x+1 \]</div>
+
+    <p>Kurangkan:</p>
+
+    <div class="math-display">
+      \[ (x^2-7x+4)-(x^2-x+1)=-6x+3 \]
+    </div>
+
+    <p>
+      Derajat \(-6x+3\) (yaitu 1) lebih kecil daripada derajat pembagi
+      (yaitu 2), sehingga proses berhenti.
+    </p>
+
+    <div class="math-display">
+      \[ Q(x)=2x+1, \qquad S(x)=-6x+3 \]
+    </div>
+
+    <p>Pengecekan dengan rumus \(P(x)=H(x)\cdot Q(x)+S(x)\):</p>
+
+    <div class="math-display">
+      \[ (x^2-x+1)(2x+1)+(-6x+3)=(2x^3-x^2+x+1)+(-6x+3)=2x^3-x^2-5x+4 \]
+    </div>
+
+    <p>Hasil ini sama dengan polinomial semula, sehingga pembagiannya benar.</p>
+  </div>
+</section>
+
+<section id="pembagian-horner" data-title="Pembagian dengan Cara Horner">
+  <h2>7. Pembagian dengan Cara Horner</h2>
+
+  <p>
+    Jika pembagi berbentuk \(x-k\), pembagian dapat dilakukan lebih cepat
+    dengan skema Horner. Baris hasil berisi koefisien hasil bagi (berderajat
+    satu lebih rendah dari \(P(x)\)), sedangkan bilangan paling kanan adalah
+    sisa.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 1: Pembagi \(x-k\)</h4>
+
+    <p>Bagi \(P(x)=2x^3-5x^2+4x-7\) dengan \(x-3\).</p>
+
+    <div class="math-display">
+      \[ \begin{array}{r|rrrr} 3 & 2 & -5 & 4 & -7\\ & & 6 & 3 & 21\\ \hline & 2 &
+      1 & 7 & 14 \end{array} \]
+    </div>
+
+    <p>
+      Tiga bilangan pertama pada baris hasil adalah koefisien hasil bagi,
+      sedangkan bilangan terakhir adalah sisa:
+    </p>
+
+    <div class="math-display">
+      \[ Q(x)=2x^2+x+7, \qquad S=14 \]
+    </div>
+
+    <p>Jadi \(2x^3-5x^2+4x-7=(x-3)(2x^2+x+7)+14\).</p>
+  </div>
+
+  <h3>Pembagi \(ax-b\)</h3>
+
+  <p>
+    Untuk pembagi \(ax-b\), gunakan Horner dengan \(k=\tfrac{b}{a}\). Karena
+    \(ax-b=a\left(x-\tfrac{b}{a}\right)\), maka hasil bagi yang diperoleh dari
+    skema harus <strong>dibagi \(a\)</strong>, sedangkan sisanya tidak berubah.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 2: Pembagi \(ax-b\)</h4>
+
+    <p>Bagi \(P(x)=6x^3-x^2-5x+2\) dengan \(2x-1\). Gunakan \(k=\tfrac12\).</p>
+
+    <div class="math-display">
+      \[ \begin{array}{r|rrrr} \tfrac12 & 6 & -1 & -5 & 2\\ & & 3 & 1 & -2\\
+      \hline & 6 & 2 & -4 & 0 \end{array} \]
+    </div>
+
+    <p>
+      Hasil bagi untuk pembagi \(x-\tfrac12\) adalah \(6x^2+2x-4\). Karena
+      pembagi sebenarnya \(2x-1=2\left(x-\tfrac12\right)\), bagi hasil
+      tersebut dengan \(2\):
+    </p>
+
+    <div class="math-display">
+      \[ Q(x)=3x^2+x-2, \qquad S=0 \]
+    </div>
+
+    <p>Karena sisanya \(0\), maka \(P(x)\) habis dibagi \(2x-1\).</p>
+  </div>
+</section>
+
+<section id="teorema-sisa" data-title="Teorema Sisa">
+  <h2>8. Teorema Sisa</h2>
+
+  <p>
+    Teorema sisa memungkinkan kita mencari sisa pembagian tanpa melakukan
+    pembagian. Perhatikan bahwa jika \(P(x)\) dibagi \(x-k\), maka:
+  </p>
+
+  <div class="math-display">\[ P(x)=(x-k)Q(x)+S \]</div>
+
+  <p>Substitusi \(x=k\) membuat suku \((x-k)Q(x)\) menjadi nol, sehingga:</p>
+
+  <div class="math-display">\[ P(k)=S \]</div>
+
+  <h3>Pernyataan Teorema Sisa</h3>
+
+  <p>Jika polinomial \(P(x)\) dibagi \(x-k\), maka sisanya adalah \(P(k)\).</p>
+
+  <p>
+    Jika \(P(x)\) dibagi \(ax-b\), maka sisanya adalah
+    \(P\left(\tfrac{b}{a}\right)\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+
+    <p>Tentukan sisa pembagian \(P(x)=x^3+2x^2-5x+1\) oleh \(x-2\).</p>
+
+    <div class="math-display">
+      \[ P(2)=8+8-10+1=7 \]
+    </div>
+
+    <p>Jadi sisanya adalah \(7\).</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2</h4>
+
+    <p>Tentukan sisa pembagian \(P(x)=4x^3-2x^2+3x+5\) oleh \(2x+1\).</p>
+
+    <p>Pembagi \(2x+1=0\) memberikan \(x=-\tfrac12\), sehingga:</p>
+
+    <div class="math-display">
+      \[ P\left(-\tfrac12\right)=4\left(-\tfrac18\right)-2\left(\tfrac14\right)
+      +3\left(-\tfrac12\right)+5=-\tfrac12-\tfrac12-\tfrac32+5=\tfrac52 \]
+    </div>
+
+    <p>Jadi sisanya adalah \(\displaystyle\frac52\).</p>
+  </div>
+</section>
+
+<section id="teorema-faktor" data-title="Teorema Faktor dan Sisa Pembagi Kuadrat">
+  <h2>9. Teorema Faktor</h2>
+
+  <p>
+    Teorema faktor adalah akibat langsung dari teorema sisa. Jika sisa
+    pembagian oleh \(x-k\) sama dengan \(P(k)\), maka \(x-k\) menjadi faktor
+    tepat ketika sisanya nol.
+  </p>
+
+  <h3>Pernyataan Teorema Faktor</h3>
+
+  <div class="math-display">
+    \[ (x-k)\ \text{faktor dari}\ P(x) \quad\Longleftrightarrow\quad P(k)=0 \]
+  </div>
+
+  <p>
+    Untuk pembagi \(ax-b\): \(ax-b\) faktor dari \(P(x)\) jika dan hanya jika
+    \(P\left(\tfrac{b}{a}\right)=0\). Nilai \(k\) yang membuat \(P(k)=0\)
+    disebut <strong>akar</strong> (pembuat nol) polinomial \(P(x)\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 1: Memfaktorkan Polinomial</h4>
+
+    <p>
+      Buktikan bahwa \(x-2\) faktor dari \(P(x)=x^3-3x^2+4\), lalu faktorkan
+      \(P(x)\) sepenuhnya.
+    </p>
+
+    <p>Hitung \(P(2)\):</p>
+
+    <div class="math-display">\[ P(2)=8-12+4=0 \]</div>
+
+    <p>Karena \(P(2)=0\), maka \(x-2\) faktor. Bagi dengan Horner (\(k=2\)):</p>
+
+    <div class="math-display">
+      \[ \begin{array}{r|rrrr} 2 & 1 & -3 & 0 & 4\\ & & 2 & -2 & -4\\ \hline & 1
+      & -1 & -2 & 0 \end{array} \]
+    </div>
+
+    <p>Hasil bagi \(x^2-x-2=(x-2)(x+1)\), sehingga:</p>
+
+    <div class="math-display">\[ P(x)=(x-2)^2(x+1) \]</div>
+  </div>
+
+  <h3>Sisa Pembagian oleh Pembagi Berderajat Dua</h3>
+
+  <p>
+    Jika pembagi berderajat dua, sisanya berbentuk \(px+q\). Bila pembagi
+    dapat difaktorkan menjadi \((x-a)(x-b)\) dengan \(a\neq b\), tulis:
+  </p>
+
+  <div class="math-display">
+    \[ P(x)=(x-a)(x-b)\,Q(x)+px+q \]
+  </div>
+
+  <p>
+    Substitusi \(x=a\) dan \(x=b\) membuat suku pertama menjadi nol, sehingga
+    diperoleh dua persamaan untuk \(p\) dan \(q\):
+  </p>
+
+  <div class="math-display">
+    \[ P(a)=pa+q, \qquad P(b)=pb+q \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2</h4>
+
+    <p>
+      Suatu polinomial \(P(x)\) dibagi \(x-1\) bersisa \(6\) dan dibagi
+      \(x+2\) bersisa \(-3\). Tentukan sisa jika \(P(x)\) dibagi
+      \(x^2+x-2\).
+    </p>
+
+    <p>Faktorkan pembagi: \(x^2+x-2=(x-1)(x+2)\). Misalkan sisanya \(px+q\).</p>
+
+    <div class="math-display">
+      \[ P(1)=6\Rightarrow p+q=6, \qquad P(-2)=-3\Rightarrow -2p+q=-3 \]
+    </div>
+
+    <p>Kurangkan kedua persamaan: \(3p=9\), sehingga \(p=3\) dan \(q=3\).</p>
+
+    <p>Jadi sisanya adalah \(3x+3\).</p>
+  </div>
+
+  <p>
+    Jika pembagi tidak dapat difaktorkan dalam bilangan real, gunakan
+    pembagian bersusun, atau gunakan sifat pembagi itu untuk menyederhanakan
+    pangkat (misalnya \(x^2=-1\) untuk pembagi \(x^2+1\)).
+  </p>
+</section>
+
+<section id="akar-polinomial" data-title="Akar-Akar Polinomial dan Rumus Vieta">
+  <h2>10. Akar-Akar Polinomial</h2>
+
+  <p>
+    Persamaan polinomial \(P(x)=0\) berderajat \(n\) memiliki paling banyak
+    \(n\) akar real. Untuk mencarinya, kita memerlukan satu akar terlebih
+    dahulu, lalu menurunkan derajatnya dengan Horner.
+  </p>
+
+  <h3>Teorema Akar Rasional</h3>
+
+  <p>
+    Jika \(P(x)=a_nx^n+\cdots+a_1x+a_0\) memiliki koefisien bilangan bulat
+    dan \(\displaystyle\frac{p}{q}\) (pecahan paling sederhana) adalah akar
+    rasionalnya, maka:
+  </p>
+
+  <div class="math-display">
+    \[ p \text{ membagi } a_0 \qquad\text{dan}\qquad q \text{ membagi } a_n \]
+  </div>
+
+  <p>
+    Teorema ini memberi daftar calon akar yang perlu dicoba, sehingga kita
+    tidak menebak sembarang bilangan.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+
+    <p>Selesaikan \(2x^3-3x^2-3x+2=0\).</p>
+
+    <p>
+      Karena \(a_0=2\) dan \(a_n=2\), calon akar rasional adalah
+      \(\pm1,\ \pm2,\ \pm\displaystyle\frac12\). Coba \(x=2\):
+    </p>
+
+    <div class="math-display">\[ P(2)=16-12-6+2=0 \]</div>
+
+    <p>Jadi \(x=2\) akar. Bagi dengan Horner (\(k=2\)):</p>
+
+    <div class="math-display">
+      \[ \begin{array}{r|rrrr} 2 & 2 & -3 & -3 & 2\\ & & 4 & 2 & -2\\ \hline & 2
+      & 1 & -1 & 0 \end{array} \]
+    </div>
+
+    <p>
+      Hasil bagi \(2x^2+x-1=(2x-1)(x+1)\). Jadi akar-akarnya adalah
+      \(x=2,\ x=\displaystyle\frac12,\ x=-1\).
+    </p>
+  </div>
+
+  <h3>Rumus Vieta</h3>
+
+  <p>
+    Rumus Vieta menghubungkan koefisien dengan akar-akar tanpa perlu mencari
+    akarnya. Untuk polinomial kubik \(ax^3+bx^2+cx+d=0\) dengan akar
+    \(x_1,x_2,x_3\):
+  </p>
+
+  <div class="math-display">
+    \[ x_1+x_2+x_3=-\frac{b}{a}, \qquad x_1x_2+x_1x_3+x_2x_3=\frac{c}{a},
+    \qquad x_1x_2x_3=-\frac{d}{a} \]
+  </div>
+
+  <p>
+    Untuk polinomial kuartik \(ax^4+bx^3+cx^2+dx+e=0\) dengan akar
+    \(x_1,x_2,x_3,x_4\):
+  </p>
+
+  <div class="math-display">
+    \[ \sum x_i=-\frac{b}{a}, \qquad \sum_{i\lt j}x_ix_j=\frac{c}{a}, \qquad
+    \sum x_ix_jx_k=-\frac{d}{a}, \qquad x_1x_2x_3x_4=\frac{e}{a} \]
+  </div>
+
+  <p>
+    Tandanya berselang-seling: \(-,+,-,+,\ldots\) mulai dari jumlah akar.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 2</h4>
+
+    <p>
+      Jika \(\alpha,\beta,\gamma\) akar-akar \(x^3-4x^2+x+6=0\), hitung
+      \(\alpha^2+\beta^2+\gamma^2\) dan
+      \(\displaystyle\frac1\alpha+\frac1\beta+\frac1\gamma\).
+    </p>
+
+    <p>Dari Vieta: jumlah akar \(=4\), jumlah hasil kali dua akar \(=1\), hasil kali akar \(=-6\).</p>
+
+    <div class="math-display">
+      \[ \alpha^2+\beta^2+\gamma^2=(\alpha+\beta+\gamma)^2-2(\alpha\beta+\beta\gamma+\gamma\alpha)=16-2=14 \]
+    </div>
+
+    <div class="math-display">
+      \[ \frac1\alpha+\frac1\beta+\frac1\gamma=\frac{\alpha\beta+\beta\gamma+\gamma\alpha}{\alpha\beta\gamma}=\frac{1}{-6}=-\frac16 \]
+    </div>
+
+    <p>
+      Pengecekan: akar-akarnya adalah \(-1,2,3\); jumlah kuadratnya
+      \(1+4+9=14\) dan jumlah kebalikannya
+      \(-1+\displaystyle\frac12+\frac13=-\frac16\). Hasilnya sesuai.
+    </p>
+  </div>
+</section>
+
+<section id="rangkuman-polinomial" data-title="Rangkuman Polinomial">
+  <h2>11. Rangkuman Polinomial</h2>
+
+  <h3>Rumus dan Konsep Utama</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Konsep</th>
+          <th scope="col">Ringkasan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Bentuk umum</td>
+          <td>\(P(x)=a_nx^n+\cdots+a_1x+a_0\), dengan \(a_n\neq0\) dan pangkat bilangan cacah</td>
+        </tr>
+        <tr>
+          <td>Derajat, koefisien utama, suku tetap</td>
+          <td>\(n\); \(a_n\); \(a_0=P(0)\)</td>
+        </tr>
+        <tr>
+          <td>Jumlah koefisien</td>
+          <td>\(P(1)\); koefisien berselang-seling: \(P(-1)\)</td>
+        </tr>
+        <tr>
+          <td>Kesamaan polinomial</td>
+          <td>Derajat sama dan koefisien suku sejenis sama</td>
+        </tr>
+        <tr>
+          <td>Derajat hasil operasi</td>
+          <td>\(\deg(A\pm B)\le\max(m,n)\); \(\deg(A\cdot B)=m+n\)</td>
+        </tr>
+        <tr>
+          <td>Pembagian</td>
+          <td>\(P(x)=H(x)Q(x)+S(x)\) dengan \(\deg S\lt\deg H\)</td>
+        </tr>
+        <tr>
+          <td>Horner</td>
+          <td>Pembagi \(x-k\): angka terakhir adalah sisa. Pembagi \(ax-b\): pakai \(k=\displaystyle\frac{b}{a}\), lalu bagi hasil bagi dengan \(a\)</td>
+        </tr>
+        <tr>
+          <td>Teorema sisa</td>
+          <td>Sisa pembagian oleh \(x-k\) adalah \(P(k)\); oleh \(ax-b\) adalah \(P\left(\tfrac{b}{a}\right)\)</td>
+        </tr>
+        <tr>
+          <td>Teorema faktor</td>
+          <td>\(x-k\) faktor \(\Longleftrightarrow P(k)=0\)</td>
+        </tr>
+        <tr>
+          <td>Pembagi \((x-a)(x-b)\)</td>
+          <td>Sisa \(px+q\), dengan \(P(a)=pa+q\) dan \(P(b)=pb+q\)</td>
+        </tr>
+        <tr>
+          <td>Akar rasional</td>
+          <td>Akar \(\displaystyle\frac{p}{q}\): \(p\mid a_0\) dan \(q\mid a_n\)</td>
+        </tr>
+        <tr>
+          <td>Vieta (kubik)</td>
+          <td>\(\sum x_i=-\displaystyle\frac{b}{a}\), \(\sum x_ix_j=\displaystyle\frac{c}{a}\), \(x_1x_2x_3=-\displaystyle\frac{d}{a}\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Memilih Metode yang Tepat</h3>
+
+  <p>
+    Jika yang ditanya hanya sisa, gunakan teorema sisa tanpa membagi. Jika
+    yang ditanya hasil bagi, gunakan Horner (pembagi linear) atau pembagian
+    bersusun (pembagi berderajat dua atau lebih). Jika diminta mencari akar,
+    cari satu akar dengan teorema akar rasional, turunkan derajat dengan
+    Horner, lalu selesaikan sisanya.
+  </p>
+
+  <h3>Strategi untuk Soal Tingkat Lanjut</h3>
+
+  <p>
+    <strong>1. Sisa berderajat satu lebih rendah.</strong> Pembagi berderajat
+    \(m\) menghasilkan sisa berderajat paling tinggi \(m-1\). Tulis sisa
+    dengan \(m\) koefisien, lalu substitusikan akar-akar pembagi.
+  </p>
+
+  <p>
+    <strong>2. Polinomial pembantu.</strong> Jika \(P(k)=g(k)\) untuk
+    beberapa nilai \(k\), maka \(Q(x)=P(x)-g(x)\) mempunyai akar-akar
+    tersebut, sehingga \(Q\) dapat ditulis sebagai hasil kali faktor-faktor
+    \((x-k)\) dikali suatu konstanta atau polinomial.
+  </p>
+
+  <p>
+    <strong>3. Reduksi pangkat.</strong> Jika \(H(x)\) membagi \(x^m-1\),
+    maka \(x^m\equiv1\) terhadap pembagi \(H(x)\), sehingga pangkat besar
+    dapat diperkecil.
+  </p>
+
+  <p>
+    <strong>4. Substitusi akar.</strong> Jika \(\alpha\) akar \(P(x)=0\),
+    maka \(P(\alpha)=0\). Dari sini pangkat tinggi dari \(\alpha\) dapat
+    ditulis ulang dengan pangkat yang lebih rendah.
+  </p>
+
+  <h3>Kesalahan yang Sering Terjadi</h3>
+
+  <p>
+    Lupa menuliskan koefisien \(0\) pada suku yang hilang saat memakai
+    Horner; lupa membagi hasil bagi dengan \(a\) untuk pembagi \(ax-b\);
+    salah tanda saat memakai Vieta (rumus jumlah akar memuat tanda minus);
+    dan menganggap sisa pembagi kuadrat berupa konstanta.
+  </p>
+</section>
+
+<section id="latihan-sekolah" data-title="Latihan Mandiri Tingkat Sekolah">
+  <h2>12. Latihan Mandiri Tingkat Sekolah</h2>
+
+  <div class="lesson-example">
+    <h4>Soal 1</h4>
+    <p>
+      Tentukan manakah yang merupakan polinomial. Untuk yang polinomial,
+      tentukan derajat, koefisien utama, dan suku tetapnya.
+    </p>
+    <div class="math-display">
+      \[ \text{(a) } 4x^3-2x+1 \qquad \text{(b) } x^2+\frac{3}{x} \qquad
+      \text{(c) } 5x^2+\sqrt3\,x-2 \qquad \text{(d) } x^{3/2}+x \qquad
+      \text{(e) } 9 \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 2</h4>
+    <p>
+      Diketahui \(P(x)=2x^3-3x^2+x-5\). Tentukan \(P(-2)\) dengan cara
+      substitusi dan \(P(3)\) dengan skema Horner.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 3</h4>
+    <p>Tentukan nilai \(a\), \(b\), dan \(c\) jika:</p>
+    <div class="math-display">
+      \[ 3x^2-2x+7\equiv a(x-1)^2+b(x-1)+c \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 4</h4>
+    <p>
+      Diketahui \(A(x)=x^2+2x-3\) dan \(B(x)=2x^2-x+4\). Tentukan
+      \(A(x)+B(x)\), \(A(x)-B(x)\), dan \(A(x)\cdot B(x)\), kemudian periksa
+      hasil perkalian dengan \(x=1\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 5</h4>
+    <p>
+      Tentukan hasil bagi dan sisa dari
+      \((x^3+2x^2-4x+5)\div(x^2+x-1)\) dengan pembagian bersusun.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 6</h4>
+    <p>Gunakan skema Horner untuk menentukan hasil bagi dan sisa:</p>
+    <p>(a) \(2x^3+5x^2-x+3\) dibagi \(x+2\), lalu periksa sisanya dengan teorema sisa.</p>
+    <p>(b) \(3x^3-4x^2-5x+2\) dibagi \(3x-1\).</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 7</h4>
+    <p>
+      Polinomial \(P(x)=x^3+ax^2-4x+12\) habis dibagi \(x-2\). Tentukan nilai
+      \(a\), kemudian faktorkan \(P(x)\) sepenuhnya dan tentukan semua
+      akarnya.
+    </p>
+  </div>
+</section>
+
+<section id="latihan-utbk" data-title="Latihan Mandiri Tingkat UTBK">
+  <h2>13. Latihan Mandiri Tingkat UTBK</h2>
+
+  <div class="lesson-example">
+    <h4>Soal 1</h4>
+    <p>
+      Suku banyak \(P(x)\) dibagi \(x-3\) bersisa \(7\) dan dibagi \(x+2\)
+      bersisa \(-3\). Sisa pembagian \(P(x)\) oleh \(x^2-x-6\) adalah ....
+    </p>
+    <ol type="A">
+      <li>\(x+4\)</li>
+      <li>\(2x-1\)</li>
+      <li>\(2x+1\)</li>
+      <li>\(3x-2\)</li>
+      <li>\(5x-8\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 2</h4>
+    <p>
+      Suku banyak \(P(x)=2x^3+ax^2-11x+b\) habis dibagi \((x-2)(x+1)\).
+      Nilai \(a+b\) adalah ....
+    </p>
+    <ol type="A">
+      <li>\(-9\)</li>
+      <li>\(-5\)</li>
+      <li>\(0\)</li>
+      <li>\(9\)</li>
+      <li>\(19\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 3</h4>
+    <p>
+      Jika \(\alpha,\beta,\gamma\) adalah akar-akar \(x^3-6x^2+4x-8=0\),
+      maka nilai \((\alpha+\beta)(\beta+\gamma)(\gamma+\alpha)\) adalah ....
+    </p>
+    <ol type="A">
+      <li>\(4\)</li>
+      <li>\(8\)</li>
+      <li>\(12\)</li>
+      <li>\(14\)</li>
+      <li>\(16\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 4</h4>
+    <p>
+      Suku banyak \(P(x)\) dibagi \(x-1\) bersisa \(5\), dan hasil baginya,
+      yaitu \(Q(x)\), dibagi \(x+2\) bersisa \(3\). Sisa pembagian \(P(x)\)
+      oleh \((x-1)(x+2)\) adalah ....
+    </p>
+    <ol type="A">
+      <li>\(3x-2\)</li>
+      <li>\(3x+2\)</li>
+      <li>\(5x+3\)</li>
+      <li>\(2x+3\)</li>
+      <li>\(3x+5\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 5</h4>
+    <p>
+      Suku banyak \(f(x)\) dibagi \(x+1\) bersisa \(8\) dan dibagi \(x-3\)
+      bersisa \(4\). Suku banyak \(g(x)\) dibagi \(x+1\) bersisa \(-9\) dan
+      dibagi \(x-3\) bersisa \(5\). Sisa pembagian \(f(x)\cdot g(x)\) oleh
+      \(x^2-2x-3\) adalah ....
+    </p>
+    <ol type="A">
+      <li>\(23x+49\)</li>
+      <li>\(20x-72\)</li>
+      <li>\(-23x-49\)</li>
+      <li>\(23x-49\)</li>
+      <li>\(8x-20\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 6</h4>
+    <p>
+      Suku banyak \(P(x)=x^3+ax^2+bx+8\) habis dibagi \(x^2-3x+2\). Sisa
+      pembagian \(P(x)\) oleh \(x+1\) adalah ....
+    </p>
+    <ol type="A">
+      <li>\(8\)</li>
+      <li>\(18\)</li>
+      <li>\(20\)</li>
+      <li>\(28\)</li>
+      <li>\(36\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 7</h4>
+    <p>Diketahui</p>
+    <div class="math-display">
+      \[ (x^2-x+1)^5=a_0+a_1x+a_2x^2+\cdots+a_{10}x^{10}. \]
+    </div>
+    <p>Nilai \(a_0+a_2+a_4+a_6+a_8+a_{10}\) adalah ....</p>
+    <ol type="A">
+      <li>\(120\)</li>
+      <li>\(121\)</li>
+      <li>\(122\)</li>
+      <li>\(123\)</li>
+      <li>\(243\)</li>
+    </ol>
+  </div>
+</section>
+
+<section id="latihan-olimpiade" data-title="Latihan Mandiri Tingkat Olimpiade">
+  <h2>14. Latihan Mandiri Tingkat Olimpiade</h2>
+
+  <div class="lesson-example">
+    <h4>Soal 1</h4>
+    <p>Tentukan sisa pembagian \(x^{100}-2x^{51}+1\) oleh \(x^3-x\).</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 2</h4>
+    <p>
+      Polinomial \(P(x)\) berderajat \(3\) memenuhi \(P(1)=1\), \(P(2)=2\),
+      \(P(3)=3\), dan \(P(4)=5\). Tentukan \(P(5)\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 3</h4>
+    <p>
+      Jika \(a,b,c\) adalah akar-akar \(x^3-x-1=0\), tentukan nilai
+      \(a^5+b^5+c^5\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 4</h4>
+    <p>
+      Tentukan semua bilangan asli \(n\) sehingga \(x^{2n}+x^n+1\) habis
+      dibagi \(x^2+x+1\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 5</h4>
+    <p>
+      Polinomial \(P(x)\) berderajat \(4\) dengan koefisien \(x^4\) sama
+      dengan \(1\) memenuhi \(P(1)=10\), \(P(2)=20\), dan \(P(3)=30\).
+      Tentukan nilai \(P(10)+P(-6)\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 6</h4>
+    <p>
+      Tentukan semua polinomial \(P(x)\) dengan koefisien real yang
+      memenuhi persamaan berikut untuk semua bilangan real \(x\):
+    </p>
+    <div class="math-display">\[ (x-1)\,P(x+1)=(x+2)\,P(x) \]</div>
+  </div>
+</section>
+
+<section id="kunci-jawaban" data-title="Kunci Jawaban Latihan">
+  <h2>15. Kunci Jawaban Latihan</h2>
+
+  <h3>Tingkat Sekolah</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">No.</th>
+          <th scope="col">Jawaban</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Polinomial: (a), (c), (e). Bukan polinomial: (b), (d). Derajat (a) \(=3\), (c) \(=2\), (e) \(=0\)</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>\(P(-2)=-35\) dan \(P(3)=25\)</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>\(a=3,\ b=4,\ c=8\)</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>\(3x^2+x+1\); \(-x^2+3x-7\); \(2x^4+3x^3-4x^2+11x-12\)</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>\(Q(x)=x+1,\ S(x)=-4x+6\)</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>(a) \(Q=2x^2+x-3,\ S=9\); (b) \(Q=x^2-x-2,\ S=0\)</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>\(a=-3\); \(P(x)=(x-3)(x-2)(x+2)\); akar \(3,\ 2,\ -2\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Tingkat UTBK</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">No.</th>
+          <th scope="col">1</th>
+          <th scope="col">2</th>
+          <th scope="col">3</th>
+          <th scope="col">4</th>
+          <th scope="col">5</th>
+          <th scope="col">6</th>
+          <th scope="col">7</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Jawaban</td>
+          <td>C</td>
+          <td>A</td>
+          <td>E</td>
+          <td>B</td>
+          <td>D</td>
+          <td>B</td>
+          <td>C</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Tingkat Olimpiade</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">No.</th>
+          <th scope="col">Jawaban</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>\(x^2-2x+1\)</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>\(P(5)=9\)</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>\(5\)</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Semua \(n\) yang tidak habis dibagi \(3\)</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>\(8104\)</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>\(P(x)=c\,(x^3-x)\) dengan \(c\) bilangan real sembarang</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="pembahasan-sekolah" data-title="Pembahasan Latihan Tingkat Sekolah">
+  <h2>16. Pembahasan Latihan Tingkat Sekolah</h2>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 1</h4>
+
+    <p>
+      Syarat polinomial: semua pangkat variabel adalah bilangan cacah dan
+      tidak ada variabel di penyebut atau di dalam akar.
+    </p>
+
+    <p>
+      (a) \(4x^3-2x+1\) polinomial. Derajat \(3\), koefisien utama \(4\),
+      suku tetap \(1\).
+    </p>
+
+    <p>
+      (b) \(x^2+\displaystyle\frac{3}{x}=x^2+3x^{-1}\) memuat pangkat
+      \(-1\), jadi <strong>bukan</strong> polinomial.
+    </p>
+
+    <p>
+      (c) \(5x^2+\sqrt3\,x-2\) polinomial, karena koefisien \(\sqrt3\) adalah
+      bilangan real dan pangkat variabelnya cacah. Derajat \(2\), koefisien
+      utama \(5\), suku tetap \(-2\).
+    </p>
+
+    <p>
+      (d) \(x^{3/2}+x\) memuat pangkat \(\displaystyle\frac32\) yang bukan
+      bilangan cacah, jadi <strong>bukan</strong> polinomial.
+    </p>
+
+    <p>
+      (e) \(9=9x^0\) polinomial konstan. Derajat \(0\), koefisien utama
+      \(9\), suku tetap \(9\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 2</h4>
+
+    <p><strong>Substitusi \(x=-2\):</strong></p>
+
+    <div class="math-display">
+      \[ P(-2)=2(-8)-3(4)+(-2)-5=-16-12-2-5=-35 \]
+    </div>
+
+    <p><strong>Horner dengan \(k=3\):</strong> koefisien \(2,-3,1,-5\).</p>
+
+    <div class="math-display">
+      \[ \begin{array}{r|rrrr} 3 & 2 & -3 & 1 & -5\\ & & 6 & 9 & 30\\ \hline & 2
+      & 3 & 10 & 25 \end{array} \]
+    </div>
+
+    <p>
+      Angka terakhir adalah \(P(3)=25\). Cek substitusi:
+      \(54-27+3-5=25\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 3</h4>
+
+    <p>Jabarkan ruas kanan:</p>
+
+    <div class="math-display">
+      \[ a(x-1)^2+b(x-1)+c=ax^2+(-2a+b)x+(a-b+c) \]
+    </div>
+
+    <p>Samakan koefisien dengan \(3x^2-2x+7\):</p>
+
+    <div class="math-display">
+      \[ a=3,\qquad -2a+b=-2\Rightarrow b=4,\qquad a-b+c=7\Rightarrow c=8 \]
+    </div>
+
+    <p>
+      Pengecekan dengan \(x=1\): ruas kiri \(3-2+7=8\), ruas kanan
+      \(c=8\). Sesuai.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 4</h4>
+
+    <div class="math-display">
+      \[ A+B=(1+2)x^2+(2-1)x+(-3+4)=3x^2+x+1 \]
+    </div>
+
+    <div class="math-display">
+      \[ A-B=(1-2)x^2+(2+1)x+(-3-4)=-x^2+3x-7 \]
+    </div>
+
+    <p>Untuk perkalian, kalikan setiap suku \(A\) dengan seluruh \(B\):</p>
+
+    <div class="math-display">
+      \[ \begin{aligned} A\cdot B&=x^2(2x^2-x+4)+2x(2x^2-x+4)-3(2x^2-x+4)\\
+      &=(2x^4-x^3+4x^2)+(4x^3-2x^2+8x)+(-6x^2+3x-12)\\
+      &=2x^4+3x^3-4x^2+11x-12 \end{aligned} \]
+    </div>
+
+    <p>
+      Pengecekan dengan \(x=1\): \(A(1)=0\), sehingga \(A(1)\cdot B(1)=0\).
+      Hasil perkalian memberikan \(2+3-4+11-12=0\). Sesuai.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 5</h4>
+
+    <p><strong>Langkah 1.</strong> Bagi \(x^3\) dengan \(x^2\) diperoleh \(x\). Kalikan dan kurangkan:</p>
+
+    <div class="math-display">
+      \[ (x^3+2x^2-4x+5)-x(x^2+x-1)=x^2-3x+5 \]
+    </div>
+
+    <p><strong>Langkah 2.</strong> Bagi \(x^2\) dengan \(x^2\) diperoleh \(1\). Kalikan dan kurangkan:</p>
+
+    <div class="math-display">
+      \[ (x^2-3x+5)-1\cdot(x^2+x-1)=-4x+6 \]
+    </div>
+
+    <p>
+      Derajat \(-4x+6\) (yaitu 1) lebih kecil daripada derajat pembagi
+      (yaitu 2), jadi proses berhenti.
+    </p>
+
+    <div class="math-display">\[ Q(x)=x+1, \qquad S(x)=-4x+6 \]</div>
+
+    <p>Pengecekan: \((x^2+x-1)(x+1)+(-4x+6)=x^3+2x^2-1-4x+6=x^3+2x^2-4x+5\). Sesuai.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 6</h4>
+
+    <p><strong>(a)</strong> Pembagi \(x+2=x-(-2)\), jadi \(k=-2\).</p>
+
+    <div class="math-display">
+      \[ \begin{array}{r|rrrr} -2 & 2 & 5 & -1 & 3\\ & & -4 & -2 & 6\\ \hline &
+      2 & 1 & -3 & 9 \end{array} \]
+    </div>
+
+    <p>Hasil bagi \(Q(x)=2x^2+x-3\) dan sisa \(S=9\).</p>
+
+    <p>
+      Cek dengan teorema sisa:
+      \(P(-2)=2(-8)+5(4)-(-2)+3=-16+20+2+3=9\). Sesuai.
+    </p>
+
+    <p>
+      <strong>(b)</strong> Pembagi \(3x-1\), jadi \(k=\displaystyle\frac13\).
+    </p>
+
+    <div class="math-display">
+      \[ \begin{array}{r|rrrr} \tfrac13 & 3 & -4 & -5 & 2\\ & & 1 & -1 & -2\\
+      \hline & 3 & -3 & -6 & 0 \end{array} \]
+    </div>
+
+    <p>
+      Hasil bagi untuk \(x-\tfrac13\) adalah \(3x^2-3x-6\). Karena pembagi
+      sebenarnya \(3x-1=3\left(x-\tfrac13\right)\), bagi hasil tersebut
+      dengan \(3\):
+    </p>
+
+    <div class="math-display">\[ Q(x)=x^2-x-2, \qquad S=0 \]</div>
+
+    <p>Sisa \(0\), jadi \(P(x)\) habis dibagi \(3x-1\).</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 7</h4>
+
+    <p>
+      <strong>Mencari \(a\).</strong> Habis dibagi \(x-2\) berarti
+      \(P(2)=0\):
+    </p>
+
+    <div class="math-display">
+      \[ 8+4a-8+12=0\Rightarrow 4a+12=0\Rightarrow a=-3 \]
+    </div>
+
+    <p>Jadi \(P(x)=x^3-3x^2-4x+12\).</p>
+
+    <p><strong>Memfaktorkan.</strong> Bagi dengan \(x-2\) memakai Horner:</p>
+
+    <div class="math-display">
+      \[ \begin{array}{r|rrrr} 2 & 1 & -3 & -4 & 12\\ & & 2 & -2 & -12\\ \hline &
+      1 & -1 & -6 & 0 \end{array} \]
+    </div>
+
+    <p>Hasil bagi \(x^2-x-6=(x-3)(x+2)\), sehingga:</p>
+
+    <div class="math-display">\[ P(x)=(x-2)(x-3)(x+2) \]</div>
+
+    <p>Akar-akarnya adalah \(x=2\), \(x=3\), dan \(x=-2\).</p>
+  </div>
+</section>
+
+<section id="pembahasan-utbk" data-title="Pembahasan Latihan Tingkat UTBK">
+  <h2>17. Pembahasan Latihan Tingkat UTBK</h2>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 1 (Jawaban: C)</h4>
+
+    <p>Faktorkan pembagi: \(x^2-x-6=(x-3)(x+2)\). Misalkan sisanya \(px+q\).</p>
+
+    <div class="math-display">
+      \[ P(3)=7\Rightarrow 3p+q=7, \qquad P(-2)=-3\Rightarrow -2p+q=-3 \]
+    </div>
+
+    <p>Kurangkan: \(5p=10\), sehingga \(p=2\) dan \(q=1\).</p>
+
+    <p>Jadi sisanya \(2x+1\), yaitu pilihan <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 2 (Jawaban: A)</h4>
+
+    <p>
+      Habis dibagi \((x-2)(x+1)\) berarti \(P(2)=0\) dan \(P(-1)=0\).
+    </p>
+
+    <div class="math-display">
+      \[ P(2)=16+4a-22+b=0\Rightarrow 4a+b=6 \]
+    </div>
+
+    <div class="math-display">
+      \[ P(-1)=-2+a+11+b=0\Rightarrow a+b=-9 \]
+    </div>
+
+    <p>
+      Kurangkan kedua persamaan: \(3a=15\), sehingga \(a=5\) dan
+      \(b=-14\). Maka \(a+b=-9\), yaitu pilihan <strong>A</strong>.
+    </p>
+
+    <p>Pengecekan: \(P(x)=2x^3+5x^2-11x-14\), \(P(2)=16+20-22-14=0\).</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 3 (Jawaban: E)</h4>
+
+    <p>Dari Vieta untuk \(x^3-6x^2+4x-8=0\):</p>
+
+    <div class="math-display">
+      \[ \alpha+\beta+\gamma=6, \qquad \alpha\beta+\beta\gamma+\gamma\alpha=4,
+      \qquad \alpha\beta\gamma=8 \]
+    </div>
+
+    <p>
+      Gunakan identitas
+      \((\alpha+\beta)(\beta+\gamma)(\gamma+\alpha)=(\alpha+\beta+\gamma)(\alpha\beta+\beta\gamma+\gamma\alpha)-\alpha\beta\gamma\):
+    </p>
+
+    <div class="math-display">\[ 6\cdot4-8=16 \]</div>
+
+    <p>Jawabannya <strong>E</strong>.</p>
+
+    <p>
+      Cara lain: \(\alpha+\beta=6-\gamma\), dan seterusnya, sehingga hasil
+      kalinya \((6-\alpha)(6-\beta)(6-\gamma)=P(6)=216-216+24-8=16\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 4 (Jawaban: B)</h4>
+
+    <p>Tuliskan kedua informasi sebagai persamaan:</p>
+
+    <div class="math-display">
+      \[ P(x)=(x-1)Q(x)+5, \qquad Q(x)=(x+2)R(x)+3 \]
+    </div>
+
+    <p>Substitusikan \(Q(x)\) ke dalam \(P(x)\):</p>
+
+    <div class="math-display">
+      \[ P(x)=(x-1)\big[(x+2)R(x)+3\big]+5=(x-1)(x+2)R(x)+3(x-1)+5 \]
+    </div>
+
+    <p>
+      Suku pertama habis dibagi \((x-1)(x+2)\), sehingga sisanya adalah
+      \(3(x-1)+5=3x+2\). Jawabannya <strong>B</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 5 (Jawaban: D)</h4>
+
+    <p>Faktorkan pembagi: \(x^2-2x-3=(x-3)(x+1)\). Misalkan \(h(x)=f(x)g(x)\).</p>
+
+    <div class="math-display">
+      \[ h(-1)=f(-1)g(-1)=8\cdot(-9)=-72, \qquad h(3)=f(3)g(3)=4\cdot5=20 \]
+    </div>
+
+    <p>Misalkan sisanya \(px+q\):</p>
+
+    <div class="math-display">
+      \[ -p+q=-72, \qquad 3p+q=20 \]
+    </div>
+
+    <p>
+      Kurangkan: \(4p=92\), sehingga \(p=23\) dan \(q=-49\). Sisanya
+      \(23x-49\), yaitu pilihan <strong>D</strong>.
+    </p>
+
+    <p>
+      Pengecekan: \(23(3)-49=20\) dan \(23(-1)-49=-72\). Sesuai.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 6 (Jawaban: B)</h4>
+
+    <p>
+      Faktorkan pembagi: \(x^2-3x+2=(x-1)(x-2)\). Habis dibagi berarti
+      \(P(1)=0\) dan \(P(2)=0\).
+    </p>
+
+    <div class="math-display">
+      \[ P(1)=1+a+b+8=0\Rightarrow a+b=-9 \]
+    </div>
+
+    <div class="math-display">
+      \[ P(2)=8+4a+2b+8=0\Rightarrow 2a+b=-8 \]
+    </div>
+
+    <p>Kurangkan: \(a=1\), sehingga \(b=-10\). Jadi \(P(x)=x^3+x^2-10x+8\).</p>
+
+    <p>Sisa pembagian oleh \(x+1\) menurut teorema sisa adalah \(P(-1)\):</p>
+
+    <div class="math-display">\[ P(-1)=-1+1+10+8=18 \]</div>
+
+    <p>Jawabannya <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 7 (Jawaban: C)</h4>
+
+    <p>
+      Misalkan \(P(x)=(x^2-x+1)^5\). Jumlah koefisien berpangkat genap dan
+      ganjil dapat dipisahkan dengan dua substitusi.
+    </p>
+
+    <div class="math-display">
+      \[ P(1)=a_0+a_1+a_2+\cdots+a_{10}=(1-1+1)^5=1 \]
+    </div>
+
+    <div class="math-display">
+      \[ P(-1)=a_0-a_1+a_2-\cdots+a_{10}=(1+1+1)^5=243 \]
+    </div>
+
+    <p>
+      Jumlahkan kedua persamaan. Koefisien berpangkat ganjil saling
+      menghilangkan, sehingga:
+    </p>
+
+    <div class="math-display">
+      \[ 2(a_0+a_2+\cdots+a_{10})=1+243=244\Rightarrow
+      a_0+a_2+\cdots+a_{10}=122 \]
+    </div>
+
+    <p>Jawabannya <strong>C</strong>.</p>
+  </div>
+</section>
+
+<section id="pembahasan-olimpiade" data-title="Pembahasan Latihan Tingkat Olimpiade">
+  <h2>18. Pembahasan Latihan Tingkat Olimpiade</h2>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 1</h4>
+
+    <p>
+      Faktorkan pembagi: \(x^3-x=x(x-1)(x+1)\). Pembagi berderajat \(3\),
+      sehingga sisanya berbentuk \(ax^2+bx+c\). Misalkan
+      \(P(x)=x^{100}-2x^{51}+1\). Dengan teorema sisa untuk tiga akar
+      pembagi:
+    </p>
+
+    <div class="math-display">
+      \[ P(0)=1, \qquad P(1)=1-2+1=0, \qquad P(-1)=1+2+1=4 \]
+    </div>
+
+    <p>
+      (Perhatikan \((-1)^{100}=1\) dan \((-1)^{51}=-1\).) Substitusikan ke
+      sisa \(ax^2+bx+c\):
+    </p>
+
+    <div class="math-display">
+      \[ c=1, \qquad a+b+c=0, \qquad a-b+c=4 \]
+    </div>
+
+    <p>
+      Dari \(c=1\): \(a+b=-1\) dan \(a-b=3\). Jumlahkan: \(a=1\), lalu
+      \(b=-2\).
+    </p>
+
+    <p>
+      Jadi sisanya \(x^2-2x+1=(x-1)^2\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 2</h4>
+
+    <p>
+      Tiga nilai pertama memenuhi \(P(k)=k\). Buat polinomial pembantu
+      \(Q(x)=P(x)-x\). Karena \(P\) berderajat \(3\), maka \(Q\) juga
+      berderajat \(3\), dan:
+    </p>
+
+    <div class="math-display">\[ Q(1)=Q(2)=Q(3)=0 \]</div>
+
+    <p>
+      Tiga akar sudah diketahui, jadi \(Q(x)=c(x-1)(x-2)(x-3)\) dengan
+      \(c\) konstanta. Gunakan \(P(4)=5\):
+    </p>
+
+    <div class="math-display">
+      \[ Q(4)=P(4)-4=1=c\cdot3\cdot2\cdot1\Rightarrow
+      c=\frac16 \]
+    </div>
+
+    <p>Maka:</p>
+
+    <div class="math-display">
+      \[ P(5)=5+Q(5)=5+\frac16\cdot4\cdot3\cdot2=5+4=9 \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 3</h4>
+
+    <p>
+      Vieta untuk \(x^3+0x^2-x-1=0\): jumlah akar \(e_1=0\), jumlah hasil
+      kali dua akar \(e_2=-1\), hasil kali akar \(e_3=1\).
+    </p>
+
+    <p>
+      Karena \(a\) akar, maka \(a^3-a-1=0\), yaitu \(a^3=a+1\). Gunakan ini
+      untuk menurunkan pangkat \(5\):
+    </p>
+
+    <div class="math-display">
+      \[ a^5=a^2\cdot a^3=a^2(a+1)=a^3+a^2=(a+1)+a^2=a^2+a+1 \]
+    </div>
+
+    <p>
+      Hal yang sama berlaku untuk \(b\) dan \(c\). Jumlahkan ketiganya:
+    </p>
+
+    <div class="math-display">
+      \[ a^5+b^5+c^5=(a^2+b^2+c^2)+(a+b+c)+3 \]
+    </div>
+
+    <p>Hitung \(a^2+b^2+c^2=e_1^2-2e_2=0+2=2\). Jadi:</p>
+
+    <div class="math-display">\[ a^5+b^5+c^5=2+0+3=5 \]</div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 4</h4>
+
+    <p>
+      Karena \(x^3-1=(x-1)(x^2+x+1)\), maka \(x^3-1\) habis dibagi
+      \(x^2+x+1\). Artinya, jika dibagi \(x^2+x+1\), \(x^3\) memberi sisa
+      yang sama dengan \(1\). Tulis \(x^3\equiv1\) (modulo \(x^2+x+1\)).
+      Sifat ini dapat dipangkatkan: \(x^{3m}\equiv1\). Bagi \(n\) menurut
+      sisanya terhadap \(3\):
+    </p>
+
+    <p>
+      <strong>Kasus \(n=3m\).</strong> Maka \(x^{2n}=(x^3)^{2m}\equiv1\) dan
+      \(x^n=(x^3)^m\equiv1\), sehingga:
+    </p>
+
+    <div class="math-display">\[ x^{2n}+x^n+1\equiv1+1+1=3 \]</div>
+
+    <p>Sisanya \(3\neq0\), jadi tidak habis dibagi.</p>
+
+    <p>
+      <strong>Kasus \(n=3m+1\).</strong> Maka \(x^{2n}=x^{6m+2}\equiv x^2\)
+      dan \(x^n=x^{3m+1}\equiv x\), sehingga:
+    </p>
+
+    <div class="math-display">
+      \[ x^{2n}+x^n+1\equiv x^2+x+1\equiv0 \]
+    </div>
+
+    <p>
+      <strong>Kasus \(n=3m+2\).</strong> Maka \(x^{2n}=x^{6m+4}\equiv x^4\equiv
+      x\) dan \(x^n=x^{3m+2}\equiv x^2\), sehingga:
+    </p>
+
+    <div class="math-display">
+      \[ x^{2n}+x^n+1\equiv x+x^2+1\equiv0 \]
+    </div>
+
+    <p>
+      Jadi \(x^{2n}+x^n+1\) habis dibagi \(x^2+x+1\) tepat ketika \(n\)
+      <strong>tidak habis dibagi \(3\)</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 5</h4>
+
+    <p>
+      Nilai \(10,20,30\) untuk \(x=1,2,3\) mengikuti pola \(10x\). Buat
+      polinomial pembantu \(Q(x)=P(x)-10x\). Karena \(P\) monik berderajat
+      \(4\), maka \(Q\) juga monik berderajat \(4\) dan:
+    </p>
+
+    <div class="math-display">\[ Q(1)=Q(2)=Q(3)=0 \]</div>
+
+    <p>Dengan akar keempat \(r\) yang tidak diketahui:</p>
+
+    <div class="math-display">
+      \[ Q(x)=(x-1)(x-2)(x-3)(x-r), \qquad P(x)=Q(x)+10x \]
+    </div>
+
+    <p>Hitung masing-masing nilai:</p>
+
+    <div class="math-display">
+      \[ P(10)=Q(10)+100=9\cdot8\cdot7\,(10-r)+100=504(10-r)+100 \]
+    </div>
+
+    <div class="math-display">
+      \[ P(-6)=Q(-6)-60=(-7)(-8)(-9)(-6-r)-60=504(6+r)-60 \]
+    </div>
+
+    <p>Jumlahkan; suku \(r\) saling menghilangkan:</p>
+
+    <div class="math-display">
+      \[ P(10)+P(-6)=504\big[(10-r)+(6+r)\big]+40=504\cdot16+40=8104 \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 6</h4>
+
+    <p>
+      <strong>Langkah 1: cari akar-akar \(P\).</strong> Substitusikan nilai
+      \(x\) yang membuat salah satu faktor menjadi nol.
+    </p>
+
+    <div class="math-display">
+      \[ x=1:\ 0=3P(1)\Rightarrow P(1)=0 \]
+    </div>
+
+    <div class="math-display">
+      \[ x=-2:\ -3P(-1)=0\Rightarrow P(-1)=0 \]
+    </div>
+
+    <div class="math-display">
+      \[ x=-1:\ -2P(0)=P(-1)=0\Rightarrow P(0)=0 \]
+    </div>
+
+    <p>
+      Jadi \(P\) memiliki akar \(0,1,-1\), sehingga
+      \(P(x)=x(x-1)(x+1)\,Q(x)\) untuk suatu polinomial \(Q\).
+    </p>
+
+    <p>
+      <strong>Langkah 2: substitusi bentuk ini.</strong> Karena
+      \(P(x+1)=(x+1)x(x+2)\,Q(x+1)\), persamaan menjadi:
+    </p>
+
+    <div class="math-display">
+      \[ (x-1)(x+1)\,x\,(x+2)\,Q(x+1)=(x+2)\,x(x-1)(x+1)\,Q(x) \]
+    </div>
+
+    <p>
+      Kedua ruas memuat faktor yang sama \(x(x-1)(x+1)(x+2)\). Persamaan
+      berlaku untuk tak hingga banyak \(x\), sehingga faktor itu boleh
+      dicoret dan diperoleh \(Q(x+1)=Q(x)\) untuk semua \(x\).
+    </p>
+
+    <p>
+      <strong>Langkah 3: tentukan \(Q\).</strong> Dari \(Q(x+1)=Q(x)\)
+      diperoleh \(Q(0)=Q(1)=Q(2)=\cdots\). Maka polinomial \(Q(x)-Q(0)\)
+      mempunyai akar \(0,1,2,3,\ldots\) (tak hingga banyak), sehingga harus
+      polinomial nol. Jadi \(Q\) konstan, misalnya \(Q(x)=c\).
+    </p>
+
+    <p>
+      <strong>Kesimpulan.</strong> Semua polinomial yang memenuhi adalah:
+    </p>
+
+    <div class="math-display">\[ P(x)=c\,x(x-1)(x+1)=c\,(x^3-x), \]</div>
+
+    <p>
+      dengan \(c\) bilangan real sembarang (termasuk \(c=0\)). Pengecekan:
+      \((x-1)\cdot c(x+1)x(x+2)=(x+2)\cdot c\,x(x-1)(x+1)\). Sesuai.
+    </p>
+  </div>
+</section>
