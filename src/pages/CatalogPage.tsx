@@ -82,10 +82,20 @@ export function CatalogPage({ navigate }: CatalogPageProps) {
       ),
     },
     {
-      title: "4. Fase F Tingkat Lanjut (Kelas XII) — Pengantar Kalkulus",
+      title: "4. Fase F Tingkat Lanjut (Kelas XII) — Kalkulus",
       subtitle:
-        "Konsep limit sebagai dasar kekontinuan, turunan, dan integral.",
-      items: filteredMaterials.filter((m) => m.slug === "limit"),
+        "Pelajari limit sebagai fondasi turunan dan penerapannya dalam kalkulus diferensial.",
+      items: filteredMaterials.filter((m) =>
+        ["limit", "turunan"].includes(m.slug),
+      ),
+    },
+    {
+      title: "5. Fase F Tingkat Lanjut (Kelas XII) — Geometri Lingkaran",
+      subtitle:
+        "Pelajari keliling, luas, busur, juring, tali busur, garis singgung, dan penerapan lingkaran.",
+      items: filteredMaterials.filter(
+        (m) => m.slug === "busur-dan-juring-lingkaran",
+      ),
     },
   ];
 
@@ -168,8 +178,8 @@ export function CatalogPage({ navigate }: CatalogPageProps) {
                 </span>
                 <h3>Modul Berikutnya</h3>
                 <p>
-                  Topik mendatang mencakup Turunan Fungsi, Integral Tak
-                  Tentu/Tentu, serta Teori Graf Diskrit.
+                  Topik mendatang mencakup Integral Tak Tentu/Tentu serta Teori
+                  Graf Diskrit.
                 </p>
                 <div className="coming-status">
                   <span>Status kurikulum</span>

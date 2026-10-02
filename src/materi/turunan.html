@@ -1,0 +1,3019 @@
+<section id="pengertian-turunan" data-title="Pengertian Turunan">
+  <h2>1. Pengertian Turunan</h2>
+
+  <p>
+    Turunan menyatakan laju perubahan sesaat suatu fungsi terhadap variabelnya.
+    Secara geometri, turunan di suatu titik adalah gradien garis singgung kurva
+    di titik tersebut. Turunan dibangun dari konsep limit, sehingga pemahaman
+    limit yang baik sangat membantu.
+  </p>
+
+  <h3>Dari Tali Busur ke Garis Singgung</h3>
+
+  <p>
+    Misalkan titik \(P(x,f(x))\) dan \(Q(x+h,f(x+h))\) terletak pada grafik
+    \(f\). Gradien tali busur \(PQ\) adalah:
+  </p>
+
+  <div class="math-display">
+    \[ m_{PQ}=\frac{f(x+h)-f(x)}{(x+h)-x}=\frac{f(x+h)-f(x)}{h} \]
+  </div>
+
+  <p>
+    Jika \(h\) semakin kecil, titik \(Q\) semakin dekat ke \(P\) dan tali busur
+    \(PQ\) semakin menyerupai garis singgung di \(P\). Gradien garis singgung
+    adalah limit dari gradien tali busur.
+  </p>
+
+  <h3>Definisi Turunan</h3>
+
+  <p>Turunan fungsi \(f\) terhadap \(x\) didefinisikan sebagai:</p>
+
+  <div class="math-display">\[ f'(x)=\lim_{h\to 0}\frac{f(x+h)-f(x)}{h} \]</div>
+
+  <p>
+    asalkan limit tersebut ada. Turunan di titik \(x=a\) dapat pula ditulis:
+  </p>
+
+  <div class="math-display">\[ f'(a)=\lim_{x\to a}\frac{f(x)-f(a)}{x-a} \]</div>
+
+  <p>
+    Fungsi yang limit di atas ada di \(x=a\) disebut
+    <strong>dapat diturunkan</strong> (diferensiabel) di \(x=a\).
+  </p>
+
+  <h3>Notasi Turunan</h3>
+
+  <p>
+    Untuk \(y=f(x)\), turunan pertama dapat ditulis dengan beberapa notasi yang
+    bermakna sama:
+  </p>
+
+  <div class="math-display">
+    \[ f'(x)=y'=\frac{dy}{dx}=\frac{d}{dx}\big[f(x)\big] \]
+  </div>
+
+  <figure class="lesson-figure" style="margin: 1.5rem 0">
+    <svg
+      viewBox="0 0 560 330"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-labelledby="tn1t tn1d"
+      style="
+        width: 100%;
+        max-width: 560px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        font-family: inherit;
+      "
+    >
+      <title id="tn1t">
+        Tali busur mendekati garis singgung pada y = x kuadrat
+      </title>
+      <desc id="tn1d">
+        Grafik parabola y = x kuadrat dengan titik P(1,1). Tali busur PQ1
+        bergradien 3 dan PQ2 bergradien 2,5. Ketika titik Q mendekati P, gradien
+        tali busur mendekati 2, yaitu gradien garis singgung di P.
+      </desc>
+      <defs>
+        <marker
+          id="tn1a"
+          viewBox="0 0 10 10"
+          refX="9"
+          refY="5"
+          markerWidth="7"
+          markerHeight="7"
+          orient="auto"
+        >
+          <path d="M0 0L10 5L0 10z" fill="currentColor" fill-opacity=".7" />
+        </marker>
+      </defs>
+      <line
+        x1="55"
+        y1="256"
+        x2="405.0"
+        y2="256"
+        stroke="currentColor"
+        stroke-width="1.8"
+        marker-end="url(#tn1a)"
+        stroke-opacity="0.7"
+        stroke-linecap="round"
+      />
+      <line
+        x1="150"
+        y1="290"
+        x2="150"
+        y2="10"
+        stroke="currentColor"
+        stroke-width="1.8"
+        marker-end="url(#tn1a)"
+        stroke-opacity="0.7"
+        stroke-linecap="round"
+      />
+      <text
+        x="411.0"
+        y="260"
+        font-size="14"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-style="italic"
+      >
+        x
+      </text>
+      <text
+        x="158"
+        y="14"
+        font-size="14"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-style="italic"
+      >
+        y
+      </text>
+      <line
+        x1="245"
+        y1="252"
+        x2="245"
+        y2="260"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-opacity="0.6"
+      />
+      <text
+        x="245"
+        y="274"
+        font-size="12"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        1
+      </text>
+      <line
+        x1="340"
+        y1="252"
+        x2="340"
+        y2="260"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-opacity="0.6"
+      />
+      <text
+        x="340"
+        y="274"
+        font-size="12"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        2
+      </text>
+      <line
+        x1="146"
+        y1="222"
+        x2="154"
+        y2="222"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-opacity="0.6"
+      />
+      <text
+        x="142"
+        y="226"
+        font-size="12"
+        text-anchor="end"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        1
+      </text>
+      <line
+        x1="146"
+        y1="120"
+        x2="154"
+        y2="120"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-opacity="0.6"
+      />
+      <text
+        x="142"
+        y="124"
+        font-size="12"
+        text-anchor="end"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        4
+      </text>
+      <polyline
+        points="64.5,228.5 67.3,230.2 70.0,231.9 72.8,233.6 75.6,235.1 78.4,236.7 81.1,238.1 83.9,239.5 86.7,240.9 89.4,242.2 92.2,243.4 95.0,244.6 97.8,245.7 100.5,246.8 103.3,247.8 106.1,248.7 108.8,249.6 111.6,250.4 114.4,251.2 117.1,251.9 119.9,252.6 122.7,253.2 125.5,253.7 128.2,254.2 131.0,254.6 133.8,255.0 136.5,255.3 139.3,255.6 142.1,255.8 144.9,255.9 147.6,256.0 150.4,256.0 153.2,256.0 155.9,255.9 158.7,255.7 161.5,255.5 164.2,255.2 167.0,254.9 169.8,254.5 172.6,254.1 175.3,253.6 178.1,253.0 180.9,252.4 183.6,251.7 186.4,251.0 189.2,250.2 192.0,249.4 194.7,248.5 197.5,247.5 200.3,246.5 203.0,245.4 205.8,244.3 208.6,243.1 211.4,241.8 214.1,240.5 216.9,239.1 219.7,237.7 222.4,236.2 225.2,234.7 228.0,233.1 230.8,231.4 233.5,229.7 236.3,227.9 239.1,226.1 241.8,224.2 244.6,222.3 247.4,220.3 250.1,218.2 252.9,216.1 255.7,213.9 258.5,211.7 261.2,209.4 264.0,207.0 266.8,204.6 269.5,202.2 272.3,199.6 275.1,197.1 277.9,194.4 280.6,191.7 283.4,189.0 286.2,186.1 288.9,183.3 291.7,180.3 294.5,177.4 297.2,174.3 300.0,171.2 302.8,168.1 305.6,164.8 308.3,161.6 311.1,158.2 313.9,154.8 316.6,151.4 319.4,147.9 322.2,144.3 325.0,140.7 327.7,137.0 330.5,133.3 333.3,129.5 336.0,125.6 338.8,121.7 341.6,117.7 344.4,113.7 347.1,109.6 349.9,105.5 352.7,101.3 355.4,97.0 358.2,92.7 361.0,88.3 363.8,83.9 366.5,79.4 369.3,74.8 372.1,70.2 374.8,65.6 377.6,60.8 380.4,56.1 383.1,51.2 385.9,46.3 388.7,41.4 391.5,36.4 394.2,31.3 397.0,26.2"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <line
+        x1="181.7"
+        y1="290"
+        x2="378.0"
+        y2="79.2"
+        stroke="#f97316"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-dasharray="6 5"
+      />
+      <line
+        x1="169.0"
+        y1="290"
+        x2="378.0"
+        y2="103.0"
+        stroke="#10b981"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-dasharray="6 5"
+      />
+      <line
+        x1="150"
+        y1="290"
+        x2="378.0"
+        y2="126.8"
+        stroke="#3b82f6"
+        stroke-width="2.8"
+        stroke-linecap="round"
+      />
+      <line
+        x1="245"
+        y1="256"
+        x2="245"
+        y2="222"
+        stroke="currentColor"
+        stroke-opacity="0.45"
+        stroke-width="1"
+        stroke-linecap="round"
+        stroke-dasharray="3 4"
+      />
+      <circle cx="340" cy="120" r="5.5" fill="#f97316" />
+      <circle cx="292.5" cy="179.5" r="5.5" fill="#10b981" />
+      <circle cx="245" cy="222" r="5.5" fill="#3b82f6" />
+      <text
+        x="348.8"
+        y="120.0"
+        font-size="13"
+        text-anchor="start"
+        fill="#f97316"
+        font-weight="700"
+      >
+        Q₁
+      </text>
+      <text
+        x="303.2"
+        y="181.2"
+        font-size="13"
+        text-anchor="start"
+        fill="#10b981"
+        font-weight="700"
+      >
+        Q₂
+      </text>
+      <text
+        x="218.4"
+        y="216.9"
+        font-size="14"
+        text-anchor="end"
+        fill="#3b82f6"
+        font-weight="700"
+      >
+        P
+      </text>
+      <text
+        x="69.2"
+        y="28.2"
+        font-size="14"
+        text-anchor="start"
+        fill="currentColor"
+        font-weight="600"
+      >
+        f(x) = x²
+      </text>
+      <text x="420" y="60" font-size="13" fill="currentColor" font-weight="600">
+        P(1, 1)
+      </text>
+      <text x="420" y="92" font-size="13" fill="#f97316" font-weight="700">
+        tali busur PQ₁
+      </text>
+      <text x="420" y="110" font-size="12.5" fill="currentColor">
+        gradien = 3
+      </text>
+      <text x="420" y="142" font-size="13" fill="#10b981" font-weight="700">
+        tali busur PQ₂
+      </text>
+      <text x="420" y="160" font-size="12.5" fill="currentColor">
+        gradien = 2,5
+      </text>
+      <text x="420" y="192" font-size="13" fill="#3b82f6" font-weight="700">
+        garis singgung di P
+      </text>
+      <text x="420" y="210" font-size="12.5" fill="currentColor">
+        gradien = f′(1) = 2
+      </text>
+      <text
+        x="420"
+        y="244"
+        font-size="12"
+        fill="currentColor"
+        fill-opacity="0.8"
+      >
+        Saat Q mendekati P,
+      </text>
+      <text
+        x="420"
+        y="260"
+        font-size="12"
+        fill="currentColor"
+        fill-opacity="0.8"
+      >
+        gradien tali busur
+      </text>
+      <text
+        x="420"
+        y="276"
+        font-size="12"
+        fill="currentColor"
+        fill-opacity="0.8"
+      >
+        mendekati 2.
+      </text>
+    </svg>
+    <figcaption
+      style="
+        text-align: center;
+        font-size: 0.9em;
+        opacity: 0.85;
+        margin-top: 0.6rem;
+      "
+    >
+      Gambar 1. Grafik f(x) = x². Ketika titik Q bergerak mendekati P(1, 1),
+      gradien tali busur PQ turun dari 3 ke 2,5 dan terus mendekati 2, yaitu
+      gradien garis singgung di P.
+    </figcaption>
+  </figure>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan turunan \(f(x)=x^2+3x\) dengan definisi limit.</p>
+
+    <div class="math-display">
+      \[ \begin{aligned} f'(x)&=\lim_{h\to
+      0}\frac{\left[(x+h)^2+3(x+h)\right]-\left(x^2+3x\right)}{h}\\ &=\lim_{h\to
+      0}\frac{2xh+h^2+3h}{h}\\ &=\lim_{h\to 0}(2x+h+3)\\ &=2x+3 \end{aligned} \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Tentukan turunan \(f(x)=\sqrt{x}\) dengan definisi limit, untuk \(x\gt0\).
+    </p>
+
+    <div class="math-display">
+      \[ \begin{aligned} f'(x)&=\lim_{h\to
+      0}\frac{\sqrt{x+h}-\sqrt{x}}{h}\cdot\frac{\sqrt{x+h}+\sqrt{x}}{\sqrt{x+h}+\sqrt{x}}\\
+      &=\lim_{h\to 0}\frac{(x+h)-x}{h\left(\sqrt{x+h}+\sqrt{x}\right)}\\
+      &=\lim_{h\to 0}\frac{1}{\sqrt{x+h}+\sqrt{x}}\\ &=\frac{1}{2\sqrt{x}}
+      \end{aligned} \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Tentukan turunan \(\displaystyle f(x)=\frac{1}{x}\) dengan definisi limit.
+    </p>
+
+    <div class="math-display">
+      \[ \begin{aligned} f'(x)&=\lim_{h\to
+      0}\frac{\frac{1}{x+h}-\frac{1}{x}}{h}\\ &=\lim_{h\to
+      0}\frac{x-(x+h)}{h\,x(x+h)}\\ &=\lim_{h\to 0}\frac{-1}{x(x+h)}\\
+      &=-\frac{1}{x^2} \end{aligned} \]
+    </div>
+  </div>
+
+  <h3>Turunan dan Kekontinuan</h3>
+
+  <p>
+    Jika \(f\) dapat diturunkan di \(x=a\), maka \(f\) kontinu di \(x=a\).
+    Sebaliknya belum tentu benar: fungsi yang kontinu di suatu titik belum tentu
+    dapat diturunkan di titik itu. Grafik yang memiliki sudut tajam, patahan,
+    atau garis singgung tegak tidak dapat diturunkan di titik tersebut.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Selidiki apakah \(f(x)=|x|\) dapat diturunkan di \(x=0\).</p>
+
+    <p>
+      Fungsi \(f\) kontinu di \(x=0\). Tinjau turunan kiri dan turunan kanan:
+    </p>
+
+    <div class="math-display">
+      \[ \lim_{h\to 0^-}\frac{|h|-0}{h}=\frac{-h}{h}=-1, \qquad \lim_{h\to
+      0^+}\frac{|h|-0}{h}=\frac{h}{h}=1 \]
+    </div>
+
+    <p>
+      Karena turunan kiri \(\neq\) turunan kanan, maka \(f'(0)\) tidak ada.
+      Fungsi \(|x|\) kontinu di \(x=0\) tetapi tidak dapat diturunkan di titik
+      itu.
+    </p>
+  </div>
+</section>
+
+<section id="aturan-dasar-turunan" data-title="Aturan Dasar Turunan">
+  <h2>2. Aturan Dasar Turunan</h2>
+
+  <p>
+    Menghitung turunan dengan definisi limit membutuhkan banyak langkah.
+    Aturan-aturan berikut membuat proses tersebut jauh lebih cepat. Misalkan
+    \(k\) dan \(n\) bilangan real, serta \(u\) dan \(v\) fungsi yang dapat
+    diturunkan.
+  </p>
+
+  <div class="math-display">
+    \[ \begin{aligned} \frac{d}{dx}(k)&=0\\ \frac{d}{dx}(x^n)&=nx^{n-1}\\
+    \frac{d}{dx}\big[k\,u(x)\big]&=k\,u'(x)\\ \frac{d}{dx}\big[u(x)\pm
+    v(x)\big]&=u'(x)\pm v'(x) \end{aligned} \]
+  </div>
+
+  <p>
+    Aturan pangkat berlaku untuk semua bilangan real \(n\), termasuk pangkat
+    negatif dan pecahan. Karena itu, bentuk akar dan pecahan sebaiknya diubah
+    terlebih dahulu menjadi bentuk pangkat:
+  </p>
+
+  <div class="math-display">
+    \[ \sqrt[n]{x^m}=x^{m/n}, \qquad \frac{1}{x^n}=x^{-n} \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan turunan \(f(x)=5x^4-3x^2+7x-2\).</p>
+
+    <div class="math-display">\[ f'(x)=5(4x^3)-3(2x)+7(1)-0=20x^3-6x+7 \]</div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Tentukan turunan \(\displaystyle
+      f(x)=3\sqrt{x}-\frac{4}{x^2}+\frac{2}{\sqrt{x}}\).
+    </p>
+
+    <p>Ubah ke bentuk pangkat terlebih dahulu:</p>
+
+    <div class="math-display">\[ f(x)=3x^{1/2}-4x^{-2}+2x^{-1/2} \]</div>
+
+    <p>Turunkan setiap suku:</p>
+
+    <div class="math-display">
+      \[ \begin{aligned}
+      f'(x)&=3\cdot\frac{1}{2}x^{-1/2}-4(-2)x^{-3}+2\left(-\frac{1}{2}\right)x^{-3/2}\\
+      &=\frac{3}{2\sqrt{x}}+\frac{8}{x^3}-\frac{1}{x\sqrt{x}} \end{aligned} \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Tentukan turunan \(\displaystyle f(x)=\frac{x^3+2x^2}{x}\), untuk
+      \(x\neq0\).
+    </p>
+
+    <p>Sederhanakan lebih dulu sebelum menurunkan:</p>
+
+    <div class="math-display">
+      \[ f(x)=\frac{x^3+2x^2}{x}=x^2+2x \quad\Rightarrow\quad f'(x)=2x+2 \]
+    </div>
+  </div>
+</section>
+
+<section
+  id="hasil-kali-hasil-bagi"
+  data-title="Turunan Hasil Kali dan Hasil Bagi"
+>
+  <h2>3. Turunan Hasil Kali dan Hasil Bagi</h2>
+
+  <p>
+    Turunan hasil kali dua fungsi <strong>bukan</strong> hasil kali turunan
+    masing-masing. Aturan yang benar adalah sebagai berikut.
+  </p>
+
+  <h3>Aturan Hasil Kali</h3>
+
+  <div class="math-display">\[ \frac{d}{dx}\big[u\,v\big]=u'v+uv' \]</div>
+
+  <h3>Aturan Hasil Bagi</h3>
+
+  <div class="math-display">
+    \[ \frac{d}{dx}\left[\frac{u}{v}\right]=\frac{u'v-uv'}{v^2},\qquad v\neq0 \]
+  </div>
+
+  <p>
+    Pada aturan hasil bagi, urutan pengurangan di pembilang harus diperhatikan:
+    turunan pembilang dikali penyebut, <em>dikurangi</em> pembilang dikali
+    turunan penyebut.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan turunan \(f(x)=(x^2+1)(x^3-2x)\).</p>
+
+    <p>
+      Misalkan \(u=x^2+1\) dan \(v=x^3-2x\), sehingga \(u'=2x\) dan
+      \(v'=3x^2-2\):
+    </p>
+
+    <div class="math-display">
+      \[ \begin{aligned} f'(x)&=2x(x^3-2x)+(x^2+1)(3x^2-2)\\
+      &=(2x^4-4x^2)+(3x^4+x^2-2)\\ &=5x^4-3x^2-2 \end{aligned} \]
+    </div>
+
+    <p>
+      Sebagai pengecekan, \(f(x)=x^5-x^3-2x\) sehingga \(f'(x)=5x^4-3x^2-2\).
+      Hasilnya sama.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan turunan \(\displaystyle f(x)=\frac{x^2+1}{x-2}\).</p>
+
+    <p>Misalkan \(u=x^2+1\) dan \(v=x-2\), sehingga \(u'=2x\) dan \(v'=1\):</p>
+
+    <div class="math-display">
+      \[ f'(x)=\frac{2x(x-2)-(x^2+1)(1)}{(x-2)^2}=\frac{x^2-4x-1}{(x-2)^2} \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan turunan \(\displaystyle f(x)=\frac{2x-3}{x^2+1}\).</p>
+
+    <div class="math-display">
+      \[ \begin{aligned} f'(x)&=\frac{2(x^2+1)-(2x-3)(2x)}{(x^2+1)^2}\\
+      &=\frac{2x^2+2-4x^2+6x}{(x^2+1)^2}\\ &=\frac{-2x^2+6x+2}{(x^2+1)^2}
+      \end{aligned} \]
+    </div>
+  </div>
+</section>
+
+<section id="aturan-rantai" data-title="Aturan Rantai">
+  <h2>4. Aturan Rantai</h2>
+
+  <p>
+    Aturan rantai digunakan untuk menurunkan fungsi komposisi, yaitu fungsi di
+    dalam fungsi. Jika \(y=f(u)\) dan \(u=g(x)\), maka:
+  </p>
+
+  <div class="math-display">
+    \[ \frac{dy}{dx}=\frac{dy}{du}\cdot\frac{du}{dx} \qquad\text{atau}\qquad
+    \frac{d}{dx}\big[f(g(x))\big]=f'(g(x))\cdot g'(x) \]
+  </div>
+
+  <p>
+    Dengan kata lain: turunkan fungsi luar (biarkan fungsi dalam), lalu kalikan
+    dengan turunan fungsi dalam. Bentuk yang paling sering muncul adalah:
+  </p>
+
+  <div class="math-display">
+    \[ \frac{d}{dx}\big[u^n\big]=n\,u^{n-1}\cdot u' \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan turunan \(f(x)=(3x^2-2x+1)^5\).</p>
+
+    <p>Fungsi luar \(u^5\), fungsi dalam \(u=3x^2-2x+1\) dengan \(u'=6x-2\):</p>
+
+    <div class="math-display">\[ f'(x)=5(3x^2-2x+1)^4\cdot(6x-2) \]</div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan turunan \(f(x)=\sqrt{x^2+4}\).</p>
+
+    <p>Tulis \(f(x)=(x^2+4)^{1/2}\), lalu gunakan aturan rantai:</p>
+
+    <div class="math-display">
+      \[ f'(x)=\frac{1}{2}(x^2+4)^{-1/2}\cdot 2x=\frac{x}{\sqrt{x^2+4}} \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan turunan \(\displaystyle f(x)=\left(\frac{x}{x+1}\right)^3\).</p>
+
+    <p>Turunan fungsi dalam diperoleh dari aturan hasil bagi:</p>
+
+    <div class="math-display">
+      \[ \frac{d}{dx}\left(\frac{x}{x+1}\right)=\frac{1\cdot(x+1)-x\cdot
+      1}{(x+1)^2}=\frac{1}{(x+1)^2} \]
+    </div>
+
+    <p>Sehingga:</p>
+
+    <div class="math-display">
+      \[
+      f'(x)=3\left(\frac{x}{x+1}\right)^2\cdot\frac{1}{(x+1)^2}=\frac{3x^2}{(x+1)^4}
+      \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan turunan \(f(x)=(2x+1)^3(x^2-1)^2\).</p>
+
+    <p>Gunakan aturan hasil kali, dengan aturan rantai pada setiap faktor:</p>
+
+    <div class="math-display">
+      \[ \begin{aligned}
+      f'(x)&=3(2x+1)^2(2)\,(x^2-1)^2+(2x+1)^3\cdot2(x^2-1)(2x)\\
+      &=2(2x+1)^2(x^2-1)\left[3(x^2-1)+2x(2x+1)\right]\\
+      &=2(2x+1)^2(x^2-1)(7x^2+2x-3) \end{aligned} \]
+    </div>
+  </div>
+</section>
+
+<section id="turunan-trigonometri" data-title="Turunan Fungsi Trigonometri">
+  <h2>5. Turunan Fungsi Trigonometri</h2>
+
+  <p>
+    Rumus turunan fungsi trigonometri berikut berlaku dengan \(x\) dalam satuan
+    radian:
+  </p>
+
+  <div class="math-display">
+    \[ \begin{aligned} \frac{d}{dx}(\sin x)&=\cos x & \frac{d}{dx}(\cos
+    x)&=-\sin x\\[1mm] \frac{d}{dx}(\tan x)&=\sec^2 x & \frac{d}{dx}(\cot
+    x)&=-\csc^2 x\\[1mm] \frac{d}{dx}(\sec x)&=\sec x\tan x & \frac{d}{dx}(\csc
+    x)&=-\csc x\cot x \end{aligned} \]
+  </div>
+
+  <h3>Asal-Usul Rumus \(\sin x\)</h3>
+
+  <p>
+    Dengan definisi turunan dan identitas \(\sin(x+h)=\sin x\cos h+\cos x\sin
+    h\):
+  </p>
+
+  <div class="math-display">
+    \[ \begin{aligned} \frac{d}{dx}(\sin x)&=\lim_{h\to 0}\frac{\sin x\cos
+    h+\cos x\sin h-\sin x}{h}\\ &=\sin x\cdot\lim_{h\to 0}\frac{\cos
+    h-1}{h}+\cos x\cdot\lim_{h\to 0}\frac{\sin h}{h}\\ &=\sin x\cdot 0+\cos
+    x\cdot 1=\cos x \end{aligned} \]
+  </div>
+
+  <h3>Dengan Aturan Rantai</h3>
+
+  <p>Jika \(u\) adalah fungsi dari \(x\), maka:</p>
+
+  <div class="math-display">
+    \[ \frac{d}{dx}\big[\sin u\big]=u'\cos u, \qquad \frac{d}{dx}\big[\cos
+    u\big]=-u'\sin u, \qquad \frac{d}{dx}\big[\tan u\big]=u'\sec^2 u \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan turunan \(f(x)=\sin(3x^2-1)\).</p>
+
+    <div class="math-display">
+      \[ f'(x)=\cos(3x^2-1)\cdot 6x=6x\cos(3x^2-1) \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan turunan \(f(x)=x^2\cos 2x\).</p>
+
+    <div class="math-display">
+      \[ f'(x)=2x\cos 2x+x^2(-2\sin 2x)=2x\cos 2x-2x^2\sin 2x \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan turunan \(f(x)=\sin^3(2x)\).</p>
+
+    <p>
+      Tulis \(f(x)=\left[\sin 2x\right]^3\). Ada dua lapis fungsi dalam, yaitu
+      pangkat tiga dan \(\sin 2x\):
+    </p>
+
+    <div class="math-display">
+      \[ f'(x)=3\sin^2(2x)\cdot\cos(2x)\cdot 2=6\sin^2(2x)\cos(2x) \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan turunan \(\displaystyle f(x)=\frac{\sin x}{1+\cos x}\).</p>
+
+    <div class="math-display">
+      \[ \begin{aligned} f'(x)&=\frac{\cos x(1+\cos x)-\sin x(-\sin x)}{(1+\cos
+      x)^2}\\ &=\frac{\cos x+\cos^2 x+\sin^2 x}{(1+\cos x)^2}\\ &=\frac{1+\cos
+      x}{(1+\cos x)^2}=\frac{1}{1+\cos x} \end{aligned} \]
+    </div>
+  </div>
+</section>
+<section
+  id="turunan-eksponen-logaritma"
+  data-title="Turunan Eksponen dan Logaritma"
+>
+  <h2>6. Turunan Fungsi Eksponen dan Logaritma</h2>
+
+  <p>
+    Misalkan \(a\gt0\), \(a\neq1\), dan \(e\approx2{,}718\) adalah bilangan
+    Euler. Rumus dasarnya adalah:
+  </p>
+
+  <div class="math-display">
+    \[ \begin{aligned} \frac{d}{dx}(e^x)&=e^x & \frac{d}{dx}(a^x)&=a^x\ln
+    a\\[1mm] \frac{d}{dx}(\ln x)&=\frac{1}{x} & \frac{d}{dx}(\,{}^{a}\!\log
+    x)&=\frac{1}{x\ln a} \end{aligned} \]
+  </div>
+
+  <p>Jika \(u\) adalah fungsi dari \(x\), aturan rantai memberikan:</p>
+
+  <div class="math-display">
+    \[ \frac{d}{dx}\big[e^{u}\big]=u'e^{u}, \qquad
+    \frac{d}{dx}\big[a^{u}\big]=u'a^{u}\ln a, \qquad \frac{d}{dx}\big[\ln
+    u\big]=\frac{u'}{u} \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan turunan \(f(x)=e^{x^2+3x}\).</p>
+
+    <div class="math-display">\[ f'(x)=(2x+3)\,e^{x^2+3x} \]</div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan turunan \(f(x)=x\,e^{-x}\).</p>
+
+    <div class="math-display">
+      \[ f'(x)=1\cdot e^{-x}+x\cdot(-e^{-x})=(1-x)\,e^{-x} \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan turunan \(f(x)=\ln(x^2+1)\) dan \(g(x)=\ln(\sin x)\).</p>
+
+    <div class="math-display">
+      \[ f'(x)=\frac{2x}{x^2+1}, \qquad g'(x)=\frac{\cos x}{\sin x}=\cot x \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan turunan \(f(x)=2^{3x}\).</p>
+
+    <div class="math-display">\[ f'(x)=3\cdot2^{3x}\ln 2 \]</div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Tentukan turunan \(\displaystyle f(x)=\ln\sqrt{\frac{x+1}{x-1}}\), untuk
+      \(x\gt1\).
+    </p>
+
+    <p>Sederhanakan dengan sifat logaritma sebelum menurunkan:</p>
+
+    <div class="math-display">
+      \[ f(x)=\frac{1}{2}\left[\ln(x+1)-\ln(x-1)\right] \]
+    </div>
+
+    <div class="math-display">
+      \[
+      f'(x)=\frac{1}{2}\left[\frac{1}{x+1}-\frac{1}{x-1}\right]=\frac{1}{2}\cdot\frac{-2}{x^2-1}=\frac{1}{1-x^2}
+      \]
+    </div>
+  </div>
+</section>
+
+<section
+  id="turunan-implisit-logaritmik"
+  data-title="Turunan Implisit dan Logaritmik"
+>
+  <h2>7. Turunan Implisit dan Turunan Logaritmik</h2>
+
+  <h3>Turunan Implisit</h3>
+
+  <p>
+    Pada persamaan seperti \(x^2+y^2=25\), \(y\) tidak dinyatakan secara
+    langsung sebagai fungsi \(x\). Kita tetap dapat mencari
+    \(\displaystyle\frac{dy}{dx}\) dengan menurunkan kedua ruas terhadap \(x\),
+    dengan ingat bahwa \(y\) adalah fungsi dari \(x\):
+  </p>
+
+  <div class="math-display">
+    \[ \frac{d}{dx}\big[y^n\big]=n\,y^{n-1}\cdot\frac{dy}{dx} \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan \(\displaystyle\frac{dy}{dx}\) dari \(x^2+y^2=25\).</p>
+
+    <div class="math-display">
+      \[ 2x+2y\frac{dy}{dx}=0 \quad\Rightarrow\quad \frac{dy}{dx}=-\frac{x}{y}
+      \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan \(\displaystyle\frac{dy}{dx}\) dari \(x^3+y^3=3xy\).</p>
+
+    <p>Turunkan kedua ruas. Ruas kanan memakai aturan hasil kali:</p>
+
+    <div class="math-display">
+      \[ 3x^2+3y^2\frac{dy}{dx}=3y+3x\frac{dy}{dx} \]
+    </div>
+
+    <p>Kumpulkan suku-suku yang memuat \(\displaystyle\frac{dy}{dx}\):</p>
+
+    <div class="math-display">
+      \[ (3y^2-3x)\frac{dy}{dx}=3y-3x^2 \quad\Rightarrow\quad
+      \frac{dy}{dx}=\frac{y-x^2}{y^2-x} \]
+    </div>
+  </div>
+
+  <h3>Turunan Logaritmik</h3>
+
+  <p>
+    Untuk fungsi berbentuk \(y=u^{v}\) dengan \(u\) dan \(v\) sama-sama memuat
+    \(x\), ambil logaritma natural kedua ruas, lalu turunkan secara implisit.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan turunan \(y=x^x\), untuk \(x\gt0\).</p>
+
+    <div class="math-display">
+      \[ \ln y=x\ln x \quad\Rightarrow\quad \frac{y'}{y}=\ln
+      x+x\cdot\frac{1}{x}=\ln x+1 \]
+    </div>
+
+    <div class="math-display">\[ y'=y(\ln x+1)=x^x(\ln x+1) \]</div>
+  </div>
+</section>
+
+<section id="turunan-tingkat-tinggi" data-title="Turunan Tingkat Tinggi">
+  <h2>8. Turunan Tingkat Tinggi</h2>
+
+  <p>
+    Turunan dari turunan disebut turunan kedua. Proses ini dapat diulang untuk
+    memperoleh turunan ketiga, keempat, dan seterusnya:
+  </p>
+
+  <div class="math-display">
+    \[ f''(x)=\frac{d^2y}{dx^2}=\frac{d}{dx}\big[f'(x)\big], \qquad
+    f'''(x)=\frac{d^3y}{dx^3}, \qquad f^{(n)}(x)=\frac{d^ny}{dx^n} \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Tentukan \(f'(x)\), \(f''(x)\), dan \(f'''(x)\) untuk
+      \(f(x)=x^4-3x^3+2x\).
+    </p>
+
+    <div class="math-display">
+      \[ f'(x)=4x^3-9x^2+2, \qquad f''(x)=12x^2-18x, \qquad f'''(x)=24x-18 \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Buktikan bahwa \(y=\sin 2x\) memenuhi \(y''+4y=0\).</p>
+
+    <div class="math-display">\[ y'=2\cos 2x, \qquad y''=-4\sin 2x \]</div>
+
+    <div class="math-display">\[ y''+4y=-4\sin 2x+4\sin 2x=0 \]</div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan turunan ke-\(n\) dari \(f(x)=e^{3x}\).</p>
+
+    <p>Setiap penurunan menambah faktor \(3\):</p>
+
+    <div class="math-display">
+      \[ f'(x)=3e^{3x}, \qquad f''(x)=3^2e^{3x}, \qquad f^{(n)}(x)=3^ne^{3x} \]
+    </div>
+  </div>
+</section>
+
+<section
+  id="garis-singgung-normal"
+  data-title="Garis Singgung dan Garis Normal"
+>
+  <h2>9. Persamaan Garis Singgung dan Garis Normal</h2>
+
+  <p>
+    Garis singgung kurva \(y=f(x)\) di titik \((x_1,y_1)\) memiliki gradien
+    \(m=f'(x_1)\). Garis normal adalah garis yang tegak lurus garis singgung di
+    titik yang sama, sehingga gradiennya \(\displaystyle m_n=-\frac{1}{m}\)
+    (untuk \(m\neq0\)).
+  </p>
+
+  <div class="math-display">
+    \[ \text{garis singgung: } y-y_1=m(x-x_1), \qquad \text{garis normal: }
+    y-y_1=-\frac{1}{m}(x-x_1) \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Tentukan persamaan garis singgung dan garis normal pada kurva \(y=x^2\) di
+      titik \((1,1)\).
+    </p>
+
+    <p>Turunannya \(y'=2x\), sehingga gradien di \(x=1\) adalah \(m=2\).</p>
+
+    <div class="math-display">
+      \[ \text{singgung: } y-1=2(x-1)\Rightarrow y=2x-1 \]
+    </div>
+
+    <div class="math-display">
+      \[ \text{normal: } y-1=-\frac{1}{2}(x-1)\Rightarrow
+      y=-\frac{1}{2}x+\frac{3}{2} \]
+    </div>
+  </div>
+
+  <figure class="lesson-figure" style="margin: 1.5rem 0">
+    <svg
+      viewBox="0 0 560 330"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-labelledby="tn3t tn3d"
+      style="
+        width: 100%;
+        max-width: 560px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        font-family: inherit;
+      "
+    >
+      <title id="tn3t">
+        Garis singgung dan garis normal pada parabola y = x kuadrat di titik (1,
+        1)
+      </title>
+      <desc id="tn3d">
+        Grafik y = x kuadrat dengan garis singgung y = 2x minus 1 berwarna biru
+        dan garis normal y = minus setengah x ditambah 3 per 2 berwarna oranye,
+        keduanya melalui titik (1, 1) dan saling tegak lurus.
+      </desc>
+      <defs>
+        <marker
+          id="tn3a"
+          viewBox="0 0 10 10"
+          refX="9"
+          refY="5"
+          markerWidth="7"
+          markerHeight="7"
+          orient="auto"
+        >
+          <path d="M0 0L10 5L0 10z" fill="currentColor" fill-opacity=".7" />
+        </marker>
+      </defs>
+      <line
+        x1="40.0"
+        y1="234.0"
+        x2="268.0"
+        y2="234.0"
+        stroke="currentColor"
+        stroke-width="1.8"
+        marker-end="url(#tn3a)"
+        stroke-opacity="0.7"
+        stroke-linecap="round"
+      />
+      <line
+        x1="106.0"
+        y1="300.0"
+        x2="106.0"
+        y2="6.0"
+        stroke="currentColor"
+        stroke-width="1.8"
+        marker-end="url(#tn3a)"
+        stroke-opacity="0.7"
+        stroke-linecap="round"
+      />
+      <text
+        x="274.0"
+        y="238.0"
+        font-size="14"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-style="italic"
+      >
+        x
+      </text>
+      <text
+        x="114.0"
+        y="10.0"
+        font-size="14"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-style="italic"
+      >
+        y
+      </text>
+      <line
+        x1="62.0"
+        y1="230.0"
+        x2="62.0"
+        y2="238.0"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-opacity="0.6"
+      />
+      <text
+        x="62.0"
+        y="252.0"
+        font-size="12"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        −1
+      </text>
+      <line
+        x1="150.0"
+        y1="230.0"
+        x2="150.0"
+        y2="238.0"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-opacity="0.6"
+      />
+      <text
+        x="150.0"
+        y="252.0"
+        font-size="12"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        1
+      </text>
+      <line
+        x1="194.0"
+        y1="230.0"
+        x2="194.0"
+        y2="238.0"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-opacity="0.6"
+      />
+      <text
+        x="194.0"
+        y="252.0"
+        font-size="12"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        2
+      </text>
+      <line
+        x1="238.0"
+        y1="230.0"
+        x2="238.0"
+        y2="238.0"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-opacity="0.6"
+      />
+      <text
+        x="238.0"
+        y="252.0"
+        font-size="12"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        3
+      </text>
+      <line
+        x1="102.0"
+        y1="190.0"
+        x2="110.0"
+        y2="190.0"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-opacity="0.6"
+      />
+      <text
+        x="98.0"
+        y="194.0"
+        font-size="12"
+        text-anchor="end"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        1
+      </text>
+      <line
+        x1="102.0"
+        y1="146.0"
+        x2="110.0"
+        y2="146.0"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-opacity="0.6"
+      />
+      <text
+        x="98.0"
+        y="150.0"
+        font-size="12"
+        text-anchor="end"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        2
+      </text>
+      <line
+        x1="102.0"
+        y1="58.0"
+        x2="110.0"
+        y2="58.0"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-opacity="0.6"
+      />
+      <text
+        x="98.0"
+        y="62.0"
+        font-size="12"
+        text-anchor="end"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        4
+      </text>
+      <polyline
+        points="40.0,135.0 41.4,139.0 42.7,143.0 44.1,146.8 45.4,150.6 46.8,154.3 48.1,157.9 49.5,161.4 50.9,164.9 52.2,168.2 53.6,171.5 54.9,174.7 56.3,177.8 57.6,180.8 59.0,183.8 60.3,186.6 61.7,189.4 63.1,192.1 64.4,194.7 65.8,197.2 67.1,199.7 68.5,202.0 69.8,204.3 71.2,206.5 72.6,208.6 73.9,210.6 75.3,212.5 76.6,214.4 78.0,216.2 79.3,217.9 80.7,219.5 82.1,221.0 83.4,222.4 84.8,223.8 86.1,225.0 87.5,226.2 88.8,227.3 90.2,228.3 91.6,229.3 92.9,230.1 94.3,230.9 95.6,231.6 97.0,232.2 98.3,232.7 99.7,233.1 101.0,233.4 102.4,233.7 103.8,233.9 105.1,234.0 106.5,234.0 107.8,233.9 109.2,233.8 110.5,233.5 111.9,233.2 113.3,232.8 114.6,232.3 116.0,231.7 117.3,231.1 118.7,230.3 120.0,229.5 121.4,228.6 122.8,227.6 124.1,226.5 125.5,225.4 126.8,224.1 128.2,222.8 129.5,221.4 130.9,219.9 132.3,218.3 133.6,216.7 135.0,214.9 136.3,213.1 137.7,211.2 139.0,209.2 140.4,207.1 141.8,205.0 143.1,202.7 144.5,200.4 145.8,198.0 147.2,195.5 148.5,192.9 149.9,190.2 151.2,187.5 152.6,184.6 154.0,181.7 155.3,178.7 156.7,175.6 158.0,172.5 159.4,169.2 160.7,165.9 162.1,162.5 163.5,159.0 164.8,155.4 166.2,151.7 167.5,148.0 168.9,144.1 170.2,140.2 171.6,136.2 173.0,132.1 174.3,127.9 175.7,123.7 177.0,119.4 178.4,114.9 179.7,110.4 181.1,105.8 182.4,101.2 183.8,96.4 185.2,91.6 186.5,86.6 187.9,81.6 189.2,76.6 190.6,71.4 191.9,66.1 193.3,60.8 194.7,55.4 196.0,49.8 197.4,44.2 198.7,38.6 200.1,32.8 201.4,27.0 202.8,21.0"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <line
+        x1="95.0"
+        y1="300.0"
+        x2="238.0"
+        y2="14.0"
+        stroke="#3b82f6"
+        stroke-width="2.6"
+        stroke-linecap="round"
+      />
+      <line
+        x1="40.0"
+        y1="135.0"
+        x2="260.0"
+        y2="245.0"
+        stroke="#f97316"
+        stroke-width="2.6"
+        stroke-linecap="round"
+      />
+      <polyline
+        points="155.5,179.0 166.5,184.5 161.0,195.5"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.4"
+        stroke-opacity="0.7"
+      />
+      <circle cx="150.0" cy="190.0" r="5.5" fill="#ef4444" />
+      <text
+        x="142.1"
+        y="177.7"
+        font-size="13"
+        text-anchor="end"
+        fill="#ef4444"
+        font-weight="700"
+      >
+        P(1, 1)
+      </text>
+      <text
+        x="44.4"
+        y="27.2"
+        font-size="14"
+        text-anchor="start"
+        fill="currentColor"
+        font-weight="600"
+      >
+        y = x²
+      </text>
+      <text x="300" y="70" font-size="13" fill="#3b82f6" font-weight="700">
+        garis singgung
+      </text>
+      <text x="300" y="88" font-size="12.5" fill="currentColor">
+        y = 2x − 1, gradien m = 2
+      </text>
+      <text x="300" y="130" font-size="13" fill="#f97316" font-weight="700">
+        garis normal
+      </text>
+      <text x="300" y="148" font-size="12.5" fill="currentColor">
+        y = −½x + 3/2, gradien −1/2
+      </text>
+      <text x="300" y="196" font-size="12.5" fill="currentColor">
+        Kedua garis saling tegak lurus:
+      </text>
+      <text
+        x="300"
+        y="214"
+        font-size="12.5"
+        fill="currentColor"
+        font-weight="600"
+      >
+        m₁ · m₂ = 2 · (−1/2) = −1
+      </text>
+    </svg>
+    <figcaption
+      style="
+        text-align: center;
+        font-size: 0.9em;
+        opacity: 0.85;
+        margin-top: 0.6rem;
+      "
+    >
+      Gambar 3. Di titik P(1, 1) pada y = x², garis singgung bergradien f′(1) =
+      2, sedangkan garis normal tegak lurus terhadapnya dengan gradien −1/2.
+    </figcaption>
+  </figure>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Tentukan persamaan garis singgung kurva \(y=x^3-2x+1\) di titik dengan
+      absis \(x=2\).
+    </p>
+
+    <p>
+      Ordinatnya \(y=8-4+1=5\). Gradiennya \(m=3x^2-2\) di \(x=2\), yaitu
+      \(m=10\):
+    </p>
+
+    <div class="math-display">\[ y-5=10(x-2)\Rightarrow y=10x-15 \]</div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Tentukan persamaan garis singgung kurva \(y=x^2-2x+3\) yang sejajar dengan
+      garis \(y=4x+1\).
+    </p>
+
+    <p>
+      Garis yang sejajar memiliki gradien yang sama, yaitu \(m=4\). Tentukan
+      titik singgungnya:
+    </p>
+
+    <div class="math-display">
+      \[ y'=2x-2=4\Rightarrow x=3,\qquad y=9-6+3=6 \]
+    </div>
+
+    <div class="math-display">\[ y-6=4(x-3)\Rightarrow y=4x-6 \]</div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Tentukan persamaan garis singgung kurva \(y=x^2\) yang melalui titik
+      \((1,-3)\), yang berada di luar kurva.
+    </p>
+
+    <p>
+      Misalkan titik singgung \((t,t^2)\) dengan gradien \(m=2t\). Persamaan
+      garis singgungnya \(y-t^2=2t(x-t)\). Karena melalui \((1,-3)\):
+    </p>
+
+    <div class="math-display">
+      \[ -3-t^2=2t(1-t)\Rightarrow t^2-2t-3=0\Rightarrow (t-3)(t+1)=0 \]
+    </div>
+
+    <p>
+      Untuk \(t=3\): \(y=6x-9\). Untuk \(t=-1\): \(y=-2x-1\). Terdapat dua garis
+      singgung yang memenuhi.
+    </p>
+  </div>
+</section>
+
+<section id="fungsi-naik-turun" data-title="Fungsi Naik dan Fungsi Turun">
+  <h2>10. Fungsi Naik dan Fungsi Turun</h2>
+
+  <p>Tanda turunan pertama menunjukkan arah perubahan nilai fungsi:</p>
+
+  <div class="math-display">
+    \[ \begin{aligned} f'(x)\gt0 &\Rightarrow f \text{ naik pada interval
+    tersebut}\\ f'(x)\lt0 &\Rightarrow f \text{ turun pada interval tersebut}
+    \end{aligned} \]
+  </div>
+
+  <p>Langkah menentukan interval fungsi naik dan turun:</p>
+
+  <ol>
+    <li>Tentukan \(f'(x)\).</li>
+    <li>Selesaikan \(f'(x)=0\) untuk memperoleh pembuat nol.</li>
+    <li>
+      Gambar garis bilangan, lalu periksa tanda \(f'(x)\) pada tiap interval.
+    </li>
+  </ol>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan interval naik dan turun fungsi \(f(x)=2x^3-9x^2+12x\).</p>
+
+    <div class="math-display">\[ f'(x)=6x^2-18x+12=6(x-1)(x-2) \]</div>
+
+    <p>
+      Pembuat nol \(f'\) adalah \(x=1\) dan \(x=2\). Karena koefisien \(x^2\)
+      positif, \(f'(x)\gt0\) di luar kedua akar dan \(f'(x)\lt0\) di antara
+      keduanya.
+    </p>
+
+    <div class="math-display">
+      \[ f \text{ naik pada } x\lt1 \text{ atau } x\gt2, \qquad f \text{ turun
+      pada } 1\lt x\lt2 \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Tentukan nilai \(k\) agar \(f(x)=x^3+kx^2+3x+1\) selalu naik untuk setiap
+      \(x\).
+    </p>
+
+    <p>
+      Syaratnya \(f'(x)=3x^2+2kx+3\ge0\) untuk semua \(x\). Karena koefisien
+      \(x^2\) positif, cukup diskriminannya tidak positif:
+    </p>
+
+    <div class="math-display">
+      \[ D=(2k)^2-4(3)(3)=4k^2-36\le0 \Rightarrow k^2\le9 \Rightarrow -3\le
+      k\le3 \]
+    </div>
+  </div>
+</section>
+
+<section
+  id="nilai-stasioner-ekstrem"
+  data-title="Nilai Stasioner dan Titik Ekstrem"
+>
+  <h2>11. Nilai Stasioner dan Titik Ekstrem</h2>
+
+  <p>
+    Titik \((a,f(a))\) disebut <strong>titik stasioner</strong> jika
+    \(f'(a)=0\), yaitu garis singgungnya mendatar. Titik stasioner dapat berupa
+    titik maksimum lokal, titik minimum lokal, atau titik belok mendatar.
+  </p>
+
+  <h3>Uji Turunan Pertama</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Perubahan tanda \(f'\) di \(x=a\)</th>
+          <th scope="col">Kesimpulan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>positif menjadi negatif (\(+\to-\))</td>
+          <td>\(f(a)\) maksimum lokal</td>
+        </tr>
+        <tr>
+          <td>negatif menjadi positif (\(-\to+\))</td>
+          <td>\(f(a)\) minimum lokal</td>
+        </tr>
+        <tr>
+          <td>tidak berubah tanda</td>
+          <td>bukan titik ekstrem (titik belok mendatar)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Uji Turunan Kedua</h3>
+
+  <p>Jika \(f'(a)=0\), maka:</p>
+
+  <div class="math-display">
+    \[ f''(a)\lt0\Rightarrow f(a)\text{ maksimum lokal}, \qquad
+    f''(a)\gt0\Rightarrow f(a)\text{ minimum lokal} \]
+  </div>
+
+  <p>
+    Jika \(f''(a)=0\), uji turunan kedua tidak memberi kesimpulan. Gunakan uji
+    turunan pertama.
+  </p>
+
+  <figure class="lesson-figure" style="margin: 1.5rem 0">
+    <svg
+      viewBox="0 0 560 330"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-labelledby="tn2t tn2d"
+      style="
+        width: 100%;
+        max-width: 560px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        font-family: inherit;
+      "
+    >
+      <title id="tn2t">
+        Tanda turunan pertama dan titik ekstrem fungsi x pangkat tiga
+      </title>
+      <desc id="tn2d">
+        Grafik f(x) = x pangkat tiga dikurangi 3x. Fungsi naik untuk x kurang
+        dari minus 1, turun untuk x antara minus 1 dan 1, lalu naik lagi untuk x
+        lebih dari 1. Titik maksimum lokal di (minus 1, 2) dan titik minimum
+        lokal di (1, minus 2).
+      </desc>
+      <defs>
+        <marker
+          id="tn2a"
+          viewBox="0 0 10 10"
+          refX="9"
+          refY="5"
+          markerWidth="7"
+          markerHeight="7"
+          orient="auto"
+        >
+          <path d="M0 0L10 5L0 10z" fill="currentColor" fill-opacity=".7" />
+        </marker>
+      </defs>
+      <rect
+        x="30.0"
+        y="36.0"
+        width="72.8"
+        height="264.0"
+        fill="#10b981"
+        fill-opacity="0.09"
+      />
+      <rect
+        x="102.8"
+        y="36.0"
+        width="112.0"
+        height="264.0"
+        fill="#f97316"
+        fill-opacity="0.09"
+      />
+      <rect
+        x="214.8"
+        y="36.0"
+        width="72.8"
+        height="264.0"
+        fill="#10b981"
+        fill-opacity="0.09"
+      />
+      <line
+        x1="30.0"
+        y1="172.0"
+        x2="295.6"
+        y2="172.0"
+        stroke="currentColor"
+        stroke-width="1.8"
+        marker-end="url(#tn2a)"
+        stroke-opacity="0.7"
+        stroke-linecap="round"
+      />
+      <line
+        x1="158.8"
+        y1="300.0"
+        x2="158.8"
+        y2="28.0"
+        stroke="currentColor"
+        stroke-width="1.8"
+        marker-end="url(#tn2a)"
+        stroke-opacity="0.7"
+        stroke-linecap="round"
+      />
+      <text
+        x="301.6"
+        y="176.0"
+        font-size="14"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-style="italic"
+      >
+        x
+      </text>
+      <text
+        x="166.8"
+        y="32.0"
+        font-size="14"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-style="italic"
+      >
+        y
+      </text>
+      <line
+        x1="102.8"
+        y1="168.0"
+        x2="102.8"
+        y2="176.0"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-opacity="0.6"
+      />
+      <text
+        x="102.8"
+        y="190.0"
+        font-size="12"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        −1
+      </text>
+      <line
+        x1="214.8"
+        y1="168.0"
+        x2="214.8"
+        y2="176.0"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-opacity="0.6"
+      />
+      <text
+        x="214.8"
+        y="190.0"
+        font-size="12"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        1
+      </text>
+      <line
+        x1="154.8"
+        y1="92.0"
+        x2="162.8"
+        y2="92.0"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-opacity="0.6"
+      />
+      <text
+        x="150.8"
+        y="96.0"
+        font-size="12"
+        text-anchor="end"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        2
+      </text>
+      <line
+        x1="154.8"
+        y1="252.0"
+        x2="162.8"
+        y2="252.0"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-opacity="0.6"
+      />
+      <text
+        x="150.8"
+        y="256.0"
+        font-size="12"
+        text-anchor="end"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        −2
+      </text>
+      <line
+        x1="102.8"
+        y1="300.0"
+        x2="102.8"
+        y2="36.0"
+        stroke="currentColor"
+        stroke-opacity="0.4"
+        stroke-width="1"
+        stroke-linecap="round"
+        stroke-dasharray="3 4"
+      />
+      <line
+        x1="214.8"
+        y1="300.0"
+        x2="214.8"
+        y2="36.0"
+        stroke="currentColor"
+        stroke-opacity="0.4"
+        stroke-width="1"
+        stroke-linecap="round"
+        stroke-dasharray="3 4"
+      />
+      <polyline
+        points="35.6,333.9 37.7,317.4 39.7,301.5 41.8,286.4 43.8,271.9 45.9,258.1 47.9,244.9 50.0,232.4 52.0,220.5 54.1,209.2 56.1,198.5 58.2,188.4 60.2,178.9 62.3,169.9 64.3,161.5 66.4,153.7 68.5,146.4 70.5,139.6 72.6,133.3 74.6,127.5 76.7,122.2 78.7,117.4 80.8,113.0 82.8,109.1 84.9,105.6 86.9,102.5 89.0,99.9 91.0,97.7 93.1,95.8 95.1,94.3 97.2,93.2 99.3,92.5 101.3,92.1 103.4,92.0 105.4,92.3 107.5,92.8 109.5,93.7 111.6,94.8 113.6,96.2 115.7,97.9 117.7,99.8 119.8,101.9 121.8,104.3 123.9,106.9 125.9,109.7 128.0,112.7 130.1,115.8 132.1,119.1 134.2,122.6 136.2,126.2 138.3,130.0 140.3,133.8 142.4,137.8 144.4,141.9 146.5,146.0 148.5,150.2 150.6,154.5 152.6,158.9 154.7,163.2 156.7,167.6 158.8,172.0 160.9,176.4 162.9,180.8 165.0,185.1 167.0,189.5 169.1,193.8 171.1,198.0 173.2,202.1 175.2,206.2 177.3,210.2 179.3,214.0 181.4,217.8 183.4,221.4 185.5,224.9 187.5,228.2 189.6,231.3 191.7,234.3 193.7,237.1 195.8,239.7 197.8,242.1 199.9,244.2 201.9,246.1 204.0,247.8 206.0,249.2 208.1,250.3 210.1,251.2 212.2,251.7 214.2,252.0 216.3,251.9 218.3,251.5 220.4,250.8 222.5,249.7 224.5,248.2 226.6,246.3 228.6,244.1 230.7,241.5 232.7,238.4 234.8,234.9 236.8,231.0 238.9,226.6 240.9,221.8 243.0,216.5 245.0,210.7 247.1,204.4 249.1,197.6 251.2,190.3 253.3,182.5 255.3,174.1 257.4,165.1 259.4,155.6 261.5,145.5 263.5,134.8 265.6,123.5 267.6,111.6 269.7,99.1 271.7,85.9 273.8,72.1 275.8,57.6 277.9,42.5 279.9,26.6 282.0,10.1"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <line
+        x1="72.0"
+        y1="92.0"
+        x2="133.6"
+        y2="92.0"
+        stroke="#3b82f6"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        stroke-dasharray="5 4"
+      />
+      <line
+        x1="184.0"
+        y1="252.0"
+        x2="245.6"
+        y2="252.0"
+        stroke="#3b82f6"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        stroke-dasharray="5 4"
+      />
+      <circle cx="102.8" cy="92.0" r="5.5" fill="#ef4444" />
+      <circle cx="214.8" cy="252.0" r="5.5" fill="#ef4444" />
+      <text
+        x="108.4"
+        y="78.0"
+        font-size="12.5"
+        text-anchor="start"
+        fill="#ef4444"
+        font-weight="700"
+      >
+        maks. lokal (−1, 2)
+      </text>
+      <text
+        x="219.3"
+        y="266.0"
+        font-size="12.5"
+        text-anchor="start"
+        fill="#ef4444"
+        font-weight="700"
+      >
+        min. lokal (1, −2)
+      </text>
+      <text
+        x="66.4"
+        y="278.0"
+        font-size="12.5"
+        text-anchor="middle"
+        fill="#10b981"
+        font-weight="700"
+      >
+        f′ &gt; 0
+      </text>
+      <text
+        x="66.4"
+        y="290.0"
+        font-size="12"
+        text-anchor="middle"
+        fill="#10b981"
+      >
+        naik
+      </text>
+      <text
+        x="158.8"
+        y="54.0"
+        font-size="12.5"
+        text-anchor="middle"
+        fill="#f97316"
+        font-weight="700"
+      >
+        f′ &lt; 0
+      </text>
+      <text
+        x="158.8"
+        y="66.0"
+        font-size="12"
+        text-anchor="middle"
+        fill="#f97316"
+      >
+        turun
+      </text>
+      <text
+        x="251.2"
+        y="54.0"
+        font-size="12.5"
+        text-anchor="middle"
+        fill="#10b981"
+        font-weight="700"
+      >
+        f′ &gt; 0
+      </text>
+      <text
+        x="251.2"
+        y="66.0"
+        font-size="12"
+        text-anchor="middle"
+        fill="#10b981"
+      >
+        naik
+      </text>
+      <text
+        x="35.6"
+        y="44.0"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        font-weight="600"
+      >
+        f(x) = x³ − 3x
+      </text>
+    </svg>
+    <figcaption
+      style="
+        text-align: center;
+        font-size: 0.9em;
+        opacity: 0.85;
+        margin-top: 0.6rem;
+      "
+    >
+      Gambar 2. Grafik f(x) = x³ − 3x dengan f′(x) = 3(x − 1)(x + 1). Tanda f′
+      berubah dari positif ke negatif di x = −1 (maksimum lokal) dan dari
+      negatif ke positif di x = 1 (minimum lokal).
+    </figcaption>
+  </figure>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan titik ekstrem fungsi \(f(x)=x^3-3x\).</p>
+
+    <div class="math-display">
+      \[ f'(x)=3x^2-3=3(x-1)(x+1)=0 \Rightarrow x=-1 \text{ atau } x=1 \]
+    </div>
+
+    <p>Gunakan uji turunan kedua dengan \(f''(x)=6x\):</p>
+
+    <div class="math-display">
+      \[ f''(-1)=-6\lt0\Rightarrow f(-1)=2 \text{ maksimum lokal} \]
+    </div>
+
+    <div class="math-display">
+      \[ f''(1)=6\gt0\Rightarrow f(1)=-2 \text{ minimum lokal} \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan titik stasioner dan jenisnya untuk \(f(x)=x^4-4x^3\).</p>
+
+    <div class="math-display">
+      \[ f'(x)=4x^3-12x^2=4x^2(x-3)=0\Rightarrow x=0 \text{ atau } x=3 \]
+    </div>
+
+    <p>
+      Di \(x=0\), faktor \(x^2\) tidak berubah tanda, sehingga \(f'\) tidak
+      berubah tanda: \(f'(x)\lt0\) di kiri dan kanan \(0\). Maka \(x=0\) bukan
+      titik ekstrem (uji turunan kedua juga gagal karena \(f''(0)=0\)).
+    </p>
+
+    <p>
+      Di \(x=3\), \(f'\) berubah dari negatif ke positif, sehingga \(f(3)=-27\)
+      adalah minimum lokal.
+    </p>
+  </div>
+</section>
+
+<section id="kecekungan-titik-belok" data-title="Kecekungan dan Titik Belok">
+  <h2>12. Kecekungan dan Titik Belok</h2>
+
+  <p>Turunan kedua menunjukkan arah kelengkungan grafik:</p>
+
+  <div class="math-display">
+    \[ \begin{aligned} f''(x)\gt0 &\Rightarrow \text{grafik cekung ke atas}\\
+    f''(x)\lt0 &\Rightarrow \text{grafik cekung ke bawah} \end{aligned} \]
+  </div>
+
+  <p>
+    <strong>Titik belok</strong> adalah titik pada grafik tempat kecekungan
+    berubah. Jika \((a,f(a))\) titik belok, maka \(f''(a)=0\) dan \(f''\)
+    berubah tanda di \(x=a\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Tentukan interval kecekungan dan titik belok grafik \(f(x)=x^3-6x^2+9x\).
+    </p>
+
+    <div class="math-display">
+      \[ f'(x)=3x^2-12x+9, \qquad f''(x)=6x-12=6(x-2) \]
+    </div>
+
+    <p>
+      \(f''(x)\lt0\) untuk \(x\lt2\) (cekung ke bawah) dan \(f''(x)\gt0\) untuk
+      \(x\gt2\) (cekung ke atas). Karena tanda \(f''\) berubah di \(x=2\) dan
+      \(f(2)=8-24+18=2\), titik beloknya adalah \((2,2)\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan titik belok grafik \(f(x)=x^4-4x^3\).</p>
+
+    <div class="math-display">
+      \[ f''(x)=12x^2-24x=12x(x-2)=0\Rightarrow x=0 \text{ atau } x=2 \]
+    </div>
+
+    <p>
+      \(f''\gt0\) untuk \(x\lt0\), \(f''\lt0\) untuk \(0\lt x\lt2\), dan
+      \(f''\gt0\) untuk \(x\gt2\). Tanda berubah di kedua titik, sehingga titik
+      beloknya adalah \((0,0)\) dan \((2,-16)\).
+    </p>
+  </div>
+</section>
+<section
+  id="maks-min-interval"
+  data-title="Nilai Maksimum dan Minimum pada Interval"
+>
+  <h2>13. Nilai Maksimum dan Minimum pada Interval Tertutup</h2>
+
+  <p>
+    Jika \(f\) kontinu pada interval tertutup \([a,b]\), maka \(f\) pasti
+    memiliki nilai maksimum mutlak dan nilai minimum mutlak pada interval
+    tersebut. Nilai ekstrem mutlak hanya dapat terjadi di salah satu dari:
+  </p>
+
+  <ol>
+    <li>titik stasioner di dalam interval, yaitu \(f'(x)=0\),</li>
+    <li>titik ujung interval, yaitu \(x=a\) dan \(x=b\).</li>
+  </ol>
+
+  <p>
+    Karena itu, hitung nilai \(f\) di semua titik kandidat tersebut, lalu pilih
+    yang terbesar dan terkecil.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Tentukan nilai maksimum dan minimum \(f(x)=x^3-3x+1\) pada interval
+      \([-2,3]\).
+    </p>
+
+    <p>
+      Titik stasioner dari \(f'(x)=3x^2-3=0\) adalah \(x=-1\) dan \(x=1\),
+      keduanya berada di dalam interval. Hitung nilai fungsi di titik kandidat:
+    </p>
+
+    <div class="material-table-wrap">
+      <table class="reflection-table">
+        <thead>
+          <tr>
+            <th scope="col">\(x\)</th>
+            <th scope="col">\(-2\)</th>
+            <th scope="col">\(-1\)</th>
+            <th scope="col">\(1\)</th>
+            <th scope="col">\(3\)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>\(f(x)\)</td>
+            <td>\(-1\)</td>
+            <td>\(3\)</td>
+            <td>\(-1\)</td>
+            <td>\(19\)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Nilai maksimum adalah \(19\) (di \(x=3\)) dan nilai minimum adalah \(-1\)
+      (di \(x=-2\) dan \(x=1\)).
+    </p>
+  </div>
+</section>
+
+<section id="masalah-optimasi" data-title="Masalah Optimasi">
+  <h2>14. Masalah Optimasi</h2>
+
+  <p>
+    Masalah optimasi mencari nilai terbesar atau terkecil dari suatu besaran,
+    misalnya luas maksimum, volume maksimum, atau biaya minimum. Langkah
+    penyelesaiannya:
+  </p>
+
+  <ol>
+    <li>Tentukan besaran yang dioptimalkan dan nyatakan sebagai fungsi.</li>
+    <li>
+      Gunakan kendala pada soal untuk menyatakan fungsi tersebut dalam satu
+      variabel.
+    </li>
+    <li>Tentukan batas nilai variabel (domain) yang masuk akal.</li>
+    <li>
+      Selesaikan turunan pertama sama dengan nol, lalu uji apakah hasilnya
+      maksimum atau minimum.
+    </li>
+    <li>Jawab pertanyaan sesuai yang diminta, lengkap dengan satuannya.</li>
+  </ol>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Tentukan dua bilangan positif \(x\) dan \(y\) dengan \(x+y=18\) sehingga
+      \(x^2y\) maksimum.
+    </p>
+
+    <p>
+      Dari kendala, \(y=18-x\), sehingga \(F(x)=x^2(18-x)=18x^2-x^3\) dengan
+      \(0\lt x\lt18\):
+    </p>
+
+    <div class="math-display">
+      \[ F'(x)=36x-3x^2=3x(12-x)=0\Rightarrow x=12 \]
+    </div>
+
+    <p>
+      Tanda \(F'\) berubah dari positif ke negatif di \(x=12\), sehingga \(F\)
+      maksimum di sana. Bilangannya \(x=12\) dan \(y=6\), dengan nilai maksimum
+      \(x^2y=144\cdot6=864\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Sebuah kaleng berbentuk tabung tertutup memiliki volume \(54\pi\
+      \text{cm}^3\). Tentukan jari-jari dan tinggi agar luas permukaannya
+      minimum.
+    </p>
+
+    <p>
+      Dari \(V=\pi r^2h=54\pi\) diperoleh \(\displaystyle h=\frac{54}{r^2}\).
+      Luas permukaan:
+    </p>
+
+    <div class="math-display">
+      \[ L(r)=2\pi r^2+2\pi rh=2\pi r^2+\frac{108\pi}{r} \]
+    </div>
+
+    <div class="math-display">
+      \[ L'(r)=4\pi r-\frac{108\pi}{r^2}=0\Rightarrow r^3=27\Rightarrow r=3 \]
+    </div>
+
+    <p>
+      Untuk \(r\lt3\), \(L'\lt0\), dan untuk \(r\gt3\), \(L'\gt0\), sehingga
+      \(r=3\) memberikan minimum. Tingginya \(\displaystyle h=\frac{54}{9}=6\).
+      Jadi jari-jari \(3\) cm dan tinggi \(6\) cm (tinggi sama dengan diameter).
+    </p>
+  </div>
+</section>
+
+<section
+  id="kecepatan-laju"
+  data-title="Kecepatan, Percepatan, dan Laju Perubahan"
+>
+  <h2>15. Kecepatan, Percepatan, dan Laju Perubahan</h2>
+
+  <h3>Gerak Lurus</h3>
+
+  <p>
+    Jika \(s(t)\) adalah posisi benda pada waktu \(t\), maka kecepatan sesaat
+    dan percepatan sesaatnya adalah:
+  </p>
+
+  <div class="math-display">
+    \[ v(t)=s'(t)=\frac{ds}{dt}, \qquad a(t)=v'(t)=s''(t)=\frac{d^2s}{dt^2} \]
+  </div>
+
+  <p>
+    Benda sesaat berhenti ketika \(v(t)=0\). Benda bergerak ke arah positif saat
+    \(v\gt0\) dan ke arah negatif saat \(v\lt0\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Posisi suatu benda dinyatakan \(s(t)=t^3-6t^2+9t\) (dalam meter, \(t\)
+      dalam detik). Tentukan saat benda berhenti dan percepatannya pada saat
+      itu.
+    </p>
+
+    <div class="math-display">
+      \[ v(t)=3t^2-12t+9=3(t-1)(t-3)=0\Rightarrow t=1 \text{ atau } t=3 \]
+    </div>
+
+    <div class="math-display">
+      \[ a(t)=6t-12\quad\Rightarrow\quad a(1)=-6\ \text{m/s}^2,\quad a(3)=6\
+      \text{m/s}^2 \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Sebuah bola dilempar ke atas dengan tinggi \(h(t)=40t-5t^2\) meter pada
+      detik ke-\(t\). Tentukan tinggi maksimum bola.
+    </p>
+
+    <div class="math-display">
+      \[ h'(t)=40-10t=0\Rightarrow t=4, \qquad h(4)=160-80=80 \]
+    </div>
+
+    <p>Tinggi maksimum bola adalah \(80\) meter.</p>
+  </div>
+
+  <h3>Laju yang Berkaitan</h3>
+
+  <p>
+    Jika dua besaran yang saling bergantung sama-sama berubah terhadap waktu,
+    hubungan di antara keduanya diturunkan terhadap \(t\) dengan aturan rantai.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Sebuah balon berbentuk bola dipompa sehingga jari-jarinya bertambah dengan
+      laju \(2\) cm/detik. Tentukan laju pertambahan volume balon saat jari-jari
+      \(5\) cm.
+    </p>
+
+    <p>Dari \(\displaystyle V=\frac{4}{3}\pi r^3\):</p>
+
+    <div class="math-display">
+      \[ \frac{dV}{dt}=4\pi r^2\cdot\frac{dr}{dt}=4\pi(5)^2(2)=200\pi\
+      \text{cm}^3/\text{detik} \]
+    </div>
+  </div>
+</section>
+
+<section id="rangkuman-turunan" data-title="Rangkuman Turunan">
+  <h2>16. Rangkuman Rumus Turunan</h2>
+
+  <h3>Definisi</h3>
+
+  <div class="math-display">\[ f'(x)=\lim_{h\to 0}\frac{f(x+h)-f(x)}{h} \]</div>
+
+  <h3>Aturan Dasar</h3>
+
+  <div class="math-display">
+    \[ (k)'=0, \qquad (x^n)'=nx^{n-1}, \qquad (ku)'=ku', \qquad (u\pm v)'=u'\pm
+    v' \]
+  </div>
+
+  <h3>Hasil Kali, Hasil Bagi, dan Rantai</h3>
+
+  <div class="math-display">
+    \[ (uv)'=u'v+uv', \qquad \left(\frac{u}{v}\right)'=\frac{u'v-uv'}{v^2},
+    \qquad \frac{dy}{dx}=\frac{dy}{du}\cdot\frac{du}{dx} \]
+  </div>
+
+  <h3>Turunan Fungsi Trigonometri</h3>
+
+  <div class="math-display">
+    \[ \begin{aligned} (\sin u)'&=u'\cos u, & (\cos u)'&=-u'\sin u, & (\tan
+    u)'&=u'\sec^2 u\\ (\cot u)'&=-u'\csc^2 u, & (\sec u)'&=u'\sec u\tan u, &
+    (\csc u)'&=-u'\csc u\cot u \end{aligned} \]
+  </div>
+
+  <h3>Turunan Eksponen dan Logaritma</h3>
+
+  <div class="math-display">
+    \[ (e^u)'=u'e^u, \qquad (a^u)'=u'a^u\ln a, \qquad (\ln u)'=\frac{u'}{u},
+    \qquad ({}^{a}\!\log u)'=\frac{u'}{u\ln a} \]
+  </div>
+
+  <h3>Garis Singgung dan Garis Normal</h3>
+
+  <div class="math-display">
+    \[ m=f'(x_1),\quad y-y_1=m(x-x_1), \qquad m_n=-\frac{1}{m},\quad
+    y-y_1=m_n(x-x_1) \]
+  </div>
+
+  <h3>Fungsi Naik dan Turun</h3>
+
+  <div class="math-display">
+    \[ f'(x)\gt0\Rightarrow\text{naik}, \qquad f'(x)\lt0\Rightarrow\text{turun}
+    \]
+  </div>
+
+  <h3>Titik Stasioner dan Ekstrem</h3>
+
+  <div class="math-display">
+    \[ f'(a)=0 \text{ (titik stasioner)}, \qquad
+    f''(a)\lt0\Rightarrow\text{maksimum}, \quad
+    f''(a)\gt0\Rightarrow\text{minimum} \]
+  </div>
+
+  <h3>Kecekungan dan Titik Belok</h3>
+
+  <div class="math-display">
+    \[ f''(x)\gt0\Rightarrow\text{cekung ke atas}, \qquad
+    f''(x)\lt0\Rightarrow\text{cekung ke bawah}, \qquad \text{titik belok: } f''
+    \text{ berubah tanda} \]
+  </div>
+
+  <h3>Kecepatan dan Percepatan</h3>
+
+  <div class="math-display">\[ v(t)=s'(t), \qquad a(t)=v'(t)=s''(t) \]</div>
+
+  <h3>Kesalahan yang Sering Terjadi</h3>
+
+  <ol>
+    <li>Menulis \((uv)'=u'v'\). Rumus yang benar adalah \(u'v+uv'\).</li>
+    <li>
+      Terbalik urutan pada aturan hasil bagi: pembilangnya adalah \(u'v-uv'\),
+      bukan \(uv'-u'v\).
+    </li>
+    <li>
+      Lupa mengalikan dengan turunan fungsi dalam pada aturan rantai, misalnya
+      menulis \((\sin 3x)'=\cos 3x\) padahal seharusnya \(3\cos 3x\).
+    </li>
+    <li>
+      Menganggap setiap titik stasioner pasti titik ekstrem. Titik \(x=0\) pada
+      \(f(x)=x^3\) memenuhi \(f'(0)=0\) tetapi bukan titik ekstrem.
+    </li>
+    <li>
+      Pada fungsi berinterval tertutup, lupa memeriksa nilai di titik ujung
+      interval.
+    </li>
+  </ol>
+</section>
+<section id="latihan-mandiri-turunan" data-title="Latihan Soal Mandiri">
+  <h2>17. Latihan Soal Mandiri</h2>
+
+  <p>
+    Kerjakan soal-soal berikut secara mandiri. Soal nomor 1–8 memiliki tingkat
+    kesulitan sekolah, soal nomor 9–16 memiliki tingkat penalaran yang lebih
+    menantang seperti soal UTBK, dan soal nomor 17–18 bergaya olimpiade dengan
+    jawaban isian singkat. Untuk soal pilihan ganda, pilih satu jawaban yang
+    paling tepat.
+  </p>
+
+  <h3>A. Tingkat Kesulitan Sekolah</h3>
+
+  <!-- Soal 1 -->
+  <div class="lesson-example">
+    <h4>Soal 1</h4>
+
+    <p>Diketahui \(f(x)=3x^4-2x^3+5x-7\). Nilai \(f'(1)\) adalah ....</p>
+
+    <ol type="A">
+      <li>\(7\)</li>
+      <li>\(9\)</li>
+      <li>\(11\)</li>
+      <li>\(13\)</li>
+      <li>\(15\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 2 -->
+  <div class="lesson-example">
+    <h4>Soal 2</h4>
+
+    <p>Diketahui \(f(x)=(2x+1)(x^2-3)\). Nilai \(f'(2)\) adalah ....</p>
+
+    <ol type="A">
+      <li>\(14\)</li>
+      <li>\(18\)</li>
+      <li>\(20\)</li>
+      <li>\(22\)</li>
+      <li>\(26\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 3 -->
+  <div class="lesson-example">
+    <h4>Soal 3</h4>
+
+    <p>Diketahui fungsi berikut. Nilai \(f'(1)\) adalah ....</p>
+
+    <div class="math-display">\[ f(x)=\frac{3x-2}{x+1} \]</div>
+
+    <ol type="A">
+      <li>\(\displaystyle\frac{1}{4}\)</li>
+      <li>\(\displaystyle\frac{5}{4}\)</li>
+      <li>\(\displaystyle\frac{5}{2}\)</li>
+      <li>\(4\)</li>
+      <li>\(5\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 4 -->
+  <div class="lesson-example">
+    <h4>Soal 4</h4>
+
+    <p>Diketahui \(f(x)=(x^2+x-1)^4\). Nilai \(f'(1)\) adalah ....</p>
+
+    <ol type="A">
+      <li>\(4\)</li>
+      <li>\(6\)</li>
+      <li>\(8\)</li>
+      <li>\(10\)</li>
+      <li>\(12\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 5 -->
+  <div class="lesson-example">
+    <h4>Soal 5</h4>
+
+    <p>
+      Diketahui \(f(x)=\sin 3x+\cos 2x\). Nilai \(\displaystyle
+      f'\!\left(\frac{\pi}{6}\right)\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(-\sqrt{3}\)</li>
+      <li>\(-1\)</li>
+      <li>\(0\)</li>
+      <li>\(1\)</li>
+      <li>\(\sqrt{3}\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 6 -->
+  <div class="lesson-example">
+    <h4>Soal 6</h4>
+
+    <p>
+      Persamaan garis singgung kurva \(y=x^2-4x+3\) di titik \((3,0)\) adalah
+      ....
+    </p>
+
+    <ol type="A">
+      <li>\(y=2x-3\)</li>
+      <li>\(y=x-3\)</li>
+      <li>\(y=2x-6\)</li>
+      <li>\(y=-2x+6\)</li>
+      <li>\(\displaystyle y=-\frac{1}{2}x+\frac{3}{2}\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 7 -->
+  <div class="lesson-example">
+    <h4>Soal 7</h4>
+
+    <p>Fungsi \(f(x)=x^3-6x^2+9x+1\) naik pada interval ....</p>
+
+    <ol type="A">
+      <li>\(1\lt x\lt3\)</li>
+      <li>\(x\lt1\) atau \(x\gt3\)</li>
+      <li>\(x\lt-3\) atau \(x\gt-1\)</li>
+      <li>\(-3\lt x\lt-1\)</li>
+      <li>\(x\gt1\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 8 -->
+  <div class="lesson-example">
+    <h4>Soal 8</h4>
+
+    <p>
+      Seorang petani membuat kandang berbentuk persegi panjang di tepi sungai
+      yang lurus. Sisi yang berbatasan dengan sungai tidak perlu dipagari.
+      Tersedia pagar sepanjang \(60\) m. Luas maksimum kandang yang dapat dibuat
+      adalah ... \(\text{m}^2\).
+    </p>
+
+    <ol type="A">
+      <li>\(375\)</li>
+      <li>\(400\)</li>
+      <li>\(425\)</li>
+      <li>\(450\)</li>
+      <li>\(500\)</li>
+    </ol>
+  </div>
+
+  <h3>B. Tingkat Kesulitan UTBK</h3>
+
+  <!-- Soal 9 -->
+  <div class="lesson-example">
+    <h4>Soal 9</h4>
+
+    <p>Diketahui fungsi berikut. Nilai \(f'(4)\) adalah ....</p>
+
+    <div class="math-display">\[ f(x)=\frac{x}{\sqrt{x^2+9}} \]</div>
+
+    <ol type="A">
+      <li>\(\displaystyle\frac{1}{25}\)</li>
+      <li>\(\displaystyle\frac{3}{25}\)</li>
+      <li>\(\displaystyle\frac{9}{125}\)</li>
+      <li>\(\displaystyle\frac{12}{125}\)</li>
+      <li>\(\displaystyle\frac{1}{5}\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 10 -->
+  <div class="lesson-example">
+    <h4>Soal 10</h4>
+
+    <p>
+      Titik \((1,2)\) terletak pada kurva \(x^2+xy+y^2=7\). Gradien garis
+      singgung kurva di titik tersebut adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(\displaystyle-\frac{5}{4}\)</li>
+      <li>\(\displaystyle-\frac{4}{5}\)</li>
+      <li>\(\displaystyle-\frac{1}{2}\)</li>
+      <li>\(\displaystyle\frac{4}{5}\)</li>
+      <li>\(\displaystyle\frac{5}{4}\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 11 -->
+  <div class="lesson-example">
+    <h4>Soal 11</h4>
+
+    <p>
+      Diketahui \(f(x)=x^2\ln x\) untuk \(x\gt0\). Nilai \(f'(e)\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(e\)</li>
+      <li>\(2e\)</li>
+      <li>\(e^2\)</li>
+      <li>\(2e+1\)</li>
+      <li>\(3e\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 12 -->
+  <div class="lesson-example">
+    <h4>Soal 12</h4>
+
+    <p>
+      Fungsi \(f(x)=x^3+ax^2+bx+1\) mempunyai nilai stasioner di \(x=1\) dan
+      \(x=3\). Nilai maksimum lokal fungsi tersebut adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(1\)</li>
+      <li>\(3\)</li>
+      <li>\(4\)</li>
+      <li>\(5\)</li>
+      <li>\(7\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 13 -->
+  <div class="lesson-example">
+    <h4>Soal 13</h4>
+
+    <p>
+      Fungsi \(f\) dapat diturunkan di \(x=2\) dengan \(f(2)=3\) dan
+      \(f'(2)=4\). Nilai limit berikut adalah ....
+    </p>
+
+    <div class="math-display">\[ \lim_{h\to 0}\frac{f(2+3h)-f(2-h)}{h} \]</div>
+
+    <ol type="A">
+      <li>\(8\)</li>
+      <li>\(12\)</li>
+      <li>\(16\)</li>
+      <li>\(20\)</li>
+      <li>\(24\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 14 -->
+  <div class="lesson-example">
+    <h4>Soal 14</h4>
+
+    <p>
+      Perhatikan grafik fungsi \(f(x)=x^4-4x^3\). Pernyataan yang benar adalah
+      ....
+    </p>
+
+    <ol type="A">
+      <li>
+        grafik cekung ke bawah pada \(x\lt0\) atau \(x\gt2\), dengan titik belok
+        \((0,0)\) dan \((2,-16)\)
+      </li>
+      <li>
+        grafik cekung ke atas pada \(0\lt x\lt2\), dengan titik belok hanya di
+        \(x=2\)
+      </li>
+      <li>
+        grafik cekung ke atas untuk semua \(x\) dan tidak mempunyai titik belok
+      </li>
+      <li>
+        grafik cekung ke bawah pada \(0\lt x\lt2\), dengan titik belok hanya
+        \((2,-16)\)
+      </li>
+      <li>
+        grafik cekung ke atas pada \(x\lt0\) atau \(x\gt2\), dengan titik belok
+        \((0,0)\) dan \((2,-16)\)
+      </li>
+    </ol>
+  </div>
+
+  <!-- Soal 15 -->
+  <div class="lesson-example">
+    <h4>Soal 15</h4>
+
+    <p>
+      Sebuah karton berbentuk persegi dengan sisi \(24\) cm akan dibuat kotak
+      tanpa tutup dengan cara memotong persegi kecil berukuran \(x\) cm di
+      setiap sudutnya, lalu melipat sisi-sisinya. Volume maksimum kotak yang
+      dapat dibuat adalah ... \(\text{cm}^3\).
+    </p>
+
+    <ol type="A">
+      <li>\(900\)</li>
+      <li>\(960\)</li>
+      <li>\(1000\)</li>
+      <li>\(1024\)</li>
+      <li>\(1152\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 16 -->
+  <div class="lesson-example">
+    <h4>Soal 16</h4>
+
+    <p>
+      Diketahui \(f(x)=\sin^2 3x\). Nilai \(\displaystyle
+      f'\!\left(\frac{\pi}{12}\right)\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(\displaystyle\frac{3}{2}\)</li>
+      <li>\(3\)</li>
+      <li>\(3\sqrt{2}\)</li>
+      <li>\(6\)</li>
+      <li>\(6\sqrt{2}\)</li>
+    </ol>
+  </div>
+
+  <h3>C. Tingkat Kesulitan Olimpiade</h3>
+
+  <!-- Soal 17 -->
+  <div class="lesson-example">
+    <h4>Soal 17</h4>
+
+    <p>
+      Tentukan banyaknya bilangan bulat \(k\) sehingga persamaan berikut
+      mempunyai tepat tiga akar real yang berbeda (jawaban isian singkat):
+    </p>
+
+    <div class="math-display">\[ x^3-3x=k \]</div>
+  </div>
+
+  <!-- Soal 18 -->
+  <div class="lesson-example">
+    <h4>Soal 18</h4>
+
+    <p>
+      Diketahui \(f(x)=x^2e^x\). Hitunglah nilai \(f^{(10)}(0)\), yaitu turunan
+      kesepuluh \(f\) di \(x=0\) (jawaban isian singkat).
+    </p>
+  </div>
+</section>
+<section
+  id="pembahasan-latihan-mandiri-turunan"
+  data-title="Pembahasan Latihan Mandiri"
+>
+  <h2>18. Pembahasan Latihan Mandiri</h2>
+
+  <p>
+    Bagian ini membahas seluruh soal pada latihan mandiri. Soal nomor 1–8
+    berfokus pada penguasaan konsep dan prosedur dasar yang umum digunakan di
+    sekolah, soal nomor 9–16 menekankan penalaran dan pemilihan strategi yang
+    lebih dekat dengan karakter soal UTBK, dan soal nomor 17–18 menguji
+    kreativitas seperti soal olimpiade. Soal-soal berikut merupakan latihan
+    bergaya UTBK dan olimpiade, bukan soal resmi.
+  </p>
+
+  <h3>A. Pembahasan Tingkat Kesulitan Sekolah</h3>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 1</h4>
+    <p>Turunkan setiap suku dengan aturan pangkat:</p>
+    <div class="math-display">\[ f'(x)=12x^3-6x^2+5 \]</div>
+    <p>Substitusikan \(x=1\):</p>
+    <div class="math-display">\[ f'(1)=12-6+5=11 \]</div>
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 2</h4>
+    <p>
+      Gunakan aturan hasil kali dengan \(u=2x+1\) dan \(v=x^2-3\), sehingga
+      \(u'=2\) dan \(v'=2x\):
+    </p>
+    <div class="math-display">
+      \[ f'(x)=2(x^2-3)+(2x+1)(2x)=2x^2-6+4x^2+2x=6x^2+2x-6 \]
+    </div>
+    <p>Substitusikan \(x=2\):</p>
+    <div class="math-display">\[ f'(2)=6(4)+2(2)-6=24+4-6=22 \]</div>
+    <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 3</h4>
+    <p>
+      Gunakan aturan hasil bagi dengan \(u=3x-2\) dan \(v=x+1\), sehingga
+      \(u'=3\) dan \(v'=1\):
+    </p>
+    <div class="math-display">
+      \[ f'(x)=\frac{3(x+1)-(3x-2)(1)}{(x+1)^2}=\frac{5}{(x+1)^2} \]
+    </div>
+    <p>Substitusikan \(x=1\):</p>
+    <div class="math-display">\[ f'(1)=\frac{5}{2^2}=\frac{5}{4} \]</div>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 4</h4>
+    <p>
+      Gunakan aturan rantai dengan fungsi dalam \(u=x^2+x-1\) dan \(u'=2x+1\):
+    </p>
+    <div class="math-display">\[ f'(x)=4(x^2+x-1)^3(2x+1) \]</div>
+    <p>Di \(x=1\), nilai \(u=1+1-1=1\) dan \(u'=3\):</p>
+    <div class="math-display">\[ f'(1)=4(1)^3(3)=12 \]</div>
+    <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 5</h4>
+    <p>Turunkan dengan aturan rantai pada masing-masing suku:</p>
+    <div class="math-display">\[ f'(x)=3\cos 3x-2\sin 2x \]</div>
+    <p>Substitusikan \(\displaystyle x=\frac{\pi}{6}\):</p>
+    <div class="math-display">
+      \[
+      f'\!\left(\frac{\pi}{6}\right)=3\cos\frac{\pi}{2}-2\sin\frac{\pi}{3}=3(0)-2\cdot\frac{\sqrt{3}}{2}=-\sqrt{3}
+      \]
+    </div>
+    <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 6</h4>
+    <p>Gradien garis singgung adalah turunan di \(x=3\):</p>
+    <div class="math-display">\[ y'=2x-4 \Rightarrow m=2(3)-4=2 \]</div>
+    <p>Persamaan garis singgung melalui \((3,0)\):</p>
+    <div class="math-display">\[ y-0=2(x-3)\Rightarrow y=2x-6 \]</div>
+    <p>
+      Pilihan E adalah persamaan garis normal (gradien
+      \(\displaystyle-\frac{1}{2}\)), bukan garis singgung.
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 7</h4>
+    <p>Fungsi naik jika \(f'(x)\gt0\). Tentukan turunan dan faktorkan:</p>
+    <div class="math-display">\[ f'(x)=3x^2-12x+9=3(x-1)(x-3) \]</div>
+    <p>
+      Pembuat nol \(f'\) adalah \(x=1\) dan \(x=3\). Karena koefisien \(x^2\)
+      positif, \(f'(x)\gt0\) di luar kedua akar:
+    </p>
+    <div class="math-display">\[ x\lt1 \text{ atau } x\gt3 \]</div>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 8</h4>
+    <p>
+      Misalkan lebar kandang \(x\) (dua sisi yang tegak lurus sungai) dan
+      panjangnya \(y\) (sisi yang sejajar sungai). Pagar dipasang di tiga sisi:
+    </p>
+    <div class="math-display">\[ 2x+y=60\Rightarrow y=60-2x \]</div>
+    <p>Luas kandang sebagai fungsi \(x\):</p>
+    <div class="math-display">\[ L(x)=x(60-2x)=60x-2x^2 \]</div>
+    <p>Luas maksimum dicapai saat turunan pertama sama dengan nol:</p>
+    <div class="math-display">
+      \[ L'(x)=60-4x=0\Rightarrow x=15,\qquad y=60-30=30 \]
+    </div>
+    <p>
+      Karena \(L''(x)=-4\lt0\), nilai tersebut adalah maksimum. Luas maksimum:
+    </p>
+    <div class="math-display">\[ L=15\cdot30=450\ \text{m}^2 \]</div>
+    <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+  </div>
+
+  <h3>B. Pembahasan Tingkat Kesulitan UTBK</h3>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 9</h4>
+    <p>
+      Gunakan aturan hasil bagi dengan \(u=x\) dan \(v=\sqrt{x^2+9}\). Turunan
+      \(v\) diperoleh dari aturan rantai:
+    </p>
+    <div class="math-display">
+      \[ u'=1, \qquad v'=\frac{1}{2}(x^2+9)^{-1/2}\cdot2x=\frac{x}{\sqrt{x^2+9}}
+      \]
+    </div>
+    <p>Sehingga:</p>
+    <div class="math-display">
+      \[ \begin{aligned}
+      f'(x)&=\frac{\sqrt{x^2+9}-x\cdot\frac{x}{\sqrt{x^2+9}}}{x^2+9}\\
+      &=\frac{(x^2+9)-x^2}{(x^2+9)\sqrt{x^2+9}}\\ &=\frac{9}{(x^2+9)^{3/2}}
+      \end{aligned} \]
+    </div>
+    <p>Substitusikan \(x=4\), dengan \(x^2+9=25\) dan \(25^{3/2}=125\):</p>
+    <div class="math-display">\[ f'(4)=\frac{9}{125} \]</div>
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 10</h4>
+    <p>
+      Turunkan kedua ruas terhadap \(x\) dengan \(y\) sebagai fungsi \(x\). Suku
+      \(xy\) memakai aturan hasil kali:
+    </p>
+    <div class="math-display">
+      \[ 2x+\left(y+x\frac{dy}{dx}\right)+2y\frac{dy}{dx}=0 \]
+    </div>
+    <p>Kumpulkan suku yang memuat \(\displaystyle\frac{dy}{dx}\):</p>
+    <div class="math-display">
+      \[ (x+2y)\frac{dy}{dx}=-(2x+y)\Rightarrow \frac{dy}{dx}=-\frac{2x+y}{x+2y}
+      \]
+    </div>
+    <p>Substitusikan titik \((1,2)\):</p>
+    <div class="math-display">
+      \[ \frac{dy}{dx}=-\frac{2(1)+2}{1+2(2)}=-\frac{4}{5} \]
+    </div>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 11</h4>
+    <p>Gunakan aturan hasil kali dengan \(u=x^2\) dan \(v=\ln x\):</p>
+    <div class="math-display">
+      \[ f'(x)=2x\ln x+x^2\cdot\frac{1}{x}=2x\ln x+x \]
+    </div>
+    <p>Substitusikan \(x=e\), dengan \(\ln e=1\):</p>
+    <div class="math-display">\[ f'(e)=2e(1)+e=3e \]</div>
+    <p>
+      Hasil \(2e+1\) adalah jebakan karena suku
+      \(x^2\cdot\displaystyle\frac{1}{x}\) keliru ditulis \(1\), bukan \(x\).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 12</h4>
+    <p>
+      Nilai stasioner di \(x=1\) dan \(x=3\) berarti \(f'(x)=0\) di kedua titik
+      itu. Karena \(f'(x)=3x^2+2ax+b\) berderajat dua dengan koefisien \(x^2\)
+      sama dengan \(3\), maka:
+    </p>
+    <div class="math-display">\[ f'(x)=3(x-1)(x-3)=3x^2-12x+9 \]</div>
+    <p>Samakan koefisien: \(2a=-12\) sehingga \(a=-6\), dan \(b=9\). Maka:</p>
+    <div class="math-display">\[ f(x)=x^3-6x^2+9x+1 \]</div>
+    <p>
+      Tanda \(f'\) positif untuk \(x\lt1\), negatif untuk \(1\lt x\lt3\), dan
+      positif untuk \(x\gt3\). Jadi \(x=1\) adalah maksimum lokal dan \(x=3\)
+      adalah minimum lokal:
+    </p>
+    <div class="math-display">
+      \[ f(1)=1-6+9+1=5, \qquad f(3)=27-54+27+1=1 \]
+    </div>
+    <p>
+      Nilai maksimum lokalnya adalah \(5\). Jadi, jawaban yang benar adalah
+      <strong>D</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 13</h4>
+    <p>
+      Pisahkan pembilang dengan menambah dan mengurangi \(f(2)\), lalu bentuk
+      menjadi dua limit definisi turunan:
+    </p>
+    <div class="math-display">
+      \[ \begin{aligned} \frac{f(2+3h)-f(2-h)}{h}
+      &=\frac{f(2+3h)-f(2)}{h}+\frac{f(2)-f(2-h)}{h}\\
+      &=3\cdot\frac{f(2+3h)-f(2)}{3h}+\frac{f(2-h)-f(2)}{-h} \end{aligned} \]
+    </div>
+    <p>
+      Untuk \(h\to0\), suku pertama menuju \(3f'(2)\) dan suku kedua menuju
+      \(f'(2)\):
+    </p>
+    <div class="math-display">
+      \[ \lim_{h\to 0}\frac{f(2+3h)-f(2-h)}{h}=3f'(2)+f'(2)=4f'(2)=4(4)=16 \]
+    </div>
+    <p>
+      Nilai \(f(2)=3\) tidak diperlukan karena hanya berfungsi sebagai titik
+      acuan yang saling meniadakan.
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 14</h4>
+    <p>Tentukan turunan kedua dan faktorkan:</p>
+    <div class="math-display">
+      \[ f'(x)=4x^3-12x^2, \qquad f''(x)=12x^2-24x=12x(x-2) \]
+    </div>
+    <p>Pembuat nol \(f''\) adalah \(x=0\) dan \(x=2\). Periksa tandanya:</p>
+    <div class="material-table-wrap">
+      <table class="reflection-table">
+        <thead>
+          <tr>
+            <th scope="col">Interval</th>
+            <th scope="col">\(x\lt0\)</th>
+            <th scope="col">\(0\lt x\lt2\)</th>
+            <th scope="col">\(x\gt2\)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tanda \(f''(x)\)</td>
+            <td>\(+\)</td>
+            <td>\(-\)</td>
+            <td>\(+\)</td>
+          </tr>
+          <tr>
+            <td>Kecekungan</td>
+            <td>ke atas</td>
+            <td>ke bawah</td>
+            <td>ke atas</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Tanda \(f''\) berubah di \(x=0\) dan \(x=2\), sehingga keduanya titik
+      belok. Karena \(f(0)=0\) dan \(f(2)=16-32=-16\), titik beloknya adalah
+      \((0,0)\) dan \((2,-16)\).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 15</h4>
+    <p>
+      Setelah memotong persegi berukuran \(x\) di setiap sudut, alas kotak
+      berupa persegi dengan sisi \(24-2x\) dan tinggi kotak \(x\). Domainnya
+      \(0\lt x\lt12\). Volume kotak:
+    </p>
+    <div class="math-display">\[ V(x)=x(24-2x)^2 \]</div>
+    <p>Turunkan dengan aturan hasil kali dan aturan rantai:</p>
+    <div class="math-display">
+      \[ \begin{aligned} V'(x)&=(24-2x)^2+x\cdot2(24-2x)(-2)\\
+      &=(24-2x)\left[(24-2x)-4x\right]\\ &=(24-2x)(24-6x) \end{aligned} \]
+    </div>
+    <p>
+      Pembuat nol \(V'\) adalah \(x=12\) dan \(x=4\). Nilai \(x=12\) berada di
+      ujung domain dan menghasilkan volume \(0\), sehingga yang dipakai adalah
+      \(x=4\). Tanda \(V'\) berubah dari positif ke negatif di \(x=4\), jadi
+      volumenya maksimum:
+    </p>
+    <div class="math-display">
+      \[ V(4)=4(24-8)^2=4\cdot256=1024\ \text{cm}^3 \]
+    </div>
+    <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 16</h4>
+    <p>
+      Tulis \(f(x)=\left[\sin 3x\right]^2\) dan gunakan aturan rantai dua lapis:
+    </p>
+    <div class="math-display">
+      \[ f'(x)=2\sin 3x\cdot\cos 3x\cdot 3=6\sin 3x\cos 3x=3\sin 6x \]
+    </div>
+    <p>Substitusikan \(\displaystyle x=\frac{\pi}{12}\):</p>
+    <div class="math-display">
+      \[ f'\!\left(\frac{\pi}{12}\right)=3\sin\frac{\pi}{2}=3 \]
+    </div>
+    <p>
+      Hasil \(6\) adalah jebakan karena melupakan faktor
+      \(\displaystyle\frac{1}{2}\) dari
+      \(\displaystyle\sin\frac{\pi}{4}\cos\frac{\pi}{4}=\frac{1}{2}\).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <h3>C. Pembahasan Tingkat Kesulitan Olimpiade</h3>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 17</h4>
+    <p>
+      Banyaknya akar real berbeda dari \(x^3-3x=k\) sama dengan banyaknya titik
+      potong grafik \(g(x)=x^3-3x\) dengan garis mendatar \(y=k\). Selidiki
+      bentuk grafik \(g\):
+    </p>
+    <div class="math-display">\[ g'(x)=3x^2-3=3(x-1)(x+1) \]</div>
+    <p>
+      \(g\) naik untuk \(x\lt-1\), turun untuk \(-1\lt x\lt1\), dan naik lagi
+      untuk \(x\gt1\). Nilai ekstrem lokalnya:
+    </p>
+    <div class="math-display">
+      \[ g(-1)=-1+3=2 \ \text{(maksimum lokal)}, \qquad g(1)=1-3=-2 \
+      \text{(minimum lokal)} \]
+    </div>
+    <p>
+      Karena \(g(x)\to-\infty\) untuk \(x\to-\infty\) dan \(g(x)\to\infty\)
+      untuk \(x\to\infty\), garis \(y=k\) memotong grafik di tiga titik berbeda
+      tepat ketika \(-2\lt k\lt2\). Untuk \(k=\pm2\) garis menyinggung grafik
+      sehingga hanya ada dua akar berbeda (satu akar ganda), dan untuk
+      \(|k|\gt2\) hanya ada satu akar real.
+    </p>
+    <p>Bilangan bulat \(k\) yang memenuhi \(-2\lt k\lt2\) adalah \(-1,0,1\).</p>
+    <p>Jadi, jawaban yang benar adalah <strong>3</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 18</h4>
+    <p>
+      Turunkan beberapa kali untuk menemukan pola. Setiap penurunan memakai
+      aturan hasil kali dengan \((e^x)'=e^x\):
+    </p>
+    <div class="math-display">
+      \[ \begin{aligned} f'(x)&=(x^2+2x)e^x\\ f''(x)&=(x^2+4x+2)e^x\\
+      f'''(x)&=(x^2+6x+6)e^x \end{aligned} \]
+    </div>
+    <p>Pola yang terlihat adalah:</p>
+    <div class="math-display">
+      \[ f^{(n)}(x)=\left(x^2+2nx+n(n-1)\right)e^x \]
+    </div>
+    <p>
+      Pola ini benar untuk semua \(n\). Jika benar untuk \(n\), maka turunannya
+      memberikan:
+    </p>
+    <div class="math-display">
+      \[ f^{(n+1)}(x)=\left(2x+2n\right)e^x+\left(x^2+2nx+n(n-1)\right)e^x
+      =\left(x^2+2(n+1)x+n(n+1)\right)e^x \]
+    </div>
+    <p>
+      karena \(n(n-1)+2n=n(n+1)\), sesuai dengan bentuk pola untuk \(n+1\).
+      Substitusikan \(x=0\) dan \(n=10\):
+    </p>
+    <div class="math-display">\[ f^{(10)}(0)=10\cdot9\cdot e^0=90 \]</div>
+    <p>Jadi, jawaban yang benar adalah <strong>90</strong>.</p>
+  </div>
+
+  <h3>Ringkasan Kunci dan Konsep yang Diuji</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table answer-key-table">
+      <thead>
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">Kunci</th>
+          <th scope="col">Konsep Utama</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>C</td>
+          <td>Aturan pangkat dan jumlah</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>D</td>
+          <td>Aturan hasil kali</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>B</td>
+          <td>Aturan hasil bagi</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>E</td>
+          <td>Aturan rantai pada fungsi berpangkat</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>A</td>
+          <td>Turunan fungsi trigonometri dengan aturan rantai</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>C</td>
+          <td>Persamaan garis singgung kurva</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>B</td>
+          <td>Interval fungsi naik</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>D</td>
+          <td>Masalah optimasi luas</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>C</td>
+          <td>Aturan hasil bagi dengan bentuk akar</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>B</td>
+          <td>Turunan implisit dan gradien garis singgung</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>E</td>
+          <td>Hasil kali dengan fungsi logaritma natural</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>D</td>
+          <td>Nilai stasioner dengan parameter dan uji ekstrem</td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>C</td>
+          <td>Limit bentuk definisi turunan</td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td>E</td>
+          <td>Kecekungan dan titik belok</td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td>D</td>
+          <td>Optimasi volume kotak tanpa tutup</td>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td>B</td>
+          <td>Aturan rantai dua lapis pada fungsi trigonometri</td>
+        </tr>
+        <tr>
+          <td>17</td>
+          <td>3</td>
+          <td>Banyak akar persamaan lewat grafik dan nilai ekstrem</td>
+        </tr>
+        <tr>
+          <td>18</td>
+          <td>90</td>
+          <td>Turunan tingkat tinggi dan pola dengan induksi</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

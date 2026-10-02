@@ -11,6 +11,8 @@ import statistikaHtml from "./statistika.html?raw";
 import komposisiFungsiDanInversHtml from "./komposisi-fungsi-dan-invers.html?raw";
 import polinomialHtml from "./polinomial.html?raw";
 import limitHtml from "./limit.html?raw";
+import turunanHtml from "./turunan.html?raw";
+import lingkaranHtml from "./lingkaran.html?raw";
 
 export interface Material {
   id: string;
@@ -41,6 +43,10 @@ export interface Material {
  * 9. Transformasi Geometri (Kelas XI) -> Memerlukan prasyarat matriks & koordinat
  * 10. Kombinatorika (Kelas XII) -> Kaidah pencacahan, permutasi, kombinasi (prasyarat peluang)
  * 11. Teori Peluang (Kelas XII) -> Memerlukan prasyarat mutlak kombinatorika
+ * 12. Polinomial (Kelas XI) -> Dasar aljabar fungsi
+ * 13. Limit Fungsi (Kelas XII) -> Fondasi kalkulus diferensial
+ * 14. Turunan (Kelas XII) -> Memerlukan prasyarat limit fungsi
+ * 15. Lingkaran (Kelas XII) -> Geometri lingkaran dan penerapannya
  */
 export const materials: Material[] = [
   {
@@ -229,6 +235,34 @@ export const materials: Material[] = [
     description:
       "Pelajari limit satu sisi, sifat dan teknik limit aljabar, limit tak hingga dan trigonometri, kekontinuan, serta pengantar aturan L'Hôpital.",
     htmlContent: limitHtml,
+  },
+  {
+    id: "derivatives",
+    slug: "turunan",
+    number: "14",
+    category: "Kalkulus",
+    title: "Turunan Fungsi",
+    grade: "Kelas XII",
+    phase: "Fase F Tingkat Lanjut (Kelas XII)",
+    prerequisite: "Limit Fungsi",
+    formula: "f'(x)=\\lim_{h\\to 0}\\frac{f(x+h)-f(x)}{h}",
+    description:
+      "Pelajari definisi turunan melalui limit, aturan-aturan diferensiasi, turunan fungsi aljabar dan trigonometri, serta penerapannya pada garis singgung dan masalah optimasi.",
+    htmlContent: turunanHtml,
+  },
+  {
+    id: "circle-arcs-sectors",
+    slug: "busur-dan-juring-lingkaran",
+    number: "15",
+    category: "Geometri Lingkaran",
+    title: "Lingkaran",
+    grade: "Kelas XII",
+    phase: "Fase F Tingkat Lanjut (Kelas XII)",
+    prerequisite: "Pengukuran dan Perbandingan Sudut",
+    formula: "K=2\\pi r \\qquad L=\\pi r^2",
+    description:
+      "Pelajari keliling dan luas, unsur-unsur lingkaran, busur, juring, tali busur, garis singgung, serta penerapan dan latihan soal.",
+    htmlContent: lingkaranHtml,
   },
 ];
 

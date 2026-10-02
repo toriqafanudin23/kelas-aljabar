@@ -176,14 +176,31 @@ export function HomePage({ navigate }: HomePageProps) {
 
           <div className="pathway-card">
             <div className="pathway-step">Tahap 4</div>
-            <h4>Pengantar Kalkulus (Kelas XII)</h4>
+            <h4>Fase F Lanjut (Kelas XII) · Kalkulus</h4>
             <p className="pathway-desc">
-              Gunakan konsep fungsi, aljabar, dan trigonometri sebagai bekal
-              mempelajari limit.
+              Bangun pemahaman limit sebagai fondasi untuk mempelajari turunan
+              dan penerapannya.
             </p>
             <ul className="pathway-list">
               <li>
                 <strong>Modul 13:</strong> Limit Fungsi
+              </li>
+              <li>
+                <strong>Modul 14:</strong> Turunan Fungsi (Prasyarat: Limit)
+              </li>
+            </ul>
+          </div>
+
+          <div className="pathway-card">
+            <div className="pathway-step">Tahap 5</div>
+            <h4>Fase F Lanjut (Kelas XII) · Geometri Lingkaran</h4>
+            <p className="pathway-desc">
+              Pelajari unsur, ukuran, dan sifat-sifat lingkaran beserta
+              penerapannya.
+            </p>
+            <ul className="pathway-list">
+              <li>
+                <strong>Modul 15:</strong> Lingkaran
               </li>
             </ul>
           </div>
