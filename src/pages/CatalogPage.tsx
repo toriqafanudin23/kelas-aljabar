@@ -7,6 +7,36 @@ interface CatalogPageProps {
   navigate: Navigate;
 }
 
+const subjectFilters = [
+  {
+    name: "Aljabar",
+    slugs: [
+      "eksponensial",
+      "barisan-deret",
+      "sppl",
+      "fungsi-kuadrat",
+      "fungsi",
+      "transformasi-fungsi",
+      "komposisi-fungsi-dan-invers",
+      "polinomial",
+      "matriks",
+    ],
+  },
+  {
+    name: "Geometri",
+    slugs: [
+      "trigonometri",
+      "vektor",
+      "transformasi-geometri",
+      "busur-dan-juring-lingkaran",
+    ],
+  },
+  { name: "Statistika & Peluang", slugs: ["statistika", "peluang"] },
+  { name: "Kombinatorika", slugs: ["kombinatorika"] },
+  { name: "Kalkulus", slugs: ["limit", "turunan"] },
+  { name: "Analisis", slugs: ["bilangan-kompleks"] },
+];
+
 export function CatalogPage({ navigate }: CatalogPageProps) {
   const [query, setQuery] = useState("");
   const [selectedFilter, setSelectedFilter] = useState("Semua");
@@ -16,8 +46,7 @@ export function CatalogPage({ navigate }: CatalogPageProps) {
     "Kelas X (Fase E)",
     "Kelas XI (Fase F)",
     "Kelas XII (Fase F Lanjut)",
-    "Aljabar",
-    "Geometri Analitik",
+    ...subjectFilters.map((subject) => subject.name),
   ];
 
   const filteredMaterials = materials.filter((material) => {
@@ -28,12 +57,13 @@ export function CatalogPage({ navigate }: CatalogPageProps) {
       matchesFilter = material.grade.includes("Kelas XI");
     } else if (selectedFilter === "Kelas XII (Fase F Lanjut)") {
       matchesFilter = material.grade.includes("Kelas XII");
-    } else if (selectedFilter === "Aljabar") {
-      matchesFilter =
-        material.category.includes("Aljabar") ||
-        material.slug === "barisan-deret";
-    } else if (selectedFilter === "Geometri Analitik") {
-      matchesFilter = material.category.includes("Geometri");
+    } else {
+      const selectedSubject = subjectFilters.find(
+        (subject) => subject.name === selectedFilter,
+      );
+      if (selectedSubject) {
+        matchesFilter = selectedSubject.slugs.includes(material.slug);
+      }
     }
 
     const matchesSearch =
@@ -49,7 +79,7 @@ export function CatalogPage({ navigate }: CatalogPageProps) {
     {
       title: "1. Kelas X (Fase E) — Bilangan, Aljabar, Fungsi & Statistika",
       subtitle:
-        "Eksponen dan logaritma, barisan dan deret, sistem linear, fungsi kuadrat, serta statistika dasar.",
+        "Eksponen dan logaritma, barisan dan deret, sistem linear, fungsi kuadrat, statistika dasar, serta trigonometri.",
       items: filteredMaterials.filter((m) =>
         [
           "eksponensial",
@@ -57,6 +87,7 @@ export function CatalogPage({ navigate }: CatalogPageProps) {
           "sppl",
           "fungsi-kuadrat",
           "statistika",
+          "trigonometri",
         ].includes(m.slug),
       ),
     },
@@ -72,15 +103,24 @@ export function CatalogPage({ navigate }: CatalogPageProps) {
           "vektor",
           "transformasi-geometri",
           "busur-dan-juring-lingkaran",
+          "bilangan-kompleks",
+          "fungsi",
         ].includes(m.slug),
       ),
     },
     {
-      title: "3. Kelas XII (Fase F Lanjut) — Pencacahan, Peluang & Kalkulus",
+      title:
+        "3. Kelas XII (Fase F Lanjut) — Fungsi, Pencacahan, Peluang & Kalkulus",
       subtitle:
-        "Kombinatorika dan peluang, dilanjutkan dengan limit sebagai fondasi turunan.",
+        "Transformasi grafik fungsi, kombinatorika, peluang, serta limit sebagai fondasi turunan.",
       items: filteredMaterials.filter((m) =>
-        ["kombinatorika", "peluang", "limit", "turunan"].includes(m.slug),
+        [
+          "limit",
+          "turunan",
+          "kombinatorika",
+          "peluang",
+          "transformasi-fungsi",
+        ].includes(m.slug),
       ),
     },
   ];
@@ -164,13 +204,18 @@ export function CatalogPage({ navigate }: CatalogPageProps) {
         </div>
       ) : (
         <div className="course-grid">
-          {filteredMaterials.map((material) => (
-            <CourseCard
-              key={material.slug}
-              material={material}
-              navigate={navigate}
-            />
-          ))}
+          {[...filteredMaterials]
+            .sort(
+              (firstMaterial, secondMaterial) =>
+                Number(firstMaterial.number) - Number(secondMaterial.number),
+            )
+            .map((material) => (
+              <CourseCard
+                key={material.slug}
+                material={material}
+                navigate={navigate}
+              />
+            ))}
 
           {filteredMaterials.length === 0 && (
             <div className="empty-state">

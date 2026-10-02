@@ -125,6 +125,9 @@ export function HomePage({ navigate }: HomePageProps) {
               <li>
                 <strong>Modul 05:</strong> Statistika
               </li>
+              <li>
+                <strong>Modul 06:</strong> Trigonometri
+              </li>
             </ul>
           </div>
 
@@ -137,23 +140,29 @@ export function HomePage({ navigate }: HomePageProps) {
             </p>
             <ul className="pathway-list">
               <li>
-                <strong>Modul 06:</strong> Komposisi Fungsi &amp; Invers
+                <strong>Modul 07:</strong> Komposisi Fungsi &amp; Invers
               </li>
               <li>
-                <strong>Modul 07:</strong> Polinomial
+                <strong>Modul 08:</strong> Polinomial
               </li>
               <li>
-                <strong>Modul 08:</strong> Matriks
+                <strong>Modul 09:</strong> Matriks
               </li>
               <li>
-                <strong>Modul 09:</strong> Lingkaran
+                <strong>Modul 10:</strong> Lingkaran
               </li>
               <li>
-                <strong>Modul 10:</strong> Transformasi Geometri (Prasyarat:
+                <strong>Modul 11:</strong> Transformasi Geometri (Prasyarat:
                 Matriks)
               </li>
               <li>
-                <strong>Modul 11:</strong> Vektor
+                <strong>Modul 12:</strong> Vektor
+              </li>
+              <li>
+                <strong>Modul 13:</strong> Bilangan Kompleks
+              </li>
+              <li>
+                <strong>Modul 14:</strong> Fungsi dan Pemodelan
               </li>
             </ul>
           </div>
@@ -162,22 +171,25 @@ export function HomePage({ navigate }: HomePageProps) {
             <div className="pathway-step">Tahap 3</div>
             <h4>Kelas XII (Fase F Lanjut)</h4>
             <p className="pathway-desc">
-              Pelajari pencacahan dan peluang, lalu gunakan limit sebagai
-              fondasi kalkulus diferensial.
+              Pelajari transformasi grafik fungsi, pencacahan, peluang, serta
+              limit sebagai fondasi kalkulus diferensial.
             </p>
             <ul className="pathway-list">
               <li>
-                <strong>Modul 12:</strong> Limit Fungsi
+                <strong>Modul 15:</strong> Limit Fungsi
               </li>
               <li>
-                <strong>Modul 13:</strong> Turunan Fungsi (Prasyarat: Limit)
+                <strong>Modul 16:</strong> Turunan Fungsi (Prasyarat: Limit)
               </li>
               <li>
-                <strong>Modul 14:</strong> Kombinatorika (Kaidah Pencacahan)
+                <strong>Modul 17:</strong> Kombinatorika (Kaidah Pencacahan)
               </li>
               <li>
-                <strong>Modul 15:</strong> Teori Peluang (Prasyarat:
+                <strong>Modul 18:</strong> Teori Peluang (Prasyarat:
                 Kombinatorika)
+              </li>
+              <li>
+                <strong>Modul 19:</strong> Transformasi Fungsi
               </li>
             </ul>
           </div>

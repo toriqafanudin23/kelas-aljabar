@@ -15,6 +15,13 @@ export function SiteFooter({ navigate }: SiteFooterProps) {
             dan UTBK.
           </p>
         </div>
+        <div className="footer-subjects">
+          <strong>Materi mencakup</strong>
+          <p>
+            Aljabar · Geometri · Statistika &amp; Peluang · Kombinatorika ·
+            Kalkulus · Analisis
+          </p>
+        </div>
         <div className="footer-links">
           <a href="/" onClick={(event) => navigate(event, "home")}>
             Beranda

@@ -1,0 +1,6339 @@
+<section
+  id="perbandingan-trigonometri"
+  data-title="Perbandingan Trigonometri pada Segitiga Siku-Siku"
+>
+  <h2>1. Perbandingan Trigonometri pada Segitiga Siku-Siku</h2>
+
+  <p>
+    <strong>Trigonometri</strong> adalah cabang matematika yang mempelajari
+    hubungan antara besar sudut dan panjang sisi segitiga. Perhatikan segitiga
+    siku-siku \(ABC\) dengan siku-siku di \(B\). Terhadap sudut lancip
+    \(\theta\) di titik \(A\), ketiga sisinya diberi nama:
+    <strong>sisi depan</strong> (berhadapan dengan \(\theta\)),
+    <strong>sisi samping</strong> (menempel pada \(\theta\), selain sisi
+    miring), dan <strong>sisi miring</strong> (berhadapan dengan sudut siku-siku
+    dan merupakan sisi terpanjang).
+  </p>
+
+  <figure class="lesson-figure" style="margin: 1.5rem 0">
+    <svg
+      viewBox="0 0 520 290"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-labelledby="rtt rtd"
+      style="
+        width: 100%;
+        max-width: 520px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        font-family: inherit;
+      "
+    >
+      <title id="rtt">Segitiga siku-siku dan namanya sisi-sisinya</title>
+      <desc id="rtd">
+        Segitiga siku-siku ABC siku-siku di B. Terhadap sudut theta di A, BC
+        adalah sisi depan, AB sisi samping, dan AC sisi miring.
+      </desc>
+      <path
+        d="M90 240 L390 240 L390 80 Z"
+        fill="#3b82f6"
+        fill-opacity="0.08"
+        stroke="none"
+      />
+      <line
+        x1="90"
+        y1="240"
+        x2="390"
+        y2="240"
+        stroke="#3b82f6"
+        stroke-width="2.6"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <line
+        x1="390"
+        y1="240"
+        x2="390"
+        y2="80"
+        stroke="#f97316"
+        stroke-width="2.6"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <line
+        x1="90"
+        y1="240"
+        x2="390"
+        y2="80"
+        stroke="#10b981"
+        stroke-width="2.6"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <path
+        d="M378 240 L378 228 L390 228"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-opacity="0.8"
+      />
+      <path
+        d="M130 240 A40 40 0 0 0 125.3 221.2"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-opacity="0.8"
+      />
+      <text
+        x="150.1"
+        y="230"
+        font-size="16"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        θ
+      </text>
+      <text
+        x="240"
+        y="264"
+        font-size="14"
+        text-anchor="middle"
+        fill="#3b82f6"
+        fill-opacity="1"
+        font-weight="700"
+      >
+        sisi samping
+      </text>
+      <text
+        x="404"
+        y="165"
+        font-size="14"
+        text-anchor="start"
+        fill="#f97316"
+        fill-opacity="1"
+        font-weight="700"
+      >
+        sisi depan
+      </text>
+      <text
+        x="230"
+        y="146"
+        font-size="14"
+        text-anchor="middle"
+        fill="#10b981"
+        fill-opacity="1"
+        font-weight="700"
+        transform="rotate(-28.1 230 146)"
+      >
+        sisi miring
+      </text>
+      <text
+        x="74"
+        y="260"
+        font-size="14"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        A
+      </text>
+      <text
+        x="404"
+        y="260"
+        font-size="14"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        B
+      </text>
+      <text
+        x="404"
+        y="74"
+        font-size="14"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        C
+      </text>
+      <circle cx="90" cy="240" r="3.2" fill="currentColor" />
+      <circle cx="390" cy="240" r="3.2" fill="currentColor" />
+      <circle cx="390" cy="80" r="3.2" fill="currentColor" />
+    </svg>
+    <figcaption
+      style="
+        text-align: center;
+        font-size: 0.9em;
+        opacity: 0.85;
+        margin-top: 0.6rem;
+      "
+    >
+      Gambar 1. Sisi depan, sisi samping, dan sisi miring pada segitiga
+      siku-siku terhadap sudut \(\theta\).
+    </figcaption>
+  </figure>
+
+  <p>
+    Dari ketiga sisi itu dapat dibentuk enam perbandingan, yaitu sinus (sin),
+    cosinus (cos), tangen (tan), cosecan (csc), secan (sec), dan cotangen (cot):
+  </p>
+
+  <div class="math-display">
+    \[ \sin\theta=\frac{\text{depan}}{\text{miring}},\qquad
+    \cos\theta=\frac{\text{samping}}{\text{miring}},\qquad
+    \tan\theta=\frac{\text{depan}}{\text{samping}} \]
+  </div>
+
+  <div class="math-display">
+    \[ \csc\theta=\frac{\text{miring}}{\text{depan}},\qquad
+    \sec\theta=\frac{\text{miring}}{\text{samping}},\qquad
+    \cot\theta=\frac{\text{samping}}{\text{depan}} \]
+  </div>
+
+  <p>
+    Untuk mengingatnya, gunakan singkatan <strong>sin-de-mi</strong>,
+    <strong>cos-sa-mi</strong>, dan <strong>tan-de-sa</strong>. Perbandingan
+    tersebut hanya bergantung pada besar sudut, bukan pada ukuran segitiga,
+    karena segitiga siku-siku dengan sudut lancip yang sama selalu sebangun.
+    Ketiga perbandingan terakhir merupakan kebalikan dari yang pertama:
+  </p>
+
+  <div class="math-display">
+    \[ \csc\theta=\frac{1}{\sin\theta},\qquad
+    \sec\theta=\frac{1}{\cos\theta},\qquad
+    \cot\theta=\frac{1}{\tan\theta}=\frac{\cos\theta}{\sin\theta},\qquad
+    \tan\theta=\frac{\sin\theta}{\cos\theta} \]
+  </div>
+
+  <p>
+    Karena jumlah sudut lancip pada segitiga siku-siku adalah \(90^\circ\),
+    sudut lancip yang lain besarnya \(90^\circ-\theta\). Sisi depan untuk
+    \(\theta\) menjadi sisi samping untuk \(90^\circ-\theta\), sehingga
+    diperoleh hubungan berikut yang disebut hubungan sudut komplemen:
+  </p>
+
+  <div class="math-display">
+    \[ \sin\theta=\cos\left(90^\circ-\theta\right),\qquad
+    \tan\theta=\cot\left(90^\circ-\theta\right),\qquad
+    \sec\theta=\csc\left(90^\circ-\theta\right) \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Pada segitiga siku-siku dengan panjang sisi \(3\), \(4\), dan \(5\),
+      tentukan keenam perbandingan trigonometri untuk sudut \(\theta\) yang
+      berhadapan dengan sisi \(3\).
+    </p>
+
+    <p>Sisi depan \(=3\), sisi samping \(=4\), sisi miring \(=5\). Maka:</p>
+
+    <div class="math-display">
+      \[ \sin\theta=\frac{3}{5},\ \cos\theta=\frac{4}{5},\
+      \tan\theta=\frac{3}{4},\ \csc\theta=\frac{5}{3},\ \sec\theta=\frac{5}{4},\
+      \cot\theta=\frac{4}{3} \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Jika \(\theta\) sudut lancip dan \(\sin\theta=\displaystyle\frac{5}{13}\),
+      tentukan \(\cos\theta\) dan \(\tan\theta\).
+    </p>
+
+    <p>
+      Misalkan sisi depan \(=5\) dan sisi miring \(=13\). Dengan dalil
+      Pythagoras, sisi samping \(=\sqrt{13^2-5^2}=12\). Maka:
+    </p>
+
+    <div class="math-display">
+      \[ \cos\theta=\frac{12}{13},\qquad \tan\theta=\frac{5}{12} \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Segitiga \(ABC\) siku-siku di \(B\) dengan \(AB=8\) cm dan \(AC=17\) cm.
+      Tentukan \(\sin A\), \(\cos A\), dan \(\tan C\).
+    </p>
+
+    <div class="math-display">
+      \[ \begin{aligned} BC&=\sqrt{17^2-8^2}=15\text{ cm}\\ \sin
+      A&=\frac{BC}{AC}=\frac{15}{17},\qquad \cos
+      A=\frac{AB}{AC}=\frac{8}{17},\qquad \tan C=\frac{AB}{BC}=\frac{8}{15}
+      \end{aligned} \]
+    </div>
+  </div>
+</section>
+
+<section
+  id="sudut-istimewa"
+  data-title="Perbandingan Trigonometri Sudut Istimewa"
+>
+  <h2>2. Perbandingan Trigonometri Sudut Istimewa</h2>
+
+  <p>
+    Sudut \(0^\circ\), \(30^\circ\), \(45^\circ\), \(60^\circ\), dan
+    \(90^\circ\) disebut <strong>sudut istimewa</strong> karena nilai
+    perbandingan trigonometrinya dapat dicari tanpa kalkulator. Nilai-nilai
+    tersebut diturunkan dari dua segitiga acuan. Segitiga pertama adalah
+    setengah persegi bersisi \(1\), yaitu segitiga siku-siku sama kaki dengan
+    sisi miring \(\sqrt{2}\). Segitiga kedua adalah setengah segitiga sama sisi
+    bersisi \(2\), dengan tinggi \(\sqrt{3}\), sehingga sudutnya \(30^\circ\),
+    \(60^\circ\), dan \(90^\circ\).
+  </p>
+
+  <figure class="lesson-figure" style="margin: 1.5rem 0">
+    <svg
+      viewBox="0 0 560 300"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-labelledby="istimewat istimewad"
+      style="
+        width: 100%;
+        max-width: 560px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        font-family: inherit;
+      "
+    >
+      <title id="istimewat">Segitiga siku-siku untuk sudut istimewa</title>
+      <desc id="istimewad">
+        Segitiga siku-siku sama kaki dengan sisi 1, 1, akar 2 dan segitiga
+        dengan sudut 30, 60, 90 derajat dengan sisi 1, akar 3, 2.
+      </desc>
+      <path
+        d="M50 230 L180 230 L180 100 Z"
+        fill="#3b82f6"
+        fill-opacity="0.09"
+        stroke="none"
+      />
+      <line
+        x1="50"
+        y1="230"
+        x2="180"
+        y2="230"
+        stroke="#3b82f6"
+        stroke-width="2.4"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <line
+        x1="180"
+        y1="230"
+        x2="180"
+        y2="100"
+        stroke="#f97316"
+        stroke-width="2.4"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <line
+        x1="50"
+        y1="230"
+        x2="180"
+        y2="100"
+        stroke="#10b981"
+        stroke-width="2.4"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <path
+        d="M169 230 L169 219 L180 219"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-opacity="0.8"
+      />
+      <path
+        d="M80 230 A30 30 0 0 0 71.2 208.8"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-opacity="0.8"
+      />
+      <path
+        d="M158.8 121.2 A30 30 0 0 0 180 130"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-opacity="0.8"
+      />
+      <text
+        x="96"
+        y="213"
+        font-size="12"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        45°
+      </text>
+      <text
+        x="160"
+        y="140"
+        font-size="12"
+        text-anchor="end"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        45°
+      </text>
+      <text
+        x="115"
+        y="252"
+        font-size="15"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        1
+      </text>
+      <text
+        x="194"
+        y="170"
+        font-size="15"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        1
+      </text>
+      <text
+        x="100"
+        y="154"
+        font-size="15"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+        transform="rotate(-45 100 154)"
+      >
+        √2
+      </text>
+      <text
+        x="115"
+        y="282"
+        font-size="13"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        Segitiga siku-siku sama kaki
+      </text>
+      <path
+        d="M330 230 L503 230 L503 130 Z"
+        fill="#3b82f6"
+        fill-opacity="0.09"
+        stroke="none"
+      />
+      <line
+        x1="330"
+        y1="230"
+        x2="503"
+        y2="230"
+        stroke="#3b82f6"
+        stroke-width="2.4"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <line
+        x1="503"
+        y1="230"
+        x2="503"
+        y2="130"
+        stroke="#f97316"
+        stroke-width="2.4"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <line
+        x1="330"
+        y1="230"
+        x2="503"
+        y2="130"
+        stroke="#10b981"
+        stroke-width="2.4"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <path
+        d="M492 230 L492 219 L503 219"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-opacity="0.8"
+      />
+      <path
+        d="M372 230 A42 42 0 0 0 366.4 209"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-opacity="0.8"
+      />
+      <path
+        d="M480.5 143 A26 26 0 0 0 503 156"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-opacity="0.8"
+      />
+      <text
+        x="392"
+        y="216"
+        font-size="12"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        30°
+      </text>
+      <text
+        x="484"
+        y="170"
+        font-size="12"
+        text-anchor="end"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        60°
+      </text>
+      <text
+        x="416"
+        y="252"
+        font-size="15"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        √3
+      </text>
+      <text
+        x="517"
+        y="185"
+        font-size="15"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        1
+      </text>
+      <text
+        x="404"
+        y="168"
+        font-size="15"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+        transform="rotate(-30 404 168)"
+      >
+        2
+      </text>
+      <text
+        x="416"
+        y="282"
+        font-size="13"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        Setengah segitiga sama sisi
+      </text>
+    </svg>
+    <figcaption
+      style="
+        text-align: center;
+        font-size: 0.9em;
+        opacity: 0.85;
+        margin-top: 0.6rem;
+      "
+    >
+      Gambar 2. Dua segitiga acuan untuk menurunkan nilai perbandingan
+      trigonometri sudut \(30^\circ\), \(45^\circ\), dan \(60^\circ\).
+    </figcaption>
+  </figure>
+
+  <p>Dari kedua segitiga tersebut diperoleh, misalnya:</p>
+
+  <div class="math-display">
+    \[ \sin45^\circ=\frac{1}{\sqrt{2}}=\frac{\sqrt{2}}{2},\qquad
+    \sin30^\circ=\frac{1}{2},\qquad \cos30^\circ=\frac{\sqrt{3}}{2},\qquad
+    \tan60^\circ=\frac{\sqrt{3}}{1}=\sqrt{3} \]
+  </div>
+
+  <h3>Tabel Nilai Sudut Istimewa</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">\(\theta\)</th>
+          <th scope="col">\(0^\circ\)</th>
+          <th scope="col">\(30^\circ\)</th>
+          <th scope="col">\(45^\circ\)</th>
+          <th scope="col">\(60^\circ\)</th>
+          <th scope="col">\(90^\circ\)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(\sin\theta\)</td>
+          <td>\(0\)</td>
+          <td>\(\displaystyle\frac{1}{2}\)</td>
+          <td>\(\displaystyle\frac{\sqrt{2}}{2}\)</td>
+          <td>\(\displaystyle\frac{\sqrt{3}}{2}\)</td>
+          <td>\(1\)</td>
+        </tr>
+        <tr>
+          <td>\(\cos\theta\)</td>
+          <td>\(1\)</td>
+          <td>\(\displaystyle\frac{\sqrt{3}}{2}\)</td>
+          <td>\(\displaystyle\frac{\sqrt{2}}{2}\)</td>
+          <td>\(\displaystyle\frac{1}{2}\)</td>
+          <td>\(0\)</td>
+        </tr>
+        <tr>
+          <td>\(\tan\theta\)</td>
+          <td>\(0\)</td>
+          <td>\(\displaystyle\frac{\sqrt{3}}{3}\)</td>
+          <td>\(1\)</td>
+          <td>\(\sqrt{3}\)</td>
+          <td>tak terdefinisi</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    <strong>Cara cepat mengingat:</strong> nilai \(\sin\) untuk
+    \(0^\circ,30^\circ,45^\circ,60^\circ,90^\circ\) berturut-turut adalah
+    \(\displaystyle\frac{\sqrt{0}}{2},\frac{\sqrt{1}}{2},\frac{\sqrt{2}}{2},\frac{\sqrt{3}}{2},\frac{\sqrt{4}}{2}\),
+    sedangkan nilai \(\cos\) adalah urutan yang sama dibalik. Nilai \(\tan\)
+    diperoleh dari \(\displaystyle\frac{\sin\theta}{\cos\theta}\). Tangen
+    \(90^\circ\) tak terdefinisi karena \(\cos90^\circ=0\) sehingga terjadi
+    pembagian dengan nol.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Hitunglah \(\sin60^\circ\cos30^\circ+\cos60^\circ\sin30^\circ\).</p>
+
+    <div class="math-display">
+      \[ \frac{\sqrt{3}}{2}\cdot\frac{\sqrt{3}}{2}+\frac{1}{2}\cdot\frac{1}{2}
+      =\frac{3}{4}+\frac{1}{4}=1 \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Segitiga \(ABC\) siku-siku di \(B\), \(\angle A=30^\circ\), dan \(AC=12\)
+      cm. Tentukan panjang \(BC\) dan \(AB\).
+    </p>
+
+    <div class="math-display">
+      \[ BC=AC\sin30^\circ=12\times\frac{1}{2}=6\text{ cm},\qquad
+      AB=AC\cos30^\circ=12\times\frac{\sqrt{3}}{2}=6\sqrt{3}\text{ cm} \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Hitunglah nilai \(\displaystyle\frac{\tan45^\circ+\sin^2 60^\circ}{\cos^2
+      30^\circ+\cos 60^\circ}\).
+    </p>
+
+    <div class="math-display">
+      \[
+      \frac{1+\left(\frac{\sqrt{3}}{2}\right)^2}{\left(\frac{\sqrt{3}}{2}\right)^2+\frac{1}{2}}
+      =\frac{1+\frac{3}{4}}{\frac{3}{4}+\frac{1}{2}}
+      =\frac{\frac{7}{4}}{\frac{5}{4}}=\frac{7}{5} \]
+    </div>
+  </div>
+</section>
+
+<section id="satuan-sudut" data-title="Satuan Sudut: Derajat dan Radian">
+  <h2>3. Satuan Sudut: Derajat dan Radian</h2>
+
+  <p>
+    Selain derajat, sudut sering diukur dalam <strong>radian</strong>. Satu
+    radian (\(1\) rad) adalah besar sudut pusat lingkaran yang panjang busurnya
+    sama dengan jari-jari lingkaran tersebut. Karena keliling lingkaran \(2\pi
+    r\), satu putaran penuh setara dengan \(2\pi\) radian.
+  </p>
+
+  <figure class="lesson-figure" style="margin: 1.5rem 0">
+    <svg
+      viewBox="0 0 560 290"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-labelledby="radiant radiand"
+      style="
+        width: 100%;
+        max-width: 560px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        font-family: inherit;
+      "
+    >
+      <title id="radiant">Pengertian satu radian</title>
+      <desc id="radiand">
+        Lingkaran berjari-jari r dengan busur AB sepanjang r. Sudut pusat AOB
+        bernilai satu radian.
+      </desc>
+      <circle
+        cx="170"
+        cy="150"
+        r="110"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-opacity="0.7"
+      />
+      <path
+        d="M170 150 L280 150 A110 110 0 0 0 229.4 57.4 Z"
+        fill="#3b82f6"
+        fill-opacity="0.12"
+        stroke="none"
+      />
+      <line
+        x1="170"
+        y1="150"
+        x2="280"
+        y2="150"
+        stroke="#10b981"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <line
+        x1="170"
+        y1="150"
+        x2="229.4"
+        y2="57.4"
+        stroke="#10b981"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <path
+        d="M280 150 A110 110 0 0 0 229.4 57.4"
+        fill="none"
+        stroke="#f97316"
+        stroke-width="4.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-opacity="1"
+      />
+      <path
+        d="M200 150 A30 30 0 0 0 186.2 124.8"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-opacity="0.8"
+      />
+      <text
+        x="212.4"
+        y="132.9"
+        font-size="16"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        θ
+      </text>
+      <text
+        x="228"
+        y="168"
+        font-size="14"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        r
+      </text>
+      <text
+        x="195.5"
+        y="93.8"
+        font-size="14"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        r
+      </text>
+      <text
+        x="292.3"
+        y="90.6"
+        font-size="14"
+        text-anchor="start"
+        fill="#f97316"
+        fill-opacity="1"
+        font-weight="700"
+      >
+        r
+      </text>
+      <circle cx="170" cy="150" r="3.2" fill="currentColor" />
+      <circle cx="280" cy="150" r="3.2" fill="currentColor" />
+      <circle cx="229.4" cy="57.4" r="3.2" fill="currentColor" />
+      <text
+        x="158"
+        y="168"
+        font-size="14"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        O
+      </text>
+      <text
+        x="292"
+        y="168"
+        font-size="14"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        A
+      </text>
+      <text
+        x="225.4"
+        y="47.4"
+        font-size="14"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        B
+      </text>
+      <text
+        x="318"
+        y="100"
+        font-size="14"
+        text-anchor="start"
+        fill="#f97316"
+        fill-opacity="1"
+        font-weight="700"
+      >
+        panjang busur AB = r
+      </text>
+      <text
+        x="318"
+        y="130"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        ⇒ ∠AOB = θ = 1 radian
+      </text>
+      <text
+        x="318"
+        y="160"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        1 rad = 180°/π ≈ 57,3°
+      </text>
+      <text
+        x="318"
+        y="190"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        2π rad = 360°
+      </text>
+    </svg>
+    <figcaption
+      style="
+        text-align: center;
+        font-size: 0.9em;
+        opacity: 0.85;
+        margin-top: 0.6rem;
+      "
+    >
+      Gambar 3. Satu radian adalah besar sudut pusat yang panjang busurnya sama
+      dengan jari-jari lingkaran.
+    </figcaption>
+  </figure>
+
+  <div class="math-display">
+    \[ 360^\circ=2\pi\text{ rad},\qquad 180^\circ=\pi\text{ rad},\qquad 1\text{
+    rad}=\frac{180^\circ}{\pi}\approx 57{,}3^\circ,\qquad
+    1^\circ=\frac{\pi}{180}\text{ rad} \]
+  </div>
+
+  <p>Dengan demikian, untuk mengubah satuan berlaku:</p>
+
+  <div class="math-display">
+    \[ \text{radian}=\text{derajat}\times\frac{\pi}{180^\circ},\qquad
+    \text{derajat}=\text{radian}\times\frac{180^\circ}{\pi} \]
+  </div>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Derajat</th>
+          <th scope="col">\(0^\circ\)</th>
+          <th scope="col">\(30^\circ\)</th>
+          <th scope="col">\(45^\circ\)</th>
+          <th scope="col">\(60^\circ\)</th>
+          <th scope="col">\(90^\circ\)</th>
+          <th scope="col">\(120^\circ\)</th>
+          <th scope="col">\(135^\circ\)</th>
+          <th scope="col">\(150^\circ\)</th>
+          <th scope="col">\(180^\circ\)</th>
+          <th scope="col">\(270^\circ\)</th>
+          <th scope="col">\(360^\circ\)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Radian</td>
+          <td>\(0\)</td>
+          <td>\(\displaystyle\frac{\pi}{6}\)</td>
+          <td>\(\displaystyle\frac{\pi}{4}\)</td>
+          <td>\(\displaystyle\frac{\pi}{3}\)</td>
+          <td>\(\displaystyle\frac{\pi}{2}\)</td>
+          <td>\(\displaystyle\frac{2\pi}{3}\)</td>
+          <td>\(\displaystyle\frac{3\pi}{4}\)</td>
+          <td>\(\displaystyle\frac{5\pi}{6}\)</td>
+          <td>\(\pi\)</td>
+          <td>\(\displaystyle\frac{3\pi}{2}\)</td>
+          <td>\(2\pi\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    Satuan derajat juga dibagi menjadi menit dan detik, dengan \(1^\circ=60'\)
+    (menit) dan \(1'=60''\) (detik). Pada lingkaran berjari-jari \(r\), sudut
+    pusat \(\theta\) (dalam radian) menghasilkan panjang busur \(s=r\theta\),
+    sebagaimana dibahas pada materi lingkaran.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Ubahlah \(225^\circ\) ke dalam radian dan \(\displaystyle\frac{7\pi}{12}\)
+      rad ke dalam derajat.
+    </p>
+
+    <div class="math-display">
+      \[ 225^\circ=225\times\frac{\pi}{180}=\frac{5\pi}{4}\text{ rad},\qquad
+      \frac{7\pi}{12}\text{
+      rad}=\frac{7\pi}{12}\times\frac{180^\circ}{\pi}=105^\circ \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Nyatakan \(25{,}5^\circ\) dalam derajat, menit, dan detik.</p>
+
+    <div class="math-display">
+      \[ 25{,}5^\circ=25^\circ+0{,}5\times 60'=25^\circ30'0'' \]
+    </div>
+  </div>
+</section>
+
+<section
+  id="lingkaran-satuan"
+  data-title="Lingkaran Satuan dan Sudut di Berbagai Kuadran"
+>
+  <h2>4. Lingkaran Satuan dan Sudut di Berbagai Kuadran</h2>
+
+  <p>
+    Definisi pada segitiga siku-siku hanya berlaku untuk sudut lancip. Agar
+    berlaku untuk sudut berapa pun, sudut ditempatkan pada bidang koordinat
+    dalam <strong>posisi baku</strong>: titik sudut di \(O(0,0)\), sisi awal
+    berimpit dengan sumbu \(x\) positif, dan sisi akhir diputar berlawanan arah
+    jarum jam (sudut positif) atau searah jarum jam (sudut negatif). Jika
+    \(P(x,y)\) titik pada sisi akhir dengan jarak \(r=\sqrt{x^2+y^2}\) dari
+    \(O\), maka:
+  </p>
+
+  <div class="math-display">
+    \[ \sin\theta=\frac{y}{r},\qquad \cos\theta=\frac{x}{r},\qquad
+    \tan\theta=\frac{y}{x}\ (x\neq 0) \]
+  </div>
+
+  <p>
+    Bila dipilih \(r=1\), titik \(P\) terletak pada
+    <strong>lingkaran satuan</strong>
+    \(x^2+y^2=1\) dan koordinatnya langsung menjadi
+    \(P(\cos\theta,\sin\theta)\).
+  </p>
+
+  <figure class="lesson-figure" style="margin: 1.5rem 0">
+    <svg
+      viewBox="0 0 420 320"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-labelledby="satuant satuand"
+      style="
+        width: 100%;
+        max-width: 420px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        font-family: inherit;
+      "
+    >
+      <title id="satuant">Lingkaran satuan</title>
+      <desc id="satuand">
+        Lingkaran satuan berpusat di O. Titik P pada lingkaran berkoordinat cos
+        theta dan sin theta untuk sudut theta.
+      </desc>
+      <circle
+        cx="200"
+        cy="170"
+        r="120"
+        fill="#3b82f6"
+        fill-opacity="0.05"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-opacity="0.7"
+      />
+      <line
+        x1="60"
+        y1="170"
+        x2="340"
+        y2="170"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-opacity="0.55"
+      />
+      <line
+        x1="200"
+        y1="300"
+        x2="200"
+        y2="16"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-opacity="0.55"
+      />
+      <path
+        d="M340 170 L333.1 166 L333.1 174 Z"
+        fill="currentColor"
+        fill-opacity="0.8"
+        stroke="none"
+      />
+      <path
+        d="M200 16 L196 22.9 L204 22.9 Z"
+        fill="currentColor"
+        fill-opacity="0.8"
+        stroke="none"
+      />
+      <text
+        x="344"
+        y="188"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        x
+      </text>
+      <text
+        x="208"
+        y="20"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        y
+      </text>
+      <line
+        x1="200"
+        y1="170"
+        x2="291.9"
+        y2="92.9"
+        stroke="#10b981"
+        stroke-width="2.4"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <line
+        x1="200"
+        y1="170"
+        x2="291.9"
+        y2="170"
+        stroke="#3b82f6"
+        stroke-width="3.2"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <line
+        x1="291.9"
+        y1="170"
+        x2="291.9"
+        y2="92.9"
+        stroke="#ef4444"
+        stroke-width="3.2"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <path
+        d="M282.9 170 L282.9 161 L291.9 161"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-opacity="0.8"
+      />
+      <path
+        d="M230 170 A30 30 0 0 0 223 150.7"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-opacity="0.8"
+      />
+      <text
+        x="244"
+        y="163"
+        font-size="15"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        θ
+      </text>
+      <text
+        x="246"
+        y="190"
+        font-size="14"
+        text-anchor="middle"
+        fill="#3b82f6"
+        fill-opacity="1"
+        font-weight="700"
+        font-style="italic"
+      >
+        cos θ
+      </text>
+      <text
+        x="301.9"
+        y="136.4"
+        font-size="14"
+        text-anchor="start"
+        fill="#ef4444"
+        fill-opacity="1"
+        font-weight="700"
+        font-style="italic"
+      >
+        sin θ
+      </text>
+      <text
+        x="244.7"
+        y="116.4"
+        font-size="14"
+        text-anchor="middle"
+        fill="#10b981"
+        fill-opacity="1"
+        font-weight="700"
+        font-style="italic"
+      >
+        1
+      </text>
+      <circle cx="291.9" cy="92.9" r="4" fill="currentColor" />
+      <circle cx="200" cy="170" r="3.2" fill="currentColor" />
+      <text
+        x="301.9"
+        y="84.9"
+        font-size="14"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        P(cos θ, sin θ)
+      </text>
+      <text
+        x="190"
+        y="188"
+        font-size="14"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        O
+      </text>
+      <text
+        x="324"
+        y="188"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        1
+      </text>
+      <text
+        x="76"
+        y="188"
+        font-size="13"
+        text-anchor="end"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        −1
+      </text>
+      <text
+        x="210"
+        y="44"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        1
+      </text>
+      <text
+        x="210"
+        y="306"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        −1
+      </text>
+    </svg>
+    <figcaption
+      style="
+        text-align: center;
+        font-size: 0.9em;
+        opacity: 0.85;
+        margin-top: 0.6rem;
+      "
+    >
+      Gambar 4. Pada lingkaran satuan, titik \(P\) berkoordinat \((\cos\theta,\
+      \sin\theta)\).
+    </figcaption>
+  </figure>
+
+  <p>
+    Dari lingkaran satuan terlihat bahwa nilai \(\sin\theta\) dan \(\cos\theta\)
+    selalu berada di antara \(-1\) dan \(1\), serta
+    \(\sin^2\theta+\cos^2\theta=1\) karena \(x^2+y^2=1\). Tanda perbandingan
+    trigonometri bergantung pada kuadran tempat sisi akhir sudut berada, karena
+    tanda \(x\) dan \(y\) berbeda pada tiap kuadran.
+  </p>
+
+  <figure class="lesson-figure" style="margin: 1.5rem 0">
+    <svg
+      viewBox="0 0 520 330"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-labelledby="kuadrant kuadrand"
+      style="
+        width: 100%;
+        max-width: 520px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        font-family: inherit;
+      "
+    >
+      <title id="kuadrant">Tanda perbandingan trigonometri tiap kuadran</title>
+      <desc id="kuadrand">
+        Bidang koordinat dibagi empat kuadran. Kuadran I semua positif, kuadran
+        II sin positif, kuadran III tan positif, kuadran IV cos positif.
+      </desc>
+      <rect
+        x="260"
+        y="35"
+        width="240"
+        height="140"
+        fill="#10b981"
+        fill-opacity="0.09"
+      />
+      <rect
+        x="20"
+        y="35"
+        width="240"
+        height="140"
+        fill="#f97316"
+        fill-opacity="0.09"
+      />
+      <rect
+        x="20"
+        y="175"
+        width="240"
+        height="140"
+        fill="#3b82f6"
+        fill-opacity="0.09"
+      />
+      <rect
+        x="260"
+        y="175"
+        width="240"
+        height="140"
+        fill="#ef4444"
+        fill-opacity="0.09"
+      />
+      <line
+        x1="20"
+        y1="175"
+        x2="500"
+        y2="175"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-opacity="0.6"
+      />
+      <line
+        x1="260"
+        y1="35"
+        x2="260"
+        y2="315"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-opacity="0.6"
+      />
+      <text
+        x="490"
+        y="167"
+        font-size="13"
+        text-anchor="end"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        x
+      </text>
+      <text
+        x="268"
+        y="48"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        y
+      </text>
+      <text
+        x="380"
+        y="90"
+        font-size="26"
+        text-anchor="middle"
+        fill="#10b981"
+        fill-opacity="1"
+        font-weight="700"
+      >
+        Semua
+      </text>
+      <text
+        x="380"
+        y="112"
+        font-size="13"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+      >
+        Kuadran I
+      </text>
+      <text
+        x="380"
+        y="129"
+        font-size="12"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        0° – 90°
+      </text>
+      <text
+        x="380"
+        y="145"
+        font-size="12"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        semua positif
+      </text>
+      <text
+        x="140"
+        y="90"
+        font-size="26"
+        text-anchor="middle"
+        fill="#f97316"
+        fill-opacity="1"
+        font-weight="700"
+      >
+        Sin
+      </text>
+      <text
+        x="140"
+        y="112"
+        font-size="13"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+      >
+        Kuadran II
+      </text>
+      <text
+        x="140"
+        y="129"
+        font-size="12"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        90° – 180°
+      </text>
+      <text
+        x="140"
+        y="145"
+        font-size="12"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        sin dan csc positif
+      </text>
+      <text
+        x="140"
+        y="230"
+        font-size="26"
+        text-anchor="middle"
+        fill="#3b82f6"
+        fill-opacity="1"
+        font-weight="700"
+      >
+        Tan
+      </text>
+      <text
+        x="140"
+        y="252"
+        font-size="13"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+      >
+        Kuadran III
+      </text>
+      <text
+        x="140"
+        y="269"
+        font-size="12"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        180° – 270°
+      </text>
+      <text
+        x="140"
+        y="285"
+        font-size="12"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        tan dan cot positif
+      </text>
+      <text
+        x="380"
+        y="230"
+        font-size="26"
+        text-anchor="middle"
+        fill="#ef4444"
+        fill-opacity="1"
+        font-weight="700"
+      >
+        Cos
+      </text>
+      <text
+        x="380"
+        y="252"
+        font-size="13"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+      >
+        Kuadran IV
+      </text>
+      <text
+        x="380"
+        y="269"
+        font-size="12"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        270° – 360°
+      </text>
+      <text
+        x="380"
+        y="285"
+        font-size="12"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        cos dan sec positif
+      </text>
+    </svg>
+    <figcaption
+      style="
+        text-align: center;
+        font-size: 0.9em;
+        opacity: 0.85;
+        margin-top: 0.6rem;
+      "
+    >
+      Gambar 5. Tanda perbandingan trigonometri di tiap kuadran
+      (Semua–Sin–Tan–Cos).
+    </figcaption>
+  </figure>
+
+  <h3>Sudut Kuadran</h3>
+
+  <p>
+    Sudut yang sisi akhirnya berimpit dengan sumbu koordinat disebut sudut
+    kuadran. Nilainya diperoleh dari titik \((1,0)\), \((0,1)\), \((-1,0)\), dan
+    \((0,-1)\) pada lingkaran satuan.
+  </p>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">\(\theta\)</th>
+          <th scope="col">\(0^\circ\)</th>
+          <th scope="col">\(90^\circ\)</th>
+          <th scope="col">\(180^\circ\)</th>
+          <th scope="col">\(270^\circ\)</th>
+          <th scope="col">\(360^\circ\)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(\sin\theta\)</td>
+          <td>\(0\)</td>
+          <td>\(1\)</td>
+          <td>\(0\)</td>
+          <td>\(-1\)</td>
+          <td>\(0\)</td>
+        </tr>
+        <tr>
+          <td>\(\cos\theta\)</td>
+          <td>\(1\)</td>
+          <td>\(0\)</td>
+          <td>\(-1\)</td>
+          <td>\(0\)</td>
+          <td>\(1\)</td>
+        </tr>
+        <tr>
+          <td>\(\tan\theta\)</td>
+          <td>\(0\)</td>
+          <td>tak terdefinisi</td>
+          <td>\(0\)</td>
+          <td>tak terdefinisi</td>
+          <td>\(0\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Titik \(P(-3,4)\) terletak pada sisi akhir sudut \(\theta\). Tentukan
+      \(\sin\theta\), \(\cos\theta\), dan \(\tan\theta\).
+    </p>
+
+    <div class="math-display">
+      \[ r=\sqrt{(-3)^2+4^2}=5,\qquad \sin\theta=\frac{4}{5},\qquad
+      \cos\theta=-\frac{3}{5},\qquad \tan\theta=-\frac{4}{3} \]
+    </div>
+
+    <p>
+      Titik \(P\) berada di kuadran II, sehingga hanya \(\sin\) yang positif.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Jika \(\tan\theta=-\displaystyle\frac{5}{12}\) dan \(\sin\theta\gt 0\),
+      tentukan \(\sin\theta\) dan \(\cos\theta\).
+    </p>
+
+    <p>
+      \(\tan\theta\) negatif dan \(\sin\theta\) positif, jadi \(\theta\) di
+      kuadran II dengan \(y=5\), \(x=-12\), dan \(r=\sqrt{144+25}=13\). Maka:
+    </p>
+
+    <div class="math-display">
+      \[ \sin\theta=\frac{5}{13},\qquad \cos\theta=-\frac{12}{13} \]
+    </div>
+  </div>
+</section>
+
+<section id="sudut-berelasi" data-title="Sudut Berelasi">
+  <h2>5. Sudut Berelasi</h2>
+
+  <p>
+    <strong>Sudut berelasi</strong> adalah sudut-sudut yang dapat dinyatakan
+    dalam bentuk \(90^\circ\pm\alpha\), \(180^\circ\pm\alpha\),
+    \(270^\circ\pm\alpha\), \(360^\circ-\alpha\), atau \(-\alpha\) dengan
+    \(\alpha\) lancip. Pada lingkaran satuan, titik-titik untuk sudut tersebut
+    simetris terhadap sumbu atau titik pusat, sehingga koordinatnya hanya
+    berbeda tanda.
+  </p>
+
+  <figure class="lesson-figure" style="margin: 1.5rem 0">
+    <svg
+      viewBox="0 0 580 380"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-labelledby="berelasit berelasid"
+      style="
+        width: 100%;
+        max-width: 580px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        font-family: inherit;
+      "
+    >
+      <title id="berelasit">Sudut berelasi pada lingkaran satuan</title>
+      <desc id="berelasid">
+        Empat titik pada lingkaran satuan yang simetris terhadap sumbu x dan
+        sumbu y untuk sudut alpha, 180 dikurang alpha, 180 ditambah alpha, dan
+        360 dikurang alpha.
+      </desc>
+      <circle
+        cx="290"
+        cy="190"
+        r="130"
+        fill="#3b82f6"
+        fill-opacity="0.04"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-opacity="0.7"
+      />
+      <line
+        x1="130"
+        y1="190"
+        x2="450"
+        y2="190"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-opacity="0.55"
+      />
+      <line
+        x1="290"
+        y1="340"
+        x2="290"
+        y2="36"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-opacity="0.55"
+      />
+      <path
+        d="M450 190 L443.1 186 L443.1 194 Z"
+        fill="currentColor"
+        fill-opacity="0.8"
+        stroke="none"
+      />
+      <path
+        d="M290 36 L286 42.9 L294 42.9 Z"
+        fill="currentColor"
+        fill-opacity="0.8"
+        stroke="none"
+      />
+      <text
+        x="454"
+        y="208"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        x
+      </text>
+      <text
+        x="298"
+        y="40"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        y
+      </text>
+      <path
+        d="M396.5 115.4 L183.5 115.4 L183.5 264.6 L396.5 264.6 Z"
+        fill="none"
+        stroke="#f97316"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-opacity="0.9"
+        stroke-dasharray="6 5"
+      />
+      <line
+        x1="290"
+        y1="190"
+        x2="396.5"
+        y2="115.4"
+        stroke="#10b981"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <circle cx="396.5" cy="115.4" r="4" fill="currentColor" />
+      <line
+        x1="290"
+        y1="190"
+        x2="183.5"
+        y2="115.4"
+        stroke="#10b981"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <circle cx="183.5" cy="115.4" r="4" fill="currentColor" />
+      <line
+        x1="290"
+        y1="190"
+        x2="183.5"
+        y2="264.6"
+        stroke="#10b981"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <circle cx="183.5" cy="264.6" r="4" fill="currentColor" />
+      <line
+        x1="290"
+        y1="190"
+        x2="396.5"
+        y2="264.6"
+        stroke="#10b981"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <circle cx="396.5" cy="264.6" r="4" fill="currentColor" />
+      <circle cx="290" cy="190" r="3.2" fill="currentColor" />
+      <path
+        d="M324 190 A34 34 0 0 0 317.9 170.5"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-opacity="0.8"
+      />
+      <path
+        d="M262.1 170.5 A34 34 0 0 0 256 190"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-opacity="0.8"
+      />
+      <path
+        d="M256 190 A34 34 0 0 0 262.1 209.5"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-opacity="0.8"
+      />
+      <path
+        d="M317.9 209.5 A34 34 0 0 0 324 190"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-opacity="0.8"
+      />
+      <text
+        x="406.5"
+        y="107.4"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        P₁(cos α, sin α)
+      </text>
+      <text
+        x="173.5"
+        y="107.4"
+        font-size="13"
+        text-anchor="end"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        P₂(−cos α, sin α)
+      </text>
+      <text
+        x="173.5"
+        y="284.6"
+        font-size="13"
+        text-anchor="end"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        P₃(−cos α, −sin α)
+      </text>
+      <text
+        x="406.5"
+        y="284.6"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        P₄(cos α, −sin α)
+      </text>
+      <text
+        x="342"
+        y="182"
+        font-size="14"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        α
+      </text>
+      <text
+        x="238"
+        y="182"
+        font-size="14"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        α
+      </text>
+      <text
+        x="238"
+        y="212"
+        font-size="14"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        α
+      </text>
+      <text
+        x="342"
+        y="212"
+        font-size="14"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        α
+      </text>
+    </svg>
+    <figcaption
+      style="
+        text-align: center;
+        font-size: 0.9em;
+        opacity: 0.85;
+        margin-top: 0.6rem;
+      "
+    >
+      Gambar 6. Titik \(P_1,P_2,P_3,P_4\) mewakili sudut \(\alpha\),
+      \(180^\circ-\alpha\), \(180^\circ+\alpha\), dan \(360^\circ-\alpha\);
+      koordinatnya hanya berbeda tanda.
+    </figcaption>
+  </figure>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Sudut</th>
+          <th scope="col">\(\sin\)</th>
+          <th scope="col">\(\cos\)</th>
+          <th scope="col">\(\tan\)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(90^\circ-\alpha\)</td>
+          <td>\(\cos\alpha\)</td>
+          <td>\(\sin\alpha\)</td>
+          <td>\(\cot\alpha\)</td>
+        </tr>
+        <tr>
+          <td>\(90^\circ+\alpha\)</td>
+          <td>\(\cos\alpha\)</td>
+          <td>\(-\sin\alpha\)</td>
+          <td>\(-\cot\alpha\)</td>
+        </tr>
+        <tr>
+          <td>\(180^\circ-\alpha\)</td>
+          <td>\(\sin\alpha\)</td>
+          <td>\(-\cos\alpha\)</td>
+          <td>\(-\tan\alpha\)</td>
+        </tr>
+        <tr>
+          <td>\(180^\circ+\alpha\)</td>
+          <td>\(-\sin\alpha\)</td>
+          <td>\(-\cos\alpha\)</td>
+          <td>\(\tan\alpha\)</td>
+        </tr>
+        <tr>
+          <td>\(270^\circ-\alpha\)</td>
+          <td>\(-\cos\alpha\)</td>
+          <td>\(-\sin\alpha\)</td>
+          <td>\(\cot\alpha\)</td>
+        </tr>
+        <tr>
+          <td>\(270^\circ+\alpha\)</td>
+          <td>\(-\cos\alpha\)</td>
+          <td>\(\sin\alpha\)</td>
+          <td>\(-\cot\alpha\)</td>
+        </tr>
+        <tr>
+          <td>\(360^\circ-\alpha\)</td>
+          <td>\(-\sin\alpha\)</td>
+          <td>\(\cos\alpha\)</td>
+          <td>\(-\tan\alpha\)</td>
+        </tr>
+        <tr>
+          <td>\(-\alpha\)</td>
+          <td>\(-\sin\alpha\)</td>
+          <td>\(\cos\alpha\)</td>
+          <td>\(-\tan\alpha\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p><strong>Langkah praktis</strong> menentukan nilai sudut berelasi:</p>
+
+  <ol>
+    <li>
+      Jika sudutnya berbentuk \(90^\circ\) atau \(270^\circ\) (kelipatan ganjil
+      \(90^\circ\)), fungsi berubah: \(\sin\leftrightarrow\cos\),
+      \(\tan\leftrightarrow\cot\). Jika berbentuk \(180^\circ\) atau
+      \(360^\circ\), fungsi tidak berubah.
+    </li>
+    <li>
+      Tanda hasil ditentukan oleh kuadran sudut semula (anggap \(\alpha\)
+      lancip) dan fungsi semula.
+    </li>
+  </ol>
+
+  <p>
+    Sudut yang lebih dari \(360^\circ\) dapat dikurangi kelipatan \(360^\circ\)
+    karena nilai \(\sin\) dan \(\cos\) berulang setiap \(360^\circ\), sedangkan
+    \(\tan\) berulang setiap \(180^\circ\):
+  </p>
+
+  <div class="math-display">
+    \[ \sin(\alpha+k\cdot 360^\circ)=\sin\alpha,\qquad \cos(\alpha+k\cdot
+    360^\circ)=\cos\alpha,\qquad \tan(\alpha+k\cdot 180^\circ)=\tan\alpha \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan nilai dari bentuk berikut tanpa kalkulator.</p>
+
+    <div class="math-display">
+      \[ \begin{aligned}
+      \sin150^\circ&=\sin(180^\circ-30^\circ)=\sin30^\circ=\frac{1}{2}\\
+      \cos225^\circ&=\cos(180^\circ+45^\circ)=-\cos45^\circ=-\frac{\sqrt{2}}{2}\\
+      \tan300^\circ&=\tan(360^\circ-60^\circ)=-\tan60^\circ=-\sqrt{3}\\
+      \sin(-150^\circ)&=-\sin150^\circ=-\frac{1}{2}\\
+      \cos1200^\circ&=\cos(3\cdot
+      360^\circ+120^\circ)=\cos120^\circ=-\cos60^\circ=-\frac{1}{2}
+      \end{aligned} \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Jika \(\sin20^\circ=p\), nyatakan \(\cos110^\circ\) dan \(\tan160^\circ\)
+      dalam \(p\).
+    </p>
+
+    <div class="math-display">
+      \[ \cos110^\circ=\cos(90^\circ+20^\circ)=-\sin20^\circ=-p \] \[
+      \tan160^\circ=\tan(180^\circ-20^\circ)=-\tan20^\circ
+      =-\frac{p}{\sqrt{1-p^2}} \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Sederhanakan
+      \(\displaystyle\frac{\sin(180^\circ-x)\cos(90^\circ+x)}{\tan(180^\circ+x)\cos(360^\circ-x)}\).
+    </p>
+
+    <div class="math-display">
+      \[ \frac{(\sin x)(-\sin x)}{(\tan x)(\cos x)} =\frac{-\sin^2x}{\sin
+      x}=-\sin x \]
+    </div>
+  </div>
+</section>
+
+<section id="identitas-trigonometri" data-title="Identitas Trigonometri">
+  <h2>6. Identitas Trigonometri</h2>
+
+  <p>
+    <strong>Identitas trigonometri</strong> adalah persamaan yang bernilai benar
+    untuk semua nilai sudut yang membuat kedua ruasnya terdefinisi. Identitas
+    dasar diturunkan dari persamaan lingkaran satuan \(x^2+y^2=1\), yaitu
+    \(\cos^2\theta+\sin^2\theta=1\). Jika kedua ruas dibagi \(\cos^2\theta\)
+    atau \(\sin^2\theta\), diperoleh dua identitas lainnya.
+  </p>
+
+  <div class="math-display">
+    \[ \sin^2\theta+\cos^2\theta=1,\qquad 1+\tan^2\theta=\sec^2\theta,\qquad
+    1+\cot^2\theta=\csc^2\theta \]
+  </div>
+
+  <p>Dari identitas pertama diperoleh bentuk-bentuk turunan berikut:</p>
+
+  <div class="math-display">
+    \[ \sin^2\theta=1-\cos^2\theta,\qquad \cos^2\theta=1-\sin^2\theta,\qquad
+    \sin\theta=\pm\sqrt{1-\cos^2\theta} \]
+  </div>
+
+  <p>
+    Bersama identitas perbandingan dan kebalikan
+    (\(\tan\theta=\displaystyle\frac{\sin\theta}{\cos\theta}\),
+    \(\csc\theta=\displaystyle\frac{1}{\sin\theta}\), dan seterusnya), semua
+    identitas ini menjadi alat utama untuk menyederhanakan dan membuktikan
+    bentuk trigonometri.
+  </p>
+
+  <p>
+    <strong>Strategi pembuktian:</strong> mulailah dari ruas yang lebih rumit,
+    ubah semua bentuk menjadi \(\sin\) dan \(\cos\), samakan penyebut, lalu
+    gunakan \(\sin^2\theta+\cos^2\theta=1\) hingga sama dengan ruas lainnya.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Buktikan \(\left(1-\cos^2x\right)\left(1+\cot^2x\right)=1\).</p>
+
+    <div class="math-display">
+      \[ \left(1-\cos^2x\right)\left(1+\cot^2x\right)
+      =\sin^2x\cdot\csc^2x=\sin^2x\cdot\frac{1}{\sin^2x}=1 \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Buktikan \(\displaystyle\frac{\sin x}{1+\cos x}+\frac{1+\cos x}{\sin
+      x}=2\csc x\).
+    </p>
+
+    <div class="math-display">
+      \[ \begin{aligned} \frac{\sin x}{1+\cos x}+\frac{1+\cos x}{\sin x}
+      &=\frac{\sin^2x+(1+\cos x)^2}{\sin x\,(1+\cos x)}\\
+      &=\frac{\sin^2x+\cos^2x+1+2\cos x}{\sin x\,(1+\cos x)}\\ &=\frac{2(1+\cos
+      x)}{\sin x\,(1+\cos x)}=\frac{2}{\sin x}=2\csc x \end{aligned} \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Jika \(\sin x+\cos x=\displaystyle\frac{1}{2}\), tentukan \(\sin x\cos
+      x\).
+    </p>
+
+    <div class="math-display">
+      \[ (\sin x+\cos x)^2=\sin^2x+\cos^2x+2\sin x\cos x \ \Rightarrow\
+      \frac{1}{4}=1+2\sin x\cos x \ \Rightarrow\ \sin x\cos x=-\frac{3}{8} \]
+    </div>
+  </div>
+</section>
+
+<section id="grafik-trigonometri" data-title="Grafik Fungsi Trigonometri">
+  <h2>7. Grafik Fungsi Trigonometri</h2>
+
+  <p>
+    Grafik fungsi trigonometri dibuat dengan memetakan sudut \(x\) pada sumbu
+    mendatar dan nilai fungsinya pada sumbu tegak. Grafik \(y=\sin x\) dan
+    \(y=\cos x\) berbentuk gelombang yang berulang setiap \(360^\circ\)
+    (\(2\pi\) radian) dengan nilai antara \(-1\) dan \(1\). Grafik cosinus sama
+    dengan grafik sinus yang digeser ke kiri sejauh \(90^\circ\), karena \(\cos
+    x=\sin\left(x+90^\circ\right)\).
+  </p>
+
+  <figure class="lesson-figure" style="margin: 1.5rem 0">
+    <svg
+      viewBox="0 0 620 275"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-labelledby="sincost sincosd"
+      style="
+        width: 100%;
+        max-width: 620px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        font-family: inherit;
+      "
+    >
+      <title id="sincost">Grafik fungsi sinus dan kosinus</title>
+      <desc id="sincosd">
+        Grafik y sama dengan sin x berwarna biru dan y sama dengan cos x
+        berwarna oranye pada selang 0 sampai 2 pi, dengan nilai antara minus
+        satu dan satu.
+      </desc>
+      <line
+        x1="36"
+        y1="140"
+        x2="580"
+        y2="140"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-opacity="0.55"
+      />
+      <line
+        x1="60"
+        y1="255"
+        x2="60"
+        y2="20"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-opacity="0.55"
+      />
+      <path
+        d="M580 140 L573.1 136 L573.1 144 Z"
+        fill="currentColor"
+        fill-opacity="0.8"
+        stroke="none"
+      />
+      <path
+        d="M60 20 L56 26.9 L64 26.9 Z"
+        fill="currentColor"
+        fill-opacity="0.8"
+        stroke="none"
+      />
+      <text
+        x="584"
+        y="158"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        x
+      </text>
+      <text
+        x="68"
+        y="24"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        y
+      </text>
+      <line
+        x1="60"
+        y1="50"
+        x2="560"
+        y2="50"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-linecap="round"
+        stroke-opacity="0.3"
+        stroke-dasharray="4 5"
+      />
+      <text
+        x="52"
+        y="55"
+        font-size="13"
+        text-anchor="end"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        1
+      </text>
+      <line
+        x1="60"
+        y1="230"
+        x2="560"
+        y2="230"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-linecap="round"
+        stroke-opacity="0.3"
+        stroke-dasharray="4 5"
+      />
+      <text
+        x="52"
+        y="235"
+        font-size="13"
+        text-anchor="end"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        −1
+      </text>
+      <line
+        x1="185"
+        y1="136"
+        x2="185"
+        y2="144"
+        stroke="currentColor"
+        stroke-width="1.4"
+        stroke-linecap="round"
+        stroke-opacity="0.7"
+      />
+      <text
+        x="185"
+        y="160"
+        font-size="13"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        π/2
+      </text>
+      <line
+        x1="310"
+        y1="136"
+        x2="310"
+        y2="144"
+        stroke="currentColor"
+        stroke-width="1.4"
+        stroke-linecap="round"
+        stroke-opacity="0.7"
+      />
+      <text
+        x="310"
+        y="160"
+        font-size="13"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        π
+      </text>
+      <line
+        x1="435"
+        y1="136"
+        x2="435"
+        y2="144"
+        stroke="currentColor"
+        stroke-width="1.4"
+        stroke-linecap="round"
+        stroke-opacity="0.7"
+      />
+      <text
+        x="435"
+        y="160"
+        font-size="13"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        3π/2
+      </text>
+      <line
+        x1="560"
+        y1="136"
+        x2="560"
+        y2="144"
+        stroke="currentColor"
+        stroke-width="1.4"
+        stroke-linecap="round"
+        stroke-opacity="0.7"
+      />
+      <text
+        x="560"
+        y="160"
+        font-size="13"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        2π
+      </text>
+      <text
+        x="52"
+        y="158"
+        font-size="13"
+        text-anchor="end"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        0
+      </text>
+      <path
+        d="M60 140 L64.2 135.3 L68.3 130.6 L72.5 125.9 L76.7 121.3 L80.8 116.7 L85 112.2 L89.2 107.7 L93.3 103.4 L97.5 99.1 L101.7 95 L105.8 91 L110 87.1 L114.2 83.4 L118.3 79.8 L122.5 76.4 L126.7 73.1 L130.8 70.1 L135 67.2 L139.2 64.5 L143.3 62.1 L147.5 59.8 L151.7 57.8 L155.8 56 L160 54.4 L164.2 53.1 L168.3 52 L172.5 51.1 L176.7 50.5 L180.8 50.1 L185 50 L189.2 50.1 L193.3 50.5 L197.5 51.1 L201.7 52 L205.8 53.1 L210 54.4 L214.2 56 L218.3 57.8 L222.5 59.8 L226.7 62.1 L230.8 64.5 L235 67.2 L239.2 70.1 L243.3 73.1 L247.5 76.4 L251.7 79.8 L255.8 83.4 L260 87.1 L264.2 91 L268.3 95 L272.5 99.1 L276.7 103.4 L280.8 107.7 L285 112.2 L289.2 116.7 L293.3 121.3 L297.5 125.9 L301.7 130.6 L305.8 135.3 L310 140 L314.2 144.7 L318.3 149.4 L322.5 154.1 L326.7 158.7 L330.8 163.3 L335 167.8 L339.2 172.3 L343.3 176.6 L347.5 180.9 L351.7 185 L355.8 189 L360 192.9 L364.2 196.6 L368.3 200.2 L372.5 203.6 L376.7 206.9 L380.8 209.9 L385 212.8 L389.2 215.5 L393.3 217.9 L397.5 220.2 L401.7 222.2 L405.8 224 L410 225.6 L414.2 226.9 L418.3 228 L422.5 228.9 L426.7 229.5 L430.8 229.9 L435 230 L439.2 229.9 L443.3 229.5 L447.5 228.9 L451.7 228 L455.8 226.9 L460 225.6 L464.2 224 L468.3 222.2 L472.5 220.2 L476.7 217.9 L480.8 215.5 L485 212.8 L489.2 209.9 L493.3 206.9 L497.5 203.6 L501.7 200.2 L505.8 196.6 L510 192.9 L514.2 189 L518.3 185 L522.5 180.9 L526.7 176.6 L530.8 172.3 L535 167.8 L539.2 163.3 L543.3 158.7 L547.5 154.1 L551.7 149.4 L555.8 144.7 L560 140"
+        fill="none"
+        stroke="#3b82f6"
+        stroke-width="2.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-opacity="1"
+      />
+      <path
+        d="M60 50 L64.2 50.1 L68.3 50.5 L72.5 51.1 L76.7 52 L80.8 53.1 L85 54.4 L89.2 56 L93.3 57.8 L97.5 59.8 L101.7 62.1 L105.8 64.5 L110 67.2 L114.2 70.1 L118.3 73.1 L122.5 76.4 L126.7 79.8 L130.8 83.4 L135 87.1 L139.2 91 L143.3 95 L147.5 99.1 L151.7 103.4 L155.8 107.7 L160 112.2 L164.2 116.7 L168.3 121.3 L172.5 125.9 L176.7 130.6 L180.8 135.3 L185 140 L189.2 144.7 L193.3 149.4 L197.5 154.1 L201.7 158.7 L205.8 163.3 L210 167.8 L214.2 172.3 L218.3 176.6 L222.5 180.9 L226.7 185 L230.8 189 L235 192.9 L239.2 196.6 L243.3 200.2 L247.5 203.6 L251.7 206.9 L255.8 209.9 L260 212.8 L264.2 215.5 L268.3 217.9 L272.5 220.2 L276.7 222.2 L280.8 224 L285 225.6 L289.2 226.9 L293.3 228 L297.5 228.9 L301.7 229.5 L305.8 229.9 L310 230 L314.2 229.9 L318.3 229.5 L322.5 228.9 L326.7 228 L330.8 226.9 L335 225.6 L339.2 224 L343.3 222.2 L347.5 220.2 L351.7 217.9 L355.8 215.5 L360 212.8 L364.2 209.9 L368.3 206.9 L372.5 203.6 L376.7 200.2 L380.8 196.6 L385 192.9 L389.2 189 L393.3 185 L397.5 180.9 L401.7 176.6 L405.8 172.3 L410 167.8 L414.2 163.3 L418.3 158.7 L422.5 154.1 L426.7 149.4 L430.8 144.7 L435 140 L439.2 135.3 L443.3 130.6 L447.5 125.9 L451.7 121.3 L455.8 116.7 L460 112.2 L464.2 107.7 L468.3 103.4 L472.5 99.1 L476.7 95 L480.8 91 L485 87.1 L489.2 83.4 L493.3 79.8 L497.5 76.4 L501.7 73.1 L505.8 70.1 L510 67.2 L514.2 64.5 L518.3 62.1 L522.5 59.8 L526.7 57.8 L530.8 56 L535 54.4 L539.2 53.1 L543.3 52 L547.5 51.1 L551.7 50.5 L555.8 50.1 L560 50"
+        fill="none"
+        stroke="#f97316"
+        stroke-width="2.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-opacity="1"
+      />
+      <line
+        x1="330"
+        y1="22"
+        x2="360"
+        y2="22"
+        stroke="#3b82f6"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <text
+        x="368"
+        y="27"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        y = sin x
+      </text>
+      <line
+        x1="450"
+        y1="22"
+        x2="480"
+        y2="22"
+        stroke="#f97316"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <text
+        x="488"
+        y="27"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        y = cos x
+      </text>
+    </svg>
+    <figcaption
+      style="
+        text-align: center;
+        font-size: 0.9em;
+        opacity: 0.85;
+        margin-top: 0.6rem;
+      "
+    >
+      Gambar 7. Grafik \(y=\sin x\) dan \(y=\cos x\) pada selang \(0\le x\le
+      2\pi\).
+    </figcaption>
+  </figure>
+
+  <p>
+    Grafik \(y=\tan x\) berulang setiap \(180^\circ\) (\(\pi\) radian) dan
+    memiliki <strong>asimtot tegak</strong> di \(x=90^\circ+k\cdot180^\circ\),
+    yaitu titik-titik tempat \(\cos x=0\) sehingga \(\tan x\) tak terdefinisi.
+  </p>
+
+  <figure class="lesson-figure" style="margin: 1.5rem 0">
+    <svg
+      viewBox="0 0 620 285"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-labelledby="tant tand"
+      style="
+        width: 100%;
+        max-width: 620px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        font-family: inherit;
+      "
+    >
+      <title id="tant">Grafik fungsi tangen</title>
+      <desc id="tand">
+        Grafik y sama dengan tan x pada selang 0 sampai 2 pi dengan asimtot
+        tegak di x sama dengan pi per dua dan 3 pi per dua.
+      </desc>
+      <line
+        x1="36"
+        y1="150"
+        x2="580"
+        y2="150"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-opacity="0.55"
+      />
+      <line
+        x1="60"
+        y1="270"
+        x2="60"
+        y2="20"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-opacity="0.55"
+      />
+      <path
+        d="M580 150 L573.1 146 L573.1 154 Z"
+        fill="currentColor"
+        fill-opacity="0.8"
+        stroke="none"
+      />
+      <path
+        d="M60 20 L56 26.9 L64 26.9 Z"
+        fill="currentColor"
+        fill-opacity="0.8"
+        stroke="none"
+      />
+      <text
+        x="584"
+        y="168"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        x
+      </text>
+      <text
+        x="68"
+        y="24"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        y
+      </text>
+      <line
+        x1="185"
+        y1="146"
+        x2="185"
+        y2="154"
+        stroke="currentColor"
+        stroke-width="1.4"
+        stroke-linecap="round"
+        stroke-opacity="0.7"
+      />
+      <text
+        x="185"
+        y="170"
+        font-size="13"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        π/2
+      </text>
+      <line
+        x1="310"
+        y1="146"
+        x2="310"
+        y2="154"
+        stroke="currentColor"
+        stroke-width="1.4"
+        stroke-linecap="round"
+        stroke-opacity="0.7"
+      />
+      <text
+        x="310"
+        y="170"
+        font-size="13"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        π
+      </text>
+      <line
+        x1="435"
+        y1="146"
+        x2="435"
+        y2="154"
+        stroke="currentColor"
+        stroke-width="1.4"
+        stroke-linecap="round"
+        stroke-opacity="0.7"
+      />
+      <text
+        x="435"
+        y="170"
+        font-size="13"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        3π/2
+      </text>
+      <line
+        x1="560"
+        y1="146"
+        x2="560"
+        y2="154"
+        stroke="currentColor"
+        stroke-width="1.4"
+        stroke-linecap="round"
+        stroke-opacity="0.7"
+      />
+      <text
+        x="560"
+        y="170"
+        font-size="13"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        2π
+      </text>
+      <text
+        x="52"
+        y="168"
+        font-size="13"
+        text-anchor="end"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        0
+      </text>
+      <line
+        x1="56"
+        y1="114"
+        x2="64"
+        y2="114"
+        stroke="currentColor"
+        stroke-width="1.4"
+        stroke-linecap="round"
+        stroke-opacity="0.7"
+      />
+      <text
+        x="50"
+        y="119"
+        font-size="13"
+        text-anchor="end"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        1
+      </text>
+      <line
+        x1="56"
+        y1="186"
+        x2="64"
+        y2="186"
+        stroke="currentColor"
+        stroke-width="1.4"
+        stroke-linecap="round"
+        stroke-opacity="0.7"
+      />
+      <text
+        x="50"
+        y="191"
+        font-size="13"
+        text-anchor="end"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        −1
+      </text>
+      <line
+        x1="185"
+        y1="24"
+        x2="185"
+        y2="276"
+        stroke="#ef4444"
+        stroke-width="1.4"
+        stroke-linecap="round"
+        stroke-opacity="0.8"
+        stroke-dasharray="6 5"
+      />
+      <line
+        x1="435"
+        y1="24"
+        x2="435"
+        y2="276"
+        stroke="#ef4444"
+        stroke-width="1.4"
+        stroke-linecap="round"
+        stroke-opacity="0.8"
+        stroke-dasharray="6 5"
+      />
+      <path
+        d="M60 150 L61.7 149.2 L63.4 148.5 L65.1 147.7 L66.8 146.9 L68.5 146.2 L70.2 145.4 L71.9 144.6 L73.5 143.8 L75.2 143 L76.9 142.2 L78.6 141.4 L80.3 140.6 L82 139.8 L83.7 138.9 L85.4 138.1 L87.1 137.2 L88.8 136.4 L90.5 135.5 L92.2 134.6 L93.9 133.7 L95.6 132.8 L97.2 131.8 L98.9 130.8 L100.6 129.8 L102.3 128.8 L104 127.8 L105.7 126.7 L107.4 125.6 L109.1 124.5 L110.8 123.3 L112.5 122.1 L114.2 120.8 L115.9 119.5 L117.6 118.2 L119.3 116.8 L121 115.4 L122.6 113.9 L124.3 112.3 L126 110.7 L127.7 108.9 L129.4 107.1 L131.1 105.2 L132.8 103.2 L134.5 101.1 L136.2 98.9 L137.9 96.5 L139.6 93.9 L141.3 91.2 L143 88.3 L144.7 85.2 L146.3 81.8 L148 78.1 L149.7 74.2 L151.4 69.8 L153.1 65 L154.8 59.7 L156.5 53.8 L158.2 47.2 L159.9 39.7 L161.6 31.2"
+        fill="none"
+        stroke="#3b82f6"
+        stroke-width="2.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-opacity="1"
+      />
+      <path
+        d="M208.4 268.8 L211.8 252.8 L215.2 240.3 L218.6 230.2 L222 221.9 L225.3 214.8 L228.7 208.8 L232.1 203.5 L235.5 198.9 L238.9 194.8 L242.3 191.1 L245.7 187.7 L249 184.6 L252.4 181.8 L255.8 179.2 L259.2 176.7 L262.6 174.4 L266 172.2 L269.4 170.2 L272.8 168.2 L276.1 166.3 L279.5 164.5 L282.9 162.8 L286.3 161.1 L289.7 159.4 L293.1 157.8 L296.5 156.2 L299.8 154.6 L303.2 153.1 L306.6 151.5 L310 150 L313.4 148.5 L316.8 146.9 L320.2 145.4 L323.5 143.8 L326.9 142.2 L330.3 140.6 L333.7 138.9 L337.1 137.2 L340.5 135.5 L343.9 133.7 L347.2 131.8 L350.6 129.8 L354 127.8 L357.4 125.6 L360.8 123.3 L364.2 120.8 L367.6 118.2 L371 115.4 L374.3 112.3 L377.7 108.9 L381.1 105.2 L384.5 101.1 L387.9 96.5 L391.3 91.2 L394.7 85.2 L398 78.1 L401.4 69.8 L404.8 59.7 L408.2 47.2 L411.6 31.2"
+        fill="none"
+        stroke="#3b82f6"
+        stroke-width="2.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-opacity="1"
+      />
+      <path
+        d="M458.4 268.8 L460.1 260.3 L461.8 252.8 L463.5 246.2 L465.2 240.3 L466.9 235 L468.6 230.2 L470.3 225.8 L472 221.9 L473.7 218.2 L475.3 214.8 L477 211.7 L478.7 208.8 L480.4 206.1 L482.1 203.5 L483.8 201.1 L485.5 198.9 L487.2 196.8 L488.9 194.8 L490.6 192.9 L492.3 191.1 L494 189.3 L495.7 187.7 L497.4 186.1 L499 184.6 L500.7 183.2 L502.4 181.8 L504.1 180.5 L505.8 179.2 L507.5 177.9 L509.2 176.7 L510.9 175.5 L512.6 174.4 L514.3 173.3 L516 172.2 L517.7 171.2 L519.4 170.2 L521.1 169.2 L522.8 168.2 L524.4 167.2 L526.1 166.3 L527.8 165.4 L529.5 164.5 L531.2 163.6 L532.9 162.8 L534.6 161.9 L536.3 161.1 L538 160.2 L539.7 159.4 L541.4 158.6 L543.1 157.8 L544.8 157 L546.5 156.2 L548.1 155.4 L549.8 154.6 L551.5 153.8 L553.2 153.1 L554.9 152.3 L556.6 151.5 L558.3 150.8 L560 150"
+        fill="none"
+        stroke="#3b82f6"
+        stroke-width="2.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-opacity="1"
+      />
+      <text
+        x="191"
+        y="40"
+        font-size="12"
+        text-anchor="start"
+        fill="#ef4444"
+        fill-opacity="1"
+      >
+        x = π/2
+      </text>
+      <text
+        x="441"
+        y="40"
+        font-size="12"
+        text-anchor="start"
+        fill="#ef4444"
+        fill-opacity="1"
+      >
+        x = 3π/2
+      </text>
+      <line
+        x1="300"
+        y1="262"
+        x2="330"
+        y2="262"
+        stroke="#3b82f6"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <text
+        x="338"
+        y="267"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        y = tan x
+      </text>
+    </svg>
+    <figcaption
+      style="
+        text-align: center;
+        font-size: 0.9em;
+        opacity: 0.85;
+        margin-top: 0.6rem;
+      "
+    >
+      Gambar 8. Grafik \(y=\tan x\) dengan asimtot tegak di
+      \(x=\displaystyle\frac{\pi}{2}\) dan \(x=\displaystyle\frac{3\pi}{2}\).
+    </figcaption>
+  </figure>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Fungsi</th>
+          <th scope="col">Daerah asal</th>
+          <th scope="col">Daerah hasil</th>
+          <th scope="col">Periode</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(y=\sin x\)</td>
+          <td>semua bilangan real</td>
+          <td>\(-1\le y\le 1\)</td>
+          <td>\(360^\circ\) atau \(2\pi\)</td>
+        </tr>
+        <tr>
+          <td>\(y=\cos x\)</td>
+          <td>semua bilangan real</td>
+          <td>\(-1\le y\le 1\)</td>
+          <td>\(360^\circ\) atau \(2\pi\)</td>
+        </tr>
+        <tr>
+          <td>\(y=\tan x\)</td>
+          <td>\(x\neq 90^\circ+k\cdot 180^\circ\)</td>
+          <td>semua bilangan real</td>
+          <td>\(180^\circ\) atau \(\pi\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Bentuk Umum dan Transformasi Grafik</h3>
+
+  <p>Bentuk umum fungsi sinus dan cosinus adalah sebagai berikut.</p>
+
+  <div class="math-display">
+    \[ y=A\sin\left(k(x-\alpha)\right)+c,\qquad
+    y=A\cos\left(k(x-\alpha)\right)+c \]
+  </div>
+
+  <div class="math-display">
+    \[ \text{amplitudo}=|A|,\quad \text{periode}=\frac{360^\circ}{|k|}\
+    \left(\text{atau }\frac{2\pi}{|k|}\right),\quad y_{\text{maks}}=|A|+c,\quad
+    y_{\text{min}}=-|A|+c \]
+  </div>
+
+  <p>
+    Konstanta \(\alpha\) menggeser grafik mendatar (ke kanan jika \(\alpha\gt
+    0\)), konstanta \(c\) menggeser grafik tegak sehingga garis tengahnya
+    \(y=c\), dan tanda negatif pada \(A\) mencerminkan grafik terhadap garis
+    tengah. Untuk \(y=A\tan\left(k(x-\alpha)\right)+c\), periodenya
+    \(\displaystyle\frac{180^\circ}{|k|}\) dan tidak memiliki amplitudo.
+  </p>
+
+  <figure class="lesson-figure" style="margin: 1.5rem 0">
+    <svg
+      viewBox="0 0 620 290"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-labelledby="transformt transformd"
+      style="
+        width: 100%;
+        max-width: 620px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        font-family: inherit;
+      "
+    >
+      <title id="transformt">Grafik y = 2 sin 2x + 1</title>
+      <desc id="transformd">
+        Grafik y sama dengan 2 sin 2x ditambah 1 dengan amplitudo 2, periode pi,
+        garis tengah y sama dengan 1, nilai maksimum 3 dan minimum minus 1.
+      </desc>
+      <line
+        x1="40"
+        y1="200"
+        x2="580"
+        y2="200"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-opacity="0.55"
+      />
+      <line
+        x1="70"
+        y1="262"
+        x2="70"
+        y2="24"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-opacity="0.55"
+      />
+      <path
+        d="M580 200 L573.1 196 L573.1 204 Z"
+        fill="currentColor"
+        fill-opacity="0.8"
+        stroke="none"
+      />
+      <path
+        d="M70 24 L66 30.9 L74 30.9 Z"
+        fill="currentColor"
+        fill-opacity="0.8"
+        stroke="none"
+      />
+      <text
+        x="584"
+        y="218"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        x
+      </text>
+      <text
+        x="78"
+        y="28"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        y
+      </text>
+      <line
+        x1="190"
+        y1="196"
+        x2="190"
+        y2="204"
+        stroke="currentColor"
+        stroke-width="1.4"
+        stroke-linecap="round"
+        stroke-opacity="0.7"
+      />
+      <text
+        x="190"
+        y="220"
+        font-size="13"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        π/2
+      </text>
+      <line
+        x1="310"
+        y1="196"
+        x2="310"
+        y2="204"
+        stroke="currentColor"
+        stroke-width="1.4"
+        stroke-linecap="round"
+        stroke-opacity="0.7"
+      />
+      <text
+        x="310"
+        y="220"
+        font-size="13"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        π
+      </text>
+      <line
+        x1="430"
+        y1="196"
+        x2="430"
+        y2="204"
+        stroke="currentColor"
+        stroke-width="1.4"
+        stroke-linecap="round"
+        stroke-opacity="0.7"
+      />
+      <text
+        x="430"
+        y="220"
+        font-size="13"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        3π/2
+      </text>
+      <line
+        x1="550"
+        y1="196"
+        x2="550"
+        y2="204"
+        stroke="currentColor"
+        stroke-width="1.4"
+        stroke-linecap="round"
+        stroke-opacity="0.7"
+      />
+      <text
+        x="550"
+        y="220"
+        font-size="13"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        2π
+      </text>
+      <line
+        x1="66"
+        y1="248"
+        x2="74"
+        y2="248"
+        stroke="currentColor"
+        stroke-width="1.4"
+        stroke-linecap="round"
+        stroke-opacity="0.7"
+      />
+      <text
+        x="60"
+        y="253"
+        font-size="13"
+        text-anchor="end"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        −1
+      </text>
+      <line
+        x1="66"
+        y1="152"
+        x2="74"
+        y2="152"
+        stroke="currentColor"
+        stroke-width="1.4"
+        stroke-linecap="round"
+        stroke-opacity="0.7"
+      />
+      <text
+        x="60"
+        y="157"
+        font-size="13"
+        text-anchor="end"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        1
+      </text>
+      <line
+        x1="66"
+        y1="56"
+        x2="74"
+        y2="56"
+        stroke="currentColor"
+        stroke-width="1.4"
+        stroke-linecap="round"
+        stroke-opacity="0.7"
+      />
+      <text
+        x="60"
+        y="61"
+        font-size="13"
+        text-anchor="end"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        3
+      </text>
+      <line
+        x1="70"
+        y1="152"
+        x2="560"
+        y2="152"
+        stroke="currentColor"
+        stroke-width="1.3"
+        stroke-linecap="round"
+        stroke-opacity="0.5"
+        stroke-dasharray="5 5"
+      />
+      <text
+        x="566"
+        y="156"
+        font-size="12"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        y = 1
+      </text>
+      <line
+        x1="70"
+        y1="56"
+        x2="560"
+        y2="56"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-linecap="round"
+        stroke-opacity="0.3"
+        stroke-dasharray="3 5"
+      />
+      <line
+        x1="70"
+        y1="248"
+        x2="560"
+        y2="248"
+        stroke="currentColor"
+        stroke-width="1"
+        stroke-linecap="round"
+        stroke-opacity="0.3"
+        stroke-dasharray="3 5"
+      />
+      <path
+        d="M70 152 L73 144.5 L76 137 L79 129.6 L82 122.3 L85 115.3 L88 108.4 L91 101.8 L94 95.6 L97 89.7 L100 84.1 L103 79 L106 74.3 L109 70.1 L112 66.5 L115 63.3 L118 60.7 L121 58.7 L124 57.2 L127 56.3 L130 56 L133 56.3 L136 57.2 L139 58.7 L142 60.7 L145 63.3 L148 66.5 L151 70.1 L154 74.3 L157 79 L160 84.1 L163 89.7 L166 95.6 L169 101.8 L172 108.4 L175 115.3 L178 122.3 L181 129.6 L184 137 L187 144.5 L190 152 L193 159.5 L196 167 L199 174.4 L202 181.7 L205 188.7 L208 195.6 L211 202.2 L214 208.4 L217 214.3 L220 219.9 L223 225 L226 229.7 L229 233.9 L232 237.5 L235 240.7 L238 243.3 L241 245.3 L244 246.8 L247 247.7 L250 248 L253 247.7 L256 246.8 L259 245.3 L262 243.3 L265 240.7 L268 237.5 L271 233.9 L274 229.7 L277 225 L280 219.9 L283 214.3 L286 208.4 L289 202.2 L292 195.6 L295 188.7 L298 181.7 L301 174.4 L304 167 L307 159.5 L310 152 L313 144.5 L316 137 L319 129.6 L322 122.3 L325 115.3 L328 108.4 L331 101.8 L334 95.6 L337 89.7 L340 84.1 L343 79 L346 74.3 L349 70.1 L352 66.5 L355 63.3 L358 60.7 L361 58.7 L364 57.2 L367 56.3 L370 56 L373 56.3 L376 57.2 L379 58.7 L382 60.7 L385 63.3 L388 66.5 L391 70.1 L394 74.3 L397 79 L400 84.1 L403 89.7 L406 95.6 L409 101.8 L412 108.4 L415 115.3 L418 122.3 L421 129.6 L424 137 L427 144.5 L430 152 L433 159.5 L436 167 L439 174.4 L442 181.7 L445 188.7 L448 195.6 L451 202.2 L454 208.4 L457 214.3 L460 219.9 L463 225 L466 229.7 L469 233.9 L472 237.5 L475 240.7 L478 243.3 L481 245.3 L484 246.8 L487 247.7 L490 248 L493 247.7 L496 246.8 L499 245.3 L502 243.3 L505 240.7 L508 237.5 L511 233.9 L514 229.7 L517 225 L520 219.9 L523 214.3 L526 208.4 L529 202.2 L532 195.6 L535 188.7 L538 181.7 L541 174.4 L544 167 L547 159.5 L550 152"
+        fill="none"
+        stroke="#3b82f6"
+        stroke-width="2.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-opacity="1"
+      />
+      <line
+        x1="130"
+        y1="152"
+        x2="130"
+        y2="58"
+        stroke="#f97316"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <path
+        d="M130 58 L126 64.9 L134 64.9 Z"
+        fill="#f97316"
+        fill-opacity="1"
+        stroke="none"
+      />
+      <path
+        d="M130 152 L134 145.1 L126 145.1 Z"
+        fill="#f97316"
+        fill-opacity="1"
+        stroke="none"
+      />
+      <text
+        x="138"
+        y="109"
+        font-size="13"
+        text-anchor="start"
+        fill="#f97316"
+        fill-opacity="1"
+        font-weight="700"
+      >
+        A = 2
+      </text>
+      <line
+        x1="310"
+        y1="34"
+        x2="310"
+        y2="200"
+        stroke="currentColor"
+        stroke-width="1.2"
+        stroke-linecap="round"
+        stroke-opacity="0.5"
+        stroke-dasharray="4 4"
+      />
+      <line
+        x1="70"
+        y1="40"
+        x2="310"
+        y2="40"
+        stroke="#10b981"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <path
+        d="M310 40 L303.1 36 L303.1 44 Z"
+        fill="#10b981"
+        fill-opacity="1"
+        stroke="none"
+      />
+      <path
+        d="M70 40 L76.9 44 L76.9 36 Z"
+        fill="#10b981"
+        fill-opacity="1"
+        stroke="none"
+      />
+      <text
+        x="190"
+        y="30"
+        font-size="13"
+        text-anchor="middle"
+        fill="#10b981"
+        fill-opacity="1"
+        font-weight="700"
+      >
+        periode = π
+      </text>
+    </svg>
+    <figcaption
+      style="
+        text-align: center;
+        font-size: 0.9em;
+        opacity: 0.85;
+        margin-top: 0.6rem;
+      "
+    >
+      Gambar 9. Grafik \(y=2\sin 2x+1\): amplitudo \(2\), periode \(\pi\), garis
+      tengah \(y=1\), nilai maksimum \(3\), dan nilai minimum \(-1\).
+    </figcaption>
+  </figure>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Tentukan amplitudo, periode, nilai maksimum, dan nilai minimum fungsi
+      \(y=3\sin\left(2x-60^\circ\right)+1\).
+    </p>
+
+    <p>
+      Ubah ke bentuk umum: \(y=3\sin 2\left(x-30^\circ\right)+1\), sehingga
+      \(A=3\), \(k=2\), \(\alpha=30^\circ\), dan \(c=1\).
+    </p>
+
+    <div class="math-display">
+      \[ \text{amplitudo}=3,\quad
+      \text{periode}=\frac{360^\circ}{2}=180^\circ,\quad
+      y_{\text{maks}}=3+1=4,\quad y_{\text{min}}=-3+1=-2 \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Tentukan periode dan daerah hasil \(y=-2\cos\displaystyle\frac{x}{3}\).
+    </p>
+
+    <div class="math-display">
+      \[ k=\frac{1}{3}\ \Rightarrow\
+      \text{periode}=\frac{360^\circ}{1/3}=1080^\circ, \qquad -2\le y\le 2 \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Lengkapi tabel titik untuk menggambar \(y=2\sin 2x\) pada \(0\le
+      x\le\pi\).
+    </p>
+
+    <div class="material-table-wrap">
+      <table class="reflection-table">
+        <thead>
+          <tr>
+            <th scope="col">\(x\)</th>
+            <th scope="col">\(0\)</th>
+            <th scope="col">\(\displaystyle\frac{\pi}{4}\)</th>
+            <th scope="col">\(\displaystyle\frac{\pi}{2}\)</th>
+            <th scope="col">\(\displaystyle\frac{3\pi}{4}\)</th>
+            <th scope="col">\(\pi\)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>\(y\)</td>
+            <td>\(0\)</td>
+            <td>\(2\)</td>
+            <td>\(0\)</td>
+            <td>\(-2\)</td>
+            <td>\(0\)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Grafiknya membentuk satu gelombang penuh dengan amplitudo \(2\) dan
+      periode \(\pi\).
+    </p>
+  </div>
+</section>
+
+<section
+  id="persamaan-trigonometri"
+  data-title="Persamaan dan Pertidaksamaan Trigonometri"
+>
+  <h2>8. Persamaan dan Pertidaksamaan Trigonometri</h2>
+
+  <h3>Persamaan Trigonometri Dasar</h3>
+
+  <p>
+    Persamaan trigonometri adalah persamaan yang memuat perbandingan
+    trigonometri dari suatu sudut yang belum diketahui. Penyelesaiannya dicari
+    dengan mencari semua sudut yang memenuhi, biasanya pada selang tertentu
+    seperti \(0^\circ\le x\le 360^\circ\). Misalkan \(\alpha\) adalah sebuah
+    sudut yang memenuhi persamaan, maka penyelesaian umumnya sebagai berikut,
+    dengan \(k\) bilangan bulat.
+  </p>
+
+  <div class="math-display">
+    \[ \sin x=\sin\alpha\ \Rightarrow\ x=\alpha+k\cdot360^\circ\ \text{ atau }\
+    x=\left(180^\circ-\alpha\right)+k\cdot360^\circ \]
+  </div>
+
+  <div class="math-display">
+    \[ \cos x=\cos\alpha\ \Rightarrow\ x=\pm\alpha+k\cdot360^\circ,\qquad \tan
+    x=\tan\alpha\ \Rightarrow\ x=\alpha+k\cdot180^\circ \]
+  </div>
+
+  <p>
+    Jika sudut dinyatakan dalam radian, ganti \(360^\circ\) dengan \(2\pi\) dan
+    \(180^\circ\) dengan \(\pi\). Bantuan lingkaran satuan sangat berguna:
+    persamaan \(\sin x=a\) berarti mencari titik potong garis mendatar \(y=a\)
+    dengan lingkaran satuan.
+  </p>
+
+  <figure class="lesson-figure" style="margin: 1.5rem 0">
+    <svg
+      viewBox="0 0 450 330"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-labelledby="persamaant persamaand"
+      style="
+        width: 100%;
+        max-width: 450px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        font-family: inherit;
+      "
+    >
+      <title id="persamaant">
+        Penyelesaian sin x sama dengan setengah pada lingkaran satuan
+      </title>
+      <desc id="persamaand">
+        Garis mendatar y sama dengan setengah memotong lingkaran satuan di dua
+        titik, yaitu pada sudut 30 derajat dan 150 derajat.
+      </desc>
+      <circle
+        cx="200"
+        cy="170"
+        r="130"
+        fill="#3b82f6"
+        fill-opacity="0.05"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-opacity="0.7"
+      />
+      <line
+        x1="50"
+        y1="170"
+        x2="370"
+        y2="170"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-opacity="0.55"
+      />
+      <line
+        x1="200"
+        y1="320"
+        x2="200"
+        y2="28"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-opacity="0.55"
+      />
+      <path
+        d="M370 170 L363.1 166 L363.1 174 Z"
+        fill="currentColor"
+        fill-opacity="0.8"
+        stroke="none"
+      />
+      <path
+        d="M200 28 L196 34.9 L204 34.9 Z"
+        fill="currentColor"
+        fill-opacity="0.8"
+        stroke="none"
+      />
+      <text
+        x="374"
+        y="188"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        x
+      </text>
+      <text
+        x="208"
+        y="32"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        y
+      </text>
+      <line
+        x1="46"
+        y1="105"
+        x2="372"
+        y2="105"
+        stroke="#ef4444"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-opacity="1"
+        stroke-dasharray="7 5"
+      />
+      <line
+        x1="200"
+        y1="170"
+        x2="312.6"
+        y2="105"
+        stroke="#10b981"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <line
+        x1="200"
+        y1="170"
+        x2="87.4"
+        y2="105"
+        stroke="#10b981"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <path
+        d="M244 170 A44 44 0 0 0 238.1 148"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-opacity="0.8"
+      />
+      <path
+        d="M230 170 A30 30 0 0 0 174 155"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-opacity="0.8"
+      />
+      <text
+        x="266"
+        y="162"
+        font-size="12"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        30°
+      </text>
+      <text
+        x="164"
+        y="160"
+        font-size="12"
+        text-anchor="end"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        150°
+      </text>
+      <circle cx="312.6" cy="105" r="4.5" fill="#ef4444" />
+      <circle cx="87.4" cy="105" r="4.5" fill="#ef4444" />
+      <circle cx="200" cy="170" r="3.2" fill="currentColor" />
+      <text
+        x="322.6"
+        y="95"
+        font-size="14"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        x = 30°
+      </text>
+      <text
+        x="77.4"
+        y="95"
+        font-size="14"
+        text-anchor="end"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        x = 150°
+      </text>
+      <text
+        x="378"
+        y="110"
+        font-size="13"
+        text-anchor="start"
+        fill="#ef4444"
+        fill-opacity="1"
+        font-weight="700"
+      >
+        y = ½
+      </text>
+    </svg>
+    <figcaption
+      style="
+        text-align: center;
+        font-size: 0.9em;
+        opacity: 0.85;
+        margin-top: 0.6rem;
+      "
+    >
+      Gambar 10. Garis \(y=\displaystyle\frac{1}{2}\) memotong lingkaran satuan
+      di dua titik, sehingga \(\sin x=\displaystyle\frac{1}{2}\) memiliki
+      penyelesaian \(30^\circ\) dan \(150^\circ\) pada satu putaran.
+    </figcaption>
+  </figure>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Tentukan penyelesaian \(2\cos x=\sqrt{3}\) untuk \(0^\circ\le x\le
+      360^\circ\).
+    </p>
+
+    <div class="math-display">
+      \[ \cos x=\frac{\sqrt{3}}{2}=\cos30^\circ\ \Rightarrow\ x=30^\circ\ \text{
+      atau }\ x=-30^\circ+360^\circ=330^\circ \]
+    </div>
+
+    <p>Jadi, himpunan penyelesaiannya adalah \(\{30^\circ,\ 330^\circ\}\).</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Tentukan penyelesaian \(\tan 2x=\sqrt{3}\) untuk \(0^\circ\le x\le
+      180^\circ\).
+    </p>
+
+    <div class="math-display">
+      \[ \tan2x=\tan60^\circ\ \Rightarrow\ 2x=60^\circ+k\cdot180^\circ \
+      \Rightarrow\ x=30^\circ+k\cdot90^\circ \]
+    </div>
+
+    <p>
+      Untuk \(k=0,1\) diperoleh \(x=30^\circ\) dan \(x=120^\circ\), sedangkan
+      \(k=2\) menghasilkan \(210^\circ\) (di luar selang). Jadi, himpunan
+      penyelesaiannya \(\{30^\circ,\ 120^\circ\}\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Tentukan penyelesaian \(2\sin^2x-\sin x-1=0\) untuk \(0\le x\le 2\pi\).
+    </p>
+
+    <div class="math-display">
+      \[ (2\sin x+1)(\sin x-1)=0\ \Rightarrow\ \sin x=-\frac{1}{2}\ \text{ atau
+      }\ \sin x=1 \]
+    </div>
+
+    <p>
+      \(\sin x=-\displaystyle\frac{1}{2}\) menghasilkan
+      \(x=\displaystyle\frac{7\pi}{6}\) atau \(x=\displaystyle\frac{11\pi}{6}\)
+      (kuadran III dan IV), sedangkan \(\sin x=1\) menghasilkan
+      \(x=\displaystyle\frac{\pi}{2}\). Jadi, himpunan penyelesaiannya
+      \(\left\{\displaystyle\frac{\pi}{2},\ \frac{7\pi}{6},\
+      \frac{11\pi}{6}\right\}\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Tentukan penyelesaian \(2\cos^2x+3\sin x=3\) untuk \(0^\circ\le x\le
+      360^\circ\).
+    </p>
+
+    <p>Ubah \(\cos^2x=1-\sin^2x\):</p>
+
+    <div class="math-display">
+      \[ 2-2\sin^2x+3\sin x-3=0\ \Rightarrow\ 2\sin^2x-3\sin x+1=0 \
+      \Rightarrow\ (2\sin x-1)(\sin x-1)=0 \]
+    </div>
+
+    <p>
+      Maka \(\sin x=\displaystyle\frac{1}{2}\) (yaitu \(30^\circ\) atau
+      \(150^\circ\)) atau \(\sin x=1\) (yaitu \(90^\circ\)). Jadi, himpunan
+      penyelesaiannya \(\{30^\circ,\ 90^\circ,\ 150^\circ\}\).
+    </p>
+  </div>
+
+  <h3>Pertidaksamaan Trigonometri</h3>
+
+  <p>
+    Pertidaksamaan trigonometri diselesaikan dengan mencari dahulu titik batas
+    (ubah tanda pertidaksamaan menjadi sama dengan), lalu menentukan selang yang
+    memenuhi menggunakan lingkaran satuan atau grafik. Untuk \(\sin x\gt a\),
+    selang yang memenuhi adalah bagian lingkaran satuan yang berada di atas
+    garis \(y=a\); untuk \(\cos x\gt a\), bagian yang berada di kanan garis
+    \(x=a\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan penyelesaian \(2\sin x-1\gt 0\) untuk \(0\le x\le 2\pi\).</p>
+
+    <p>
+      Bentuknya \(\sin x\gt \displaystyle\frac{1}{2}\). Titik batasnya
+      \(x=\displaystyle\frac{\pi}{6}\) dan \(x=\displaystyle\frac{5\pi}{6}\).
+      Grafik sinus berada di atas \(\displaystyle\frac{1}{2}\) di antara
+      keduanya, sehingga:
+    </p>
+
+    <div class="math-display">\[ \frac{\pi}{6}\lt x\lt\frac{5\pi}{6} \]</div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Tentukan penyelesaian \(\cos x\le\displaystyle\frac{1}{2}\) untuk \(0\le
+      x\le 2\pi\).
+    </p>
+
+    <p>
+      Titik batasnya \(x=\displaystyle\frac{\pi}{3}\) dan
+      \(x=\displaystyle\frac{5\pi}{3}\). Nilai cosinus tidak lebih dari
+      \(\displaystyle\frac{1}{2}\) di antara kedua titik tersebut:
+    </p>
+
+    <div class="math-display">\[ \frac{\pi}{3}\le x\le\frac{5\pi}{3} \]</div>
+  </div>
+</section>
+
+<section
+  id="aturan-sinus-cosinus"
+  data-title="Aturan Sinus, Aturan Cosinus, dan Luas Segitiga"
+>
+  <h2>9. Aturan Sinus, Aturan Cosinus, dan Luas Segitiga</h2>
+
+  <p>
+    Untuk segitiga sembarang \(ABC\), panjang sisi di hadapan sudut \(A\),
+    \(B\), dan \(C\) berturut-turut dilambangkan \(a\), \(b\), dan \(c\).
+    Hubungan antara sisi dan sudutnya dinyatakan oleh aturan sinus dan aturan
+    cosinus.
+  </p>
+
+  <h3>Aturan Sinus</h3>
+
+  <p>
+    Perbandingan panjang setiap sisi dengan sinus sudut di hadapannya bernilai
+    sama dan sama dengan diameter lingkaran luar segitiga (\(2R\)):
+  </p>
+
+  <figure class="lesson-figure" style="margin: 1.5rem 0">
+    <svg
+      viewBox="0 0 560 386"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-labelledby="sinust sinusd"
+      style="
+        width: 100%;
+        max-width: 560px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        font-family: inherit;
+      "
+    >
+      <title id="sinust">Aturan sinus dan lingkaran luar segitiga</title>
+      <desc id="sinusd">
+        Segitiga ABC dengan lingkaran luar berpusat di O dan jari-jari R. Sisi a
+        di hadapan A, b di hadapan B, c di hadapan C.
+      </desc>
+      <circle
+        cx="280"
+        cy="225.4"
+        r="112.7"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.4"
+        stroke-opacity="0.45"
+      />
+      <path
+        d="M170 250 L390 250 L320 120 Z"
+        fill="#3b82f6"
+        fill-opacity="0.07"
+        stroke="none"
+      />
+      <line
+        x1="170"
+        y1="250"
+        x2="390"
+        y2="250"
+        stroke="#10b981"
+        stroke-width="2.4"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <line
+        x1="390"
+        y1="250"
+        x2="320"
+        y2="120"
+        stroke="#3b82f6"
+        stroke-width="2.4"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <line
+        x1="320"
+        y1="120"
+        x2="170"
+        y2="250"
+        stroke="#f97316"
+        stroke-width="2.4"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <circle cx="280" cy="225.4" r="3" fill="currentColor" />
+      <line
+        x1="280"
+        y1="225.4"
+        x2="320"
+        y2="120"
+        stroke="currentColor"
+        stroke-width="1.3"
+        stroke-linecap="round"
+        stroke-opacity="0.6"
+        stroke-dasharray="5 4"
+      />
+      <text
+        x="270"
+        y="243.4"
+        font-size="13"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        O
+      </text>
+      <text
+        x="290"
+        y="197.4"
+        font-size="13"
+        text-anchor="start"
+        fill="#64748b"
+        fill-opacity="1"
+        font-weight="700"
+        font-style="italic"
+      >
+        R
+      </text>
+      <circle cx="170" cy="250" r="3.2" fill="currentColor" />
+      <text
+        x="156"
+        y="266"
+        font-size="14"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        A
+      </text>
+      <circle cx="390" cy="250" r="3.2" fill="currentColor" />
+      <text
+        x="404"
+        y="266"
+        font-size="14"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        B
+      </text>
+      <circle cx="320" cy="120" r="3.2" fill="currentColor" />
+      <text
+        x="326"
+        y="110"
+        font-size="14"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        C
+      </text>
+      <text
+        x="280"
+        y="272"
+        font-size="14"
+        text-anchor="middle"
+        fill="#10b981"
+        fill-opacity="1"
+        font-weight="700"
+      >
+        c
+      </text>
+      <text
+        x="369"
+        y="189"
+        font-size="14"
+        text-anchor="middle"
+        fill="#3b82f6"
+        fill-opacity="1"
+        font-weight="700"
+      >
+        a
+      </text>
+      <text
+        x="233"
+        y="181"
+        font-size="14"
+        text-anchor="middle"
+        fill="#f97316"
+        fill-opacity="1"
+        font-weight="700"
+      >
+        b
+      </text>
+      <text
+        x="280"
+        y="366.1"
+        font-size="14"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+      >
+        a/sin A = b/sin B = c/sin C = 2R
+      </text>
+    </svg>
+    <figcaption
+      style="
+        text-align: center;
+        font-size: 0.9em;
+        opacity: 0.85;
+        margin-top: 0.6rem;
+      "
+    >
+      Gambar 11. Segitiga \(ABC\) dan lingkaran luarnya: perbandingan setiap
+      sisi dengan sinus sudut di hadapannya sama dengan \(2R\).
+    </figcaption>
+  </figure>
+
+  <div class="math-display">
+    \[ \frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}=2R \]
+  </div>
+
+  <p>
+    Aturan sinus dipakai bila diketahui <strong>sisi–sudut–sudut</strong> atau
+    <strong>sudut–sisi–sudut</strong>, atau
+    <strong>dua sisi dan sudut di hadapan salah satunya</strong>. Pada kasus
+    terakhir (sisi–sisi–sudut) dapat terdapat dua segitiga yang mungkin sehingga
+    perlu diperiksa.
+  </p>
+
+  <h3>Aturan Cosinus</h3>
+
+  <p>
+    Dengan membuat garis tinggi \(CD=h\) pada segitiga, dalil Pythagoras pada
+    segitiga \(BCD\) memberikan \(a^2=h^2+(c-b\cos A)^2\) dengan \(h=b\sin A\).
+    Menjabarkannya dan memakai \(\sin^2A+\cos^2A=1\) menghasilkan aturan
+    cosinus:
+  </p>
+
+  <figure class="lesson-figure" style="margin: 1.5rem 0">
+    <svg
+      viewBox="0 0 480 330"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-labelledby="cosinust cosinusd"
+      style="
+        width: 100%;
+        max-width: 480px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        font-family: inherit;
+      "
+    >
+      <title id="cosinust">Bukti aturan cosinus</title>
+      <desc id="cosinusd">
+        Segitiga ABC dengan garis tinggi CD ke sisi AB. AD sama dengan b cos A
+        dan DB sama dengan c dikurang b cos A.
+      </desc>
+      <path
+        d="M70 250 L400 250 L250 90 Z"
+        fill="#3b82f6"
+        fill-opacity="0.07"
+        stroke="none"
+      />
+      <line
+        x1="70"
+        y1="250"
+        x2="400"
+        y2="250"
+        stroke="#10b981"
+        stroke-width="2.4"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <line
+        x1="400"
+        y1="250"
+        x2="250"
+        y2="90"
+        stroke="#3b82f6"
+        stroke-width="2.4"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <line
+        x1="250"
+        y1="90"
+        x2="70"
+        y2="250"
+        stroke="#f97316"
+        stroke-width="2.4"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <line
+        x1="250"
+        y1="90"
+        x2="250"
+        y2="250"
+        stroke="#ef4444"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-opacity="1"
+        stroke-dasharray="6 5"
+      />
+      <path
+        d="M239 250 L239 239 L250 239"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-opacity="0.8"
+      />
+      <path
+        d="M106 250 A36 36 0 0 0 96.9 226.1"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-opacity="0.8"
+      />
+      <text
+        x="124.3"
+        y="234.1"
+        font-size="14"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        A
+      </text>
+      <circle cx="70" cy="250" r="3.2" fill="currentColor" />
+      <text
+        x="56"
+        y="266"
+        font-size="14"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        A
+      </text>
+      <circle cx="400" cy="250" r="3.2" fill="currentColor" />
+      <text
+        x="414"
+        y="266"
+        font-size="14"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        B
+      </text>
+      <circle cx="250" cy="90" r="3.2" fill="currentColor" />
+      <text
+        x="256"
+        y="80"
+        font-size="14"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        C
+      </text>
+      <circle cx="250" cy="250" r="3.2" fill="currentColor" />
+      <text
+        x="250"
+        y="268"
+        font-size="14"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        D
+      </text>
+      <text
+        x="160"
+        y="294"
+        font-size="13"
+        text-anchor="middle"
+        fill="#10b981"
+        fill-opacity="1"
+      >
+        b cos A
+      </text>
+      <text
+        x="325"
+        y="294"
+        font-size="13"
+        text-anchor="middle"
+        fill="#10b981"
+        fill-opacity="1"
+      >
+        c − b cos A
+      </text>
+      <text
+        x="262"
+        y="175"
+        font-size="14"
+        text-anchor="start"
+        fill="#ef4444"
+        fill-opacity="1"
+        font-weight="700"
+      >
+        h
+      </text>
+      <text
+        x="143"
+        y="158"
+        font-size="14"
+        text-anchor="middle"
+        fill="#f97316"
+        fill-opacity="1"
+        font-weight="700"
+      >
+        b
+      </text>
+      <text
+        x="340"
+        y="160"
+        font-size="14"
+        text-anchor="middle"
+        fill="#3b82f6"
+        fill-opacity="1"
+        font-weight="700"
+      >
+        a
+      </text>
+      <text
+        x="235"
+        y="318"
+        font-size="14"
+        text-anchor="middle"
+        fill="#10b981"
+        fill-opacity="1"
+        font-weight="700"
+      >
+        c
+      </text>
+    </svg>
+    <figcaption
+      style="
+        text-align: center;
+        font-size: 0.9em;
+        opacity: 0.85;
+        margin-top: 0.6rem;
+      "
+    >
+      Gambar 12. Garis tinggi \(CD=h\) membagi sisi \(c\) menjadi \(b\cos A\)
+      dan \(c-b\cos A\), sehingga dapat diterapkan dalil Pythagoras.
+    </figcaption>
+  </figure>
+
+  <div class="math-display">
+    \[ a^2=b^2+c^2-2bc\cos A,\qquad b^2=a^2+c^2-2ac\cos B,\qquad
+    c^2=a^2+b^2-2ab\cos C \]
+  </div>
+
+  <div class="math-display">\[ \cos A=\frac{b^2+c^2-a^2}{2bc} \]</div>
+
+  <p>
+    Aturan cosinus dipakai bila diketahui
+    <strong>dua sisi dan sudut apitnya</strong> atau
+    <strong>ketiga sisinya</strong>. Bila \(A=90^\circ\), \(\cos A=0\) dan
+    aturan ini menjadi dalil Pythagoras. Jika \(a^2\lt b^2+c^2\), sudut \(A\)
+    lancip; jika \(a^2\gt b^2+c^2\), sudut \(A\) tumpul.
+  </p>
+
+  <h3>Luas Segitiga</h3>
+
+  <div class="math-display">
+    \[ L=\frac{1}{2}ab\sin C=\frac{1}{2}bc\sin A=\frac{1}{2}ac\sin B \]
+  </div>
+
+  <div class="math-display">
+    \[ L=\sqrt{s(s-a)(s-b)(s-c)},\ \ s=\frac{a+b+c}{2},\qquad
+    L=\frac{abc}{4R},\qquad r=\frac{L}{s} \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Pada segitiga \(ABC\), \(\angle A=30^\circ\), \(\angle B=45^\circ\), dan
+      \(a=10\) cm. Tentukan panjang \(b\).
+    </p>
+
+    <div class="math-display">
+      \[ \frac{b}{\sin45^\circ}=\frac{10}{\sin30^\circ}\ \Rightarrow\
+      b=\frac{10\cdot\frac{\sqrt{2}}{2}}{\frac{1}{2}}=10\sqrt{2}\text{ cm} \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Pada segitiga \(ABC\), \(b=5\) cm, \(c=8\) cm, dan \(\angle A=60^\circ\).
+      Tentukan panjang \(a\).
+    </p>
+
+    <div class="math-display">
+      \[ a^2=5^2+8^2-2(5)(8)\cos60^\circ=25+64-40=49\ \Rightarrow\ a=7\text{ cm}
+      \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Segitiga dengan sisi \(7\), \(8\), dan \(9\) cm. Tentukan \(\cos A\) untuk
+      sudut di hadapan sisi \(7\) cm.
+    </p>
+
+    <div class="math-display">
+      \[ \cos A=\frac{8^2+9^2-7^2}{2(8)(9)}=\frac{96}{144}=\frac{2}{3} \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      (a) Sebuah segitiga memiliki dua sisi \(6\) cm dan \(8\) cm dengan sudut
+      apit \(30^\circ\). Tentukan luasnya. (b) Pada segitiga \(ABC\) diketahui
+      \(a=6\) cm dan \(\angle A=30^\circ\). Tentukan jari-jari lingkaran
+      luarnya.
+    </p>
+
+    <div class="math-display">
+      \[ L=\frac{1}{2}(6)(8)\sin30^\circ=12\text{ cm}^2,\qquad 2R=\frac{a}{\sin
+      A}=\frac{6}{1/2}=12\ \Rightarrow\ R=6\text{ cm} \]
+    </div>
+  </div>
+</section>
+
+<section
+  id="jumlah-selisih-sudut"
+  data-title="Rumus Jumlah dan Selisih Dua Sudut"
+>
+  <h2>10. Rumus Jumlah dan Selisih Dua Sudut</h2>
+
+  <p>
+    Nilai \(\cos(A-B)\) dapat diturunkan dari lingkaran satuan. Misalkan
+    \(P(\cos A,\sin A)\) dan \(Q(\cos B,\sin B)\) dengan \(\angle POQ=A-B\).
+    Panjang tali busur \(PQ\) dapat dihitung dengan dua cara.
+  </p>
+
+  <figure class="lesson-figure" style="margin: 1.5rem 0">
+    <svg
+      viewBox="0 0 500 340"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-labelledby="cosselisiht cosselisihd"
+      style="
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        font-family: inherit;
+      "
+    >
+      <title id="cosselisiht">Menurunkan rumus cos(A − B)</title>
+      <desc id="cosselisihd">
+        Dua titik P dan Q pada lingkaran satuan untuk sudut A dan B. Sudut POQ
+        sama dengan A dikurang B dan panjang tali busur PQ dihitung dengan dua
+        cara.
+      </desc>
+      <circle
+        cx="190"
+        cy="180"
+        r="140"
+        fill="#3b82f6"
+        fill-opacity="0.04"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-opacity="0.7"
+      />
+      <line
+        x1="30"
+        y1="180"
+        x2="350"
+        y2="180"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-opacity="0.55"
+      />
+      <line
+        x1="190"
+        y1="330"
+        x2="190"
+        y2="22"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-opacity="0.55"
+      />
+      <path
+        d="M350 180 L343.1 176 L343.1 184 Z"
+        fill="currentColor"
+        fill-opacity="0.8"
+        stroke="none"
+      />
+      <path
+        d="M190 22 L186 28.9 L194 28.9 Z"
+        fill="currentColor"
+        fill-opacity="0.8"
+        stroke="none"
+      />
+      <text
+        x="354"
+        y="198"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        x
+      </text>
+      <text
+        x="198"
+        y="26"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        y
+      </text>
+      <path
+        d="M190 180 L237.9 48.4 L316.9 120.8 Z"
+        fill="#f97316"
+        fill-opacity="0.12"
+        stroke="none"
+      />
+      <line
+        x1="190"
+        y1="180"
+        x2="237.9"
+        y2="48.4"
+        stroke="#10b981"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <line
+        x1="190"
+        y1="180"
+        x2="316.9"
+        y2="120.8"
+        stroke="#10b981"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <line
+        x1="237.9"
+        y1="48.4"
+        x2="316.9"
+        y2="120.8"
+        stroke="#f97316"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <path
+        d="M230 180 A40 40 0 0 0 203.7 142.4"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-opacity="0.8"
+      />
+      <path
+        d="M250 180 A60 60 0 0 0 244.4 154.6"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-opacity="0.8"
+      />
+      <path
+        d="M271.6 142 A90 90 0 0 0 220.8 95.4"
+        fill="none"
+        stroke="#ef4444"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-opacity="1"
+      />
+      <text
+        x="269.7"
+        y="101.4"
+        font-size="13"
+        text-anchor="middle"
+        fill="#ef4444"
+        fill-opacity="1"
+        font-weight="700"
+      >
+        A − B
+      </text>
+      <text
+        x="199.1"
+        y="154.9"
+        font-size="12"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        A
+      </text>
+      <text
+        x="266.2"
+        y="168"
+        font-size="12"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        B
+      </text>
+      <circle cx="237.9" cy="48.4" r="4" fill="currentColor" />
+      <circle cx="316.9" cy="120.8" r="4" fill="currentColor" />
+      <circle cx="190" cy="180" r="3.2" fill="currentColor" />
+      <text
+        x="247.9"
+        y="42.4"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        P(cos A, sin A)
+      </text>
+      <text
+        x="326.9"
+        y="116.8"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        Q(cos B, sin B)
+      </text>
+      <text
+        x="180"
+        y="198"
+        font-size="14"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        O
+      </text>
+    </svg>
+    <figcaption
+      style="
+        text-align: center;
+        font-size: 0.9em;
+        opacity: 0.85;
+        margin-top: 0.6rem;
+      "
+    >
+      Gambar 13. Titik \(P\) dan \(Q\) pada lingkaran satuan dengan \(\angle
+      POQ=A-B\); panjang tali busur \(PQ\) dihitung dengan dua cara.
+    </figcaption>
+  </figure>
+
+  <p>Cara pertama dengan rumus jarak dua titik:</p>
+
+  <div class="math-display">
+    \[ \begin{aligned} PQ^2&=(\cos A-\cos B)^2+(\sin A-\sin B)^2\\ &=2-2(\cos
+    A\cos B+\sin A\sin B) \end{aligned} \]
+  </div>
+
+  <p>
+    Cara kedua dengan aturan cosinus pada segitiga \(POQ\) (\(OP=OQ=1\)):
+    \(PQ^2=1+1-2\cos(A-B)\). Menyamakan kedua hasil memberikan rumus
+    \(\cos(A-B)\). Rumus lainnya diturunkan dengan mengganti \(B\) menjadi
+    \(-B\) dan dengan sudut berelasi.
+  </p>
+
+  <div class="math-display">\[ \cos(A\pm B)=\cos A\cos B\mp\sin A\sin B \]</div>
+
+  <div class="math-display">\[ \sin(A\pm B)=\sin A\cos B\pm\cos A\sin B \]</div>
+
+  <div class="math-display">
+    \[ \tan(A\pm B)=\frac{\tan A\pm\tan B}{1\mp\tan A\tan B} \]
+  </div>
+
+  <p>
+    Perhatikan bahwa pada \(\cos\) dan \(\tan\) tanda ruas kanan
+    <strong>berlawanan</strong> dengan tanda ruas kiri, sedangkan pada \(\sin\)
+    tandanya <strong>sama</strong>.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Tentukan nilai eksak \(\sin75^\circ\), \(\cos15^\circ\), dan
+      \(\tan105^\circ\).
+    </p>
+
+    <div class="math-display">
+      \[ \begin{aligned}
+      \sin75^\circ&=\sin(45^\circ+30^\circ)=\frac{\sqrt{2}}{2}\cdot\frac{\sqrt{3}}{2}+\frac{\sqrt{2}}{2}\cdot\frac{1}{2}=\frac{\sqrt{6}+\sqrt{2}}{4}\\
+      \cos15^\circ&=\cos(45^\circ-30^\circ)=\frac{\sqrt{2}}{2}\cdot\frac{\sqrt{3}}{2}+\frac{\sqrt{2}}{2}\cdot\frac{1}{2}=\frac{\sqrt{6}+\sqrt{2}}{4}\\
+      \tan105^\circ&=\tan(60^\circ+45^\circ)=\frac{\sqrt{3}+1}{1-\sqrt{3}}=-(2+\sqrt{3})
+      \end{aligned} \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Diketahui \(\sin A=\displaystyle\frac{3}{5}\) dan \(\cos
+      B=\displaystyle\frac{5}{13}\) dengan \(A\) dan \(B\) sudut lancip.
+      Tentukan \(\sin(A+B)\) dan \(\cos(A+B)\).
+    </p>
+
+    <p>
+      Dari segitiga siku-siku: \(\cos A=\displaystyle\frac{4}{5}\) dan \(\sin
+      B=\displaystyle\frac{12}{13}\). Maka:
+    </p>
+
+    <div class="math-display">
+      \[
+      \sin(A+B)=\frac{3}{5}\cdot\frac{5}{13}+\frac{4}{5}\cdot\frac{12}{13}=\frac{63}{65},\qquad
+      \cos(A+B)=\frac{4}{5}\cdot\frac{5}{13}-\frac{3}{5}\cdot\frac{12}{13}=-\frac{16}{65}
+      \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Sederhanakan \(\sin50^\circ\cos10^\circ+\cos50^\circ\sin10^\circ\).</p>
+
+    <div class="math-display">
+      \[ =\sin(50^\circ+10^\circ)=\sin60^\circ=\frac{\sqrt{3}}{2} \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Jika \(\tan A=\displaystyle\frac{1}{2}\) dan \(\tan
+      B=\displaystyle\frac{1}{3}\) dengan \(A\) dan \(B\) lancip, tentukan
+      \(A+B\).
+    </p>
+
+    <div class="math-display">
+      \[ \tan(A+B)=\frac{\frac{1}{2}+\frac{1}{3}}{1-\frac{1}{2}\cdot\frac{1}{3}}
+      =\frac{5/6}{5/6}=1\ \Rightarrow\ A+B=45^\circ \]
+    </div>
+  </div>
+</section>
+
+<section
+  id="sudut-ganda-setengah"
+  data-title="Rumus Sudut Ganda dan Sudut Setengah"
+>
+  <h2>11. Rumus Sudut Ganda dan Sudut Setengah</h2>
+
+  <p>
+    Rumus sudut ganda diperoleh dengan mengambil \(B=A\) pada rumus jumlah dua
+    sudut.
+  </p>
+
+  <div class="math-display">
+    \[ \sin2A=2\sin A\cos A,\qquad
+    \cos2A=\cos^2A-\sin^2A=2\cos^2A-1=1-2\sin^2A,\qquad \tan2A=\frac{2\tan
+    A}{1-\tan^2A} \]
+  </div>
+
+  <p>
+    Dengan mengatur ulang bentuk \(\cos2A\), diperoleh rumus penurunan pangkat
+    dan rumus sudut setengah (dengan mengganti \(A\) menjadi
+    \(\displaystyle\frac{A}{2}\)):
+  </p>
+
+  <div class="math-display">
+    \[ \sin^2A=\frac{1-\cos2A}{2},\qquad \cos^2A=\frac{1+\cos2A}{2} \]
+  </div>
+
+  <div class="math-display">
+    \[ \sin\frac{A}{2}=\pm\sqrt{\frac{1-\cos A}{2}},\qquad
+    \cos\frac{A}{2}=\pm\sqrt{\frac{1+\cos A}{2}},\qquad
+    \tan\frac{A}{2}=\frac{\sin A}{1+\cos A}=\frac{1-\cos A}{\sin A} \]
+  </div>
+
+  <p>
+    Tanda \(\pm\) ditentukan oleh kuadran sudut \(\displaystyle\frac{A}{2}\).
+    Untuk sudut tiga kali, berlaku pula:
+  </p>
+
+  <div class="math-display">
+    \[ \sin3A=3\sin A-4\sin^3A,\qquad \cos3A=4\cos^3A-3\cos A \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Jika \(\sin A=\displaystyle\frac{3}{5}\) dan \(A\) lancip, tentukan
+      \(\sin2A\), \(\cos2A\), dan \(\tan2A\).
+    </p>
+
+    <div class="math-display">
+      \[ \cos A=\frac{4}{5},\quad
+      \sin2A=2\cdot\frac{3}{5}\cdot\frac{4}{5}=\frac{24}{25},\quad
+      \cos2A=1-2\cdot\frac{9}{25}=\frac{7}{25},\quad \tan2A=\frac{24}{7} \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Tentukan nilai eksak \(\sin22{,}5^\circ\) dan \(\cos15^\circ\) dengan
+      rumus sudut setengah.
+    </p>
+
+    <div class="math-display">
+      \[
+      \sin22{,}5^\circ=\sqrt{\frac{1-\cos45^\circ}{2}}=\sqrt{\frac{1-\frac{\sqrt{2}}{2}}{2}}=\frac{\sqrt{2-\sqrt{2}}}{2}
+      \] \[
+      \cos15^\circ=\sqrt{\frac{1+\cos30^\circ}{2}}=\sqrt{\frac{2+\sqrt{3}}{4}}=\frac{\sqrt{2+\sqrt{3}}}{2}=\frac{\sqrt{6}+\sqrt{2}}{4}
+      \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Selesaikan \(\sin2x=\sin x\) untuk \(0^\circ\le x\le 360^\circ\).</p>
+
+    <div class="math-display">
+      \[ 2\sin x\cos x-\sin x=0\ \Rightarrow\ \sin x\,(2\cos x-1)=0 \]
+    </div>
+
+    <p>
+      \(\sin x=0\) memberikan \(x=0^\circ,180^\circ,360^\circ\), sedangkan
+      \(\cos x=\displaystyle\frac{1}{2}\) memberikan \(x=60^\circ,300^\circ\).
+      Jadi, himpunan penyelesaiannya \(\{0^\circ,\ 60^\circ,\ 180^\circ,\
+      300^\circ,\ 360^\circ\}\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Hitunglah \(\sin15^\circ\cos15^\circ\).</p>
+
+    <div class="math-display">
+      \[ \sin15^\circ\cos15^\circ=\frac{1}{2}\sin30^\circ=\frac{1}{4} \]
+    </div>
+  </div>
+</section>
+
+<section
+  id="perkalian-penjumlahan"
+  data-title="Rumus Perkalian dan Penjumlahan Trigonometri"
+>
+  <h2>12. Rumus Perkalian dan Penjumlahan Trigonometri</h2>
+
+  <p>
+    Dengan menjumlahkan atau mengurangkan rumus \(\sin(A+B)\) dan \(\sin(A-B)\)
+    (serta \(\cos(A+B)\) dan \(\cos(A-B)\)), diperoleh rumus pengubah perkalian
+    menjadi jumlah atau selisih:
+  </p>
+
+  <div class="math-display">
+    \[ \begin{aligned} 2\sin A\cos B&=\sin(A+B)+\sin(A-B)\\ 2\cos A\sin
+    B&=\sin(A+B)-\sin(A-B)\\ 2\cos A\cos B&=\cos(A+B)+\cos(A-B)\\ 2\sin A\sin
+    B&=\cos(A-B)-\cos(A+B) \end{aligned} \]
+  </div>
+
+  <p>
+    Dengan memisalkan \(A+B=P\) dan \(A-B=Q\), diperoleh kebalikannya, yaitu
+    pengubah jumlah atau selisih menjadi perkalian:
+  </p>
+
+  <div class="math-display">
+    \[ \begin{aligned} \sin P+\sin Q&=2\sin\frac{P+Q}{2}\cos\frac{P-Q}{2}\\ \sin
+    P-\sin Q&=2\cos\frac{P+Q}{2}\sin\frac{P-Q}{2}\\ \cos P+\cos
+    Q&=2\cos\frac{P+Q}{2}\cos\frac{P-Q}{2}\\ \cos P-\cos
+    Q&=-2\sin\frac{P+Q}{2}\sin\frac{P-Q}{2} \end{aligned} \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Hitunglah \(2\sin75^\circ\cos15^\circ\).</p>
+
+    <div class="math-display">
+      \[
+      2\sin75^\circ\cos15^\circ=\sin90^\circ+\sin60^\circ=1+\frac{\sqrt{3}}{2}
+      \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Hitunglah \(\sin105^\circ+\sin15^\circ\) dan
+      \(\cos75^\circ-\cos15^\circ\).
+    </p>
+
+    <div class="math-display">
+      \[
+      \sin105^\circ+\sin15^\circ=2\sin60^\circ\cos45^\circ=2\cdot\frac{\sqrt{3}}{2}\cdot\frac{\sqrt{2}}{2}=\frac{\sqrt{6}}{2}
+      \] \[
+      \cos75^\circ-\cos15^\circ=-2\sin45^\circ\sin30^\circ=-2\cdot\frac{\sqrt{2}}{2}\cdot\frac{1}{2}=-\frac{\sqrt{2}}{2}
+      \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Sederhanakan \(\displaystyle\frac{\sin5x+\sin x}{\cos5x+\cos x}\).</p>
+
+    <div class="math-display">
+      \[ \frac{2\sin3x\cos2x}{2\cos3x\cos2x}=\frac{\sin3x}{\cos3x}=\tan3x \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Selesaikan \(\sin3x-\sin x=0\) untuk \(0^\circ\le x\le 360^\circ\).</p>
+
+    <div class="math-display">\[ 2\cos2x\sin x=0 \]</div>
+
+    <p>
+      \(\sin x=0\) memberikan \(0^\circ,180^\circ,360^\circ\), sedangkan
+      \(\cos2x=0\) memberikan \(2x=90^\circ+k\cdot180^\circ\), yaitu
+      \(x=45^\circ,135^\circ,225^\circ,315^\circ\). Jadi, himpunan
+      penyelesaiannya \(\{0^\circ,\ 45^\circ,\ 135^\circ,\ 180^\circ,\
+      225^\circ,\ 315^\circ,\ 360^\circ\}\).
+    </p>
+  </div>
+</section>
+
+<section id="bentuk-acos-bsin" data-title="Bentuk a cos x + b sin x">
+  <h2>13. Bentuk \(a\cos x+b\sin x\)</h2>
+
+  <p>
+    Bentuk \(a\cos x+b\sin x\) dapat diubah menjadi satu fungsi kosinus dengan
+    rumus \(\cos(x-\alpha)\). Misalkan \(a\cos x+b\sin
+    x=k\cos(x-\alpha)=k\cos\alpha\cos x+k\sin\alpha\sin x\). Menyamakan
+    koefisien memberikan \(k\cos\alpha=a\) dan \(k\sin\alpha=b\), sehingga:
+  </p>
+
+  <div class="math-display">
+    \[ a\cos x+b\sin x=k\cos(x-\alpha),\qquad k=\sqrt{a^2+b^2},\qquad
+    \tan\alpha=\frac{b}{a} \]
+  </div>
+
+  <p>
+    Kuadran \(\alpha\) ditentukan oleh tanda \(a\) (sebagai \(\cos\alpha\)) dan
+    \(b\) (sebagai \(\sin\alpha\)). Dengan bentuk ini, nilai maksimum dan
+    minimum bentuk tersebut adalah \(k\) dan \(-k\), dan persamaan \(a\cos
+    x+b\sin x=c\) memiliki penyelesaian hanya jika \(|c|\le\sqrt{a^2+b^2}\).
+    Bentuk setara lainnya adalah \(k\sin(x+\beta)\) dengan \(k\sin\beta=a\) dan
+    \(k\cos\beta=b\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Ubahlah \(\cos x+\sqrt{3}\sin x\) ke dalam bentuk \(k\cos(x-\alpha)\).
+    </p>
+
+    <div class="math-display">
+      \[ k=\sqrt{1+3}=2,\quad \tan\alpha=\sqrt{3},\ \alpha\text{ kuadran I}\
+      \Rightarrow\ \alpha=60^\circ \ \Rightarrow\ \cos x+\sqrt{3}\sin
+      x=2\cos(x-60^\circ) \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan nilai maksimum dan minimum \(f(x)=3\cos x+4\sin x+2\).</p>
+
+    <div class="math-display">
+      \[ k=\sqrt{9+16}=5\ \Rightarrow\ f(x)=5\cos(x-\alpha)+2,\qquad
+      f_{\text{maks}}=7,\quad f_{\text{min}}=-3 \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Selesaikan \(\cos x-\sin x=1\) untuk \(0^\circ\le x\lt 360^\circ\).</p>
+
+    <p>
+      Di sini \(a=1\), \(b=-1\), \(k=\sqrt{2}\), dan \(\alpha\) di kuadran IV
+      dengan \(\tan\alpha=-1\), yaitu \(\alpha=315^\circ\) (atau \(-45^\circ\)).
+      Maka:
+    </p>
+
+    <div class="math-display">
+      \[ \sqrt{2}\cos(x+45^\circ)=1\ \Rightarrow\
+      \cos(x+45^\circ)=\frac{\sqrt{2}}{2} \ \Rightarrow\
+      x+45^\circ=\pm45^\circ+k\cdot360^\circ \]
+    </div>
+
+    <p>
+      Diperoleh \(x=0^\circ\) atau \(x=-90^\circ+360^\circ=270^\circ\). Jadi,
+      himpunan penyelesaiannya \(\{0^\circ,\ 270^\circ\}\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Selesaikan \(\sqrt{3}\cos x+\sin x=\sqrt{2}\) untuk \(0^\circ\le x\lt
+      360^\circ\).
+    </p>
+
+    <div class="math-display">
+      \[ k=2,\ \tan\alpha=\frac{1}{\sqrt{3}}\Rightarrow\alpha=30^\circ,\qquad
+      2\cos(x-30^\circ)=\sqrt{2}\ \Rightarrow\
+      x-30^\circ=\pm45^\circ+k\cdot360^\circ \]
+    </div>
+
+    <p>
+      Diperoleh \(x=75^\circ\) atau \(x=-15^\circ+360^\circ=345^\circ\). Jadi,
+      himpunan penyelesaiannya \(\{75^\circ,\ 345^\circ\}\).
+    </p>
+  </div>
+</section>
+
+<section id="invers-trigonometri" data-title="Fungsi Invers Trigonometri">
+  <h2>14. Fungsi Invers Trigonometri</h2>
+
+  <p>
+    Fungsi trigonometri tidak satu-satu pada seluruh daerah asalnya, sehingga
+    inversnya didefinisikan pada daerah asal yang dibatasi. Invers dari sinus,
+    cosinus, dan tangen berturut-turut dinotasikan \(\arcsin x\), \(\arccos x\),
+    dan \(\arctan x\) (atau \(\sin^{-1}x\), \(\cos^{-1}x\), \(\tan^{-1}x\)),
+    yaitu sudut yang nilai sinus, cosinus, atau tangennya sama dengan \(x\).
+  </p>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Fungsi</th>
+          <th scope="col">Daerah asal</th>
+          <th scope="col">Daerah hasil (sudut)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(y=\arcsin x\)</td>
+          <td>\(-1\le x\le 1\)</td>
+          <td>
+            \(-\displaystyle\frac{\pi}{2}\le y\le\displaystyle\frac{\pi}{2}\)
+          </td>
+        </tr>
+        <tr>
+          <td>\(y=\arccos x\)</td>
+          <td>\(-1\le x\le 1\)</td>
+          <td>\(0\le y\le\pi\)</td>
+        </tr>
+        <tr>
+          <td>\(y=\arctan x\)</td>
+          <td>semua bilangan real</td>
+          <td>
+            \(-\displaystyle\frac{\pi}{2}\lt y\lt\displaystyle\frac{\pi}{2}\)
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="math-display">
+    \[ \arcsin(-x)=-\arcsin x,\qquad \arccos(-x)=\pi-\arccos x,\qquad
+    \arctan(-x)=-\arctan x,\qquad \arcsin x+\arccos x=\frac{\pi}{2} \]
+  </div>
+
+  <p>
+    Perlu diingat bahwa \(\sin(\arcsin x)=x\) untuk \(-1\le x\le1\), tetapi
+    \(\arcsin(\sin x)=x\) hanya berlaku bila \(x\) berada pada daerah hasil
+    \(\arcsin\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Tentukan \(\arcsin\displaystyle\frac{1}{2}\),
+      \(\arccos\left(-\displaystyle\frac{1}{2}\right)\), \(\arctan(-1)\), dan
+      \(\arcsin\left(\sin\displaystyle\frac{5\pi}{6}\right)\).
+    </p>
+
+    <div class="math-display">
+      \[ \arcsin\frac{1}{2}=\frac{\pi}{6},\quad
+      \arccos\left(-\frac{1}{2}\right)=\pi-\frac{\pi}{3}=\frac{2\pi}{3},\quad
+      \arctan(-1)=-\frac{\pi}{4},\quad
+      \arcsin\left(\sin\frac{5\pi}{6}\right)=\arcsin\frac{1}{2}=\frac{\pi}{6} \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Tentukan \(\sin\left(\arccos\displaystyle\frac{3}{5}\right)\),
+      \(\tan\left(\arcsin\displaystyle\frac{5}{13}\right)\), dan
+      \(\cos\left(2\arcsin\displaystyle\frac{3}{5}\right)\).
+    </p>
+
+    <p>
+      Misalkan \(\theta=\arccos\displaystyle\frac{3}{5}\), sudut lancip dengan
+      samping \(3\) dan miring \(5\), sehingga depan \(=4\).
+    </p>
+
+    <div class="math-display">
+      \[ \sin\theta=\frac{4}{5},\qquad
+      \tan\left(\arcsin\frac{5}{13}\right)=\frac{5}{12},\qquad
+      \cos\left(2\arcsin\frac{3}{5}\right)=1-2\left(\frac{3}{5}\right)^2=\frac{7}{25}
+      \]
+    </div>
+  </div>
+</section>
+
+<section id="limit-trigonometri" data-title="Limit Fungsi Trigonometri">
+  <h2>15. Limit Fungsi Trigonometri</h2>
+
+  <p>
+    Limit trigonometri bersumber dari ketidaksamaan geometri \(\sin x\lt x\lt
+    \tan x\) untuk \(0\lt x\lt \displaystyle\frac{\pi}{2}\) (sudut dalam
+    radian). Membagi dengan \(\sin x\) lalu mengambil kebalikannya memberikan
+    \(\cos x\lt \displaystyle\frac{\sin x}{x}\lt 1\), sehingga dengan prinsip
+    apit diperoleh limit dasar berikut.
+  </p>
+
+  <div class="math-display">
+    \[ \lim_{x\to0}\frac{\sin x}{x}=1,\qquad \lim_{x\to0}\frac{\tan
+    x}{x}=1,\qquad \lim_{x\to0}\frac{1-\cos x}{x^2}=\frac{1}{2} \]
+  </div>
+
+  <div class="math-display">
+    \[ \lim_{x\to0}\frac{\sin ax}{bx}=\frac{a}{b},\qquad \lim_{x\to0}\frac{\tan
+    ax}{\sin bx}=\frac{a}{b} \]
+  </div>
+
+  <p>
+    Turunan fungsi trigonometri (diturunkan dari limit di atas) adalah \((\sin
+    x)'=\cos x\), \((\cos x)'=-\sin x\), dan \((\tan x)'=\sec^2x\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Hitung \(\displaystyle\lim_{x\to0}\frac{\sin3x}{2x}\) dan
+      \(\displaystyle\lim_{x\to0}\frac{\tan5x}{\sin2x}\).
+    </p>
+
+    <div class="math-display">
+      \[ \lim_{x\to0}\frac{\sin3x}{2x}=\frac{3}{2},\qquad
+      \lim_{x\to0}\frac{\tan5x}{\sin2x}=\frac{5}{2} \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Hitung \(\displaystyle\lim_{x\to0}\frac{1-\cos2x}{x^2}\).</p>
+
+    <div class="math-display">
+      \[ \lim_{x\to0}\frac{2\sin^2x}{x^2}=2\left(\lim_{x\to0}\frac{\sin
+      x}{x}\right)^2=2 \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Hitung \(\displaystyle\lim_{x\to\pi}\frac{1+\cos x}{(x-\pi)^2}\).</p>
+
+    <p>
+      Misalkan \(u=x-\pi\), sehingga \(x\to\pi\) berarti \(u\to0\) dan \(\cos
+      x=\cos(\pi+u)=-\cos u\):
+    </p>
+
+    <div class="math-display">
+      \[ \lim_{u\to0}\frac{1-\cos u}{u^2}=\frac{1}{2} \]
+    </div>
+  </div>
+</section>
+
+<section id="penerapan-trigonometri" data-title="Penerapan Trigonometri">
+  <h2>16. Penerapan Trigonometri</h2>
+
+  <h3>Sudut Elevasi dan Sudut Depresi</h3>
+
+  <p>
+    <strong>Sudut elevasi</strong> adalah sudut yang dibentuk garis pandang ke
+    atas dengan garis mendatar, sedangkan <strong>sudut depresi</strong> adalah
+    sudut yang dibentuk garis pandang ke bawah dengan garis mendatar. Sudut
+    elevasi dari titik rendah ke titik tinggi sama besar dengan sudut depresi
+    dari titik tinggi ke titik rendah.
+  </p>
+
+  <figure class="lesson-figure" style="margin: 1.5rem 0">
+    <svg
+      viewBox="0 0 520 315"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-labelledby="elevasit elevasid"
+      style="
+        width: 100%;
+        max-width: 520px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        font-family: inherit;
+      "
+    >
+      <title id="elevasit">Sudut elevasi dan sudut depresi</title>
+      <desc id="elevasid">
+        Pengamat di P melihat puncak menara T dengan sudut elevasi alpha. Dari
+        puncak T, pengamat di P terlihat dengan sudut depresi beta yang sama
+        besar dengan alpha.
+      </desc>
+      <line
+        x1="40"
+        y1="250"
+        x2="470"
+        y2="250"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-opacity="0.6"
+      />
+      <line
+        x1="400"
+        y1="250"
+        x2="400"
+        y2="70"
+        stroke="#f97316"
+        stroke-width="4.5"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <line
+        x1="90"
+        y1="250"
+        x2="400"
+        y2="70"
+        stroke="#10b981"
+        stroke-width="2.4"
+        stroke-linecap="round"
+        stroke-opacity="1"
+      />
+      <line
+        x1="90"
+        y1="70"
+        x2="400"
+        y2="70"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-opacity="0.6"
+        stroke-dasharray="7 5"
+      />
+      <path
+        d="M389 250 L389 239 L400 239"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-opacity="0.8"
+      />
+      <path
+        d="M150 250 A60 60 0 0 0 141.9 219.9"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-opacity="0.8"
+      />
+      <path
+        d="M330 70 A70 70 0 0 0 339.5 105.1"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-opacity="0.8"
+      />
+      <text
+        x="169.2"
+        y="233.7"
+        font-size="15"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        α
+      </text>
+      <text
+        x="311.2"
+        y="98.9"
+        font-size="15"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        β
+      </text>
+      <circle cx="90" cy="250" r="3.2" fill="currentColor" />
+      <text
+        x="84"
+        y="272"
+        font-size="14"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        P
+      </text>
+      <circle cx="400" cy="250" r="3.2" fill="currentColor" />
+      <text
+        x="414"
+        y="268"
+        font-size="14"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        B
+      </text>
+      <circle cx="400" cy="70" r="3.2" fill="currentColor" />
+      <text
+        x="412"
+        y="62"
+        font-size="14"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+        font-weight="700"
+        font-style="italic"
+      >
+        T
+      </text>
+      <text
+        x="414"
+        y="165"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        tinggi (t)
+      </text>
+      <text
+        x="245"
+        y="272"
+        font-size="13"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        jarak mendatar (d)
+      </text>
+      <text
+        x="150"
+        y="60"
+        font-size="12"
+        text-anchor="start"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        garis pandang mendatar dari T
+      </text>
+      <text
+        x="240"
+        y="136"
+        font-size="12"
+        text-anchor="middle"
+        fill="#10b981"
+        fill-opacity="1"
+        transform="rotate(-30.1 240 136)"
+      >
+        garis pandang
+      </text>
+      <text
+        x="260"
+        y="300"
+        font-size="13"
+        text-anchor="middle"
+        fill="currentColor"
+        fill-opacity="0.75"
+      >
+        α = sudut elevasi di P, β = sudut depresi di T, α = β
+      </text>
+    </svg>
+    <figcaption
+      style="
+        text-align: center;
+        font-size: 0.9em;
+        opacity: 0.85;
+        margin-top: 0.6rem;
+      "
+    >
+      Gambar 14. Sudut elevasi \(\alpha\) di \(P\) dan sudut depresi \(\beta\)
+      di \(T\) sama besar karena merupakan sudut dalam berseberangan.
+    </figcaption>
+  </figure>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Dari titik yang berjarak \(40\) m dari kaki sebuah gedung, sudut elevasi
+      puncak gedung adalah \(60^\circ\). Tentukan tinggi gedung (tinggi pengamat
+      diabaikan).
+    </p>
+
+    <div class="math-display">
+      \[ t=40\tan60^\circ=40\sqrt{3}\approx 69{,}3\text{ m} \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Dari titik \(A\) di tanah, sudut elevasi puncak menara \(30^\circ\).
+      Setelah mendekat \(40\) m ke titik \(B\) (satu garis lurus dengan kaki
+      menara), sudut elevasinya menjadi \(60^\circ\). Tentukan tinggi menara.
+    </p>
+
+    <p>
+      Misalkan tinggi menara \(h\). Jarak mendatar dari \(A\) dan \(B\) ke kaki
+      menara berturut-turut \(h\cot30^\circ\) dan \(h\cot60^\circ\):
+    </p>
+
+    <div class="math-display">
+      \[ h\cot30^\circ-h\cot60^\circ=40\ \Rightarrow\
+      h\left(\sqrt{3}-\frac{1}{\sqrt{3}}\right)=40\ \Rightarrow\
+      h\cdot\frac{2}{\sqrt{3}}=40\ \Rightarrow\ h=20\sqrt{3}\text{ m} \]
+    </div>
+  </div>
+
+  <h3>Arah Mata Angin dan Jarak</h3>
+
+  <p>
+    Arah pada navigasi sering dinyatakan sebagai <strong>bearing</strong>, yaitu
+    sudut tiga angka yang diukur dari arah utara searah jarum jam (misalnya
+    \(030^\circ\) berarti \(30^\circ\) ke arah timur dari utara). Selisih
+    bearing dua arah menjadi sudut apit yang dapat dipakai pada aturan cosinus.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Dari sebuah pelabuhan, kapal \(P\) berlayar \(12\) km dengan bearing
+      \(030^\circ\) dan kapal \(Q\) berlayar \(16\) km dengan bearing
+      \(150^\circ\). Tentukan jarak kedua kapal.
+    </p>
+
+    <p>
+      Sudut apit di pelabuhan \(=150^\circ-30^\circ=120^\circ\). Dengan aturan
+      cosinus:
+    </p>
+
+    <div class="math-display">
+      \[ PQ^2=12^2+16^2-2(12)(16)\cos120^\circ=144+256+192=592 \ \Rightarrow\
+      PQ=4\sqrt{37}\approx 24{,}3\text{ km} \]
+    </div>
+  </div>
+</section>
+
+<section id="rangkuman-trigonometri" data-title="Rangkuman Rumus Trigonometri">
+  <h2>17. Rangkuman Rumus Trigonometri</h2>
+
+  <h3>Perbandingan Trigonometri Dasar</h3>
+
+  <div class="math-display">
+    \[ \sin\theta=\frac{\text{de}}{\text{mi}},\quad
+    \cos\theta=\frac{\text{sa}}{\text{mi}},\quad
+    \tan\theta=\frac{\text{de}}{\text{sa}}=\frac{\sin\theta}{\cos\theta},\quad
+    \csc\theta=\frac{1}{\sin\theta},\quad \sec\theta=\frac{1}{\cos\theta},\quad
+    \cot\theta=\frac{1}{\tan\theta} \]
+  </div>
+
+  <h3>Sudut Istimewa</h3>
+
+  <div class="math-display">
+    \[ \sin\left(0^\circ,30^\circ,45^\circ,60^\circ,90^\circ\right)= 0,\
+    \frac{1}{2},\ \frac{\sqrt{2}}{2},\ \frac{\sqrt{3}}{2},\ 1,\qquad \cos\
+    \text{urutan terbalik} \]
+  </div>
+
+  <h3>Satuan Sudut</h3>
+
+  <div class="math-display">
+    \[ 180^\circ=\pi\text{ rad},\qquad 1\text{ rad}=\frac{180^\circ}{\pi}\approx
+    57{,}3^\circ,\qquad s=r\theta \]
+  </div>
+
+  <h3>Lingkaran Satuan dan Tanda Kuadran</h3>
+
+  <div class="math-display">
+    \[ P(\cos\theta,\sin\theta),\qquad \text{I: semua}(+),\ \text{II: }\sin(+),\
+    \text{III: }\tan(+),\ \text{IV: }\cos(+) \]
+  </div>
+
+  <h3>Sudut Berelasi</h3>
+
+  <div class="math-display">
+    \[ \sin(90^\circ-\alpha)=\cos\alpha,\qquad
+    \sin(180^\circ-\alpha)=\sin\alpha,\qquad
+    \cos(180^\circ-\alpha)=-\cos\alpha,\qquad \tan(180^\circ+\alpha)=\tan\alpha
+    \]
+  </div>
+
+  <div class="math-display">
+    \[ \sin(360^\circ-\alpha)=-\sin\alpha,\qquad \cos(-\alpha)=\cos\alpha,\qquad
+    \sin(-\alpha)=-\sin\alpha,\qquad \tan(-\alpha)=-\tan\alpha \]
+  </div>
+
+  <h3>Identitas Trigonometri</h3>
+
+  <div class="math-display">
+    \[ \sin^2\theta+\cos^2\theta=1,\qquad 1+\tan^2\theta=\sec^2\theta,\qquad
+    1+\cot^2\theta=\csc^2\theta \]
+  </div>
+
+  <h3>Grafik Fungsi</h3>
+
+  <div class="math-display">
+    \[ y=A\sin\left(k(x-\alpha)\right)+c:\quad \text{amplitudo }|A|,\quad
+    \text{periode }\frac{360^\circ}{|k|},\quad y_{\text{maks/min}}=c\pm|A| \]
+  </div>
+
+  <h3>Persamaan Trigonometri</h3>
+
+  <div class="math-display">
+    \[ \sin x=\sin\alpha\Rightarrow x=\alpha+k\cdot360^\circ\ \text{atau}\
+    (180^\circ-\alpha)+k\cdot360^\circ \] \[ \cos x=\cos\alpha\Rightarrow
+    x=\pm\alpha+k\cdot360^\circ,\qquad \tan x=\tan\alpha\Rightarrow
+    x=\alpha+k\cdot180^\circ \]
+  </div>
+
+  <h3>Aturan Sinus, Aturan Cosinus, dan Luas</h3>
+
+  <div class="math-display">
+    \[ \frac{a}{\sin A}=\frac{b}{\sin B}=\frac{c}{\sin C}=2R,\qquad
+    a^2=b^2+c^2-2bc\cos A \]
+  </div>
+
+  <div class="math-display">
+    \[ L=\frac{1}{2}ab\sin C=\sqrt{s(s-a)(s-b)(s-c)}=\frac{abc}{4R},\qquad
+    r=\frac{L}{s} \]
+  </div>
+
+  <h3>Jumlah dan Selisih Sudut</h3>
+
+  <div class="math-display">
+    \[ \sin(A\pm B)=\sin A\cos B\pm\cos A\sin B,\qquad \cos(A\pm B)=\cos A\cos
+    B\mp\sin A\sin B \] \[ \tan(A\pm B)=\frac{\tan A\pm\tan B}{1\mp\tan A\tan B}
+    \]
+  </div>
+
+  <h3>Sudut Ganda dan Sudut Setengah</h3>
+
+  <div class="math-display">
+    \[ \sin2A=2\sin A\cos A,\qquad \cos2A=\cos^2A-\sin^2A=2\cos^2A-1=1-2\sin^2A
+    \] \[ \tan2A=\frac{2\tan A}{1-\tan^2A},\qquad
+    \sin^2A=\frac{1-\cos2A}{2},\qquad \cos^2A=\frac{1+\cos2A}{2} \] \[
+    \sin\frac{A}{2}=\pm\sqrt{\frac{1-\cos A}{2}},\qquad
+    \cos\frac{A}{2}=\pm\sqrt{\frac{1+\cos A}{2}},\qquad
+    \tan\frac{A}{2}=\frac{\sin A}{1+\cos A} \]
+  </div>
+
+  <h3>Perkalian dan Penjumlahan</h3>
+
+  <div class="math-display">
+    \[ 2\sin A\cos B=\sin(A+B)+\sin(A-B),\qquad 2\cos A\cos
+    B=\cos(A+B)+\cos(A-B) \] \[ 2\sin A\sin B=\cos(A-B)-\cos(A+B),\qquad 2\cos
+    A\sin B=\sin(A+B)-\sin(A-B) \] \[ \sin P+\sin
+    Q=2\sin\frac{P+Q}{2}\cos\frac{P-Q}{2},\qquad \cos P+\cos
+    Q=2\cos\frac{P+Q}{2}\cos\frac{P-Q}{2} \] \[ \sin P-\sin
+    Q=2\cos\frac{P+Q}{2}\sin\frac{P-Q}{2},\qquad \cos P-\cos
+    Q=-2\sin\frac{P+Q}{2}\sin\frac{P-Q}{2} \]
+  </div>
+
+  <h3>Bentuk a cos x + b sin x</h3>
+
+  <div class="math-display">
+    \[ a\cos x+b\sin x=k\cos(x-\alpha),\qquad k=\sqrt{a^2+b^2},\qquad
+    \tan\alpha=\frac{b}{a} \]
+  </div>
+
+  <h3>Fungsi Invers</h3>
+
+  <div class="math-display">
+    \[ \arcsin x\in\left[-\frac{\pi}{2},\frac{\pi}{2}\right],\quad \arccos
+    x\in[0,\pi],\quad \arctan
+    x\in\left(-\frac{\pi}{2},\frac{\pi}{2}\right),\quad \arcsin x+\arccos
+    x=\frac{\pi}{2} \]
+  </div>
+
+  <h3>Limit dan Turunan</h3>
+
+  <div class="math-display">
+    \[ \lim_{x\to0}\frac{\sin x}{x}=\lim_{x\to0}\frac{\tan x}{x}=1,\quad
+    \lim_{x\to0}\frac{1-\cos x}{x^2}=\frac{1}{2},\quad (\sin x)'=\cos x,\ (\cos
+    x)'=-\sin x,\ (\tan x)'=\sec^2x \]
+  </div>
+</section>
+
+<section id="latihan-mandiri" data-title="Latihan Soal Mandiri">
+  <h2>18. Latihan Soal Mandiri</h2>
+
+  <p>
+    Kerjakan soal-soal berikut secara mandiri. Soal nomor 1–10 memiliki tingkat
+    kesulitan sekolah, soal nomor 11–18 memiliki tingkat penalaran yang lebih
+    menantang seperti soal UTBK, dan soal nomor 19–24 bergaya olimpiade dengan
+    jawaban isian singkat. Untuk soal pilihan ganda, pilih satu jawaban yang
+    paling tepat. Jika tidak disebutkan lain, sudut dalam derajat dan jawaban
+    eksak (dalam bentuk akar atau pecahan) dibiarkan tanpa pembulatan.
+  </p>
+
+  <h3>A. Tingkat Kesulitan Sekolah</h3>
+
+  <!-- Soal 1 -->
+  <div class="lesson-example">
+    <h4>Soal 1</h4>
+
+    <p>Nilai dari \(\sin30^\circ+\cos60^\circ+\tan45^\circ\) adalah ....</p>
+
+    <ol type="A">
+      <li>\(1\)</li>
+      <li>\(\displaystyle\frac{3}{2}\)</li>
+      <li>\(2\)</li>
+      <li>\(\displaystyle\frac{5}{2}\)</li>
+      <li>\(3\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 2 -->
+  <div class="lesson-example">
+    <h4>Soal 2</h4>
+
+    <p>
+      Segitiga \(PQR\) siku-siku di \(Q\) dengan \(PQ=12\) cm dan \(QR=5\) cm.
+      Nilai \(\cos P\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(\displaystyle\frac{5}{13}\)</li>
+      <li>\(\displaystyle\frac{5}{12}\)</li>
+      <li>\(\displaystyle\frac{13}{12}\)</li>
+      <li>\(\displaystyle\frac{12}{13}\)</li>
+      <li>\(\displaystyle\frac{13}{5}\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 3 -->
+  <div class="lesson-example">
+    <h4>Soal 3</h4>
+
+    <p>Sudut \(150^\circ\) jika dinyatakan dalam radian sama dengan ....</p>
+
+    <ol type="A">
+      <li>\(\displaystyle\frac{\pi}{6}\) rad</li>
+      <li>\(\displaystyle\frac{\pi}{3}\) rad</li>
+      <li>\(\displaystyle\frac{2\pi}{3}\) rad</li>
+      <li>\(\displaystyle\frac{3\pi}{4}\) rad</li>
+      <li>\(\displaystyle\frac{5\pi}{6}\) rad</li>
+    </ol>
+  </div>
+
+  <!-- Soal 4 -->
+  <div class="lesson-example">
+    <h4>Soal 4</h4>
+
+    <p>Nilai dari \(\sin150^\circ+\cos120^\circ+\tan135^\circ\) adalah ....</p>
+
+    <ol type="A">
+      <li>\(-2\)</li>
+      <li>\(-1\)</li>
+      <li>\(0\)</li>
+      <li>\(1\)</li>
+      <li>\(2\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 5 -->
+  <div class="lesson-example">
+    <h4>Soal 5</h4>
+
+    <p>
+      Diketahui \(\sin\theta=\displaystyle\frac{3}{5}\) dengan
+      \(90^\circ\lt\theta\lt180^\circ\). Nilai \(\cos\theta+\tan\theta\) adalah
+      ....
+    </p>
+
+    <ol type="A">
+      <li>\(-\displaystyle\frac{31}{20}\)</li>
+      <li>\(-\displaystyle\frac{1}{20}\)</li>
+      <li>\(\displaystyle\frac{1}{20}\)</li>
+      <li>\(\displaystyle\frac{9}{20}\)</li>
+      <li>\(\displaystyle\frac{31}{20}\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 6 -->
+  <div class="lesson-example">
+    <h4>Soal 6</h4>
+
+    <p>
+      Fungsi \(y=2\sin3x+1\) memiliki periode dan nilai minimum berturut-turut
+      ....
+    </p>
+
+    <ol type="A">
+      <li>\(60^\circ\) dan \(-1\)</li>
+      <li>\(120^\circ\) dan \(1\)</li>
+      <li>\(360^\circ\) dan \(-1\)</li>
+      <li>\(120^\circ\) dan \(-1\)</li>
+      <li>\(120^\circ\) dan \(3\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 7 -->
+  <div class="lesson-example">
+    <h4>Soal 7</h4>
+
+    <p>
+      Himpunan penyelesaian \(2\sin x=\sqrt{3}\) untuk \(0^\circ\le
+      x\le360^\circ\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(\{30^\circ,150^\circ\}\)</li>
+      <li>\(\{45^\circ,135^\circ\}\)</li>
+      <li>\(\{60^\circ,120^\circ\}\)</li>
+      <li>\(\{60^\circ,300^\circ\}\)</li>
+      <li>\(\{120^\circ,240^\circ\}\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 8 -->
+  <div class="lesson-example">
+    <h4>Soal 8</h4>
+
+    <p>
+      Pada segitiga \(ABC\), \(AB=5\) cm, \(AC=8\) cm, dan \(\angle
+      A=60^\circ\). Panjang \(BC\) adalah .... cm.
+    </p>
+
+    <ol type="A">
+      <li>\(5\)</li>
+      <li>\(7\)</li>
+      <li>\(\sqrt{39}\)</li>
+      <li>\(8\)</li>
+      <li>\(\sqrt{129}\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 9 -->
+  <div class="lesson-example">
+    <h4>Soal 9</h4>
+
+    <p>
+      Pada segitiga \(ABC\), \(\angle A=30^\circ\), \(\angle B=45^\circ\), dan
+      \(BC=12\) cm. Panjang \(AC\) adalah .... cm.
+    </p>
+
+    <ol type="A">
+      <li>\(6\sqrt{2}\)</li>
+      <li>\(12\)</li>
+      <li>\(12\sqrt{2}\)</li>
+      <li>\(12\sqrt{3}\)</li>
+      <li>\(24\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 10 -->
+  <div class="lesson-example">
+    <h4>Soal 10</h4>
+
+    <p>
+      Dari titik yang berjarak \(30\) m dari kaki sebuah menara, sudut elevasi
+      puncak menara adalah \(30^\circ\). Tinggi menara (tinggi pengamat
+      diabaikan) adalah .... m.
+    </p>
+
+    <ol type="A">
+      <li>\(10\)</li>
+      <li>\(15\)</li>
+      <li>\(15\sqrt{3}\)</li>
+      <li>\(10\sqrt{3}\)</li>
+      <li>\(30\sqrt{3}\)</li>
+    </ol>
+  </div>
+
+  <h3>B. Tingkat Kesulitan UTBK</h3>
+
+  <!-- Soal 11 -->
+  <div class="lesson-example">
+    <h4>Soal 11</h4>
+
+    <p>
+      Diketahui \(\tan x=\displaystyle\frac{3}{4}\) dengan \(x\) di kuadran III.
+      Nilai \(\sin2x-\cos x\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(\displaystyle\frac{4}{25}\)</li>
+      <li>\(\displaystyle\frac{24}{25}\)</li>
+      <li>\(\displaystyle\frac{28}{25}\)</li>
+      <li>\(\displaystyle\frac{44}{25}\)</li>
+      <li>\(\displaystyle\frac{64}{25}\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 12 -->
+  <div class="lesson-example">
+    <h4>Soal 12</h4>
+
+    <p>Nilai dari \(\cos20^\circ\cos40^\circ\cos80^\circ\) adalah ....</p>
+
+    <ol type="A">
+      <li>\(\displaystyle\frac{1}{16}\)</li>
+      <li>\(\displaystyle\frac{1}{8}\)</li>
+      <li>\(\displaystyle\frac{1}{4}\)</li>
+      <li>\(\displaystyle\frac{1}{2}\)</li>
+      <li>\(1\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 13 -->
+  <div class="lesson-example">
+    <h4>Soal 13</h4>
+
+    <p>
+      Jumlah semua penyelesaian persamaan \(\sin2x=\cos x\) pada \(0^\circ\le
+      x\le360^\circ\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(360^\circ\)</li>
+      <li>\(450^\circ\)</li>
+      <li>\(540^\circ\)</li>
+      <li>\(630^\circ\)</li>
+      <li>\(720^\circ\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 14 -->
+  <div class="lesson-example">
+    <h4>Soal 14</h4>
+
+    <p>
+      Fungsi \(f(x)=\sqrt{3}\sin x-\cos x\) pada \(0\le x\le2\pi\) mencapai
+      nilai maksimum untuk \(x=\) ....
+    </p>
+
+    <ol type="A">
+      <li>\(\displaystyle\frac{\pi}{6}\)</li>
+      <li>\(\displaystyle\frac{\pi}{3}\)</li>
+      <li>\(\displaystyle\frac{\pi}{2}\)</li>
+      <li>\(\displaystyle\frac{2\pi}{3}\)</li>
+      <li>\(\displaystyle\frac{5\pi}{6}\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 15 -->
+  <div class="lesson-example">
+    <h4>Soal 15</h4>
+
+    <p>
+      Pada segitiga \(ABC\), \(AB=6\) cm, \(AC=4\) cm, dan luas segitiga
+      \(6\sqrt{3}\) cm². Jika \(\angle A\) lancip, besar \(\angle A\) adalah
+      ....
+    </p>
+
+    <ol type="A">
+      <li>\(30^\circ\)</li>
+      <li>\(45^\circ\)</li>
+      <li>\(60^\circ\)</li>
+      <li>\(75^\circ\)</li>
+      <li>\(90^\circ\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 16 -->
+  <div class="lesson-example">
+    <h4>Soal 16</h4>
+
+    <p>
+      Jika \(A+B=\displaystyle\frac{\pi}{4}\), nilai \((1+\tan A)(1+\tan B)\)
+      adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(1\)</li>
+      <li>\(2\)</li>
+      <li>\(3\)</li>
+      <li>\(4\)</li>
+      <li>\(\displaystyle\frac{1}{2}\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 17 -->
+  <div class="lesson-example">
+    <h4>Soal 17</h4>
+
+    <p>
+      Nilai \(\displaystyle\lim_{x\to0}\frac{1-\cos2x}{x\tan x}\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(0\)</li>
+      <li>\(\displaystyle\frac{1}{2}\)</li>
+      <li>\(1\)</li>
+      <li>\(4\)</li>
+      <li>\(2\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 18 -->
+  <div class="lesson-example">
+    <h4>Soal 18</h4>
+
+    <p>
+      Fungsi \(f(x)=a\sin bx+c\) dengan \(a\gt 0\) dan \(b\gt 0\) memiliki nilai
+      maksimum \(5\), nilai minimum \(-1\), dan periode \(\pi\). Nilai \(a+b+c\)
+      adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(4\)</li>
+      <li>\(5\)</li>
+      <li>\(6\)</li>
+      <li>\(7\)</li>
+      <li>\(8\)</li>
+    </ol>
+  </div>
+
+  <h3>C. Tingkat Kesulitan Olimpiade</h3>
+
+  <!-- Soal 19 -->
+  <div class="lesson-example">
+    <h4>Soal 19</h4>
+
+    <p>
+      Tentukan nilai eksak \(\sin18^\circ\) (jawaban isian singkat). Petunjuk:
+      perhatikan bahwa \(2\cdot18^\circ=90^\circ-3\cdot18^\circ\).
+    </p>
+  </div>
+
+  <!-- Soal 20 -->
+  <div class="lesson-example">
+    <h4>Soal 20</h4>
+
+    <p>Hitunglah nilai \(\cos36^\circ\cos72^\circ\) (jawaban isian singkat).</p>
+  </div>
+
+  <!-- Soal 21 -->
+  <div class="lesson-example">
+    <h4>Soal 21</h4>
+
+    <p>
+      Hitunglah nilai \(\sin^2 1^\circ+\sin^2 2^\circ+\sin^2
+      3^\circ+\cdots+\sin^2 89^\circ\) (jawaban isian singkat).
+    </p>
+  </div>
+
+  <!-- Soal 22 -->
+  <div class="lesson-example">
+    <h4>Soal 22</h4>
+
+    <p>
+      Hitunglah nilai \(\tan20^\circ\tan40^\circ\tan80^\circ\) (jawaban isian
+      singkat).
+    </p>
+  </div>
+
+  <!-- Soal 23 -->
+  <div class="lesson-example">
+    <h4>Soal 23</h4>
+
+    <p>
+      Tentukan nilai minimum \(4\sin^2x+9\csc^2x\) untuk semua \(x\) real yang
+      membuat bentuk tersebut terdefinisi (jawaban isian singkat).
+    </p>
+  </div>
+
+  <!-- Soal 24 -->
+  <div class="lesson-example">
+    <h4>Soal 24</h4>
+
+    <p>
+      Pada segitiga \(ABC\) berlaku \(\sin A:\sin B:\sin C=3:5:7\). Tentukan
+      besar sudut terbesar segitiga tersebut (jawaban isian singkat).
+    </p>
+  </div>
+</section>
+
+<section
+  id="pembahasan-latihan-mandiri"
+  data-title="Pembahasan Latihan Mandiri"
+>
+  <h2>19. Pembahasan Latihan Mandiri</h2>
+
+  <p>
+    Bagian ini membahas seluruh soal pada latihan mandiri. Soal nomor 1–10
+    berfokus pada penguasaan konsep dan prosedur dasar yang umum digunakan di
+    sekolah, soal nomor 11–18 menekankan penalaran dan pemilihan strategi yang
+    lebih dekat dengan karakter soal UTBK, dan soal nomor 19–24 menguji
+    kreativitas seperti soal olimpiade. Soal-soal tersebut merupakan latihan
+    bergaya UTBK dan olimpiade, bukan soal resmi.
+  </p>
+
+  <h3>A. Pembahasan Tingkat Kesulitan Sekolah</h3>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 1</h4>
+    <p>Gunakan nilai sudut istimewa:</p>
+
+    <div class="math-display">
+      \[ \sin30^\circ+\cos60^\circ+\tan45^\circ=\frac{1}{2}+\frac{1}{2}+1=2 \]
+    </div>
+
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 2</h4>
+    <p>
+      Sisi miring \(PR=\sqrt{12^2+5^2}=13\) cm. Terhadap sudut \(P\), sisi
+      samping adalah \(PQ=12\):
+    </p>
+
+    <div class="math-display">\[ \cos P=\frac{PQ}{PR}=\frac{12}{13} \]</div>
+
+    <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 3</h4>
+    <p>Kalikan dengan \(\displaystyle\frac{\pi}{180^\circ}\):</p>
+
+    <div class="math-display">
+      \[ 150^\circ\times\frac{\pi}{180^\circ}=\frac{5\pi}{6}\text{ rad} \]
+    </div>
+
+    <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 4</h4>
+    <p>Ubah menggunakan sudut berelasi:</p>
+
+    <div class="math-display">
+      \[ \sin150^\circ=\sin30^\circ=\frac{1}{2},\quad
+      \cos120^\circ=-\cos60^\circ=-\frac{1}{2},\quad
+      \tan135^\circ=-\tan45^\circ=-1 \] \[ \frac{1}{2}-\frac{1}{2}-1=-1 \]
+    </div>
+
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 5</h4>
+    <p>
+      Di kuadran II, \(\cos\theta\) dan \(\tan\theta\) negatif. Dari
+      \(\sin\theta=\displaystyle\frac{3}{5}\) diperoleh sisi samping
+      \(\sqrt{25-9}=4\), sehingga:
+    </p>
+
+    <div class="math-display">
+      \[ \cos\theta=-\frac{4}{5},\quad \tan\theta=-\frac{3}{4},\quad
+      \cos\theta+\tan\theta=-\frac{16}{20}-\frac{15}{20}=-\frac{31}{20} \]
+    </div>
+
+    <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 6</h4>
+    <p>Untuk \(y=A\sin kx+c\) dengan \(A=2\), \(k=3\), dan \(c=1\):</p>
+
+    <div class="math-display">
+      \[ \text{periode}=\frac{360^\circ}{3}=120^\circ,\qquad
+      y_{\text{min}}=-|A|+c=-2+1=-1 \]
+    </div>
+
+    <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 7</h4>
+    <p>
+      Persamaan menjadi \(\sin x=\displaystyle\frac{\sqrt{3}}{2}=\sin60^\circ\),
+      sehingga:
+    </p>
+
+    <div class="math-display">
+      \[ x=60^\circ\ \text{ atau }\ x=180^\circ-60^\circ=120^\circ \]
+    </div>
+
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 8</h4>
+    <p>Sudut \(A\) diapit sisi \(AB\) dan \(AC\), gunakan aturan cosinus:</p>
+
+    <div class="math-display">
+      \[ BC^2=5^2+8^2-2(5)(8)\cos60^\circ=25+64-40=49\ \Rightarrow\ BC=7\text{
+      cm} \]
+    </div>
+
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 9</h4>
+    <p>
+      Sisi \(BC\) berhadapan dengan \(\angle A\) dan sisi \(AC\) berhadapan
+      dengan \(\angle B\). Dengan aturan sinus:
+    </p>
+
+    <div class="math-display">
+      \[ \frac{AC}{\sin45^\circ}=\frac{BC}{\sin30^\circ}\ \Rightarrow\
+      AC=\frac{12\cdot\frac{\sqrt{2}}{2}}{\frac{1}{2}}=12\sqrt{2}\text{ cm} \]
+    </div>
+
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 10</h4>
+    <p>Tinggi menara \(=\) jarak \(\times\tan\) sudut elevasi:</p>
+
+    <div class="math-display">
+      \[ t=30\tan30^\circ=30\cdot\frac{\sqrt{3}}{3}=10\sqrt{3}\text{ m} \]
+    </div>
+
+    <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+  </div>
+
+  <h3>B. Pembahasan Tingkat Kesulitan UTBK</h3>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 11</h4>
+    <p>
+      Di kuadran III, \(\sin x\) dan \(\cos x\) keduanya negatif. Dari \(\tan
+      x=\displaystyle\frac{3}{4}\) (depan \(3\), samping \(4\), miring \(5\)):
+    </p>
+
+    <div class="math-display">
+      \[ \sin x=-\frac{3}{5},\quad \cos x=-\frac{4}{5},\quad \sin2x=2\sin x\cos
+      x=2\cdot\frac{12}{25}=\frac{24}{25} \] \[ \sin2x-\cos
+      x=\frac{24}{25}+\frac{4}{5}=\frac{24}{25}+\frac{20}{25}=\frac{44}{25} \]
+    </div>
+
+    <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 12</h4>
+    <p>
+      Misalkan \(P=\cos20^\circ\cos40^\circ\cos80^\circ\). Kalikan kedua ruas
+      dengan \(\sin20^\circ\) lalu terapkan \(\sin2A=2\sin A\cos A\) berulang:
+    </p>
+
+    <div class="math-display">
+      \[ \begin{aligned} \sin20^\circ\cdot
+      P&=\frac{1}{2}\sin40^\circ\cos40^\circ\cos80^\circ
+      =\frac{1}{4}\sin80^\circ\cos80^\circ=\frac{1}{8}\sin160^\circ
+      =\frac{1}{8}\sin20^\circ \end{aligned} \]
+    </div>
+
+    <p>
+      Karena \(\sin20^\circ\neq0\), maka \(P=\displaystyle\frac{1}{8}\). Jadi,
+      jawaban yang benar adalah <strong>B</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 13</h4>
+    <p>Gunakan \(\sin2x=2\sin x\cos x\) lalu faktorkan:</p>
+
+    <div class="math-display">
+      \[ 2\sin x\cos x-\cos x=0\ \Rightarrow\ \cos x\,(2\sin x-1)=0 \]
+    </div>
+
+    <p>
+      \(\cos x=0\) memberikan \(x=90^\circ,270^\circ\), dan \(\sin
+      x=\displaystyle\frac{1}{2}\) memberikan \(x=30^\circ,150^\circ\). Jumlah
+      semua penyelesaian:
+    </p>
+
+    <div class="math-display">
+      \[ 90^\circ+270^\circ+30^\circ+150^\circ=540^\circ \]
+    </div>
+
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 14</h4>
+    <p>
+      Ubah \(\sqrt{3}\sin x-\cos x\) ke bentuk \(R\sin(x-\alpha)\) dengan
+      \(R\cos\alpha=\sqrt{3}\) dan \(R\sin\alpha=1\), sehingga \(R=2\) dan
+      \(\alpha=\displaystyle\frac{\pi}{6}\):
+    </p>
+
+    <div class="math-display">\[ f(x)=2\sin\left(x-\frac{\pi}{6}\right) \]</div>
+
+    <p>
+      Nilai maksimum dicapai bila
+      \(\sin\left(x-\displaystyle\frac{\pi}{6}\right)=1\), yaitu
+      \(x-\displaystyle\frac{\pi}{6}=\frac{\pi}{2}\), sehingga
+      \(x=\displaystyle\frac{2\pi}{3}\). Jadi, jawaban yang benar adalah
+      <strong>D</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 15</h4>
+    <p>
+      Luas segitiga \(=\displaystyle\frac{1}{2}\cdot AB\cdot AC\cdot\sin A\):
+    </p>
+
+    <div class="math-display">
+      \[ \frac{1}{2}(6)(4)\sin A=6\sqrt{3}\ \Rightarrow\ 12\sin A=6\sqrt{3} \
+      \Rightarrow\ \sin A=\frac{\sqrt{3}}{2} \]
+    </div>
+
+    <p>
+      Karena \(A\) lancip, \(A=60^\circ\). Jadi, jawaban yang benar adalah
+      <strong>C</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 16</h4>
+    <p>Karena \(A+B=\displaystyle\frac{\pi}{4}\), maka \(\tan(A+B)=1\):</p>
+
+    <div class="math-display">
+      \[ \frac{\tan A+\tan B}{1-\tan A\tan B}=1\ \Rightarrow\ \tan A+\tan
+      B=1-\tan A\tan B \] \[ (1+\tan A)(1+\tan B)=1+\left(\tan A+\tan B+\tan
+      A\tan B\right)=1+1=2 \]
+    </div>
+
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 17</h4>
+    <p>
+      Gunakan \(1-\cos2x=2\sin^2x\) dan \(\displaystyle\frac{\sin x}{\tan
+      x}=\cos x\):
+    </p>
+
+    <div class="math-display">
+      \[ \lim_{x\to0}\frac{2\sin^2x}{x\tan x}=2\lim_{x\to0}\frac{\sin
+      x}{x}\cdot\frac{\sin x}{\tan x} =2\cdot1\cdot\lim_{x\to0}\cos x=2 \]
+    </div>
+
+    <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 18</h4>
+    <p>Untuk \(f(x)=a\sin bx+c\) dengan \(a,b\gt 0\):</p>
+
+    <div class="math-display">
+      \[ a=\frac{5-(-1)}{2}=3,\qquad c=\frac{5+(-1)}{2}=2,\qquad
+      \frac{2\pi}{b}=\pi\ \Rightarrow\ b=2 \] \[ a+b+c=3+2+2=7 \]
+    </div>
+
+    <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+  </div>
+
+  <h3>C. Pembahasan Tingkat Kesulitan Olimpiade</h3>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 19</h4>
+    <p>
+      Misalkan \(\theta=18^\circ\), sehingga \(5\theta=90^\circ\) dan
+      \(2\theta=90^\circ-3\theta\). Maka \(\sin2\theta=\cos3\theta\):
+    </p>
+
+    <div class="math-display">
+      \[ 2\sin\theta\cos\theta=4\cos^3\theta-3\cos\theta \ \Rightarrow\
+      2\sin\theta=4\cos^2\theta-3=1-4\sin^2\theta \] \[
+      4\sin^2\theta+2\sin\theta-1=0\ \Rightarrow\
+      \sin\theta=\frac{-2\pm\sqrt{4+16}}{8}=\frac{-1\pm\sqrt{5}}{4} \]
+    </div>
+
+    <p>
+      Karena \(\sin18^\circ\gt 0\), diperoleh
+      \(\sin18^\circ=\displaystyle\frac{\sqrt{5}-1}{4}\). Jadi, jawaban yang
+      benar adalah <strong>\(\displaystyle\frac{\sqrt{5}-1}{4}\)</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 20</h4>
+    <p>
+      Misalkan \(P=\cos36^\circ\cos72^\circ\). Kalikan dengan \(\sin36^\circ\)
+      dan gunakan sudut ganda berulang:
+    </p>
+
+    <div class="math-display">
+      \[ \sin36^\circ\cdot
+      P=\frac{1}{2}\sin72^\circ\cos72^\circ=\frac{1}{4}\sin144^\circ
+      =\frac{1}{4}\sin36^\circ \]
+    </div>
+
+    <p>
+      Maka \(P=\displaystyle\frac{1}{4}\). Jadi, jawaban yang benar adalah
+      <strong>\(\displaystyle\frac{1}{4}\)</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 21</h4>
+    <p>
+      Karena \(\sin(90^\circ-k)=\cos k\), maka \(\sin^2
+      k^\circ+\sin^2\left(90^\circ-k^\circ\right)=\sin^2 k^\circ+\cos^2
+      k^\circ=1\). Suku-suku \(k=1,2,\ldots,44\) berpasangan dengan
+      \(k=89,88,\ldots,46\) sehingga terbentuk \(44\) pasangan, dan tersisa suku
+      \(k=45\):
+    </p>
+
+    <div class="math-display">
+      \[ 44\times1+\sin^2 45^\circ=44+\frac{1}{2}=\frac{89}{2} \]
+    </div>
+
+    <p>
+      Jadi, jawaban yang benar adalah
+      <strong>\(\displaystyle\frac{89}{2}\)</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 22</h4>
+    <p>
+      Gunakan identitas \(\tan x\,\tan(60^\circ-x)\tan(60^\circ+x)=\tan3x\).
+      Buktinya: dengan \(t=\tan x\),
+      \(\tan(60^\circ-x)\tan(60^\circ+x)=\displaystyle\frac{3-t^2}{1-3t^2}\),
+      dan
+      \(\tan3x=\displaystyle\frac{3t-t^3}{1-3t^2}=t\cdot\frac{3-t^2}{1-3t^2}\).
+      Dengan \(x=20^\circ\), \(60^\circ-x=40^\circ\) dan
+      \(60^\circ+x=80^\circ\):
+    </p>
+
+    <div class="math-display">
+      \[ \tan20^\circ\tan40^\circ\tan80^\circ=\tan60^\circ=\sqrt{3} \]
+    </div>
+
+    <p>Jadi, jawaban yang benar adalah <strong>\(\sqrt{3}\)</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 23</h4>
+    <p>
+      Misalkan \(u=\sin^2x\) dengan \(0\lt u\le1\), sehingga bentuknya
+      \(f(u)=4u+\displaystyle\frac{9}{u}\). Pertidaksamaan AM–GM memberi
+      \(f(u)\ge2\sqrt{36}=12\), tetapi kesamaan terjadi saat
+      \(4u=\displaystyle\frac{9}{u}\), yaitu \(u=\displaystyle\frac{3}{2}\gt
+      1\), sehingga tidak tercapai. Pada \(0\lt u\le1\),
+      \(f'(u)=4-\displaystyle\frac{9}{u^2}\lt 0\), jadi \(f\) turun dan minimum
+      terjadi di \(u=1\):
+    </p>
+
+    <div class="math-display">\[ f_{\text{min}}=4(1)+\frac{9}{1}=13 \]</div>
+
+    <p>Jadi, jawaban yang benar adalah <strong>13</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 24</h4>
+    <p>
+      Menurut aturan sinus, \(a:b:c=\sin A:\sin B:\sin C=3:5:7\). Sudut terbesar
+      berhadapan dengan sisi terpanjang, yaitu \(C\). Ambil \(a=3k\), \(b=5k\),
+      \(c=7k\):
+    </p>
+
+    <div class="math-display">
+      \[ \cos
+      C=\frac{a^2+b^2-c^2}{2ab}=\frac{9+25-49}{2(3)(5)}=\frac{-15}{30}=-\frac{1}{2}
+      \ \Rightarrow\ C=120^\circ \]
+    </div>
+
+    <p>Jadi, jawaban yang benar adalah <strong>\(120^\circ\)</strong>.</p>
+  </div>
+
+  <h3>Ringkasan Kunci dan Konsep yang Diuji</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table answer-key-table">
+      <thead>
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">Kunci</th>
+          <th scope="col">Konsep Utama</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>C</td>
+          <td>Nilai sudut istimewa</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>D</td>
+          <td>Perbandingan trigonometri pada segitiga siku-siku</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>E</td>
+          <td>Konversi derajat ke radian</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>B</td>
+          <td>Sudut berelasi</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>A</td>
+          <td>Tanda perbandingan trigonometri di kuadran II</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>D</td>
+          <td>Periode dan nilai minimum grafik sinus</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>C</td>
+          <td>Persamaan trigonometri dasar</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>B</td>
+          <td>Aturan cosinus</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>C</td>
+          <td>Aturan sinus</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>D</td>
+          <td>Sudut elevasi</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>D</td>
+          <td>Sudut ganda dan tanda kuadran</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>B</td>
+          <td>Perkalian cosinus berurutan dengan sudut ganda</td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>C</td>
+          <td>Persamaan trigonometri dengan sudut ganda</td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td>D</td>
+          <td>Bentuk a cos x + b sin x dan nilai maksimum</td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td>C</td>
+          <td>Luas segitiga dengan rumus sinus</td>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td>B</td>
+          <td>Rumus tan(A + B)</td>
+        </tr>
+        <tr>
+          <td>17</td>
+          <td>E</td>
+          <td>Limit trigonometri</td>
+        </tr>
+        <tr>
+          <td>18</td>
+          <td>D</td>
+          <td>Amplitudo, periode, dan pergeseran grafik</td>
+        </tr>
+        <tr>
+          <td>19</td>
+          <td>\(\displaystyle\frac{\sqrt{5}-1}{4}\)</td>
+          <td>Nilai eksak sin 18° dengan persamaan kuadrat</td>
+        </tr>
+        <tr>
+          <td>20</td>
+          <td>\(\displaystyle\frac{1}{4}\)</td>
+          <td>Sudut ganda berulang</td>
+        </tr>
+        <tr>
+          <td>21</td>
+          <td>\(\displaystyle\frac{89}{2}\)</td>
+          <td>Pasangan sudut komplemen dan identitas Pythagoras</td>
+        </tr>
+        <tr>
+          <td>22</td>
+          <td>\(\sqrt{3}\)</td>
+          <td>Identitas tan x tan(60° − x) tan(60° + x) = tan 3x</td>
+        </tr>
+        <tr>
+          <td>23</td>
+          <td>\(13\)</td>
+          <td>Nilai minimum dengan batas daerah nilai sinus</td>
+        </tr>
+        <tr>
+          <td>24</td>
+          <td>\(120^\circ\)</td>
+          <td>Aturan sinus dan aturan cosinus</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

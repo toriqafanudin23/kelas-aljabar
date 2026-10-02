@@ -13,6 +13,10 @@ import polinomialHtml from "./polinomial.html?raw";
 import limitHtml from "./limit.html?raw";
 import turunanHtml from "./turunan.html?raw";
 import lingkaranHtml from "./lingkaran.html?raw";
+import bilanganKompleksHtml from "./bilangan-kompleks.html?raw";
+import fungsiPemodelanHtml from "./fungsi.html?raw";
+import transformasiFungsiHtml from "./transformasi-fungsi.html?raw";
+import trigonometriHtml from "./trigonometri.html?raw";
 
 export interface Material {
   id: string;
@@ -37,16 +41,20 @@ export interface Material {
  * 3. Sistem Persamaan dan Pertidaksamaan Linear (Kelas X)
  * 4. Fungsi Kuadrat (Kelas X)
  * 5. Statistika (Kelas X)
- * 6. Komposisi Fungsi dan Invers (Kelas XI)
- * 7. Polinomial (Kelas XI)
- * 8. Matriks (Kelas XI)
- * 9. Lingkaran (Kelas XI)
- * 10. Transformasi Geometri (Kelas XI)
- * 11. Vektor (Kelas XI)
- * 12. Limit Fungsi (Kelas XII)
- * 13. Turunan (Kelas XII)
- * 14. Kombinatorika (Kelas XII)
- * 15. Teori Peluang (Kelas XII)
+ * 6. Trigonometri (Kelas X)
+ * 7. Komposisi Fungsi dan Invers (Kelas XI)
+ * 8. Polinomial (Kelas XI)
+ * 9. Matriks (Kelas XI)
+ * 10. Lingkaran (Kelas XI)
+ * 11. Transformasi Geometri (Kelas XI)
+ * 12. Vektor (Kelas XI)
+ * 13. Bilangan Kompleks (Kelas XI)
+ * 14. Fungsi dan Pemodelan (Kelas XI)
+ * 15. Limit Fungsi (Kelas XII)
+ * 16. Turunan (Kelas XII)
+ * 17. Kombinatorika (Kelas XII)
+ * 18. Teori Peluang (Kelas XII)
+ * 19. Transformasi Fungsi (Kelas XII)
  */
 export const materials: Material[] = [
   {
@@ -109,7 +117,7 @@ export const materials: Material[] = [
   {
     id: "function-composition-inverse",
     slug: "komposisi-fungsi-dan-invers",
-    number: "06",
+    number: "07",
     category: "Aljabar Matematika",
     title: "Komposisi Fungsi dan Invers",
     grade: "Kelas XI",
@@ -137,7 +145,7 @@ export const materials: Material[] = [
   {
     id: "matrices",
     slug: "matriks",
-    number: "08",
+    number: "09",
     category: "Aljabar Linear",
     title: "Matriks",
     grade: "Kelas XI",
@@ -152,7 +160,7 @@ export const materials: Material[] = [
   {
     id: "vectors",
     slug: "vektor",
-    number: "11",
+    number: "12",
     category: "Geometri Analitik",
     title: "Vektor",
     grade: "Kelas XI",
@@ -167,7 +175,7 @@ export const materials: Material[] = [
   {
     id: "geometry",
     slug: "transformasi-geometri",
-    number: "10",
+    number: "11",
     category: "Geometri Analitik",
     title: "Transformasi Geometri",
     grade: "Kelas XI",
@@ -182,7 +190,7 @@ export const materials: Material[] = [
   {
     id: "combinatorics",
     slug: "kombinatorika",
-    number: "14",
+    number: "17",
     category: "Kaidah Pencacahan",
     title: "Kombinatorika",
     grade: "Kelas XII",
@@ -197,7 +205,7 @@ export const materials: Material[] = [
   {
     id: "probability",
     slug: "peluang",
-    number: "15",
+    number: "18",
     category: "Teori Peluang & Statistika",
     title: "Teori Peluang",
     grade: "Kelas XII",
@@ -211,13 +219,13 @@ export const materials: Material[] = [
   {
     id: "polynomials",
     slug: "polinomial",
-    number: "07",
+    number: "08",
     category: "Aljabar Matematika",
     title: "Polinomial",
     grade: "Kelas XI",
     phase: "Fase F (Kelas XI)",
     prerequisite: "Operasi Aljabar & Fungsi",
-    formula: "P(x)=a_nx^n+a_{n-1}x^{n-1}+\\cdots+a_1x+a_0 \\qquad a_n\\ne0",
+    formula: "P(x)=\\sum_{k=0}^{n}a_kx^k \\qquad a_n\\ne0",
     description:
       "Pelajari bentuk dan derajat polinomial, operasi aljabar, pembagian, teorema sisa dan faktor, serta penentuan akar-akar polinomial.",
     htmlContent: polinomialHtml,
@@ -225,7 +233,7 @@ export const materials: Material[] = [
   {
     id: "limits",
     slug: "limit",
-    number: "12",
+    number: "15",
     category: "Kalkulus",
     title: "Limit Fungsi",
     grade: "Kelas XII",
@@ -239,7 +247,7 @@ export const materials: Material[] = [
   {
     id: "derivatives",
     slug: "turunan",
-    number: "13",
+    number: "16",
     category: "Kalkulus",
     title: "Turunan Fungsi",
     grade: "Kelas XII",
@@ -253,7 +261,7 @@ export const materials: Material[] = [
   {
     id: "circle-arcs-sectors",
     slug: "busur-dan-juring-lingkaran",
-    number: "09",
+    number: "10",
     category: "Geometri Lingkaran",
     title: "Lingkaran",
     grade: "Kelas XI",
@@ -263,6 +271,63 @@ export const materials: Material[] = [
     description:
       "Pelajari keliling dan luas, unsur-unsur lingkaran, busur, juring, tali busur, garis singgung, serta penerapan dan latihan soal.",
     htmlContent: lingkaranHtml,
+  },
+  {
+    id: "complex-numbers",
+    slug: "bilangan-kompleks",
+    number: "13",
+    category: "Analisis",
+    title: "Bilangan Kompleks",
+    grade: "Kelas XI",
+    phase: "Fase F (Kelas XI)",
+    prerequisite: "Bilangan Real dan Operasi Aljabar",
+    formula: "z=a+bi \\qquad i^2=-1",
+    description:
+      "Pelajari bentuk dan representasi bilangan kompleks, operasi hitung, invers, konjugat, modulus, serta argumen pada bidang kompleks.",
+    htmlContent: bilanganKompleksHtml,
+  },
+  {
+    id: "functions-modeling",
+    slug: "fungsi",
+    number: "14",
+    category: "Aljabar Matematika",
+    title: "Fungsi dan Pemodelan",
+    grade: "Kelas XI",
+    phase: "Fase F (Kelas XI)",
+    prerequisite: "Relasi dan Fungsi Dasar",
+    formula: "f:A\\to B \\qquad y=f(x)",
+    description:
+      "Pelajari konsep dan sifat fungsi, domain dan range, operasi serta komposisi dan invers, transformasi grafik, dan pemodelan menggunakan fungsi.",
+    htmlContent: fungsiPemodelanHtml,
+  },
+  {
+    id: "function-transformations",
+    slug: "transformasi-fungsi",
+    number: "19",
+    category: "Aljabar Matematika",
+    title: "Transformasi Fungsi",
+    grade: "Kelas XII",
+    phase: "Fase F Tingkat Lanjut (Kelas XII)",
+    prerequisite: "Fungsi dan Pemodelan",
+    formula: "y=f(x-h)+k \\qquad y=af(bx)",
+    description:
+      "Pelajari translasi, refleksi, dilatasi, rotasi, dan komposisi transformasi pada grafik fungsi serta pengaruhnya terhadap sifat grafik.",
+    htmlContent: transformasiFungsiHtml,
+  },
+  {
+    id: "trigonometry",
+    slug: "trigonometri",
+    number: "06",
+    category: "Geometri & Trigonometri",
+    title: "Trigonometri",
+    grade: "Kelas X",
+    phase: "Fase E (Kelas X)",
+    prerequisite: "Sudut dan Segitiga Siku-Siku",
+    formula:
+      "\\sin\\theta=\\frac{\\text{sisi depan}}{\\text{hipotenusa}} \\qquad \\cos\\theta=\\frac{\\text{sisi samping}}{\\text{hipotenusa}}",
+    description:
+      "Pelajari perbandingan trigonometri, sudut istimewa, lingkaran satuan, identitas, persamaan trigonometri, aturan sinus dan cosinus, serta penerapannya.",
+    htmlContent: trigonometriHtml,
   },
 ];
 

@@ -999,6 +999,10 @@ summary:focus-visible {
   font-size: 12px;
   letter-spacing: 0.7px;
 }
+.footer-subjects strong {
+  color: var(--gold-light);
+  font-size: 11px;
+}
 .footer-main p {
   max-width: 420px;
   margin: 4px 0 0;
@@ -1870,6 +1874,9 @@ summary:focus-visible {
   color: #485666;
   font-size: 14px;
   line-height: 1.8;
+}
+.lesson-content ol[type="A"] {
+  list-style-type: upper-alpha;
 }
 .lesson-content li {
   margin-bottom: 6px;

@@ -1,0 +1,2412 @@
+<style>
+.fungsi-figure{margin:1.25rem auto;text-align:center}
+.fungsi-figure svg{width:100%;max-width:520px;height:auto}
+.fungsi-figure figcaption{font-size:.9em;opacity:.85;margin-top:.4rem}
+.fungsi-figure text{fill:currentColor;font-family:inherit;font-size:13px}
+.fungsi-figure .ft{font-size:11px;opacity:.85}
+.fungsi-figure .vl{font-style:italic;font-weight:700}
+.fungsi-figure .ta{fill:#2563eb}.fungsi-figure .tb{fill:#dc2626}
+.fungsi-figure .tc{fill:#16a34a}.fungsi-figure .td{fill:#9333ea}
+.fungsi-figure .ca,.fungsi-figure .cb,.fungsi-figure .cc,.fungsi-figure .cd{fill:none;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.fungsi-figure .ca{stroke:#2563eb}.fungsi-figure .cb{stroke:#dc2626}
+.fungsi-figure .cc{stroke:#16a34a}.fungsi-figure .cd{stroke:#9333ea}
+.fungsi-figure .ax{fill:none;stroke:currentColor;stroke-width:1.6;marker-end:url(#fm-gray)}
+.fungsi-figure .gr{stroke:currentColor;stroke-opacity:.12;fill:none}
+.fungsi-figure .tk{stroke:currentColor;stroke-width:1.2}
+.fungsi-figure .ds{fill:none;stroke:currentColor;stroke-width:1.5;stroke-dasharray:5 4;opacity:.6}
+.fungsi-figure .pt{fill:currentColor}
+.fungsi-figure .op{fill:Canvas;stroke:currentColor;stroke-width:2}
+.fungsi-figure .fl{fill:#2563eb;fill-opacity:.15;stroke:none}
+.fungsi-figure .el{fill:none;stroke:currentColor;stroke-width:1.8}
+.fungsi-figure .ar{fill:none;stroke:#2563eb;stroke-width:2;marker-end:url(#fm-blue)}
+</style>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<marker id="fm-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2563eb"/></marker>
+<marker id="fm-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker>
+</defs></svg>
+
+<section id="pengertian-fungsi" data-title="Pengertian Fungsi">
+  <h2>1. Pengertian Fungsi</h2>
+
+  <p>
+    Fungsi adalah aturan yang memasangkan setiap anggota himpunan \(A\) dengan
+    <strong>tepat satu</strong> anggota himpunan \(B\). Fungsi dari \(A\) ke
+    \(B\) ditulis \(f:A\to B\), dan pasangan dari \(x\) ditulis \(y=f(x)\).
+  </p>
+
+  <ul>
+    <li><strong>Domain</strong> (\(D_f\)): himpunan semua nilai \(x\) yang boleh dimasukkan ke fungsi.</li>
+    <li><strong>Kodomain</strong>: himpunan tempat nilai fungsi berada (himpunan \(B\)).</li>
+    <li><strong>Range</strong> (\(R_f\)): himpunan semua nilai \(f(x)\) yang benar-benar dicapai, \(R_f\subseteq B\).</li>
+  </ul>
+
+  <figure class="fungsi-figure">
+<svg viewBox="0 0 420 215" style="max-width:520px" role="img" aria-label="Diagram panah fungsi f(x)=2x dari himpunan A={1,2,3} ke himpunan B={2,4,6,8}">
+<ellipse class="el" cx="110" cy="102" rx="70" ry="82"/><ellipse class="el" cx="310" cy="102" rx="70" ry="82"/>
+<text x="110" y="14" text-anchor="middle">A (domain)</text><text x="310" y="14" text-anchor="middle">B (kodomain)</text>
+<circle class="pt" cx="110" cy="57" r="3.5"/><circle class="pt" cx="110" cy="102" r="3.5"/><circle class="pt" cx="110" cy="147" r="3.5"/>
+<text x="88" y="61" text-anchor="end">1</text><text x="88" y="106" text-anchor="end">2</text><text x="88" y="151" text-anchor="end">3</text>
+<circle class="pt" cx="310" cy="47" r="3.5"/><circle class="pt" cx="310" cy="82" r="3.5"/><circle class="pt" cx="310" cy="117" r="3.5"/><circle class="pt" cx="310" cy="152" r="3.5"/>
+<text x="332" y="51">2</text><text x="332" y="86">4</text><text x="332" y="121">6</text><text x="332" y="156">8</text>
+<line class="ar" x1="114" y1="57" x2="304" y2="48"/><line class="ar" x1="114" y1="102" x2="304" y2="82"/><line class="ar" x1="114" y1="147" x2="304" y2="116"/>
+<text class="ta" x="210" y="198" text-anchor="middle">f(x) = 2x, range = {2, 4, 6}</text>
+</svg>
+<figcaption>Diagram panah: setiap anggota domain mempunyai tepat satu pasangan di kodomain. Anggota 8 di kodomain tidak memiliki pasangan, sehingga tidak termasuk range.</figcaption></figure>
+
+  <h3>Domain Alami</h3>
+
+  <p>
+    Jika domain tidak disebutkan, domain fungsi adalah himpunan terbesar bilangan
+    real \(x\) yang membuat \(f(x)\) terdefinisi (domain alami).
+  </p>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr><th scope="col">Bentuk Fungsi</th><th scope="col">Syarat Domain</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>\(\displaystyle\frac{P(x)}{Q(x)}\)</td><td>\(Q(x)\neq 0\)</td></tr>
+        <tr><td>\(\sqrt[2n]{g(x)}\) (akar berindeks genap)</td><td>\(g(x)\ge 0\)</td></tr>
+        <tr><td>\({}^{a}\!\log g(x)\)</td><td>\(g(x)>0\), \(a>0\), \(a\neq 1\)</td></tr>
+        <tr><td>\(\tan g(x)\)</td><td>\(g(x)\neq \displaystyle\frac{\pi}{2}+k\pi\)</td></tr>
+        <tr><td>Polinom, \(a^{x}\), \(|x|\), \(\sin x\), \(\cos x\)</td><td>Semua bilangan real</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>Tentukan domain dan range \(f(x)=\sqrt{4-x^{2}}\).</p>
+    <p>
+      Syarat akar: \(4-x^{2}\ge 0\), sehingga \(-2\le x\le 2\). Pada interval ini
+      \(4-x^{2}\) bernilai antara \(0\) dan \(4\), sehingga \(f(x)\) bernilai
+      antara \(0\) dan \(2\).
+    </p>
+    <div class="math-display">
+      \[ D_f=[-2,\,2],\qquad R_f=[0,\,2] \]
+    </div>
+  </div>
+
+  <h3>Uji Garis Vertikal</h3>
+
+  <p>
+    Suatu kurva adalah grafik fungsi jika setiap garis vertikal memotong kurva
+    di <strong>paling banyak satu titik</strong>. Jika ada garis vertikal yang
+    memotong di dua titik atau lebih, satu nilai \(x\) memiliki lebih dari satu
+    pasangan sehingga bukan fungsi.
+  </p>
+
+  <figure class="fungsi-figure">
+<svg viewBox="0 0 420 300" style="max-width:520px" role="img" aria-label="Parabola y = x kuadrat dibagi 2 dipotong garis vertikal di satu titik">
+<defs><clipPath id="vlt1-c"><rect x="30" y="14" width="374" height="260"/></clipPath></defs>
+<line class="gr" x1="61.2" y1="14" x2="61.2" y2="274"/>
+<line class="gr" x1="113.1" y1="14" x2="113.1" y2="274"/>
+<line class="gr" x1="165.1" y1="14" x2="165.1" y2="274"/>
+<line class="gr" x1="268.9" y1="14" x2="268.9" y2="274"/>
+<line class="gr" x1="320.9" y1="14" x2="320.9" y2="274"/>
+<line class="gr" x1="372.8" y1="14" x2="372.8" y2="274"/>
+<line class="gr" x1="30" y1="248.0" x2="404" y2="248.0"/>
+<line class="gr" x1="30" y1="196.0" x2="404" y2="196.0"/>
+<line class="gr" x1="30" y1="92.0" x2="404" y2="92.0"/>
+<line class="gr" x1="30" y1="40.0" x2="404" y2="40.0"/>
+<line class="ax" x1="24" y1="144.0" x2="412" y2="144.0"/>
+<line class="ax" x1="217.0" y1="280" x2="217.0" y2="6"/>
+<text class="vl" x="412" y="160.0">x</text>
+<text class="vl" x="225.0" y="12">y</text>
+<line class="tk" x1="61.2" y1="141.0" x2="61.2" y2="147.0"/>
+<text class="ft" x="61.2" y="160.0" text-anchor="middle">−3</text>
+<line class="tk" x1="113.1" y1="141.0" x2="113.1" y2="147.0"/>
+<text class="ft" x="113.1" y="160.0" text-anchor="middle">−2</text>
+<line class="tk" x1="165.1" y1="141.0" x2="165.1" y2="147.0"/>
+<text class="ft" x="165.1" y="160.0" text-anchor="middle">−1</text>
+<line class="tk" x1="268.9" y1="141.0" x2="268.9" y2="147.0"/>
+<text class="ft" x="268.9" y="160.0" text-anchor="middle">1</text>
+<line class="tk" x1="320.9" y1="141.0" x2="320.9" y2="147.0"/>
+<text class="ft" x="320.9" y="160.0" text-anchor="middle">2</text>
+<line class="tk" x1="372.8" y1="141.0" x2="372.8" y2="147.0"/>
+<text class="ft" x="372.8" y="160.0" text-anchor="middle">3</text>
+<line class="tk" x1="214.0" y1="248.0" x2="220.0" y2="248.0"/>
+<text class="ft" x="210.0" y="252.0" text-anchor="end">−2</text>
+<line class="tk" x1="214.0" y1="196.0" x2="220.0" y2="196.0"/>
+<text class="ft" x="210.0" y="200.0" text-anchor="end">−1</text>
+<line class="tk" x1="214.0" y1="92.0" x2="220.0" y2="92.0"/>
+<text class="ft" x="210.0" y="96.0" text-anchor="end">1</text>
+<line class="tk" x1="214.0" y1="40.0" x2="220.0" y2="40.0"/>
+<text class="ft" x="210.0" y="44.0" text-anchor="end">2</text>
+<text class="ft" x="210.0" y="158.0" text-anchor="end">O</text>
+<path class="ca" d="M30.0 -141.0 L33.4 -128.8 L36.8 -116.9 L40.2 -105.2 L43.6 -93.7 L47.0 -82.5 L50.4 -71.5 L53.8 -60.6 L57.2 -50.1 L60.6 -39.7 L64.0 -29.6 L67.4 -19.7 L70.8 -10.0 L74.2 -0.5 L77.6 8.8 L81.0 17.8 L84.4 26.6 L87.8 35.2 L91.2 43.5 L94.6 51.6 L98.0 59.5 L101.4 67.2 L104.8 74.7 L108.2 81.9 L111.6 89.0 L115.0 95.7 L118.4 102.3 L121.8 108.7 L125.2 114.8 L128.6 120.7 L132.0 126.4 L135.4 131.8 L138.8 137.1 L142.2 142.1 L145.6 146.9 L149.0 151.4 L152.4 155.8 L155.8 159.9 L159.2 163.8 L162.6 167.5 L166.0 170.9 L169.4 174.2 L172.8 177.2 L176.2 180.0 L179.6 182.5 L183.0 184.9 L186.4 187.0 L189.8 188.9 L193.2 190.5 L196.6 192.0 L200.0 193.2 L203.4 194.2 L206.8 195.0 L210.2 195.6 L213.6 195.9 L217.0 196.0 L220.4 195.9 L223.8 195.6 L227.2 195.0 L230.6 194.2 L234.0 193.2 L237.4 192.0 L240.8 190.5 L244.2 188.9 L247.6 187.0 L251.0 184.9 L254.4 182.5 L257.8 180.0 L261.2 177.2 L264.6 174.2 L268.0 170.9 L271.4 167.5 L274.8 163.8 L278.2 159.9 L281.6 155.8 L285.0 151.4 L288.4 146.9 L291.8 142.1 L295.2 137.1 L298.6 131.8 L302.0 126.4 L305.4 120.7 L308.8 114.8 L312.2 108.7 L315.6 102.3 L319.0 95.7 L322.4 89.0 L325.8 81.9 L329.2 74.7 L332.6 67.2 L336.0 59.5 L339.4 51.6 L342.8 43.5 L346.2 35.2 L349.6 26.6 L353.0 17.8 L356.4 8.8 L359.8 -0.5 L363.2 -10.0 L366.6 -19.7 L370.0 -29.6 L373.4 -39.7 L376.8 -50.1 L380.2 -60.6 L383.6 -71.5 L387.0 -82.5 L390.4 -93.7 L393.8 -105.2 L397.2 -116.9 L400.6 -128.8 L404.0 -141.0" clip-path="url(#vlt1-c)"/>
+<line class="ds" x1="294.9" y1="274.0" x2="294.9" y2="14.0"/>
+<circle class="pt" cx="294.9" cy="137.5" r="4"/>
+<text class="ta" x="40.4" y="29.6" text-anchor="start">y = x²/2 − 1</text>
+</svg>
+<figcaption>Garis vertikal memotong grafik di paling banyak satu titik, sehingga grafik ini adalah grafik fungsi.</figcaption></figure>
+  <figure class="fungsi-figure">
+<svg viewBox="0 0 420 300" style="max-width:520px" role="img" aria-label="Lingkaran x kuadrat tambah y kuadrat sama dengan 4 dipotong garis vertikal di dua titik">
+<defs><clipPath id="vlt2-c"><rect x="30" y="14" width="374" height="260"/></clipPath></defs>
+<line class="gr" x1="61.2" y1="14" x2="61.2" y2="274"/>
+<line class="gr" x1="113.1" y1="14" x2="113.1" y2="274"/>
+<line class="gr" x1="165.1" y1="14" x2="165.1" y2="274"/>
+<line class="gr" x1="268.9" y1="14" x2="268.9" y2="274"/>
+<line class="gr" x1="320.9" y1="14" x2="320.9" y2="274"/>
+<line class="gr" x1="372.8" y1="14" x2="372.8" y2="274"/>
+<line class="gr" x1="30" y1="248.0" x2="404" y2="248.0"/>
+<line class="gr" x1="30" y1="196.0" x2="404" y2="196.0"/>
+<line class="gr" x1="30" y1="92.0" x2="404" y2="92.0"/>
+<line class="gr" x1="30" y1="40.0" x2="404" y2="40.0"/>
+<line class="ax" x1="24" y1="144.0" x2="412" y2="144.0"/>
+<line class="ax" x1="217.0" y1="280" x2="217.0" y2="6"/>
+<text class="vl" x="412" y="160.0">x</text>
+<text class="vl" x="225.0" y="12">y</text>
+<line class="tk" x1="61.2" y1="141.0" x2="61.2" y2="147.0"/>
+<text class="ft" x="61.2" y="160.0" text-anchor="middle">−3</text>
+<line class="tk" x1="113.1" y1="141.0" x2="113.1" y2="147.0"/>
+<text class="ft" x="113.1" y="160.0" text-anchor="middle">−2</text>
+<line class="tk" x1="165.1" y1="141.0" x2="165.1" y2="147.0"/>
+<text class="ft" x="165.1" y="160.0" text-anchor="middle">−1</text>
+<line class="tk" x1="268.9" y1="141.0" x2="268.9" y2="147.0"/>
+<text class="ft" x="268.9" y="160.0" text-anchor="middle">1</text>
+<line class="tk" x1="320.9" y1="141.0" x2="320.9" y2="147.0"/>
+<text class="ft" x="320.9" y="160.0" text-anchor="middle">2</text>
+<line class="tk" x1="372.8" y1="141.0" x2="372.8" y2="147.0"/>
+<text class="ft" x="372.8" y="160.0" text-anchor="middle">3</text>
+<line class="tk" x1="214.0" y1="248.0" x2="220.0" y2="248.0"/>
+<text class="ft" x="210.0" y="252.0" text-anchor="end">−2</text>
+<line class="tk" x1="214.0" y1="196.0" x2="220.0" y2="196.0"/>
+<text class="ft" x="210.0" y="200.0" text-anchor="end">−1</text>
+<line class="tk" x1="214.0" y1="92.0" x2="220.0" y2="92.0"/>
+<text class="ft" x="210.0" y="96.0" text-anchor="end">1</text>
+<line class="tk" x1="214.0" y1="40.0" x2="220.0" y2="40.0"/>
+<text class="ft" x="210.0" y="44.0" text-anchor="end">2</text>
+<text class="ft" x="210.0" y="158.0" text-anchor="end">O</text>
+<path class="cb" d="M113.1 144.0 L115.0 124.3 L116.9 116.2 L118.8 110.1 L120.7 105.1 L122.6 100.7 L124.4 96.8 L126.3 93.2 L128.2 90.0 L130.1 87.0 L132.0 84.2 L133.9 81.6 L135.8 79.2 L137.7 76.9 L139.6 74.7 L141.4 72.6 L143.3 70.7 L145.2 68.8 L147.1 67.1 L149.0 65.4 L150.9 63.8 L152.8 62.3 L154.7 60.8 L156.6 59.4 L158.4 58.1 L160.3 56.8 L162.2 55.6 L164.1 54.5 L166.0 53.4 L167.9 52.4 L169.8 51.4 L171.7 50.4 L173.6 49.5 L175.4 48.7 L177.3 47.9 L179.2 47.1 L181.1 46.4 L183.0 45.7 L184.9 45.1 L186.8 44.5 L188.7 43.9 L190.6 43.4 L192.4 42.9 L194.3 42.5 L196.2 42.1 L198.1 41.7 L200.0 41.4 L201.9 41.1 L203.8 40.8 L205.7 40.6 L207.6 40.4 L209.4 40.3 L211.3 40.2 L213.2 40.1 L215.1 40.0 L217.0 40.0 L218.9 40.0 L220.8 40.1 L222.7 40.2 L224.6 40.3 L226.4 40.4 L228.3 40.6 L230.2 40.8 L232.1 41.1 L234.0 41.4 L235.9 41.7 L237.8 42.1 L239.7 42.5 L241.6 42.9 L243.4 43.4 L245.3 43.9 L247.2 44.5 L249.1 45.1 L251.0 45.7 L252.9 46.4 L254.8 47.1 L256.7 47.9 L258.6 48.7 L260.4 49.5 L262.3 50.4 L264.2 51.4 L266.1 52.4 L268.0 53.4 L269.9 54.5 L271.8 55.6 L273.7 56.8 L275.6 58.1 L277.4 59.4 L279.3 60.8 L281.2 62.3 L283.1 63.8 L285.0 65.4 L286.9 67.1 L288.8 68.8 L290.7 70.7 L292.6 72.6 L294.4 74.7 L296.3 76.9 L298.2 79.2 L300.1 81.6 L302.0 84.2 L303.9 87.0 L305.8 90.0 L307.7 93.2 L309.6 96.8 L311.4 100.7 L313.3 105.1 L315.2 110.1 L317.1 116.2 L319.0 124.3 L320.9 144.0" clip-path="url(#vlt2-c)"/>
+<path class="cb" d="M113.1 144.0 L115.0 163.7 L116.9 171.8 L118.8 177.9 L120.7 182.9 L122.6 187.3 L124.4 191.2 L126.3 194.8 L128.2 198.0 L130.1 201.0 L132.0 203.8 L133.9 206.4 L135.8 208.8 L137.7 211.1 L139.6 213.3 L141.4 215.4 L143.3 217.3 L145.2 219.2 L147.1 220.9 L149.0 222.6 L150.9 224.2 L152.8 225.7 L154.7 227.2 L156.6 228.6 L158.4 229.9 L160.3 231.2 L162.2 232.4 L164.1 233.5 L166.0 234.6 L167.9 235.6 L169.8 236.6 L171.7 237.6 L173.6 238.5 L175.4 239.3 L177.3 240.1 L179.2 240.9 L181.1 241.6 L183.0 242.3 L184.9 242.9 L186.8 243.5 L188.7 244.1 L190.6 244.6 L192.4 245.1 L194.3 245.5 L196.2 245.9 L198.1 246.3 L200.0 246.6 L201.9 246.9 L203.8 247.2 L205.7 247.4 L207.6 247.6 L209.4 247.7 L211.3 247.8 L213.2 247.9 L215.1 248.0 L217.0 248.0 L218.9 248.0 L220.8 247.9 L222.7 247.8 L224.6 247.7 L226.4 247.6 L228.3 247.4 L230.2 247.2 L232.1 246.9 L234.0 246.6 L235.9 246.3 L237.8 245.9 L239.7 245.5 L241.6 245.1 L243.4 244.6 L245.3 244.1 L247.2 243.5 L249.1 242.9 L251.0 242.3 L252.9 241.6 L254.8 240.9 L256.7 240.1 L258.6 239.3 L260.4 238.5 L262.3 237.6 L264.2 236.6 L266.1 235.6 L268.0 234.6 L269.9 233.5 L271.8 232.4 L273.7 231.2 L275.6 229.9 L277.4 228.6 L279.3 227.2 L281.2 225.7 L283.1 224.2 L285.0 222.6 L286.9 220.9 L288.8 219.2 L290.7 217.3 L292.6 215.4 L294.4 213.3 L296.3 211.1 L298.2 208.8 L300.1 206.4 L302.0 203.8 L303.9 201.0 L305.8 198.0 L307.7 194.8 L309.6 191.2 L311.4 187.3 L313.3 182.9 L315.2 177.9 L317.1 171.8 L319.0 163.7 L320.9 144.0" clip-path="url(#vlt2-c)"/>
+<line class="ds" x1="268.9" y1="274.0" x2="268.9" y2="14.0"/>
+<circle class="pt" cx="268.9" cy="53.9" r="4"/>
+<circle class="pt" cx="268.9" cy="234.1" r="4"/>
+<text class="tb" x="40.4" y="29.6" text-anchor="start">x² + y² = 4</text>
+</svg>
+<figcaption>Garis vertikal memotong lingkaran di dua titik, sehingga lingkaran bukan grafik fungsi.</figcaption></figure>
+
+  <p>
+    Fungsi dapat disajikan dengan beberapa cara: diagram panah, himpunan
+    pasangan berurutan, tabel, rumus, dan grafik.
+  </p>
+</section>
+
+<section id="sifat-fungsi" data-title="Sifat dan Jenis Fungsi">
+  <h2>2. Sifat dan Jenis Fungsi</h2>
+
+  <h3>Fungsi Injektif, Surjektif, dan Bijektif</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr><th scope="col">Jenis</th><th scope="col">Syarat</th><th scope="col">Uji Grafik</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Injektif (satu-satu)</td><td>\(f(a)=f(b)\Rightarrow a=b\)</td><td>Garis horizontal memotong paling banyak satu titik</td></tr>
+        <tr><td>Surjektif (onto)</td><td>\(R_f=\) kodomain</td><td>Setiap nilai kodomain dicapai</td></tr>
+        <tr><td>Bijektif</td><td>Injektif dan surjektif</td><td>Garis horizontal memotong tepat satu titik</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Hanya fungsi bijektif yang memiliki fungsi invers.</p>
+
+  <h3>Fungsi Genap dan Fungsi Ganjil</h3>
+
+  <div class="math-display">
+    \[ \text{genap: } f(-x)=f(x)\ \ (\text{simetris terhadap sumbu-}y),\qquad
+    \text{ganjil: } f(-x)=-f(x)\ \ (\text{simetris terhadap titik asal}) \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>
+      \(f(x)=x^{3}-x\) ganjil karena \(f(-x)=-x^{3}+x=-f(x)\).
+      \(g(x)=|x|+x^{2}\) genap karena \(g(-x)=g(x)\).
+      \(h(x)=x^{2}+x\) bukan genap maupun ganjil, sebab \(h(-1)=0\) tetapi
+      \(h(1)=2\).
+    </p>
+  </div>
+
+  <h3>Fungsi Monoton dan Fungsi Periodik</h3>
+
+  <p>
+    Fungsi \(f\) <strong>naik</strong> pada suatu interval jika
+    \(x_1\lt x_2\Rightarrow f(x_1)\lt f(x_2)\), dan <strong>turun</strong> jika
+    \(x_1\lt x_2\Rightarrow f(x_1)>f(x_2)\). Fungsi \(f\) disebut
+    <strong>periodik</strong> dengan periode \(p>0\) jika \(f(x+p)=f(x)\) untuk
+    semua \(x\) dalam domain; periode terkecil yang positif disebut periode
+    dasar.
+  </p>
+</section>
+
+<section id="operasi-komposisi-invers" data-title="Operasi, Komposisi, dan Invers">
+  <h2>3. Operasi, Komposisi, dan Invers Fungsi</h2>
+
+  <h3>Operasi Aljabar pada Fungsi</h3>
+
+  <div class="math-display">
+    \[ (f\pm g)(x)=f(x)\pm g(x),\quad (fg)(x)=f(x)g(x),\quad
+    \left(\frac{f}{g}\right)(x)=\frac{f(x)}{g(x)},\ g(x)\neq 0 \]
+  </div>
+
+  <p>Domainnya adalah irisan domain \(f\) dan \(g\) (untuk pembagian, tambahan syarat \(g(x)\neq 0\)).</p>
+
+  <h3>Komposisi Fungsi</h3>
+
+  <div class="math-display">
+    \[ (f\circ g)(x)=f\big(g(x)\big),\qquad
+    D_{f\circ g}=\{x\in D_g\mid g(x)\in D_f\} \]
+  </div>
+
+  <p>
+    Komposisi tidak komutatif (\(f\circ g\neq g\circ f\) pada umumnya), tetapi
+    asosiatif: \((f\circ g)\circ h=f\circ(g\circ h)\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>Diketahui \(f(x)=2x+3\) dan \(g(x)=x^{2}-1\). Maka</p>
+    <div class="math-display">
+      \[ (f\circ g)(x)=2(x^{2}-1)+3=2x^{2}+1,\qquad
+      (g\circ f)(x)=(2x+3)^{2}-1=4x^{2}+12x+8 \]
+    </div>
+  </div>
+
+  <h3>Fungsi Invers</h3>
+
+  <p>
+    Jika \(f\) bijektif, inversnya \(f^{-1}\) memenuhi
+    \(f^{-1}(f(x))=x\) dan \(f(f^{-1}(y))=y\). Domain \(f^{-1}\) adalah range
+    \(f\), dan grafik \(f^{-1}\) adalah pencerminan grafik \(f\) terhadap garis
+    \(y=x\). Langkah mencari invers: tulis \(y=f(x)\), selesaikan untuk \(x\),
+    lalu ganti \(y\) dengan \(x\).
+  </p>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr><th scope="col">\(f(x)\)</th><th scope="col">\(f^{-1}(x)\)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>\(ax+b\)</td><td>\(\displaystyle\frac{x-b}{a}\)</td></tr>
+        <tr><td>\(\displaystyle\frac{ax+b}{cx+d}\)</td><td>\(\displaystyle\frac{-dx+b}{cx-a}\)</td></tr>
+        <tr><td>\(a^{x}\)</td><td>\(\log_{a}x\)</td></tr>
+        <tr><td>\(x^{2}\) untuk \(x\ge 0\)</td><td>\(\sqrt{x}\)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="math-display">
+    \[ (f\circ g)^{-1}=g^{-1}\circ f^{-1} \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>Tentukan invers \(f(x)=\displaystyle\frac{3x+1}{x-2}\), \(x\neq 2\).</p>
+    <div class="math-display">
+      \[ y(x-2)=3x+1\ \Rightarrow\ x(y-3)=2y+1\ \Rightarrow\
+      x=\frac{2y+1}{y-3} \]
+    </div>
+    <p>
+      Jadi \(f^{-1}(x)=\displaystyle\frac{2x+1}{x-3}\), \(x\neq 3\). Perhatikan
+      bahwa domain \(f^{-1}\) (\(x\neq 3\)) sama dengan range \(f\).
+    </p>
+  </div>
+</section>
+
+<section id="transformasi-fungsi" data-title="Transformasi Grafik Fungsi">
+  <h2>4. Transformasi Grafik Fungsi</h2>
+
+  <p>Grafik baru dapat diperoleh dari grafik \(y=f(x)\) dengan transformasi berikut (\(k,h>0\), \(a>0\)).</p>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr><th scope="col">Fungsi Baru</th><th scope="col">Transformasi pada Grafik \(y=f(x)\)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>\(y=f(x)+k\) / \(y=f(x)-k\)</td><td>Geser \(k\) satuan ke atas / ke bawah</td></tr>
+        <tr><td>\(y=f(x-h)\) / \(y=f(x+h)\)</td><td>Geser \(h\) satuan ke kanan / ke kiri</td></tr>
+        <tr><td>\(y=-f(x)\)</td><td>Cermin terhadap sumbu-\(x\)</td></tr>
+        <tr><td>\(y=f(-x)\)</td><td>Cermin terhadap sumbu-\(y\)</td></tr>
+        <tr><td>\(y=a\,f(x)\)</td><td>Regang/mampat vertikal dengan faktor \(a\)</td></tr>
+        <tr><td>\(y=f(ax)\)</td><td>Regang/mampat horizontal dengan faktor \(\displaystyle\frac{1}{a}\)</td></tr>
+        <tr><td>\(y=|f(x)|\)</td><td>Bagian di bawah sumbu-\(x\) dicerminkan ke atas</td></tr>
+        <tr><td>\(y=f(|x|)\)</td><td>Bagian kanan sumbu-\(y\) dicerminkan ke kiri (bagian kiri dihapus)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <figure class="fungsi-figure">
+<svg viewBox="0 0 420 300" style="max-width:520px" role="img" aria-label="Grafik y = x kuadrat dan hasil pergeseran y = (x-2) kuadrat + 1">
+<defs><clipPath id="trf-c"><rect x="30" y="14" width="374" height="260"/></clipPath></defs>
+<line class="gr" x1="71.6" y1="14" x2="71.6" y2="274"/>
+<line class="gr" x1="113.1" y1="14" x2="113.1" y2="274"/>
+<line class="gr" x1="196.2" y1="14" x2="196.2" y2="274"/>
+<line class="gr" x1="237.8" y1="14" x2="237.8" y2="274"/>
+<line class="gr" x1="279.3" y1="14" x2="279.3" y2="274"/>
+<line class="gr" x1="320.9" y1="14" x2="320.9" y2="274"/>
+<line class="gr" x1="362.4" y1="14" x2="362.4" y2="274"/>
+<line class="gr" x1="30" y1="187.3" x2="404" y2="187.3"/>
+<line class="gr" x1="30" y1="144.0" x2="404" y2="144.0"/>
+<line class="gr" x1="30" y1="100.7" x2="404" y2="100.7"/>
+<line class="gr" x1="30" y1="57.3" x2="404" y2="57.3"/>
+<line class="ax" x1="24" y1="230.7" x2="412" y2="230.7"/>
+<line class="ax" x1="154.7" y1="280" x2="154.7" y2="6"/>
+<text class="vl" x="412" y="246.7">x</text>
+<text class="vl" x="162.7" y="12">y</text>
+<line class="tk" x1="71.6" y1="227.7" x2="71.6" y2="233.7"/>
+<text class="ft" x="71.6" y="246.7" text-anchor="middle">−2</text>
+<line class="tk" x1="113.1" y1="227.7" x2="113.1" y2="233.7"/>
+<text class="ft" x="113.1" y="246.7" text-anchor="middle">−1</text>
+<line class="tk" x1="196.2" y1="227.7" x2="196.2" y2="233.7"/>
+<text class="ft" x="196.2" y="246.7" text-anchor="middle">1</text>
+<line class="tk" x1="237.8" y1="227.7" x2="237.8" y2="233.7"/>
+<text class="ft" x="237.8" y="246.7" text-anchor="middle">2</text>
+<line class="tk" x1="279.3" y1="227.7" x2="279.3" y2="233.7"/>
+<text class="ft" x="279.3" y="246.7" text-anchor="middle">3</text>
+<line class="tk" x1="320.9" y1="227.7" x2="320.9" y2="233.7"/>
+<text class="ft" x="320.9" y="246.7" text-anchor="middle">4</text>
+<line class="tk" x1="362.4" y1="227.7" x2="362.4" y2="233.7"/>
+<text class="ft" x="362.4" y="246.7" text-anchor="middle">5</text>
+<line class="tk" x1="151.7" y1="187.3" x2="157.7" y2="187.3"/>
+<text class="ft" x="147.7" y="191.3" text-anchor="end">2</text>
+<line class="tk" x1="151.7" y1="144.0" x2="157.7" y2="144.0"/>
+<text class="ft" x="147.7" y="148.0" text-anchor="end">4</text>
+<line class="tk" x1="151.7" y1="100.7" x2="157.7" y2="100.7"/>
+<text class="ft" x="147.7" y="104.7" text-anchor="end">6</text>
+<line class="tk" x1="151.7" y1="57.3" x2="157.7" y2="57.3"/>
+<text class="ft" x="147.7" y="61.3" text-anchor="end">8</text>
+<text class="ft" x="147.7" y="244.7" text-anchor="end">O</text>
+<path class="ca" d="M30.0 35.7 L33.4 46.2 L36.8 56.4 L40.2 66.3 L43.6 75.9 L47.0 85.2 L50.4 94.3 L53.8 103.0 L57.2 111.5 L60.6 119.6 L64.0 127.5 L67.4 135.1 L70.8 142.4 L74.2 149.4 L77.6 156.1 L81.0 162.6 L84.4 168.7 L87.8 174.6 L91.2 180.1 L94.6 185.4 L98.0 190.4 L101.4 195.1 L104.8 199.5 L108.2 203.6 L111.6 207.4 L115.0 210.9 L118.4 214.2 L121.8 217.1 L125.2 219.8 L128.6 222.1 L132.0 224.2 L135.4 226.0 L138.8 227.5 L142.2 228.7 L145.6 229.6 L149.0 230.3 L152.4 230.6 L155.8 230.7 L159.2 230.4 L162.6 229.9 L166.0 229.1 L169.4 227.9 L172.8 226.5 L176.2 224.8 L179.6 222.9 L183.0 220.6 L186.4 218.0 L189.8 215.2 L193.2 212.0 L196.6 208.6 L200.0 204.9 L203.4 200.9 L206.8 196.6 L210.2 192.0 L213.6 187.1 L217.0 181.9 L220.4 176.5 L223.8 170.7 L227.2 164.7 L230.6 158.3 L234.0 151.7 L237.4 144.8 L240.8 137.6 L244.2 130.1 L247.6 122.3 L251.0 114.2 L254.4 105.9 L257.8 97.2 L261.2 88.3 L264.6 79.0 L268.0 69.5 L271.4 59.7 L274.8 49.6 L278.2 39.2 L281.6 28.5 L285.0 17.5 L288.4 6.3 L291.8 -5.3 L295.2 -17.1 L298.6 -29.3 L302.0 -41.7 L305.4 -54.4 L308.8 -67.4 L312.2 -80.7 L315.6 -94.3 L319.0 -108.2 L322.4 -122.3 L325.8 -136.8 L329.2 -151.5 L332.6 -166.6 L336.0 -181.9 L339.4 -197.5 L342.8 -213.4 L346.2 -229.6 L349.6 -246.1 L353.0 -262.9 L356.4 -279.9 L359.8 -297.3 L363.2 -314.9 L366.6 -332.9 L370.0 -351.1 L373.4 -369.6 L376.8 -388.4 L380.2 -407.5 L383.6 -426.9 L387.0 -446.6 L390.4 -466.6 L393.8 -486.8 L397.2 -506.0 L400.6 -506.0 L404.0 -506.0" clip-path="url(#trf-c)"/>
+<path class="cb" d="M30.0 -332.7 L33.4 -315.1 L36.8 -297.8 L40.2 -280.8 L43.6 -264.1 L47.0 -247.7 L50.4 -231.5 L53.8 -215.7 L57.2 -200.1 L60.6 -184.9 L64.0 -169.9 L67.4 -155.2 L70.8 -140.8 L74.2 -126.7 L77.6 -112.9 L81.0 -99.4 L84.4 -86.2 L87.8 -73.2 L91.2 -60.6 L94.6 -48.2 L98.0 -36.1 L101.4 -24.4 L104.8 -12.9 L108.2 -1.7 L111.6 9.2 L115.0 19.9 L118.4 30.2 L121.8 40.2 L125.2 50.0 L128.6 59.4 L132.0 68.6 L135.4 77.5 L138.8 86.1 L142.2 94.4 L145.6 102.4 L149.0 110.1 L152.4 117.5 L155.8 124.7 L159.2 131.5 L162.6 138.1 L166.0 144.4 L169.4 150.3 L172.8 156.0 L176.2 161.4 L179.6 166.5 L183.0 171.4 L186.4 175.9 L189.8 180.1 L193.2 184.1 L196.6 187.7 L200.0 191.1 L203.4 194.2 L206.8 197.0 L210.2 199.5 L213.6 201.7 L217.0 203.6 L220.4 205.2 L223.8 206.5 L227.2 207.6 L230.6 208.4 L234.0 208.8 L237.4 209.0 L240.8 208.9 L244.2 208.5 L247.6 207.8 L251.0 206.8 L254.4 205.5 L257.8 204.0 L261.2 202.1 L264.6 200.0 L268.0 197.5 L271.4 194.8 L274.8 191.8 L278.2 188.5 L281.6 184.9 L285.0 181.0 L288.4 176.8 L291.8 172.4 L295.2 167.6 L298.6 162.6 L302.0 157.3 L305.4 151.6 L308.8 145.7 L312.2 139.5 L315.6 133.0 L319.0 126.2 L322.4 119.2 L325.8 111.8 L329.2 104.1 L332.6 96.2 L336.0 88.0 L339.4 79.4 L342.8 70.6 L346.2 61.5 L349.6 52.1 L353.0 42.4 L356.4 32.5 L359.8 22.2 L363.2 11.6 L366.6 0.8 L370.0 -10.4 L373.4 -21.8 L376.8 -33.5 L380.2 -45.5 L383.6 -57.8 L387.0 -70.4 L390.4 -83.3 L393.8 -96.4 L397.2 -109.9 L400.6 -123.6 L404.0 -137.7" clip-path="url(#trf-c)"/>
+<circle class="pt" cx="154.7" cy="230.7" r="4"/>
+<circle class="pt" cx="237.8" cy="209.0" r="4"/>
+<text class="ta" x="34.2" y="29.2" text-anchor="start">y = x²</text>
+<text class="tb" x="304.3" y="29.2" text-anchor="start">y = (x − 2)² + 1</text>
+</svg>
+<figcaption>Grafik y = (x − 2)² + 1 diperoleh dari y = x² dengan menggeser 2 satuan ke kanan dan 1 satuan ke atas.</figcaption></figure>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>
+      Grafik \(y=2\sqrt{x+1}-3\) diperoleh dari \(y=\sqrt{x}\) dengan: geser
+      \(1\) satuan ke kiri, regang vertikal dengan faktor \(2\), lalu geser
+      \(3\) satuan ke bawah. Titik awalnya berpindah dari \((0,0)\) menjadi
+      \((-1,-3)\).
+    </p>
+  </div>
+</section>
+
+<section id="linear-kuadrat" data-title="Fungsi Linear, Kuadrat, dan Polinom">
+  <h2>5. Fungsi Linear, Kuadrat, dan Polinom</h2>
+
+  <h3>Fungsi Linear</h3>
+
+  <p>
+    Bentuk \(f(x)=mx+c\) berupa garis lurus dengan gradien \(m\) dan memotong
+    sumbu-\(y\) di \((0,c)\). Garis melalui \((x_1,y_1)\) dan \((x_2,y_2)\)
+    memiliki gradien \(m=\displaystyle\frac{y_2-y_1}{x_2-x_1}\) dan persamaan
+    \(y-y_1=m(x-x_1)\). Fungsi linear naik jika \(m>0\) dan turun jika \(m<0\).
+  </p>
+
+  <h3>Fungsi Kuadrat</h3>
+
+  <p>
+    Bentuk \(f(x)=ax^{2}+bx+c\) (\(a\neq 0\)) berupa parabola. Dengan diskriminan
+    \(D=b^{2}-4ac\):
+  </p>
+
+  <div class="math-display">
+    \[ \text{sumbu simetri } x=-\frac{b}{2a},\qquad
+    \text{puncak }\left(-\frac{b}{2a},\,-\frac{D}{4a}\right) \]
+  </div>
+
+  <ul>
+    <li>\(a>0\): parabola terbuka ke atas, puncak adalah titik <strong>minimum</strong>; \(a<0\): terbuka ke bawah, puncak adalah titik <strong>maksimum</strong>.</li>
+    <li>\(D>0\): memotong sumbu-\(x\) di dua titik; \(D=0\): menyinggung sumbu-\(x\); \(D<0\): tidak memotong sumbu-\(x\).</li>
+    <li>Bentuk faktor \(f(x)=a(x-x_1)(x-x_2)\) dan bentuk puncak \(f(x)=a(x-p)^{2}+q\) dengan puncak \((p,q)\).</li>
+  </ul>
+
+  <figure class="fungsi-figure">
+<svg viewBox="0 0 420 300" style="max-width:520px" role="img" aria-label="Parabola y = x kuadrat dikurangi 2x dikurangi 3 dengan titik puncak dan titik potong sumbu">
+<defs><clipPath id="par-c"><rect x="30" y="14" width="374" height="260"/></clipPath></defs>
+<line class="gr" x1="76.8" y1="14" x2="76.8" y2="274"/>
+<line class="gr" x1="123.5" y1="14" x2="123.5" y2="274"/>
+<line class="gr" x1="217.0" y1="14" x2="217.0" y2="274"/>
+<line class="gr" x1="263.8" y1="14" x2="263.8" y2="274"/>
+<line class="gr" x1="310.5" y1="14" x2="310.5" y2="274"/>
+<line class="gr" x1="357.2" y1="14" x2="357.2" y2="274"/>
+<line class="gr" x1="30" y1="250.4" x2="404" y2="250.4"/>
+<line class="gr" x1="30" y1="226.7" x2="404" y2="226.7"/>
+<line class="gr" x1="30" y1="203.1" x2="404" y2="203.1"/>
+<line class="gr" x1="30" y1="179.5" x2="404" y2="179.5"/>
+<line class="gr" x1="30" y1="132.2" x2="404" y2="132.2"/>
+<line class="gr" x1="30" y1="108.5" x2="404" y2="108.5"/>
+<line class="gr" x1="30" y1="84.9" x2="404" y2="84.9"/>
+<line class="gr" x1="30" y1="61.3" x2="404" y2="61.3"/>
+<line class="gr" x1="30" y1="37.6" x2="404" y2="37.6"/>
+<line class="ax" x1="24" y1="155.8" x2="412" y2="155.8"/>
+<line class="ax" x1="170.2" y1="280" x2="170.2" y2="6"/>
+<text class="vl" x="412" y="171.8">x</text>
+<text class="vl" x="178.2" y="12">y</text>
+<line class="tk" x1="76.8" y1="152.8" x2="76.8" y2="158.8"/>
+<text class="ft" x="76.8" y="171.8" text-anchor="middle">−2</text>
+<line class="tk" x1="123.5" y1="152.8" x2="123.5" y2="158.8"/>
+<text class="ft" x="123.5" y="171.8" text-anchor="middle">−1</text>
+<line class="tk" x1="217.0" y1="152.8" x2="217.0" y2="158.8"/>
+<text class="ft" x="217.0" y="171.8" text-anchor="middle">1</text>
+<line class="tk" x1="263.8" y1="152.8" x2="263.8" y2="158.8"/>
+<text class="ft" x="263.8" y="171.8" text-anchor="middle">2</text>
+<line class="tk" x1="310.5" y1="152.8" x2="310.5" y2="158.8"/>
+<text class="ft" x="310.5" y="171.8" text-anchor="middle">3</text>
+<line class="tk" x1="357.2" y1="152.8" x2="357.2" y2="158.8"/>
+<text class="ft" x="357.2" y="171.8" text-anchor="middle">4</text>
+<line class="tk" x1="167.2" y1="250.4" x2="173.2" y2="250.4"/>
+<text class="ft" x="163.2" y="254.4" text-anchor="end">−4</text>
+<line class="tk" x1="167.2" y1="226.7" x2="173.2" y2="226.7"/>
+<text class="ft" x="163.2" y="230.7" text-anchor="end">−3</text>
+<line class="tk" x1="167.2" y1="203.1" x2="173.2" y2="203.1"/>
+<text class="ft" x="163.2" y="207.1" text-anchor="end">−2</text>
+<line class="tk" x1="167.2" y1="179.5" x2="173.2" y2="179.5"/>
+<text class="ft" x="163.2" y="183.5" text-anchor="end">−1</text>
+<line class="tk" x1="167.2" y1="132.2" x2="173.2" y2="132.2"/>
+<text class="ft" x="163.2" y="136.2" text-anchor="end">1</text>
+<line class="tk" x1="167.2" y1="108.5" x2="173.2" y2="108.5"/>
+<text class="ft" x="163.2" y="112.5" text-anchor="end">2</text>
+<line class="tk" x1="167.2" y1="84.9" x2="173.2" y2="84.9"/>
+<text class="ft" x="163.2" y="88.9" text-anchor="end">3</text>
+<line class="tk" x1="167.2" y1="61.3" x2="173.2" y2="61.3"/>
+<text class="ft" x="163.2" y="65.3" text-anchor="end">4</text>
+<line class="tk" x1="167.2" y1="37.6" x2="173.2" y2="37.6"/>
+<text class="ft" x="163.2" y="41.6" text-anchor="end">5</text>
+<text class="ft" x="163.2" y="169.8" text-anchor="end">O</text>
+<line class="ds" x1="217.0" y1="274.0" x2="217.0" y2="14.0"/>
+<path class="ca" d="M30.0 -127.8 L33.4 -114.2 L36.8 -100.8 L40.2 -87.7 L43.6 -74.8 L47.0 -62.2 L50.4 -49.8 L53.8 -37.7 L57.2 -25.8 L60.6 -14.2 L64.0 -2.8 L67.4 8.3 L70.8 19.2 L74.2 29.8 L77.6 40.2 L81.0 50.3 L84.4 60.2 L87.8 69.8 L91.2 79.2 L94.6 88.3 L98.0 97.2 L101.4 105.8 L104.8 114.2 L108.2 122.3 L111.6 130.2 L115.0 137.8 L118.4 145.2 L121.8 152.3 L125.2 159.2 L128.6 165.9 L132.0 172.2 L135.4 178.4 L138.8 184.2 L142.2 189.9 L145.6 195.2 L149.0 200.4 L152.4 205.2 L155.8 209.9 L159.2 214.2 L162.6 218.4 L166.0 222.2 L169.4 225.9 L172.8 229.2 L176.2 232.4 L179.6 235.2 L183.0 237.9 L186.4 240.2 L189.8 242.4 L193.2 244.2 L196.6 245.9 L200.0 247.2 L203.4 248.4 L206.8 249.2 L210.2 249.9 L213.6 250.2 L217.0 250.4 L220.4 250.2 L223.8 249.9 L227.2 249.2 L230.6 248.4 L234.0 247.2 L237.4 245.9 L240.8 244.2 L244.2 242.4 L247.6 240.2 L251.0 237.9 L254.4 235.2 L257.8 232.4 L261.2 229.2 L264.6 225.9 L268.0 222.2 L271.4 218.4 L274.8 214.2 L278.2 209.9 L281.6 205.2 L285.0 200.4 L288.4 195.2 L291.8 189.9 L295.2 184.2 L298.6 178.4 L302.0 172.2 L305.4 165.9 L308.8 159.2 L312.2 152.3 L315.6 145.2 L319.0 137.8 L322.4 130.2 L325.8 122.3 L329.2 114.2 L332.6 105.8 L336.0 97.2 L339.4 88.3 L342.8 79.2 L346.2 69.8 L349.6 60.2 L353.0 50.3 L356.4 40.2 L359.8 29.8 L363.2 19.2 L366.6 8.3 L370.0 -2.8 L373.4 -14.2 L376.8 -25.8 L380.2 -37.7 L383.6 -49.8 L387.0 -62.2 L390.4 -74.8 L393.8 -87.7 L397.2 -100.8 L400.6 -114.2 L404.0 -127.8" clip-path="url(#par-c)"/>
+<circle class="pt" cx="123.5" cy="155.8" r="4"/>
+<circle class="pt" cx="310.5" cy="155.8" r="4"/>
+<circle class="pt" cx="170.2" cy="226.7" r="4"/>
+<circle class="pt" cx="217.0" cy="250.4" r="4"/>
+<text class="ta" x="227.0" y="266.4" text-anchor="start">puncak (1, −4)</text>
+<text x="223.0" y="25.8" text-anchor="start">x = 1</text>
+</svg>
+<figcaption>Grafik f(x) = x² − 2x − 3: memotong sumbu-x di −1 dan 3, sumbu-y di −3, dengan titik puncak (1, −4).</figcaption></figure>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>Untuk \(f(x)=x^{2}-2x-3\):</p>
+    <div class="math-display">
+      \[ f(x)=(x+1)(x-3),\qquad x=-\frac{-2}{2(1)}=1,\qquad f(1)=-4 \]
+    </div>
+    <p>
+      Jadi titik potong sumbu-\(x\) adalah \((-1,0)\) dan \((3,0)\), titik
+      potong sumbu-\(y\) adalah \((0,-3)\), dan titik puncaknya \((1,-4)\)
+      (minimum). Range fungsi ini adalah \([-4,\infty)\).
+    </p>
+  </div>
+
+  <h3>Fungsi Polinom</h3>
+
+  <p>
+    Bentuk umum \(P(x)=a_nx^{n}+\dots+a_1x+a_0\) dengan \(a_n\neq 0\) disebut
+    polinom berderajat \(n\); domainnya semua bilangan real. Beberapa fakta
+    penting:
+  </p>
+
+  <ul>
+    <li>Teorema sisa: sisa pembagian \(P(x)\) oleh \((x-c)\) adalah \(P(c)\). Teorema faktor: \((x-c)\) faktor \(P(x)\) jika dan hanya jika \(P(c)=0\).</li>
+    <li>Grafik memotong sumbu-\(x\) di akar real; akar dengan kelipatan ganjil dilintasi grafik, akar dengan kelipatan genap hanya disinggung.</li>
+    <li>Perilaku ujung ditentukan suku berpangkat tertinggi \(a_nx^{n}\): untuk \(x\to\pm\infty\), \(P(x)\) berperilaku seperti \(a_nx^{n}\).</li>
+  </ul>
+</section>
+<section id="fungsi-rasional" data-title="Fungsi Rasional">
+  <h2>6. Fungsi Rasional</h2>
+
+  <p>
+    Fungsi rasional berbentuk \(f(x)=\displaystyle\frac{P(x)}{Q(x)}\) dengan
+    \(P\) dan \(Q\) polinom, \(Q(x)\neq 0\). Domainnya adalah semua bilangan real
+    kecuali akar-akar \(Q(x)\).
+  </p>
+
+  <h3>Asimtot</h3>
+
+  <ul>
+    <li><strong>Asimtot tegak</strong> \(x=c\): terjadi di akar \(Q(c)=0\) yang tidak ikut tercoret setelah \(P\) dan \(Q\) disederhanakan.</li>
+    <li><strong>Lubang</strong>: jika faktor \((x-c)\) tercoret, grafik tidak terdefinisi di \(x=c\) tetapi tidak ada asimtot tegak (hanya titik kosong).</li>
+    <li><strong>Asimtot datar</strong>: bandingkan derajat \(P\) (\(n\)) dan \(Q\) (\(m\)).</li>
+  </ul>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr><th scope="col">Perbandingan Derajat</th><th scope="col">Asimtot Datar / Miring</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>\(n\lt m\)</td><td>\(y=0\)</td></tr>
+        <tr><td>\(n=m\)</td><td>\(y=\displaystyle\frac{a_n}{b_m}\) (perbandingan koefisien terbesar)</td></tr>
+        <tr><td>\(n=m+1\)</td><td>Asimtot miring: hasil bagi \(P\) oleh \(Q\) (tanpa sisa)</td></tr>
+        <tr><td>\(n>m+1\)</td><td>Tidak ada asimtot datar maupun miring</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Untuk bentuk khusus \(f(x)=\displaystyle\frac{ax+b}{cx+d}\):</p>
+
+  <div class="math-display">
+    \[ \text{asimtot tegak } x=-\frac{d}{c},\qquad \text{asimtot datar } y=\frac{a}{c},\qquad
+    D_f=\mathbb{R}\setminus\Big\{-\frac{d}{c}\Big\},\quad R_f=\mathbb{R}\setminus\Big\{\frac{a}{c}\Big\} \]
+  </div>
+
+  <figure class="fungsi-figure">
+<svg viewBox="0 0 420 300" style="max-width:520px" role="img" aria-label="Grafik fungsi rasional y = (2x+1)/(x-1) dengan asimtot tegak x = 1 dan asimtot datar y = 2">
+<defs><clipPath id="ras-c"><rect x="30" y="14" width="374" height="260"/></clipPath></defs>
+<line class="gr" x1="64.0" y1="14" x2="64.0" y2="274"/>
+<line class="gr" x1="98.0" y1="14" x2="98.0" y2="274"/>
+<line class="gr" x1="132.0" y1="14" x2="132.0" y2="274"/>
+<line class="gr" x1="166.0" y1="14" x2="166.0" y2="274"/>
+<line class="gr" x1="268.0" y1="14" x2="268.0" y2="274"/>
+<line class="gr" x1="302.0" y1="14" x2="302.0" y2="274"/>
+<line class="gr" x1="336.0" y1="14" x2="336.0" y2="274"/>
+<line class="gr" x1="370.0" y1="14" x2="370.0" y2="274"/>
+<line class="gr" x1="30" y1="236.9" x2="404" y2="236.9"/>
+<line class="gr" x1="30" y1="199.7" x2="404" y2="199.7"/>
+<line class="gr" x1="30" y1="125.4" x2="404" y2="125.4"/>
+<line class="gr" x1="30" y1="88.3" x2="404" y2="88.3"/>
+<line class="gr" x1="30" y1="51.1" x2="404" y2="51.1"/>
+<line class="ax" x1="24" y1="162.6" x2="412" y2="162.6"/>
+<line class="ax" x1="200.0" y1="280" x2="200.0" y2="6"/>
+<text class="vl" x="412" y="178.6">x</text>
+<text class="vl" x="208.0" y="12">y</text>
+<line class="tk" x1="64.0" y1="159.6" x2="64.0" y2="165.6"/>
+<text class="ft" x="64.0" y="178.6" text-anchor="middle">−4</text>
+<line class="tk" x1="98.0" y1="159.6" x2="98.0" y2="165.6"/>
+<text class="ft" x="98.0" y="178.6" text-anchor="middle">−3</text>
+<line class="tk" x1="132.0" y1="159.6" x2="132.0" y2="165.6"/>
+<text class="ft" x="132.0" y="178.6" text-anchor="middle">−2</text>
+<line class="tk" x1="166.0" y1="159.6" x2="166.0" y2="165.6"/>
+<text class="ft" x="166.0" y="178.6" text-anchor="middle">−1</text>
+<line class="tk" x1="268.0" y1="159.6" x2="268.0" y2="165.6"/>
+<text class="ft" x="268.0" y="178.6" text-anchor="middle">2</text>
+<line class="tk" x1="302.0" y1="159.6" x2="302.0" y2="165.6"/>
+<text class="ft" x="302.0" y="178.6" text-anchor="middle">3</text>
+<line class="tk" x1="336.0" y1="159.6" x2="336.0" y2="165.6"/>
+<text class="ft" x="336.0" y="178.6" text-anchor="middle">4</text>
+<line class="tk" x1="370.0" y1="159.6" x2="370.0" y2="165.6"/>
+<text class="ft" x="370.0" y="178.6" text-anchor="middle">5</text>
+<line class="tk" x1="197.0" y1="236.9" x2="203.0" y2="236.9"/>
+<text class="ft" x="193.0" y="240.9" text-anchor="end">−4</text>
+<line class="tk" x1="197.0" y1="199.7" x2="203.0" y2="199.7"/>
+<text class="ft" x="193.0" y="203.7" text-anchor="end">−2</text>
+<line class="tk" x1="197.0" y1="125.4" x2="203.0" y2="125.4"/>
+<text class="ft" x="193.0" y="129.4" text-anchor="end">2</text>
+<line class="tk" x1="197.0" y1="88.3" x2="203.0" y2="88.3"/>
+<text class="ft" x="193.0" y="92.3" text-anchor="end">4</text>
+<line class="tk" x1="197.0" y1="51.1" x2="203.0" y2="51.1"/>
+<text class="ft" x="193.0" y="55.1" text-anchor="end">6</text>
+<text class="ft" x="193.0" y="176.6" text-anchor="end">O</text>
+<line class="ds" x1="234.0" y1="274.0" x2="234.0" y2="14.0"/>
+<line class="ds" x1="30.0" y1="125.4" x2="404.0" y2="125.4"/>
+<path class="ca" d="M30.0 134.7 L31.8 134.8 L33.7 134.9 L35.5 135.0 L37.4 135.1 L39.2 135.2 L41.1 135.2 L42.9 135.3 L44.8 135.4 L46.6 135.5 L48.5 135.6 L50.3 135.7 L52.1 135.8 L54.0 136.0 L55.8 136.1 L57.7 136.2 L59.5 136.3 L61.4 136.4 L63.2 136.5 L65.1 136.6 L66.9 136.8 L68.8 136.9 L70.6 137.0 L72.4 137.2 L74.3 137.3 L76.1 137.4 L78.0 137.6 L79.8 137.7 L81.7 137.9 L83.5 138.0 L85.4 138.2 L87.2 138.3 L89.0 138.5 L90.9 138.7 L92.7 138.8 L94.6 139.0 L96.4 139.2 L98.3 139.4 L100.1 139.6 L102.0 139.8 L103.8 140.0 L105.7 140.2 L107.5 140.4 L109.3 140.6 L111.2 140.9 L113.0 141.1 L114.9 141.3 L116.7 141.6 L118.6 141.8 L120.4 142.1 L122.3 142.4 L124.1 142.7 L126.0 143.0 L127.8 143.3 L129.6 143.6 L131.5 143.9 L133.3 144.2 L135.2 144.6 L137.0 145.0 L138.9 145.3 L140.7 145.7 L142.6 146.1 L144.4 146.6 L146.3 147.0 L148.1 147.5 L149.9 148.0 L151.8 148.5 L153.6 149.0 L155.5 149.6 L157.3 150.1 L159.2 150.7 L161.0 151.4 L162.9 152.1 L164.7 152.8 L166.6 153.5 L168.4 154.3 L170.2 155.1 L172.1 156.0 L173.9 157.0 L175.8 158.0 L177.6 159.0 L179.5 160.2 L181.3 161.4 L183.2 162.7 L185.0 164.1 L186.8 165.6 L188.7 167.2 L190.5 169.0 L192.4 170.9 L194.2 173.1 L196.1 175.4 L197.9 177.9 L199.8 180.8 L201.6 183.9 L203.5 187.4 L205.3 191.4 L207.1 196.0 L209.0 201.2 L210.8 207.2 L212.7 214.3 L214.5 222.7 L216.4 232.9 L218.2 245.5 L220.1 261.3 L221.9 282.1 L223.8 310.3 L225.6 350.9 L227.4 414.4 L229.3 527.6 L231.1 786.5 L233.0 794.0" clip-path="url(#ras-c)"/>
+<path class="ca" d="M235.0 -506.0 L235.8 -506.0 L236.6 -506.0 L237.3 -444.4 L238.1 -337.5 L238.9 -264.3 L239.6 -211.1 L240.4 -170.7 L241.2 -139.0 L241.9 -113.4 L242.7 -92.3 L243.5 -74.6 L244.2 -59.6 L245.0 -46.7 L245.8 -35.5 L246.5 -25.6 L247.3 -16.9 L248.1 -9.1 L248.8 -2.2 L249.6 4.1 L250.4 9.8 L251.1 15.0 L251.9 19.7 L252.7 24.1 L253.5 28.1 L254.2 31.8 L255.0 35.2 L255.8 38.4 L256.5 41.3 L257.3 44.1 L258.1 46.7 L258.8 49.1 L259.6 51.4 L260.4 53.6 L261.1 55.6 L261.9 57.5 L262.7 59.4 L263.4 61.1 L264.2 62.7 L265.0 64.3 L265.7 65.8 L266.5 67.2 L267.3 68.5 L268.0 69.8 L268.8 71.0 L269.6 72.2 L270.4 73.3 L271.1 74.4 L271.9 75.4 L272.7 76.4 L273.4 77.4 L274.2 78.3 L275.0 79.2 L275.7 80.0 L276.5 80.9 L277.3 81.6 L278.0 82.4 L278.8 83.1 L279.6 83.9 L280.3 84.5 L281.1 85.2 L281.9 85.9 L282.6 86.5 L283.4 87.1 L284.2 87.7 L284.9 88.2 L285.7 88.8 L286.5 89.3 L287.3 89.9 L288.0 90.4 L288.8 90.9 L289.6 91.3 L290.3 91.8 L291.1 92.2 L291.9 92.7 L292.6 93.1 L293.4 93.5 L294.2 93.9 L294.9 94.3 L295.7 94.7 L296.5 95.1 L297.2 95.5 L298.0 95.8 L298.8 96.2 L299.5 96.5 L300.3 96.9 L301.1 97.2 L301.8 97.5 L302.6 97.8 L303.4 98.1 L304.1 98.4 L304.9 98.7 L305.7 99.0 L306.5 99.3 L307.2 99.6 L308.0 99.8 L308.8 100.1 L309.5 100.3 L310.3 100.6 L311.1 100.8 L311.8 101.1 L312.6 101.3 L313.4 101.6 L314.1 101.8 L314.9 102.0 L315.7 102.2 L316.4 102.5 L317.2 102.7 L318.0 102.9 L318.7 103.1 L319.5 103.3 L320.3 103.5 L321.0 103.7 L321.8 103.9 L322.6 104.0 L323.4 104.2 L324.1 104.4 L324.9 104.6 L325.7 104.8 L326.4 104.9 L327.2 105.1 L328.0 105.3 L328.7 105.4 L329.5 105.6 L330.3 105.8 L331.0 105.9 L331.8 106.1 L332.6 106.2 L333.3 106.4 L334.1 106.5 L334.9 106.6 L335.6 106.8 L336.4 106.9 L337.2 107.1 L337.9 107.2 L338.7 107.3 L339.5 107.5 L340.2 107.6 L341.0 107.7 L341.8 107.9 L342.6 108.0 L343.3 108.1 L344.1 108.2 L344.9 108.3 L345.6 108.5 L346.4 108.6 L347.2 108.7 L347.9 108.8 L348.7 108.9 L349.5 109.0 L350.2 109.1 L351.0 109.2 L351.8 109.3 L352.5 109.4 L353.3 109.6 L354.1 109.7 L354.8 109.8 L355.6 109.9 L356.4 109.9 L357.1 110.0 L357.9 110.1 L358.7 110.2 L359.5 110.3 L360.2 110.4 L361.0 110.5 L361.8 110.6 L362.5 110.7 L363.3 110.8 L364.1 110.9 L364.8 110.9 L365.6 111.0 L366.4 111.1 L367.1 111.2 L367.9 111.3 L368.7 111.4 L369.4 111.4 L370.2 111.5 L371.0 111.6 L371.7 111.7 L372.5 111.8 L373.3 111.8 L374.0 111.9 L374.8 112.0 L375.6 112.0 L376.3 112.1 L377.1 112.2 L377.9 112.3 L378.7 112.3 L379.4 112.4 L380.2 112.5 L381.0 112.5 L381.7 112.6 L382.5 112.7 L383.3 112.7 L384.0 112.8 L384.8 112.9 L385.6 112.9 L386.3 113.0 L387.1 113.1 L387.9 113.1 L388.6 113.2 L389.4 113.2 L390.2 113.3 L390.9 113.4 L391.7 113.4 L392.5 113.5 L393.2 113.5 L394.0 113.6 L394.8 113.6 L395.6 113.7 L396.3 113.8 L397.1 113.8 L397.9 113.9 L398.6 113.9 L399.4 114.0 L400.2 114.0 L400.9 114.1 L401.7 114.1 L402.5 114.2 L403.2 114.2 L404.0 114.3" clip-path="url(#ras-c)"/>
+<circle class="pt" cx="183.0" cy="162.6" r="4"/>
+<circle class="pt" cx="200.0" cy="181.1" r="4"/>
+<text x="240.0" y="25.1" text-anchor="start">x = 1</text>
+<text x="33.4" y="119.4" text-anchor="start">y = 2</text>
+</svg>
+<figcaption>Grafik f(x) = (2x + 1)/(x − 1): asimtot tegak x = 1, asimtot datar y = 2, memotong sumbu-x di (−½, 0) dan sumbu-y di (0, −1).</figcaption></figure>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+    <p>Tentukan asimtot dan titik potong sumbu \(f(x)=\displaystyle\frac{2x+1}{x-1}\).</p>
+    <p>
+      Penyebut nol di \(x=1\), sehingga asimtot tegaknya \(x=1\). Derajat
+      pembilang dan penyebut sama, sehingga asimtot datarnya
+      \(y=\displaystyle\frac{2}{1}=2\). Titik potong sumbu-\(x\): \(2x+1=0\),
+      yaitu \(\left(-\displaystyle\frac12,0\right)\); titik potong sumbu-\(y\):
+      \(f(0)=-1\), yaitu \((0,-1)\). Ingat pula
+      \(f(x)=2+\displaystyle\frac{3}{x-1}\), sehingga untuk \(x>1\) grafik berada
+      di atas \(y=2\) dan untuk \(x<1\) di bawah \(y=2\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2 (asimtot miring)</h4>
+    <p>
+      Untuk \(f(x)=\displaystyle\frac{x^{2}+1}{x-1}\), lakukan pembagian:
+    </p>
+    <div class="math-display">
+      \[ f(x)=x+1+\frac{2}{x-1} \]
+    </div>
+    <p>Jadi asimtot miringnya \(y=x+1\) dan asimtot tegaknya \(x=1\).</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 3 (lubang)</h4>
+    <p>
+      \(f(x)=\displaystyle\frac{x^{2}-4}{x-2}=x+2\) untuk \(x\neq 2\). Grafiknya
+      adalah garis \(y=x+2\) dengan lubang di titik \((2,4)\); tidak ada asimtot
+      tegak.
+    </p>
+  </div>
+</section>
+
+<section id="fungsi-akar" data-title="Fungsi Akar">
+  <h2>7. Fungsi Akar</h2>
+
+  <p>
+    Fungsi akar berbentuk \(f(x)=\sqrt{g(x)}\). Domainnya adalah
+    \(g(x)\ge 0\) dan rangenya \(f(x)\ge 0\). Bentuk umum
+    \(f(x)=a\sqrt{x-h}+k\) berupa setengah parabola mendatar dengan titik awal
+    \((h,k)\); jika \(a>0\) grafik naik, jika \(a<0\) grafik turun. Fungsi
+    \(y=\sqrt{x}\) adalah invers dari \(y=x^{2}\) untuk \(x\ge 0\). Berbeda
+    dengan akar berindeks genap, akar berindeks ganjil seperti \(\sqrt[3]{x}\)
+    terdefinisi untuk semua bilangan real.
+  </p>
+
+  <figure class="fungsi-figure">
+<svg viewBox="0 0 420 300" style="max-width:520px" role="img" aria-label="Grafik y = akar x dan y = akar (x-2) + 1">
+<defs><clipPath id="akr-c"><rect x="30" y="14" width="374" height="260"/></clipPath></defs>
+<line class="gr" x1="104.8" y1="14" x2="104.8" y2="274"/>
+<line class="gr" x1="142.2" y1="14" x2="142.2" y2="274"/>
+<line class="gr" x1="179.6" y1="14" x2="179.6" y2="274"/>
+<line class="gr" x1="217.0" y1="14" x2="217.0" y2="274"/>
+<line class="gr" x1="254.4" y1="14" x2="254.4" y2="274"/>
+<line class="gr" x1="291.8" y1="14" x2="291.8" y2="274"/>
+<line class="gr" x1="329.2" y1="14" x2="329.2" y2="274"/>
+<line class="gr" x1="366.6" y1="14" x2="366.6" y2="274"/>
+<line class="gr" x1="30" y1="187.3" x2="404" y2="187.3"/>
+<line class="gr" x1="30" y1="144.0" x2="404" y2="144.0"/>
+<line class="gr" x1="30" y1="100.7" x2="404" y2="100.7"/>
+<line class="gr" x1="30" y1="57.3" x2="404" y2="57.3"/>
+<line class="ax" x1="24" y1="230.7" x2="412" y2="230.7"/>
+<line class="ax" x1="67.4" y1="280" x2="67.4" y2="6"/>
+<text class="vl" x="412" y="246.7">x</text>
+<text class="vl" x="75.4" y="12">y</text>
+<line class="tk" x1="104.8" y1="227.7" x2="104.8" y2="233.7"/>
+<text class="ft" x="104.8" y="246.7" text-anchor="middle">1</text>
+<line class="tk" x1="142.2" y1="227.7" x2="142.2" y2="233.7"/>
+<text class="ft" x="142.2" y="246.7" text-anchor="middle">2</text>
+<line class="tk" x1="179.6" y1="227.7" x2="179.6" y2="233.7"/>
+<text class="ft" x="179.6" y="246.7" text-anchor="middle">3</text>
+<line class="tk" x1="217.0" y1="227.7" x2="217.0" y2="233.7"/>
+<text class="ft" x="217.0" y="246.7" text-anchor="middle">4</text>
+<line class="tk" x1="254.4" y1="227.7" x2="254.4" y2="233.7"/>
+<text class="ft" x="254.4" y="246.7" text-anchor="middle">5</text>
+<line class="tk" x1="291.8" y1="227.7" x2="291.8" y2="233.7"/>
+<text class="ft" x="291.8" y="246.7" text-anchor="middle">6</text>
+<line class="tk" x1="329.2" y1="227.7" x2="329.2" y2="233.7"/>
+<text class="ft" x="329.2" y="246.7" text-anchor="middle">7</text>
+<line class="tk" x1="366.6" y1="227.7" x2="366.6" y2="233.7"/>
+<text class="ft" x="366.6" y="246.7" text-anchor="middle">8</text>
+<line class="tk" x1="64.4" y1="187.3" x2="70.4" y2="187.3"/>
+<text class="ft" x="60.4" y="191.3" text-anchor="end">1</text>
+<line class="tk" x1="64.4" y1="144.0" x2="70.4" y2="144.0"/>
+<text class="ft" x="60.4" y="148.0" text-anchor="end">2</text>
+<line class="tk" x1="64.4" y1="100.7" x2="70.4" y2="100.7"/>
+<text class="ft" x="60.4" y="104.7" text-anchor="end">3</text>
+<line class="tk" x1="64.4" y1="57.3" x2="70.4" y2="57.3"/>
+<text class="ft" x="60.4" y="61.3" text-anchor="end">4</text>
+<text class="ft" x="60.4" y="244.7" text-anchor="end">O</text>
+<path class="ca" d="M67.4 230.7 L70.5 218.3 L73.5 213.1 L76.6 209.2 L79.6 205.9 L82.7 203.0 L85.8 200.3 L88.8 197.9 L91.9 195.6 L94.9 193.5 L98.0 191.5 L101.1 189.6 L104.1 187.7 L107.2 186.0 L110.2 184.3 L113.3 182.7 L116.4 181.1 L119.4 179.6 L122.5 178.1 L125.5 176.6 L128.6 175.2 L131.7 173.9 L134.7 172.5 L137.8 171.2 L140.8 169.9 L143.9 168.7 L147.0 167.5 L150.0 166.3 L153.1 165.1 L156.1 163.9 L159.2 162.8 L162.3 161.7 L165.3 160.5 L168.4 159.5 L171.4 158.4 L174.5 157.3 L177.6 156.3 L180.6 155.3 L183.7 154.3 L186.7 153.3 L189.8 152.3 L192.9 151.3 L195.9 150.3 L199.0 149.4 L202.0 148.4 L205.1 147.5 L208.2 146.6 L211.2 145.7 L214.3 144.8 L217.3 143.9 L220.4 143.0 L223.5 142.1 L226.5 141.3 L229.6 140.4 L232.6 139.6 L235.7 138.7 L238.8 137.9 L241.8 137.1 L244.9 136.3 L247.9 135.5 L251.0 134.7 L254.1 133.9 L257.1 133.1 L260.2 132.3 L263.2 131.5 L266.3 130.7 L269.4 130.0 L272.4 129.2 L275.5 128.5 L278.5 127.7 L281.6 127.0 L284.7 126.2 L287.7 125.5 L290.8 124.8 L293.8 124.0 L296.9 123.3 L300.0 122.6 L303.0 121.9 L306.1 121.2 L309.1 120.5 L312.2 119.8 L315.3 119.1 L318.3 118.4 L321.4 117.7 L324.4 117.1 L327.5 116.4 L330.6 115.7 L333.6 115.1 L336.7 114.4 L339.7 113.7 L342.8 113.1 L345.9 112.4 L348.9 111.8 L352.0 111.1 L355.0 110.5 L358.1 109.9 L361.2 109.2 L364.2 108.6 L367.3 108.0 L370.3 107.3 L373.4 106.7 L376.5 106.1 L379.5 105.5 L382.6 104.9 L385.6 104.3 L388.7 103.7 L391.8 103.1 L394.8 102.5 L397.9 101.9 L400.9 101.3 L404.0 100.7" clip-path="url(#akr-c)"/>
+<path class="cb" d="M142.2 187.3 L144.6 176.4 L147.0 171.9 L149.3 168.4 L151.7 165.5 L154.1 162.9 L156.5 160.6 L158.9 158.4 L161.2 156.4 L163.6 154.5 L166.0 152.8 L168.4 151.1 L170.8 149.5 L173.1 147.9 L175.5 146.4 L177.9 145.0 L180.3 143.6 L182.7 142.3 L185.0 141.0 L187.4 139.7 L189.8 138.4 L192.2 137.2 L194.6 136.1 L196.9 134.9 L199.3 133.8 L201.7 132.7 L204.1 131.6 L206.5 130.5 L208.8 129.5 L211.2 128.5 L213.6 127.5 L216.0 126.5 L218.4 125.5 L220.7 124.5 L223.1 123.6 L225.5 122.7 L227.9 121.7 L230.3 120.8 L232.6 119.9 L235.0 119.1 L237.4 118.2 L239.8 117.3 L242.2 116.5 L244.5 115.7 L246.9 114.8 L249.3 114.0 L251.7 113.2 L254.1 112.4 L256.4 111.6 L258.8 110.8 L261.2 110.0 L263.6 109.3 L266.0 108.5 L268.3 107.8 L270.7 107.0 L273.1 106.3 L275.5 105.5 L277.9 104.8 L280.2 104.1 L282.6 103.4 L285.0 102.7 L287.4 102.0 L289.8 101.3 L292.1 100.6 L294.5 99.9 L296.9 99.2 L299.3 98.5 L301.7 97.9 L304.0 97.2 L306.4 96.5 L308.8 95.9 L311.2 95.2 L313.6 94.6 L315.9 93.9 L318.3 93.3 L320.7 92.7 L323.1 92.0 L325.5 91.4 L327.8 90.8 L330.2 90.2 L332.6 89.6 L335.0 89.0 L337.4 88.3 L339.7 87.7 L342.1 87.1 L344.5 86.6 L346.9 86.0 L349.3 85.4 L351.6 84.8 L354.0 84.2 L356.4 83.6 L358.8 83.1 L361.2 82.5 L363.5 81.9 L365.9 81.3 L368.3 80.8 L370.7 80.2 L373.1 79.7 L375.4 79.1 L377.8 78.6 L380.2 78.0 L382.6 77.5 L385.0 76.9 L387.3 76.4 L389.7 75.9 L392.1 75.3 L394.5 74.8 L396.9 74.3 L399.2 73.7 L401.6 73.2 L404.0 72.7" clip-path="url(#akr-c)"/>
+<circle class="pt" cx="67.4" cy="230.7" r="4"/>
+<circle class="pt" cx="142.2" cy="187.3" r="4"/>
+<text class="ta" x="299.3" y="99.0" text-anchor="start">y = √x</text>
+<text class="tb" x="299.3" y="74.3" text-anchor="start">y = √(x − 2) + 1</text>
+</svg>
+<figcaption>Grafik y = √x berawal dari (0, 0); y = √(x − 2) + 1 diperoleh dengan menggeser 2 satuan ke kanan dan 1 satuan ke atas, berawal dari (2, 1).</figcaption></figure>
+
+  <h3>Persamaan dan Pertidaksamaan Irasional</h3>
+
+  <p>Langkah umum: tentukan syarat radikan \(\ge 0\), kuadratkan (perhatikan tanda ruas lainnya), lalu periksa hasilnya terhadap syarat.</p>
+
+  <div class="math-display">
+    \[ \sqrt{f(x)}\lt g(x)\iff f(x)\ge 0,\ g(x)>0,\ f(x)\lt g(x)^{2} \]
+    \[ \sqrt{f(x)}>g(x)\iff \big[f(x)\ge 0,\ g(x)<0\big]\ \text{atau}\ \big[g(x)\ge 0,\ f(x)>g(x)^{2}\big] \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+    <p>Selesaikan \(\sqrt{2x+3}=x\).</p>
+    <p>
+      Syarat: \(2x+3\ge 0\) dan \(x\ge 0\) (karena akar tidak negatif).
+      Kuadratkan: \(2x+3=x^{2}\Rightarrow x^{2}-2x-3=0\Rightarrow x=3\) atau
+      \(x=-1\). Karena \(x\ge 0\), hanya \(x=3\) yang memenuhi
+      (\(x=-1\) adalah akar palsu).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2</h4>
+    <p>Selesaikan \(\sqrt{x+2}<x\).</p>
+    <p>
+      Syarat: \(x+2\ge 0\Rightarrow x\ge -2\) dan \(x>0\) (ruas kanan harus
+      positif). Kuadratkan: \(x+2\lt x^{2}\Rightarrow x^{2}-x-2>0\Rightarrow
+      (x-2)(x+1)>0\Rightarrow x<-1\) atau \(x>2\). Irisan dengan \(x>0\) memberi
+      \(x>2\).
+    </p>
+  </div>
+</section>
+
+<section id="fungsi-mutlak" data-title="Fungsi Nilai Mutlak">
+  <h2>8. Fungsi Nilai Mutlak</h2>
+
+  <p>Nilai mutlak menyatakan jarak suatu bilangan ke nol pada garis bilangan.</p>
+
+  <div class="math-display">
+    \[ |x|=\begin{cases} x, & x\ge 0\\ -x, & x<0 \end{cases}
+    \qquad |x|=\sqrt{x^{2}} \]
+  </div>
+
+  <h3>Sifat dan Penyelesaian</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr><th scope="col">Bentuk</th><th scope="col">Penyelesaian</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>\(|x|=a\) (\(a>0\))</td><td>\(x=a\) atau \(x=-a\)</td></tr>
+        <tr><td>\(|x|\lt a\) (\(a>0\))</td><td>\(-a\lt x\lt a\)</td></tr>
+        <tr><td>\(|x|>a\) (\(a>0\))</td><td>\(x<-a\) atau \(x>a\)</td></tr>
+        <tr><td>\(|f|=|g|\)</td><td>\(f=g\) atau \(f=-g\)</td></tr>
+        <tr><td>\(|f|<|g|\)</td><td>\((f-g)(f+g)<0\), yaitu \(f^{2}<g^{2}\)</td></tr>
+        <tr><td>\(|ab|=|a||b|\), \(\left|\displaystyle\frac{a}{b}\right|=\displaystyle\frac{|a|}{|b|}\)</td><td>Sifat perkalian dan pembagian</td></tr>
+        <tr><td>\(|a+b|\le |a|+|b|\)</td><td>Ketaksamaan segitiga</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Grafik</h3>
+
+  <p>
+    Grafik \(y=a|x-h|+k\) berbentuk huruf V dengan titik puncak \((h,k)\); terbuka
+    ke atas jika \(a>0\) dan ke bawah jika \(a<0\). Range-nya \([k,\infty)\)
+    untuk \(a>0\). Gradien kedua sisi adalah \(\pm a\).
+  </p>
+
+  <figure class="fungsi-figure">
+<svg viewBox="0 0 420 300" style="max-width:520px" role="img" aria-label="Grafik y = |x| dan y = |x-2| - 1">
+<defs><clipPath id="mut-c"><rect x="30" y="14" width="374" height="260"/></clipPath></defs>
+<line class="gr" x1="67.4" y1="14" x2="67.4" y2="274"/>
+<line class="gr" x1="104.8" y1="14" x2="104.8" y2="274"/>
+<line class="gr" x1="142.2" y1="14" x2="142.2" y2="274"/>
+<line class="gr" x1="217.0" y1="14" x2="217.0" y2="274"/>
+<line class="gr" x1="254.4" y1="14" x2="254.4" y2="274"/>
+<line class="gr" x1="291.8" y1="14" x2="291.8" y2="274"/>
+<line class="gr" x1="329.2" y1="14" x2="329.2" y2="274"/>
+<line class="gr" x1="366.6" y1="14" x2="366.6" y2="274"/>
+<line class="gr" x1="30" y1="241.5" x2="404" y2="241.5"/>
+<line class="gr" x1="30" y1="176.5" x2="404" y2="176.5"/>
+<line class="gr" x1="30" y1="144.0" x2="404" y2="144.0"/>
+<line class="gr" x1="30" y1="111.5" x2="404" y2="111.5"/>
+<line class="gr" x1="30" y1="79.0" x2="404" y2="79.0"/>
+<line class="gr" x1="30" y1="46.5" x2="404" y2="46.5"/>
+<line class="ax" x1="24" y1="209.0" x2="412" y2="209.0"/>
+<line class="ax" x1="179.6" y1="280" x2="179.6" y2="6"/>
+<text class="vl" x="412" y="225.0">x</text>
+<text class="vl" x="187.6" y="12">y</text>
+<line class="tk" x1="67.4" y1="206.0" x2="67.4" y2="212.0"/>
+<text class="ft" x="67.4" y="225.0" text-anchor="middle">−3</text>
+<line class="tk" x1="104.8" y1="206.0" x2="104.8" y2="212.0"/>
+<text class="ft" x="104.8" y="225.0" text-anchor="middle">−2</text>
+<line class="tk" x1="142.2" y1="206.0" x2="142.2" y2="212.0"/>
+<text class="ft" x="142.2" y="225.0" text-anchor="middle">−1</text>
+<line class="tk" x1="217.0" y1="206.0" x2="217.0" y2="212.0"/>
+<text class="ft" x="217.0" y="225.0" text-anchor="middle">1</text>
+<line class="tk" x1="254.4" y1="206.0" x2="254.4" y2="212.0"/>
+<text class="ft" x="254.4" y="225.0" text-anchor="middle">2</text>
+<line class="tk" x1="291.8" y1="206.0" x2="291.8" y2="212.0"/>
+<text class="ft" x="291.8" y="225.0" text-anchor="middle">3</text>
+<line class="tk" x1="329.2" y1="206.0" x2="329.2" y2="212.0"/>
+<text class="ft" x="329.2" y="225.0" text-anchor="middle">4</text>
+<line class="tk" x1="366.6" y1="206.0" x2="366.6" y2="212.0"/>
+<text class="ft" x="366.6" y="225.0" text-anchor="middle">5</text>
+<line class="tk" x1="176.6" y1="241.5" x2="182.6" y2="241.5"/>
+<text class="ft" x="172.6" y="245.5" text-anchor="end">−1</text>
+<line class="tk" x1="176.6" y1="176.5" x2="182.6" y2="176.5"/>
+<text class="ft" x="172.6" y="180.5" text-anchor="end">1</text>
+<line class="tk" x1="176.6" y1="144.0" x2="182.6" y2="144.0"/>
+<text class="ft" x="172.6" y="148.0" text-anchor="end">2</text>
+<line class="tk" x1="176.6" y1="111.5" x2="182.6" y2="111.5"/>
+<text class="ft" x="172.6" y="115.5" text-anchor="end">3</text>
+<line class="tk" x1="176.6" y1="79.0" x2="182.6" y2="79.0"/>
+<text class="ft" x="172.6" y="83.0" text-anchor="end">4</text>
+<line class="tk" x1="176.6" y1="46.5" x2="182.6" y2="46.5"/>
+<text class="ft" x="172.6" y="50.5" text-anchor="end">5</text>
+<text class="ft" x="172.6" y="223.0" text-anchor="end">O</text>
+<path class="ca" d="M30.0 79.0 L217.0 176.5 L404.0 14.0" clip-path="url(#mut-c)"/>
+<path class="cb" d="M30.0 46.5 L217.0 209.0 L404.0 111.5" clip-path="url(#mut-c)"/>
+<circle class="pt" cx="179.6" cy="209.0" r="4"/>
+<circle class="pt" cx="254.4" cy="241.5" r="4"/>
+<circle class="pt" cx="217.0" cy="209.0" r="4"/>
+<circle class="pt" cx="291.8" cy="209.0" r="4"/>
+<text class="ta" x="37.5" y="69.2" text-anchor="start">y = |x|</text>
+<text class="tb" x="306.7" y="79.0" text-anchor="start">y = |x − 2| − 1</text>
+</svg>
+<figcaption>Grafik y = |x| berpuncak di (0, 0); y = |x − 2| − 1 berpuncak di (2, −1) dan memotong sumbu-x di 1 dan 3.</figcaption></figure>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+    <p>Selesaikan \(|2x-1|=|x+4|\).</p>
+    <div class="math-display">
+      \[ 2x-1=x+4\Rightarrow x=5,\qquad 2x-1=-(x+4)\Rightarrow 3x=-3\Rightarrow x=-1 \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2 (dua nilai mutlak)</h4>
+    <p>Selesaikan \(|x-3|+|x+1|<6\). Titik pemecah adalah \(x=-1\) dan \(x=3\).</p>
+    <ul>
+      <li>\(x\lt -1\): \(-(x-3)-(x+1)=-2x+2<6\Rightarrow x>-2\), jadi \(-2\lt x\lt -1\).</li>
+      <li>\(-1\le x<3\): \(-(x-3)+(x+1)=4<6\) benar, jadi seluruh interval berlaku.</li>
+      <li>\(x\ge 3\): \((x-3)+(x+1)=2x-2<6\Rightarrow x<4\), jadi \(3\le x<4\).</li>
+    </ul>
+    <p>Gabungan ketiganya: \(-2\lt x\lt 4\).</p>
+  </div>
+</section>
+
+<section id="fungsi-eksponensial" data-title="Fungsi Eksponensial">
+  <h2>9. Fungsi Eksponensial</h2>
+
+  <p>
+    Fungsi eksponensial berbentuk \(f(x)=a^{x}\) dengan \(a>0\) dan
+    \(a\neq 1\). Sifat-sifatnya:
+  </p>
+
+  <ul>
+    <li>Domain \(\mathbb{R}\), range \((0,\infty)\); grafik selalu di atas sumbu-\(x\).</li>
+    <li>Melalui titik \((0,1)\); asimtot datar \(y=0\).</li>
+    <li>Jika \(a>1\) fungsi naik (pertumbuhan); jika \(0<a\lt 1\) fungsi turun (peluruhan).</li>
+    <li>Bentuk umum \(f(x)=k\,a^{x-h}+c\): asimtot \(y=c\).</li>
+  </ul>
+
+  <figure class="fungsi-figure">
+<svg viewBox="0 0 420 300" style="max-width:520px" role="img" aria-label="Grafik y = 2 pangkat x dan y = (1/2) pangkat x">
+<defs><clipPath id="eks-c"><rect x="30" y="14" width="374" height="260"/></clipPath></defs>
+<line class="gr" x1="92.3" y1="14" x2="92.3" y2="274"/>
+<line class="gr" x1="154.7" y1="14" x2="154.7" y2="274"/>
+<line class="gr" x1="279.3" y1="14" x2="279.3" y2="274"/>
+<line class="gr" x1="341.7" y1="14" x2="341.7" y2="274"/>
+<line class="gr" x1="30" y1="216.2" x2="404" y2="216.2"/>
+<line class="gr" x1="30" y1="187.3" x2="404" y2="187.3"/>
+<line class="gr" x1="30" y1="129.6" x2="404" y2="129.6"/>
+<line class="gr" x1="30" y1="71.8" x2="404" y2="71.8"/>
+<line class="gr" x1="30" y1="14.0" x2="404" y2="14.0"/>
+<line class="ax" x1="24" y1="245.1" x2="412" y2="245.1"/>
+<line class="ax" x1="217.0" y1="280" x2="217.0" y2="6"/>
+<text class="vl" x="412" y="261.1">x</text>
+<text class="vl" x="225.0" y="12">y</text>
+<line class="tk" x1="92.3" y1="242.1" x2="92.3" y2="248.1"/>
+<text class="ft" x="92.3" y="261.1" text-anchor="middle">−2</text>
+<line class="tk" x1="154.7" y1="242.1" x2="154.7" y2="248.1"/>
+<text class="ft" x="154.7" y="261.1" text-anchor="middle">−1</text>
+<line class="tk" x1="279.3" y1="242.1" x2="279.3" y2="248.1"/>
+<text class="ft" x="279.3" y="261.1" text-anchor="middle">1</text>
+<line class="tk" x1="341.7" y1="242.1" x2="341.7" y2="248.1"/>
+<text class="ft" x="341.7" y="261.1" text-anchor="middle">2</text>
+<line class="tk" x1="214.0" y1="216.2" x2="220.0" y2="216.2"/>
+<text class="ft" x="210.0" y="220.2" text-anchor="end">1</text>
+<line class="tk" x1="214.0" y1="187.3" x2="220.0" y2="187.3"/>
+<text class="ft" x="210.0" y="191.3" text-anchor="end">2</text>
+<line class="tk" x1="214.0" y1="129.6" x2="220.0" y2="129.6"/>
+<text class="ft" x="210.0" y="133.6" text-anchor="end">4</text>
+<line class="tk" x1="214.0" y1="71.8" x2="220.0" y2="71.8"/>
+<text class="ft" x="210.0" y="75.8" text-anchor="end">6</text>
+<line class="tk" x1="214.0" y1="14.0" x2="220.0" y2="14.0"/>
+<text class="ft" x="210.0" y="18.0" text-anchor="end">8</text>
+<text class="ft" x="210.0" y="259.1" text-anchor="end">O</text>
+<path class="ca" d="M30.0 241.5 L33.4 241.4 L36.8 241.2 L40.2 241.1 L43.6 240.9 L47.0 240.7 L50.4 240.6 L53.8 240.4 L57.2 240.2 L60.6 240.0 L64.0 239.8 L67.4 239.6 L70.8 239.4 L74.2 239.2 L77.6 239.0 L81.0 238.7 L84.4 238.5 L87.8 238.2 L91.2 238.0 L94.6 237.7 L98.0 237.4 L101.4 237.1 L104.8 236.8 L108.2 236.5 L111.6 236.2 L115.0 235.8 L118.4 235.5 L121.8 235.1 L125.2 234.7 L128.6 234.3 L132.0 233.9 L135.4 233.5 L138.8 233.0 L142.2 232.5 L145.6 232.1 L149.0 231.5 L152.4 231.0 L155.8 230.5 L159.2 229.9 L162.6 229.3 L166.0 228.7 L169.4 228.1 L172.8 227.4 L176.2 226.8 L179.6 226.1 L183.0 225.3 L186.4 224.6 L189.8 223.8 L193.2 222.9 L196.6 222.1 L200.0 221.2 L203.4 220.3 L206.8 219.3 L210.2 218.3 L213.6 217.3 L217.0 216.2 L220.4 215.1 L223.8 214.0 L227.2 212.8 L230.6 211.5 L234.0 210.2 L237.4 208.9 L240.8 207.5 L244.2 206.0 L247.6 204.5 L251.0 202.9 L254.4 201.3 L257.8 199.6 L261.2 197.9 L264.6 196.1 L268.0 194.2 L271.4 192.2 L274.8 190.2 L278.2 188.1 L281.6 185.9 L285.0 183.6 L288.4 181.2 L291.8 178.7 L295.2 176.2 L298.6 173.5 L302.0 170.8 L305.4 167.9 L308.8 164.9 L312.2 161.8 L315.6 158.6 L319.0 155.3 L322.4 151.8 L325.8 148.2 L329.2 144.5 L332.6 140.6 L336.0 136.6 L339.4 132.4 L342.8 128.1 L346.2 123.6 L349.6 118.9 L353.0 114.0 L356.4 109.0 L359.8 103.7 L363.2 98.3 L366.6 92.6 L370.0 86.8 L373.4 80.7 L376.8 74.3 L380.2 67.7 L383.6 60.9 L387.0 53.8 L390.4 46.4 L393.8 38.8 L397.2 30.8 L400.6 22.6 L404.0 14.0" clip-path="url(#eks-c)"/>
+<path class="cb" d="M30.0 14.0 L33.4 22.6 L36.8 30.8 L40.2 38.8 L43.6 46.4 L47.0 53.8 L50.4 60.9 L53.8 67.7 L57.2 74.3 L60.6 80.7 L64.0 86.8 L67.4 92.6 L70.8 98.3 L74.2 103.7 L77.6 109.0 L81.0 114.0 L84.4 118.9 L87.8 123.6 L91.2 128.1 L94.6 132.4 L98.0 136.6 L101.4 140.6 L104.8 144.5 L108.2 148.2 L111.6 151.8 L115.0 155.3 L118.4 158.6 L121.8 161.8 L125.2 164.9 L128.6 167.9 L132.0 170.8 L135.4 173.5 L138.8 176.2 L142.2 178.7 L145.6 181.2 L149.0 183.6 L152.4 185.9 L155.8 188.1 L159.2 190.2 L162.6 192.2 L166.0 194.2 L169.4 196.1 L172.8 197.9 L176.2 199.6 L179.6 201.3 L183.0 202.9 L186.4 204.5 L189.8 206.0 L193.2 207.5 L196.6 208.9 L200.0 210.2 L203.4 211.5 L206.8 212.8 L210.2 214.0 L213.6 215.1 L217.0 216.2 L220.4 217.3 L223.8 218.3 L227.2 219.3 L230.6 220.3 L234.0 221.2 L237.4 222.1 L240.8 222.9 L244.2 223.8 L247.6 224.6 L251.0 225.3 L254.4 226.1 L257.8 226.8 L261.2 227.4 L264.6 228.1 L268.0 228.7 L271.4 229.3 L274.8 229.9 L278.2 230.5 L281.6 231.0 L285.0 231.5 L288.4 232.1 L291.8 232.5 L295.2 233.0 L298.6 233.5 L302.0 233.9 L305.4 234.3 L308.8 234.7 L312.2 235.1 L315.6 235.5 L319.0 235.8 L322.4 236.2 L325.8 236.5 L329.2 236.8 L332.6 237.1 L336.0 237.4 L339.4 237.7 L342.8 238.0 L346.2 238.2 L349.6 238.5 L353.0 238.7 L356.4 239.0 L359.8 239.2 L363.2 239.4 L366.6 239.6 L370.0 239.8 L373.4 240.0 L376.8 240.2 L380.2 240.4 L383.6 240.6 L387.0 240.7 L390.4 240.9 L393.8 241.1 L397.2 241.2 L400.6 241.4 L404.0 241.5" clip-path="url(#eks-c)"/>
+<circle class="pt" cx="217.0" cy="216.2" r="4"/>
+<text class="ta" x="291.8" y="86.2" text-anchor="start">y = 2ˣ</text>
+<text class="tb" x="33.1" y="86.2" text-anchor="start">y = (½)ˣ</text>
+<text x="298.0" y="237.1" text-anchor="start">asimtot y = 0</text>
+</svg>
+<figcaption>Grafik y = 2ˣ (naik) dan y = (½)ˣ (turun) sama-sama melalui (0, 1) dan mendekati asimtot y = 0.</figcaption></figure>
+
+  <h3>Sifat Pangkat dan Penyelesaian</h3>
+
+  <div class="math-display">
+    \[ a^{m}a^{n}=a^{m+n},\quad \frac{a^{m}}{a^{n}}=a^{m-n},\quad (a^{m})^{n}=a^{mn},\quad a^{-n}=\frac{1}{a^{n}} \]
+    \[ a^{f(x)}=a^{g(x)}\iff f(x)=g(x),\qquad
+    a^{f(x)}\lt a^{g(x)}\iff \begin{cases} f(x)\lt g(x), & a>1\\ f(x)>g(x), & 0<a\lt 1\end{cases} \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 1 (substitusi)</h4>
+    <p>Selesaikan \(4^{x}-6\cdot 2^{x}+8=0\).</p>
+    <p>
+      Misalkan \(t=2^{x}>0\): \(t^{2}-6t+8=0\Rightarrow (t-2)(t-4)=0\), sehingga
+      \(t=2\) atau \(t=4\). Jadi \(x=1\) atau \(x=2\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2 (pertidaksamaan)</h4>
+    <p>Selesaikan \(\left(\displaystyle\frac13\right)^{x^{2}-4}\ge 3^{2x+1}\).</p>
+    <p>
+      Samakan basis: \(\left(\displaystyle\frac13\right)^{x^{2}-4}=3^{4-x^{2}}\).
+      Basis \(3>1\), maka tanda tetap: \(4-x^{2}\ge 2x+1\Rightarrow
+      x^{2}+2x-3\le 0\Rightarrow (x+3)(x-1)\le 0\Rightarrow -3\le x\le 1\).
+    </p>
+  </div>
+
+  <h3>Bilangan Euler dan Model Pertumbuhan</h3>
+
+  <p>
+    Bilangan \(e\approx 2{,}71828\) adalah basis alami, dengan \(f(x)=e^{x}\) dan
+    inversnya \(\ln x\). Model eksponensial yang sering dipakai:
+  </p>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr><th scope="col">Situasi</th><th scope="col">Model</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Pertumbuhan/peluruhan dengan laju \(r\) per periode</td><td>\(N(t)=N_0(1\pm r)^{t}\)</td></tr>
+        <tr><td>Pertumbuhan kontinu</td><td>\(N(t)=N_0e^{kt}\)</td></tr>
+        <tr><td>Waktu paruh \(T\)</td><td>\(N(t)=N_0\left(\displaystyle\frac12\right)^{t/T}\)</td></tr>
+        <tr><td>Bunga majemuk \(i\) per periode</td><td>\(M_n=M_0(1+i)^{n}\)</td></tr>
+        <tr><td>Berlipat \(p\) kali setiap \(T\) satuan waktu</td><td>\(N(t)=N_0\,p^{t/T}\)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="fungsi-logaritma" data-title="Fungsi Logaritma">
+  <h2>10. Fungsi Logaritma</h2>
+
+  <p>
+    Logaritma adalah invers eksponen: \(y=\log_{a}x\iff x=a^{y}\) dengan
+    \(a>0\), \(a\neq 1\), dan \(x>0\). Basis 10 ditulis \(\log x\) dan basis
+    \(e\) ditulis \(\ln x\).
+  </p>
+
+  <h3>Sifat Fungsi Logaritma</h3>
+
+  <ul>
+    <li>Domain \((0,\infty)\), range \(\mathbb{R}\); asimtot tegak \(x=0\).</li>
+    <li>Melalui titik \((1,0)\) dan \((a,1)\).</li>
+    <li>Jika \(a>1\) fungsi naik; jika \(0<a\lt 1\) fungsi turun.</li>
+    <li>Bentuk \(f(x)=\log_{a}(x-h)+k\): asimtot tegak \(x=h\), domain \(x>h\).</li>
+  </ul>
+
+  <figure class="fungsi-figure">
+<svg viewBox="0 0 380 374" style="max-width:420px" role="img" aria-label="Grafik y = 2 pangkat x, y = x, dan y = log basis 2 dari x yang saling simetris terhadap y = x">
+<defs><clipPath id="log-c"><rect x="30" y="14" width="334" height="334"/></clipPath></defs>
+<line class="gr" x1="149.3" y1="14" x2="149.3" y2="348"/>
+<line class="gr" x1="197.0" y1="14" x2="197.0" y2="348"/>
+<line class="gr" x1="244.7" y1="14" x2="244.7" y2="348"/>
+<line class="gr" x1="292.4" y1="14" x2="292.4" y2="348"/>
+<line class="gr" x1="340.1" y1="14" x2="340.1" y2="348"/>
+<line class="gr" x1="30" y1="228.7" x2="364" y2="228.7"/>
+<line class="gr" x1="30" y1="181.0" x2="364" y2="181.0"/>
+<line class="gr" x1="30" y1="133.3" x2="364" y2="133.3"/>
+<line class="gr" x1="30" y1="85.6" x2="364" y2="85.6"/>
+<line class="gr" x1="30" y1="37.9" x2="364" y2="37.9"/>
+<line class="ax" x1="24" y1="276.4" x2="372" y2="276.4"/>
+<line class="ax" x1="101.6" y1="354" x2="101.6" y2="6"/>
+<text class="vl" x="372" y="292.4">x</text>
+<text class="vl" x="109.6" y="12">y</text>
+<line class="tk" x1="149.3" y1="273.4" x2="149.3" y2="279.4"/>
+<text class="ft" x="149.3" y="292.4" text-anchor="middle">1</text>
+<line class="tk" x1="197.0" y1="273.4" x2="197.0" y2="279.4"/>
+<text class="ft" x="197.0" y="292.4" text-anchor="middle">2</text>
+<line class="tk" x1="244.7" y1="273.4" x2="244.7" y2="279.4"/>
+<text class="ft" x="244.7" y="292.4" text-anchor="middle">3</text>
+<line class="tk" x1="292.4" y1="273.4" x2="292.4" y2="279.4"/>
+<text class="ft" x="292.4" y="292.4" text-anchor="middle">4</text>
+<line class="tk" x1="340.1" y1="273.4" x2="340.1" y2="279.4"/>
+<text class="ft" x="340.1" y="292.4" text-anchor="middle">5</text>
+<line class="tk" x1="98.6" y1="228.7" x2="104.6" y2="228.7"/>
+<text class="ft" x="94.6" y="232.7" text-anchor="end">1</text>
+<line class="tk" x1="98.6" y1="181.0" x2="104.6" y2="181.0"/>
+<text class="ft" x="94.6" y="185.0" text-anchor="end">2</text>
+<line class="tk" x1="98.6" y1="133.3" x2="104.6" y2="133.3"/>
+<text class="ft" x="94.6" y="137.3" text-anchor="end">3</text>
+<line class="tk" x1="98.6" y1="85.6" x2="104.6" y2="85.6"/>
+<text class="ft" x="94.6" y="89.6" text-anchor="end">4</text>
+<line class="tk" x1="98.6" y1="37.9" x2="104.6" y2="37.9"/>
+<text class="ft" x="94.6" y="41.9" text-anchor="end">5</text>
+<text class="ft" x="94.6" y="290.4" text-anchor="end">O</text>
+<line class="ds" x1="30.0" y1="348.0" x2="364.0" y2="14.0"/>
+<path class="ca" d="M30.0 259.6 L32.0 259.1 L33.9 258.6 L35.9 258.1 L37.8 257.5 L39.8 257.0 L41.7 256.4 L43.7 255.9 L45.6 255.3 L47.6 254.7 L49.5 254.0 L51.5 253.4 L53.4 252.7 L55.4 252.0 L57.3 251.3 L59.3 250.6 L61.2 249.9 L63.2 249.1 L65.1 248.3 L67.1 247.5 L69.0 246.7 L71.0 245.8 L72.9 244.9 L74.9 244.0 L76.8 243.1 L78.8 242.2 L80.8 241.2 L82.7 240.2 L84.7 239.1 L86.6 238.0 L88.6 236.9 L90.5 235.8 L92.5 234.6 L94.4 233.4 L96.4 232.2 L98.3 230.9 L100.3 229.6 L102.2 228.3 L104.2 226.9 L106.1 225.5 L108.1 224.0 L110.0 222.5 L112.0 220.9 L113.9 219.3 L115.9 217.7 L117.8 216.0 L119.8 214.3 L121.7 212.5 L123.7 210.6 L125.6 208.7 L127.6 206.8 L129.5 204.8 L131.5 202.7 L133.5 200.6 L135.4 198.4 L137.4 196.2 L139.3 193.9 L141.3 191.5 L143.2 189.1 L145.2 186.5 L147.1 184.0 L149.1 181.3 L151.0 178.6 L153.0 175.7 L154.9 172.9 L156.9 169.9 L158.8 166.8 L160.8 163.7 L162.7 160.4 L164.7 157.1 L166.6 153.6 L168.6 150.1 L170.5 146.5 L172.5 142.7 L174.4 138.9 L176.4 134.9 L178.3 130.9 L180.3 126.7 L182.3 122.4 L184.2 117.9 L186.2 113.4 L188.1 108.7 L190.1 103.9 L192.0 98.9 L194.0 93.8 L195.9 88.6 L197.9 83.2 L199.8 77.6 L201.8 71.9 L203.7 66.0 L205.7 59.9 L207.6 53.7 L209.6 47.3 L211.5 40.7 L213.5 33.9 L215.4 27.0 L217.4 19.8 L219.3 12.4 L221.3 4.8 L223.2 -3.0 L225.2 -11.0 L227.1 -19.3 L229.1 -27.8 L231.1 -36.6 L233.0 -45.6 L235.0 -54.8 L236.9 -64.4 L238.9 -74.2 L240.8 -84.2 L242.8 -94.6 L244.7 -105.3" clip-path="url(#log-c)"/>
+<path class="cb" d="M102.5 545.7 L104.2 477.0 L105.8 443.3 L107.4 420.8 L109.1 403.9 L110.7 390.3 L112.3 379.0 L114.0 369.2 L115.6 360.7 L117.2 353.1 L118.9 346.3 L120.5 340.1 L122.1 334.4 L123.8 329.1 L125.4 324.2 L127.0 319.6 L128.7 315.4 L130.3 311.3 L131.9 307.5 L133.6 303.9 L135.2 300.5 L136.8 297.2 L138.5 294.1 L140.1 291.1 L141.7 288.3 L143.4 285.5 L145.0 282.9 L146.6 280.3 L148.3 277.9 L149.9 275.5 L151.6 273.2 L153.2 271.0 L154.8 268.9 L156.5 266.8 L158.1 264.8 L159.7 262.8 L161.4 260.9 L163.0 259.0 L164.6 257.2 L166.3 255.5 L167.9 253.8 L169.5 252.1 L171.2 250.4 L172.8 248.9 L174.4 247.3 L176.1 245.8 L177.7 244.3 L179.3 242.8 L181.0 241.4 L182.6 240.0 L184.2 238.6 L185.9 237.3 L187.5 235.9 L189.1 234.6 L190.8 233.4 L192.4 232.1 L194.0 230.9 L195.7 229.7 L197.3 228.5 L198.9 227.3 L200.6 226.2 L202.2 225.1 L203.8 223.9 L205.5 222.9 L207.1 221.8 L208.7 220.7 L210.4 219.7 L212.0 218.7 L213.7 217.6 L215.3 216.6 L216.9 215.7 L218.6 214.7 L220.2 213.7 L221.8 212.8 L223.5 211.9 L225.1 211.0 L226.7 210.0 L228.4 209.2 L230.0 208.3 L231.6 207.4 L233.3 206.5 L234.9 205.7 L236.5 204.9 L238.2 204.0 L239.8 203.2 L241.4 202.4 L243.1 201.6 L244.7 200.8 L246.3 200.0 L248.0 199.3 L249.6 198.5 L251.2 197.7 L252.9 197.0 L254.5 196.2 L256.1 195.5 L257.8 194.8 L259.4 194.1 L261.0 193.4 L262.7 192.7 L264.3 192.0 L265.9 191.3 L267.6 190.6 L269.2 189.9 L270.8 189.3 L272.5 188.6 L274.1 187.9 L275.8 187.3 L277.4 186.7 L279.0 186.0 L280.7 185.4 L282.3 184.8 L283.9 184.1 L285.6 183.5 L287.2 182.9 L288.8 182.3 L290.5 181.7 L292.1 181.1 L293.7 180.5 L295.4 179.9 L297.0 179.4 L298.6 178.8 L300.3 178.2 L301.9 177.7 L303.5 177.1 L305.2 176.6 L306.8 176.0 L308.4 175.5 L310.1 174.9 L311.7 174.4 L313.3 173.8 L315.0 173.3 L316.6 172.8 L318.2 172.3 L319.9 171.8 L321.5 171.2 L323.1 170.7 L324.8 170.2 L326.4 169.7 L328.0 169.2 L329.7 168.7 L331.3 168.2 L332.9 167.7 L334.6 167.3 L336.2 166.8 L337.9 166.3 L339.5 165.8 L341.1 165.4 L342.8 164.9 L344.4 164.4 L346.0 164.0 L347.7 163.5 L349.3 163.0 L350.9 162.6 L352.6 162.1 L354.2 161.7 L355.8 161.3 L357.5 160.8 L359.1 160.4 L360.7 159.9 L362.4 159.5 L364.0 159.1" clip-path="url(#log-c)"/>
+<circle class="pt" cx="101.6" cy="228.7" r="4"/>
+<circle class="pt" cx="149.3" cy="276.4" r="4"/>
+<circle class="pt" cx="197.0" cy="228.7" r="4"/>
+<circle class="pt" cx="149.3" cy="181.0" r="4"/>
+<text class="ta" x="34.8" y="245.8" text-anchor="start">y = 2ˣ</text>
+<text class="tb" x="254.3" y="204.9" text-anchor="start">y = ²log x</text>
+<text x="297.2" y="61.7" text-anchor="start">y = x</text>
+</svg>
+<figcaption>Grafik y = 2ˣ dan y = ²log x saling simetris terhadap garis y = x. Grafik logaritma melalui (1, 0) dengan asimtot tegak x = 0.</figcaption></figure>
+
+  <h3>Sifat-Sifat Logaritma</h3>
+
+  <div class="math-display">
+    \[ \log_{a}(bc)=\log_{a}b+\log_{a}c,\qquad
+    \log_{a}\frac{b}{c}=\log_{a}b-\log_{a}c,\qquad
+    \log_{a}b^{n}=n\log_{a}b \]
+    \[ \log_{a}b=\frac{\log_{c}b}{\log_{c}a}=\frac{1}{\log_{b}a},\qquad
+    \log_{a^{m}}b^{n}=\frac{n}{m}\log_{a}b,\qquad
+    a^{\log_{a}b}=b,\qquad \log_{a}b\cdot\log_{b}c=\log_{a}c \]
+  </div>
+
+  <h3>Persamaan dan Pertidaksamaan Logaritma</h3>
+
+  <p>
+    Selalu tulis syarat: numerus \(>0\) dan basis \(>0\), \(\neq 1\). Untuk
+    pertidaksamaan, arah tanda tetap jika basis \(>1\) dan berbalik jika
+    \(0<\text{basis}<1\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+    <p>Selesaikan \(\log_{2}(x+1)+\log_{2}(x-1)=3\).</p>
+    <p>
+      Syarat: \(x>1\). Gabungkan: \(\log_{2}(x^{2}-1)=3\Rightarrow x^{2}-1=8
+      \Rightarrow x=3\) atau \(x=-3\). Karena \(x>1\), hanya \(x=3\) yang
+      memenuhi.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2</h4>
+    <p>Selesaikan \(\log_{3}(2x-1)<2\).</p>
+    <p>
+      Syarat \(2x-1>0\Rightarrow x>\displaystyle\frac12\). Basis \(3>1\):
+      \(2x-1\lt 3^{2}=9\Rightarrow x\lt 5\). Jadi \(\displaystyle\frac12\lt x\lt 5\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 3 (grafik)</h4>
+    <p>
+      Untuk \(f(x)=\log_{2}(x-1)+3\): asimtot tegak \(x=1\), domain \(x>1\),
+      memotong sumbu-\(x\) saat \(\log_{2}(x-1)=-3\), yaitu
+      \(x=1+\displaystyle\frac18=\displaystyle\frac98\), dan melalui titik
+      \((2,3)\).
+    </p>
+  </div>
+</section>
+<section id="fungsi-trigonometri" data-title="Fungsi Trigonometri">
+  <h2>11. Fungsi Trigonometri</h2>
+
+  <p>
+    Pada fungsi trigonometri, sudut dinyatakan dalam radian:
+    \(\pi\text{ rad}=180^\circ\), sehingga \(1\text{ rad}=\displaystyle\frac{180^\circ}{\pi}\).
+    Nilai sudut istimewa:
+  </p>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">\(x\)</th><th scope="col">\(0\)</th>
+          <th scope="col">\(\displaystyle\frac{\pi}{6}\)</th><th scope="col">\(\displaystyle\frac{\pi}{4}\)</th>
+          <th scope="col">\(\displaystyle\frac{\pi}{3}\)</th><th scope="col">\(\displaystyle\frac{\pi}{2}\)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>\(\sin x\)</td><td>\(0\)</td><td>\(\displaystyle\frac12\)</td><td>\(\displaystyle\frac{\sqrt2}{2}\)</td><td>\(\displaystyle\frac{\sqrt3}{2}\)</td><td>\(1\)</td></tr>
+        <tr><td>\(\cos x\)</td><td>\(1\)</td><td>\(\displaystyle\frac{\sqrt3}{2}\)</td><td>\(\displaystyle\frac{\sqrt2}{2}\)</td><td>\(\displaystyle\frac12\)</td><td>\(0\)</td></tr>
+        <tr><td>\(\tan x\)</td><td>\(0\)</td><td>\(\displaystyle\frac{\sqrt3}{3}\)</td><td>\(1\)</td><td>\(\sqrt3\)</td><td>tak terdefinisi</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Sifat Fungsi Sinus, Kosinus, dan Tangen</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr><th scope="col">Fungsi</th><th scope="col">Domain</th><th scope="col">Range</th><th scope="col">Periode</th><th scope="col">Simetri</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>\(y=\sin x\)</td><td>\(\mathbb{R}\)</td><td>\([-1,1]\)</td><td>\(2\pi\)</td><td>Ganjil</td></tr>
+        <tr><td>\(y=\cos x\)</td><td>\(\mathbb{R}\)</td><td>\([-1,1]\)</td><td>\(2\pi\)</td><td>Genap</td></tr>
+        <tr><td>\(y=\tan x\)</td><td>\(x\neq\displaystyle\frac{\pi}{2}+k\pi\)</td><td>\(\mathbb{R}\)</td><td>\(\pi\)</td><td>Ganjil</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <figure class="fungsi-figure">
+<svg viewBox="0 0 420 300" style="max-width:520px" role="img" aria-label="Grafik y = sin x dan y = cos x pada satu periode penuh">
+<defs><clipPath id="sc-c"><rect x="30" y="14" width="374" height="260"/></clipPath></defs>
+<line class="gr" x1="138.3" y1="14" x2="138.3" y2="274"/>
+<line class="gr" x1="216.6" y1="14" x2="216.6" y2="274"/>
+<line class="gr" x1="294.9" y1="14" x2="294.9" y2="274"/>
+<line class="gr" x1="373.2" y1="14" x2="373.2" y2="274"/>
+<line class="gr" x1="30" y1="230.7" x2="404" y2="230.7"/>
+<line class="gr" x1="30" y1="57.3" x2="404" y2="57.3"/>
+<line class="ax" x1="24" y1="144.0" x2="412" y2="144.0"/>
+<line class="ax" x1="59.9" y1="280" x2="59.9" y2="6"/>
+<text class="vl" x="412" y="160.0">x</text>
+<text class="vl" x="67.9" y="12">y</text>
+<line class="tk" x1="138.3" y1="141.0" x2="138.3" y2="147.0"/>
+<text class="ft" x="138.3" y="160.0" text-anchor="middle">π/2</text>
+<line class="tk" x1="216.6" y1="141.0" x2="216.6" y2="147.0"/>
+<text class="ft" x="216.6" y="160.0" text-anchor="middle">π</text>
+<line class="tk" x1="294.9" y1="141.0" x2="294.9" y2="147.0"/>
+<text class="ft" x="294.9" y="160.0" text-anchor="middle">3π/2</text>
+<line class="tk" x1="373.2" y1="141.0" x2="373.2" y2="147.0"/>
+<text class="ft" x="373.2" y="160.0" text-anchor="middle">2π</text>
+<line class="tk" x1="56.9" y1="230.7" x2="62.9" y2="230.7"/>
+<text class="ft" x="52.9" y="234.7" text-anchor="end">−1</text>
+<line class="tk" x1="56.9" y1="57.3" x2="62.9" y2="57.3"/>
+<text class="ft" x="52.9" y="61.3" text-anchor="end">1</text>
+<text class="ft" x="52.9" y="158.0" text-anchor="end">O</text>
+<path class="ca" d="M59.9 144.0 L62.8 139.1 L65.6 134.1 L68.5 129.2 L71.3 124.4 L74.2 119.6 L77.0 114.9 L79.9 110.3 L82.7 105.8 L85.6 101.4 L88.4 97.1 L91.3 93.1 L94.1 89.1 L96.9 85.4 L99.8 81.8 L102.6 78.5 L105.5 75.4 L108.3 72.5 L111.2 69.8 L114.0 67.3 L116.9 65.2 L119.7 63.2 L122.6 61.6 L125.4 60.2 L128.3 59.1 L131.1 58.2 L134.0 57.7 L136.8 57.4 L139.7 57.4 L142.5 57.7 L145.4 58.2 L148.2 59.1 L151.1 60.2 L153.9 61.6 L156.8 63.2 L159.6 65.2 L162.5 67.3 L165.3 69.8 L168.2 72.5 L171.0 75.4 L173.9 78.5 L176.7 81.8 L179.6 85.4 L182.4 89.1 L185.2 93.1 L188.1 97.1 L190.9 101.4 L193.8 105.8 L196.6 110.3 L199.5 114.9 L202.3 119.6 L205.2 124.4 L208.0 129.2 L210.9 134.1 L213.7 139.1 L216.6 144.0 L219.4 148.9 L222.3 153.9 L225.1 158.8 L228.0 163.6 L230.8 168.4 L233.7 173.1 L236.5 177.7 L239.4 182.2 L242.2 186.6 L245.1 190.9 L247.9 194.9 L250.8 198.9 L253.6 202.6 L256.5 206.2 L259.3 209.5 L262.2 212.6 L265.0 215.5 L267.9 218.2 L270.7 220.7 L273.5 222.8 L276.4 224.8 L279.2 226.4 L282.1 227.8 L284.9 228.9 L287.8 229.8 L290.6 230.3 L293.5 230.6 L296.3 230.6 L299.2 230.3 L302.0 229.8 L304.9 228.9 L307.7 227.8 L310.6 226.4 L313.4 224.8 L316.3 222.8 L319.1 220.7 L322.0 218.2 L324.8 215.5 L327.7 212.6 L330.5 209.5 L333.4 206.2 L336.2 202.6 L339.1 198.9 L341.9 194.9 L344.8 190.9 L347.6 186.6 L350.5 182.2 L353.3 177.7 L356.2 173.1 L359.0 168.4 L361.8 163.6 L364.7 158.8 L367.5 153.9 L370.4 148.9 L373.2 144.0" clip-path="url(#sc-c)"/>
+<path class="cb" d="M59.9 57.3 L62.8 57.5 L65.6 57.9 L68.5 58.6 L71.3 59.6 L74.2 60.8 L77.0 62.4 L79.9 64.2 L82.7 66.2 L85.6 68.5 L88.4 71.1 L91.3 73.9 L94.1 76.9 L96.9 80.1 L99.8 83.6 L102.6 87.2 L105.5 91.1 L108.3 95.1 L111.2 99.2 L114.0 103.6 L116.9 108.0 L119.7 112.6 L122.6 117.2 L125.4 122.0 L128.3 126.8 L131.1 131.7 L134.0 136.6 L136.8 141.5 L139.7 146.5 L142.5 151.4 L145.4 156.3 L148.2 161.2 L151.1 166.0 L153.9 170.8 L156.8 175.4 L159.6 180.0 L162.5 184.4 L165.3 188.8 L168.2 192.9 L171.0 196.9 L173.9 200.8 L176.7 204.4 L179.6 207.9 L182.4 211.1 L185.2 214.1 L188.1 216.9 L190.9 219.5 L193.8 221.8 L196.6 223.8 L199.5 225.6 L202.3 227.2 L205.2 228.4 L208.0 229.4 L210.9 230.1 L213.7 230.5 L216.6 230.7 L219.4 230.5 L222.3 230.1 L225.1 229.4 L228.0 228.4 L230.8 227.2 L233.7 225.6 L236.5 223.8 L239.4 221.8 L242.2 219.5 L245.1 216.9 L247.9 214.1 L250.8 211.1 L253.6 207.9 L256.5 204.4 L259.3 200.8 L262.2 196.9 L265.0 192.9 L267.9 188.8 L270.7 184.4 L273.5 180.0 L276.4 175.4 L279.2 170.8 L282.1 166.0 L284.9 161.2 L287.8 156.3 L290.6 151.4 L293.5 146.5 L296.3 141.5 L299.2 136.6 L302.0 131.7 L304.9 126.8 L307.7 122.0 L310.6 117.2 L313.4 112.6 L316.3 108.0 L319.1 103.6 L322.0 99.2 L324.8 95.1 L327.7 91.1 L330.5 87.2 L333.4 83.6 L336.2 80.1 L339.1 76.9 L341.9 73.9 L344.8 71.1 L347.6 68.5 L350.5 66.2 L353.3 64.2 L356.2 62.4 L359.0 60.8 L361.8 59.6 L364.7 58.6 L367.5 57.9 L370.4 57.5 L373.2 57.3" clip-path="url(#sc-c)"/>
+<text class="ta" x="114.8" y="53.3" text-anchor="start">y = sin x</text>
+<text class="tb" x="230.5" y="226.3" text-anchor="start">y = cos x</text>
+</svg>
+<figcaption>Grafik y = sin x (biru) dan y = cos x (merah): keduanya bernilai antara −1 dan 1 dengan periode 2π.</figcaption></figure>
+  <figure class="fungsi-figure">
+<svg viewBox="0 0 420 300" style="max-width:520px" role="img" aria-label="Grafik y = tan x dengan asimtot tegak di x = pi/2 + k pi">
+<defs><clipPath id="tan-c"><rect x="30" y="14" width="374" height="260"/></clipPath></defs>
+<line class="gr" x1="58.2" y1="14" x2="58.2" y2="274"/>
+<line class="gr" x1="137.6" y1="14" x2="137.6" y2="274"/>
+<line class="gr" x1="296.4" y1="14" x2="296.4" y2="274"/>
+<line class="gr" x1="375.8" y1="14" x2="375.8" y2="274"/>
+<line class="gr" x1="30" y1="241.5" x2="404" y2="241.5"/>
+<line class="gr" x1="30" y1="209.0" x2="404" y2="209.0"/>
+<line class="gr" x1="30" y1="176.5" x2="404" y2="176.5"/>
+<line class="gr" x1="30" y1="111.5" x2="404" y2="111.5"/>
+<line class="gr" x1="30" y1="79.0" x2="404" y2="79.0"/>
+<line class="gr" x1="30" y1="46.5" x2="404" y2="46.5"/>
+<line class="ax" x1="24" y1="144.0" x2="412" y2="144.0"/>
+<line class="ax" x1="217.0" y1="280" x2="217.0" y2="6"/>
+<text class="vl" x="412" y="160.0">x</text>
+<text class="vl" x="225.0" y="12">y</text>
+<line class="tk" x1="58.2" y1="141.0" x2="58.2" y2="147.0"/>
+<text class="ft" x="58.2" y="160.0" text-anchor="middle">−π</text>
+<line class="tk" x1="137.6" y1="141.0" x2="137.6" y2="147.0"/>
+<text class="ft" x="137.6" y="160.0" text-anchor="middle">−π/2</text>
+<line class="tk" x1="296.4" y1="141.0" x2="296.4" y2="147.0"/>
+<text class="ft" x="296.4" y="160.0" text-anchor="middle">π/2</text>
+<line class="tk" x1="375.8" y1="141.0" x2="375.8" y2="147.0"/>
+<text class="ft" x="375.8" y="160.0" text-anchor="middle">π</text>
+<line class="tk" x1="214.0" y1="241.5" x2="220.0" y2="241.5"/>
+<text class="ft" x="210.0" y="245.5" text-anchor="end">−3</text>
+<line class="tk" x1="214.0" y1="209.0" x2="220.0" y2="209.0"/>
+<text class="ft" x="210.0" y="213.0" text-anchor="end">−2</text>
+<line class="tk" x1="214.0" y1="176.5" x2="220.0" y2="176.5"/>
+<text class="ft" x="210.0" y="180.5" text-anchor="end">−1</text>
+<line class="tk" x1="214.0" y1="111.5" x2="220.0" y2="111.5"/>
+<text class="ft" x="210.0" y="115.5" text-anchor="end">1</text>
+<line class="tk" x1="214.0" y1="79.0" x2="220.0" y2="79.0"/>
+<text class="ft" x="210.0" y="83.0" text-anchor="end">2</text>
+<line class="tk" x1="214.0" y1="46.5" x2="220.0" y2="46.5"/>
+<text class="ft" x="210.0" y="50.5" text-anchor="end">3</text>
+<text class="ft" x="210.0" y="158.0" text-anchor="end">O</text>
+<line class="ds" x1="137.6" y1="274.0" x2="137.6" y2="14.0"/>
+<line class="ds" x1="296.4" y1="274.0" x2="296.4" y2="14.0"/>
+<path class="ca" d="M30.0 164.3 L30.8 163.6 L31.5 163.0 L32.3 162.3 L33.0 161.7 L33.8 161.1 L34.5 160.4 L35.3 159.8 L36.1 159.2 L36.8 158.6 L37.6 158.1 L38.3 157.5 L39.1 156.9 L39.9 156.4 L40.6 155.8 L41.4 155.3 L42.1 154.7 L42.9 154.2 L43.6 153.6 L44.4 153.1 L45.2 152.6 L45.9 152.1 L46.7 151.6 L47.4 151.0 L48.2 150.5 L48.9 150.0 L49.7 149.5 L50.5 149.0 L51.2 148.5 L52.0 148.0 L52.7 147.5 L53.5 147.1 L54.3 146.6 L55.0 146.1 L55.8 145.6 L56.5 145.1 L57.3 144.6 L58.0 144.1 L58.8 143.6 L59.6 143.1 L60.3 142.7 L61.1 142.2 L61.8 141.7 L62.6 141.2 L63.3 140.7 L64.1 140.2 L64.9 139.7 L65.6 139.2 L66.4 138.7 L67.1 138.2 L67.9 137.7 L68.6 137.2 L69.4 136.7 L70.2 136.2 L70.9 135.7 L71.7 135.1 L72.4 134.6 L73.2 134.1 L74.0 133.5 L74.7 133.0 L75.5 132.5 L76.2 131.9 L77.0 131.3 L77.7 130.8 L78.5 130.2 L79.3 129.6 L80.0 129.0 L80.8 128.5 L81.5 127.8 L82.3 127.2 L83.0 126.6 L83.8 126.0 L84.6 125.3 L85.3 124.7 L86.1 124.0 L86.8 123.3 L87.6 122.7 L88.4 121.9 L89.1 121.2 L89.9 120.5 L90.6 119.7 L91.4 119.0 L92.1 118.2 L92.9 117.4 L93.7 116.6 L94.4 115.7 L95.2 114.9 L95.9 114.0 L96.7 113.0 L97.4 112.1 L98.2 111.1 L99.0 110.1 L99.7 109.1 L100.5 108.0 L101.2 106.9 L102.0 105.8 L102.8 104.6 L103.5 103.4 L104.3 102.1 L105.0 100.8 L105.8 99.4 L106.5 98.0 L107.3 96.5 L108.1 94.9 L108.8 93.3 L109.6 91.6 L110.3 89.8 L111.1 87.9 L111.8 85.9 L112.6 83.8 L113.4 81.5 L114.1 79.2 L114.9 76.7 L115.6 74.0 L116.4 71.2 L117.1 68.2 L117.9 64.9 L118.7 61.4 L119.4 57.6 L120.2 53.5 L120.9 49.1 L121.7 44.2 L122.5 38.9 L123.2 33.0 L124.0 26.5 L124.7 19.3 L125.5 11.1 L126.2 2.0 L127.0 -8.5 L127.8 -20.6 L128.5 -34.7 L129.3 -51.2 L130.0 -71.1 L130.8 -95.3 L131.5 -125.6 L132.3 -164.5 L133.1 -216.2 L133.8 -288.6 L134.6 -397.1 L135.3 -506.0 L136.1 -506.0M139.1 794.0 L140.2 768.3 L141.4 582.3 L142.5 481.4 L143.6 418.0 L144.7 374.5 L145.8 342.8 L146.9 318.6 L148.0 299.5 L149.1 284.0 L150.3 271.2 L151.4 260.5 L152.5 251.3 L153.6 243.4 L154.7 236.4 L155.8 230.3 L156.9 224.9 L158.0 220.0 L159.2 215.6 L160.3 211.6 L161.4 207.9 L162.5 204.6 L163.6 201.5 L164.7 198.7 L165.8 196.0 L166.9 193.6 L168.1 191.3 L169.2 189.1 L170.3 187.1 L171.4 185.2 L172.5 183.4 L173.6 181.6 L174.7 180.0 L175.8 178.4 L177.0 177.0 L178.1 175.5 L179.2 174.2 L180.3 172.9 L181.4 171.6 L182.5 170.4 L183.6 169.2 L184.7 168.1 L185.9 167.0 L187.0 166.0 L188.1 164.9 L189.2 163.9 L190.3 163.0 L191.4 162.0 L192.5 161.1 L193.6 160.2 L194.8 159.3 L195.9 158.4 L197.0 157.6 L198.1 156.8 L199.2 155.9 L200.3 155.1 L201.4 154.3 L202.5 153.6 L203.7 152.8 L204.8 152.0 L205.9 151.3 L207.0 150.5 L208.1 149.8 L209.2 149.0 L210.3 148.3 L211.4 147.6 L212.6 146.9 L213.7 146.1 L214.8 145.4 L215.9 144.7 L217.0 144.0 L218.1 143.3 L219.2 142.6 L220.3 141.9 L221.4 141.1 L222.6 140.4 L223.7 139.7 L224.8 139.0 L225.9 138.2 L227.0 137.5 L228.1 136.7 L229.2 136.0 L230.3 135.2 L231.5 134.4 L232.6 133.7 L233.7 132.9 L234.8 132.1 L235.9 131.2 L237.0 130.4 L238.1 129.6 L239.2 128.7 L240.4 127.8 L241.5 126.9 L242.6 126.0 L243.7 125.0 L244.8 124.1 L245.9 123.1 L247.0 122.0 L248.1 121.0 L249.3 119.9 L250.4 118.8 L251.5 117.6 L252.6 116.4 L253.7 115.1 L254.8 113.8 L255.9 112.5 L257.0 111.0 L258.2 109.6 L259.3 108.0 L260.4 106.4 L261.5 104.6 L262.6 102.8 L263.7 100.9 L264.8 98.9 L265.9 96.7 L267.1 94.4 L268.2 92.0 L269.3 89.3 L270.4 86.5 L271.5 83.4 L272.6 80.1 L273.7 76.4 L274.8 72.4 L276.0 68.0 L277.1 63.1 L278.2 57.7 L279.3 51.6 L280.4 44.6 L281.5 36.7 L282.6 27.5 L283.7 16.8 L284.9 4.0 L286.0 -11.5 L287.1 -30.6 L288.2 -54.8 L289.3 -86.5 L290.4 -130.0 L291.5 -193.4 L292.6 -294.3 L293.8 -480.3 L294.9 -506.0M297.9 794.0 L298.7 794.0 L299.4 685.1 L300.2 576.6 L300.9 504.2 L301.7 452.5 L302.5 413.6 L303.2 383.3 L304.0 359.1 L304.7 339.2 L305.5 322.7 L306.2 308.6 L307.0 296.5 L307.8 286.0 L308.5 276.9 L309.3 268.7 L310.0 261.5 L310.8 255.0 L311.5 249.1 L312.3 243.8 L313.1 238.9 L313.8 234.5 L314.6 230.4 L315.3 226.6 L316.1 223.1 L316.9 219.8 L317.6 216.8 L318.4 214.0 L319.1 211.3 L319.9 208.8 L320.6 206.5 L321.4 204.2 L322.2 202.1 L322.9 200.1 L323.7 198.2 L324.4 196.4 L325.2 194.7 L325.9 193.1 L326.7 191.5 L327.5 190.0 L328.2 188.6 L329.0 187.2 L329.7 185.9 L330.5 184.6 L331.2 183.4 L332.0 182.2 L332.8 181.1 L333.5 180.0 L334.3 178.9 L335.0 177.9 L335.8 176.9 L336.6 175.9 L337.3 175.0 L338.1 174.0 L338.8 173.1 L339.6 172.3 L340.3 171.4 L341.1 170.6 L341.9 169.8 L342.6 169.0 L343.4 168.3 L344.1 167.5 L344.9 166.8 L345.6 166.1 L346.4 165.3 L347.2 164.7 L347.9 164.0 L348.7 163.3 L349.4 162.7 L350.2 162.0 L351.0 161.4 L351.7 160.8 L352.5 160.2 L353.2 159.5 L354.0 159.0 L354.7 158.4 L355.5 157.8 L356.3 157.2 L357.0 156.7 L357.8 156.1 L358.5 155.5 L359.3 155.0 L360.0 154.5 L360.8 153.9 L361.6 153.4 L362.3 152.9 L363.1 152.3 L363.8 151.8 L364.6 151.3 L365.4 150.8 L366.1 150.3 L366.9 149.8 L367.6 149.3 L368.4 148.8 L369.1 148.3 L369.9 147.8 L370.7 147.3 L371.4 146.8 L372.2 146.3 L372.9 145.8 L373.7 145.3 L374.4 144.9 L375.2 144.4 L376.0 143.9 L376.7 143.4 L377.5 142.9 L378.2 142.4 L379.0 141.9 L379.7 141.4 L380.5 140.9 L381.3 140.5 L382.0 140.0 L382.8 139.5 L383.5 139.0 L384.3 138.5 L385.1 138.0 L385.8 137.5 L386.6 137.0 L387.3 136.4 L388.1 135.9 L388.8 135.4 L389.6 134.9 L390.4 134.4 L391.1 133.8 L391.9 133.3 L392.6 132.7 L393.4 132.2 L394.1 131.6 L394.9 131.1 L395.7 130.5 L396.4 129.9 L397.2 129.4 L397.9 128.8 L398.7 128.2 L399.5 127.6 L400.2 126.9 L401.0 126.3 L401.7 125.7 L402.5 125.0 L403.2 124.4 L404.0 123.7" clip-path="url(#tan-c)"/>
+<circle class="pt" cx="217.0" cy="144.0" r="4"/>
+</svg>
+<figcaption>Grafik y = tan x: periode π, range semua bilangan real, dengan asimtot tegak x = π/2 + kπ.</figcaption></figure>
+
+  <p>
+    Grafik kosinus adalah grafik sinus yang digeser \(\displaystyle\frac{\pi}{2}\)
+    ke kiri: \(\cos x=\sin\left(x+\displaystyle\frac{\pi}{2}\right)\).
+  </p>
+
+  <h3>Bentuk Umum dan Pemodelan Gelombang</h3>
+
+  <div class="math-display">
+    \[ y=a\sin\big(b(x-\theta)\big)+d \qquad\text{atau}\qquad y=a\cos\big(b(x-\theta)\big)+d \]
+  </div>
+
+  <ul>
+    <li>Amplitudo \(=|a|\); garis tengah \(y=d\).</li>
+    <li>Nilai maksimum \(=d+|a|\), nilai minimum \(=d-|a|\).</li>
+    <li>Periode \(=\displaystyle\frac{2\pi}{|b|}\) (untuk tangen: \(\displaystyle\frac{\pi}{|b|}\)).</li>
+    <li>Pergeseran fase \(\theta\) (geser ke kanan jika \(\theta>0\)); jika ditulis \(\sin(bx+c)\), maka \(\theta=-\displaystyle\frac{c}{b}\).</li>
+  </ul>
+
+  <figure class="fungsi-figure">
+<svg viewBox="0 0 420 300" style="max-width:520px" role="img" aria-label="Grafik y = 2 sin 2x + 1 dengan garis tengah y = 1, maksimum 3, minimum -1, periode pi">
+<defs><clipPath id="trg-c"><rect x="30" y="14" width="374" height="260"/></clipPath></defs>
+<line class="gr" x1="138.3" y1="14" x2="138.3" y2="274"/>
+<line class="gr" x1="216.6" y1="14" x2="216.6" y2="274"/>
+<line class="gr" x1="294.9" y1="14" x2="294.9" y2="274"/>
+<line class="gr" x1="373.2" y1="14" x2="373.2" y2="274"/>
+<line class="gr" x1="30" y1="223.7" x2="404" y2="223.7"/>
+<line class="gr" x1="30" y1="139.8" x2="404" y2="139.8"/>
+<line class="gr" x1="30" y1="97.9" x2="404" y2="97.9"/>
+<line class="gr" x1="30" y1="55.9" x2="404" y2="55.9"/>
+<line class="ax" x1="24" y1="181.7" x2="412" y2="181.7"/>
+<line class="ax" x1="59.9" y1="280" x2="59.9" y2="6"/>
+<text class="vl" x="412" y="197.7">x</text>
+<text class="vl" x="67.9" y="12">y</text>
+<line class="tk" x1="138.3" y1="178.7" x2="138.3" y2="184.7"/>
+<text class="ft" x="138.3" y="197.7" text-anchor="middle">π/2</text>
+<line class="tk" x1="216.6" y1="178.7" x2="216.6" y2="184.7"/>
+<text class="ft" x="216.6" y="197.7" text-anchor="middle">π</text>
+<line class="tk" x1="294.9" y1="178.7" x2="294.9" y2="184.7"/>
+<text class="ft" x="294.9" y="197.7" text-anchor="middle">3π/2</text>
+<line class="tk" x1="373.2" y1="178.7" x2="373.2" y2="184.7"/>
+<text class="ft" x="373.2" y="197.7" text-anchor="middle">2π</text>
+<line class="tk" x1="56.9" y1="223.7" x2="62.9" y2="223.7"/>
+<text class="ft" x="52.9" y="227.7" text-anchor="end">−1</text>
+<line class="tk" x1="56.9" y1="139.8" x2="62.9" y2="139.8"/>
+<text class="ft" x="52.9" y="143.8" text-anchor="end">1</text>
+<line class="tk" x1="56.9" y1="97.9" x2="62.9" y2="97.9"/>
+<text class="ft" x="52.9" y="101.9" text-anchor="end">2</text>
+<line class="tk" x1="56.9" y1="55.9" x2="62.9" y2="55.9"/>
+<text class="ft" x="52.9" y="59.9" text-anchor="end">3</text>
+<text class="ft" x="52.9" y="195.7" text-anchor="end">O</text>
+<line class="ds" x1="30.0" y1="139.8" x2="404.0" y2="139.8"/>
+<path class="ca" d="M59.9 139.8 L62.8 130.2 L65.6 120.8 L68.5 111.6 L71.3 102.8 L74.2 94.5 L77.0 86.7 L79.9 79.7 L82.7 73.4 L85.6 68.0 L88.4 63.5 L91.3 60.0 L94.1 57.6 L96.9 56.2 L99.8 56.0 L102.6 56.8 L105.5 58.7 L108.3 61.7 L111.2 65.6 L114.0 70.6 L116.9 76.4 L119.7 83.1 L122.6 90.5 L125.4 98.6 L128.3 107.2 L131.1 116.2 L134.0 125.5 L136.8 135.0 L139.7 144.6 L142.5 154.1 L145.4 163.4 L148.2 172.5 L151.1 181.0 L153.9 189.1 L156.8 196.5 L159.6 203.2 L162.5 209.0 L165.3 214.0 L168.2 218.0 L171.0 220.9 L173.9 222.8 L176.7 223.6 L179.6 223.4 L182.4 222.0 L185.2 219.6 L188.1 216.1 L190.9 211.6 L193.8 206.2 L196.6 200.0 L199.5 192.9 L202.3 185.2 L205.2 176.8 L208.0 168.0 L210.9 158.8 L213.7 149.4 L216.6 139.8 L219.4 130.2 L222.3 120.8 L225.1 111.6 L228.0 102.8 L230.8 94.5 L233.7 86.7 L236.5 79.7 L239.4 73.4 L242.2 68.0 L245.1 63.5 L247.9 60.0 L250.8 57.6 L253.6 56.2 L256.5 56.0 L259.3 56.8 L262.2 58.7 L265.0 61.7 L267.9 65.6 L270.7 70.6 L273.5 76.4 L276.4 83.1 L279.2 90.5 L282.1 98.6 L284.9 107.2 L287.8 116.2 L290.6 125.5 L293.5 135.0 L296.3 144.6 L299.2 154.1 L302.0 163.4 L304.9 172.5 L307.7 181.0 L310.6 189.1 L313.4 196.5 L316.3 203.2 L319.1 209.0 L322.0 214.0 L324.8 218.0 L327.7 220.9 L330.5 222.8 L333.4 223.6 L336.2 223.4 L339.1 222.0 L341.9 219.6 L344.8 216.1 L347.6 211.6 L350.5 206.2 L353.3 200.0 L356.2 192.9 L359.0 185.2 L361.8 176.8 L364.7 168.0 L367.5 158.8 L370.4 149.4 L373.2 139.8" clip-path="url(#trg-c)"/>
+<line class="cc" x1="59.9" y1="255.1" x2="216.6" y2="255.1"/>
+<text class="tc" x="138.3" y="248.1" text-anchor="middle">periode = π</text>
+<text x="284.3" y="133.8" text-anchor="start">garis tengah y = 1</text>
+</svg>
+<figcaption>Grafik y = 2 sin 2x + 1: amplitudo 2, periode π, garis tengah y = 1, nilai maksimum 3 dan minimum −1.</figcaption></figure>
+
+  <h3>Identitas yang Sering Dipakai</h3>
+
+  <div class="math-display">
+    \[ \sin^{2}x+\cos^{2}x=1,\qquad \tan x=\frac{\sin x}{\cos x},\qquad 1+\tan^{2}x=\sec^{2}x \]
+    \[ \sin 2x=2\sin x\cos x,\qquad
+    \cos 2x=\cos^{2}x-\sin^{2}x=2\cos^{2}x-1=1-2\sin^{2}x \]
+    \[ \sin(A\pm B)=\sin A\cos B\pm\cos A\sin B,\qquad
+    \cos(A\pm B)=\cos A\cos B\mp\sin A\sin B \]
+    \[ a\cos x+b\sin x=R\cos(x-\alpha),\quad R=\sqrt{a^{2}+b^{2}},\ \tan\alpha=\frac{b}{a} \]
+  </div>
+
+  <p>
+    Dari bentuk terakhir, nilai maksimum dan minimum \(a\cos x+b\sin x\) adalah
+    \(\pm\sqrt{a^{2}+b^{2}}\).
+  </p>
+
+  <h3>Persamaan Trigonometri</h3>
+
+  <div class="math-display">
+    \[ \sin x=\sin\alpha\Rightarrow x=\alpha+2k\pi\ \text{atau}\ x=(\pi-\alpha)+2k\pi \]
+    \[ \cos x=\cos\alpha\Rightarrow x=\pm\alpha+2k\pi,\qquad
+    \tan x=\tan\alpha\Rightarrow x=\alpha+k\pi,\qquad k\in\mathbb{Z} \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+    <p>Tentukan penyelesaian \(2\sin x=\sqrt3\) untuk \(0\le x\le 2\pi\).</p>
+    <p>
+      \(\sin x=\displaystyle\frac{\sqrt3}{2}=\sin\displaystyle\frac{\pi}{3}\),
+      sehingga \(x=\displaystyle\frac{\pi}{3}\) atau
+      \(x=\pi-\displaystyle\frac{\pi}{3}=\displaystyle\frac{2\pi}{3}\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2</h4>
+    <p>Tentukan penyelesaian \(2\cos^{2}x+\cos x-1=0\) untuk \(0\le x\le 2\pi\).</p>
+    <p>
+      Faktorkan: \((2\cos x-1)(\cos x+1)=0\). Maka \(\cos x=\displaystyle\frac12\)
+      sehingga \(x=\displaystyle\frac{\pi}{3}\) atau
+      \(x=\displaystyle\frac{5\pi}{3}\); atau \(\cos x=-1\) sehingga \(x=\pi\).
+    </p>
+  </div>
+
+  <h3>Fungsi Invers Trigonometri</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr><th scope="col">Fungsi</th><th scope="col">Domain</th><th scope="col">Range</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>\(y=\arcsin x\)</td><td>\([-1,1]\)</td><td>\(\left[-\displaystyle\frac{\pi}{2},\displaystyle\frac{\pi}{2}\right]\)</td></tr>
+        <tr><td>\(y=\arccos x\)</td><td>\([-1,1]\)</td><td>\([0,\pi]\)</td></tr>
+        <tr><td>\(y=\arctan x\)</td><td>\(\mathbb{R}\)</td><td>\(\left(-\displaystyle\frac{\pi}{2},\displaystyle\frac{\pi}{2}\right)\)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    Inverse hanya ada setelah domain sinus, kosinus, dan tangen dibatasi ke
+    interval yang membuatnya bijektif. Contoh: \(\arcsin\displaystyle\frac12=\displaystyle\frac{\pi}{6}\)
+    dan \(\arccos\left(-\displaystyle\frac12\right)=\displaystyle\frac{2\pi}{3}\).
+  </p>
+</section>
+
+<section id="fungsi-tangga" data-title="Fungsi Tangga">
+  <h2>12. Fungsi Tangga (Lantai dan Langit-Langit)</h2>
+
+  <p>
+    Fungsi tangga bernilai konstan pada setiap interval dan melompat di
+    titik-titik tertentu. Dua fungsi tangga yang paling dikenal:
+  </p>
+
+  <ul>
+    <li><strong>Fungsi lantai</strong> \(\lfloor x\rfloor\): bilangan bulat terbesar yang tidak melebihi \(x\).</li>
+    <li><strong>Fungsi langit-langit</strong> \(\lceil x\rceil\): bilangan bulat terkecil yang tidak kurang dari \(x\).</li>
+  </ul>
+
+  <div class="math-display">
+    \[ \lfloor x\rfloor=n\iff n\le x\lt n+1,\qquad
+    \lceil x\rceil=n\iff n-1\lt x\le n \]
+  </div>
+
+  <figure class="fungsi-figure">
+<svg viewBox="0 0 420 300" style="max-width:520px" role="img" aria-label="Grafik fungsi tangga y = lantai x">
+<defs><clipPath id="flr-c"><rect x="30" y="14" width="374" height="260"/></clipPath></defs>
+<line class="gr" x1="56.7" y1="14" x2="56.7" y2="274"/>
+<line class="gr" x1="110.1" y1="14" x2="110.1" y2="274"/>
+<line class="gr" x1="217.0" y1="14" x2="217.0" y2="274"/>
+<line class="gr" x1="270.4" y1="14" x2="270.4" y2="274"/>
+<line class="gr" x1="323.9" y1="14" x2="323.9" y2="274"/>
+<line class="gr" x1="377.3" y1="14" x2="377.3" y2="274"/>
+<line class="gr" x1="30" y1="256.7" x2="404" y2="256.7"/>
+<line class="gr" x1="30" y1="222.0" x2="404" y2="222.0"/>
+<line class="gr" x1="30" y1="187.3" x2="404" y2="187.3"/>
+<line class="gr" x1="30" y1="118.0" x2="404" y2="118.0"/>
+<line class="gr" x1="30" y1="83.3" x2="404" y2="83.3"/>
+<line class="gr" x1="30" y1="48.7" x2="404" y2="48.7"/>
+<line class="ax" x1="24" y1="152.7" x2="412" y2="152.7"/>
+<line class="ax" x1="163.6" y1="280" x2="163.6" y2="6"/>
+<text class="vl" x="412" y="168.7">x</text>
+<text class="vl" x="171.6" y="12">y</text>
+<line class="tk" x1="56.7" y1="149.7" x2="56.7" y2="155.7"/>
+<text class="ft" x="56.7" y="168.7" text-anchor="middle">−2</text>
+<line class="tk" x1="110.1" y1="149.7" x2="110.1" y2="155.7"/>
+<text class="ft" x="110.1" y="168.7" text-anchor="middle">−1</text>
+<line class="tk" x1="217.0" y1="149.7" x2="217.0" y2="155.7"/>
+<text class="ft" x="217.0" y="168.7" text-anchor="middle">1</text>
+<line class="tk" x1="270.4" y1="149.7" x2="270.4" y2="155.7"/>
+<text class="ft" x="270.4" y="168.7" text-anchor="middle">2</text>
+<line class="tk" x1="323.9" y1="149.7" x2="323.9" y2="155.7"/>
+<text class="ft" x="323.9" y="168.7" text-anchor="middle">3</text>
+<line class="tk" x1="377.3" y1="149.7" x2="377.3" y2="155.7"/>
+<text class="ft" x="377.3" y="168.7" text-anchor="middle">4</text>
+<line class="tk" x1="160.6" y1="256.7" x2="166.6" y2="256.7"/>
+<text class="ft" x="156.6" y="260.7" text-anchor="end">−3</text>
+<line class="tk" x1="160.6" y1="222.0" x2="166.6" y2="222.0"/>
+<text class="ft" x="156.6" y="226.0" text-anchor="end">−2</text>
+<line class="tk" x1="160.6" y1="187.3" x2="166.6" y2="187.3"/>
+<text class="ft" x="156.6" y="191.3" text-anchor="end">−1</text>
+<line class="tk" x1="160.6" y1="118.0" x2="166.6" y2="118.0"/>
+<text class="ft" x="156.6" y="122.0" text-anchor="end">1</text>
+<line class="tk" x1="160.6" y1="83.3" x2="166.6" y2="83.3"/>
+<text class="ft" x="156.6" y="87.3" text-anchor="end">2</text>
+<line class="tk" x1="160.6" y1="48.7" x2="166.6" y2="48.7"/>
+<text class="ft" x="156.6" y="52.7" text-anchor="end">3</text>
+<text class="ft" x="156.6" y="166.7" text-anchor="end">O</text>
+<line class="ca" x1="3.3" y1="256.7" x2="56.7" y2="256.7"/>
+<circle class="pt" cx="3.3" cy="256.7" r="4"/>
+<circle class="op" cx="56.7" cy="256.7" r="4"/>
+<line class="ca" x1="56.7" y1="222.0" x2="110.1" y2="222.0"/>
+<circle class="pt" cx="56.7" cy="222.0" r="4"/>
+<circle class="op" cx="110.1" cy="222.0" r="4"/>
+<line class="ca" x1="110.1" y1="187.3" x2="163.6" y2="187.3"/>
+<circle class="pt" cx="110.1" cy="187.3" r="4"/>
+<circle class="op" cx="163.6" cy="187.3" r="4"/>
+<line class="ca" x1="163.6" y1="152.7" x2="217.0" y2="152.7"/>
+<circle class="pt" cx="163.6" cy="152.7" r="4"/>
+<circle class="op" cx="217.0" cy="152.7" r="4"/>
+<line class="ca" x1="217.0" y1="118.0" x2="270.4" y2="118.0"/>
+<circle class="pt" cx="217.0" cy="118.0" r="4"/>
+<circle class="op" cx="270.4" cy="118.0" r="4"/>
+<line class="ca" x1="270.4" y1="83.3" x2="323.9" y2="83.3"/>
+<circle class="pt" cx="270.4" cy="83.3" r="4"/>
+<circle class="op" cx="323.9" cy="83.3" r="4"/>
+<line class="ca" x1="323.9" y1="48.7" x2="377.3" y2="48.7"/>
+<circle class="pt" cx="323.9" cy="48.7" r="4"/>
+<circle class="op" cx="377.3" cy="48.7" r="4"/>
+<text class="ta" x="35.3" y="38.3" text-anchor="start">y = ⌊x⌋</text>
+</svg>
+<figcaption>Grafik f(x) = ⌊x⌋: nilainya konstan pada setiap interval [n, n + 1) dan melompat satu satuan di setiap bilangan bulat.</figcaption></figure>
+
+  <h3>Sifat-Sifat</h3>
+
+  <div class="math-display">
+    \[ \lfloor x\rfloor\le x<\lfloor x\rfloor+1,\qquad
+    \lfloor x+n\rfloor=\lfloor x\rfloor+n\ (n\in\mathbb{Z}),\qquad
+    \lceil x\rceil=-\lfloor -x\rfloor \]
+    \[ \lceil x\rceil=\lfloor x\rfloor\ \text{jika } x\in\mathbb{Z},\qquad
+    \lceil x\rceil=\lfloor x\rfloor+1\ \text{jika } x\notin\mathbb{Z} \]
+  </div>
+
+  <p>
+    Bagian pecahan dari \(x\) ditulis \(\{x\}=x-\lfloor x\rfloor\), dengan
+    \(0\le\{x\}<1\). Domain \(\lfloor x\rfloor\) adalah \(\mathbb{R}\) dan
+    rangenya \(\mathbb{Z}\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+    <p>
+      \(\lfloor 3{,}7\rfloor=3\), \(\lfloor -2{,}3\rfloor=-3\),
+      \(\lceil 3{,}2\rceil=4\), \(\lceil -2{,}3\rceil=-2\), dan
+      \(\lfloor 5\rfloor=\lceil 5\rceil=5\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2</h4>
+    <p>Selesaikan \(\lfloor 3x-1\rfloor=4\).</p>
+    <p>
+      Menurut definisi, \(4\le 3x-1<5\Rightarrow 5\le 3x<6\Rightarrow
+      \displaystyle\frac53\le x<2\).
+    </p>
+  </div>
+
+  <p>
+    Fungsi tangga cocok memodelkan besaran yang dihitung per satuan utuh,
+    misalnya tarif parkir per jam, ongkos kirim per kilogram, dan tarif
+    telepon per menit. Misalnya ongkos kirim Rp12.000 per kilogram dengan
+    pembulatan ke atas dimodelkan \(C(w)=12.000\lceil w\rceil\).
+  </p>
+</section>
+
+<section id="fungsi-piecewise" data-title="Fungsi Piecewise">
+  <h2>13. Fungsi Piecewise (Fungsi Bagian demi Bagian)</h2>
+
+  <p>
+    Fungsi piecewise didefinisikan dengan aturan yang berbeda pada interval
+    domain yang berbeda. Nilai fungsi dihitung dengan menentukan terlebih dahulu
+    interval tempat \(x\) berada.
+  </p>
+
+  <div class="math-display">
+    \[ g(x)=\begin{cases} -x, & x<0\\ x^{2}, & 0\le x<2\\ 5-x, & x\ge 2 \end{cases} \]
+  </div>
+
+  <figure class="fungsi-figure">
+<svg viewBox="0 0 420 300" style="max-width:520px" role="img" aria-label="Grafik fungsi piecewise g(x) dengan tiga aturan">
+<defs><clipPath id="pw-c"><rect x="30" y="14" width="374" height="260"/></clipPath></defs>
+<line class="gr" x1="71.6" y1="14" x2="71.6" y2="274"/>
+<line class="gr" x1="113.1" y1="14" x2="113.1" y2="274"/>
+<line class="gr" x1="196.2" y1="14" x2="196.2" y2="274"/>
+<line class="gr" x1="237.8" y1="14" x2="237.8" y2="274"/>
+<line class="gr" x1="279.3" y1="14" x2="279.3" y2="274"/>
+<line class="gr" x1="320.9" y1="14" x2="320.9" y2="274"/>
+<line class="gr" x1="362.4" y1="14" x2="362.4" y2="274"/>
+<line class="gr" x1="30" y1="236.9" x2="404" y2="236.9"/>
+<line class="gr" x1="30" y1="162.6" x2="404" y2="162.6"/>
+<line class="gr" x1="30" y1="125.4" x2="404" y2="125.4"/>
+<line class="gr" x1="30" y1="88.3" x2="404" y2="88.3"/>
+<line class="gr" x1="30" y1="51.1" x2="404" y2="51.1"/>
+<line class="ax" x1="24" y1="199.7" x2="412" y2="199.7"/>
+<line class="ax" x1="154.7" y1="280" x2="154.7" y2="6"/>
+<text class="vl" x="412" y="215.7">x</text>
+<text class="vl" x="162.7" y="12">y</text>
+<line class="tk" x1="71.6" y1="196.7" x2="71.6" y2="202.7"/>
+<text class="ft" x="71.6" y="215.7" text-anchor="middle">−2</text>
+<line class="tk" x1="113.1" y1="196.7" x2="113.1" y2="202.7"/>
+<text class="ft" x="113.1" y="215.7" text-anchor="middle">−1</text>
+<line class="tk" x1="196.2" y1="196.7" x2="196.2" y2="202.7"/>
+<text class="ft" x="196.2" y="215.7" text-anchor="middle">1</text>
+<line class="tk" x1="237.8" y1="196.7" x2="237.8" y2="202.7"/>
+<text class="ft" x="237.8" y="215.7" text-anchor="middle">2</text>
+<line class="tk" x1="279.3" y1="196.7" x2="279.3" y2="202.7"/>
+<text class="ft" x="279.3" y="215.7" text-anchor="middle">3</text>
+<line class="tk" x1="320.9" y1="196.7" x2="320.9" y2="202.7"/>
+<text class="ft" x="320.9" y="215.7" text-anchor="middle">4</text>
+<line class="tk" x1="362.4" y1="196.7" x2="362.4" y2="202.7"/>
+<text class="ft" x="362.4" y="215.7" text-anchor="middle">5</text>
+<line class="tk" x1="151.7" y1="236.9" x2="157.7" y2="236.9"/>
+<text class="ft" x="147.7" y="240.9" text-anchor="end">−1</text>
+<line class="tk" x1="151.7" y1="162.6" x2="157.7" y2="162.6"/>
+<text class="ft" x="147.7" y="166.6" text-anchor="end">1</text>
+<line class="tk" x1="151.7" y1="125.4" x2="157.7" y2="125.4"/>
+<text class="ft" x="147.7" y="129.4" text-anchor="end">2</text>
+<line class="tk" x1="151.7" y1="88.3" x2="157.7" y2="88.3"/>
+<text class="ft" x="147.7" y="92.3" text-anchor="end">3</text>
+<line class="tk" x1="151.7" y1="51.1" x2="157.7" y2="51.1"/>
+<text class="ft" x="147.7" y="55.1" text-anchor="end">4</text>
+<text class="ft" x="147.7" y="213.7" text-anchor="end">O</text>
+<path class="ca" d="M30.0 88.3 L92.3 144.0 L154.7 199.7" clip-path="url(#pw-c)"/>
+<path class="cb" d="M154.7 199.7 L155.7 199.7 L156.7 199.6 L157.8 199.5 L158.8 199.3 L159.9 199.1 L160.9 198.9 L161.9 198.6 L163.0 198.2 L164.0 197.8 L165.1 197.4 L166.1 196.9 L167.1 196.4 L168.2 195.8 L169.2 195.2 L170.2 194.5 L171.3 193.8 L172.3 193.0 L173.4 192.2 L174.4 191.3 L175.4 190.4 L176.5 189.5 L177.5 188.5 L178.6 187.4 L179.6 186.3 L180.6 185.2 L181.7 184.0 L182.7 182.8 L183.8 181.5 L184.8 180.2 L185.8 178.8 L186.9 177.4 L187.9 175.9 L189.0 174.4 L190.0 172.9 L191.0 171.3 L192.1 169.6 L193.1 167.9 L194.1 166.2 L195.2 164.4 L196.2 162.6 L197.3 160.7 L198.3 158.8 L199.3 156.8 L200.4 154.8 L201.4 152.7 L202.5 150.6 L203.5 148.4 L204.5 146.2 L205.6 144.0 L206.6 141.7 L207.7 139.3 L208.7 136.9 L209.7 134.5 L210.8 132.0 L211.8 129.5 L212.8 126.9 L213.9 124.3 L214.9 121.6 L216.0 118.9 L217.0 116.1 L218.0 113.3 L219.1 110.5 L220.1 107.6 L221.2 104.6 L222.2 101.6 L223.2 98.6 L224.3 95.5 L225.3 92.4 L226.3 89.2 L227.4 86.0 L228.4 82.7 L229.5 79.4 L230.5 76.0 L231.5 72.6 L232.6 69.1 L233.6 65.6 L234.7 62.1 L235.7 58.5 L236.7 54.8 L237.8 88.3" clip-path="url(#pw-c)"/>
+<path class="cc" d="M237.8 88.3 L320.9 162.6 L404.0 236.9" clip-path="url(#pw-c)"/>
+<circle class="pt" cx="154.7" cy="199.7" r="4"/>
+<circle class="op" cx="237.8" cy="51.1" r="4"/>
+<circle class="pt" cx="237.8" cy="88.3" r="4"/>
+<text class="ta" x="34.2" y="73.4" text-anchor="start">y = −x</text>
+<text class="tb" x="163.0" y="88.3" text-anchor="start">y = x²</text>
+<text class="tc" x="304.3" y="118.0" text-anchor="start">y = 5 − x</text>
+</svg>
+<figcaption>Grafik fungsi bagian demi bagian g(x): −x untuk x < 0, x² untuk 0 ≤ x < 2, dan 5 − x untuk x ≥ 2. Terdapat loncatan di x = 2.</figcaption></figure>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+    <p>Hitung nilai fungsi \(g\) di atas.</p>
+    <div class="math-display">
+      \[ g(-1)=1,\qquad g(1)=1^{2}=1,\qquad g(2)=5-2=3,\qquad g(4)=5-4=1 \]
+    </div>
+    <p>
+      Di \(x=2\) grafik melompat: nilai limit dari kiri mendekati
+      \(2^{2}=4\) (titik kosong), sedangkan \(g(2)=3\) (titik penuh). Rangenya
+      adalah \(\mathbb{R}\).
+    </p>
+  </div>
+
+  <h3>Kekontinuan di Titik Sambungan</h3>
+
+  <p>
+    Fungsi piecewise kontinu di titik sambungan \(x=c\) jika tidak ada lompatan
+    atau lubang, yaitu nilai dari kiri, nilai dari kanan, dan nilai fungsi di
+    \(c\) sama. Untuk fungsi bagian demi bagian, cukup menyamakan nilai
+    rumus-rumus di kedua sisi pada \(x=c\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 2</h4>
+    <p>
+      Tentukan \(k\) agar \(f(x)=\begin{cases}
+      \displaystyle\frac{x^{2}-9}{x-3}, & x\neq 3\\ k, & x=3\end{cases}\) kontinu
+      di \(x=3\).
+    </p>
+    <p>
+      Untuk \(x\neq 3\), \(f(x)=\displaystyle\frac{(x-3)(x+3)}{x-3}=x+3\), yang
+      mendekati \(6\) saat \(x\to 3\). Agar tidak ada lubang, \(k=6\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 3 (nilai mutlak sebagai piecewise)</h4>
+    <p>Nyatakan \(h(x)=|x-1|+|x-3|\) tanpa tanda mutlak.</p>
+    <div class="math-display">
+      \[ h(x)=\begin{cases} 4-2x, & x<1\\ 2, & 1\le x<3\\ 2x-4, & x\ge 3 \end{cases} \]
+    </div>
+    <p>Nilai minimum \(h\) adalah \(2\), dicapai pada \(1\le x\le 3\).</p>
+  </div>
+</section>
+
+<section id="pemodelan-fungsi" data-title="Pemodelan Matematika">
+  <h2>14. Pemodelan Matematika dengan Fungsi</h2>
+
+  <p>
+    Pemodelan matematika adalah proses menerjemahkan masalah nyata ke dalam
+    bentuk fungsi atau persamaan, menyelesaikannya, lalu menafsirkan hasilnya
+    kembali ke dalam konteks masalah.
+  </p>
+
+  <h3>Langkah-Langkah Pemodelan</h3>
+
+  <ol>
+    <li><strong>Memahami masalah:</strong> tentukan besaran yang diketahui, besaran yang dicari, dan variabel bebas serta terikat.</li>
+    <li><strong>Memilih jenis fungsi</strong> yang sesuai dengan pola data.</li>
+    <li><strong>Menentukan parameter</strong> fungsi dari data yang diberikan.</li>
+    <li><strong>Menyelesaikan model</strong> dengan perhitungan aljabar atau grafik.</li>
+    <li><strong>Menafsirkan dan memeriksa</strong> hasil: apakah masuk akal dan berada dalam domain yang realistis (misalnya waktu \(t\ge 0\), banyak barang bilangan bulat).</li>
+  </ol>
+
+  <h3>Memilih Jenis Fungsi dari Pola</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr><th scope="col">Pola Perubahan</th><th scope="col">Model</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Bertambah/berkurang dengan jumlah tetap tiap satuan</td><td>Linear \(y=mx+c\)</td></tr>
+        <tr><td>Selisih kedua tetap; ada nilai maksimum/minimum</td><td>Kuadrat</td></tr>
+        <tr><td>Dikalikan dengan faktor tetap tiap satuan waktu</td><td>Eksponensial \(y=y_0a^{t}\)</td></tr>
+        <tr><td>Naik cepat di awal lalu melambat</td><td>Logaritma atau akar</td></tr>
+        <tr><td>Berulang secara periodik (pasang surut, putaran)</td><td>Trigonometri</td></tr>
+        <tr><td>Berbanding terbalik; nilai rata-rata menuju batas</td><td>Rasional</td></tr>
+        <tr><td>Tarif per satuan utuh atau per tingkatan</td><td>Tangga atau piecewise</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 1 (linear)</h4>
+    <p>
+      Tarif taksi adalah Rp8.000 untuk buka pintu ditambah Rp4.000 per
+      kilometer. Model biayanya \(C(x)=8.000+4.000x\) dengan \(x\ge 0\) (km).
+      Untuk perjalanan 12,5 km: \(C=8.000+4.000(12{,}5)=58.000\), yaitu
+      Rp58.000.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2 (kuadrat)</h4>
+    <p>
+      Sebuah bola dilempar vertikal ke atas sehingga tingginya (meter) setelah
+      \(t\) detik adalah \(h(t)=20t-5t^{2}\). Titik puncak berada di
+      \(t=-\displaystyle\frac{20}{2(-5)}=2\) dengan \(h(2)=20\), jadi tinggi
+      maksimum \(20\) m. Bola kembali ke tanah saat \(h=0\):
+      \(5t(4-t)=0\Rightarrow t=4\) detik. Domain yang realistis adalah
+      \(0\le t\le 4\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 3 (eksponensial dan logaritma)</h4>
+    <p>
+      Uang Rp10.000.000 diinvestasikan dengan bunga majemuk 8% per tahun.
+      Kapan nilainya menjadi dua kali lipat?
+    </p>
+    <div class="math-display">
+      \[ 10(1{,}08)^{n}=20\Rightarrow (1{,}08)^{n}=2\Rightarrow
+      n=\frac{\ln 2}{\ln 1{,}08}\approx\frac{0{,}6931}{0{,}0770}\approx 9{,}0 \]
+    </div>
+    <p>Jadi sekitar \(9\) tahun.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 4 (trigonometri)</h4>
+    <p>
+      Kincir ria berjari-jari \(10\) m, pusatnya \(12\) m di atas tanah, dan satu
+      putaran memerlukan \(40\) detik. Gondola mulai dari titik terendah, sehingga
+      tingginya
+    </p>
+    <div class="math-display">
+      \[ h(t)=12-10\cos\frac{\pi t}{20} \]
+    </div>
+    <p>
+      Nilai minimum \(2\) m (di \(t=0\)) dan maksimum \(22\) m. Gondola pertama
+      kali berada di ketinggian \(17\) m saat
+      \(\cos\displaystyle\frac{\pi t}{20}=-\displaystyle\frac12\Rightarrow
+      \displaystyle\frac{\pi t}{20}=\displaystyle\frac{2\pi}{3}\Rightarrow
+      t=\displaystyle\frac{40}{3}\approx 13{,}3\) detik.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 5 (piecewise)</h4>
+    <p>
+      Tarif air: Rp3.000 per m\(^3\) untuk 10 m\(^3\) pertama dan Rp5.000 per
+      m\(^3\) untuk kelebihannya. Biaya pemakaian \(x\) m\(^3\):
+    </p>
+    <div class="math-display">
+      \[ C(x)=\begin{cases} 3.000x, & 0\le x\le 10\\ 30.000+5.000(x-10), & x>10 \end{cases} \]
+    </div>
+    <p>Untuk \(x=14\): \(C=30.000+5.000(4)=50.000\), yaitu Rp50.000.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 6 (rasional)</h4>
+    <p>
+      Biaya total produksi \(x\) unit adalah \(500+20x\) (ribu rupiah), sehingga
+      biaya rata-rata per unit
+    </p>
+    <div class="math-display">
+      \[ A(x)=\frac{500+20x}{x}=20+\frac{500}{x} \]
+    </div>
+    <p>
+      Semakin banyak unit yang diproduksi, \(A(x)\) menurun dan mendekati asimtot
+      datar \(y=20\), yaitu biaya variabel per unit.
+    </p>
+  </div>
+</section>
+
+<section id="rangkuman-fungsi" data-title="Rangkuman Fungsi">
+  <h2>15. Rangkuman Fungsi dan Pemodelan</h2>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr><th scope="col">Fungsi</th><th scope="col">Domain</th><th scope="col">Range</th><th scope="col">Ciri Grafik</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Linear \(mx+c\)</td><td>\(\mathbb{R}\)</td><td>\(\mathbb{R}\) (\(m\neq 0\))</td><td>Garis lurus, gradien \(m\)</td></tr>
+        <tr><td>Kuadrat \(ax^{2}+bx+c\)</td><td>\(\mathbb{R}\)</td><td>\(y\ge q\) (\(a>0\)) atau \(y\le q\) (\(a<0\))</td><td>Parabola, puncak \(\left(-\displaystyle\frac{b}{2a},-\displaystyle\frac{D}{4a}\right)\)</td></tr>
+        <tr><td>Rasional \(\displaystyle\frac{ax+b}{cx+d}\)</td><td>\(x\neq-\displaystyle\frac{d}{c}\)</td><td>\(y\neq\displaystyle\frac{a}{c}\)</td><td>Hiperbola; asimtot \(x=-\displaystyle\frac{d}{c}\), \(y=\displaystyle\frac{a}{c}\)</td></tr>
+        <tr><td>Akar \(\sqrt{x-h}+k\)</td><td>\(x\ge h\)</td><td>\(y\ge k\)</td><td>Setengah parabola mendatar, titik awal \((h,k)\)</td></tr>
+        <tr><td>Mutlak \(a|x-h|+k\)</td><td>\(\mathbb{R}\)</td><td>\(y\ge k\) (\(a>0\))</td><td>Bentuk V, puncak \((h,k)\)</td></tr>
+        <tr><td>Eksponensial \(a^{x}\)</td><td>\(\mathbb{R}\)</td><td>\(y>0\)</td><td>Melalui \((0,1)\); asimtot \(y=0\)</td></tr>
+        <tr><td>Logaritma \(\log_{a}x\)</td><td>\(x>0\)</td><td>\(\mathbb{R}\)</td><td>Melalui \((1,0)\); asimtot \(x=0\)</td></tr>
+        <tr><td>Sinus / kosinus</td><td>\(\mathbb{R}\)</td><td>\([-1,1]\)</td><td>Gelombang, periode \(2\pi\)</td></tr>
+        <tr><td>Tangen</td><td>\(x\neq\displaystyle\frac{\pi}{2}+k\pi\)</td><td>\(\mathbb{R}\)</td><td>Periode \(\pi\); asimtot \(x=\displaystyle\frac{\pi}{2}+k\pi\)</td></tr>
+        <tr><td>Lantai \(\lfloor x\rfloor\)</td><td>\(\mathbb{R}\)</td><td>\(\mathbb{Z}\)</td><td>Tangga; konstan di \([n,n+1)\)</td></tr>
+        <tr><td>Piecewise</td><td>Gabungan interval aturan</td><td>Gabungan range tiap bagian</td><td>Dapat melompat di titik sambungan</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Komposisi dan Invers</h3>
+
+  <div class="math-display">
+    \[ (f\circ g)(x)=f(g(x)),\qquad f(f^{-1}(x))=x,\qquad (f\circ g)^{-1}=g^{-1}\circ f^{-1} \]
+  </div>
+
+  <h3>Transformasi Grafik</h3>
+
+  <div class="math-display">
+    \[ y=a\,f\big(b(x-h)\big)+k:\ \ \text{regang vertikal } a,\ \text{regang horizontal } \frac{1}{b},\ \text{geser } h \text{ (kanan)},\ k \text{ (atas)} \]
+  </div>
+
+  <h3>Eksponensial dan Logaritma</h3>
+
+  <div class="math-display">
+    \[ y=\log_{a}x\iff x=a^{y},\qquad a^{f}=a^{g}\iff f=g,\qquad
+    	ext{basis }0<a\lt 1\ \Rightarrow\ \text{tanda pertidaksamaan berbalik} \]
+  </div>
+
+  <h3>Trigonometri</h3>
+
+  <div class="math-display">
+    \[ y=a\sin\big(b(x-\theta)\big)+d:\ \ \text{amplitudo }|a|,\ \text{periode }\frac{2\pi}{|b|},\
+    y_{\max}=d+|a|,\ y_{\min}=d-|a| \]
+  </div>
+
+  <h3>Nilai Mutlak, Akar, dan Fungsi Tangga</h3>
+
+  <div class="math-display">
+    \[ |x|\lt a\iff -a\lt x\lt a,\qquad |x|>a\iff x<-a\ \text{atau}\ x>a,\qquad
+    \lfloor x\rfloor=n\iff n\le x\lt n+1 \]
+  </div>
+
+  <h3>Strategi Pemodelan</h3>
+
+  <p>
+    Tentukan variabel, pilih jenis fungsi dari pola data, hitung parameter,
+    selesaikan, kemudian periksa bahwa hasil berada dalam domain yang masuk akal.
+  </p>
+</section>
+
+<section id="latihan-mandiri-fungsi" data-title="Latihan Soal Mandiri">
+  <h2>16. Latihan Soal Mandiri</h2>
+
+  <p>
+    Kerjakan soal-soal berikut secara mandiri. Soal nomor 1–8 memiliki tingkat
+    kesulitan sekolah dan soal nomor 9–18 memiliki tingkat penalaran seperti
+    soal UTBK; keduanya berbentuk pilihan ganda (pilih satu jawaban yang paling
+    tepat). Soal nomor 19–20 adalah soal tingkat olimpiade berbentuk isian
+    singkat.
+  </p>
+
+  <h3>A. Tingkat Kesulitan Sekolah</h3>
+
+  <!-- Soal 1 -->
+  <div class="lesson-example">
+    <h4>Soal 1</h4>
+    <p>Domain alami fungsi \(f(x)=\displaystyle\frac{\sqrt{x+3}}{x-2}\) adalah ....</p>
+    <ol type="A">
+      <li>\(x\ge -3\) dan \(x\ne 2\)</li>
+      <li>\(x>-3\)</li>
+      <li>\(x\ne 2\)</li>
+      <li>\(x>-3\) dan \(x\ne 2\)</li>
+      <li>\(-3\le x<2\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 2 -->
+  <div class="lesson-example">
+    <h4>Soal 2</h4>
+    <p>Persamaan asimtot tegak dan asimtot datar grafik \(f(x)=\displaystyle\frac{2x-1}{x+3}\) berturut-turut adalah ....</p>
+    <ol type="A">
+      <li>\(x=3\) dan \(y=2\)</li>
+      <li>\(x=-3\) dan \(y=2\)</li>
+      <li>\(x=-3\) dan \(y=-1\)</li>
+      <li>\(x=2\) dan \(y=-3\)</li>
+      <li>\(x=-3\) dan \(y=-\displaystyle\frac12\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 3 -->
+  <div class="lesson-example">
+    <h4>Soal 3</h4>
+    <p>Himpunan penyelesaian pertidaksamaan \(|2x-3|\le 5\) adalah ....</p>
+    <ol type="A">
+      <li>\(x\le -1\) atau \(x\ge 4\)</li>
+      <li>\(-4\le x\le 1\)</li>
+      <li>\(-1\lt x\lt 4\)</li>
+      <li>\(-1\le x\le 4\)</li>
+      <li>\(1\le x\le 4\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 4 -->
+  <div class="lesson-example">
+    <h4>Soal 4</h4>
+    <p>Banyak suatu bakteri menjadi tiga kali lipat setiap 2 jam. Jika banyak bakteri mula-mula 500, banyak bakteri setelah 6 jam adalah ....</p>
+    <ol type="A">
+      <li>\(4.500\)</li>
+      <li>\(9.000\)</li>
+      <li>\(13.500\)</li>
+      <li>\(27.000\)</li>
+      <li>\(364.500\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 5 -->
+  <div class="lesson-example">
+    <h4>Soal 5</h4>
+    <p>Domain fungsi \(f(x)=\log_{2}(x^{2}-4x-5)\) adalah ....</p>
+    <ol type="A">
+      <li>\(-1\lt x\lt 5\)</li>
+      <li>\(x\le -1\) atau \(x\ge 5\)</li>
+      <li>\(x\lt -5\) atau \(x>1\)</li>
+      <li>\(x>5\)</li>
+      <li>\(x\lt -1\) atau \(x>5\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 6 -->
+  <div class="lesson-example">
+    <h4>Soal 6</h4>
+    <p>Nilai maksimum dan periode fungsi \(y=3\sin\left(2x-\displaystyle\frac{\pi}{3}\right)+1\) berturut-turut adalah ....</p>
+    <ol type="A">
+      <li>\(3\) dan \(2\pi\)</li>
+      <li>\(4\) dan \(\pi\)</li>
+      <li>\(4\) dan \(2\pi\)</li>
+      <li>\(3\) dan \(\pi\)</li>
+      <li>\(1\) dan \(\pi\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 7 -->
+  <div class="lesson-example">
+    <h4>Soal 7</h4>
+    <p>Tarif parkir sebuah pusat perbelanjaan adalah Rp3.000 untuk jam pertama dan Rp2.000 untuk setiap jam berikutnya. Waktu parkir yang kurang dari satu jam dihitung satu jam penuh. Seorang pengendara parkir selama 3 jam 20 menit. Biaya parkir yang harus dibayar adalah ....</p>
+    <ol type="A">
+      <li>Rp7.000</li>
+      <li>Rp8.000</li>
+      <li>Rp9.000</li>
+      <li>Rp10.000</li>
+      <li>Rp11.000</li>
+    </ol>
+  </div>
+
+  <!-- Soal 8 -->
+  <div class="lesson-example">
+    <h4>Soal 8</h4>
+    <p>Diketahui fungsi</p>
+    <div class="math-display">\[ f(x)=\begin{cases} x+2, & x<1\\ x^{2}, & 1\le x<3\\ 10-x, & x\ge 3 \end{cases} \]</div>
+    <p>Nilai \(f(-2)+f(2)+f(5)\) adalah ....</p>
+    <ol type="A">
+      <li>\(9\)</li>
+      <li>\(11\)</li>
+      <li>\(13\)</li>
+      <li>\(14\)</li>
+      <li>\(16\)</li>
+    </ol>
+  </div>
+
+  <h3>B. Tingkat Kesulitan UTBK</h3>
+
+  <!-- Soal 9 -->
+  <div class="lesson-example">
+    <h4>Soal 9</h4>
+    <p>Diketahui \(f(x)=\displaystyle\frac{x+1}{x-2}\) untuk \(x\ne 2\). Nilai \(f^{-1}(3)\) adalah ....</p>
+    <ol type="A">
+      <li>\(\displaystyle\frac72\)</li>
+      <li>\(2\)</li>
+      <li>\(\displaystyle\frac52\)</li>
+      <li>\(3\)</li>
+      <li>\(4\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 10 -->
+  <div class="lesson-example">
+    <h4>Soal 10</h4>
+    <p>Banyaknya bilangan real \(x\) yang memenuhi \(|x-1|=\sqrt{x+2}\) adalah ....</p>
+    <ol type="A">
+      <li>\(0\)</li>
+      <li>\(1\)</li>
+      <li>\(2\)</li>
+      <li>\(3\)</li>
+      <li>\(4\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 11 -->
+  <div class="lesson-example">
+    <h4>Soal 11</h4>
+    <p>Jumlah semua nilai \(x\) yang memenuhi \(|x-2|+|x+1|=5\) adalah ....</p>
+    <ol type="A">
+      <li>\(-1\)</li>
+      <li>\(1\)</li>
+      <li>\(2\)</li>
+      <li>\(3\)</li>
+      <li>\(5\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 12 -->
+  <div class="lesson-example">
+    <h4>Soal 12</h4>
+    <p>Persamaan \(9^{x}-12\cdot 3^{x}+27=0\) memiliki akar \(x_1\) dan \(x_2\) dengan \(x_1\lt x_2\). Nilai \(x_1+2x_2\) adalah ....</p>
+    <ol type="A">
+      <li>\(3\)</li>
+      <li>\(4\)</li>
+      <li>\(5\)</li>
+      <li>\(6\)</li>
+      <li>\(7\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 13 -->
+  <div class="lesson-example">
+    <h4>Soal 13</h4>
+    <p>Himpunan penyelesaian pertidaksamaan \({}^{1/2}\!\log(x^{2}-3x)\ge -2\) adalah ....</p>
+    <ol type="A">
+      <li>\(-1\le x\lt 0\)</li>
+      <li>\(3\lt x\le 4\)</li>
+      <li>\(x\lt 0\) atau \(x>3\)</li>
+      <li>\(-1\le x\le 4\)</li>
+      <li>\(-1\le x\lt 0\) atau \(3\lt x\le 4\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 14 -->
+  <div class="lesson-example">
+    <h4>Soal 14</h4>
+    <p>Fungsi \(y=a\cos(bx)+c\) dengan \(a>0\) dan \(b>0\) mempunyai nilai maksimum \(6\), nilai minimum \(-2\), dan periode \(\displaystyle\frac{2\pi}{3}\). Nilai \(a+b+c\) adalah ....</p>
+    <ol type="A">
+      <li>\(5\)</li>
+      <li>\(7\)</li>
+      <li>\(8\)</li>
+      <li>\(9\)</li>
+      <li>\(11\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 15 -->
+  <div class="lesson-example">
+    <h4>Soal 15</h4>
+    <p>Jika \(\lfloor x\rfloor\) menyatakan bilangan bulat terbesar yang tidak melebihi \(x\), himpunan penyelesaian \(\lfloor 2x-1\rfloor=3\) adalah ....</p>
+    <ol type="A">
+      <li>\(\displaystyle\frac32\le x<2\)</li>
+      <li>\(2\le x<\displaystyle\frac52\)</li>
+      <li>\(2\lt x\le\displaystyle\frac52\)</li>
+      <li>\(3\le x<4\)</li>
+      <li>\(2\le x<3\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 16 -->
+  <div class="lesson-example">
+    <h4>Soal 16</h4>
+    <p>Luas daerah yang dibatasi oleh grafik \(y=|x-2|\) dan garis \(y=4\) adalah ... satuan luas.</p>
+    <ol type="A">
+      <li>\(8\)</li>
+      <li>\(12\)</li>
+      <li>\(20\)</li>
+      <li>\(16\)</li>
+      <li>\(24\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 17 -->
+  <div class="lesson-example">
+    <h4>Soal 17</h4>
+    <p>Massa suatu zat radioaktif mula-mula \(80\) gram. Setelah \(3\) jam, massanya tinggal \(10\) gram. Massa zat tersebut setelah \(5\) jam adalah ... gram.</p>
+    <ol type="A">
+      <li>\(1{,}25\)</li>
+      <li>\(2{,}5\)</li>
+      <li>\(5\)</li>
+      <li>\(7{,}5\)</li>
+      <li>\(10\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 18 -->
+  <div class="lesson-example">
+    <h4>Soal 18</h4>
+    <p>Tinggi permukaan air laut (dalam meter) di suatu pelabuhan dimodelkan oleh \(h(t)=5+2\cos\displaystyle\frac{\pi t}{6}\) dengan \(t\) dalam jam. Selama \(0\le t\le 24\), banyak waktu \(t\) saat tinggi air tepat \(6\) meter adalah ....</p>
+    <ol type="A">
+      <li>\(2\)</li>
+      <li>\(3\)</li>
+      <li>\(4\)</li>
+      <li>\(5\)</li>
+      <li>\(6\)</li>
+    </ol>
+  </div>
+
+  <h3>C. Tingkat Kesulitan Olimpiade</h3>
+
+  <!-- Soal 19 -->
+  <div class="lesson-example">
+    <h4>Soal 19</h4>
+    <p>Tentukan banyaknya bilangan bulat \(n\) yang memenuhi \(\left\lfloor\displaystyle\frac{n}{3}\right\rfloor=\left\lfloor\displaystyle\frac{n}{2}\right\rfloor\).</p>
+  </div>
+
+  <!-- Soal 20 -->
+  <div class="lesson-example">
+    <h4>Soal 20</h4>
+    <p>Fungsi \(f\) terdefinisi untuk semua bilangan real \(x\ne 0\) dan \(x\ne 1\), serta memenuhi</p>
+    <div class="math-display">\[ f(x)+f\!\left(\frac{x-1}{x}\right)=1+x \]</div>
+    <p>Tentukan nilai \(f(2)\).</p>
+  </div>
+
+</section>
+
+<section id="pembahasan-latihan-fungsi" data-title="Pembahasan Latihan Mandiri">
+  <h2>17. Pembahasan Latihan Mandiri</h2>
+
+  <p>
+    Bagian ini membahas seluruh soal pada latihan mandiri. Soal nomor 1–8
+    berfokus pada penguasaan konsep dan prosedur dasar tingkat sekolah, soal
+    nomor 9–18 menekankan penalaran dan pemilihan strategi yang lebih dekat
+    dengan karakter soal UTBK, dan soal nomor 19–20 menguji kreativitas
+    seperti pada soal olimpiade. Soal-soal berikut merupakan latihan bergaya
+    UTBK dan olimpiade, bukan soal resmi.
+  </p>
+
+  <h3>A. Pembahasan Tingkat Kesulitan Sekolah</h3>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 1</h4>
+    <p>Ada dua syarat. Radikan harus tidak negatif dan penyebut tidak boleh nol:</p>
+    <div class="math-display">\[ x+3\ge 0\Rightarrow x\ge -3,\qquad x-2\ne 0\Rightarrow x\ne 2 \]</div>
+    <p>Irisan kedua syarat adalah \(x\ge -3\) dan \(x\ne 2\). Pilihan D salah karena \(x=-3\) menghasilkan \(\sqrt{0}=0\), sehingga masih terdefinisi.</p>
+    <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 2</h4>
+    <p>Asimtot tegak muncul saat penyebut nol: \(x+3=0\Rightarrow x=-3\). Derajat pembilang dan penyebut sama, sehingga asimtot datar adalah perbandingan koefisien \(x\):</p>
+    <div class="math-display">\[ y=\frac{2}{1}=2 \]</div>
+    <p>Pemeriksaan: \(f(x)=\displaystyle\frac{2(x+3)-7}{x+3}=2-\displaystyle\frac{7}{x+3}\), sehingga untuk \(|x|\) besar \(f(x)\to 2\).</p>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 3</h4>
+    <p>Gunakan sifat \(|u|\le a\iff -a\le u\le a\):</p>
+    <div class="math-display">\[ -5\le 2x-3\le 5\Rightarrow -2\le 2x\le 8\Rightarrow -1\le x\le 4 \]</div>
+    <p>Tanda \(\le\) berarti titik ujung ikut, sehingga pilihan C (tanpa titik ujung) salah, sedangkan pilihan A adalah penyelesaian untuk tanda \(\ge\).</p>
+    <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 4</h4>
+    <p>Model eksponensial: \(N(t)=N_0\cdot 3^{t/2}\) dengan \(N_0=500\) dan \(t\) dalam jam.</p>
+    <div class="math-display">\[ N(6)=500\cdot 3^{6/2}=500\cdot 3^{3}=500\cdot 27=13.500 \]</div>
+    <p>Pilihan E muncul jika keliru menganggap bakteri menjadi tiga kali lipat setiap jam (\(500\cdot 3^{6}\)).</p>
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 5</h4>
+    <p>Numerus logaritma harus positif:</p>
+    <div class="math-display">\[ x^{2}-4x-5>0\Rightarrow (x-5)(x+1)>0\Rightarrow x\lt -1\ \text{atau}\ x>5 \]</div>
+    <p>Pilihan B salah karena ikut memuat \(x=-1\) dan \(x=5\), padahal di titik itu numerus bernilai \(0\) sehingga logaritma tidak terdefinisi.</p>
+    <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 6</h4>
+    <p>Pada \(y=a\sin(bx+c)+d\) dengan \(a=3\), \(b=2\), \(d=1\):</p>
+    <div class="math-display">\[ y_{\max}=d+|a|=1+3=4,\qquad T=\frac{2\pi}{|b|}=\frac{2\pi}{2}=\pi \]</div>
+    <p>Pergeseran fase \(-\displaystyle\frac{\pi}{3}\) hanya menggeser grafik sehingga tidak mengubah nilai maksimum maupun periode.</p>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 7</h4>
+    <p>Karena sisa waktu dihitung satu jam penuh, lama parkir 3 jam 20 menit dibulatkan ke atas menjadi \(4\) jam (fungsi langit-langit). Dengan \(t\) lama parkir dalam jam:</p>
+    <div class="math-display">\[ B(t)=3.000+2.000\big(\lceil t\rceil-1\big),\qquad t=3\tfrac13\Rightarrow \lceil t\rceil=4 \]</div>
+    <div class="math-display">\[ B=3.000+2.000(3)=9.000 \]</div>
+    <p>Pilihan A diperoleh jika waktu tidak dibulatkan ke atas (hanya 3 jam).</p>
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 8</h4>
+    <p>Tentukan aturan yang berlaku untuk tiap nilai \(x\):</p>
+    <ul>
+      <li>\(x=-2<1\): \(f(-2)=-2+2=0\).</li>
+      <li>\(1\le x=2<3\): \(f(2)=2^{2}=4\).</li>
+      <li>\(x=5\ge 3\): \(f(5)=10-5=5\).</li>
+    </ul>
+    <div class="math-display">\[ f(-2)+f(2)+f(5)=0+4+5=9 \]</div>
+    <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+  </div>
+
+  <h3>B. Pembahasan Tingkat Kesulitan UTBK</h3>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 9</h4>
+    <p>Mencari \(f^{-1}(3)=a\) sama artinya dengan mencari \(a\) yang memenuhi \(f(a)=3\):</p>
+    <div class="math-display">\[ \frac{a+1}{a-2}=3\Rightarrow a+1=3a-6\Rightarrow a=\frac72 \]</div>
+    <p>Pemeriksaan: \(f\left(\displaystyle\frac72\right)=\displaystyle\frac{9/2}{3/2}=3\). Dengan rumus invers, \(f^{-1}(x)=\displaystyle\frac{2x+1}{x-1}\), sehingga \(f^{-1}(3)=\displaystyle\frac{7}{2}\). Pilihan E adalah \(f(3)=4\), bukan \(f^{-1}(3)\).</p>
+    <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 10</h4>
+    <p>Syarat: \(x+2\ge 0\Rightarrow x\ge -2\). Kedua ruas tidak negatif, sehingga mengkuadratkan keduanya tidak menimbulkan akar palsu:</p>
+    <div class="math-display">\[ (x-1)^{2}=x+2\Rightarrow x^{2}-3x-1=0\Rightarrow x=\frac{3\pm\sqrt{13}}{2} \]</div>
+    <p>Kedua nilai (\(\approx 3{,}30\) dan \(\approx -0{,}30\)) memenuhi \(x\ge -2\). Secara grafik, grafik \(y=|x-1|\) (huruf V) memotong grafik \(y=\sqrt{x+2}\) di dua titik: satu di kiri dan satu di kanan titik \(x=1\).</p>
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 11</h4>
+    <p>Titik pemecah adalah \(x=-1\) dan \(x=2\).</p>
+    <ul>
+      <li>\(x\ge 2\): \((x-2)+(x+1)=2x-1=5\Rightarrow x=3\) (memenuhi).</li>
+      <li>\(-1\le x<2\): \((2-x)+(x+1)=3\ne 5\) (tidak ada solusi).</li>
+      <li>\(x<-1\): \((2-x)-(x+1)=1-2x=5\Rightarrow x=-2\) (memenuhi).</li>
+    </ul>
+    <p>Jumlah solusi: \(3+(-2)=1\).</p>
+    <p>Cara cepat: jarak titik \(-1\) dan \(2\) adalah \(3\), sehingga jumlah jarak \(5\) berarti kelebihan \(2\), yaitu \(1\) satuan di tiap sisi luar: \(x=-1-1=-2\) dan \(x=2+1=3\).</p>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 12</h4>
+    <p>Karena \(9^{x}=(3^{x})^{2}\), misalkan \(t=3^{x}>0\):</p>
+    <div class="math-display">\[ t^{2}-12t+27=0\Rightarrow (t-3)(t-9)=0\Rightarrow t=3\ \text{atau}\ t=9 \]</div>
+    <p>Jadi \(3^{x}=3\Rightarrow x=1\) dan \(3^{x}=9\Rightarrow x=2\), sehingga \(x_1=1\), \(x_2=2\), dan \(x_1+2x_2=1+4=5\).</p>
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 13</h4>
+    <p><strong>Syarat numerus:</strong> \(x^{2}-3x>0\Rightarrow x(x-3)>0\Rightarrow x\lt 0\) atau \(x>3\).</p>
+    <p><strong>Pertidaksamaan:</strong> karena \(-2={}^{1/2}\!\log 4\) dan basis \(\displaystyle\frac12<1\), tanda berbalik:</p>
+    <div class="math-display">\[ x^{2}-3x\le 4\Rightarrow (x-4)(x+1)\le 0\Rightarrow -1\le x\le 4 \]</div>
+    <p>Irisan dengan syarat numerus: \(-1\le x\lt 0\) atau \(3\lt x\le 4\).</p>
+    <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 14</h4>
+    <p>Amplitudo \(a\) adalah setengah selisih maksimum dan minimum, sedangkan \(c\) adalah garis tengah:</p>
+    <div class="math-display">\[ a=\frac{6-(-2)}{2}=4,\qquad c=\frac{6+(-2)}{2}=2 \]</div>
+    <p>Periode \(\displaystyle\frac{2\pi}{b}=\displaystyle\frac{2\pi}{3}\Rightarrow b=3\). Jadi \(a+b+c=4+3+2=9\).</p>
+    <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 15</h4>
+    <p>Gunakan \(\lfloor u\rfloor=n\iff n\le u\lt n+1\) dengan \(u=2x-1\):</p>
+    <div class="math-display">\[ 3\le 2x-1<4\Rightarrow 4\le 2x<5\Rightarrow 2\le x<\frac52 \]</div>
+    <p>Titik \(x=2\) ikut (\(\lfloor 3\rfloor=3\)), sedangkan \(x=\displaystyle\frac52\) tidak ikut (\(\lfloor 4\rfloor=4\)).</p>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 16</h4>
+    <p>Titik potong: \(|x-2|=4\Rightarrow x=-2\) atau \(x=6\), sehingga titik potongnya \((-2,4)\) dan \((6,4)\). Puncak grafik mutlak adalah \((2,0)\). Daerahnya berbentuk segitiga.</p>
+    <figure class="fungsi-figure">
+<svg viewBox="0 0 420 300" style="max-width:520px" role="img" aria-label="Daerah segitiga di antara y = |x-2| dan y = 4">
+<defs><clipPath id="u16-c"><rect x="30" y="14" width="374" height="260"/></clipPath></defs>
+<line class="gr" x1="67.4" y1="14" x2="67.4" y2="274"/>
+<line class="gr" x1="104.8" y1="14" x2="104.8" y2="274"/>
+<line class="gr" x1="179.6" y1="14" x2="179.6" y2="274"/>
+<line class="gr" x1="217.0" y1="14" x2="217.0" y2="274"/>
+<line class="gr" x1="254.4" y1="14" x2="254.4" y2="274"/>
+<line class="gr" x1="291.8" y1="14" x2="291.8" y2="274"/>
+<line class="gr" x1="329.2" y1="14" x2="329.2" y2="274"/>
+<line class="gr" x1="366.6" y1="14" x2="366.6" y2="274"/>
+<line class="gr" x1="30" y1="199.7" x2="404" y2="199.7"/>
+<line class="gr" x1="30" y1="162.6" x2="404" y2="162.6"/>
+<line class="gr" x1="30" y1="125.4" x2="404" y2="125.4"/>
+<line class="gr" x1="30" y1="88.3" x2="404" y2="88.3"/>
+<line class="gr" x1="30" y1="51.1" x2="404" y2="51.1"/>
+<line class="ax" x1="24" y1="236.9" x2="412" y2="236.9"/>
+<line class="ax" x1="142.2" y1="280" x2="142.2" y2="6"/>
+<text class="vl" x="412" y="252.9">x</text>
+<text class="vl" x="150.2" y="12">y</text>
+<line class="tk" x1="67.4" y1="233.9" x2="67.4" y2="239.9"/>
+<text class="ft" x="67.4" y="252.9" text-anchor="middle">−2</text>
+<line class="tk" x1="104.8" y1="233.9" x2="104.8" y2="239.9"/>
+<text class="ft" x="104.8" y="252.9" text-anchor="middle">−1</text>
+<line class="tk" x1="179.6" y1="233.9" x2="179.6" y2="239.9"/>
+<text class="ft" x="179.6" y="252.9" text-anchor="middle">1</text>
+<line class="tk" x1="217.0" y1="233.9" x2="217.0" y2="239.9"/>
+<text class="ft" x="217.0" y="252.9" text-anchor="middle">2</text>
+<line class="tk" x1="254.4" y1="233.9" x2="254.4" y2="239.9"/>
+<text class="ft" x="254.4" y="252.9" text-anchor="middle">3</text>
+<line class="tk" x1="291.8" y1="233.9" x2="291.8" y2="239.9"/>
+<text class="ft" x="291.8" y="252.9" text-anchor="middle">4</text>
+<line class="tk" x1="329.2" y1="233.9" x2="329.2" y2="239.9"/>
+<text class="ft" x="329.2" y="252.9" text-anchor="middle">5</text>
+<line class="tk" x1="366.6" y1="233.9" x2="366.6" y2="239.9"/>
+<text class="ft" x="366.6" y="252.9" text-anchor="middle">6</text>
+<line class="tk" x1="139.2" y1="199.7" x2="145.2" y2="199.7"/>
+<text class="ft" x="135.2" y="203.7" text-anchor="end">1</text>
+<line class="tk" x1="139.2" y1="162.6" x2="145.2" y2="162.6"/>
+<text class="ft" x="135.2" y="166.6" text-anchor="end">2</text>
+<line class="tk" x1="139.2" y1="125.4" x2="145.2" y2="125.4"/>
+<text class="ft" x="135.2" y="129.4" text-anchor="end">3</text>
+<line class="tk" x1="139.2" y1="88.3" x2="145.2" y2="88.3"/>
+<text class="ft" x="135.2" y="92.3" text-anchor="end">4</text>
+<line class="tk" x1="139.2" y1="51.1" x2="145.2" y2="51.1"/>
+<text class="ft" x="135.2" y="55.1" text-anchor="end">5</text>
+<text class="ft" x="135.2" y="250.9" text-anchor="end">O</text>
+<polygon class="fl" points="67.4,88.3 366.6,88.3 217.0,236.9"/>
+<path class="ca" d="M30.0 51.1 L217.0 236.9 L404.0 51.1" clip-path="url(#u16-c)"/>
+<line class="cb" x1="30.0" y1="88.3" x2="404.0" y2="88.3"/>
+<circle class="pt" cx="67.4" cy="88.3" r="4"/>
+<circle class="pt" cx="366.6" cy="88.3" r="4"/>
+<circle class="pt" cx="217.0" cy="236.9" r="4"/>
+<text x="61.4" y="80.3" text-anchor="middle">(−2, 4)</text>
+<text x="372.6" y="80.3" text-anchor="middle">(6, 4)</text>
+</svg>
+<figcaption>Daerah yang dibatasi y = |x − 2| dan y = 4 berbentuk segitiga dengan alas 8 dan tinggi 4.</figcaption></figure>
+    <div class="math-display">\[ L=\frac12\times\text{alas}\times\text{tinggi}=\frac12\times 8\times 4=16 \]</div>
+    <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 17</h4>
+    <p>Peluruhan mengikuti \(N(t)=N_0\left(\displaystyle\frac12\right)^{t/T}\). Karena \(80\to 10\) berarti \(80\left(\displaystyle\frac12\right)^{3}=10\), terjadi \(3\) kali waktu paruh dalam \(3\) jam, sehingga waktu paruh \(T=1\) jam.</p>
+    <div class="math-display">\[ N(5)=80\left(\frac12\right)^{5}=\frac{80}{32}=2{,}5 \]</div>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 18</h4>
+    <p>Selesaikan \(h(t)=6\):</p>
+    <div class="math-display">\[ 5+2\cos\frac{\pi t}{6}=6\Rightarrow \cos\frac{\pi t}{6}=\frac12 \Rightarrow \frac{\pi t}{6}=\pm\frac{\pi}{3}+2k\pi \]</div>
+    <p>Maka \(t=\pm 2+12k\). Pada \(0\le t\le 24\): dari \(t=2+12k\) diperoleh \(t=2\) dan \(t=14\); dari \(t=-2+12k\) diperoleh \(t=10\) dan \(t=22\). Jadi ada \(4\) nilai \(t\) (periode fungsi \(12\) jam, sehingga dalam dua periode terdapat \(2\times 2\) solusi).</p>
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <h3>C. Pembahasan Tingkat Kesulitan Olimpiade</h3>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 19</h4>
+    <p>Tulis \(n=6q+r\) dengan \(q\in\mathbb{Z}\) dan \(r\in\{0,1,2,3,4,5\}\). Karena \(6q\) kelipatan \(3\) dan \(2\):</p>
+    <div class="math-display">\[ \left\lfloor\frac{n}{3}\right\rfloor=2q+\left\lfloor\frac{r}{3}\right\rfloor,\qquad
+    \left\lfloor\frac{n}{2}\right\rfloor=3q+\left\lfloor\frac{r}{2}\right\rfloor \]</div>
+    <p>Persamaan menjadi \(q=\left\lfloor\displaystyle\frac{r}{3}\right\rfloor-\left\lfloor\displaystyle\frac{r}{2}\right\rfloor\). Untuk setiap \(r\) nilai \(q\) ditentukan tunggal:</p>
+    <div class="material-table-wrap">
+      <table class="reflection-table">
+        <thead><tr><th scope="col">\(r\)</th><th scope="col">\(0\)</th><th scope="col">\(1\)</th><th scope="col">\(2\)</th><th scope="col">\(3\)</th><th scope="col">\(4\)</th><th scope="col">\(5\)</th></tr></thead>
+        <tbody>
+          <tr><td>\(q\)</td><td>\(0\)</td><td>\(0\)</td><td>\(-1\)</td><td>\(0\)</td><td>\(-1\)</td><td>\(-1\)</td></tr>
+          <tr><td>\(n=6q+r\)</td><td>\(0\)</td><td>\(1\)</td><td>\(-4\)</td><td>\(3\)</td><td>\(-2\)</td><td>\(-1\)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Jadi \(n\in\{-4,-2,-1,0,1,3\}\), yaitu \(6\) bilangan bulat. Pemeriksaan satu contoh: \(n=-4\): \(\lfloor -\tfrac43\rfloor=-2=\lfloor -2\rfloor\).</p>
+    <p>Jadi, jawabannya adalah <strong>6</strong> bilangan bulat.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 20</h4>
+    <p>Misalkan \(g(x)=\displaystyle\frac{x-1}{x}\). Terapkan \(g\) berulang mulai dari \(2\):</p>
+    <div class="math-display">\[ g(2)=\frac12,\qquad g\!\left(\frac12\right)=\frac{-1/2}{1/2}=-1,\qquad g(-1)=\frac{-2}{-1}=2 \]</div>
+    <p>Barisan kembali ke \(2\) (siklus tiga langkah). Substitusi \(x=2,\ \displaystyle\frac12,\ -1\) pada persamaan:</p>
+    <div class="math-display">\[ f(2)+f\!\left(\tfrac12\right)=3,\qquad f\!\left(\tfrac12\right)+f(-1)=\frac32,\qquad f(-1)+f(2)=0 \]</div>
+    <p>Jumlahkan ketiganya: \(2\Big[f(2)+f\!\left(\tfrac12\right)+f(-1)\Big]=\displaystyle\frac92\), sehingga \(f(2)+f\!\left(\tfrac12\right)+f(-1)=\displaystyle\frac94\). Kurangkan persamaan kedua:</p>
+    <div class="math-display">\[ f(2)=\frac94-\frac32=\frac34 \]</div>
+    <p>Pemeriksaan dengan rumus umum \(f(x)=\displaystyle\frac{x^{3}-x^{2}-1}{2x(x-1)}\): \(f(2)=\displaystyle\frac{8-4-1}{4}=\displaystyle\frac34\).</p>
+    <p>Jadi, jawabannya adalah <strong>\(\displaystyle\frac34\)</strong>.</p>
+  </div>
+
+  <h3>Ringkasan Kunci dan Konsep yang Diuji</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table answer-key-table">
+      <thead>
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">Kunci</th>
+          <th scope="col">Konsep Utama</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>A</td>
+          <td>Domain fungsi akar dan rasional</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>B</td>
+          <td>Asimtot fungsi rasional</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>D</td>
+          <td>Pertidaksamaan nilai mutlak</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>C</td>
+          <td>Pemodelan eksponensial</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>E</td>
+          <td>Domain fungsi logaritma</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>B</td>
+          <td>Amplitudo, periode, nilai ekstrem fungsi trigonometri</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>C</td>
+          <td>Fungsi tangga (pemodelan tarif)</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>A</td>
+          <td>Evaluasi fungsi piecewise</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>A</td>
+          <td>Fungsi invers rasional</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>C</td>
+          <td>Persamaan campuran nilai mutlak dan akar</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>B</td>
+          <td>Persamaan dua nilai mutlak</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>C</td>
+          <td>Persamaan eksponensial dengan substitusi</td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>E</td>
+          <td>Pertidaksamaan logaritma berbasis kurang dari 1</td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td>D</td>
+          <td>Menentukan fungsi trigonometri dari data</td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td>B</td>
+          <td>Persamaan fungsi lantai</td>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td>D</td>
+          <td>Luas daerah dari grafik nilai mutlak</td>
+        </tr>
+        <tr>
+          <td>17</td>
+          <td>B</td>
+          <td>Pemodelan peluruhan eksponensial</td>
+        </tr>
+        <tr>
+          <td>18</td>
+          <td>C</td>
+          <td>Pemodelan pasang surut dengan fungsi kosinus</td>
+        </tr>
+        <tr>
+          <td>19</td>
+          <td>\(6\)</td>
+          <td>Fungsi lantai dan pembagian bersisa</td>
+        </tr>
+        <tr>
+          <td>20</td>
+          <td>\(\displaystyle\frac34\)</td>
+          <td>Persamaan fungsional dengan siklus</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

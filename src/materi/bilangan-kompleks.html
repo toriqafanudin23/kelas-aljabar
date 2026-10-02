@@ -1,0 +1,1050 @@
+<style>
+  .kompleks-figure {
+    margin: 1.25rem auto;
+    text-align: center;
+  }
+  .kompleks-figure svg {
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+  }
+  .kompleks-figure figcaption {
+    font-size: 0.9em;
+    opacity: 0.85;
+    margin-top: 0.4rem;
+  }
+  .kompleks-figure text {
+    fill: currentColor;
+    font-family: inherit;
+    font-size: 14px;
+  }
+  .kompleks-figure .it {
+    font-style: italic;
+    font-weight: 700;
+  }
+  .kompleks-figure .ta {
+    fill: #2563eb;
+  }
+  .kompleks-figure .tb {
+    fill: #dc2626;
+  }
+  .kompleks-figure .tc {
+    fill: #16a34a;
+  }
+  .kompleks-figure .va,
+  .kompleks-figure .vb,
+  .kompleks-figure .vc,
+  .kompleks-figure .vg {
+    fill: none;
+    stroke-width: 3;
+  }
+  .kompleks-figure .va {
+    stroke: #2563eb;
+    marker-end: url(#km-blue);
+  }
+  .kompleks-figure .vb {
+    stroke: #dc2626;
+    marker-end: url(#km-red);
+  }
+  .kompleks-figure .vc {
+    stroke: #16a34a;
+    marker-end: url(#km-green);
+  }
+  .kompleks-figure .vg {
+    stroke: currentColor;
+    stroke-width: 1.8;
+    marker-end: url(#km-gray);
+  }
+  .kompleks-figure .vdash {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-dasharray: 5 4;
+    opacity: 0.55;
+  }
+  .kompleks-figure .vpt {
+    fill: currentColor;
+  }
+  .kompleks-figure .vang {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+  }
+</style>
+<svg
+  width="0"
+  height="0"
+  style="position: absolute"
+  aria-hidden="true"
+  focusable="false"
+>
+  <defs>
+    <marker
+      id="km-blue"
+      viewBox="0 0 10 10"
+      refX="8"
+      refY="5"
+      markerWidth="5"
+      markerHeight="5"
+      orient="auto"
+    >
+      <path d="M0 0L10 5L0 10z" fill="#2563eb" />
+    </marker>
+    <marker
+      id="km-red"
+      viewBox="0 0 10 10"
+      refX="8"
+      refY="5"
+      markerWidth="5"
+      markerHeight="5"
+      orient="auto"
+    >
+      <path d="M0 0L10 5L0 10z" fill="#dc2626" />
+    </marker>
+    <marker
+      id="km-green"
+      viewBox="0 0 10 10"
+      refX="8"
+      refY="5"
+      markerWidth="5"
+      markerHeight="5"
+      orient="auto"
+    >
+      <path d="M0 0L10 5L0 10z" fill="#16a34a" />
+    </marker>
+    <marker
+      id="km-gray"
+      viewBox="0 0 10 10"
+      refX="8"
+      refY="5"
+      markerWidth="6"
+      markerHeight="6"
+      orient="auto"
+    >
+      <path d="M0 0L10 5L0 10z" fill="currentColor" />
+    </marker>
+  </defs>
+</svg>
+
+<section id="pengertian-kompleks" data-title="Pengertian Bilangan Kompleks">
+  <h2>1. Pengertian Bilangan Kompleks</h2>
+
+  <p>
+    Persamaan \(x^2+1=0\) tidak memiliki penyelesaian di himpunan bilangan real
+    karena kuadrat bilangan real tidak pernah negatif. Untuk mengatasinya,
+    didefinisikan <strong>satuan imajiner</strong> \(i\) dengan sifat:
+  </p>
+
+  <div class="math-display">\[ i=\sqrt{-1},\qquad i^2=-1 \]</div>
+
+  <p>
+    <strong>Bilangan kompleks</strong> adalah bilangan yang dapat ditulis dalam
+    bentuk
+  </p>
+
+  <div class="math-display">\[ z=a+bi,\qquad a,b\in\mathbb{R} \]</div>
+
+  <p>
+    dengan \(a\) disebut <strong>bagian real</strong>, ditulis
+    \(\operatorname{Re}(z)=a\), dan \(b\) disebut
+    <strong>bagian imajiner</strong>, ditulis \(\operatorname{Im}(z)=b\).
+    Perhatikan bahwa \(\operatorname{Im}(z)\) adalah \(b\), bukan \(bi\).
+    Himpunan semua bilangan kompleks dinotasikan \(\mathbb{C}\).
+  </p>
+
+  <ul>
+    <li>
+      Jika \(b=0\), maka \(z=a\) adalah bilangan real. Jadi
+      \(\mathbb{R}\subset\mathbb{C}\).
+    </li>
+    <li>
+      Jika \(a=0\) dan \(b\neq0\), maka \(z=bi\) disebut bilangan imajiner
+      murni.
+    </li>
+  </ul>
+
+  <h3>Kesamaan Dua Bilangan Kompleks</h3>
+
+  <p>
+    Dua bilangan kompleks sama jika bagian real dan bagian imajinernya
+    masing-masing sama:
+  </p>
+
+  <div class="math-display">\[ a+bi=c+di \iff a=c\ \text{dan}\ b=d \]</div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan \(x\) dan \(y\) jika \((2x+1)+(y-3)i=7+2i\).</p>
+
+    <p>
+      Samakan bagian real dan imajiner: \(2x+1=7\) sehingga \(x=3\), dan
+      \(y-3=2\) sehingga \(y=5\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Selesaikan \(x^2+4=0\). Karena \(x^2=-4=4i^2\), maka \(x=\pm2i\). Kedua
+      akarnya adalah bilangan imajiner murni.
+    </p>
+  </div>
+</section>
+
+<section
+  id="bidang-kompleks"
+  data-title="Bilangan Kompleks pada Koordinat Kartesius"
+>
+  <h2>2. Bilangan Kompleks pada Koordinat Kartesius</h2>
+
+  <p>
+    Bilangan kompleks \(z=a+bi\) berkorespondensi satu-satu dengan pasangan
+    berurutan \((a,b)\). Karena itu \(z\) dapat digambarkan sebagai titik
+    \((a,b)\) pada bidang koordinat, yang disebut
+    <strong>bidang kompleks</strong> (diagram Argand). Sumbu mendatar disebut
+    <strong>sumbu real</strong> (\(\operatorname{Re}\)) dan sumbu tegak disebut
+    <strong>sumbu imajiner</strong>
+    (\(\operatorname{Im}\)). Bilangan kompleks juga dapat digambarkan sebagai
+    vektor dari titik asal \(O\) ke titik \((a,b)\).
+  </p>
+
+  <figure class="kompleks-figure">
+    <svg
+      viewBox="0 0 420 300"
+      role="img"
+      aria-label="Bidang kompleks dengan lima bilangan kompleks: 3+2i, -2+3i, -3-2i, 4, dan -2i"
+    >
+      <line class="vg" x1="20" y1="150" x2="405" y2="150" />
+      <line class="vg" x1="210" y1="285" x2="210" y2="14" />
+      <text x="388" y="138">Re</text>
+      <text x="220" y="24">Im</text>
+      <text x="240" y="166">1</text>
+      <text x="190" y="124">i</text>
+      <line class="vdash" x1="300" y1="150" x2="300" y2="90" />
+      <line class="vdash" x1="210" y1="90" x2="300" y2="90" />
+      <text x="296" y="168">3</text>
+      <text x="184" y="94">2i</text>
+      <line class="va" x1="210" y1="150" x2="296" y2="93" />
+      <circle class="vpt" cx="300" cy="90" r="4" />
+      <text class="ta it" x="308" y="86">z₁ = 3 + 2i</text>
+      <line class="vb" x1="210" y1="150" x2="154" y2="64" />
+      <circle class="vpt" cx="150" cy="60" r="4" />
+      <text class="tb it" x="142" y="52" text-anchor="end">z₂ = −2 + 3i</text>
+      <line class="vc" x1="210" y1="150" x2="124" y2="206" />
+      <circle class="vpt" cx="120" cy="210" r="4" />
+      <text class="tc it" x="112" y="228" text-anchor="end">z₃ = −3 − 2i</text>
+      <circle class="vpt" cx="330" cy="150" r="4" />
+      <text class="it" x="334" y="138" text-anchor="middle">z₄ = 4</text>
+      <circle class="vpt" cx="210" cy="210" r="4" />
+      <text class="it" x="218" y="228">z₅ = −2i</text>
+    </svg>
+    <figcaption>
+      Bilangan kompleks \(a+bi\) digambarkan sebagai titik \((a,b)\). Bilangan
+      real (\(z_4\)) terletak pada sumbu real, bilangan imajiner murni (\(z_5\))
+      pada sumbu imajiner.
+    </figcaption>
+  </figure>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Bilangan \(z_1=3+2i\) berkorespondensi dengan titik \((3,2)\): bergerak 3
+      satuan ke kanan pada sumbu real, lalu 2 satuan ke atas sejajar sumbu
+      imajiner. Bilangan \(z_3=-3-2i\) berada di kuadran III, yaitu titik
+      \((-3,-2)\).
+    </p>
+  </div>
+</section>
+
+<section id="operasi-kompleks" data-title="Operasi pada Bilangan Kompleks">
+  <h2>3. Operasi pada Bilangan Kompleks</h2>
+
+  <p>
+    Misalkan \(z_1=a+bi\) dan \(z_2=c+di\). Operasi pada bilangan kompleks
+    mengikuti aturan aljabar biasa dengan tambahan \(i^2=-1\).
+  </p>
+
+  <h3>Penjumlahan dan Pengurangan</h3>
+
+  <div class="math-display">\[ z_1\pm z_2=(a\pm c)+(b\pm d)i \]</div>
+
+  <p>
+    Jumlahkan (atau kurangkan) bagian real dengan bagian real, dan bagian
+    imajiner dengan bagian imajiner. Secara geometri, penjumlahan mengikuti
+    aturan jajargenjang seperti pada vektor.
+  </p>
+
+  <figure class="kompleks-figure">
+    <svg
+      viewBox="0 0 360 240"
+      role="img"
+      aria-label="Penjumlahan z1 = 3+i dan z2 = 1+2i menghasilkan 4+3i menurut aturan jajargenjang"
+    >
+      <line class="vg" x1="20" y1="200" x2="345" y2="200" />
+      <line class="vg" x1="40" y1="225" x2="40" y2="14" />
+      <text x="328" y="188">Re</text>
+      <text x="50" y="24">Im</text>
+      <line class="vdash" x1="160" y1="160" x2="200" y2="80" />
+      <line class="vdash" x1="80" y1="120" x2="200" y2="80" />
+      <line class="va" x1="40" y1="200" x2="156" y2="162" />
+      <line class="vb" x1="40" y1="200" x2="77" y2="125" />
+      <line class="vc" x1="40" y1="200" x2="196" y2="83" />
+      <circle class="vpt" cx="160" cy="160" r="4" />
+      <circle class="vpt" cx="80" cy="120" r="4" />
+      <circle class="vpt" cx="200" cy="80" r="4" />
+      <text class="ta it" x="166" y="172">z₁ = 3 + i</text>
+      <text class="tb it" x="50" y="108">z₂ = 1 + 2i</text>
+      <text class="tc it" x="208" y="76">z₁ + z₂ = 4 + 3i</text>
+    </svg>
+    <figcaption>
+      \(z_1+z_2=(3+1)+(1+2)i=4+3i\): diagonal jajargenjang yang dibentuk \(z_1\)
+      dan \(z_2\).
+    </figcaption>
+  </figure>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Hitung \((3+2i)+(1-5i)\) dan \((4-i)-(2+3i)\).</p>
+
+    <div class="math-display">
+      \[ (3+2i)+(1-5i)=4-3i,\qquad (4-i)-(2+3i)=2-4i \]
+    </div>
+  </div>
+
+  <h3>Perkalian</h3>
+
+  <p>Kalikan seperti perkalian dua suku, lalu gunakan \(i^2=-1\):</p>
+
+  <div class="math-display">\[ (a+bi)(c+di)=(ac-bd)+(ad+bc)i \]</div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Hitung \((2+3i)(4-i)\).</p>
+
+    <div class="math-display">
+      \[ (2+3i)(4-i)=8-2i+12i-3i^2=8+10i+3=11+10i \]
+    </div>
+  </div>
+
+  <h3>Pembagian</h3>
+
+  <p>
+    Untuk \(z_2\neq0\), kalikan pembilang dan penyebut dengan
+    <strong>konjugat penyebut</strong> agar penyebut menjadi bilangan real:
+  </p>
+
+  <div class="math-display">
+    \[ \frac{a+bi}{c+di}=\frac{(a+bi)(c-di)}{(c+di)(c-di)}
+    =\frac{(ac+bd)+(bc-ad)i}{c^2+d^2} \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Sederhanakan \(\displaystyle\frac{5+i}{2-i}\).</p>
+
+    <div class="math-display">
+      \[ \frac{5+i}{2-i}\cdot\frac{2+i}{2+i}=\frac{10+5i+2i+i^2}{4+1}
+      =\frac{9+7i}{5}=\frac95+\frac75i \]
+    </div>
+  </div>
+
+  <h3>Pangkat dari \(i\)</h3>
+
+  <p>
+    Nilai \(i^n\) berulang setiap 4 pangkat, sehingga cukup ditentukan dari sisa
+    pembagian \(n\) oleh 4.
+  </p>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Sisa \(n\) dibagi 4</th>
+          <th scope="col">0</th>
+          <th scope="col">1</th>
+          <th scope="col">2</th>
+          <th scope="col">3</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(i^n\)</td>
+          <td>\(1\)</td>
+          <td>\(i\)</td>
+          <td>\(-1\)</td>
+          <td>\(-i\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Tentukan \(i^{2026}\). Karena \(2026=4\cdot506+2\), maka
+      \(i^{2026}=i^2=-1\).
+    </p>
+  </div>
+</section>
+
+<section id="invers-kompleks" data-title="Invers Bilangan Kompleks">
+  <h2>4. Invers Bilangan Kompleks</h2>
+
+  <h3>Invers Penjumlahan</h3>
+
+  <p>
+    Invers penjumlahan (lawan) dari \(z=a+bi\) adalah \(-z=-a-bi\), sebab
+    \(z+(-z)=0\).
+  </p>
+
+  <h3>Invers Perkalian</h3>
+
+  <p>
+    Untuk \(z=a+bi\neq0\), invers perkaliannya \(z^{-1}\) adalah bilangan yang
+    memenuhi \(z\cdot z^{-1}=1\). Dengan cara pembagian di atas:
+  </p>
+
+  <div class="math-display">
+    \[ z^{-1}=\frac1{a+bi}=\frac{a-bi}{(a+bi)(a-bi)}=\frac{a-bi}{a^2+b^2}
+    =\frac{a}{a^2+b^2}-\frac{b}{a^2+b^2}i \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan invers perkalian dari \(z=3-4i\).</p>
+
+    <div class="math-display">
+      \[ z^{-1}=\frac{3+4i}{3^2+(-4)^2}=\frac{3+4i}{25} =\frac3{25}+\frac4{25}i
+      \]
+    </div>
+
+    <p>
+      Pemeriksaan: \((3-4i)(3+4i)=9+16=25\), sehingga \(z\cdot
+      z^{-1}=\displaystyle\frac{25}{25}=1\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>
+      Invers dari \(i\) adalah \(\displaystyle\frac1i=\frac{i}{i\cdot
+      i}=\frac{i}{-1}=-i\). Invers dari \(1+i\) adalah
+      \(\displaystyle\frac{1-i}{2}\).
+    </p>
+  </div>
+</section>
+
+<section
+  id="konjugat-modulus-argumen"
+  data-title="Konjugat, Modulus, dan Argumen"
+>
+  <h2>5. Konjugat, Modulus, dan Argumen</h2>
+
+  <h3>Konjugat</h3>
+
+  <p>
+    Konjugat dari \(z=a+bi\) adalah \(\bar z=a-bi\). Secara geometri, \(\bar z\)
+    adalah pencerminan \(z\) terhadap sumbu real. Sifat-sifatnya:
+  </p>
+
+  <div class="math-display">
+    \[ \overline{z_1\pm z_2}=\bar z_1\pm\bar z_2,\qquad \overline{z_1z_2}=\bar
+    z_1\bar z_2,\qquad \overline{\left(\frac{z_1}{z_2}\right)}=\frac{\bar
+    z_1}{\bar z_2},\qquad \bar{\bar z}=z \]
+  </div>
+
+  <div class="math-display">
+    \[ z+\bar z=2\operatorname{Re}(z),\qquad z-\bar z=2\operatorname{Im}(z)\,i,
+    \qquad z\bar z=a^2+b^2 \]
+  </div>
+
+  <h3>Modulus</h3>
+
+  <p>
+    Modulus \(|z|\) adalah jarak titik \(z\) ke titik asal, atau panjang
+    vektornya:
+  </p>
+
+  <div class="math-display">\[ |z|=\sqrt{a^2+b^2},\qquad z\bar z=|z|^2 \]</div>
+
+  <div class="math-display">
+    \[ |z_1z_2|=|z_1||z_2|,\qquad
+    \left|\frac{z_1}{z_2}\right|=\frac{|z_1|}{|z_2|}, \qquad |z^n|=|z|^n,\qquad
+    |\bar z|=|z| \]
+  </div>
+
+  <p>
+    Selain itu berlaku ketaksamaan segitiga \(|z_1+z_2|\le|z_1|+|z_2|\), dan
+    \(|z_1-z_2|\) adalah jarak antara titik \(z_1\) dan \(z_2\).
+  </p>
+
+  <h3>Argumen</h3>
+
+  <p>
+    Argumen \(\arg(z)=\theta\) adalah sudut dari sumbu real positif ke vektor
+    \(\overrightarrow{Oz}\), diukur berlawanan arah jarum jam. Pada materi ini
+    dipakai <strong>argumen utama</strong> \(-\pi<\theta\le\pi\) dengan
+    \(\tan\theta=\displaystyle\frac ba\). Karena \(\tan\) tidak membedakan
+    kuadran, tentukan dahulu sudut acuan
+    \(\alpha=\arctan\left|\displaystyle\frac ba\right|\) lalu sesuaikan dengan
+    kuadran.
+  </p>
+
+  <figure class="kompleks-figure">
+    <svg
+      viewBox="0 0 360 300"
+      role="img"
+      aria-label="Bilangan kompleks z = 3+4i dengan modulus 5, argumen theta, dan konjugatnya 3-4i"
+    >
+      <line class="vg" x1="20" y1="150" x2="345" y2="150" />
+      <line class="vg" x1="120" y1="290" x2="120" y2="10" />
+      <text x="326" y="138">Re</text>
+      <text x="130" y="20">Im</text>
+      <line class="vdash" x1="210" y1="30" x2="210" y2="270" />
+      <line class="va" x1="120" y1="150" x2="206" y2="34" />
+      <circle class="vpt" cx="210" cy="30" r="4" />
+      <line class="vb" x1="120" y1="150" x2="206" y2="266" />
+      <circle class="vpt" cx="210" cy="270" r="4" />
+      <path class="vang" d="M150 150A30 30 0 0 0 138 126" />
+      <text x="156" y="138">θ</text>
+      <text class="ta it" x="218" y="34">z = 3 + 4i</text>
+      <text class="tb it" x="218" y="274">z̄ = 3 − 4i</text>
+      <text class="ta" x="124" y="76" text-anchor="end">|z| = 5</text>
+      <text x="205" y="168">3</text>
+      <text x="216" y="96">4</text>
+    </svg>
+    <figcaption>
+      Untuk \(z=3+4i\): \(|z|=\sqrt{3^2+4^2}=5\) dan
+      \(\theta=\arctan\displaystyle\frac43\approx53{,}13^\circ\). Konjugat
+      \(\bar z\) adalah bayangan \(z\) oleh pencerminan terhadap sumbu real.
+    </figcaption>
+  </figure>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Letak \(z=a+bi\)</th>
+          <th scope="col">Tanda \(a,b\)</th>
+          <th scope="col">
+            \(\arg(z)\) dengan \(\alpha=\arctan\left|\displaystyle\frac
+            ba\right|\)
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Kuadran I</td>
+          <td>\(a>0,\ b>0\)</td>
+          <td>\(\alpha\)</td>
+        </tr>
+        <tr>
+          <td>Kuadran II</td>
+          <td>\(a<0,\ b>0\)</td>
+          <td>\(\pi-\alpha\)</td>
+        </tr>
+        <tr>
+          <td>Kuadran III</td>
+          <td>\(a<0,\ b<0\)</td>
+          <td>\(\alpha-\pi\)</td>
+        </tr>
+        <tr>
+          <td>Kuadran IV</td>
+          <td>\(a>0,\ b<0\)</td>
+          <td>\(-\alpha\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    Dengan \(r=|z|\) dan \(\theta=\arg(z)\), bilangan kompleks dapat ditulis
+    dalam <strong>bentuk polar</strong>:
+  </p>
+
+  <div class="math-display">\[ z=r(\cos\theta+i\sin\theta) \]</div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan modulus dan argumen utama dari \(z=-1+i\).</p>
+
+    <div class="math-display">\[ |z|=\sqrt{(-1)^2+1^2}=\sqrt2 \]</div>
+
+    <p>
+      Titik \((-1,1)\) berada di kuadran II dengan
+      \(\alpha=\arctan1=\displaystyle\frac{\pi}{4}\), sehingga
+      \(\arg(z)=\pi-\displaystyle\frac{\pi}{4}=\displaystyle\frac{3\pi}{4}\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+
+    <p>Tentukan \(|z|\) untuk \(z=\displaystyle\frac{(1+i)(2-2i)}{1-i}\).</p>
+
+    <p>
+      Gunakan sifat modulus:
+      \(|z|=\displaystyle\frac{|1+i|\,|2-2i|}{|1-i|}=\frac{\sqrt2\cdot2\sqrt2}{\sqrt2}=2\sqrt2\).
+    </p>
+  </div>
+</section>
+
+<section id="rangkuman-kompleks" data-title="Rangkuman Bilangan Kompleks">
+  <h2>6. Rangkuman Rumus Bilangan Kompleks</h2>
+
+  <h3>Bentuk dan Kesamaan</h3>
+
+  <div class="math-display">
+    \[ z=a+bi,\quad i^2=-1;\qquad a+bi=c+di\iff a=c,\ b=d \]
+  </div>
+
+  <h3>Operasi</h3>
+
+  <div class="math-display">
+    \[ (a+bi)\pm(c+di)=(a\pm c)+(b\pm d)i,\qquad (a+bi)(c+di)=(ac-bd)+(ad+bc)i
+    \]
+  </div>
+
+  <div class="math-display">
+    \[ \frac{a+bi}{c+di}=\frac{(a+bi)(c-di)}{c^2+d^2},\qquad z^{-1}=\frac{\bar
+    z}{|z|^2} \]
+  </div>
+
+  <h3>Konjugat, Modulus, dan Argumen</h3>
+
+  <div class="math-display">
+    \[ \bar z=a-bi,\quad |z|=\sqrt{a^2+b^2},\quad z\bar z=|z|^2,\quad
+    \tan\theta=\frac ba \]
+  </div>
+
+  <div class="math-display">
+    \[ z=r(\cos\theta+i\sin\theta),\qquad |z_1z_2|=|z_1||z_2| \]
+  </div>
+</section>
+
+<section id="latihan-mandiri-kompleks" data-title="Latihan Soal Mandiri">
+  <h2>7. Latihan Soal Mandiri</h2>
+
+  <p>
+    Kerjakan soal-soal berikut secara mandiri. Soal nomor 1–5 memiliki tingkat
+    kesulitan sekolah dan soal nomor 6–9 memiliki tingkat penalaran seperti soal
+    UTBK; keduanya berbentuk pilihan ganda (pilih satu jawaban yang paling
+    tepat). Soal nomor 10–11 adalah soal tingkat olimpiade berbentuk isian
+    singkat.
+  </p>
+
+  <h3>A. Tingkat Kesulitan Sekolah</h3>
+
+  <!-- Soal 1 -->
+  <div class="lesson-example">
+    <h4>Soal 1</h4>
+
+    <p>
+      Diketahui \((x+2)+(3y-1)i=5+8i\) dengan \(x,y\) bilangan real. Nilai
+      \(x+y\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(4\)</li>
+      <li>\(5\)</li>
+      <li>\(6\)</li>
+      <li>\(7\)</li>
+      <li>\(8\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 2 -->
+  <div class="lesson-example">
+    <h4>Soal 2</h4>
+
+    <p>Hasil dari \((2+3i)(1-2i)\) adalah ....</p>
+
+    <ol type="A">
+      <li>\(8+i\)</li>
+      <li>\(4-i\)</li>
+      <li>\(-4-i\)</li>
+      <li>\(8-i\)</li>
+      <li>\(2-6i\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 3 -->
+  <div class="lesson-example">
+    <h4>Soal 3</h4>
+
+    <p>
+      Bentuk paling sederhana dari \(\displaystyle\frac{3+i}{1-i}\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(2+i\)</li>
+      <li>\(1-2i\)</li>
+      <li>\(2+4i\)</li>
+      <li>\(1+i\)</li>
+      <li>\(1+2i\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 4 -->
+  <div class="lesson-example">
+    <h4>Soal 4</h4>
+
+    <p>Nilai dari \(i^{2025}+i^{2026}+i^{2027}\) adalah ....</p>
+
+    <ol type="A">
+      <li>\(-1\)</li>
+      <li>\(1\)</li>
+      <li>\(i\)</li>
+      <li>\(-i\)</li>
+      <li>\(0\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 5 -->
+  <div class="lesson-example">
+    <h4>Soal 5</h4>
+
+    <p>Argumen utama dari \(z=-1-i\) adalah ....</p>
+
+    <ol type="A">
+      <li>\(\displaystyle\frac{\pi}{4}\)</li>
+      <li>\(-\displaystyle\frac{3\pi}{4}\)</li>
+      <li>\(-\displaystyle\frac{\pi}{4}\)</li>
+      <li>\(\displaystyle\frac{3\pi}{4}\)</li>
+      <li>\(\displaystyle\frac{5\pi}{4}\)</li>
+    </ol>
+  </div>
+
+  <h3>B. Tingkat Kesulitan UTBK</h3>
+
+  <!-- Soal 6 -->
+  <div class="lesson-example">
+    <h4>Soal 6</h4>
+
+    <p>Jika \(z=1+2i\), maka nilai \(z+\displaystyle\frac5z\) adalah ....</p>
+
+    <ol type="A">
+      <li>\(-2\)</li>
+      <li>\(0\)</li>
+      <li>\(1\)</li>
+      <li>\(4\)</li>
+      <li>\(2\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 7 -->
+  <div class="lesson-example">
+    <h4>Soal 7</h4>
+
+    <p>
+      Bilangan kompleks \(z=x+yi\) dengan \(x>0\) memenuhi \(z^2=5-12i\). Nilai
+      \(x+y\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(1\)</li>
+      <li>\(3\)</li>
+      <li>\(5\)</li>
+      <li>\(-1\)</li>
+      <li>\(-5\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 8 -->
+  <div class="lesson-example">
+    <h4>Soal 8</h4>
+
+    <p>
+      Misalkan \(z_1\) dan \(z_2\) adalah akar-akar persamaan \(x^2-4x+13=0\).
+      Nilai \(\displaystyle\frac{z_1}{z_2}+\frac{z_2}{z_1}\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(2\)</li>
+      <li>\(\displaystyle\frac{16}{13}\)</li>
+      <li>\(-\displaystyle\frac{10}{13}\)</li>
+      <li>\(\displaystyle\frac{10}{13}\)</li>
+      <li>\(-\displaystyle\frac{16}{13}\)</li>
+    </ol>
+  </div>
+
+  <!-- Soal 9 -->
+  <div class="lesson-example">
+    <h4>Soal 9</h4>
+
+    <p>
+      Bilangan kompleks \(z\) memenuhi \(|z-2|=|z+2i|\) dan
+      \(\operatorname{Re}(z)=3\). Nilai \(\operatorname{Im}(z)\) adalah ....
+    </p>
+
+    <ol type="A">
+      <li>\(3\)</li>
+      <li>\(1\)</li>
+      <li>\(0\)</li>
+      <li>\(-3\)</li>
+      <li>\(-1\)</li>
+    </ol>
+  </div>
+
+  <h3>C. Tingkat Kesulitan Olimpiade</h3>
+
+  <!-- Soal 10 -->
+  <div class="lesson-example">
+    <h4>Soal 10</h4>
+
+    <p>Tentukan bagian imajiner dari \((1+i)^{2026}\).</p>
+  </div>
+
+  <!-- Soal 11 -->
+  <div class="lesson-example">
+    <h4>Soal 11</h4>
+
+    <p>
+      Bilangan kompleks \(z\) memenuhi \(z+\displaystyle\frac1z=1\). Tentukan
+      nilai \(z^{2026}+\displaystyle\frac1{z^{2026}}\).
+    </p>
+  </div>
+</section>
+
+<section
+  id="pembahasan-latihan-kompleks"
+  data-title="Pembahasan Latihan Mandiri"
+>
+  <h2>8. Pembahasan Latihan Mandiri</h2>
+
+  <p>
+    Bagian ini membahas seluruh soal pada latihan mandiri. Soal nomor 1–5
+    berfokus pada konsep dan prosedur dasar, soal nomor 6–9 menekankan penalaran
+    dan pemilihan strategi seperti pada soal UTBK, dan soal nomor 10–11 menguji
+    kreativitas seperti pada soal olimpiade. Soal-soal berikut merupakan latihan
+    bergaya UTBK dan olimpiade, bukan soal resmi.
+  </p>
+
+  <h3>A. Pembahasan Tingkat Kesulitan Sekolah</h3>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 1</h4>
+    <p>Samakan bagian real dan bagian imajiner pada kedua ruas:</p>
+    <div class="math-display">
+      \[ x+2=5\Rightarrow x=3,\qquad 3y-1=8\Rightarrow y=3 \]
+    </div>
+    <p>Sehingga \(x+y=3+3=6\).</p>
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 2</h4>
+    <div class="math-display">\[ (2+3i)(1-2i)=2-4i+3i-6i^2=2-i+6=8-i \]</div>
+    <p>
+      Pilihan A muncul jika suku \(-i\) keliru ditulis \(+i\); ingat bahwa
+      \(-6i^2=+6\) karena \(i^2=-1\).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 3</h4>
+    <p>Kalikan dengan konjugat penyebut, yaitu \(1+i\):</p>
+    <div class="math-display">
+      \[ \frac{3+i}{1-i}\cdot\frac{1+i}{1+i}=\frac{3+3i+i+i^2}{1+1}
+      =\frac{2+4i}{2}=1+2i \]
+    </div>
+    <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 4</h4>
+    <p>Tentukan sisa pembagian pangkat oleh 4:</p>
+    <div class="math-display">
+      \[ i^{2025}=i^1=i,\qquad i^{2026}=i^2=-1,\qquad i^{2027}=i^3=-i \]
+    </div>
+    <p>Maka \(i+(-1)+(-i)=-1\).</p>
+    <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 5</h4>
+    <p>
+      Titik \((-1,-1)\) berada di kuadran III dengan sudut acuan
+      \(\alpha=\arctan1=\displaystyle\frac{\pi}{4}\). Argumen utama:
+    </p>
+    <div class="math-display">
+      \[ \arg(z)=\alpha-\pi=\frac{\pi}{4}-\pi=-\frac{3\pi}{4} \]
+    </div>
+    <p>
+      Pilihan E, \(\displaystyle\frac{5\pi}{4}\), sama dengan
+      \(-\displaystyle\frac{3\pi}{4}\) setelah ditambah \(2\pi\), tetapi tidak
+      berada pada rentang argumen utama \(-\pi<\theta\le\pi\).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <h3>B. Pembahasan Tingkat Kesulitan UTBK</h3>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 6</h4>
+    <p>Hitung \(\displaystyle\frac5z\) dengan mengalikan konjugat penyebut:</p>
+    <div class="math-display">
+      \[ \frac5{1+2i}=\frac{5(1-2i)}{1^2+2^2}=1-2i \]
+    </div>
+    <p>Sehingga \(z+\displaystyle\frac5z=(1+2i)+(1-2i)=2\).</p>
+    <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 7</h4>
+    <p>Uraikan \(z^2=(x^2-y^2)+2xyi\) lalu samakan dengan \(5-12i\):</p>
+    <div class="math-display">
+      \[ x^2-y^2=5,\qquad 2xy=-12\Rightarrow y=-\frac6x \]
+    </div>
+    <p>Substitusi \(y\):</p>
+    <div class="math-display">
+      \[ x^2-\frac{36}{x^2}=5\Rightarrow x^4-5x^2-36=0 \Rightarrow
+      (x^2-9)(x^2+4)=0 \]
+    </div>
+    <p>
+      Karena \(x\) real, \(x^2=9\); dengan \(x>0\) diperoleh \(x=3\) dan
+      \(y=-2\). Maka \(x+y=1\).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 8</h4>
+    <p>
+      Diskriminan \(16-52<0\), jadi akarnya kompleks. Gunakan jumlah dan hasil
+      kali akar: \(z_1+z_2=4\) dan \(z_1z_2=13\).
+    </p>
+    <div class="math-display">
+      \[ \frac{z_1}{z_2}+\frac{z_2}{z_1}=\frac{z_1^2+z_2^2}{z_1z_2}
+      =\frac{(z_1+z_2)^2-2z_1z_2}{z_1z_2}=\frac{16-26}{13}=-\frac{10}{13} \]
+    </div>
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 9</h4>
+    <p>Misalkan \(z=x+yi\). Kuadratkan kedua ruas kesamaan modulus:</p>
+    <div class="math-display">
+      \[ (x-2)^2+y^2=x^2+(y+2)^2\Rightarrow -4x+4=4y+4\Rightarrow y=-x \]
+    </div>
+    <p>
+      Secara geometri, \(z\) berada pada garis berat antara titik \(2\) dan
+      \(-2i\), yaitu garis \(y=-x\). Untuk \(x=3\) diperoleh \(y=-3\).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+  </div>
+
+  <h3>C. Pembahasan Tingkat Kesulitan Olimpiade</h3>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 10</h4>
+    <p>Hitung kuadratnya terlebih dahulu:</p>
+    <div class="math-display">\[ (1+i)^2=1+2i+i^2=2i \]</div>
+    <p>Sehingga:</p>
+    <div class="math-display">
+      \[ (1+i)^{2026}=\left((1+i)^2\right)^{1013}=(2i)^{1013}=2^{1013}i^{1013}
+      \]
+    </div>
+    <p>
+      Karena \(1013=4\cdot253+1\), maka \(i^{1013}=i\). Jadi
+      \((1+i)^{2026}=2^{1013}i\), dan bagian imajinernya adalah \(2^{1013}\).
+    </p>
+    <p>Jadi, jawabannya adalah <strong>\(2^{1013}\)</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 11</h4>
+    <p>Kalikan kedua ruas dengan \(z\) dan peroleh \(z^2-z+1=0\). Karena</p>
+    <div class="math-display">\[ z^3+1=(z+1)(z^2-z+1)=0, \]</div>
+    <p>
+      maka \(z^3=-1\) dan \(z^6=1\). Karena \(2026=6\cdot337+4\), maka
+      \(z^{2026}=z^4=z\cdot z^3=-z\).
+    </p>
+    <div class="math-display">
+      \[ z^{2026}+\frac1{z^{2026}}=-z-\frac1z=-\left(z+\frac1z\right)=-1 \]
+    </div>
+    <p>Jadi, jawabannya adalah <strong>\(-1\)</strong>.</p>
+  </div>
+
+  <h3>Ringkasan Kunci dan Konsep yang Diuji</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table answer-key-table">
+      <thead>
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">Kunci</th>
+          <th scope="col">Konsep Utama</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>C</td>
+          <td>Kesamaan dua bilangan kompleks</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>D</td>
+          <td>Perkalian bilangan kompleks</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>E</td>
+          <td>Pembagian dengan konjugat penyebut</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>A</td>
+          <td>Pangkat dari \(i\)</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>B</td>
+          <td>Argumen utama dan kuadran</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>E</td>
+          <td>Invers perkalian dan konjugat</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>A</td>
+          <td>Akar kuadrat bilangan kompleks</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>C</td>
+          <td>Akar kompleks dan hubungan jumlah-hasil kali</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>D</td>
+          <td>Modulus sebagai jarak pada bidang kompleks</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>\(2^{1013}\)</td>
+          <td>Pangkat bilangan kompleks dan siklus \(i^n\)</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>\(-1\)</td>
+          <td>Akar satuan dan periodisitas pangkat</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
