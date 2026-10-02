@@ -18,6 +18,8 @@ import fungsiPemodelanHtml from "./fungsi.html?raw";
 import transformasiFungsiHtml from "./transformasi-fungsi.html?raw";
 import trigonometriHtml from "./trigonometri.html?raw";
 import irisanKerucutHtml from "./irisan-kerucut.html?raw";
+import integralHtml from "./integral.html?raw";
+import teoriBilanganHtml from "./teori-bilangan.html?raw";
 
 export interface Material {
   id: string;
@@ -57,6 +59,8 @@ export interface Material {
  * 18. Teori Peluang (Kelas XII)
  * 19. Transformasi Fungsi (Kelas XII)
  * 20. Irisan Kerucut (Kelas XII)
+ * 21. Integral (Kelas XII)
+ * 22. Teori Bilangan (Materi Khusus Olimpiade)
  */
 export const materials: Material[] = [
   {
@@ -344,6 +348,34 @@ export const materials: Material[] = [
     description:
       "Pelajari lingkaran, garis singgung, elips, parabola, dan hiperbola melalui persamaan serta sifat geometri analitiknya.",
     htmlContent: irisanKerucutHtml,
+  },
+  {
+    id: "integrals",
+    slug: "integral",
+    number: "21",
+    category: "Kalkulus",
+    title: "Integral",
+    grade: "Kelas XII",
+    phase: "Fase F Tingkat Lanjut (Kelas XII)",
+    prerequisite: "Turunan dan Fungsi",
+    formula: "\\int f(x)\\,dx=F(x)+C",
+    description:
+      "Pelajari integral tak tentu dan tentu, substitusi, integral parsial, luas daerah, volume benda putar, serta penerapan integral pada gerak.",
+    htmlContent: integralHtml,
+  },
+  {
+    id: "number-theory",
+    slug: "teori-bilangan",
+    number: "22",
+    category: "Olimpiade Matematika",
+    title: "Teori Bilangan",
+    grade: "Khusus Olimpiade",
+    phase: "Pengayaan Olimpiade Matematika",
+    prerequisite: "Bilangan Bulat dan Operasi Aritmetika",
+    formula: "a\\equiv b\\pmod m",
+    description:
+      "Materi olimpiade tentang keterbagian, FPB dan KPK, aritmetika modulo, teorema utama teori bilangan, serta persamaan Diophantine.",
+    htmlContent: teoriBilanganHtml,
   },
 ];
 

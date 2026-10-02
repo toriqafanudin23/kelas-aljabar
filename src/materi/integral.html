@@ -1,0 +1,2063 @@
+<section id="pengertian-integral" data-title="Pengertian Integral">
+  <h2>1. Pengertian Integral</h2>
+
+  <p>
+    Integral adalah kebalikan dari turunan. Jika turunan mencari laju perubahan
+    dari suatu fungsi, integral mencari fungsi asal dari laju perubahannya.
+    Secara geometri, integral tentu menyatakan luas daerah di bawah kurva.
+  </p>
+
+  <h3>Antiturunan dan Integral Tak Tentu</h3>
+
+  <p>
+    Fungsi \(F\) disebut <strong>antiturunan</strong> dari \(f\) jika
+    \(F'(x)=f(x)\). Karena turunan konstanta adalah nol, antiturunan suatu
+    fungsi tidak tunggal. Seluruh antiturunannya ditulis sebagai integral tak
+    tentu:
+  </p>
+
+  <div class="math-display">\[ \int f(x)\,dx=F(x)+C \]</div>
+
+  <p>
+    dengan \(C\) konstanta integrasi, \(f(x)\) disebut integran, dan \(dx\)
+    menunjukkan variabel integrasinya.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>Diketahui \(f'(x)=6x^2-4x+1\) dan \(f(1)=5\). Tentukan \(f(x)\).</p>
+    <div class="math-display">\[ f(x)=\int(6x^2-4x+1)\,dx=2x^3-2x^2+x+C \]</div>
+    <p>Syarat \(f(1)=5\) menentukan nilai \(C\):</p>
+    <div class="math-display">
+      \[ 2-2+1+C=5\Rightarrow C=4 \quad\Rightarrow\quad f(x)=2x^3-2x^2+x+4 \]
+    </div>
+  </div>
+</section>
+
+<section id="integral-tak-tentu" data-title="Aturan Dasar Integral Tak Tentu">
+  <h2>2. Aturan Dasar Integral Tak Tentu</h2>
+
+  <div class="math-display">
+    \[ \begin{aligned} \int k\,dx&=kx+C\\ \int x^n\,dx&=\frac{x^{n+1}}{n+1}+C,
+    \quad n\neq-1\\ \int k\,f(x)\,dx&=k\int f(x)\,dx\\ \int\big[f(x)\pm
+    g(x)\big]dx&=\int f(x)\,dx\pm\int g(x)\,dx \end{aligned} \]
+  </div>
+
+  <p>Rumus dasar fungsi trigonometri, eksponen, dan logaritma:</p>
+
+  <div class="math-display">
+    \[ \begin{aligned} \int\frac{1}{x}\,dx&=\ln|x|+C, & \int e^x\,dx&=e^x+C, &
+    \int a^x\,dx&=\frac{a^x}{\ln a}+C\\ \int\sin x\,dx&=-\cos x+C, & \int\cos
+    x\,dx&=\sin x+C, & \int\sec^2 x\,dx&=\tan x+C \end{aligned} \]
+  </div>
+
+  <h3>Integral Fungsi Linear</h3>
+
+  <p>Jika \(\int f(x)\,dx=F(x)+C\), maka untuk \(a\neq0\):</p>
+
+  <div class="math-display">\[ \int f(ax+b)\,dx=\frac{1}{a}F(ax+b)+C \]</div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>
+      Tentukan \(\displaystyle\int\left(6x^2-\frac{4}{x^3}+3\sqrt{x}\right)dx\).
+    </p>
+    <p>Ubah ke bentuk pangkat, lalu integralkan setiap suku:</p>
+    <div class="math-display">
+      \[ \begin{aligned} \int\left(6x^2-4x^{-3}+3x^{1/2}\right)dx
+      &=2x^3-4\cdot\frac{x^{-2}}{-2}+3\cdot\frac{x^{3/2}}{3/2}+C\\
+      &=2x^3+\frac{2}{x^2}+2x\sqrt{x}+C \end{aligned} \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>
+      Tentukan \(\displaystyle\int(2x+1)^5dx\) dan \(\displaystyle\int\cos
+      3x\,dx\).
+    </p>
+    <div class="math-display">
+      \[
+      \int(2x+1)^5dx=\frac{1}{2}\cdot\frac{(2x+1)^6}{6}+C=\frac{(2x+1)^6}{12}+C,
+      \qquad \int\cos 3x\,dx=\frac{1}{3}\sin 3x+C \]
+    </div>
+  </div>
+</section>
+
+<section
+  id="integral-tentu"
+  data-title="Integral Tentu dan Teorema Dasar Kalkulus"
+>
+  <h2>3. Integral Tentu dan Teorema Dasar Kalkulus</h2>
+
+  <p>
+    Luas daerah di bawah kurva \(y=f(x)\) pada interval \([a,b]\) dapat didekati
+    dengan jumlah luas banyak persegi panjang tipis. Limit jumlah tersebut
+    ketika lebar persegi panjang menuju nol disebut integral tentu.
+  </p>
+
+  <h3>Teorema Dasar Kalkulus</h3>
+
+  <p>Jika \(F\) antiturunan dari \(f\) pada \([a,b]\), maka:</p>
+
+  <div class="math-display">
+    \[ \int_a^b f(x)\,dx=\Big[F(x)\Big]_a^b=F(b)-F(a) \]
+  </div>
+
+  <figure class="lesson-figure" style="margin: 1.5rem 0">
+    <svg
+      viewBox="0 0 420 290"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-labelledby="in1t in1d"
+      style="
+        width: 100%;
+        max-width: 420px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        font-family: inherit;
+      "
+    >
+      <title id="in1t">
+        Luas daerah di bawah y = x kuadrat dari 0 sampai 2
+      </title>
+      <desc id="in1d">
+        Grafik y = x kuadrat. Daerah di bawah kurva dari x = 0 sampai x = 2
+        diarsir dan luasnya 8 per 3 satuan luas.
+      </desc>
+      <defs>
+        <marker
+          id="in1a"
+          viewBox="0 0 10 10"
+          refX="9"
+          refY="5"
+          markerWidth="7"
+          markerHeight="7"
+          orient="auto"
+        >
+          <path d="M0 0L10 5L0 10z" fill="currentColor" fill-opacity=".7" />
+        </marker>
+      </defs>
+      <line
+        x1="50"
+        y1="250"
+        x2="360"
+        y2="250"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-opacity=".7"
+        marker-end="url(#in1a)"
+      />
+      <line
+        x1="60"
+        y1="265"
+        x2="60"
+        y2="25"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-opacity=".7"
+        marker-end="url(#in1a)"
+      />
+      <polygon
+        points="60,250 60.0,250.0 65.0,249.9 70.0,249.7 75.0,249.3 80.0,248.8 85.0,248.1 90.0,247.3 95.0,246.3 100.0,245.2 105.0,243.9 110.0,242.5 115.0,240.9 120.0,239.2 125.0,237.3 130.0,235.3 135.0,233.1 140.0,230.8 145.0,228.3 150.0,225.7 155.0,222.9 160.0,220.0 165.0,216.9 170.0,213.7 175.0,210.3 180.0,206.8 185.0,203.1 190.0,199.3 195.0,195.3 200.0,191.2 205.0,186.9 210.0,182.5 215.0,177.9 220.0,173.2 225.0,168.3 230.0,163.3 235.0,158.1 240.0,152.8 245.0,147.3 250.0,141.7 255.0,135.9 260.0,130.0 260,250"
+        fill="#3b82f6"
+        fill-opacity=".28"
+        stroke="none"
+      />
+      <polyline
+        points="60.0,250.0 65.0,249.9 70.0,249.7 75.0,249.3 80.0,248.8 85.0,248.1 90.0,247.3 95.0,246.3 100.0,245.2 105.0,243.9 110.0,242.5 115.0,240.9 120.0,239.2 125.0,237.3 130.0,235.3 135.0,233.1 140.0,230.8 145.0,228.3 150.0,225.7 155.0,222.9 160.0,220.0 165.0,216.9 170.0,213.7 175.0,210.3 180.0,206.8 185.0,203.1 190.0,199.3 195.0,195.3 200.0,191.2 205.0,186.9 210.0,182.5 215.0,177.9 220.0,173.2 225.0,168.3 230.0,163.3 235.0,158.1 240.0,152.8 245.0,147.3 250.0,141.7 255.0,135.9 260.0,130.0 265.0,123.9 270.0,117.7 275.0,111.3 280.0,104.8 285.0,98.1 290.0,91.3 295.0,84.3 300.0,77.2 305.0,69.9 310.0,62.5"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.6"
+        stroke-linecap="round"
+      />
+      <line
+        x1="260"
+        y1="250"
+        x2="260"
+        y2="130"
+        stroke="#3b82f6"
+        stroke-width="2"
+      />
+      <circle cx="260" cy="130" r="4.5" fill="#f97316" />
+      <text
+        x="160"
+        y="268"
+        font-size="12"
+        text-anchor="middle"
+        fill="currentColor"
+        font-weight="400"
+      >
+        1
+      </text>
+      <text
+        x="260"
+        y="268"
+        font-size="12"
+        text-anchor="middle"
+        fill="currentColor"
+        font-weight="400"
+      >
+        2
+      </text>
+      <text
+        x="372"
+        y="254"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        font-weight="400"
+        font-style="italic"
+      >
+        x
+      </text>
+      <text
+        x="68"
+        y="32"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        font-weight="400"
+        font-style="italic"
+      >
+        y
+      </text>
+      <text
+        x="270"
+        y="124"
+        font-size="12"
+        text-anchor="start"
+        fill="#f97316"
+        font-weight="700"
+      >
+        (2, 4)
+      </text>
+      <text
+        x="165"
+        y="228"
+        font-size="14"
+        text-anchor="middle"
+        fill="#3b82f6"
+        font-weight="700"
+      >
+        L = 8/3
+      </text>
+      <text
+        x="255"
+        y="78"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        font-weight="700"
+      >
+        y = x²
+      </text>
+    </svg>
+    <figcaption
+      style="
+        text-align: center;
+        font-size: 0.9em;
+        opacity: 0.85;
+        margin-top: 0.6rem;
+      "
+    >
+      Gambar 1. Daerah di bawah y = x² dari x = 0 sampai x = 2. Luasnya sama
+      dengan integral tentu, yaitu 8/3 satuan luas.
+    </figcaption>
+  </figure>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>
+      Hitung luas daerah pada Gambar 1, yaitu \(\displaystyle\int_0^2x^2dx\).
+    </p>
+    <div class="math-display">
+      \[ \int_0^2x^2dx=\left[\frac{x^3}{3}\right]_0^2=\frac{8}{3}-0=\frac{8}{3}
+      \]
+    </div>
+  </div>
+
+  <h3>Sifat Integral Tentu</h3>
+
+  <div class="math-display">
+    \[ \begin{aligned} &\int_a^a f\,dx=0, \qquad \int_b^a f\,dx=-\int_a^b f\,dx,
+    \qquad \int_a^b kf\,dx=k\int_a^b f\,dx\\ &\int_a^b f\,dx+\int_b^c
+    f\,dx=\int_a^c f\,dx, \qquad \int_a^b(f\pm g)\,dx=\int_a^b f\,dx\pm\int_a^b
+    g\,dx \end{aligned} \]
+  </div>
+
+  <p>Sifat kesimetrian untuk interval \([-a,a]\):</p>
+
+  <div class="math-display">
+    \[ f\text{ genap}\Rightarrow\int_{-a}^{a}f\,dx=2\int_0^{a}f\,dx, \qquad
+    f\text{ ganjil}\Rightarrow\int_{-a}^{a}f\,dx=0 \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>Hitung \(\displaystyle\int_1^4\left(2x+\frac{1}{\sqrt{x}}\right)dx\).</p>
+    <div class="math-display">
+      \[
+      \int_1^4\left(2x+x^{-1/2}\right)dx=\Big[x^2+2\sqrt{x}\Big]_1^4=(16+4)-(1+2)=17
+      \]
+    </div>
+  </div>
+
+  <p>
+    Perlu diingat bahwa integral tentu bernilai negatif jika grafik berada di
+    bawah sumbu \(x\). Luas daerah selalu bernilai positif.
+  </p>
+</section>
+
+<section id="integral-substitusi" data-title="Integral dengan Substitusi">
+  <h2>4. Integral dengan Substitusi</h2>
+
+  <p>
+    Metode substitusi adalah kebalikan dari aturan rantai. Gunakan jika integran
+    memuat suatu fungsi dan turunannya (sampai selisih konstanta). Pilih
+    \(u=g(x)\), sehingga \(du=g'(x)\,dx\):
+  </p>
+
+  <div class="math-display">
+    \[ \int f\big(g(x)\big)\,g'(x)\,dx=\int f(u)\,du \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>Tentukan \(\displaystyle\int x\sqrt{x^2+4}\,dx\).</p>
+    <p>
+      Misalkan \(u=x^2+4\), sehingga \(du=2x\,dx\) atau \(x\,dx=\frac{1}{2}du\):
+    </p>
+    <div class="math-display">
+      \[ \int\sqrt{u}\cdot\frac{1}{2}du=\frac{1}{2}\cdot\frac{u^{3/2}}{3/2}+C
+      =\frac{1}{3}(x^2+4)^{3/2}+C \]
+    </div>
+  </div>
+
+  <h3>Substitusi pada Integral Tentu</h3>
+
+  <p>
+    Pada integral tentu, batas integrasi ikut diubah ke variabel \(u\), sehingga
+    tidak perlu kembali ke variabel \(x\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>Hitung \(\displaystyle\int_0^1xe^{x^2}dx\).</p>
+    <p>
+      Misalkan \(u=x^2\), \(x\,dx=\frac{1}{2}du\). Untuk \(x=0\) diperoleh
+      \(u=0\), dan untuk \(x=1\) diperoleh \(u=1\):
+    </p>
+    <div class="math-display">
+      \[
+      \int_0^1xe^{x^2}dx=\frac{1}{2}\int_0^1e^u\,du=\frac{1}{2}\Big[e^u\Big]_0^1=\frac{e-1}{2}
+      \]
+    </div>
+  </div>
+</section>
+
+<section id="integral-parsial" data-title="Integral Parsial">
+  <h2>5. Integral Parsial</h2>
+
+  <p>
+    Metode parsial adalah kebalikan dari aturan hasil kali turunan. Gunakan
+    untuk integral hasil kali dua jenis fungsi yang berbeda:
+  </p>
+
+  <div class="math-display">
+    \[ \int u\,dv=uv-\int v\,du, \qquad \int_a^b u\,dv=\Big[uv\Big]_a^b-\int_a^b
+    v\,du \]
+  </div>
+
+  <p>
+    Pemilihan \(u\) mengikuti urutan <strong>LIATE</strong>: Logaritma, Invers
+    trigonometri, Aljabar, Trigonometri, Eksponen. Fungsi yang lebih awal pada
+    urutan dipilih sebagai \(u\), dan sisanya menjadi \(dv\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>Tentukan \(\displaystyle\int x\sin x\,dx\).</p>
+    <p>
+      Pilih \(u=x\) dan \(dv=\sin x\,dx\), sehingga \(du=dx\) dan \(v=-\cos x\):
+    </p>
+    <div class="math-display">
+      \[ \int x\sin x\,dx=-x\cos x+\int\cos x\,dx=-x\cos x+\sin x+C \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>Tentukan \(\displaystyle\int\ln x\,dx\).</p>
+    <p>
+      Pilih \(u=\ln x\) dan \(dv=dx\), sehingga \(du=\frac{1}{x}dx\) dan
+      \(v=x\):
+    </p>
+    <div class="math-display">
+      \[ \int\ln x\,dx=x\ln x-\int x\cdot\frac{1}{x}dx=x\ln x-x+C \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>Tentukan \(\displaystyle\int x^2e^x\,dx\) (parsial dua kali).</p>
+    <div class="math-display">
+      \[ \begin{aligned} \int x^2e^x\,dx&=x^2e^x-\int2xe^x\,dx\\
+      &=x^2e^x-2\left(xe^x-e^x\right)+C=e^x\left(x^2-2x+2\right)+C \end{aligned}
+      \]
+    </div>
+  </div>
+</section>
+
+<section id="integral-trigonometri" data-title="Integral Fungsi Trigonometri">
+  <h2>6. Integral Fungsi Trigonometri</h2>
+
+  <p>
+    Integral hasil kali atau pangkat fungsi trigonometri diselesaikan dengan
+    mengubah bentuknya terlebih dahulu memakai identitas berikut:
+  </p>
+
+  <div class="math-display">
+    \[ \begin{aligned} \sin^2x&=\frac{1-\cos2x}{2}, &
+    \cos^2x&=\frac{1+\cos2x}{2}, & \sin x\cos x&=\frac{1}{2}\sin2x\\ 2\sin A\cos
+    B&=\sin(A+B)+\sin(A-B), & 2\cos A\cos B&=\cos(A+B)+\cos(A-B) \end{aligned}
+    \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>
+      Tentukan \(\displaystyle\int\sin^2x\,dx\) dan
+      \(\displaystyle\int\sin3x\cos x\,dx\).
+    </p>
+    <div class="math-display">
+      \[ \int\sin^2x\,dx=\int\frac{1-\cos2x}{2}dx=\frac{x}{2}-\frac{\sin2x}{4}+C
+      \]
+    </div>
+    <div class="math-display">
+      \[ \int\sin3x\cos
+      x\,dx=\frac{1}{2}\int(\sin4x+\sin2x)\,dx=-\frac{\cos4x}{8}-\frac{\cos2x}{4}+C
+      \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>
+      Untuk pangkat ganjil, pisahkan satu faktor lalu gunakan
+      \(\cos^2x=1-\sin^2x\). Tentukan \(\displaystyle\int\cos^3x\,dx\).
+    </p>
+    <div class="math-display">
+      \[ \int\cos^3x\,dx=\int(1-\sin^2x)\cos x\,dx=\sin x-\frac{\sin^3x}{3}+C \]
+    </div>
+    <p>Substitusi yang dipakai adalah \(u=\sin x\) dengan \(du=\cos x\,dx\).</p>
+  </div>
+</section>
+
+<section id="luas-daerah" data-title="Luas Daerah">
+  <h2>7. Luas Daerah</h2>
+
+  <p>
+    Luas daerah yang dibatasi kurva \(y=f(x)\) di atas dan \(y=g(x)\) di bawah
+    pada interval \([a,b]\), dengan \(f(x)\ge g(x)\), adalah:
+  </p>
+
+  <div class="math-display">\[ L=\int_a^b\big[f(x)-g(x)\big]\,dx \]</div>
+
+  <p>Langkah penyelesaian:</p>
+
+  <ol>
+    <li>Gambar sketsa daerah dan tentukan titik potong kurva.</li>
+    <li>Tentukan kurva yang berada di atas dan yang berada di bawah.</li>
+    <li>Hitung integral selisih fungsi atas dan fungsi bawah.</li>
+  </ol>
+
+  <figure class="lesson-figure" style="margin: 1.5rem 0">
+    <svg
+      viewBox="0 0 460 300"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-labelledby="in2t in2d"
+      style="
+        width: 100%;
+        max-width: 460px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        font-family: inherit;
+      "
+    >
+      <title id="in2t">
+        Luas daerah di antara garis y = x + 2 dan parabola y = x kuadrat
+      </title>
+      <desc id="in2d">
+        Garis y = x + 2 berada di atas parabola y = x kuadrat pada interval x
+        dari -1 sampai 2. Daerah di antara keduanya diarsir dan luasnya 9 per 2.
+      </desc>
+      <defs>
+        <marker
+          id="in2a"
+          viewBox="0 0 10 10"
+          refX="9"
+          refY="5"
+          markerWidth="7"
+          markerHeight="7"
+          orient="auto"
+        >
+          <path d="M0 0L10 5L0 10z" fill="currentColor" fill-opacity=".7" />
+        </marker>
+      </defs>
+      <line
+        x1="70"
+        y1="262"
+        x2="410"
+        y2="262"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-opacity=".7"
+        marker-end="url(#in2a)"
+      />
+      <line
+        x1="200"
+        y1="276"
+        x2="200"
+        y2="20"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-opacity=".7"
+        marker-end="url(#in2a)"
+      />
+      <polygon
+        points="130.0,232.0 135.2,229.8 140.5,227.5 145.8,225.2 151.0,223.0 156.2,220.8 161.5,218.5 166.8,216.2 172.0,214.0 177.2,211.8 182.5,209.5 187.8,207.2 193.0,205.0 198.2,202.8 203.5,200.5 208.8,198.2 214.0,196.0 219.2,193.8 224.5,191.5 229.8,189.2 235.0,187.0 240.2,184.8 245.5,182.5 250.8,180.2 256.0,178.0 261.2,175.8 266.5,173.5 271.8,171.2 277.0,169.0 282.2,166.8 287.5,164.5 292.8,162.2 298.0,160.0 303.2,157.8 308.5,155.5 313.8,153.2 319.0,151.0 324.2,148.8 329.5,146.5 334.8,144.2 340.0,142.0 340.0,142.0 334.8,150.8 329.5,159.3 324.2,167.5 319.0,175.3 313.8,182.8 308.5,189.9 303.2,196.7 298.0,203.2 292.8,209.3 287.5,215.1 282.2,220.6 277.0,225.7 271.8,230.5 266.5,234.9 261.2,239.0 256.0,242.8 250.8,246.2 245.5,249.3 240.2,252.1 235.0,254.5 229.8,256.6 224.5,258.3 219.2,259.7 214.0,260.8 208.8,261.5 203.5,261.9 198.2,262.0 193.0,261.7 187.8,261.1 182.5,260.1 177.2,258.8 172.0,257.2 166.8,255.2 161.5,252.9 156.2,250.3 151.0,247.3 145.8,244.0 140.5,240.3 135.2,236.3 130.0,232.0"
+        fill="#10b981"
+        fill-opacity=".28"
+      />
+      <polyline
+        points="95.0,194.5 99.7,200.4 104.3,206.0 109.0,211.3 113.7,216.4 118.3,221.2 123.0,225.7 127.7,230.0 132.3,234.0 137.0,237.7 141.7,241.2 146.3,244.4 151.0,247.3 155.7,250.0 160.3,252.4 165.0,254.5 169.7,256.4 174.3,258.0 179.0,259.3 183.7,260.4 188.3,261.2 193.0,261.7 197.7,262.0 202.3,262.0 207.0,261.7 211.7,261.2 216.3,260.4 221.0,259.3 225.7,258.0 230.3,256.4 235.0,254.5 239.7,252.4 244.3,250.0 249.0,247.3 253.7,244.4 258.3,241.2 263.0,237.7 267.7,234.0 272.3,230.0 277.0,225.7 281.7,221.2 286.3,216.4 291.0,211.3 295.7,206.0 300.3,200.4 305.0,194.5 309.7,188.4 314.3,182.0 319.0,175.3 323.7,168.4 328.3,161.2 333.0,153.7 337.7,146.0 342.3,138.0 347.0,129.7 351.7,121.2 356.3,112.4 361.0,103.3 365.7,94.0 370.3,84.4 375.0,74.5"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.6"
+        stroke-linecap="round"
+      />
+      <line
+        x1="95.0"
+        y1="247.0"
+        x2="375.0"
+        y2="127.0"
+        stroke="#f97316"
+        stroke-width="2.6"
+        stroke-linecap="round"
+      />
+      <circle cx="130" cy="232" r="4.5" fill="#3b82f6" />
+      <text
+        x="122"
+        y="224"
+        font-size="12"
+        text-anchor="end"
+        fill="#3b82f6"
+        font-weight="700"
+      >
+        (-1, 1)
+      </text>
+      <circle cx="340" cy="142" r="4.5" fill="#3b82f6" />
+      <text
+        x="348"
+        y="134"
+        font-size="12"
+        text-anchor="start"
+        fill="#3b82f6"
+        font-weight="700"
+      >
+        (2, 4)
+      </text>
+      <text
+        x="379.0"
+        y="123.0"
+        font-size="13"
+        text-anchor="start"
+        fill="#f97316"
+        font-weight="700"
+      >
+        y = x + 2
+      </text>
+      <text
+        x="91.0"
+        y="188.5"
+        font-size="13"
+        text-anchor="end"
+        fill="currentColor"
+        font-weight="700"
+      >
+        y = x²
+      </text>
+      <text
+        x="235.0"
+        y="196.0"
+        font-size="14"
+        text-anchor="middle"
+        fill="#10b981"
+        font-weight="700"
+      >
+        L = 9/2
+      </text>
+      <text
+        x="130"
+        y="279"
+        font-size="12"
+        text-anchor="middle"
+        fill="currentColor"
+        font-weight="400"
+      >
+        -1
+      </text>
+      <text
+        x="340"
+        y="279"
+        font-size="12"
+        text-anchor="middle"
+        fill="currentColor"
+        font-weight="400"
+      >
+        2
+      </text>
+      <text
+        x="422"
+        y="266"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        font-weight="400"
+        font-style="italic"
+      >
+        x
+      </text>
+      <text
+        x="208"
+        y="28"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        font-weight="400"
+        font-style="italic"
+      >
+        y
+      </text>
+    </svg>
+    <figcaption
+      style="
+        text-align: center;
+        font-size: 0.9em;
+        opacity: 0.85;
+        margin-top: 0.6rem;
+      "
+    >
+      Gambar 2. Daerah di antara garis y = x + 2 dan parabola y = x². Kedua
+      kurva berpotongan di (−1, 1) dan (2, 4).
+    </figcaption>
+  </figure>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>Tentukan luas daerah pada Gambar 2.</p>
+    <p>
+      Titik potong: \(x^2=x+2\Rightarrow(x-2)(x+1)=0\), jadi \(x=-1\) dan
+      \(x=2\).
+    </p>
+    <div class="math-display">
+      \[
+      L=\int_{-1}^{2}(x+2-x^2)\,dx=\left[\frac{x^2}{2}+2x-\frac{x^3}{3}\right]_{-1}^{2}
+      =\frac{10}{3}-\left(-\frac{7}{6}\right)=\frac{9}{2} \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>
+      Tentukan luas daerah yang dibatasi \(y=x^2-4\) dan sumbu \(x\). Grafik
+      berada di bawah sumbu \(x\) pada \(-2\le x\le2\), sehingga luasnya adalah
+      negatif dari integralnya:
+    </p>
+    <div class="math-display">
+      \[
+      L=-\int_{-2}^{2}(x^2-4)\,dx=-\left[\frac{x^3}{3}-4x\right]_{-2}^{2}=\frac{32}{3}
+      \]
+    </div>
+  </div>
+</section>
+
+<section id="volume-benda-putar" data-title="Volume Benda Putar">
+  <h2>8. Volume Benda Putar</h2>
+
+  <p>
+    Daerah yang diputar \(360^\circ\) mengelilingi suatu sumbu membentuk benda
+    putar. Irisan tegak lurus sumbu putar berbentuk cakram, sehingga volumenya
+    diperoleh dengan menjumlahkan volume cakram tipis (metode cakram).
+  </p>
+
+  <div class="math-display">
+    \[ V_x=\pi\int_a^b\big[f(x)\big]^2dx, \qquad
+    V_x=\pi\int_a^b\Big(\big[f(x)\big]^2-\big[g(x)\big]^2\Big)dx \quad(f\ge g)
+    \]
+  </div>
+
+  <p>Untuk perputaran mengelilingi sumbu \(y\), tukar peran \(x\) dan \(y\):</p>
+
+  <div class="math-display">\[ V_y=\pi\int_c^d\big[x(y)\big]^2dy \]</div>
+
+  <figure class="lesson-figure" style="margin: 1.5rem 0">
+    <svg
+      viewBox="0 0 440 300"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-labelledby="in3t in3d"
+      style="
+        width: 100%;
+        max-width: 440px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        font-family: inherit;
+      "
+    >
+      <title id="in3t">
+        Benda putar dari daerah di bawah y = akar x diputar mengelilingi sumbu x
+      </title>
+      <desc id="in3d">
+        Daerah di bawah kurva y = akar x dari x = 0 sampai x = 4 diputar
+        mengelilingi sumbu x. Irisan berbentuk cakram berjari-jari akar x.
+        Volumenya 8 pi.
+      </desc>
+      <defs>
+        <marker
+          id="in3a"
+          viewBox="0 0 10 10"
+          refX="9"
+          refY="5"
+          markerWidth="7"
+          markerHeight="7"
+          orient="auto"
+        >
+          <path d="M0 0L10 5L0 10z" fill="currentColor" fill-opacity=".7" />
+        </marker>
+      </defs>
+      <line
+        x1="35"
+        y1="150"
+        x2="400"
+        y2="150"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-opacity=".7"
+        marker-end="url(#in3a)"
+      />
+      <line
+        x1="50"
+        y1="260"
+        x2="50"
+        y2="25"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-opacity=".7"
+        marker-end="url(#in3a)"
+      />
+      <polygon
+        points="50,150 50.0,150.0 54.7,137.1 59.3,131.7 64.0,127.6 68.7,124.2 73.3,121.1 78.0,118.4 82.7,115.8 87.3,113.5 92.0,111.3 96.7,109.2 101.3,107.2 106.0,105.3 110.7,103.5 115.3,101.7 120.0,100.0 124.7,98.4 129.3,96.8 134.0,95.2 138.7,93.7 143.3,92.3 148.0,90.8 152.7,89.4 157.3,88.1 162.0,86.8 166.7,85.5 171.3,84.2 176.0,82.9 180.7,81.7 185.3,80.5 190.0,79.3 194.7,78.1 199.3,77.0 204.0,75.8 208.7,74.7 213.3,73.6 218.0,72.5 222.7,71.5 227.3,70.4 232.0,69.4 236.7,68.4 241.3,67.3 246.0,66.3 250.7,65.3 255.3,64.4 260.0,63.4 264.7,62.4 269.3,61.5 274.0,60.6 278.7,59.6 283.3,58.7 288.0,57.8 292.7,56.9 297.3,56.0 302.0,55.1 306.7,54.3 311.3,53.4 316.0,52.5 320.7,51.7 325.3,50.8 330.0,50.0 330,150"
+        fill="#3b82f6"
+        fill-opacity=".3"
+      />
+      <polyline
+        points="50.0,150.0 54.7,162.9 59.3,168.3 64.0,172.4 68.7,175.8 73.3,178.9 78.0,181.6 82.7,184.2 87.3,186.5 92.0,188.7 96.7,190.8 101.3,192.8 106.0,194.7 110.7,196.5 115.3,198.3 120.0,200.0 124.7,201.6 129.3,203.2 134.0,204.8 138.7,206.3 143.3,207.7 148.0,209.2 152.7,210.6 157.3,211.9 162.0,213.2 166.7,214.5 171.3,215.8 176.0,217.1 180.7,218.3 185.3,219.5 190.0,220.7 194.7,221.9 199.3,223.0 204.0,224.2 208.7,225.3 213.3,226.4 218.0,227.5 222.7,228.5 227.3,229.6 232.0,230.6 236.7,231.6 241.3,232.7 246.0,233.7 250.7,234.7 255.3,235.6 260.0,236.6 264.7,237.6 269.3,238.5 274.0,239.4 278.7,240.4 283.3,241.3 288.0,242.2 292.7,243.1 297.3,244.0 302.0,244.9 306.7,245.7 311.3,246.6 316.0,247.5 320.7,248.3 325.3,249.2 330.0,250.0"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-dasharray="6 5"
+        stroke-opacity=".6"
+      />
+      <polyline
+        points="50.0,150.0 54.7,137.1 59.3,131.7 64.0,127.6 68.7,124.2 73.3,121.1 78.0,118.4 82.7,115.8 87.3,113.5 92.0,111.3 96.7,109.2 101.3,107.2 106.0,105.3 110.7,103.5 115.3,101.7 120.0,100.0 124.7,98.4 129.3,96.8 134.0,95.2 138.7,93.7 143.3,92.3 148.0,90.8 152.7,89.4 157.3,88.1 162.0,86.8 166.7,85.5 171.3,84.2 176.0,82.9 180.7,81.7 185.3,80.5 190.0,79.3 194.7,78.1 199.3,77.0 204.0,75.8 208.7,74.7 213.3,73.6 218.0,72.5 222.7,71.5 227.3,70.4 232.0,69.4 236.7,68.4 241.3,67.3 246.0,66.3 250.7,65.3 255.3,64.4 260.0,63.4 264.7,62.4 269.3,61.5 274.0,60.6 278.7,59.6 283.3,58.7 288.0,57.8 292.7,56.9 297.3,56.0 302.0,55.1 306.7,54.3 311.3,53.4 316.0,52.5 320.7,51.7 325.3,50.8 330.0,50.0"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.6"
+        stroke-linecap="round"
+      />
+      <ellipse
+        cx="330"
+        cy="150"
+        rx="14"
+        ry="100"
+        fill="#3b82f6"
+        fill-opacity=".18"
+        stroke="#3b82f6"
+        stroke-width="2"
+      />
+      <ellipse
+        cx="207.5"
+        cy="150"
+        rx="10"
+        ry="75.0"
+        fill="#f97316"
+        fill-opacity=".3"
+        stroke="#f97316"
+        stroke-width="2"
+      />
+      <line
+        x1="207.5"
+        y1="150"
+        x2="207.5"
+        y2="75.0"
+        stroke="#f97316"
+        stroke-width="2"
+      />
+      <text
+        x="221.5"
+        y="116.5"
+        font-size="13"
+        text-anchor="start"
+        fill="#f97316"
+        font-weight="700"
+      >
+        r = √x
+      </text>
+      <text
+        x="352"
+        y="54"
+        font-size="12"
+        text-anchor="start"
+        fill="#3b82f6"
+        font-weight="700"
+      >
+        x = 4
+      </text>
+      <text
+        x="330"
+        y="274"
+        font-size="14"
+        text-anchor="middle"
+        fill="#3b82f6"
+        font-weight="700"
+      >
+        V = 8π
+      </text>
+      <text
+        x="422"
+        y="154"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        font-weight="400"
+        font-style="italic"
+      >
+        x
+      </text>
+      <text
+        x="58"
+        y="32"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        font-weight="400"
+        font-style="italic"
+      >
+        y
+      </text>
+      <text
+        x="70"
+        y="90.0"
+        font-size="13"
+        text-anchor="start"
+        fill="currentColor"
+        font-weight="700"
+      >
+        y = √x
+      </text>
+    </svg>
+    <figcaption
+      style="
+        text-align: center;
+        font-size: 0.9em;
+        opacity: 0.85;
+        margin-top: 0.6rem;
+      "
+    >
+      Gambar 3. Daerah di bawah y = √x pada 0 ≤ x ≤ 4 diputar mengelilingi sumbu
+      x. Setiap irisan berupa cakram berjari-jari √x.
+    </figcaption>
+  </figure>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>Tentukan volume benda putar pada Gambar 3.</p>
+    <div class="math-display">
+      \[
+      V=\pi\int_0^4\big(\sqrt{x}\big)^2dx=\pi\int_0^4x\,dx=\pi\left[\frac{x^2}{2}\right]_0^4=8\pi
+      \]
+    </div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>
+      Daerah antara \(y=x\) dan \(y=x^2\) diputar mengelilingi sumbu \(x\).
+      Titik potongnya \(x=0\) dan \(x=1\), dengan \(y=x\) berada di atas.
+    </p>
+    <div class="math-display">
+      \[
+      V=\pi\int_0^1\left(x^2-x^4\right)dx=\pi\left[\frac{x^3}{3}-\frac{x^5}{5}\right]_0^1=\frac{2\pi}{15}
+      \]
+    </div>
+  </div>
+</section>
+
+<section id="integral-gerak" data-title="Aplikasi Integral pada Gerak">
+  <h2>9. Aplikasi Integral pada Gerak Lurus</h2>
+
+  <p>
+    Karena \(v=s'\) dan \(a=v'\), maka kecepatan dan posisi diperoleh dengan
+    mengintegralkan. Konstanta integrasi ditentukan dari kondisi awal.
+  </p>
+
+  <div class="math-display">
+    \[ v(t)=\int a(t)\,dt, \qquad s(t)=\int v(t)\,dt, \qquad
+    \text{perpindahan}=\int_{t_1}^{t_2}v(t)\,dt, \qquad
+    \text{jarak}=\int_{t_1}^{t_2}|v(t)|\,dt \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>
+      Percepatan suatu partikel adalah \(a(t)=6t-2\) dengan \(v(0)=4\) dan
+      \(s(0)=1\). Tentukan posisi partikel saat \(t=2\).
+    </p>
+    <div class="math-display">
+      \[ v(t)=3t^2-2t+4, \qquad s(t)=t^3-t^2+4t+1 \quad\Rightarrow\quad
+      s(2)=8-4+8+1=13 \]
+    </div>
+  </div>
+</section>
+
+<section id="rangkuman-integral" data-title="Rangkuman Integral">
+  <h2>10. Rangkuman Rumus Integral</h2>
+
+  <h3>Integral Tak Tentu</h3>
+  <div class="math-display">
+    \[ \int x^n\,dx=\frac{x^{n+1}}{n+1}+C\ (n\neq-1), \qquad
+    \int\frac{1}{x}dx=\ln|x|+C, \qquad \int e^x\,dx=e^x+C \]
+  </div>
+  <div class="math-display">
+    \[ \int\sin x\,dx=-\cos x+C, \qquad \int\cos x\,dx=\sin x+C, \qquad \int
+    f(ax+b)\,dx=\frac{1}{a}F(ax+b)+C \]
+  </div>
+
+  <h3>Integral Tentu</h3>
+  <div class="math-display">
+    \[ \int_a^b f\,dx=F(b)-F(a), \qquad f\text{
+    ganjil}\Rightarrow\int_{-a}^{a}f\,dx=0, \qquad f\text{
+    genap}\Rightarrow\int_{-a}^{a}f\,dx=2\int_0^{a}f\,dx \]
+  </div>
+
+  <h3>Teknik Integrasi</h3>
+  <div class="math-display">
+    \[ \text{Substitusi: }\int f(g)\,g'\,dx=\int f(u)\,du, \qquad \text{Parsial:
+    }\int u\,dv=uv-\int v\,du \]
+  </div>
+
+  <h3>Aplikasi</h3>
+  <div class="math-display">
+    \[ L=\int_a^b(f-g)\,dx, \qquad V_x=\pi\int_a^b(f^2-g^2)\,dx, \qquad
+    s(t)=\int v\,dt, \quad v(t)=\int a\,dt \]
+  </div>
+
+  <h3>Kesalahan yang Sering Terjadi</h3>
+
+  <ol>
+    <li>Lupa menuliskan konstanta \(+C\) pada integral tak tentu.</li>
+    <li>
+      Memakai aturan pangkat untuk \(n=-1\). Hasil yang benar adalah \(\ln|x|\),
+      bukan \(\displaystyle\frac{x^0}{0}\).
+    </li>
+    <li>
+      Lupa faktor \(\displaystyle\frac{1}{a}\) pada integral \(f(ax+b)\),
+      misalnya menulis \(\int\cos3x\,dx=\sin3x\).
+    </li>
+    <li>
+      Pada substitusi integral tentu, lupa mengubah batas integrasi ke variabel
+      \(u\).
+    </li>
+    <li>
+      Menghitung luas dengan integral yang bernilai negatif, atau salah
+      menentukan kurva atas dan bawah.
+    </li>
+    <li>
+      Pada volume benda putar, lupa mengkuadratkan fungsi atau lupa faktor
+      \(\pi\). Pada daerah di antara dua kurva, yang dikuadratkan adalah
+      masing-masing fungsi, bukan selisihnya.
+    </li>
+  </ol>
+</section>
+
+<section id="latihan-mandiri-integral" data-title="Latihan Soal Mandiri">
+  <h2>11. Latihan Soal Mandiri</h2>
+
+  <p>
+    Kerjakan soal-soal berikut secara mandiri. Soal nomor 1–5 memiliki tingkat
+    kesulitan sekolah, soal nomor 6–10 memiliki tingkat penalaran yang lebih
+    menantang seperti soal UTBK, dan soal nomor 11–12 bergaya olimpiade dengan
+    jawaban isian singkat. Soal nomor 13–15 adalah soal pilihan ganda berbasis
+    gambar yang menuntut pembacaan grafik. Untuk soal pilihan ganda, pilih satu
+    jawaban yang paling tepat.
+  </p>
+
+  <h3>A. Tingkat Kesulitan Sekolah</h3>
+
+  <div class="lesson-example">
+    <h4>Soal 1</h4>
+    <p>Hasil dari \(\displaystyle\int(6x^2-4x+5)\,dx\) adalah ....</p>
+    <ol type="A">
+      <li>\(2x^3-2x^2+5x+C\)</li>
+      <li>\(12x-4+C\)</li>
+      <li>\(2x^3-4x^2+5x+C\)</li>
+      <li>\(6x^3-4x^2+5x+C\)</li>
+      <li>\(3x^3-2x^2+5x+C\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 2</h4>
+    <p>Nilai \(\displaystyle\int_1^3(2x+1)\,dx\) adalah ....</p>
+    <ol type="A">
+      <li>\(8\)</li>
+      <li>\(10\)</li>
+      <li>\(12\)</li>
+      <li>\(14\)</li>
+      <li>\(16\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 3</h4>
+    <p>Hasil dari \(\displaystyle\int(2x+3)^4\,dx\) adalah ....</p>
+    <ol type="A">
+      <li>\(\displaystyle\frac{(2x+3)^5}{5}+C\)</li>
+      <li>\(\displaystyle\frac{(2x+3)^5}{8}+C\)</li>
+      <li>\(\displaystyle\frac{(2x+3)^5}{10}+C\)</li>
+      <li>\(8(2x+3)^3+C\)</li>
+      <li>\((2x+3)^5+C\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 4</h4>
+    <p>
+      Luas daerah yang dibatasi oleh kurva \(y=4-x^2\) dan sumbu \(x\) adalah
+      .... satuan luas.
+    </p>
+    <ol type="A">
+      <li>\(\displaystyle\frac{16}{3}\)</li>
+      <li>\(\displaystyle\frac{20}{3}\)</li>
+      <li>\(\displaystyle\frac{28}{3}\)</li>
+      <li>\(\displaystyle\frac{32}{3}\)</li>
+      <li>\(\displaystyle\frac{40}{3}\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 5</h4>
+    <p>
+      Gradien garis singgung kurva \(y=f(x)\) di setiap titik \((x,y)\) adalah
+      \(3x^2-2x\). Jika kurva melalui titik \((1,4)\), maka \(f(2)=\) ....
+    </p>
+    <ol type="A">
+      <li>\(4\)</li>
+      <li>\(5\)</li>
+      <li>\(6\)</li>
+      <li>\(7\)</li>
+      <li>\(8\)</li>
+    </ol>
+  </div>
+
+  <h3>B. Tingkat Kesulitan UTBK</h3>
+
+  <div class="lesson-example">
+    <h4>Soal 6</h4>
+    <p>Nilai \(\displaystyle\int_0^1x(x^2+1)^3\,dx\) adalah ....</p>
+    <ol type="A">
+      <li>\(\displaystyle\frac{7}{8}\)</li>
+      <li>\(\displaystyle\frac{15}{8}\)</li>
+      <li>\(\displaystyle\frac{15}{4}\)</li>
+      <li>\(\displaystyle\frac{15}{2}\)</li>
+      <li>\(15\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 7</h4>
+    <p>Nilai \(\displaystyle\int_0^{\pi/2}x\cos x\,dx\) adalah ....</p>
+    <ol type="A">
+      <li>\(\displaystyle\frac{\pi}{2}\)</li>
+      <li>\(\displaystyle\frac{\pi}{2}+1\)</li>
+      <li>\(\displaystyle\frac{\pi}{2}-1\)</li>
+      <li>\(\pi-1\)</li>
+      <li>\(\displaystyle1-\frac{\pi}{2}\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 8</h4>
+    <p>
+      Daerah yang dibatasi oleh kurva \(y=x^2\) dan garis \(y=2x\) diputar
+      \(360^\circ\) mengelilingi sumbu \(x\). Volume benda putar yang terbentuk
+      adalah .... satuan volume.
+    </p>
+    <ol type="A">
+      <li>\(\displaystyle\frac{16\pi}{3}\)</li>
+      <li>\(\displaystyle\frac{32\pi}{15}\)</li>
+      <li>\(\displaystyle\frac{16\pi}{15}\)</li>
+      <li>\(\displaystyle\frac{64\pi}{15}\)</li>
+      <li>\(\displaystyle\frac{32\pi}{3}\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 9</h4>
+    <p>
+      Fungsi \(f\) adalah fungsi genap dengan
+      \(\displaystyle\int_{-3}^{3}f(x)\,dx=12\) dan
+      \(\displaystyle\int_{1}^{3}f(x)\,dx=4\). Nilai
+      \(\displaystyle\int_{-1}^{3}f(x)\,dx\) adalah ....
+    </p>
+    <ol type="A">
+      <li>\(4\)</li>
+      <li>\(6\)</li>
+      <li>\(8\)</li>
+      <li>\(10\)</li>
+      <li>\(12\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 10</h4>
+    <p>
+      Sebuah partikel bergerak lurus dengan kecepatan \(v(t)=3t^2-12t+9\) m/s.
+      Jarak total yang ditempuh partikel selama \(0\le t\le4\) adalah .... m.
+    </p>
+    <ol type="A">
+      <li>\(4\)</li>
+      <li>\(8\)</li>
+      <li>\(10\)</li>
+      <li>\(12\)</li>
+      <li>\(16\)</li>
+    </ol>
+  </div>
+
+  <h3>C. Tingkat Kesulitan Olimpiade</h3>
+
+  <div class="lesson-example">
+    <h4>Soal 11</h4>
+    <p>
+      Misalkan \(\displaystyle I=\int_0^{\pi/2}\frac{\sin x}{\sin x+\cos
+      x}\,dx\). Nilai dari \(\displaystyle\frac{8I}{\pi}\) adalah ....
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 12</h4>
+    <p>
+      Diberikan \(\displaystyle F(x)=\int_0^x(t-1)(t-2)\,dt\). Jika \(M\) adalah
+      nilai maksimum lokal dan \(m\) adalah nilai minimum lokal dari \(F\), maka
+      nilai \(6(M-m)\) adalah ....
+    </p>
+  </div>
+
+  <h3>D. Soal Berbasis Gambar</h3>
+
+  <div class="lesson-example">
+    <h4>Soal 13</h4>
+    <p>Perhatikan gambar berikut.</p>
+    <figure class="lesson-figure" style="margin: 1rem 0">
+      <svg
+        viewBox="0 0 420 290"
+        xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-labelledby="in4t in4d"
+        style="
+          width: 100%;
+          max-width: 420px;
+          height: auto;
+          display: block;
+          margin: 0 auto;
+          font-family: inherit;
+        "
+      >
+        <title id="in4t">
+          Daerah di antara parabola y = x kuadrat dan y = 8 dikurang x kuadrat
+        </title>
+        <desc id="in4d">
+          Dua parabola berpotongan di (-2,4) dan (2,4). Daerah di antara
+          keduanya diarsir.
+        </desc>
+        <defs>
+          <marker
+            id="in4a"
+            viewBox="0 0 10 10"
+            refX="9"
+            refY="5"
+            markerWidth="7"
+            markerHeight="7"
+            orient="auto"
+          >
+            <path d="M0 0L10 5L0 10z" fill="currentColor" fill-opacity=".7" />
+          </marker>
+        </defs>
+        <line
+          x1="40"
+          y1="255"
+          x2="365"
+          y2="255"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-opacity=".7"
+          marker-end="url(#in4a)"
+        />
+        <line
+          x1="200"
+          y1="267"
+          x2="200"
+          y2="22"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-opacity=".7"
+          marker-end="url(#in4a)"
+        />
+        <polygon
+          points="90.0,155.0 95.5,145.2 101.0,136.0 106.5,127.2 112.0,119.0 117.5,111.2 123.0,104.0 128.5,97.2 134.0,91.0 139.5,85.2 145.0,80.0 150.5,75.2 156.0,71.0 161.5,67.2 167.0,64.0 172.5,61.2 178.0,59.0 183.5,57.2 189.0,56.0 194.5,55.2 200.0,55.0 205.5,55.2 211.0,56.0 216.5,57.2 222.0,59.0 227.5,61.2 233.0,64.0 238.5,67.2 244.0,71.0 249.5,75.2 255.0,80.0 260.5,85.2 266.0,91.0 271.5,97.2 277.0,104.0 282.5,111.2 288.0,119.0 293.5,127.3 299.0,136.0 304.5,145.2 310.0,155.0 310.0,155.0 304.5,164.8 299.0,174.0 293.5,182.8 288.0,191.0 282.5,198.8 277.0,206.0 271.5,212.8 266.0,219.0 260.5,224.8 255.0,230.0 249.5,234.8 244.0,239.0 238.5,242.8 233.0,246.0 227.5,248.8 222.0,251.0 216.5,252.8 211.0,254.0 205.5,254.8 200.0,255.0 194.5,254.8 189.0,254.0 183.5,252.8 178.0,251.0 172.5,248.8 167.0,246.0 161.5,242.8 156.0,239.0 150.5,234.8 145.0,230.0 139.5,224.8 134.0,219.0 128.5,212.8 123.0,206.0 117.5,198.8 112.0,191.0 106.5,182.8 101.0,174.0 95.5,164.8 90.0,155.0"
+          fill="#3b82f6"
+          fill-opacity=".28"
+        />
+        <polyline
+          points="51.5,72.7 56.4,84.7 61.4,96.2 66.3,107.4 71.3,118.1 76.2,128.4 81.2,138.4 86.1,147.9 91.1,157.0 96.0,165.7 101.0,174.0 106.0,181.9 110.9,189.4 115.8,196.5 120.8,203.2 125.8,209.4 130.7,215.3 135.7,220.8 140.6,225.8 145.6,230.5 150.5,234.8 155.4,238.6 160.4,242.0 165.3,245.1 170.3,247.7 175.2,249.9 180.2,251.8 185.2,253.2 190.1,254.2 195.1,254.8 200.0,255.0 204.9,254.8 209.9,254.2 214.8,253.2 219.8,251.8 224.8,249.9 229.7,247.7 234.6,245.1 239.6,242.0 244.6,238.6 249.5,234.8 254.4,230.5 259.4,225.8 264.4,220.8 269.3,215.3 274.2,209.4 279.2,203.2 284.2,196.5 289.1,189.4 294.1,181.9 299.0,174.0 304.0,165.7 308.9,157.0 313.9,147.9 318.8,138.4 323.8,128.4 328.7,118.1 333.6,107.4 338.6,96.2 343.6,84.7 348.5,72.7"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.6"
+        />
+        <polyline
+          points="51.5,237.3 56.4,225.3 61.4,213.8 66.3,202.6 71.3,191.9 76.2,181.6 81.2,171.6 86.1,162.1 91.1,153.0 96.0,144.3 101.0,136.0 106.0,128.1 110.9,120.6 115.8,113.5 120.8,106.8 125.8,100.6 130.7,94.7 135.7,89.2 140.6,84.2 145.6,79.5 150.5,75.2 155.4,71.4 160.4,68.0 165.3,64.9 170.3,62.3 175.2,60.1 180.2,58.2 185.2,56.8 190.1,55.8 195.1,55.2 200.0,55.0 204.9,55.2 209.9,55.8 214.8,56.8 219.8,58.2 224.8,60.1 229.7,62.3 234.6,64.9 239.6,68.0 244.6,71.4 249.5,75.2 254.4,79.5 259.4,84.2 264.4,89.2 269.3,94.7 274.2,100.6 279.2,106.8 284.2,113.5 289.1,120.6 294.1,128.1 299.0,136.0 304.0,144.3 308.9,153.0 313.9,162.1 318.8,171.6 323.8,181.6 328.7,191.9 333.6,202.6 338.6,213.8 343.6,225.3 348.5,237.3"
+          fill="none"
+          stroke="#f97316"
+          stroke-width="2.6"
+        />
+        <circle cx="90" cy="155" r="4.5" fill="#10b981" />
+        <text
+          x="82"
+          y="159"
+          font-size="12"
+          text-anchor="end"
+          fill="#10b981"
+          font-weight="700"
+        >
+          (-2, 4)
+        </text>
+        <circle cx="310" cy="155" r="4.5" fill="#10b981" />
+        <text
+          x="318"
+          y="159"
+          font-size="12"
+          text-anchor="start"
+          fill="#10b981"
+          font-weight="700"
+        >
+          (2, 4)
+        </text>
+        <text
+          x="352.5"
+          y="70.75"
+          font-size="13"
+          text-anchor="start"
+          fill="currentColor"
+          font-weight="700"
+        >
+          y = x²
+        </text>
+        <text
+          x="352.5"
+          y="237.5"
+          font-size="13"
+          text-anchor="start"
+          fill="#f97316"
+          font-weight="700"
+        >
+          y = 8 − x²
+        </text>
+        <text
+          x="360"
+          y="259"
+          font-size="13"
+          text-anchor="start"
+          fill="currentColor"
+          font-weight="400"
+          font-style="italic"
+        >
+          x
+        </text>
+        <text
+          x="208"
+          y="28"
+          font-size="13"
+          text-anchor="start"
+          fill="currentColor"
+          font-weight="400"
+          font-style="italic"
+        >
+          y
+        </text>
+        <text
+          x="208"
+          y="59"
+          font-size="12"
+          text-anchor="start"
+          fill="currentColor"
+          font-weight="400"
+        >
+          8
+        </text>
+      </svg>
+      <figcaption
+        style="
+          text-align: center;
+          font-size: 0.9em;
+          opacity: 0.85;
+          margin-top: 0.6rem;
+        "
+      >
+        Gambar 4. Daerah diarsir di antara y = x² dan y = 8 − x².
+      </figcaption>
+    </figure>
+    <p>Luas daerah yang diarsir adalah .... satuan luas.</p>
+    <ol type="A">
+      <li>\(\displaystyle\frac{16}{3}\)</li>
+      <li>\(\displaystyle\frac{32}{3}\)</li>
+      <li>\(16\)</li>
+      <li>\(\displaystyle\frac{64}{3}\)</li>
+      <li>\(\displaystyle\frac{128}{3}\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 14</h4>
+    <p>
+      Perhatikan grafik fungsi \(f\) berikut yang tersusun dari ruas-ruas garis
+      lurus.
+    </p>
+    <figure class="lesson-figure" style="margin: 1rem 0">
+      <svg
+        viewBox="0 0 420 230"
+        xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-labelledby="in5t in5d"
+        style="
+          width: 100%;
+          max-width: 420px;
+          height: auto;
+          display: block;
+          margin: 0 auto;
+          font-family: inherit;
+        "
+      >
+        <title id="in5t">Grafik fungsi f bersegmen garis lurus</title>
+        <desc id="in5d">
+          Grafik f melalui titik (0,0), (2,4), (4,0), dan (6,-2) dengan ruas
+          garis lurus di antaranya.
+        </desc>
+        <defs>
+          <marker
+            id="in5a"
+            viewBox="0 0 10 10"
+            refX="9"
+            refY="5"
+            markerWidth="7"
+            markerHeight="7"
+            orient="auto"
+          >
+            <path d="M0 0L10 5L0 10z" fill="currentColor" fill-opacity=".7" />
+          </marker>
+        </defs>
+        <line
+          x1="35"
+          y1="150"
+          x2="400"
+          y2="150"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-opacity=".7"
+          marker-end="url(#in5a)"
+        />
+        <line
+          x1="50"
+          y1="225"
+          x2="50"
+          y2="15"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-opacity=".7"
+          marker-end="url(#in5a)"
+        />
+        <polygon
+          points="50.0,150.0 160.0,30.0 270.0,150.0"
+          fill="#3b82f6"
+          fill-opacity=".28"
+        />
+        <polygon
+          points="270.0,150.0 380.0,210.0 380,150"
+          fill="#f97316"
+          fill-opacity=".28"
+        />
+        <polyline
+          points="50.0,150.0 160.0,30.0 270.0,150.0 380.0,210.0"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.6"
+          stroke-linejoin="round"
+        />
+        <circle cx="160" cy="30" r="4.5" fill="#3b82f6" />
+        <circle cx="270" cy="150" r="4.5" fill="#3b82f6" />
+        <circle cx="380" cy="210" r="4.5" fill="#3b82f6" />
+        <text
+          x="168"
+          y="26"
+          font-size="12"
+          text-anchor="start"
+          fill="#3b82f6"
+          font-weight="700"
+        >
+          (2, 4)
+        </text>
+        <text
+          x="388"
+          y="214"
+          font-size="12"
+          text-anchor="start"
+          fill="#f97316"
+          font-weight="700"
+        >
+          (6, −2)
+        </text>
+        <text
+          x="160"
+          y="166"
+          font-size="12"
+          text-anchor="middle"
+          fill="currentColor"
+          font-weight="400"
+        >
+          2
+        </text>
+        <text
+          x="270"
+          y="166"
+          font-size="12"
+          text-anchor="middle"
+          fill="currentColor"
+          font-weight="400"
+        >
+          4
+        </text>
+        <text
+          x="380"
+          y="142"
+          font-size="12"
+          text-anchor="middle"
+          fill="currentColor"
+          font-weight="400"
+        >
+          6
+        </text>
+        <text
+          x="42"
+          y="34"
+          font-size="12"
+          text-anchor="end"
+          fill="currentColor"
+          font-weight="400"
+        >
+          4
+        </text>
+        <text
+          x="410"
+          y="154"
+          font-size="13"
+          text-anchor="start"
+          fill="currentColor"
+          font-weight="400"
+          font-style="italic"
+        >
+          x
+        </text>
+        <text
+          x="58"
+          y="24"
+          font-size="13"
+          text-anchor="start"
+          fill="currentColor"
+          font-weight="400"
+          font-style="italic"
+        >
+          y = f(x)
+        </text>
+      </svg>
+      <figcaption
+        style="
+          text-align: center;
+          font-size: 0.9em;
+          opacity: 0.85;
+          margin-top: 0.6rem;
+        "
+      >
+        Gambar 5. Grafik y = f(x) melalui (0, 0), (2, 4), (4, 0), dan (6, −2).
+      </figcaption>
+    </figure>
+    <p>Nilai \(\displaystyle\int_0^6\big(2f(x)+1\big)\,dx\) adalah ....</p>
+    <ol type="A">
+      <li>\(12\)</li>
+      <li>\(18\)</li>
+      <li>\(22\)</li>
+      <li>\(26\)</li>
+      <li>\(30\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 15</h4>
+    <p>
+      Grafik berikut menunjukkan kecepatan \(v\) sebuah partikel yang bergerak
+      lurus terhadap waktu \(t\). Posisi awal partikel adalah \(s(0)=3\) m.
+    </p>
+    <figure class="lesson-figure" style="margin: 1rem 0">
+      <svg
+        viewBox="0 0 460 230"
+        xmlns="http://www.w3.org/2000/svg"
+        role="img"
+        aria-labelledby="in6t in6d"
+        style="
+          width: 100%;
+          max-width: 460px;
+          height: auto;
+          display: block;
+          margin: 0 auto;
+          font-family: inherit;
+        "
+      >
+        <title id="in6t">Grafik kecepatan v terhadap waktu t</title>
+        <desc id="in6d">
+          Kecepatan naik dari 0 ke 4 pada t = 0 sampai 2, tetap 4 sampai t = 5,
+          turun ke 0 pada t = 7, lalu menjadi -2 pada t = 9.
+        </desc>
+        <defs>
+          <marker
+            id="in6a"
+            viewBox="0 0 10 10"
+            refX="9"
+            refY="5"
+            markerWidth="7"
+            markerHeight="7"
+            orient="auto"
+          >
+            <path d="M0 0L10 5L0 10z" fill="currentColor" fill-opacity=".7" />
+          </marker>
+        </defs>
+        <line
+          x1="35"
+          y1="150"
+          x2="450"
+          y2="150"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-opacity=".7"
+          marker-end="url(#in6a)"
+        />
+        <line
+          x1="50"
+          y1="220"
+          x2="50"
+          y2="15"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-opacity=".7"
+          marker-end="url(#in6a)"
+        />
+        <polygon
+          points="50.0,150.0 130.0,50.0 250.0,50.0 330.0,150.0"
+          fill="#3b82f6"
+          fill-opacity=".28"
+        />
+        <polygon
+          points="330.0,150.0 410.0,200.0 410,150"
+          fill="#f97316"
+          fill-opacity=".28"
+        />
+        <polyline
+          points="50.0,150.0 130.0,50.0 250.0,50.0 330.0,150.0 410.0,200.0"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.6"
+          stroke-linejoin="round"
+        />
+        <circle cx="130" cy="50" r="4.5" fill="#3b82f6" />
+        <circle cx="250" cy="50" r="4.5" fill="#3b82f6" />
+        <circle cx="330" cy="150" r="4.5" fill="#3b82f6" />
+        <circle cx="410" cy="200" r="4.5" fill="#3b82f6" />
+        <text
+          x="418"
+          y="204"
+          font-size="12"
+          text-anchor="start"
+          fill="#f97316"
+          font-weight="700"
+        >
+          (9, −2)
+        </text>
+        <text
+          x="130"
+          y="166"
+          font-size="12"
+          text-anchor="middle"
+          fill="currentColor"
+          font-weight="400"
+        >
+          2
+        </text>
+        <text
+          x="250"
+          y="166"
+          font-size="12"
+          text-anchor="middle"
+          fill="currentColor"
+          font-weight="400"
+        >
+          5
+        </text>
+        <text
+          x="330"
+          y="166"
+          font-size="12"
+          text-anchor="middle"
+          fill="currentColor"
+          font-weight="400"
+        >
+          7
+        </text>
+        <text
+          x="42"
+          y="54"
+          font-size="12"
+          text-anchor="end"
+          fill="currentColor"
+          font-weight="400"
+        >
+          4
+        </text>
+        <text
+          x="402"
+          y="142"
+          font-size="12"
+          text-anchor="end"
+          fill="currentColor"
+          font-weight="400"
+        >
+          9
+        </text>
+        <text
+          x="460"
+          y="154"
+          font-size="13"
+          text-anchor="start"
+          fill="currentColor"
+          font-weight="400"
+          font-style="italic"
+        >
+          t (s)
+        </text>
+        <text
+          x="58"
+          y="24"
+          font-size="13"
+          text-anchor="start"
+          fill="currentColor"
+          font-weight="400"
+          font-style="italic"
+        >
+          v (m/s)
+        </text>
+      </svg>
+      <figcaption
+        style="
+          text-align: center;
+          font-size: 0.9em;
+          opacity: 0.85;
+          margin-top: 0.6rem;
+        "
+      >
+        Gambar 6. Grafik kecepatan v(t) pada 0 ≤ t ≤ 9 s.
+      </figcaption>
+    </figure>
+    <p>Posisi partikel saat \(t=9\) s adalah .... m.</p>
+    <ol type="A">
+      <li>\(18\)</li>
+      <li>\(19\)</li>
+      <li>\(21\)</li>
+      <li>\(25\)</li>
+      <li>\(27\)</li>
+    </ol>
+  </div>
+</section>
+
+<section
+  id="pembahasan-latihan-mandiri-integral"
+  data-title="Pembahasan Latihan Mandiri"
+>
+  <h2>12. Pembahasan Latihan Mandiri</h2>
+
+  <p>
+    Bagian ini membahas seluruh soal pada latihan mandiri. Soal-soal berikut
+    merupakan latihan bergaya UTBK dan olimpiade, bukan soal resmi.
+  </p>
+
+  <h3>A. Pembahasan Tingkat Kesulitan Sekolah</h3>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 1</h4>
+    <p>Integralkan setiap suku dengan aturan pangkat:</p>
+    <div class="math-display">\[ \int(6x^2-4x+5)\,dx=2x^3-2x^2+5x+C \]</div>
+    <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 2</h4>
+    <div class="math-display">
+      \[ \int_1^3(2x+1)\,dx=\Big[x^2+x\Big]_1^3=(9+3)-(1+1)=10 \]
+    </div>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 3</h4>
+    <p>Gunakan rumus integral fungsi linear dengan \(a=2\):</p>
+    <div class="math-display">
+      \[
+      \int(2x+3)^4dx=\frac{1}{2}\cdot\frac{(2x+3)^5}{5}+C=\frac{(2x+3)^5}{10}+C
+      \]
+    </div>
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 4</h4>
+    <p>
+      Titik potong dengan sumbu \(x\): \(4-x^2=0\Rightarrow x=\pm2\). Karena
+      grafik berada di atas sumbu \(x\) dan simetris:
+    </p>
+    <div class="math-display">
+      \[
+      L=\int_{-2}^{2}(4-x^2)\,dx=2\left[4x-\frac{x^3}{3}\right]_0^2=2\left(8-\frac{8}{3}\right)=\frac{32}{3}
+      \]
+    </div>
+    <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 5</h4>
+    <p>Gradien garis singgung adalah turunan, sehingga:</p>
+    <div class="math-display">\[ f(x)=\int(3x^2-2x)\,dx=x^3-x^2+C \]</div>
+    <p>Kurva melalui \((1,4)\), maka \(1-1+C=4\Rightarrow C=4\). Jadi:</p>
+    <div class="math-display">\[ f(2)=8-4+4=8 \]</div>
+    <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+  </div>
+
+  <h3>B. Pembahasan Tingkat Kesulitan UTBK</h3>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 6</h4>
+    <p>
+      Misalkan \(u=x^2+1\), sehingga \(x\,dx=\frac{1}{2}du\). Batas berubah dari
+      \(x=0\to u=1\) dan \(x=1\to u=2\):
+    </p>
+    <div class="math-display">
+      \[
+      \frac{1}{2}\int_1^2u^3\,du=\frac{1}{2}\left[\frac{u^4}{4}\right]_1^2=\frac{1}{8}(16-1)=\frac{15}{8}
+      \]
+    </div>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 7</h4>
+    <p>
+      Gunakan integral parsial dengan \(u=x\) dan \(dv=\cos x\,dx\), sehingga
+      \(v=\sin x\):
+    </p>
+    <div class="math-display">
+      \[ \int_0^{\pi/2}x\cos x\,dx=\Big[x\sin
+      x\Big]_0^{\pi/2}-\int_0^{\pi/2}\sin x\,dx =\frac{\pi}{2}-\Big[-\cos
+      x\Big]_0^{\pi/2}=\frac{\pi}{2}-1 \]
+    </div>
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 8</h4>
+    <p>
+      Titik potong: \(x^2=2x\Rightarrow x=0\) atau \(x=2\), dengan \(y=2x\) di
+      atas. Metode cakram (cincin):
+    </p>
+    <div class="math-display">
+      \[
+      V=\pi\int_0^2\left(4x^2-x^4\right)dx=\pi\left[\frac{4x^3}{3}-\frac{x^5}{5}\right]_0^2
+      =\pi\left(\frac{32}{3}-\frac{32}{5}\right)=\frac{64\pi}{15} \]
+    </div>
+    <p>
+      Hasil \(\displaystyle\frac{32\pi}{3}\) adalah jebakan karena mengabaikan
+      volume bagian dalam (kurva \(y=x^2\)).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 9</h4>
+    <p>
+      Karena \(f\) genap, \(\displaystyle\int_0^3f\,dx=\frac{12}{2}=6\). Maka:
+    </p>
+    <div class="math-display">
+      \[ \int_0^1f\,dx=\int_0^3f\,dx-\int_1^3f\,dx=6-4=2, \qquad
+      \int_{-1}^{0}f\,dx=\int_0^1f\,dx=2 \]
+    </div>
+    <div class="math-display">
+      \[ \int_{-1}^{3}f\,dx=\int_{-1}^{0}f\,dx+\int_0^3f\,dx=2+6=8 \]
+    </div>
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 10</h4>
+    <p>
+      Faktorkan \(v(t)=3(t-1)(t-3)\). Kecepatan berubah tanda di \(t=1\) dan
+      \(t=3\), sehingga partikel berbalik arah. Posisi (dengan \(s(0)=0\)):
+    </p>
+    <div class="math-display">
+      \[ s(t)=t^3-6t^2+9t \quad\Rightarrow\quad s(1)=4,\ s(3)=0,\ s(4)=4 \]
+    </div>
+    <p>Jarak total dijumlahkan per tahap gerak:</p>
+    <div class="math-display">\[ |4-0|+|0-4|+|4-0|=12\ \text{m} \]</div>
+    <p>
+      Hasil \(4\) adalah jebakan karena itu perpindahan \(\int_0^4v\,dt\), bukan
+      jarak.
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+  </div>
+
+  <h3>C. Pembahasan Tingkat Kesulitan Olimpiade</h3>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 11</h4>
+    <p>
+      Substitusi \(x\to\frac{\pi}{2}-x\) mengubah \(\sin x\) menjadi \(\cos x\)
+      dan sebaliknya, sehingga:
+    </p>
+    <div class="math-display">
+      \[ I=\int_0^{\pi/2}\frac{\cos x}{\cos x+\sin x}\,dx \]
+    </div>
+    <p>Jumlahkan kedua bentuk \(I\):</p>
+    <div class="math-display">
+      \[ 2I=\int_0^{\pi/2}\frac{\sin x+\cos x}{\sin x+\cos
+      x}\,dx=\int_0^{\pi/2}1\,dx=\frac{\pi}{2} \quad\Rightarrow\quad
+      I=\frac{\pi}{4} \]
+    </div>
+    <div class="math-display">
+      \[ \frac{8I}{\pi}=\frac{8}{\pi}\cdot\frac{\pi}{4}=2 \]
+    </div>
+    <p>Jadi, jawaban yang benar adalah <strong>2</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 12</h4>
+    <p>Dari Teorema Dasar Kalkulus, \(F'(x)=(x-1)(x-2)\). Tanda \(F'\):</p>
+    <div class="material-table-wrap">
+      <table class="reflection-table">
+        <thead>
+          <tr>
+            <th scope="col">Interval</th>
+            <th scope="col">\(x\lt1\)</th>
+            <th scope="col">\(1\lt x\lt2\)</th>
+            <th scope="col">\(x\gt2\)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tanda \(F'(x)\)</td>
+            <td>\(+\)</td>
+            <td>\(-\)</td>
+            <td>\(+\)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Maksimum lokal di \(x=1\) dan minimum lokal di \(x=2\). Karena
+      \((t-1)(t-2)=t^2-3t+2\):
+    </p>
+    <div class="math-display">
+      \[ M=F(1)=\frac{1}{3}-\frac{3}{2}+2=\frac{5}{6}, \qquad
+      m=F(2)=\frac{8}{3}-6+4=\frac{2}{3} \]
+    </div>
+    <div class="math-display">
+      \[ 6(M-m)=6\left(\frac{5}{6}-\frac{4}{6}\right)=1 \]
+    </div>
+    <p>Jadi, jawaban yang benar adalah <strong>1</strong>.</p>
+  </div>
+
+  <h3>D. Pembahasan Soal Berbasis Gambar</h3>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 13</h4>
+    <p>
+      Dari gambar, kedua parabola berpotongan di \(x=\pm2\) (\(x^2=8-x^2\)),
+      dengan \(y=8-x^2\) di atas:
+    </p>
+    <div class="math-display">
+      \[
+      L=\int_{-2}^{2}\left(8-2x^2\right)dx=2\left[8x-\frac{2x^3}{3}\right]_0^2=2\left(16-\frac{16}{3}\right)=\frac{64}{3}
+      \]
+    </div>
+    <p>
+      Hasil \(\displaystyle\frac{32}{3}\) adalah jebakan karena hanya menghitung
+      setengah daerah.
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 14</h4>
+    <p>
+      Integral tentu pada grafik linear dihitung sebagai luas bertanda. Bagian
+      di atas sumbu \(x\) bernilai positif dan bagian di bawah bernilai negatif:
+    </p>
+    <div class="math-display">
+      \[ \int_0^4f\,dx=\frac{1}{2}(4)(4)=8, \qquad
+      \int_4^6f\,dx=-\frac{1}{2}(2)(2)=-2 \quad\Rightarrow\quad \int_0^6f\,dx=6
+      \]
+    </div>
+    <div class="math-display">\[ \int_0^6\big(2f(x)+1\big)dx=2(6)+6=18 \]</div>
+    <p>
+      Hasil \(26\) adalah jebakan karena memakai luas mutlak (\(2\cdot10+6\)).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 15</h4>
+    <p>Perpindahan adalah luas bertanda di bawah grafik \(v(t)\):</p>
+    <div class="math-display">
+      \[
+      \int_0^9v\,dt=\underbrace{4}_{0\text{–}2}+\underbrace{12}_{2\text{–}5}+\underbrace{4}_{5\text{–}7}-\underbrace{2}_{7\text{–}9}=18
+      \]
+    </div>
+    <p>Posisi akhir adalah posisi awal ditambah perpindahan:</p>
+    <div class="math-display">
+      \[ s(9)=s(0)+\int_0^9v\,dt=3+18=21\ \text{m} \]
+    </div>
+    <p>
+      Hasil \(25\) adalah jebakan karena memakai jarak (\(3+22\)), bukan
+      perpindahan.
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+  </div>
+
+  <h3>Ringkasan Kunci dan Konsep yang Diuji</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table answer-key-table">
+      <thead>
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">Kunci</th>
+          <th scope="col">Konsep Utama</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>A</td>
+          <td>Aturan pangkat integral tak tentu</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>B</td>
+          <td>Teorema Dasar Kalkulus</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>C</td>
+          <td>Integral fungsi linear</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>D</td>
+          <td>Luas daerah di bawah kurva</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>E</td>
+          <td>Integral dengan syarat awal</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>B</td>
+          <td>Substitusi pada integral tentu</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>C</td>
+          <td>Integral parsial pada integral tentu</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>D</td>
+          <td>Volume benda putar di antara dua kurva</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>C</td>
+          <td>Sifat kesimetrian fungsi genap</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>D</td>
+          <td>Jarak versus perpindahan</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>2</td>
+          <td>Integral tentu dengan simetri substitusi</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>1</td>
+          <td>Turunan integral tentu dan nilai ekstrem lokal</td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>D</td>
+          <td>Luas daerah antara dua kurva dari gambar</td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td>B</td>
+          <td>Integral tentu dari grafik (luas bertanda)</td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td>C</td>
+          <td>Perpindahan dari grafik kecepatan</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

@@ -172,7 +172,7 @@ export function HomePage({ navigate }: HomePageProps) {
             <h4>Kelas XII (Fase F Lanjut)</h4>
             <p className="pathway-desc">
               Pelajari geometri analitik, transformasi grafik fungsi,
-              pencacahan, peluang, serta kalkulus diferensial.
+              pencacahan, peluang, serta limit, turunan, dan integral.
             </p>
             <ul className="pathway-list">
               <li>
@@ -193,6 +193,23 @@ export function HomePage({ navigate }: HomePageProps) {
               </li>
               <li>
                 <strong>Modul 20:</strong> Irisan Kerucut
+              </li>
+              <li>
+                <strong>Modul 21:</strong> Integral
+              </li>
+            </ul>
+          </div>
+
+          <div className="pathway-card">
+            <div className="pathway-step">Pengayaan</div>
+            <h4>Materi Khusus Olimpiade</h4>
+            <p className="pathway-desc">
+              Perdalam teori bilangan melalui topik yang tidak dibahas dalam
+              pelajaran reguler.
+            </p>
+            <ul className="pathway-list">
+              <li>
+                <strong>Modul 22:</strong> Teori Bilangan
               </li>
             </ul>
           </div>

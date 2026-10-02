@@ -19,7 +19,7 @@ export function SiteFooter({ navigate }: SiteFooterProps) {
           <strong>Materi mencakup</strong>
           <p>
             Aljabar · Geometri · Statistika &amp; Peluang · Kombinatorika ·
-            Kalkulus · Analisis
+            Kalkulus · Analisis · Olimpiade Matematika
           </p>
         </div>
         <div className="footer-links">

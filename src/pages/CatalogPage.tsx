@@ -34,8 +34,9 @@ const subjectFilters = [
   },
   { name: "Statistika & Peluang", slugs: ["statistika", "peluang"] },
   { name: "Kombinatorika", slugs: ["kombinatorika"] },
-  { name: "Kalkulus", slugs: ["limit", "turunan"] },
+  { name: "Kalkulus", slugs: ["limit", "turunan", "integral"] },
   { name: "Analisis", slugs: ["bilangan-kompleks"] },
+  { name: "Olimpiade", slugs: ["teori-bilangan"] },
 ];
 
 export function CatalogPage({ navigate }: CatalogPageProps) {
@@ -113,7 +114,7 @@ export function CatalogPage({ navigate }: CatalogPageProps) {
       title:
         "3. Kelas XII (Fase F Lanjut) — Geometri, Fungsi, Pencacahan, Peluang & Kalkulus",
       subtitle:
-        "Irisan kerucut, transformasi grafik fungsi, kombinatorika, peluang, serta limit sebagai fondasi turunan.",
+        "Irisan kerucut, transformasi grafik fungsi, kombinatorika, peluang, serta limit, turunan, dan integral.",
       items: filteredMaterials.filter((m) =>
         [
           "limit",
@@ -122,8 +123,14 @@ export function CatalogPage({ navigate }: CatalogPageProps) {
           "peluang",
           "transformasi-fungsi",
           "irisan-kerucut",
+          "integral",
         ].includes(m.slug),
       ),
+    },
+    {
+      title: "4. Materi Khusus Olimpiade Matematika",
+      subtitle: "Pendalaman teori bilangan di luar cakupan pelajaran reguler.",
+      items: filteredMaterials.filter((m) => m.slug === "teori-bilangan"),
     },
   ];
 
