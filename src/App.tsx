@@ -59,7 +59,7 @@ function App() {
             &Sigma;
           </div>
           <strong>Math 1729</strong>
-          <span>Menyiapkan materi...</span>
+          <span>Memuat halaman...</span>
           <div className="page-loader-track" aria-hidden="true">
             <span />
           </div>

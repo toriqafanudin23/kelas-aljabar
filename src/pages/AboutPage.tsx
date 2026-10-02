@@ -12,8 +12,8 @@ export function AboutPage() {
         </span>
         <h1>Tentang Math 1729</h1>
         <p>
-          Media pembelajaran digital untuk mempelajari matematika secara praktis,
-          terstruktur, dan akademis.
+          Media pembelajaran digital untuk mempelajari matematika secara
+          praktis, terstruktur, dan akademis.
         </p>
       </div>
       <section className="profile-section">
@@ -51,6 +51,33 @@ export function AboutPage() {
           </p>
         </div>
       </section>
+      <section className="method-note">
+        <span className="section-kicker">Tentang nama platform</span>
+        <h2>Mengapa 1729?</h2>
+        <p>
+          1729 dikenal sebagai bilangan taksi Ramanujan: bilangan positif
+          terkecil yang dapat ditulis sebagai jumlah dua kubus positif dengan
+          dua cara berbeda.
+        </p>
+        <p>
+          <strong>
+            1729 = 1<sup>3</sup> + 12<sup>3</sup> = 9<sup>3</sup> + 10
+            <sup>3</sup>
+          </strong>
+        </p>
+        <p>
+          Keistimewaan ini muncul dalam kisah matematikawan Srinivasa Ramanujan
+          dan G. H. Hardy. Saat Hardy menganggap nomor taksi 1729 biasa saja,
+          Ramanujan segera menunjukkan pola jumlah kubus tersebut.
+        </p>
+        <p>
+          <em>
+            Hal yang tampak tak berguna terkadang menyimpan pola dan keindahan
+            yang belum kita temukan. Dengan rasa ingin tahu, sesuatu yang biasa
+            dapat membuka makna baru.
+          </em>
+        </p>
+      </section>
       <section className="program-section">
         <div className="section-heading">
           <div>
@@ -63,8 +90,9 @@ export function AboutPage() {
             <span>01 / SMA</span>
             <h3>Matematika SMA</h3>
             <p>
-              Kurikulum berjenjang dari kelas X hingga XII (Fase E dan Fase F), mulai
-              dari aljabar fondasi, matriks, hingga kalkulus dan statistika.
+              Kurikulum berjenjang dari kelas X hingga XII (Fase E dan Fase F),
+              mulai dari aljabar fondasi, matriks, hingga kalkulus dan
+              statistika.
             </p>
           </article>
           <article>
@@ -79,8 +107,8 @@ export function AboutPage() {
             <span>03 / UTBK</span>
             <h3>Persiapan UTBK-SNBT</h3>
             <p>
-              Penguatan penalaran matematika, pemodelan masalah nyata, dan pengetahuan
-              kuantitatif.
+              Penguatan penalaran matematika, pemodelan masalah nyata, dan
+              pengetahuan kuantitatif.
             </p>
           </article>
         </div>
