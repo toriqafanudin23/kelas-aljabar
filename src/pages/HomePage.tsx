@@ -7,8 +7,7 @@ interface HomePageProps {
 }
 
 export function HomePage({ navigate }: HomePageProps) {
-  // Pilihan representatif berurutan dari tiap jenjang prasyarat
-  const featuredSlugs = ["eksponensial", "matriks", "transformasi-geometri"];
+  const featuredSlugs = ["matriks", "kombinatorika", "turunan"];
   const featuredMaterials = featuredSlugs
     .map((slug) => materials.find((m) => m.slug === slug))
     .filter((m): m is NonNullable<typeof m> => Boolean(m));
@@ -104,7 +103,7 @@ export function HomePage({ navigate }: HomePageProps) {
         <div className="pathway-grid">
           <div className="pathway-card">
             <div className="pathway-step">Tahap 1</div>
-            <h4>Fase E (Kelas X)</h4>
+            <h4>Kelas X (Fase E)</h4>
             <p className="pathway-desc">
               Bangun dasar aljabar, fungsi, dan literasi data sebelum masuk ke
               materi lanjutan.
@@ -114,93 +113,71 @@ export function HomePage({ navigate }: HomePageProps) {
                 <strong>Modul 01:</strong> Eksponensial &amp; Logaritma
               </li>
               <li>
-                <strong>Modul 02:</strong> Sistem Persamaan &amp; Pertidaksamaan
+                <strong>Modul 02:</strong> Barisan &amp; Deret
+              </li>
+              <li>
+                <strong>Modul 03:</strong> Sistem Persamaan &amp; Pertidaksamaan
                 Linear
               </li>
               <li>
-                <strong>Modul 03:</strong> Fungsi Kuadrat
+                <strong>Modul 04:</strong> Fungsi Kuadrat
               </li>
               <li>
-                <strong>Modul 04:</strong> Statistika
+                <strong>Modul 05:</strong> Statistika
               </li>
             </ul>
           </div>
 
           <div className="pathway-card">
             <div className="pathway-step">Tahap 2</div>
-            <h4>Fase F (Kelas XI)</h4>
+            <h4>Kelas XI (Fase F)</h4>
             <p className="pathway-desc">
               Perkuat fungsi dan aljabar, lalu lanjutkan ke aljabar linear serta
               geometri analitik.
             </p>
             <ul className="pathway-list">
               <li>
-                <strong>Modul 05:</strong> Komposisi Fungsi &amp; Invers
+                <strong>Modul 06:</strong> Komposisi Fungsi &amp; Invers
               </li>
               <li>
-                <strong>Modul 06:</strong> Barisan &amp; Deret
+                <strong>Modul 07:</strong> Polinomial
               </li>
               <li>
-                <strong>Modul 07:</strong> Matriks
+                <strong>Modul 08:</strong> Matriks
               </li>
               <li>
-                <strong>Modul 08:</strong> Vektor
+                <strong>Modul 09:</strong> Lingkaran
               </li>
               <li>
-                <strong>Modul 09:</strong> Transformasi Geometri (Prasyarat:
+                <strong>Modul 10:</strong> Transformasi Geometri (Prasyarat:
                 Matriks)
               </li>
               <li>
-                <strong>Modul 12:</strong> Polinomial
+                <strong>Modul 11:</strong> Vektor
               </li>
             </ul>
           </div>
 
           <div className="pathway-card">
             <div className="pathway-step">Tahap 3</div>
-            <h4>Fase F Lanjut (Kelas XII)</h4>
+            <h4>Kelas XII (Fase F Lanjut)</h4>
             <p className="pathway-desc">
-              Pelajari pencacahan sebagai landasan untuk menghitung peluang
-              kejadian.
+              Pelajari pencacahan dan peluang, lalu gunakan limit sebagai
+              fondasi kalkulus diferensial.
             </p>
             <ul className="pathway-list">
               <li>
-                <strong>Modul 10:</strong> Kombinatorika (Kaidah Pencacahan)
+                <strong>Modul 12:</strong> Limit Fungsi
               </li>
               <li>
-                <strong>Modul 11:</strong> Teori Peluang (Prasyarat:
+                <strong>Modul 13:</strong> Turunan Fungsi (Prasyarat: Limit)
+              </li>
+              <li>
+                <strong>Modul 14:</strong> Kombinatorika (Kaidah Pencacahan)
+              </li>
+              <li>
+                <strong>Modul 15:</strong> Teori Peluang (Prasyarat:
                 Kombinatorika)
-              </li>
-            </ul>
-          </div>
-
-          <div className="pathway-card">
-            <div className="pathway-step">Tahap 4</div>
-            <h4>Fase F Lanjut (Kelas XII) · Kalkulus</h4>
-            <p className="pathway-desc">
-              Bangun pemahaman limit sebagai fondasi untuk mempelajari turunan
-              dan penerapannya.
-            </p>
-            <ul className="pathway-list">
-              <li>
-                <strong>Modul 13:</strong> Limit Fungsi
-              </li>
-              <li>
-                <strong>Modul 14:</strong> Turunan Fungsi (Prasyarat: Limit)
-              </li>
-            </ul>
-          </div>
-
-          <div className="pathway-card">
-            <div className="pathway-step">Tahap 5</div>
-            <h4>Fase F Lanjut (Kelas XII) · Geometri Lingkaran</h4>
-            <p className="pathway-desc">
-              Pelajari unsur, ukuran, dan sifat-sifat lingkaran beserta
-              penerapannya.
-            </p>
-            <ul className="pathway-list">
-              <li>
-                <strong>Modul 15:</strong> Lingkaran
               </li>
             </ul>
           </div>

@@ -47,54 +47,40 @@ export function CatalogPage({ navigate }: CatalogPageProps) {
   // Pengelompokan materi sesuai urutan prasyarat kurikulum sekolah
   const groups = [
     {
-      title: "1. Fase E (Kelas X) — Fondasi Aljabar, Fungsi & Statistika",
+      title: "1. Kelas X (Fase E) — Bilangan, Aljabar, Fungsi & Statistika",
       subtitle:
-        "Materi awal prasyarat untuk seluruh konsep matematika lanjutan di SMA.",
+        "Eksponen dan logaritma, barisan dan deret, sistem linear, fungsi kuadrat, serta statistika dasar.",
       items: filteredMaterials.filter((m) =>
-        ["eksponensial", "sppl", "fungsi-kuadrat", "statistika"].includes(
-          m.slug,
-        ),
+        [
+          "eksponensial",
+          "barisan-deret",
+          "sppl",
+          "fungsi-kuadrat",
+          "statistika",
+        ].includes(m.slug),
       ),
     },
     {
-      title:
-        "2. Fase F (Kelas XI) — Aljabar Matriks, Deret & Geometri Analitik",
+      title: "2. Kelas XI (Fase F) — Aljabar, Geometri & Vektor",
       subtitle:
-        "Pengembangan kalkulus diskrit, aljabar linear, dan pemetaan koordinat berprasyarat matriks.",
+        "Komposisi fungsi dan invers, polinomial, matriks, vektor, transformasi geometri, serta lingkaran.",
       items: filteredMaterials.filter((m) =>
         [
-          "barisan-deret",
           "komposisi-fungsi-dan-invers",
           "polinomial",
           "matriks",
           "vektor",
           "transformasi-geometri",
+          "busur-dan-juring-lingkaran",
         ].includes(m.slug),
       ),
     },
     {
-      title:
-        "3. Fase F Tingkat Lanjut (Kelas XII) — Pencacahan Diskrit & Peluang",
+      title: "3. Kelas XII (Fase F Lanjut) — Pencacahan, Peluang & Kalkulus",
       subtitle:
-        "Kaidah pencacahan sebagai prasyarat mutlak dalam membangun aksioma teori peluang.",
+        "Kombinatorika dan peluang, dilanjutkan dengan limit sebagai fondasi turunan.",
       items: filteredMaterials.filter((m) =>
-        ["kombinatorika", "peluang"].includes(m.slug),
-      ),
-    },
-    {
-      title: "4. Fase F Tingkat Lanjut (Kelas XII) — Kalkulus",
-      subtitle:
-        "Pelajari limit sebagai fondasi turunan dan penerapannya dalam kalkulus diferensial.",
-      items: filteredMaterials.filter((m) =>
-        ["limit", "turunan"].includes(m.slug),
-      ),
-    },
-    {
-      title: "5. Fase F Tingkat Lanjut (Kelas XII) — Geometri Lingkaran",
-      subtitle:
-        "Pelajari keliling, luas, busur, juring, tali busur, garis singgung, dan penerapan lingkaran.",
-      items: filteredMaterials.filter(
-        (m) => m.slug === "busur-dan-juring-lingkaran",
+        ["kombinatorika", "peluang", "limit", "turunan"].includes(m.slug),
       ),
     },
   ];
@@ -158,40 +144,23 @@ export function CatalogPage({ navigate }: CatalogPageProps) {
                   <p>{group.subtitle}</p>
                 </div>
                 <div className="course-grid">
-                  {group.items.map((material) => (
-                    <CourseCard
-                      key={material.slug}
-                      material={material}
-                      navigate={navigate}
-                    />
-                  ))}
+                  {[...group.items]
+                    .sort(
+                      (firstMaterial, secondMaterial) =>
+                        Number(firstMaterial.number) -
+                        Number(secondMaterial.number),
+                    )
+                    .map((material) => (
+                      <CourseCard
+                        key={material.slug}
+                        material={material}
+                        navigate={navigate}
+                      />
+                    ))}
                 </div>
               </section>
             ) : null,
           )}
-
-          <div className="catalog-group-section">
-            <article className="course-card coming-card">
-              <div className="coming-content">
-                <span className="coming-label">
-                  <span /> Pembaruan berkala
-                </span>
-                <h3>Modul Berikutnya</h3>
-                <p>
-                  Topik mendatang mencakup Integral Tak Tentu/Tentu serta Teori
-                  Graf Diskrit.
-                </p>
-                <div className="coming-status">
-                  <span>Status kurikulum</span>
-                  <strong>Aktif disusun</strong>
-                </div>
-              </div>
-              <div className="course-footer">
-                <span>HTML &amp; LaTeX</span>
-                <span>Segera Hadir</span>
-              </div>
-            </article>
-          </div>
         </div>
       ) : (
         <div className="course-grid">

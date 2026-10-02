@@ -32,21 +32,21 @@ export interface Material {
  * Urutan materi disusun secara sistematis berdasarkan prasyarat keilmuan (pedagogis)
  * dan kesinambungan kurikulum matematika SMA (Fase E, Fase F, dan Fase F Lanjut):
  *
- * 1. Eksponensial dan Logaritma (Kelas X) -> Dasar pemangkatan, logaritma, & fungsi dasar
- * 2. Sistem Persamaan & Pertidaksamaan Linear (Kelas X) -> Dasar aljabar linear & daerah penyelesaian
- * 3. Fungsi Kuadrat (Kelas X) -> Karakteristik grafik parabola, diskriminan, titik ekstrim
- * 4. Statistika (Kelas X) -> Penyajian, pemusatan, penyebaran, & interpretasi data
- * 5. Komposisi Fungsi dan Invers (Kelas XI) -> Operasi fungsi, domain, & fungsi balik
- * 6. Barisan dan Deret (Kelas X/XI) -> Pola bilangan, notasi sigma, dasar kalkulus diskrit
- * 7. Matriks (Kelas XI) -> Prasyarat langsung dari SPL, aljabar matriks
- * 8. Vektor (Kelas XI) -> Besaran berarah, aljabar vektor analitik R^2 dan R^3
- * 9. Transformasi Geometri (Kelas XI) -> Memerlukan prasyarat matriks & koordinat
- * 10. Kombinatorika (Kelas XII) -> Kaidah pencacahan, permutasi, kombinasi (prasyarat peluang)
- * 11. Teori Peluang (Kelas XII) -> Memerlukan prasyarat mutlak kombinatorika
- * 12. Polinomial (Kelas XI) -> Dasar aljabar fungsi
- * 13. Limit Fungsi (Kelas XII) -> Fondasi kalkulus diferensial
- * 14. Turunan (Kelas XII) -> Memerlukan prasyarat limit fungsi
- * 15. Lingkaran (Kelas XII) -> Geometri lingkaran dan penerapannya
+ * 1. Eksponensial dan Logaritma (Kelas X)
+ * 2. Barisan dan Deret (Kelas X)
+ * 3. Sistem Persamaan dan Pertidaksamaan Linear (Kelas X)
+ * 4. Fungsi Kuadrat (Kelas X)
+ * 5. Statistika (Kelas X)
+ * 6. Komposisi Fungsi dan Invers (Kelas XI)
+ * 7. Polinomial (Kelas XI)
+ * 8. Matriks (Kelas XI)
+ * 9. Lingkaran (Kelas XI)
+ * 10. Transformasi Geometri (Kelas XI)
+ * 11. Vektor (Kelas XI)
+ * 12. Limit Fungsi (Kelas XII)
+ * 13. Turunan (Kelas XII)
+ * 14. Kombinatorika (Kelas XII)
+ * 15. Teori Peluang (Kelas XII)
  */
 export const materials: Material[] = [
   {
@@ -66,7 +66,7 @@ export const materials: Material[] = [
   {
     id: "linear-systems",
     slug: "sppl",
-    number: "02",
+    number: "03",
     category: "Aljabar Matematika",
     title: "Sistem Persamaan dan Pertidaksamaan Linear",
     grade: "Kelas X",
@@ -80,7 +80,7 @@ export const materials: Material[] = [
   {
     id: "quadratic-functions",
     slug: "fungsi-kuadrat",
-    number: "03",
+    number: "04",
     category: "Aljabar Matematika",
     title: "Fungsi Kuadrat",
     grade: "Kelas X",
@@ -94,7 +94,7 @@ export const materials: Material[] = [
   {
     id: "statistics",
     slug: "statistika",
-    number: "04",
+    number: "05",
     category: "Teori Peluang & Statistika",
     title: "Statistika",
     grade: "Kelas X",
@@ -109,7 +109,7 @@ export const materials: Material[] = [
   {
     id: "function-composition-inverse",
     slug: "komposisi-fungsi-dan-invers",
-    number: "05",
+    number: "06",
     category: "Aljabar Matematika",
     title: "Komposisi Fungsi dan Invers",
     grade: "Kelas XI",
@@ -123,11 +123,11 @@ export const materials: Material[] = [
   {
     id: "sequences-series",
     slug: "barisan-deret",
-    number: "06",
+    number: "02",
     category: "Aljabar Matematika",
     title: "Barisan dan Deret",
-    grade: "Kelas X / XI",
-    phase: "Fase E / F",
+    grade: "Kelas X",
+    phase: "Fase E (Kelas X)",
     prerequisite: "Pola Bilangan & Fungsi Linear/Eksponen",
     formula: "U_n=a+(n-1)b \\qquad U_n=ar^{n-1}",
     description:
@@ -137,7 +137,7 @@ export const materials: Material[] = [
   {
     id: "matrices",
     slug: "matriks",
-    number: "07",
+    number: "08",
     category: "Aljabar Linear",
     title: "Matriks",
     grade: "Kelas XI",
@@ -152,7 +152,7 @@ export const materials: Material[] = [
   {
     id: "vectors",
     slug: "vektor",
-    number: "08",
+    number: "11",
     category: "Geometri Analitik",
     title: "Vektor",
     grade: "Kelas XI",
@@ -167,7 +167,7 @@ export const materials: Material[] = [
   {
     id: "geometry",
     slug: "transformasi-geometri",
-    number: "09",
+    number: "10",
     category: "Geometri Analitik",
     title: "Transformasi Geometri",
     grade: "Kelas XI",
@@ -182,7 +182,7 @@ export const materials: Material[] = [
   {
     id: "combinatorics",
     slug: "kombinatorika",
-    number: "10",
+    number: "14",
     category: "Kaidah Pencacahan",
     title: "Kombinatorika",
     grade: "Kelas XII",
@@ -197,7 +197,7 @@ export const materials: Material[] = [
   {
     id: "probability",
     slug: "peluang",
-    number: "11",
+    number: "15",
     category: "Teori Peluang & Statistika",
     title: "Teori Peluang",
     grade: "Kelas XII",
@@ -211,7 +211,7 @@ export const materials: Material[] = [
   {
     id: "polynomials",
     slug: "polinomial",
-    number: "12",
+    number: "07",
     category: "Aljabar Matematika",
     title: "Polinomial",
     grade: "Kelas XI",
@@ -225,7 +225,7 @@ export const materials: Material[] = [
   {
     id: "limits",
     slug: "limit",
-    number: "13",
+    number: "12",
     category: "Kalkulus",
     title: "Limit Fungsi",
     grade: "Kelas XII",
@@ -239,7 +239,7 @@ export const materials: Material[] = [
   {
     id: "derivatives",
     slug: "turunan",
-    number: "14",
+    number: "13",
     category: "Kalkulus",
     title: "Turunan Fungsi",
     grade: "Kelas XII",
@@ -253,11 +253,11 @@ export const materials: Material[] = [
   {
     id: "circle-arcs-sectors",
     slug: "busur-dan-juring-lingkaran",
-    number: "15",
+    number: "09",
     category: "Geometri Lingkaran",
     title: "Lingkaran",
-    grade: "Kelas XII",
-    phase: "Fase F Tingkat Lanjut (Kelas XII)",
+    grade: "Kelas XI",
+    phase: "Fase F (Kelas XI)",
     prerequisite: "Pengukuran dan Perbandingan Sudut",
     formula: "K=2\\pi r \\qquad L=\\pi r^2",
     description:

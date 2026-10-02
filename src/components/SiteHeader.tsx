@@ -12,6 +12,13 @@ interface SiteHeaderProps {
   onToggleToc?: () => void;
 }
 
+function getGradeOrder(grade: string) {
+  if (grade.includes("Kelas XII")) return 2;
+  if (grade.includes("Kelas XI")) return 1;
+  if (grade.includes("Kelas X")) return 0;
+  return 3;
+}
+
 export function SiteHeader({
   page,
   navigate,
@@ -33,13 +40,20 @@ export function SiteHeader({
     navigate(event, target);
   };
 
+  const orderedMaterials = [...materials].sort(
+    (firstMaterial, secondMaterial) =>
+      getGradeOrder(firstMaterial.grade) -
+        getGradeOrder(secondMaterial.grade) ||
+      Number(firstMaterial.number) - Number(secondMaterial.number),
+  );
+
   const filteredMaterials = drawerSearch.trim()
-    ? materials.filter((m) =>
-        `${m.number} ${m.title} ${m.grade} ${m.category}`
+    ? orderedMaterials.filter((material) =>
+        `${material.number} ${material.title} ${material.grade} ${material.category}`
           .toLowerCase()
           .includes(drawerSearch.toLowerCase()),
       )
-    : materials;
+    : orderedMaterials;
 
   return (
     <header className="site-header">
@@ -76,7 +90,7 @@ export function SiteHeader({
               Katalog Materi
             </a>
             <div className="catalog-dropdown" aria-label="Daftar materi">
-              {materials.map((material) => (
+              {orderedMaterials.map((material) => (
                 <a
                   key={material.slug}
                   href={getPathFromPage(material.slug)}
@@ -183,7 +197,9 @@ export function SiteHeader({
               >
                 <div className="accordion-label-wrap">
                   <span className="accordion-title">Pilih Modul Cepat</span>
-                  <span className="accordion-badge">{materials.length} Modul</span>
+                  <span className="accordion-badge">
+                    {materials.length} Modul
+                  </span>
                 </div>
                 <span className="accordion-chevron">
                   {modulesAccordionOpen ? "▲" : "▼"}
@@ -211,10 +227,16 @@ export function SiteHeader({
                           handleNavigation(event, material.slug as Page)
                         }
                       >
-                        <span className="drawer-mod-badge">{material.number}</span>
+                        <span className="drawer-mod-badge">
+                          {material.number}
+                        </span>
                         <div className="drawer-mod-info">
-                          <span className="drawer-mod-title">{material.title}</span>
-                          <small className="drawer-mod-grade">{material.grade}</small>
+                          <span className="drawer-mod-title">
+                            {material.title}
+                          </span>
+                          <small className="drawer-mod-grade">
+                            {material.grade}
+                          </small>
                         </div>
                       </a>
                     ))}
