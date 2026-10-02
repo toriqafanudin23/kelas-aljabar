@@ -223,49 +223,51 @@ export function LessonPage({
                 Penyusun: Toriq Afanudin <span>·</span> {currentDate}
               </p>
 
-              {(downloadUrl ||
-                questionsDownloadUrl ||
-                transformationQuestionsDownloadUrl ||
-                slug === "eksponensial") && (
-                <div className="lesson-actions">
-                  {downloadUrl && (
-                    <a
-                      className="button button-primary lesson-download"
-                      href={downloadUrl}
-                    >
-                      Unduh Modul PDF <span aria-hidden="true">↓</span>
-                    </a>
-                  )}
-                  {questionsDownloadUrl && (
-                    <a
-                      className="button lesson-practice"
-                      href={questionsDownloadUrl}
-                    >
-                      Unduh Soal Eksponen PDF <span aria-hidden="true">↓</span>
-                    </a>
-                  )}
-                  {transformationQuestionsDownloadUrl && (
-                    <a
-                      className="button lesson-practice"
-                      href={transformationQuestionsDownloadUrl}
-                    >
-                      Unduh Soal Transformasi PDF
-                      <span aria-hidden="true">↓</span>
-                    </a>
-                  )}
-                  {(slug === "eksponensial" ||
-                    slug === "transformasi-geometri") && (
-                    <a
-                      className="button lesson-practice"
-                      href={
-                        slug === "eksponensial" ? "#tes-sumatif" : "#latihan"
-                      }
-                    >
-                      Latihan Soal <span aria-hidden="true">↓</span>
-                    </a>
-                  )}
-                </div>
-              )}
+              {!["eksponensial", "transformasi-geometri"].includes(slug) &&
+                (downloadUrl ||
+                  questionsDownloadUrl ||
+                  transformationQuestionsDownloadUrl ||
+                  slug === "eksponensial") && (
+                  <div className="lesson-actions">
+                    {downloadUrl && (
+                      <a
+                        className="button button-primary lesson-download"
+                        href={downloadUrl}
+                      >
+                        Unduh Modul PDF <span aria-hidden="true">↓</span>
+                      </a>
+                    )}
+                    {questionsDownloadUrl && (
+                      <a
+                        className="button lesson-practice"
+                        href={questionsDownloadUrl}
+                      >
+                        Unduh Soal Eksponen PDF{" "}
+                        <span aria-hidden="true">↓</span>
+                      </a>
+                    )}
+                    {transformationQuestionsDownloadUrl && (
+                      <a
+                        className="button lesson-practice"
+                        href={transformationQuestionsDownloadUrl}
+                      >
+                        Unduh Soal Transformasi PDF
+                        <span aria-hidden="true">↓</span>
+                      </a>
+                    )}
+                    {(slug === "eksponensial" ||
+                      slug === "transformasi-geometri") && (
+                      <a
+                        className="button lesson-practice"
+                        href={
+                          slug === "eksponensial" ? "#tes-sumatif" : "#latihan"
+                        }
+                      >
+                        Latihan Soal <span aria-hidden="true">↓</span>
+                      </a>
+                    )}
+                  </div>
+                )}
             </div>
 
             {material.description && (
