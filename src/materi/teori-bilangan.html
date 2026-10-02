@@ -2,23 +2,180 @@
   <h2>1. Sistem Bilangan dan Angka</h2>
 
   <p>
-    Teori bilangan mempelajari sifat-sifat bilangan bulat, terutama keterbagian,
-    bilangan prima, dan hubungan antarbilangan. Himpunan bilangan yang sering
-    dipakai adalah:
+    Teori bilangan adalah cabang matematika yang mempelajari sifat-sifat
+    <strong>bilangan bulat</strong>, yaitu bilangan tanpa koma seperti
+    \(\dots,-2,-1,0,1,2,\dots\). Soal teori bilangan di olimpiade sering tampak
+    sederhana (mencari sisa, angka terakhir, banyak solusi, atau membuktikan
+    sesuatu), tetapi memerlukan ide yang cerdik. Bacalah materi ini berurutan
+    dan cobalah menghitung sendiri setiap contoh sebelum melihat
+    penyelesaiannya.
   </p>
+
+  <h3>Jenis Bilangan</h3>
+
+  <p>Himpunan bilangan yang paling sering dipakai adalah sebagai berikut.</p>
 
   <div class="math-display">
     \[ \mathbb{N}=\{1,2,3,\dots\}, \quad \mathbb{Z}=\{\dots,-1,0,1,\dots\},
     \quad \mathbb{Q}=\left\{\frac{a}{b}\,:\,a,b\in\mathbb{Z},\,b\neq0\right\} \]
   </div>
 
-  <h3>Bilangan Prima dan Faktorisasi Prima</h3>
+  <p>
+    \(\mathbb{N}\) adalah bilangan asli (untuk menghitung benda; pada materi ini
+    dimulai dari \(1\)), \(\mathbb{Z}\) adalah bilangan bulat (ditambah nol dan
+    bilangan negatif), dan \(\mathbb{Q}\) adalah bilangan rasional (pecahan).
+    Dalam teori bilangan, kita hampir selalu bekerja dengan bilangan bulat.
+  </p>
+
+  <h3>Genap, Ganjil, dan Paritas</h3>
 
   <p>
-    Bilangan prima adalah bilangan asli lebih dari \(1\) yang hanya memiliki dua
-    pembagi positif, yaitu \(1\) dan dirinya sendiri. Bilangan asli lebih dari
-    \(1\) yang bukan prima disebut komposit.
+    Bilangan <strong>genap</strong> adalah bilangan bulat yang habis dibagi
+    \(2\), dapat ditulis \(2k\). Bilangan <strong>ganjil</strong> adalah
+    bilangan bulat yang bukan genap, dapat ditulis \(2k+1\). Keadaan "genap atau
+    ganjil" ini disebut <strong>paritas</strong>. Sifat paritas untuk operasi
+    dasar:
   </p>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Operasi</th>
+          <th scope="col">Hasil</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(\text{genap}\pm\text{genap}\)</td>
+          <td>genap</td>
+        </tr>
+        <tr>
+          <td>\(\text{ganjil}\pm\text{ganjil}\)</td>
+          <td>genap</td>
+        </tr>
+        <tr>
+          <td>\(\text{genap}\pm\text{ganjil}\)</td>
+          <td>ganjil</td>
+        </tr>
+        <tr>
+          <td>\(\text{genap}\times\text{bilangan bulat apa pun}\)</td>
+          <td>genap</td>
+        </tr>
+        <tr>
+          <td>\(\text{ganjil}\times\text{ganjil}\)</td>
+          <td>ganjil</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+
+    <p>Buktikan bahwa jumlah dua bilangan ganjil selalu genap.</p>
+
+    <p>
+      Tulis kedua bilangan itu \(2a+1\) dan \(2b+1\). Jumlahnya
+      \((2a+1)+(2b+1)=2(a+b+1)\), yaitu kelipatan \(2\), sehingga genap.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2</h4>
+
+    <p>
+      Apakah mungkin menjumlahkan \(15\) bilangan ganjil sehingga hasilnya
+      \(100\)?
+    </p>
+
+    <p>
+      Pasangkan \(14\) bilangan menjadi \(7\) pasang. Setiap pasang berjumlah
+      genap, sehingga ketujuh pasang berjumlah genap. Satu bilangan sisanya
+      ganjil, jadi totalnya genap + ganjil = ganjil. Karena \(100\) genap, hal
+      itu tidak mungkin. Secara umum, jumlah
+      <em>banyak ganjil</em> bilangan ganjil selalu ganjil.
+    </p>
+  </div>
+
+  <h3>Bilangan Prima dan Komposit</h3>
+
+  <p>
+    Bilangan <strong>prima</strong> adalah bilangan asli lebih dari \(1\) yang
+    hanya memiliki dua pembagi positif, yaitu \(1\) dan dirinya sendiri. Contoh:
+    \(7\) prima karena pembaginya hanya \(1\) dan \(7\). Bilangan asli lebih
+    dari \(1\) yang bukan prima disebut <strong>komposit</strong>, misalnya
+    \(9\) (pembaginya \(1,3,9\)). Perhatikan bahwa \(1\) bukan prima dan bukan
+    komposit, dan \(2\) adalah satu-satunya prima genap. Bilangan prima di bawah
+    \(50\):
+  </p>
+
+  <div class="math-display">
+    \[ 2,\ 3,\ 5,\ 7,\ 11,\ 13,\ 17,\ 19,\ 23,\ 29,\ 31,\ 37,\ 41,\ 43,\ 47 \]
+  </div>
+
+  <p>
+    <strong>Cara menguji bilangan prima.</strong> Jika \(n=ab\) dengan \(a\le
+    b\), maka \(a^2\le ab=n\), yaitu \(a\le\sqrt{n}\). Jadi bilangan komposit
+    \(n\) selalu punya faktor prima yang tidak lebih dari \(\sqrt{n}\). Untuk
+    menguji \(n\), cukup bagi dengan semua prima \(\le\sqrt{n}\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 3</h4>
+
+    <p>Apakah \(191\) bilangan prima?</p>
+
+    <p>
+      Karena \(13^2=169\lt191\lt196=14^2\), uji prima \(2,3,5,7,11,13\).
+      Bilangan \(191\) ganjil, jumlah digitnya \(11\) (bukan kelipatan \(3\)),
+      dan satuannya bukan \(0\) atau \(5\). Selanjutnya \(191=7\cdot27+2\),
+      \(191=11\cdot17+4\), dan \(191=13\cdot14+9\). Tidak ada yang membagi, jadi
+      \(191\) prima.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 4</h4>
+
+    <p>Apakah \(391\) bilangan prima?</p>
+
+    <p>
+      Karena \(19^2=361\lt391\lt400=20^2\), uji prima sampai \(19\). Tiga uji
+      pertama (\(2,3,5\)) lolos, namun \(391=17\cdot23\). Jadi \(391\) komposit.
+      (Bilangan seperti ini sering menipu karena tampak prima.)
+    </p>
+  </div>
+
+  <p>
+    <strong>Fakta berguna:</strong> setiap prima lebih dari \(3\) berbentuk
+    \(6k\pm1\). Alasannya, bilangan \(6k,\ 6k+2,\ 6k+4\) genap dan \(6k+3\)
+    kelipatan \(3\), sehingga hanya \(6k+1\) dan \(6k+5=6(k+1)-1\) yang mungkin
+    prima. (Sebaliknya tidak berlaku: \(25=6\cdot4+1\) bukan prima.)
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 5</h4>
+
+    <p>
+      Tentukan semua bilangan prima \(p\) sehingga \(p+2\) dan \(p+4\) juga
+      prima.
+    </p>
+
+    <p>
+      Perhatikan sisa pembagian oleh \(3\). Jika \(p\) bersisa \(r\), maka
+      \(p+2\) bersisa \(r+2\) dan \(p+4\) bersisa \(r+1\) (dihitung modulo
+      \(3\)). Ketiga sisa itu \(r,\ r+2,\ r+1\) mencakup \(0,1,2\) tepat sekali,
+      sehingga salah satu dari \(p,p+2,p+4\) kelipatan \(3\). Agar bilangan itu
+      prima, ia harus sama dengan \(3\). Hanya \(p=3\) yang cocok (\(3,5,7\)
+      semuanya prima); \(p+2=3\) atau \(p+4=3\) memberi \(p\le1\) yang bukan
+      prima.
+    </p>
+
+    <p>Jadi satu-satunya jawaban adalah \(p=3\).</p>
+  </div>
+
+  <h3>Faktorisasi Prima</h3>
 
   <p>
     <strong>Teorema Dasar Aritmetika:</strong> setiap bilangan asli \(n\gt1\)
@@ -28,34 +185,142 @@
 
   <div class="math-display">\[ n=p_1^{a_1}\,p_2^{a_2}\cdots p_k^{a_k} \]</div>
 
-  <p>Dari faktorisasi ini diperoleh banyak dan jumlah pembagi positif \(n\):</p>
+  <p>
+    Cara mencarinya: bagi \(n\) berulang kali dengan prima terkecil yang
+    membagi, sampai hasilnya \(1\) (ini sama dengan "pohon faktor" di sekolah).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 6</h4>
+
+    <p>Faktorkan \(360\), \(2024\), dan \(1001\).</p>
+
+    <div class="math-display">
+      \[ 360\to180\to90\to45\to15\to5\to1 \ \ (\text{dibagi }2,2,2,3,3,5)
+      \quad\Rightarrow\quad 360=2^3\cdot3^2\cdot5 \]
+    </div>
+
+    <p>
+      Untuk \(2024\): \(2024=2\cdot1012=2^2\cdot506=2^3\cdot253\), dan
+      \(253=11\cdot23\), jadi \(2024=2^3\cdot11\cdot23\). Untuk \(1001\): bagi
+      oleh \(7\) menghasilkan \(143\), dan \(143=11\cdot13\), jadi
+      \(1001=7\cdot11\cdot13\).
+    </p>
+  </div>
+
+  <h3>Banyak dan Jumlah Pembagi</h3>
+
+  <p>
+    Pembagi positif dari \(12\) adalah \(1,2,3,4,6,12\) (ada \(6\)). Ada cara
+    cepat tanpa menuliskan semuanya. Karena \(12=2^2\cdot3\), setiap pembagi
+    berbentuk \(2^a\cdot3^b\) dengan \(a\in\{0,1,2\}\) (\(3\) pilihan) dan
+    \(b\in\{0,1\}\) (\(2\) pilihan), sehingga banyaknya \(3\cdot2=6\). Aturan
+    ini berlaku umum. Untuk \(n=p_1^{a_1}\cdots p_k^{a_k}\), banyak pembagi
+    positif \(\tau(n)\) dan jumlah pembagi positif \(\sigma(n)\) adalah:
+  </p>
 
   <div class="math-display">
     \[ \tau(n)=(a_1+1)(a_2+1)\cdots(a_k+1), \qquad
-    \sigma(n)=\prod_{i=1}^{k}\frac{p_i^{a_i+1}-1}{p_i-1} \]
+    \sigma(n)=\prod_{i=1}^{k}\frac{p_i^{a_i+1}-1}{p_i-1}
+    =\prod_{i=1}^{k}\left(1+p_i+p_i^2+\cdots+p_i^{a_i}\right) \]
   </div>
 
+  <p>
+    Rumus \(\sigma\) muncul karena jumlah semua \(2^a\cdot3^b\) adalah hasil
+    kali \((1+2+4)(1+3)\). Misalnya \(\sigma(12)=7\cdot4=28\), sama dengan
+    \(1+2+3+4+6+12\).
+  </p>
+
   <div class="lesson-example">
-    <h4>Contoh</h4>
+    <h4>Contoh 7</h4>
+
     <p>Tentukan banyak dan jumlah pembagi positif dari \(360\).</p>
+
     <p>Faktorisasi: \(360=2^3\cdot3^2\cdot5\). Maka:</p>
+
     <div class="math-display">
       \[ \tau(360)=(3+1)(2+1)(1+1)=24, \qquad
       \sigma(360)=(1+2+4+8)(1+3+9)(1+5)=15\cdot13\cdot6=1170 \]
     </div>
   </div>
 
+  <div class="lesson-example">
+    <h4>Contoh 8</h4>
+
+    <p>
+      Tentukan bilangan asli terkecil yang memiliki tepat \(12\) pembagi
+      positif.
+    </p>
+
+    <p>
+      Kita perlu \((a_1+1)(a_2+1)\cdots=12\). Susunan yang mungkin untuk \(12\)
+      adalah \(12\), \(6\cdot2\), \(4\cdot3\), dan \(3\cdot2\cdot2\). Agar
+      bilangan sekecil mungkin, pangkat terbesar dipasang pada prima terkecil:
+    </p>
+
+    <div class="math-display">
+      \[ 2^{11}=2048,\quad 2^5\cdot3=96,\quad 2^3\cdot3^2=72,\quad
+      2^2\cdot3\cdot5=60 \]
+    </div>
+
+    <p>Yang terkecil adalah \(60\).</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 9</h4>
+
+    <p>
+      Ada berapa bilangan asli \(\le100\) yang memiliki tepat \(3\) pembagi
+      positif?
+    </p>
+
+    <p>
+      \(\tau(n)=3\) berarti \(n=p^2\) dengan \(p\) prima (karena \(3\) hanya
+      dapat ditulis sebagai \(2+1\)). Syarat \(p^2\le100\) memberi \(p\le10\),
+      yaitu \(p=2,3,5,7\), sehingga bilangannya \(4,9,25,49\). Jadi ada \(4\)
+      bilangan.
+    </p>
+  </div>
+
   <p>
-    Fakta berguna: bilangan prima lebih dari \(3\) selalu berbentuk \(6k\pm1\),
-    dan bilangan asli \(n\) merupakan kuadrat sempurna jika dan hanya jika semua
-    pangkat pada faktorisasi primanya genap (sehingga \(\tau(n)\) ganjil).
+    <strong>Kuadrat sempurna dan pembagi.</strong> Pembagi suatu bilangan selalu
+    berpasangan: jika \(d\mid n\) maka \(\displaystyle\frac{n}{d}\) juga
+    pembagi. Pasangan ini baru "bertabrakan" ketika
+    \(d=\displaystyle\frac{n}{d}\), yaitu \(d=\sqrt{n}\). Akibatnya \(\tau(n)\)
+    ganjil jika dan hanya jika \(n\) kuadrat sempurna (semua pangkat pada
+    faktorisasi primanya genap).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 10</h4>
+
+    <p>
+      Ada \(100\) lampu yang mula-mula mati, bernomor \(1\) sampai \(100\).
+      Orang ke-\(k\) menekan saklar semua lampu yang nomornya kelipatan \(k\),
+      untuk \(k=1,2,\dots,100\). Berapa lampu yang menyala di akhir?
+    </p>
+
+    <p>
+      Lampu bernomor \(n\) ditekan sebanyak \(\tau(n)\) kali (sekali untuk tiap
+      pembagi \(n\)). Lampu menyala jika ditekan ganjil kali, yaitu \(\tau(n)\)
+      ganjil, yaitu \(n\) kuadrat sempurna. Kuadrat sempurna \(\le100\) adalah
+      \(1,4,9,\dots,100\), jadi ada \(10\) lampu yang menyala.
+    </p>
+  </div>
+
+  <p>
+    <strong>Fakta berguna lainnya:</strong> jika dua bilangan asli saling prima
+    (tidak punya faktor prima yang sama), maka banyak pembagi hasil kalinya sama
+    dengan hasil kali banyak pembagi masing-masing.
   </p>
 
   <h3>Sistem Bilangan Berbasis</h3>
 
   <p>
-    Setiap bilangan asli \(n\) dapat ditulis dalam basis \(b\ge2\) dengan digit
-    \(0\le a_i\lt b\):
+    Dalam kehidupan sehari-hari kita memakai basis \(10\):
+    \(345=3\cdot100+4\cdot10+5\). Basis lain bekerja sama, hanya "angka pangkat
+    \(10\)" diganti pangkat basisnya. Setiap bilangan asli \(n\) dapat ditulis
+    dalam basis \(b\ge2\) dengan digit \(0\le a_i\lt b\):
   </p>
 
   <div class="math-display">
@@ -63,17 +328,47 @@
   </div>
 
   <div class="lesson-example">
-    <h4>Contoh</h4>
+    <h4>Contoh 11</h4>
+
     <p>
       Nyatakan \(345\) dalam basis \(7\), lalu ubah \((1101)_2\) ke basis
       \(10\).
     </p>
+
     <p>Gunakan pembagian berulang oleh \(7\) dan baca sisanya dari bawah:</p>
+
     <div class="math-display">
       \[ 345=7\cdot49+2,\quad 49=7\cdot7+0,\quad 7=7\cdot1+0,\quad 1=7\cdot0+1
       \quad\Rightarrow\quad 345=(1002)_7 \]
     </div>
+
     <div class="math-display">\[ (1101)_2=1\cdot8+1\cdot4+0\cdot2+1=13 \]</div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 12</h4>
+
+    <p>Ubah \((243)_5\) ke basis \(10\), dan ubah \(100\) ke basis \(2\).</p>
+
+    <div class="math-display">\[ (243)_5=2\cdot25+4\cdot5+3=73 \]</div>
+
+    <p>
+      Untuk \(100\), tulis sebagai jumlah pangkat \(2\): \(100=64+32+4\). Digit
+      basis \(2\) bernilai \(1\) pada posisi \(2^6,2^5,2^2\) dan \(0\) pada
+      posisi lainnya, sehingga \(100=(1100100)_2\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 13</h4>
+
+    <p>Tentukan basis \(b\) sehingga \((35)_b+(24)_b=(62)_b\).</p>
+
+    <p>
+      Ubah ke basis \(10\): \((3b+5)+(2b+4)=6b+2\), sehingga \(5b+9=6b+2\) dan
+      \(b=7\). Cek: digit terbesar yang dipakai adalah \(6\), lebih kecil dari
+      \(7\), jadi basis \(7\) valid.
+    </p>
   </div>
 </section>
 
@@ -81,16 +376,27 @@
   <h2>2. Keterbagian</h2>
 
   <p>
-    Bilangan bulat \(a\neq0\) membagi \(b\), ditulis \(a\mid b\), jika terdapat
-    bilangan bulat \(k\) sehingga \(b=ak\). Sifat-sifat dasarnya (untuk bilangan
-    bulat \(a,b,c,x,y\)):
+    Bilangan bulat \(a\neq0\) <strong>membagi</strong> \(b\), ditulis \(a\mid
+    b\), jika terdapat bilangan bulat \(k\) sehingga \(b=ak\). Contoh:
+    \(4\mid12\) karena \(12=4\cdot3\), sedangkan \(5\nmid12\) (tanda \(\nmid\)
+    berarti "tidak membagi"). Kata lain untuk \(a\mid b\): \(b\) habis dibagi
+    \(a\), atau \(b\) kelipatan \(a\).
   </p>
+
+  <p>Sifat-sifat dasarnya (untuk bilangan bulat \(a,b,c,x,y\)):</p>
 
   <div class="math-display">
     \[ a\mid b\text{ dan }b\mid c\Rightarrow a\mid c, \qquad a\mid b\text{ dan
     }a\mid c\Rightarrow a\mid(bx+cy), \qquad a\mid b\text{ dan
     }b\neq0\Rightarrow|a|\le|b| \]
   </div>
+
+  <p>
+    Contoh angka: \(4\mid12\) dan \(12\mid36\) maka \(4\mid36\). Juga
+    \(3\mid12\) dan \(3\mid18\) sehingga \(3\mid(12\cdot5+18\cdot2)=96\), dan
+    memang \(96=3\cdot32\). Sifat kedua sangat sering dipakai untuk
+    "menyederhanakan" syarat keterbagian.
+  </p>
 
   <h3>Algoritma Pembagian</h3>
 
@@ -100,6 +406,12 @@
   </p>
 
   <div class="math-display">\[ a=bq+r, \qquad 0\le r\lt b \]</div>
+
+  <p>
+    Sisa tidak pernah negatif. Contoh: \(47=5\cdot9+2\), jadi sisanya \(2\).
+    Untuk bilangan negatif, \(-17=5\cdot(-4)+3\), jadi sisa pembagian \(-17\)
+    oleh \(5\) adalah \(3\) (bukan \(-2\)).
+  </p>
 
   <h3>Aturan Keterbagian</h3>
 
@@ -125,6 +437,10 @@
           <td>Tiga angka terakhir habis dibagi \(8\)</td>
         </tr>
         <tr>
+          <td>\(25\)</td>
+          <td>Dua angka terakhir \(00,25,50,\) atau \(75\)</td>
+        </tr>
+        <tr>
           <td>\(3,\ 9\)</td>
           <td>Jumlah digit habis dibagi \(3\) atau \(9\)</td>
         </tr>
@@ -134,16 +450,111 @@
             Selisih jumlah digit posisi ganjil dan genap habis dibagi \(11\)
           </td>
         </tr>
+        <tr>
+          <td>\(7\)</td>
+          <td>
+            Buang angka satuan, lalu kurangi sisanya dengan \(2\times\) angka
+            satuan itu; hasilnya habis dibagi \(7\)
+          </td>
+        </tr>
+        <tr>
+          <td>\(6,\ 12,\ 15,\ 45,\ 36\)</td>
+          <td>
+            Gabungan dua syarat yang saling prima: \(6=2\cdot3\),
+            \(12=4\cdot3\), \(15=3\cdot5\), \(45=9\cdot5\), \(36=4\cdot9\)
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>
 
+  <p>
+    <strong>Mengapa aturan \(3\) dan \(9\) berlaku?</strong> Setiap pangkat
+    \(10\) bersisa \(1\) jika dibagi \(9\) (karena \(10-1=9\)). Maka
+    \(\overline{abc}=100a+10b+c\) bersisa sama dengan \(a+b+c\) jika dibagi
+    \(9\). Hal yang sama berlaku untuk \(3\).
+  </p>
+
   <div class="lesson-example">
-    <h4>Contoh</h4>
+    <h4>Contoh 14</h4>
+
+    <p>Apakah \(7.123.456\) habis dibagi \(9\)? Berapa sisanya?</p>
+
+    <p>
+      Jumlah digit: \(7+1+2+3+4+5+6=28\). Karena \(28=3\cdot9+1\), bilangan itu
+      tidak habis dibagi \(9\) dan bersisa \(1\) jika dibagi \(9\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 15</h4>
+
+    <p>Tentukan digit \(x\) agar \(3x56\) habis dibagi \(9\).</p>
+
+    <p>
+      Jumlah digit: \(3+x+5+6=14+x\). Agar kelipatan \(9\) dan \(0\le x\le9\),
+      haruslah \(14+x=18\), jadi \(x=4\). Cek: \(3456=9\cdot384\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 16</h4>
+
+    <p>Tentukan digit \(x\) agar bilangan \(52x4\) habis dibagi \(11\).</p>
+
+    <p>
+      Selisih jumlah digit posisi ganjil dan genap: \((5+x)-(2+4)=x-1\). Agar
+      habis dibagi \(11\) dan \(0\le x\le9\), haruslah \(x-1=0\), jadi \(x=1\).
+      Cek: \(5214=11\cdot474\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 17</h4>
+
+    <p>
+      Tentukan semua bilangan empat digit \(\overline{4a3b}\) yang habis dibagi
+      \(36\).
+    </p>
+
+    <p>
+      Karena \(36=4\cdot9\) dengan \(4\) dan \(9\) saling prima, bilangan itu
+      harus habis dibagi \(4\) dan \(9\) sekaligus. Syarat \(4\): dua digit
+      terakhir \(\overline{3b}\) kelipatan \(4\), yaitu \(32\) atau \(36\)
+      sehingga \(b=2\) atau \(b=6\). Syarat \(9\): \(4+a+3+b=7+a+b\) kelipatan
+      \(9\).
+    </p>
+
+    <p>
+      Untuk \(b=2\): \(9+a\) kelipatan \(9\), sehingga \(a=0\) atau \(a=9\).
+      Untuk \(b=6\): \(13+a\) kelipatan \(9\), sehingga \(a=5\). Bilangannya:
+    </p>
+
+    <div class="math-display">\[ 4032,\quad 4932,\quad 4536 \]</div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 18</h4>
+
+    <p>Gunakan aturan \(7\) untuk memeriksa \(1001\) dan \(2023\).</p>
+
+    <p>
+      \(1001\): buang satuan \(1\), sisa \(100\); \(100-2\cdot1=98=7\cdot14\),
+      jadi \(7\mid1001\). \(2023\): buang \(3\), sisa \(202\);
+      \(202-6=196=7\cdot28\), jadi \(7\mid2023\) juga.
+    </p>
+  </div>
+
+  <h3>Bukti dan Teknik Keterbagian</h3>
+
+  <div class="lesson-example">
+    <h4>Contoh 19</h4>
+
     <p>
       Buktikan bahwa \(n^3-n\) habis dibagi \(6\) untuk setiap bilangan bulat
       \(n\).
     </p>
+
     <p>
       Faktorkan: \(n^3-n=(n-1)\,n\,(n+1)\), yaitu hasil kali tiga bilangan bulat
       berurutan. Di antaranya pasti ada satu kelipatan \(3\) dan sedikitnya satu
@@ -152,19 +563,197 @@
     </p>
   </div>
 
+  <p>
+    Gagasan ini diperumum: hasil kali \(k\) bilangan bulat berurutan selalu
+    habis dibagi \(k!\). Misalnya hasil kali dua bilangan berurutan selalu
+    genap, dan hasil kali lima bilangan berurutan selalu habis dibagi
+    \(5!=120\).
+  </p>
+
+  <p>
+    <strong>Teknik "buang kelebihan".</strong> Jika diminta syarat \((n+k)\mid
+    f(n)\), ubah \(f(n)\) menjadi \((n+k)\cdot g(n)+\text{konstanta}\). Karena
+    \(n+k\) membagi bagian pertama, syaratnya sama dengan
+    \((n+k)\mid\text{konstanta}\), yang hanya punya beberapa kemungkinan.
+  </p>
+
   <div class="lesson-example">
-    <h4>Contoh</h4>
-    <p>Tentukan digit \(x\) agar bilangan \(52x4\) habis dibagi \(11\).</p>
+    <h4>Contoh 20</h4>
+
     <p>
-      Selisih jumlah digit posisi ganjil dan genap: \((5+x)-(2+4)=x-1\). Agar
-      habis dibagi \(11\) dan \(0\le x\le9\), haruslah \(x-1=0\), jadi \(x=1\).
-      Cek: \(5214=11\cdot474\).
+      Tentukan semua bilangan bulat positif \(n\) sehingga \(n+1\) membagi
+      \(n^2+5\).
+    </p>
+
+    <p>
+      Tulis \(n^2+5=(n+1)(n-1)+6\). Karena \(n+1\) membagi \((n+1)(n-1)\),
+      syaratnya ekuivalen dengan \((n+1)\mid6\). Karena \(n+1\ge2\), maka
+      \(n+1\in\{2,3,6\}\), sehingga \(n=1,2,5\). Cek: \(2\mid6\), \(3\mid9\),
+      \(6\mid30\).
+    </p>
+  </div>
+
+  <p>
+    <strong>Teknik selisih pangkat.</strong> Untuk bilangan bulat \(a,b\) dan
+    bilangan asli \(n\), berlaku:
+  </p>
+
+  <div class="math-display">\[ (a-b)\mid(a^n-b^n) \]</div>
+
+  <div class="lesson-example">
+    <h4>Contoh 21</h4>
+
+    <p>
+      Buktikan bahwa \(3^{2n}-1\) habis dibagi \(8\) untuk setiap bilangan asli
+      \(n\).
+    </p>
+
+    <p>
+      Tulis \(3^{2n}-1=9^n-1^n\). Karena \(9-1=8\) membagi \(9^n-1^n\), terbukti
+      bahwa \(8\mid3^{2n}-1\). Dengan alasan yang sama, \(9\mid10^n-1\) untuk
+      semua \(n\) (inilah sebabnya bilangan \(99\ldots9\) selalu kelipatan
+      \(9\)).
+    </p>
+  </div>
+</section>
+
+<section
+  id="faktorial-eksponen-prima"
+  data-title="Faktorial dan Eksponen Prima"
+>
+  <h2>3. Faktorial dan Eksponen Prima</h2>
+
+  <p>
+    <strong>Faktorial</strong> dari bilangan asli \(n\) adalah hasil kali semua
+    bilangan asli dari \(1\) sampai \(n\): \(n!=1\cdot2\cdot3\cdots n\). Contoh:
+    \(5!=120\), dan disepakati \(0!=1\). Faktorial tumbuh sangat cepat, sehingga
+    soal olimpiade jarang meminta nilainya, tetapi sering menanyakan
+    <em>berapa kali suatu prima muncul</em> dalam \(n!\), misalnya "berapa
+    banyak nol di akhir \(100!\)".
+  </p>
+
+  <h3>Fungsi Lantai</h3>
+
+  <p>
+    Notasi \(\lfloor x\rfloor\) (dibaca "lantai \(x\)") adalah bilangan bulat
+    terbesar yang tidak melebihi \(x\). Contoh: \(\lfloor3{,}7\rfloor=3\),
+    \(\lfloor5\rfloor=5\), dan \(\lfloor-1{,}2\rfloor=-2\). Fungsi ini muncul
+    karena banyak kelipatan \(p\) di antara \(1,2,\dots,n\) tepat
+    \(\left\lfloor\displaystyle\frac{n}{p}\right\rfloor\). Contoh: kelipatan
+    \(7\) di antara \(1\) sampai \(50\) ada \(\lfloor50/7\rfloor=7\) buah
+    (\(7,14,\dots,49\)).
+  </p>
+
+  <h3>Eksponen Prima dalam Faktorial (Rumus Legendre)</h3>
+
+  <p>
+    Untuk menghitung pangkat tertinggi prima \(p\) yang membagi \(n!\), hitung
+    berapa kali \(p\) muncul. Setiap kelipatan \(p\) menyumbang satu \(p\),
+    setiap kelipatan \(p^2\) menyumbang satu \(p\) tambahan, dan seterusnya.
+    Maka pangkat \(p\) dalam \(n!\), kita tulis \(v_p(n!)\), adalah:
+  </p>
+
+  <div class="math-display">
+    \[ v_p(n!)=\left\lfloor\frac{n}{p}\right\rfloor
+    +\left\lfloor\frac{n}{p^2}\right\rfloor
+    +\left\lfloor\frac{n}{p^3}\right\rfloor+\cdots \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 22</h4>
+
+    <p>
+      Berapa pangkat tertinggi \(2\) yang membagi \(20!\), dan pangkat tertinggi
+      \(3\) yang membagi \(50!\)?
+    </p>
+
+    <div class="math-display">
+      \[ v_2(20!)=10+5+2+1=18, \qquad v_3(50!)=16+5+1=22 \]
+    </div>
+
+    <p>
+      Perhitungan pertama: \(\lfloor20/2\rfloor=10\), \(\lfloor20/4\rfloor=5\),
+      \(\lfloor20/8\rfloor=2\), \(\lfloor20/16\rfloor=1\). Perhitungan kedua:
+      \(\lfloor50/3\rfloor=16\), \(\lfloor50/9\rfloor=5\),
+      \(\lfloor50/27\rfloor=1\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 23</h4>
+
+    <p>Berapa banyak angka nol di akhir \(100!\)?</p>
+
+    <p>
+      Setiap nol di akhir berasal dari faktor \(10=2\cdot5\). Faktor \(2\) jauh
+      lebih banyak daripada faktor \(5\), sehingga banyak nol ditentukan oleh
+      pangkat \(5\):
+    </p>
+
+    <div class="math-display">
+      \[ v_5(100!)=\left\lfloor\frac{100}{5}\right\rfloor
+      +\left\lfloor\frac{100}{25}\right\rfloor=20+4=24 \]
+    </div>
+
+    <p>Jadi \(100!\) berakhir dengan \(24\) angka nol.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 24</h4>
+
+    <p>
+      Berapa banyak angka nol di akhir \(2025!\)? Berapa bilangan asli terkecil
+      \(n\) sehingga \(n!\) berakhir dengan sedikitnya \(10\) nol?
+    </p>
+
+    <div class="math-display">\[ v_5(2025!)=405+81+16+3=505 \]</div>
+
+    <p>
+      (\(\lfloor2025/5\rfloor=405\), \(\lfloor2025/25\rfloor=81\),
+      \(\lfloor2025/125\rfloor=16\), \(\lfloor2025/625\rfloor=3\), dan
+      \(3125\gt2025\).) Jadi ada \(505\) nol. Untuk pertanyaan kedua kita perlu
+      \(v_5(n!)\ge10\). Karena \(v_5(44!)=8+1=9\) sedangkan \(v_5(45!)=9+1=10\),
+      nilai terkecilnya \(n=45\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 25</h4>
+
+    <p>
+      Tentukan bilangan asli terbesar \(k\) sehingga \(12^k\) membagi \(100!\).
+    </p>
+
+    <p>
+      Karena \(12^k=2^{2k}\cdot3^k\), kita perlu \(2k\le v_2(100!)\) dan \(k\le
+      v_3(100!)\). Hitung:
+    </p>
+
+    <div class="math-display">
+      \[ v_2(100!)=50+25+12+6+3+1=97, \qquad v_3(100!)=33+11+3+1=48 \]
+    </div>
+
+    <p>
+      Maka \(2k\le97\Rightarrow k\le48\) dan \(k\le48\), sehingga nilai terbesar
+      \(k=48\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 26</h4>
+
+    <p>Tentukan angka satuan dari \(1!+2!+3!+\cdots+100!\).</p>
+
+    <p>
+      Untuk \(n\ge5\), \(n!\) memuat faktor \(2\) dan \(5\), sehingga berakhir
+      dengan \(0\). Hanya \(1!+2!+3!+4!=1+2+6+24=33\) yang memengaruhi angka
+      satuan, jadi angka satuannya \(3\).
     </p>
   </div>
 </section>
 
 <section id="fpb-kpk" data-title="FPB dan KPK">
-  <h2>3. FPB dan KPK</h2>
+  <h2>4. FPB dan KPK</h2>
 
   <p>
     Faktor persekutuan terbesar \(\gcd(a,b)\) (FPB) adalah bilangan bulat
@@ -172,6 +761,13 @@
     terkecil \(\operatorname{lcm}(a,b)\) (KPK) adalah bilangan asli terkecil
     yang habis dibagi \(a\) dan \(b\). Jika \(\gcd(a,b)=1\), maka \(a\) dan
     \(b\) disebut <strong>relatif prima</strong>.
+  </p>
+
+  <p>
+    Contoh dengan daftar: pembagi \(12\) adalah \(1,2,3,4,6,12\) dan pembagi
+    \(18\) adalah \(1,2,3,6,9,18\). Pembagi bersama terbesar adalah \(6\), jadi
+    \(\gcd(12,18)=6\). Kelipatan \(12\): \(12,24,36,\dots\); kelipatan \(18\):
+    \(18,36,\dots\); sehingga \(\operatorname{lcm}(12,18)=36\).
   </p>
 
   <h3>Dari Faktorisasi Prima</h3>
@@ -185,35 +781,107 @@
     \[ \gcd(a,b)\cdot\operatorname{lcm}(a,b)=a\cdot b \]
   </div>
 
+  <div class="lesson-example">
+    <h4>Contoh 27</h4>
+
+    <p>Tentukan FPB dan KPK dari \(84\) dan \(120\).</p>
+
+    <p>
+      \(84=2^2\cdot3\cdot7\) dan \(120=2^3\cdot3\cdot5\). Ambil pangkat terkecil
+      untuk FPB dan pangkat terbesar untuk KPK:
+    </p>
+
+    <div class="math-display">
+      \[ \gcd=2^2\cdot3=12, \qquad \operatorname{lcm}=2^3\cdot3\cdot5\cdot7=840
+      \]
+    </div>
+
+    <p>Cek: \(12\cdot840=10080=84\cdot120\).</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 28</h4>
+
+    <p>
+      Dua lampu berkedip masing-masing setiap \(12\) detik dan \(18\) detik.
+      Jika keduanya berkedip bersamaan sekarang, kapan mereka berkedip bersamaan
+      lagi? Selain itu, lantai berukuran \(360\times240\) cm ingin dipasang ubin
+      persegi sebesar mungkin tanpa dipotong. Berapa sisi ubin?
+    </p>
+
+    <p>
+      Kedipan bersamaan terjadi pada kelipatan persekutuan, yang paling awal
+      adalah KPK: \(\operatorname{lcm}(12,18)=36\) detik lagi. Sisi ubin harus
+      membagi \(360\) dan \(240\), dan yang terbesar adalah FPB:
+      \(\gcd(360,240)=120\) cm.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 29</h4>
+
+    <p>
+      Dua bilangan asli memiliki FPB \(6\) dan KPK \(180\). Jika salah satunya
+      \(30\), tentukan bilangan yang lain.
+    </p>
+
+    <p>
+      Gunakan \(\gcd\cdot\operatorname{lcm}=ab\): \(6\cdot180=30\cdot b\),
+      sehingga \(b=36\). Cek: \(\gcd(30,36)=6\) dan
+      \(\operatorname{lcm}(30,36)=180\).
+    </p>
+  </div>
+
   <h3>Algoritma Euclid</h3>
 
   <p>
     FPB dua bilangan besar dicari dengan sifat \(\gcd(a,b)=\gcd(b,r)\), dengan
-    \(r\) sisa pembagian \(a\) oleh \(b\). Proses diulang hingga sisanya nol.
+    \(r\) sisa pembagian \(a\) oleh \(b\). Alasannya, semua pembagi bersama
+    \(a\) dan \(b\) juga membagi \(r=a-bq\), dan sebaliknya. Proses diulang
+    sampai sisanya nol; sisa tak nol yang terakhir adalah FPB.
   </p>
 
   <div class="lesson-example">
-    <h4>Contoh</h4>
+    <h4>Contoh 30</h4>
+
+    <p>Tentukan \(\gcd(48,18)\).</p>
+
+    <div class="math-display">
+      \[ 48=2\cdot18+12,\quad 18=1\cdot12+6,\quad 12=2\cdot6+0 \]
+    </div>
+
+    <p>Sisa tak nol terakhir adalah \(6\), jadi \(\gcd(48,18)=6\).</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 31</h4>
+
     <p>
       Tentukan \(\gcd(252,198)\), \(\operatorname{lcm}(252,198)\), dan bilangan
       bulat \(x,y\) sehingga \(252x+198y=\gcd(252,198)\).
     </p>
+
     <div class="math-display">
       \[ 252=1\cdot198+54, \quad 198=3\cdot54+36, \quad 54=1\cdot36+18, \quad
       36=2\cdot18+0 \]
     </div>
+
     <p>
       Sisa terakhir yang tidak nol adalah \(18\), jadi \(\gcd(252,198)=18\) dan:
     </p>
+
     <div class="math-display">
       \[ \operatorname{lcm}(252,198)=\frac{252\cdot198}{18}=2772 \]
     </div>
+
     <p>Telusuri langkah Euclid dari belakang:</p>
+
     <div class="math-display">
       \[
       18=54-36=54-(198-3\cdot54)=4\cdot54-198=4(252-198)-198=4\cdot252-5\cdot198
       \]
     </div>
+
     <p>Jadi \(x=4\) dan \(y=-5\) (cek: \(1008-990=18\)).</p>
   </div>
 
@@ -222,15 +890,69 @@
     bilangan bulat \(a,b\) yang tidak keduanya nol, terdapat bilangan bulat
     \(x,y\) dengan \(ax+by=\gcd(a,b)\).
   </p>
+
+  <h3>Teknik FPB untuk Soal Olimpiade</h3>
+
+  <p>
+    Dua sifat berikut sangat sering dipakai. Pertama,
+    \(\gcd(a,b)=\gcd(a-b,\,b)\) (dan juga \(\gcd(a,b)=\gcd(a+kb,\,b)\) untuk
+    sembarang bilangan bulat \(k\)). Kedua, jika \(d=\gcd(a,b)\), maka \(a=dx\)
+    dan \(b=dy\) dengan \(\gcd(x,y)=1\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 32</h4>
+
+    <p>
+      Tentukan semua nilai yang mungkin dari \(\gcd(n+3,\,n+10)\) untuk bilangan
+      asli \(n\), dan semua nilai yang mungkin dari \(\gcd(2n+1,\,n+3)\).
+    </p>
+
+    <p>
+      Pertama: \(\gcd(n+3,n+10)=\gcd(n+3,\,7)\), yang bernilai \(1\) atau \(7\)
+      (karena \(7\) prima). Kedua:
+      \(\gcd(2n+1,n+3)=\gcd(2n+1-2(n+3),\,n+3)=\gcd(-5,\,n+3)=\gcd(5,n+3)\),
+      yang bernilai \(1\) atau \(5\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 33</h4>
+
+    <p>
+      Tentukan banyak pasangan terurut bilangan asli \((a,b)\) dengan
+      \(\gcd(a,b)=4\) dan \(\operatorname{lcm}(a,b)=24\).
+    </p>
+
+    <p>
+      Tulis \(a=4x\) dan \(b=4y\) dengan \(\gcd(x,y)=1\). Maka
+      \(\operatorname{lcm}(a,b)=4xy=24\), sehingga \(xy=6\). Pasangan \((x,y)\)
+      yang saling prima dengan hasil kali \(6\):
+    </p>
+
+    <div class="math-display">\[ (1,6),\ (6,1),\ (2,3),\ (3,2) \]</div>
+
+    <p>Jadi ada \(4\) pasangan: \((a,b)=(4,24),(24,4),(8,12),(12,8)\).</p>
+  </div>
 </section>
 
 <section id="modulo" data-title="Aritmetika Modulo">
-  <h2>4. Aritmetika Modulo</h2>
+  <h2>5. Aritmetika Modulo</h2>
 
   <p>
-    Untuk bilangan asli \(m\), kita tulis \(a\equiv b\pmod m\) jika
-    \(m\mid(a-b)\), yaitu \(a\) dan \(b\) memberikan sisa yang sama jika dibagi
-    \(m\). Jika \(a\equiv b\) dan \(c\equiv d\pmod m\), maka:
+    <strong>Bayangkan jam dinding.</strong> Jam \(15\) sama dengan jam \(3\)
+    karena setelah \(12\) jam, jarum kembali ke awal. Aritmetika modulo bekerja
+    seperti itu: kita hanya peduli pada <em>sisa pembagian</em>. Contoh: jika
+    hari ini Senin, hari apa \(100\) hari lagi? Karena \(100=14\cdot7+2\) (sisa
+    \(2\)), jawabannya dua hari setelah Senin, yaitu Rabu.
+  </p>
+
+  <p>
+    Untuk bilangan asli \(m\), kita tulis \(a\equiv b\pmod m\) (dibaca "\(a\)
+    kongruen \(b\) modulo \(m\)") jika \(m\mid(a-b)\), yaitu \(a\) dan \(b\)
+    memberikan sisa yang sama jika dibagi \(m\). Contoh: \(17\equiv2\pmod5\)
+    karena \(5\mid15\), dan \(123\equiv4\pmod7\) karena \(123=7\cdot17+4\). Jika
+    \(a\equiv b\) dan \(c\equiv d\pmod m\), maka:
   </p>
 
   <div class="math-display">
@@ -238,25 +960,93 @@
   </div>
 
   <p>
-    Pembagian tidak boleh dilakukan sembarangan. Dari \(ac\equiv bc\pmod m\)
-    hanya dapat disimpulkan \(a\equiv b\pmod m\) jika \(\gcd(c,m)=1\).
+    Artinya, kita boleh mengganti bilangan dengan sisanya sebelum menjumlah,
+    mengurang, mengali, atau memangkatkan. Ini memangkas perhitungan besar
+    menjadi kecil.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 34</h4>
+
+    <p>
+      Tentukan sisa \(2024\times2025\) jika dibagi \(7\), dan angka satuan
+      \(123\times457\).
+    </p>
+
+    <p>
+      \(2024=7\cdot289+1\equiv1\) dan \(2025\equiv2\pmod7\), sehingga
+      \(2024\cdot2025\equiv1\cdot2=2\pmod7\). Angka satuan hasil kali ditentukan
+      oleh angka satuan faktor-faktornya: \(3\cdot7=21\), jadi satuannya \(1\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 35</h4>
+
+    <p>Tentukan sisa \(99^{99}\) jika dibagi \(100\).</p>
+
+    <p>
+      Karena \(99\equiv-1\pmod{100}\), maka
+      \(99^{99}\equiv(-1)^{99}=-1\equiv99\pmod{100}\). Menggunakan sisa negatif
+      \(-1\) sering lebih mudah daripada sisa besar \(99\).
+    </p>
+  </div>
+
+  <p>
+    <strong>Hati-hati dengan pembagian.</strong> Dari \(ac\equiv bc\pmod m\)
+    hanya dapat disimpulkan \(a\equiv b\pmod m\) jika \(\gcd(c,m)=1\). Contoh
+    penyangkal: \(4\equiv10\pmod6\), tetapi \(2\not\equiv5\pmod6\) (kedua ruas
+    dibagi \(2\), padahal \(\gcd(2,6)=2\)).
   </p>
 
   <h3>Invers Modulo</h3>
 
   <p>
     Jika \(\gcd(a,m)=1\), ada \(a^{-1}\) dengan \(a\cdot a^{-1}\equiv1\pmod m\).
-    Invers ini dicari dengan Identitas Bezout atau dengan mencoba nilai.
+    Invers berfungsi sebagai "pembagi" dalam aritmetika modulo, dan dicari
+    dengan Identitas Bezout atau dengan mencoba nilai.
   </p>
 
   <div class="lesson-example">
-    <h4>Contoh</h4>
-    <p>Selesaikan \(3x\equiv5\pmod{11}\).</p>
+    <h4>Contoh 36</h4>
+
+    <p>
+      Selesaikan \(3x\equiv5\pmod{11}\). Lalu cari invers \(7\) modulo \(15\).
+    </p>
+
     <p>
       Karena \(3\cdot4=12\equiv1\), invers dari \(3\) modulo \(11\) adalah
       \(4\). Kalikan kedua ruas dengan \(4\):
     </p>
+
     <div class="math-display">\[ x\equiv4\cdot5=20\equiv9\pmod{11} \]</div>
+
+    <p>
+      Untuk invers \(7\) modulo \(15\): coba \(7\cdot13=91=6\cdot15+1\),
+      sehingga \(7^{-1}\equiv13\pmod{15}\).
+    </p>
+  </div>
+
+  <h3>Kongruensi Linear</h3>
+
+  <p>
+    Kongruensi \(ax\equiv b\pmod m\) mempunyai solusi jika dan hanya jika
+    \(\gcd(a,m)\mid b\). Jika \(d=\gcd(a,m)\) membagi \(b\), bagi seluruh
+    kongruensi (termasuk modulusnya) dengan \(d\), lalu selesaikan dengan
+    invers.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 37</h4>
+
+    <p>Selesaikan \(6x\equiv9\pmod{15}\).</p>
+
+    <p>
+      \(\gcd(6,15)=3\) membagi \(9\), jadi ada solusi. Bagi dengan \(3\):
+      \(2x\equiv3\pmod5\). Karena \(2\cdot3=6\equiv1\), invers \(2\) adalah
+      \(3\), sehingga \(x\equiv9\equiv4\pmod5\). Dalam modulo \(15\), solusinya
+      \(x\equiv4,\ 9,\ 14\pmod{15}\) (cek: \(6\cdot4=24\equiv9\)).
+    </p>
   </div>
 
   <h3>Sisa Pangkat dan Angka Satuan</h3>
@@ -267,20 +1057,51 @@
   </p>
 
   <div class="lesson-example">
-    <h4>Contoh</h4>
+    <h4>Contoh 38</h4>
+
     <p>Tentukan angka satuan \(7^{2025}\) dan sisa \(2^{100}\) dibagi \(7\).</p>
+
     <p>
       Modulo \(10\): \(7^1\equiv7,\ 7^2\equiv9,\ 7^3\equiv3,\ 7^4\equiv1\),
       siklusnya \(4\). Karena \(2025=4\cdot506+1\), maka
       \(7^{2025}\equiv7^1\equiv7\).
     </p>
+
     <p>
       Modulo \(7\): \(2^3=8\equiv1\). Karena \(100=3\cdot33+1\), maka
       \(2^{100}\equiv2^1=2\).
     </p>
   </div>
 
+  <div class="lesson-example">
+    <h4>Contoh 39</h4>
+
+    <p>
+      Tentukan sisa \(13^{2026}\) dibagi \(5\), dan dua angka terakhir
+      \(7^{2025}\).
+    </p>
+
+    <p>
+      \(13\equiv3\pmod5\) dan pangkat \(3\) bersiklus \(3,4,2,1\) (panjang
+      \(4\)). Karena \(2026=4\cdot506+2\),
+      \(13^{2026}\equiv3^2=9\equiv4\pmod5\).
+    </p>
+
+    <p>
+      Dua angka terakhir berarti modulo \(100\). Hitung \(7^2=49\),
+      \(7^4=2401\equiv1\pmod{100}\). Karena \(2025=4\cdot506+1\), maka
+      \(7^{2025}\equiv7\pmod{100}\), sehingga dua angka terakhirnya \(07\).
+    </p>
+  </div>
+
   <h3>Sisa Kuadrat Sempurna</h3>
+
+  <p>
+    Kuadrat bilangan bulat hanya mungkin bersisa tertentu. Contoh modulo \(4\):
+    bilangan bulat \(n\) bersisa \(0,1,2,3\), dan kuadratnya bersisa
+    \(0,1,0,1\). Jadi \(n^2\) hanya bersisa \(0\) atau \(1\) jika dibagi \(4\).
+    Dengan cara yang sama diperoleh tabel berikut.
+  </p>
 
   <div class="material-table-wrap">
     <table class="reflection-table">
@@ -312,17 +1133,41 @@
   </div>
 
   <p>
-    Tabel ini sangat berguna untuk menunjukkan bahwa suatu persamaan tidak
-    mempunyai solusi bulat (lihat bagian persamaan Diophantine).
+    Tabel ini sangat berguna untuk menunjukkan bahwa suatu bilangan
+    <em>bukan</em> kuadrat sempurna, atau suatu persamaan tidak mempunyai solusi
+    bulat (lihat bagian persamaan Diophantine).
   </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 40</h4>
+
+    <p>
+      Tunjukkan bahwa \(2026\) dan semua bilangan \(11,\ 111,\ 1111,\dots\)
+      (hanya berisi digit \(1\), banyak digit minimal \(2\)) bukan kuadrat
+      sempurna.
+    </p>
+
+    <p>
+      Kuadrat sempurna bersisa \(0\) atau \(1\) modulo \(4\). Bilangan
+      \(2026=4\cdot506+2\) bersisa \(2\), jadi bukan kuadrat. Bilangan
+      \(11\ldots1\) berakhir dengan \(11\), dan \(100\) habis dibagi \(4\),
+      sehingga bilangan itu sisanya sama dengan \(11\) modulo \(4\), yaitu
+      \(3\). Karena \(3\) bukan sisa kuadrat, bilangan tersebut bukan kuadrat
+      sempurna.
+    </p>
+  </div>
 </section>
 
 <section id="teorema-utama" data-title="Teorema Utama Teori Bilangan">
-  <h2>5. Teorema Utama Teori Bilangan</h2>
+  <h2>6. Teorema Utama Teori Bilangan</h2>
 
   <h3>Lemma Euclid</h3>
 
-  <p>Jika \(p\) prima dan \(p\mid ab\), maka \(p\mid a\) atau \(p\mid b\).</p>
+  <p>
+    Jika \(p\) prima dan \(p\mid ab\), maka \(p\mid a\) atau \(p\mid b\). (Sifat
+    ini tidak berlaku untuk bilangan komposit: \(6\mid3\cdot4\), tetapi
+    \(6\nmid3\) dan \(6\nmid4\).)
+  </p>
 
   <h3>Teorema Fermat Kecil</h3>
 
@@ -333,11 +1178,51 @@
     p \]
   </div>
 
+  <p>Contoh angka: \(p=7\), \(a=2\): \(2^6=64=7\cdot9+1\equiv1\pmod7\).</p>
+
+  <div class="lesson-example">
+    <h4>Contoh 41</h4>
+
+    <p>
+      Tentukan sisa \(3^{100}\) dibagi \(7\), sisa \(2^{100}\) dibagi \(101\),
+      dan buktikan \(7\mid n^7-n\) untuk setiap bilangan bulat \(n\).
+    </p>
+
+    <p>
+      Fermat: \(3^6\equiv1\pmod7\). Karena \(100=6\cdot16+4\), maka
+      \(3^{100}\equiv3^4=81\equiv4\pmod7\).
+    </p>
+
+    <p>
+      Karena \(101\) prima dan \(101\nmid2\), \(2^{100}\equiv1\pmod{101}\)
+      (langsung dari Fermat, eksponen \(100=101-1\)).
+    </p>
+
+    <p>
+      Fermat bentuk kedua dengan \(p=7\) memberikan \(n^7\equiv n\pmod7\), yaitu
+      \(7\mid n^7-n\) untuk semua \(n\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 42</h4>
+
+    <p>Tentukan sisa \(1^{100}+2^{100}+\cdots+10^{100}\) dibagi \(11\).</p>
+
+    <p>
+      Untuk \(a=1,2,\dots,10\), \(11\nmid a\) sehingga
+      \(a^{10}\equiv1\pmod{11}\). Karena \(100=10\cdot10\), maka
+      \(a^{100}=(a^{10})^{10}\equiv1\). Jumlahnya
+      \(\equiv10\cdot1=10\pmod{11}\).
+    </p>
+  </div>
+
   <h3>Fungsi Phi Euler dan Teorema Euler</h3>
 
   <p>
     \(\varphi(n)\) adalah banyaknya bilangan asli \(k\le n\) dengan
-    \(\gcd(k,n)=1\). Jika \(n=p_1^{a_1}\cdots p_k^{a_k}\), maka:
+    \(\gcd(k,n)=1\). Contoh: \(\varphi(12)=4\) (yaitu \(1,5,7,11\)). Untuk prima
+    \(p\): \(\varphi(p)=p-1\). Jika \(n=p_1^{a_1}\cdots p_k^{a_k}\), maka:
   </p>
 
   <div class="math-display">
@@ -346,38 +1231,38 @@
     \]
   </div>
 
-  <p>Teorema Euler: jika \(\gcd(a,n)=1\), maka</p>
+  <p>
+    Fungsi ini "multiplikatif": \(\varphi(mn)=\varphi(m)\varphi(n)\) jika
+    \(\gcd(m,n)=1\). Contoh:
+    \(\varphi(100)=100\cdot\displaystyle\frac{1}{2}\cdot\displaystyle\frac{4}{5}=40\)
+    dan
+    \(\varphi(360)=360\cdot\displaystyle\frac{1}{2}\cdot\displaystyle\frac{2}{3}\cdot\displaystyle\frac{4}{5}=96\).
+    Teorema Euler: jika \(\gcd(a,n)=1\), maka
+  </p>
 
   <div class="math-display">\[ a^{\varphi(n)}\equiv1\pmod n \]</div>
 
-  <h3>Teorema Wilson</h3>
-
-  <p>Bilangan \(p\gt1\) prima jika dan hanya jika:</p>
-
-  <div class="math-display">\[ (p-1)!\equiv-1\pmod p \]</div>
-
-  <h3>Teorema Sisa Cina (CRT)</h3>
-
-  <p>
-    Jika \(m_1,m_2,\dots,m_k\) saling prima berpasangan, maka sistem \(x\equiv
-    a_i\pmod{m_i}\) mempunyai solusi yang tunggal modulo \(m_1m_2\cdots m_k\).
-  </p>
-
   <div class="lesson-example">
-    <h4>Contoh</h4>
+    <h4>Contoh 43</h4>
+
     <p>
-      Tentukan sisa \(3^{100}\) dibagi \(7\) dan sisa \(7^{2026}\) dibagi
+      Tentukan dua angka terakhir \(3^{1000}\), serta sisa \(7^{2026}\) dibagi
       \(36\).
     </p>
+
     <p>
-      Fermat: \(3^6\equiv1\pmod7\). Karena \(100=6\cdot16+4\), maka
-      \(3^{100}\equiv3^4=81\equiv4\pmod7\).
+      Dua angka terakhir berarti modulo \(100\). Karena \(\varphi(100)=40\) dan
+      \(\gcd(3,100)=1\), \(3^{40}\equiv1\pmod{100}\). Karena \(1000=40\cdot25\),
+      maka \(3^{1000}\equiv1\pmod{100}\), sehingga dua angka terakhirnya \(01\).
     </p>
+
     <p>
-      Euler: \(\varphi(36)=36\cdot\frac{1}{2}\cdot\frac{2}{3}=12\), dan
-      \(2026=12\cdot168+10\), sehingga \(7^{2026}\equiv7^{10}\pmod{36}\). Hitung
-      bertahap:
+      Euler untuk \(36\):
+      \(\varphi(36)=36\cdot\displaystyle\frac{1}{2}\cdot\displaystyle\frac{2}{3}=12\),
+      dan \(2026=12\cdot168+10\), sehingga \(7^{2026}\equiv7^{10}\pmod{36}\).
+      Hitung bertahap:
     </p>
+
     <div class="math-display">
       \[ 7^2=49\equiv13, \quad 7^4\equiv13^2=169\equiv25, \quad
       7^8\equiv25^2=625\equiv13, \quad 7^{10}\equiv13\cdot13\equiv25 \pmod{36}
@@ -385,16 +1270,40 @@
     </div>
   </div>
 
+  <h3>Teorema Wilson</h3>
+
+  <p>Bilangan \(p\gt1\) prima jika dan hanya jika:</p>
+
+  <div class="math-display">\[ (p-1)!\equiv-1\pmod p \]</div>
+
+  <p>
+    Contoh: \(p=5\): \(4!=24\equiv-1\pmod5\). Teorema ini membantu menghitung
+    sisa faktorial besar yang dekat dengan \(p\).
+  </p>
+
+  <h3>Teorema Sisa Cina (CRT)</h3>
+
+  <p>
+    Jika \(m_1,m_2,\dots,m_k\) saling prima berpasangan, maka sistem \(x\equiv
+    a_i\pmod{m_i}\) mempunyai solusi yang tunggal modulo \(m_1m_2\cdots m_k\).
+    Contoh sederhana: bilangan yang bersisa \(2\) jika dibagi \(3\) dan bersisa
+    \(3\) jika dibagi \(5\) adalah \(8\), dan semua solusinya
+    \(x\equiv8\pmod{15}\).
+  </p>
+
   <div class="lesson-example">
-    <h4>Contoh</h4>
+    <h4>Contoh 44</h4>
+
     <p>
       Tentukan sisa \(15!\) dibagi \(17\), lalu selesaikan \(x\equiv2\pmod3\),
       \(x\equiv3\pmod5\), \(x\equiv2\pmod7\).
     </p>
+
     <p>
       Wilson: \(16!\equiv-1\pmod{17}\). Karena \(16\equiv-1\), maka
       \(-15!\equiv-1\), sehingga \(15!\equiv1\pmod{17}\).
     </p>
+
     <p>
       CRT: dari \(x\equiv2\pmod3\) dan \(x\equiv2\pmod7\) diperoleh
       \(x\equiv2\pmod{21}\), jadi \(x=2+21k\). Syarat \(x\equiv3\pmod5\):
@@ -405,11 +1314,14 @@
 </section>
 
 <section id="persamaan-diophantine" data-title="Persamaan Diophantine">
-  <h2>6. Persamaan Diophantine</h2>
+  <h2>7. Persamaan Diophantine</h2>
 
   <p>
     Persamaan Diophantine adalah persamaan yang solusinya dicari dalam bilangan
-    bulat. Bentuk linearnya \(ax+by=c\) dengan \(d=\gcd(a,b)\).
+    bulat. Contoh cerita: sebuah pensil seharga Rp3.000 dan sebuah buku seharga
+    Rp5.000. Berapa pensil dan buku yang dapat dibeli dengan uang tepat
+    Rp47.000? Itu adalah persamaan \(3x+5y=47\) dengan \(x,y\) bilangan bulat
+    tidak negatif. Bentuk linearnya \(ax+by=c\) dengan \(d=\gcd(a,b)\).
   </p>
 
   <div class="math-display">
@@ -418,105 +1330,349 @@
     \]
   </div>
 
+  <p>
+    Syarat \(d\mid c\) masuk akal: ruas kiri selalu kelipatan \(d\), jadi \(c\)
+    harus kelipatan \(d\). Contoh tanpa solusi: \(6x+9y=10\), karena
+    \(\gcd(6,9)=3\nmid10\).
+  </p>
+
   <div class="lesson-example">
-    <h4>Contoh</h4>
+    <h4>Contoh 45</h4>
+
     <p>Tentukan solusi bulat \(14x+11y=3\).</p>
+
     <p>
       Algoritma Euclid: \(14=11+3\), \(11=3\cdot3+2\), \(3=2+1\). Telusuri
       balik:
     </p>
+
     <div class="math-display">
       \[ 1=3-2=3-(11-3\cdot3)=4\cdot3-11=4(14-11)-11=4\cdot14-5\cdot11 \]
     </div>
+
     <p>Kalikan dengan \(3\): \(x_0=12\) dan \(y_0=-15\). Solusi umumnya:</p>
+
     <div class="math-display">
       \[ x=12+11t, \qquad y=-15-14t, \qquad t\in\mathbb{Z} \]
     </div>
   </div>
 
   <div class="lesson-example">
-    <h4>Contoh</h4>
+    <h4>Contoh 46</h4>
+
     <p>
       Tentukan banyak pasangan bilangan bulat positif \((x,y)\) yang memenuhi
       \(3x+5y=47\).
     </p>
+
     <p>
       Karena \(47\equiv2\pmod3\) dan \(5y\equiv2y\), diperlukan \(2y\equiv2\),
       yaitu \(y\equiv1\pmod3\). Dengan \(5y\lt47\), nilai \(y\) yang mungkin
       adalah \(1,4,7\):
     </p>
+
     <div class="math-display">\[ (x,y)=(14,1),\ (9,4),\ (4,7) \]</div>
+
     <p>Jadi ada \(3\) pasangan.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 47</h4>
+
+    <p>
+      Koin bernilai \(3\) dan \(5\). Bilangan bulat positif terbesar yang
+      <em>tidak</em> dapat dibayar dengan koin-koin tersebut adalah ....
+    </p>
+
+    <p>
+      Cek satu per satu: \(1,2,4,7\) tidak dapat dibayar, sedangkan \(8=3+5\),
+      \(9=3\cdot3\), \(10=5\cdot2\), dan seterusnya semuanya dapat (tambahkan
+      \(3\) untuk menggeser tiga bilangan berurutan). Jadi jawabannya \(7\).
+      Secara umum, untuk koin \(a,b\) yang saling prima, nilai terbesar yang tak
+      terbayar adalah \(ab-a-b\); di sini \(15-3-5=7\).
+    </p>
   </div>
 
   <h3>Teknik Faktorisasi</h3>
 
   <p>
     Persamaan yang dapat difaktorkan diselesaikan dengan memeriksa pasangan
-    faktor.
+    faktor. Ide utama: ubah menjadi bentuk
+    \((\text{ekspresi})(\text{ekspresi})=\text{konstanta}\), lalu cacah pembagi
+    konstanta itu.
   </p>
 
   <div class="lesson-example">
-    <h4>Contoh</h4>
+    <h4>Contoh 48</h4>
+
     <p>
       Tentukan semua pasangan bilangan bulat positif \((x,y)\) dengan
       \(xy-2x-3y=0\).
     </p>
+
     <div class="math-display">
       \[ xy-2x-3y+6=6 \quad\Rightarrow\quad (x-3)(y-2)=6 \]
     </div>
+
     <p>
       Pasangan positif faktor \(6\) memberikan
       \((x-3,y-2)=(1,6),(2,3),(3,2),(6,1)\). Pasangan faktor negatif
       menghasilkan \(x\le0\) atau \(y\le0\), sehingga tidak dipakai. Solusinya:
     </p>
+
     <div class="math-display">\[ (x,y)=(4,8),\ (5,5),\ (6,4),\ (9,3) \]</div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 49</h4>
+
+    <p>
+      Tentukan banyak pasangan terurut bilangan bulat positif \((x,y)\) yang
+      memenuhi
+      \(\displaystyle\frac{1}{x}+\displaystyle\frac{1}{y}=\displaystyle\frac{1}{6}\).
+    </p>
+
+    <p>
+      Kalikan dengan \(6xy\): \(6y+6x=xy\), yaitu \(xy-6x-6y=0\). Tambahkan
+      \(36\) pada kedua ruas:
+    </p>
+
+    <div class="math-display">\[ (x-6)(y-6)=36 \]</div>
+
+    <p>
+      Karena \(\displaystyle\frac{1}{x}\lt\displaystyle\frac{1}{6}\), haruslah
+      \(x\gt6\), begitu pula \(y\gt6\), sehingga kedua faktor positif. Banyak
+      pasangan terurut sama dengan banyak pembagi positif \(36\), yaitu
+      \(\tau(36)=\tau(2^2\cdot3^2)=9\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 50</h4>
+
+    <p>Tentukan semua solusi bilangan bulat positif \(x^2-y^2=15\).</p>
+
+    <p>
+      Faktorkan \((x-y)(x+y)=15\). Karena \(x,y\gt0\), \(x+y\gt x-y\gt0\),
+      sehingga pasangan \((x-y,x+y)\) adalah \((1,15)\) atau \((3,5)\):
+    </p>
+
+    <div class="math-display">
+      \[ x-y=1,\ x+y=15\Rightarrow(x,y)=(8,7); \qquad x-y=3,\
+      x+y=5\Rightarrow(x,y)=(4,1) \]
+    </div>
   </div>
 
   <h3>Teknik Modulo</h3>
 
+  <p>
+    Untuk menunjukkan bahwa persamaan <em>tidak mempunyai</em> solusi, pilih
+    modulus yang cocok, lalu bandingkan sisa kedua ruas.
+  </p>
+
   <div class="lesson-example">
-    <h4>Contoh</h4>
+    <h4>Contoh 51</h4>
+
     <p>Buktikan bahwa \(x^2+y^2=4003\) tidak mempunyai solusi bulat.</p>
+
     <p>
       Kuadrat bilangan bulat bersisa \(0\) atau \(1\) modulo \(4\), sehingga
       \(x^2+y^2\) bersisa \(0,1,\) atau \(2\). Padahal
       \(4003=4\cdot1000+3\equiv3\pmod4\). Jadi tidak ada solusi.
     </p>
   </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 52</h4>
+
+    <p>Buktikan bahwa \(x^2-3y=2\) tidak mempunyai solusi bulat.</p>
+
+    <p>
+      Modulo \(3\): ruas kiri \(\equiv x^2\), ruas kanan \(\equiv2\). Padahal
+      kuadrat bersisa \(0\) atau \(1\) modulo \(3\), tidak pernah \(2\). Jadi
+      tidak ada solusi.
+    </p>
+  </div>
+
+  <h3>Teknik Mengapit</h3>
+
+  <p>
+    Jika sebuah ekspresi berada di antara dua kuadrat sempurna yang berurutan,
+    ia bukan kuadrat sempurna.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 53</h4>
+
+    <p>
+      Buktikan bahwa \(n^2+n+1\) bukan kuadrat sempurna untuk setiap bilangan
+      asli \(n\).
+    </p>
+
+    <p>
+      Untuk \(n\ge1\): \(n^2\lt n^2+n+1\lt n^2+2n+1=(n+1)^2\). Bilangan
+      \(n^2+n+1\) terjepit di antara dua kuadrat sempurna berurutan, sehingga
+      bukan kuadrat sempurna.
+    </p>
+  </div>
+</section>
+
+<section
+  id="strategi-olimpiade"
+  data-title="Strategi Menyelesaikan Soal Olimpiade"
+>
+  <h2>8. Strategi Menyelesaikan Soal Olimpiade</h2>
+
+  <p>
+    Soal olimpiade jarang sekadar memasukkan angka ke rumus. Berikut langkah
+    berpikir yang membantu ketika Anda belum tahu harus mulai dari mana.
+  </p>
+
+  <ol>
+    <li>
+      <strong>Coba kasus kecil.</strong> Hitung untuk \(n=1,2,3,\dots\) dan cari
+      pola, lalu buktikan polanya.
+    </li>
+    <li>
+      <strong>Faktorkan.</strong> Ekspresi yang dapat difaktorkan sering
+      mengubah soal menjadi pencarian pembagi.
+    </li>
+    <li>
+      <strong>Pakai modulo atau paritas</strong> untuk membuktikan sesuatu tidak
+      mungkin, atau untuk membatasi kemungkinan.
+    </li>
+    <li>
+      <strong>Batasi dan apit.</strong> Cari batas atas dan bawah sehingga hanya
+      tinggal beberapa nilai yang perlu dicek.
+    </li>
+    <li>
+      <strong>Tulis dengan FPB.</strong> Untuk dua bilangan, tulis \(a=dx\),
+      \(b=dy\) dengan \(\gcd(x,y)=1\).
+    </li>
+    <li>
+      <strong>Selalu cek jawaban</strong> pada soal asli, terutama syarat
+      positif, syarat prima, dan nilai batas.
+    </li>
+  </ol>
+
+  <div class="lesson-example">
+    <h4>Contoh 54</h4>
+
+    <p>
+      Tunjukkan bahwa jumlah \(n\) bilangan ganjil positif pertama sama dengan
+      \(n^2\).
+    </p>
+
+    <p>
+      Coba kasus kecil: \(1=1^2\), \(1+3=4=2^2\), \(1+3+5=9=3^2\),
+      \(1+3+5+7=16=4^2\). Polanya \(1+3+\cdots+(2n-1)=n^2\). Bukti: tulis jumlah
+      itu \(S\) dan balik urutannya, lalu jumlahkan: \(2S=n\cdot2n\), sehingga
+      \(S=n^2\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 55</h4>
+
+    <p>Buktikan bahwa ada tak hingga banyak bilangan prima.</p>
+
+    <p>
+      Andaikan bilangan prima hanya \(p_1,p_2,\dots,p_k\). Bentuk
+      \(N=p_1p_2\cdots p_k+1\). Jika \(N\) dibagi \(p_i\) mana pun, sisanya
+      \(1\), jadi \(N\) tidak habis dibagi satu pun prima. Padahal \(N\gt1\)
+      pasti punya faktor prima. Kontradiksi, sehingga prima tak berhingga
+      banyaknya.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 56</h4>
+
+    <p>Buktikan bahwa \(\sqrt{2}\) bukan bilangan rasional.</p>
+
+    <p>
+      Andaikan \(\sqrt{2}=\displaystyle\frac{a}{b}\) dengan \(\gcd(a,b)=1\).
+      Maka \(a^2=2b^2\), sehingga \(a^2\) genap, jadi \(a\) genap, misalkan
+      \(a=2c\). Maka \(4c^2=2b^2\), yaitu \(b^2=2c^2\), sehingga \(b\) juga
+      genap. Padahal \(\gcd(a,b)=1\). Kontradiksi.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 57</h4>
+
+    <p>
+      Dari sembarang \(6\) bilangan bulat, buktikan ada dua bilangan yang
+      selisihnya habis dibagi \(5\).
+    </p>
+
+    <p>
+      Sisa pembagian oleh \(5\) hanya ada \(5\) kemungkinan (\(0,1,2,3,4\)),
+      sedangkan ada \(6\) bilangan. Menurut prinsip lubang merpati, dua bilangan
+      memiliki sisa yang sama, sehingga selisihnya habis dibagi \(5\).
+    </p>
+  </div>
 </section>
 
 <section id="rangkuman-teori-bilangan" data-title="Rangkuman Teori Bilangan">
-  <h2>7. Rangkuman Rumus Teori Bilangan</h2>
+  <h2>9. Rangkuman Rumus Teori Bilangan</h2>
 
   <h3>Faktorisasi dan Pembagi</h3>
+
   <div class="math-display">
     \[ n=\prod p_i^{a_i}, \qquad \tau(n)=\prod(a_i+1), \qquad
     \sigma(n)=\prod\frac{p_i^{a_i+1}-1}{p_i-1} \]
   </div>
 
+  <p>
+    \(\tau(n)\) ganjil \(\iff n\) kuadrat sempurna. Menguji prima: bagi dengan
+    prima \(\le\sqrt{n}\).
+  </p>
+
+  <h3>Faktorial dan Eksponen Prima</h3>
+
+  <div class="math-display">
+    \[ v_p(n!)=\left\lfloor\frac{n}{p}\right\rfloor
+    +\left\lfloor\frac{n}{p^2}\right\rfloor+\cdots \]
+  </div>
+
+  <h3>Keterbagian</h3>
+
+  <div class="math-display">
+    \[ a\mid b,\ a\mid c\Rightarrow a\mid(bx+cy), \qquad (a-b)\mid(a^n-b^n) \]
+  </div>
+
   <h3>FPB dan KPK</h3>
+
   <div class="math-display">
     \[ \gcd(a,b)\cdot\operatorname{lcm}(a,b)=ab, \qquad \gcd(a,b)=\gcd(b,a\bmod
     b), \qquad \exists\,x,y:\ ax+by=\gcd(a,b) \]
   </div>
 
   <h3>Modulo</h3>
+
   <div class="math-display">
     \[ a\equiv b\pmod m\iff m\mid(a-b), \qquad ac\equiv bc\Rightarrow a\equiv
     b\pmod{\tfrac{m}{\gcd(c,m)}} \]
   </div>
 
   <h3>Teorema Utama</h3>
+
   <div class="math-display">
     \[ a^{p-1}\equiv1\pmod p, \qquad a^{\varphi(n)}\equiv1\pmod n, \qquad
     (p-1)!\equiv-1\pmod p \]
   </div>
 
   <h3>Persamaan Diophantine Linear</h3>
+
   <div class="math-display">
     \[ ax+by=c\ \text{ada solusi}\iff\gcd(a,b)\mid c, \qquad
     x=x_0+\frac{b}{d}t,\ \ y=y_0-\frac{a}{d}t \]
+  </div>
+
+  <div class="math-display">
+    \[ \text{nilai terbesar yang tak terbayar koin }a,b\text{ (saling
+    prima)}=ab-a-b \]
   </div>
 
   <h3>Kesalahan yang Sering Terjadi</h3>
@@ -543,18 +1699,31 @@
       Pada faktorisasi \((x-a)(y-b)=k\), hanya memeriksa pasangan faktor positif
       dan melupakan pasangan faktor negatif.
     </li>
+    <li>
+      Menganggap \(1\) sebagai bilangan prima, atau lupa bahwa \(2\) adalah
+      prima genap.
+    </li>
+    <li>
+      Menuliskan sisa negatif pada akhir jawaban (sisa harus \(0\le r\lt m\)),
+      misalnya sisa \(-1\) harus ditulis \(m-1\).
+    </li>
+    <li>
+      Lupa memeriksa jawaban pada syarat awal soal (misalnya nilai \(n\) yang
+      negatif atau bukan bilangan asli).
+    </li>
   </ol>
 </section>
 
 <section id="latihan-mandiri-teori-bilangan" data-title="Latihan Soal Mandiri">
-  <h2>8. Latihan Soal Mandiri</h2>
+  <h2>10. Latihan Soal Mandiri</h2>
 
   <p>
     Kerjakan soal-soal berikut secara mandiri. Soal nomor 1–5 memiliki tingkat
     kesulitan sekolah, soal nomor 6–10 memiliki tingkat penalaran yang lebih
-    menantang seperti soal UTBK, dan soal nomor 11–15 bergaya olimpiade dengan
-    jawaban isian singkat berupa bilangan bulat. Untuk soal pilihan ganda, pilih
-    satu jawaban yang paling tepat.
+    menantang seperti soal UTBK, dan soal nomor 11–25 bergaya olimpiade dengan
+    jawaban isian singkat berupa bilangan bulat. Soal nomor 16–25 adalah latihan
+    olimpiade tambahan yang lebih menantang dan mencakup seluruh materi di atas.
+    Untuk soal pilihan ganda, pilih satu jawaban yang paling tepat.
   </p>
 
   <h3>A. Tingkat Kesulitan Sekolah</h3>
@@ -732,13 +1901,96 @@
       dibagi \(11\).
     </p>
   </div>
+
+  <div class="lesson-example">
+    <h4>Soal 16</h4>
+    <p>
+      Tentukan bilangan asli terbesar \(k\) sehingga \(2025^k\) membagi
+      \(200!\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 17</h4>
+    <p>
+      Tentukan dua angka terakhir (puluhan dan satuan, ditulis sebagai bilangan
+      dua digit) dari \(3^{2026}\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 18</h4>
+    <p>
+      Tentukan banyak pasangan terurut bilangan bulat positif \((a,b)\) yang
+      memenuhi
+      \(\displaystyle\frac{1}{a}+\displaystyle\frac{1}{b}=\displaystyle\frac{1}{20}\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 19</h4>
+    <p>
+      Tentukan banyak pasangan terurut bilangan asli \((a,b)\) dengan
+      \(\gcd(a,b)=12\) dan \(\operatorname{lcm}(a,b)=1800\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 20</h4>
+    <p>
+      Tentukan sisa pembagian \(1^{100}+2^{100}+3^{100}+\cdots+10^{100}\) oleh
+      \(11\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 21</h4>
+    <p>
+      Tentukan jumlah semua bilangan bulat positif \(n\) sehingga \(2n+1\)
+      membagi \(n^2+8\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 22</h4>
+    <p>
+      Tentukan banyak pembagi positif dari \(10!\) yang merupakan kuadrat
+      sempurna.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 23</h4>
+    <p>
+      Suatu bilangan asli \(n\) ditulis sebagai \((abc)_7\) dalam basis \(7\),
+      dengan \(a\neq0\). Jika digit-digitnya dibalik dan dibaca dalam basis
+      \(9\), yaitu \((cba)_9\), nilainya sama dengan \(n\). Tentukan \(n\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 24</h4>
+    <p>
+      Tentukan banyak bilangan asli \(n\le1000\) yang bersisa \(1\) jika dibagi
+      \(4\), bersisa \(2\) jika dibagi \(5\), dan bersisa \(3\) jika dibagi
+      \(7\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 25</h4>
+    <p>
+      Tentukan banyak pasangan bilangan bulat tak negatif \((x,y)\) yang
+      memenuhi \(2^x-3^y=1\).
+    </p>
+  </div>
 </section>
 
 <section
   id="pembahasan-latihan-mandiri-teori-bilangan"
   data-title="Pembahasan Latihan Mandiri"
 >
-  <h2>9. Pembahasan Latihan Mandiri</h2>
+  <h2>11. Pembahasan Latihan Mandiri</h2>
 
   <p>
     Bagian ini membahas seluruh soal pada latihan mandiri. Soal-soal berikut
@@ -939,6 +2191,158 @@
     </p>
   </div>
 
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 16</h4>
+    <p>
+      Faktorkan \(2025=3^4\cdot5^2\), sehingga \(2025^k=3^{4k}\cdot5^{2k}\).
+      Hitung pangkat \(3\) dan \(5\) pada \(200!\) dengan rumus Legendre.
+    </p>
+    <div class="math-display">
+      \[ \begin{aligned} v_3(200!)&=66+22+7+2=97\\ v_5(200!)&=40+8+1=49\\
+      4k\le97&\Rightarrow k\le24,\qquad 2k\le49\Rightarrow k\le24 \end{aligned}
+      \]
+    </div>
+    <p>Jadi, jawaban yang benar adalah <strong>24</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 17</h4>
+    <p>
+      Dua angka terakhir berarti modulo \(100\). Karena \(\varphi(100)=40\) dan
+      \(\gcd(3,100)=1\), maka \(3^{40}\equiv1\). Karena \(2026=40\cdot50+26\),
+      cukup hitung \(3^{26}\pmod{100}\).
+    </p>
+    <div class="math-display">
+      \[ 3^5=243\equiv43,\quad 3^{10}\equiv43^2=1849\equiv49,\quad
+      3^{20}\equiv49^2=2401\equiv1,\quad 3^{26}\equiv3^{6}=729\equiv29 \]
+    </div>
+    <p>Jadi, jawaban yang benar adalah <strong>29</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 18</h4>
+    <p>
+      Kalikan dengan \(20ab\): \(20b+20a=ab\), lalu tambahkan \(400\) pada kedua
+      ruas sehingga \(ab-20a-20b+400=400\). Karena
+      \(\displaystyle\frac{1}{a}\lt\displaystyle\frac{1}{20}\), haruslah
+      \(a\gt20\), begitu pula \(b\gt20\), sehingga kedua faktor positif. Banyak
+      pasangan terurut sama dengan banyak pembagi positif \(400\):
+    </p>
+    <div class="math-display">
+      \[ (a-20)(b-20)=400=2^4\cdot5^2 \Rightarrow \tau(400)=5\cdot3=15 \]
+    </div>
+    <p>Jadi, jawaban yang benar adalah <strong>15</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 19</h4>
+    <p>
+      Tulis \(a=12x\) dan \(b=12y\) dengan \(\gcd(x,y)=1\). Maka
+      \(\operatorname{lcm}(a,b)=12xy=1800\), sehingga
+      \(xy=150=2\cdot3\cdot5^2\). Karena \(x,y\) saling prima, setiap pangkat
+      prima (\(2\), \(3\), dan \(5^2\)) harus sepenuhnya masuk ke \(x\) atau ke
+      \(y\). Banyak caranya:
+    </p>
+    <div class="math-display">
+      \[ 2\cdot2\cdot2=8 \quad\text{(misalnya
+      }(x,y)=(1,150),(150,1),(2,75),(75,2),(3,50),(50,3),(6,25),(25,6)\text{)}
+      \]
+    </div>
+    <p>Jadi, jawaban yang benar adalah <strong>8</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 20</h4>
+    <p>
+      Untuk \(a=1,2,\dots,10\), \(11\nmid a\) sehingga Teorema Fermat kecil
+      memberikan \(a^{10}\equiv1\pmod{11}\). Karena \(100=10\cdot10\), maka
+      \(a^{100}=(a^{10})^{10}\equiv1\) untuk setiap \(a\) tersebut.
+    </p>
+    <div class="math-display">
+      \[ 1^{100}+\cdots+10^{100}\equiv\underbrace{1+1+\cdots+1}_{10}=10\pmod{11}
+      \]
+    </div>
+    <p>Jadi, jawaban yang benar adalah <strong>10</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 21</h4>
+    <p>
+      Jika \((2n+1)\mid(n^2+8)\), maka \((2n+1)\) juga membagi
+      \(4(n^2+8)=4n^2+32=(2n+1)(2n-1)+33\), sehingga \((2n+1)\mid33\).
+      Sebaliknya, karena \(2n+1\) ganjil sehingga \(\gcd(2n+1,4)=1\), dari
+      \((2n+1)\mid4(n^2+8)\) diperoleh \((2n+1)\mid(n^2+8)\). Jadi syaratnya
+      ekuivalen dengan \((2n+1)\mid33\). Karena \(2n+1\ge3\), nilai yang mungkin
+      \(2n+1\in\{3,11,33\}\), yaitu \(n=1,5,16\) (cek: \(3\mid9\), \(11\mid33\),
+      \(33\mid264\)).
+    </p>
+    <div class="math-display">\[ 1+5+16=22 \]</div>
+    <p>Jadi, jawaban yang benar adalah <strong>22</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 22</h4>
+    <p>
+      Rumus Legendre memberikan \(v_2(10!)=5+2+1=8\), \(v_3(10!)=3+1=4\),
+      \(v_5(10!)=2\), dan \(v_7(10!)=1\), sehingga
+      \(10!=2^8\cdot3^4\cdot5^2\cdot7\). Pembagi berbentuk kuadrat sempurna bila
+      semua pangkat primanya genap. Banyak pilihan pangkat genap: untuk \(2\):
+      \(0,2,4,6,8\) (\(5\) pilihan), untuk \(3\): \(0,2,4\) (\(3\) pilihan),
+      untuk \(5\): \(0,2\) (\(2\) pilihan), dan untuk \(7\): hanya \(0\) (\(1\)
+      pilihan).
+    </p>
+    <div class="math-display">\[ 5\cdot3\cdot2\cdot1=30 \]</div>
+    <p>Jadi, jawaban yang benar adalah <strong>30</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 23</h4>
+    <p>
+      Ubah ke basis \(10\): \(49a+7b+c=81c+9b+a\), sehingga \(48a=80c+2b\),
+      yaitu \(24a=40c+b\). Maka \(b=8(3a-5c)\) kelipatan \(8\). Karena \(0\le
+      b\le6\), haruslah \(b=0\), sehingga \(3a=5c\). Dengan digit \(\le6\) dan
+      \(a,c\ge1\), satu-satunya pilihan adalah \(a=5\), \(c=3\). Maka
+      \(n=(503)_7\), dan cek: \((305)_9=81\cdot3+0+5=248\).
+    </p>
+    <div class="math-display">\[ n=49\cdot5+0\cdot7+3=248 \]</div>
+    <p>Jadi, jawaban yang benar adalah <strong>248</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 24</h4>
+    <p>
+      Gunakan CRT dengan modulus \(4,5,7\) (saling prima, hasil kali \(140\)).
+      Dari \(x\equiv1\pmod4\), tulis \(x=1+4a\). Syarat modulo \(5\):
+      \(1+4a\equiv2\), sehingga \(4a\equiv1\) dan \(a\equiv4\pmod5\), jadi
+      \(x\equiv17\pmod{20}\). Tulis \(x=17+20b\). Syarat modulo \(7\):
+      \(3+6b\equiv3\), sehingga \(6b\equiv0\) dan \(b\equiv0\pmod7\). Jadi
+      \(x\equiv17\pmod{140}\). Bilangan \(n\le1000\):
+      \(17,157,297,437,577,717,857,997\).
+    </p>
+    <div class="math-display">
+      \[ 17+140k\le1000\Rightarrow k=0,1,\dots,7\ \Rightarrow\ 8\text{ bilangan}
+      \]
+    </div>
+    <p>Jadi, jawaban yang benar adalah <strong>8</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 25</h4>
+    <p>
+      Kasus \(y=0\): \(2^x=2\), sehingga \(x=1\). Kasus \(y=1\): \(2^x=4\),
+      sehingga \(x=2\). Untuk \(y\ge2\): \(2^x=3^y+1\) dengan \(3^y\) kelipatan
+      \(9\), sehingga \(2^x\equiv1\pmod9\). Pangkat \(2\) modulo \(9\) bersiklus
+      \(2,4,8,7,5,1\) (panjang \(6\)), sehingga \(6\mid x\). Maka \(2^x-1\)
+      habis dibagi \(2^6-1=63\), yang memuat faktor \(7\). Padahal \(2^x-1=3^y\)
+      tidak punya faktor \(7\). Jadi tidak ada solusi untuk \(y\ge2\). Solusinya
+      hanya:
+    </p>
+    <div class="math-display">
+      \[ (x,y)=(1,0),\ (2,1)\ \Rightarrow\ 2\text{ pasangan} \]
+    </div>
+    <p>Jadi, jawaban yang benar adalah <strong>2</strong>.</p>
+  </div>
+
   <h3>Ringkasan Kunci dan Konsep yang Diuji</h3>
 
   <div class="material-table-wrap">
@@ -1025,6 +2429,59 @@
           <td>15</td>
           <td>346</td>
           <td>Teorema Sisa Cina</td>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td>24</td>
+          <td>Rumus Legendre dan pangkat prima pada faktorial</td>
+        </tr>
+        <tr>
+          <td>17</td>
+          <td>29</td>
+          <td>Teorema Euler dan dua angka terakhir</td>
+        </tr>
+        <tr>
+          <td>18</td>
+          <td>15</td>
+          <td>
+            Faktorisasi \(\displaystyle \frac{1}{a}+\frac{1}{b}=\frac{1}{n}\)
+            dan banyak pembagi
+          </td>
+        </tr>
+        <tr>
+          <td>19</td>
+          <td>8</td>
+          <td>Menulis dengan FPB dan pasangan faktor saling prima</td>
+        </tr>
+        <tr>
+          <td>20</td>
+          <td>10</td>
+          <td>Teorema Fermat kecil</td>
+        </tr>
+        <tr>
+          <td>21</td>
+          <td>22</td>
+          <td>Keterbagian dan syarat gcd pada pengali</td>
+        </tr>
+        <tr>
+          <td>22</td>
+          <td>30</td>
+          <td>Rumus Legendre dan pembagi kuadrat sempurna</td>
+        </tr>
+        <tr>
+          <td>23</td>
+          <td>248</td>
+          <td>Sistem bilangan berbasis</td>
+        </tr>
+        <tr>
+          <td>24</td>
+          <td>8</td>
+          <td>Teorema Sisa Cina dan penghitungan</td>
+        </tr>
+        <tr>
+          <td>25</td>
+          <td>2</td>
+          <td>Siklus modulo dan faktor prima</td>
         </tr>
       </tbody>
     </table>
