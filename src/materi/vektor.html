@@ -1,3 +1,31 @@
+<style>
+.vector-figure{margin:1.25rem auto;text-align:center}
+.vector-figure svg{width:100%;max-width:520px;height:auto}
+.vector-figure figcaption{font-size:.9em;opacity:.85;margin-top:.4rem}
+.vector-figure text{fill:currentColor;font-family:inherit;font-size:14px}
+.vector-figure .vl{font-style:italic;font-weight:700}
+.vector-figure .ta{fill:#2563eb}.vector-figure .tb{fill:#dc2626}
+.vector-figure .tc{fill:#16a34a}.vector-figure .td{fill:#9333ea}
+.vector-figure .va,.vector-figure .vb,.vector-figure .vc,.vector-figure .vd,.vector-figure .vg{fill:none;stroke-width:3}
+.vector-figure .va{stroke:#2563eb;marker-end:url(#vm-blue)}
+.vector-figure .vb{stroke:#dc2626;marker-end:url(#vm-red)}
+.vector-figure .vc{stroke:#16a34a;marker-end:url(#vm-green)}
+.vector-figure .vd{stroke:#9333ea;marker-end:url(#vm-purple)}
+.vector-figure .vg{stroke:currentColor;stroke-width:1.8;marker-end:url(#vm-gray)}
+.vector-figure .vdash{fill:none;stroke:currentColor;stroke-width:1.5;stroke-dasharray:5 4;opacity:.55}
+.vector-figure .vln{fill:none;stroke:currentColor;stroke-width:2}
+.vector-figure .vpt{fill:currentColor}
+.vector-figure .vfill{fill:#2563eb;fill-opacity:.12;stroke:none}
+.vector-figure .vang{fill:none;stroke:currentColor;stroke-width:1.5}
+</style>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<marker id="vm-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2563eb"/></marker>
+<marker id="vm-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#dc2626"/></marker>
+<marker id="vm-green" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#16a34a"/></marker>
+<marker id="vm-purple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0L10 5L0 10z" fill="#9333ea"/></marker>
+<marker id="vm-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker>
+</defs></svg>
+
 <section id="pengertian-vektor" data-title="Pengertian Vektor">
   <h2>1. Pengertian Vektor</h2>
 
@@ -13,6 +41,18 @@
     panah). Panjang anak panah menyatakan besar vektor, sedangkan arah anak
     panah menyatakan arah vektor.
   </p>
+
+  <figure class="vector-figure">
+    <svg viewBox="0 0 400 150" role="img" aria-label="Vektor AB sebagai anak panah dari titik pangkal A ke titik ujung B">
+
+<line class="va" x1="70" y1="110" x2="322" y2="43"/>
+<circle class="vpt" cx="70" cy="110" r="4"/><circle class="vpt" cx="326" cy="42" r="4"/>
+<text x="30" y="134">A (titik pangkal)</text><text x="288" y="26">B (titik ujung)</text>
+<text class="vl ta" x="190" y="64">a</text>
+<text x="150" y="132">panjang anak panah = |a|</text>
+    </svg>
+    <figcaption>Vektor digambarkan sebagai anak panah: panjangnya menyatakan besar, arahnya menyatakan arah vektor.</figcaption>
+  </figure>
 
   <div class="material-table-wrap">
     <table class="reflection-table">
@@ -76,6 +116,19 @@
       = \overrightarrow{BC} \]
     </div>
 
+    <figure class="vector-figure">
+      <svg viewBox="0 0 400 180" role="img" aria-label="Jajargenjang ABCD dengan vektor AB sama dengan DC dan AD sama dengan BC">
+
+<polygon class="vfill" points="50,150 250,150 350,50 150,50"/>
+<line class="va" x1="50" y1="150" x2="246" y2="150"/><line class="va" x1="150" y1="50" x2="346" y2="50"/>
+<line class="vb" x1="50" y1="150" x2="146" y2="54"/><line class="vb" x1="250" y1="150" x2="346" y2="54"/>
+<text x="34" y="168">A</text><text x="254" y="168">B</text><text x="356" y="48">C</text><text x="130" y="46">D</text>
+<text class="ta" x="200" y="100" text-anchor="middle">AB = DC</text>
+<text class="tb" x="200" y="122" text-anchor="middle">AD = BC</text>
+      </svg>
+      <figcaption>Vektor yang sejajar, sama panjang, dan searah dianggap sama walaupun titik pangkalnya berbeda.</figcaption>
+    </figure>
+
     <p>
       Sebaliknya, \(\overrightarrow{AB}\) dan \(\overrightarrow{CD}\) memiliki
       panjang sama tetapi arahnya berlawanan, sehingga
@@ -129,6 +182,21 @@
     vektor juga sering ditulis dalam bentuk baris \(\vec{a}=(a_1,a_2,a_3)\).
   </p>
 
+  <figure class="vector-figure">
+    <svg viewBox="0 0 420 280" role="img" aria-label="Sumbu x, y, z dengan vektor satuan i, j, k dan vektor a beserta komponennya">
+
+<line class="vg" x1="140" y1="190" x2="52" y2="256"/><line class="vg" x1="140" y1="190" x2="390" y2="190"/><line class="vg" x1="140" y1="190" x2="140" y2="24"/>
+<text x="36" y="268">x</text><text x="396" y="194">y</text><text x="148" y="22">z</text>
+<g class="vdash"><line x1="90" y1="228" x2="220" y2="228"/><line x1="270" y1="190" x2="220" y2="228"/><line x1="90" y1="228" x2="90" y2="118"/><line x1="270" y1="190" x2="270" y2="80"/><line x1="220" y1="228" x2="220" y2="118"/><line x1="140" y1="80" x2="90" y2="118"/><line x1="140" y1="80" x2="270" y2="80"/><line x1="90" y1="118" x2="220" y2="118"/><line x1="270" y1="80" x2="220" y2="118"/></g>
+<line class="va" x1="140" y1="190" x2="216" y2="122"/>
+<line class="vc" x1="140" y1="190" x2="116" y2="208"/><line class="vc" x1="140" y1="190" x2="200" y2="190"/><line class="vc" x1="140" y1="190" x2="140" y2="142"/>
+<text class="vl tc" x="100" y="214">i</text><text class="vl tc" x="196" y="208">j</text><text class="vl tc" x="126" y="150">k</text>
+<text class="vl ta" x="188" y="150">a</text>
+<text x="250" y="216">a₁</text><text x="148" y="246">a₂</text><text x="228" y="176">a₃</text>
+    </svg>
+    <figcaption>Vektor a = a₁i + a₂j + a₃k: pindah a₁ searah sumbu-x, a₂ searah sumbu-y, lalu a₃ searah sumbu-z.</figcaption>
+  </figure>
+
   <h3>Vektor Posisi</h3>
 
   <p>
@@ -151,6 +219,17 @@
   <div class="math-display">
     \[ \overrightarrow{AB} = \vec{b} - \vec{a} \]
   </div>
+
+  <figure class="vector-figure">
+    <svg viewBox="0 0 400 230" role="img" aria-label="Vektor AB sama dengan vektor b dikurangi vektor a">
+
+<line class="va" x1="50" y1="200" x2="146" y2="74"/><line class="vb" x1="50" y1="200" x2="326" y2="141"/><line class="vc" x1="150" y1="70" x2="326" y2="138"/>
+<circle class="vpt" cx="50" cy="200" r="4"/><circle class="vpt" cx="150" cy="70" r="4"/><circle class="vpt" cx="330" cy="140" r="4"/>
+<text x="30" y="218">O</text><text x="136" y="60">A</text><text x="338" y="136">B</text>
+<text class="vl ta" x="82" y="128">a</text><text class="vl tb" x="196" y="190">b</text><text class="vl tc" x="250" y="96">b − a</text>
+    </svg>
+    <figcaption>AB = b − a: ujung (B) dikurangi pangkal (A). Vektor hijau menghubungkan ujung a ke ujung b.</figcaption>
+  </figure>
 
   <p>
     Cara mengingatnya: <strong>ujung dikurangi pangkal</strong>. Secara
@@ -210,6 +289,20 @@
       &=\sqrt{49}\\ &=7 \end{aligned} \]
     </div>
   </div>
+
+  <figure class="vector-figure">
+    <svg viewBox="0 0 380 230" role="img" aria-label="Panjang vektor sebagai sisi miring segitiga siku-siku dengan sisi a1 dan a2">
+
+<line class="vg" x1="30" y1="190" x2="350" y2="190"/><line class="vg" x1="60" y1="215" x2="60" y2="15"/>
+<text x="356" y="194">x</text><text x="68" y="20">y</text>
+<line class="vdash" x1="60" y1="190" x2="260" y2="190"/><line class="vdash" x1="260" y1="190" x2="260" y2="60"/>
+<polyline class="vang" points="248,190 248,178 260,178"/>
+<line class="va" x1="60" y1="190" x2="254" y2="64"/>
+<text x="150" y="210">a₁</text><text x="268" y="130">a₂</text><text class="ta" x="112" y="118">|a|</text>
+<text x="80" y="34">|a| = √(a₁² + a₂²)</text>
+    </svg>
+    <figcaption>Panjang vektor adalah sisi miring segitiga siku-siku, sehingga dihitung dengan teorema Pythagoras.</figcaption>
+  </figure>
 
   <h3>Jarak Antara Dua Titik</h3>
 
@@ -373,6 +466,22 @@
     \[ \overrightarrow{AC}=\overrightarrow{AB}+\overrightarrow{AD} \]
   </div>
 
+  <figure class="vector-figure">
+    <svg viewBox="0 0 560 190" role="img" aria-label="Aturan segitiga dan aturan jajargenjang untuk penjumlahan vektor">
+
+<line class="vdash" x1="280" y1="10" x2="280" y2="175"/>
+<line class="va" x1="30" y1="160" x2="126" y2="122"/><line class="vb" x1="130" y1="120" x2="188" y2="54"/><line class="vc" x1="30" y1="160" x2="186" y2="53"/>
+<text x="16" y="178">A</text><text x="136" y="134">B</text><text x="194" y="46">C</text>
+<text class="vl ta" x="70" y="126">a</text><text class="vl tb" x="168" y="102">b</text><text class="vl tc" x="64" y="98">a + b</text>
+<text x="110" y="184" text-anchor="middle">Aturan segitiga</text>
+<line class="vdash" x1="450" y1="130" x2="510" y2="40"/><line class="vdash" x1="390" y1="70" x2="510" y2="40"/>
+<line class="va" x1="330" y1="160" x2="446" y2="131"/><line class="vb" x1="330" y1="160" x2="391" y2="74"/><line class="vc" x1="330" y1="160" x2="506" y2="43"/>
+<text class="vl ta" x="390" y="160">a</text><text class="vl tb" x="346" y="108">b</text><text class="vl tc" x="420" y="92">a + b</text>
+<text x="420" y="184" text-anchor="middle">Aturan jajargenjang</text>
+    </svg>
+    <figcaption>Kiri: ujung a bertemu pangkal b. Kanan: a dan b berpangkal sama, jumlahnya adalah diagonal jajargenjang.</figcaption>
+  </figure>
+
   <h3>Penjumlahan dan Pengurangan Secara Komponen</h3>
 
   <div class="math-display">
@@ -446,6 +555,17 @@
     <li>Jika \(k<0\), arah \(k\vec{a}\) berlawanan dengan arah \(\vec{a}\).</li>
     <li>Jika \(k=0\), hasilnya vektor nol.</li>
   </ul>
+
+  <figure class="vector-figure">
+    <svg viewBox="0 0 520 240" role="img" aria-label="Vektor a, 2a, minus a, dan setengah a">
+
+<line class="va" x1="60" y1="50" x2="138" y2="31"/><text x="245" y="44">k = 1 → a</text>
+<line class="vc" x1="60" y1="110" x2="218" y2="71"/><text x="245" y="94">k = 2 → 2a (searah, 2× lebih panjang)</text>
+<line class="vb" x1="140" y1="150" x2="62" y2="169"/><text x="245" y="164">k = −1 → −a (berlawanan arah)</text>
+<line class="vd" x1="60" y1="215" x2="98" y2="206"/><text x="245" y="214">k = ½ → ½a (searah, ½× panjang)</text>
+    </svg>
+    <figcaption>Kalikan vektor dengan skalar k: panjang menjadi |k| kali, arah berbalik jika k negatif. Semua vektor di sini sejajar.</figcaption>
+  </figure>
 
   <h3>Sifat-Sifat Perkalian Skalar</h3>
 
@@ -630,6 +750,25 @@
 
     <p>Jadi \(P(4,3,-1)\).</p>
   </div>
+
+  <figure class="vector-figure">
+    <svg viewBox="0 0 380 215" role="img" aria-label="Pembagian dalam dan pembagian luar ruas garis AB oleh titik P">
+
+<text x="10" y="20">Pembagian dalam: AP : PB = m : n</text>
+<line class="vln" x1="40" y1="60" x2="300" y2="60"/>
+<circle class="vpt" cx="40" cy="60" r="4"/><circle class="vpt" cx="160" cy="60" r="4"/><circle class="vpt" cx="300" cy="60" r="4"/>
+<text x="34" y="48">A</text><text x="154" y="48">P</text><text x="294" y="48">B</text>
+<line x1="40" y1="82" x2="160" y2="82" stroke="#2563eb" stroke-width="3"/><line x1="160" y1="82" x2="300" y2="82" stroke="#dc2626" stroke-width="3"/>
+<text class="tb" x="100" y="102" text-anchor="middle" style="fill:#2563eb">m</text><text x="230" y="102" text-anchor="middle" style="fill:#dc2626">n</text>
+<text x="10" y="128">Pembagian luar (m &gt; n): P di luar ruas AB</text>
+<line class="vln" x1="40" y1="150" x2="310" y2="150"/>
+<circle class="vpt" cx="40" cy="150" r="4"/><circle class="vpt" cx="150" cy="150" r="4"/><circle class="vpt" cx="310" cy="150" r="4"/>
+<text x="34" y="138">A</text><text x="144" y="138">B</text><text x="304" y="138">P</text>
+<line x1="40" y1="170" x2="310" y2="170" stroke="#2563eb" stroke-width="3"/><text x="175" y="187" text-anchor="middle" style="fill:#2563eb">m (AP)</text>
+<line x1="150" y1="194" x2="310" y2="194" stroke="#dc2626" stroke-width="3"/><text x="230" y="210" text-anchor="middle" style="fill:#dc2626">n (PB)</text>
+    </svg>
+    <figcaption>Pada pembagian dalam P berada di antara A dan B; pada pembagian luar P berada di perpanjangan AB.</figcaption>
+  </figure>
 
   <h3>Titik Tengah</h3>
 
@@ -839,6 +978,22 @@
     </div>
   </div>
 
+  <figure class="vector-figure">
+    <svg viewBox="0 0 540 160" role="img" aria-label="Sudut antara dua vektor: lancip, siku-siku, dan tumpul">
+
+<line class="va" x1="30" y1="120" x2="130" y2="120"/><line class="vb" x1="30" y1="120" x2="78" y2="54"/>
+<path class="vang" d="M60 120A30 30 0 0 0 47.4 95.6"/><text x="64" y="106">θ</text>
+<text class="vl ta" x="84" y="138">a</text><text class="vl tb" x="82" y="52">b</text><text x="80" y="156" text-anchor="middle">a·b &gt; 0, θ lancip</text>
+<line class="va" x1="210" y1="120" x2="310" y2="120"/><line class="vb" x1="210" y1="120" x2="210" y2="44"/>
+<polyline class="vang" points="222,120 222,108 210,108"/>
+<text class="vl ta" x="262" y="138">a</text><text class="vl tb" x="220" y="60">b</text><text x="260" y="156" text-anchor="middle">a·b = 0, θ = 90°</text>
+<line class="va" x1="400" y1="120" x2="500" y2="120"/><line class="vb" x1="400" y1="120" x2="364" y2="56"/>
+<path class="vang" d="M430 120A30 30 0 0 0 385.2 93.9"/><text x="408" y="100">θ</text>
+<text class="vl ta" x="452" y="138">a</text><text class="vl tb" x="358" y="52">b</text><text x="440" y="156" text-anchor="middle">a·b &lt; 0, θ tumpul</text>
+    </svg>
+    <figcaption>Sudut θ diukur ketika kedua vektor digambar dari titik pangkal yang sama; tanda a·b menentukan jenis sudutnya.</figcaption>
+  </figure>
+
   <h3>Dua Vektor Tegak Lurus (Ortogonal)</h3>
 
   <p>Dua vektor tak nol saling tegak lurus jika dan hanya jika:</p>
@@ -954,6 +1109,21 @@
     </div>
   </div>
 
+  <figure class="vector-figure">
+    <svg viewBox="0 0 340 190" role="img" aria-label="Proyeksi vektor a pada vektor b">
+
+<line class="vb" x1="50" y1="150" x2="290" y2="150"/>
+<line class="vc" x1="50" y1="150" x2="186" y2="150" style="stroke-width:5"/>
+<line class="va" x1="50" y1="150" x2="186" y2="64"/>
+<line class="vdash" x1="190" y1="62" x2="190" y2="150"/>
+<polyline class="vang" points="178,150 178,138 190,138"/>
+<path class="vang" d="M85 150A35 35 0 0 0 79.4 131.1"/><text x="92" y="142">θ</text>
+<text class="vl ta" x="100" y="94">a</text><text class="vl tb" x="260" y="140">b</text>
+<text class="vl tc" x="104" y="170">c = proyeksi a pada b</text><text class="td" x="198" y="108">d ⟂ b</text>
+    </svg>
+    <figcaption>Garis putus-putus adalah komponen a yang tegak lurus b. Panjang c = |a| cos θ dan |d|² = |a|² − c².</figcaption>
+  </figure>
+
   <h3>Komponen Vektor yang Tegak Lurus</h3>
 
   <p>
@@ -990,6 +1160,20 @@
   </div>
 
   <p>Determinan di atas dihitung dengan ekspansi kofaktor pada baris pertama seperti yang dipelajari pada materi matriks.</p>
+
+  <figure class="vector-figure">
+    <svg viewBox="0 0 400 200" role="img" aria-label="Hasil kali silang a kali b tegak lurus bidang yang dibentuk a dan b">
+
+<polygon class="vfill" points="90,170 250,170 350,110 190,110"/>
+<line class="va" x1="90" y1="170" x2="246" y2="170"/><line class="vb" x1="90" y1="170" x2="187" y2="112"/>
+<line class="vd" x1="90" y1="170" x2="90" y2="40"/>
+<polyline class="vang" points="102,170 102,158 90,158"/>
+<text class="vl ta" x="168" y="188">a</text><text class="vl tb" x="122" y="132">b</text>
+<text class="vl td" x="100" y="54">a × b</text><text x="100" y="100" style="font-size:12px">tegak lurus a dan b</text>
+<text x="255" y="146" text-anchor="middle">luas = |a × b|</text>
+    </svg>
+    <figcaption>a × b adalah vektor yang tegak lurus bidang a dan b; panjangnya sama dengan luas jajargenjang yang dibentuk a dan b.</figcaption>
+  </figure>
 
   <h3>Sifat-Sifat</h3>
 
@@ -1100,6 +1284,19 @@
   <div class="math-display">
     \[ \begin{cases} x=a_1+t\,d_1\\ y=a_2+t\,d_2\\ z=a_3+t\,d_3 \end{cases} \]
   </div>
+
+  <figure class="vector-figure">
+    <svg viewBox="0 0 380 220" role="img" aria-label="Garis lurus melalui titik A dengan vektor arah d">
+
+<line class="vdash" x1="20" y1="190" x2="340" y2="30"/>
+<line class="va" x1="40" y1="70" x2="98" y2="146"/><line class="vc" x1="100" y1="150" x2="176" y2="112"/><line class="vb" x1="40" y1="70" x2="256" y2="70"/>
+<circle class="vpt" cx="40" cy="70" r="4"/><circle class="vpt" cx="100" cy="150" r="4"/><circle class="vpt" cx="260" cy="70" r="4"/>
+<text x="26" y="62">O</text><text x="90" y="168">A</text><text x="266" y="62">R</text>
+<text class="vl ta" x="48" y="116">a</text><text class="vl tc" x="140" y="144">d</text><text class="vl tb" x="150" y="62">r</text>
+<text x="296" y="26">garis</text>
+    </svg>
+    <figcaption>Setiap titik R pada garis dicapai dengan r = a + t·d: dari O ke A (vektor a), lalu maju t kali vektor arah d. Di sini t = 2.</figcaption>
+  </figure>
 
   <p>
     Untuk garis melalui dua titik \(A\) dan \(B\), vektor arahnya adalah
