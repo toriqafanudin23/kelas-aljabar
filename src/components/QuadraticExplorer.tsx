@@ -22,11 +22,7 @@ const COLORS = {
   grid: "rgba(82, 103, 115, 0.16)",
 };
 
-const ranges = {
-  a: { min: -3, max: 3 },
-  b: { min: -6, max: 6 },
-  c: { min: -6, max: 6 },
-} as const;
+const coefficientLimit = 100;
 
 const presets: { label: string; values: Coefficients }[] = [
   { label: "Dua akar", values: { a: 1, b: -2, c: -3 } },
@@ -86,6 +82,42 @@ function analyze({ a, b, c }: Coefficients): Analysis {
   return { d, vertex: { x, y }, roots };
 }
 
+function CoefficientInput({
+  id,
+  value,
+  onChange,
+}: {
+  id: string;
+  value: number;
+  onChange: (value: number) => void;
+}) {
+  // Teks yang sedang diketik disimpan terpisah supaya "-" atau "1." tidak langsung dipaksa jadi angka.
+  const [draft, setDraft] = useState(String(value));
+
+  useEffect(() => {
+    setDraft((prev) =>
+      prev !== "" && Number(prev) === value ? prev : String(value),
+    );
+  }, [value]);
+
+  return (
+    <input
+      id={id}
+      type="number"
+      step="0.1"
+      value={draft}
+      onChange={(e) => {
+        setDraft(e.currentTarget.value);
+        const n = e.currentTarget.valueAsNumber;
+        if (Number.isFinite(n)) {
+          onChange(clamp(n, -coefficientLimit, coefficientLimit));
+        }
+      }}
+      onBlur={() => setDraft(String(value))}
+    />
+  );
+}
+
 export function QuadraticExplorer() {
   const boardId = `quadratic-board-${useId().replace(/:/g, "")}`;
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -126,7 +158,7 @@ export function QuadraticExplorer() {
       keepAspectRatio: true,
       showCopyright: false,
       showNavigation: false,
-      pan: { enabled: true, needTwoFingers: false },
+      pan: { enabled: true, needShift: false, needTwoFingers: false },
       zoom: {
         wheel: true,
         needShift: false,
@@ -285,8 +317,12 @@ export function QuadraticExplorer() {
       if (a === 0) return;
       const h = vertex.X();
       const k = vertex.Y();
-      const b = clamp(round1(-2 * a * h), ranges.b.min, ranges.b.max);
-      const c = clamp(round1(k + a * h * h), ranges.c.min, ranges.c.max);
+      const b = clamp(round1(-2 * a * h), -coefficientLimit, coefficientLimit);
+      const c = clamp(
+        round1(k + a * h * h),
+        -coefficientLimit,
+        coefficientLimit,
+      );
       applyCoefficients({ a, b, c });
     });
 
@@ -376,29 +412,19 @@ export function QuadraticExplorer() {
           <div className="quadratic-explorer-controls">
             {(["a", "b", "c"] as const).map((key) => {
               const inputId = `${boardId}-${key}`;
-              const { min, max } = ranges[key];
               return (
                 <label
                   className="quadratic-explorer-control"
                   htmlFor={inputId}
                   key={key}
                 >
-                  <span className="quadratic-explorer-control-head">
-                    <span>
-                      Koefisien <strong>{key}</strong>
-                    </span>
-                    <output htmlFor={inputId}>{fmt(coefficients[key])}</output>
+                  <span>
+                    Koefisien <strong>{key}</strong>
                   </span>
-                  <input
+                  <CoefficientInput
                     id={inputId}
-                    type="range"
-                    min={min}
-                    max={max}
-                    step="0.1"
                     value={coefficients[key]}
-                    onChange={(e) =>
-                      updateCoefficient(key, Number(e.currentTarget.value))
-                    }
+                    onChange={(v) => updateCoefficient(key, v)}
                   />
                 </label>
               );

@@ -116,7 +116,7 @@
 .quadratic-explorer-controls {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 14px;
+  gap: 12px;
   box-sizing: border-box;
   padding: 14px;
   border: 1px solid var(--qe-line);
@@ -126,34 +126,40 @@
 
 .quadratic-explorer-control {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 6px;
+  grid-template-columns: minmax(0, 1fr) 112px;
+  align-items: center;
+  gap: 12px;
   min-width: 0;
-}
-
-.quadratic-explorer-control-head {
-  display: flex;
-  justify-content: space-between;
   color: var(--qe-muted);
   font-size: 0.9rem;
 }
 
-.quadratic-explorer-control-head strong {
+.quadratic-explorer-control strong {
   color: var(--qe-text);
   font-family: "Cambria Math", Georgia, serif;
   font-style: italic;
 }
 
-.quadratic-explorer-control output {
-  color: var(--qe-text);
-  font-weight: 600;
-}
-
-.quadratic-explorer-control input[type="range"] {
+.quadratic-explorer-control input {
   width: 100%;
   min-width: 0;
+  height: 40px;
+  box-sizing: border-box;
   margin: 0;
-  accent-color: var(--qe-curve);
+  padding: 8px 10px;
+  border: 1px solid var(--qe-line);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--qe-text);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.quadratic-explorer-control input:focus {
+  border-color: var(--qe-curve);
 }
 
 .quadratic-explorer-presets {
