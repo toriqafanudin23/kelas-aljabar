@@ -1,4 +1,6 @@
 import { useEffect, useRef } from "react";
+import { createRoot } from "react-dom/client";
+import type { Root } from "react-dom/client";
 import renderMathInElement from "katex/dist/contrib/auto-render.mjs";
 import type { LessonNavItem } from "../types/navigation";
 
@@ -13,6 +15,8 @@ export function LessonHtml({ html, onSectionsChange }: LessonHtmlProps) {
   useEffect(() => {
     if (!containerRef.current) return;
     containerRef.current.innerHTML = html;
+    let widgetRoot: Root | null = null;
+    let isActive = true;
 
     renderMathInElement(containerRef.current, {
       delimiters: [
@@ -23,6 +27,17 @@ export function LessonHtml({ html, onSectionsChange }: LessonHtmlProps) {
       ],
       throwOnError: false,
     });
+
+    const quadraticExplorer = containerRef.current.querySelector<HTMLElement>(
+      "[data-interactive-widget='quadratic-explorer']",
+    );
+    if (quadraticExplorer) {
+      import("./QuadraticExplorer").then(({ QuadraticExplorer }) => {
+        if (!isActive || !quadraticExplorer.isConnected) return;
+        widgetRoot = createRoot(quadraticExplorer);
+        widgetRoot.render(<QuadraticExplorer />);
+      });
+    }
 
     const sectionEls = Array.from(
       containerRef.current.querySelectorAll<HTMLElement>("section[id]"),
@@ -36,6 +51,11 @@ export function LessonHtml({ html, onSectionsChange }: LessonHtmlProps) {
     }));
 
     onSectionsChange(navSections);
+
+    return () => {
+      isActive = false;
+      widgetRoot?.unmount();
+    };
   }, [html, onSectionsChange]);
 
   return <div ref={containerRef} className="lesson-content" />;

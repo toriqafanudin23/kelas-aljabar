@@ -1,0 +1,81 @@
+REKOMENDASI ANIMASI MATERI DENGAN JSXGRAPH
+
+Ringkasan
+JSXGraph paling cocok untuk materi yang menggunakan grafik, koordinat, konstruksi geometri, atau parameter interaktif. Animasi sebaiknya membantu siswa melihat hubungan antarbesaran, bukan sekadar menggerakkan objek.
+
+PALING COCOK
+
+1. Trigonometri
+   Geser sudut pada lingkaran satuan dan tampilkan perubahan nilai sinus, kosinus, serta tangen. Sinkronkan titik pada lingkaran dengan grafik fungsi trigonometri.
+
+2. Transformasi Geometri
+   Geser titik atau poligon, lalu animasikan translasi, refleksi, rotasi, dilatasi, dan komposisinya. Tampilkan koordinat dan matriks transformasi.
+
+3. Transformasi Fungsi
+   Gunakan slider untuk mengubah translasi, refleksi, dan peregangan grafik. Bandingkan grafik awal dengan hasil transformasinya.
+
+4. Fungsi Kuadrat
+   Ubah koefisien a, b, dan c untuk mengamati perubahan parabola, akar, titik puncak, sumbu simetri, dan diskriminan.
+
+5. Irisan Kerucut
+   Ubah parameter atau eksentrisitas untuk membandingkan lingkaran, elips, parabola, dan hiperbola. Tampilkan fokus, direktriks, serta garis singgung.
+
+6. Vektor
+   Geser dua vektor untuk memperlihatkan penjumlahan, sudut, proyeksi, dan hasil kali titik pada bidang koordinat.
+
+7. Lingkaran
+   Ubah jari-jari dan sudut pusat untuk memperlihatkan panjang busur, luas juring, tali busur, dan garis singgung.
+
+8. Limit, Turunan, dan Integral
+   Animasikan tali busur yang mendekati garis singgung saat h menuju nol. Tampilkan kemiringan turunan dan pendekatan luas dengan jumlah Riemann.
+
+9. Sistem Persamaan dan Pertidaksamaan Linear
+   Geser garis untuk melihat titik potong, daerah penyelesaian, dan perubahan titik optimum pada masalah linear.
+
+10. Fungsi dan Pemodelan
+    Gambarkan model fungsi dan tunjukkan bagaimana perubahan parameter atau input memengaruhi grafik dan hasil model.
+
+CUKUP COCOK
+
+11. Eksponensial dan Logaritma
+    Bandingkan grafik fungsi eksponensial dengan invers logaritmanya menggunakan slider basis.
+
+12. Barisan dan Deret
+    Plot suku-suku barisan serta jumlah parsial. Tunjukkan konvergensi deret geometri ketika r berada pada rentang yang sesuai.
+
+13. Statistika
+    Geser titik data dan amati perubahan mean, median, rentang, serta histogram.
+
+14. Komposisi Fungsi dan Invers
+    Bandingkan grafik f, g, komposisi f setelah g, dan pencerminan grafik invers terhadap garis y = x.
+
+15. Polinomial
+    Hubungkan perubahan koefisien dengan bentuk kurva dan letak akar-akar polinomial.
+
+16. Matriks
+    Gunakan matriks untuk mentransformasikan kisi koordinat dan vektor basis; tampilkan efek determinan terhadap luas.
+
+17. Bilangan Kompleks
+    Gunakan bidang kompleks untuk menunjukkan penjumlahan, konjugat, modulus, argumen, dan perkalian sebagai rotasi serta peregangan.
+
+18. Teori Peluang
+    Tampilkan diagram ruang sampel atau grafik distribusi. Simulasi acak berulang lebih cocok dibuat dengan JavaScript biasa.
+
+KURANG COCOK SEBAGAI ANIMASI JSXGRAPH UTAMA
+
+19. Kombinatorika
+    Pohon pencacahan dan segitiga Pascal dapat divisualisasikan, tetapi diagram langkah demi langkah biasanya lebih sederhana daripada papan koordinat JSXGraph.
+
+20. Teori Bilangan
+    Jam modulo, residu, atau algoritma Euclid dapat dibuat interaktif. Namun, animasi JSXGraph bukan kebutuhan utama untuk konsep-konsep tersebut.
+
+PRIORITAS IMPLEMENTASI
+
+Mulai dari Trigonometri, Transformasi Geometri, Fungsi Kuadrat, Irisan Kerucut, dan visualisasi Limit-Turunan-Integral. Topik-topik ini memiliki hubungan visual yang kuat dan interaksi langsung yang dapat memperjelas konsep.
+
+CATATAN TEKNIS
+
+- JSXGraph belum tercantum pada dependencies proyek.
+- Materi HTML dimasukkan menggunakan innerHTML di LessonHtml.tsx. Skrip JSXGraph yang ditulis langsung di HTML materi tidak akan dieksekusi.
+- Buat papan sebagai komponen React yang menginisialisasi JSXGraph setelah mount dan menghancurkan board saat komponen dilepas.
+- Pastikan papan memiliki ukuran responsif, kontrol yang dapat digunakan dengan keyboard bila memungkinkan, dan fallback berupa rumus atau grafik statis.

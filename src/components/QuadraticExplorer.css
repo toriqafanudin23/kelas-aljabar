@@ -1,0 +1,254 @@
+.quadratic-explorer {
+  --qe-bg: #f5f8fa;
+  --qe-panel: #ffffff;
+  --qe-line: #d6e0e6;
+  --qe-text: #18313d;
+  --qe-muted: #5d707b;
+  --qe-curve: #087f8c;
+  --qe-vertex: #b45309;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 20px;
+  border: 1px solid var(--qe-line);
+  border-radius: 14px;
+  background: var(--qe-bg);
+  color: var(--qe-text);
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
+.quadratic-explorer-header {
+  display: grid;
+  gap: 2px;
+}
+
+.quadratic-explorer-equation {
+  font-family: "Cambria Math", "STIX Two Math", Georgia, serif;
+  font-size: clamp(1.5rem, 3.4vw, 2.1rem);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.quadratic-explorer-subtitle {
+  color: var(--qe-muted);
+  font-size: 0.92rem;
+}
+
+.quadratic-explorer-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 16px;
+  align-items: start;
+}
+
+/* ---------- Bidang grafik ---------- */
+.quadratic-explorer-stage {
+  position: relative;
+  min-width: 0;
+}
+
+.quadratic-explorer .quadratic-explorer-board {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  min-height: 340px;
+  border: 1px solid var(--qe-line);
+  border-radius: 10px;
+  background: #ffffff;
+  touch-action: none;
+  overflow: hidden;
+}
+
+.quadratic-explorer-curve {
+  filter: drop-shadow(0 1px 2px rgba(8, 127, 140, 0.18));
+}
+
+.quadratic-explorer .JXGinfobox {
+  color: var(--qe-text);
+  font-size: 0.8rem;
+}
+
+.quadratic-explorer-zoom {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: grid;
+  overflow: hidden;
+  border: 1px solid var(--qe-line);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.quadratic-explorer-zoom button {
+  width: 36px;
+  height: 36px;
+  border: 0;
+  background: transparent;
+  color: var(--qe-text);
+  font-size: 1.15rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.quadratic-explorer-zoom button + button {
+  border-top: 1px solid var(--qe-line);
+}
+
+.quadratic-explorer-zoom button:hover {
+  background: #e5f3f3;
+}
+
+/* ---------- Panel samping ---------- */
+.quadratic-explorer-sidebar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  min-width: 0;
+}
+
+.quadratic-explorer-controls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+  box-sizing: border-box;
+  padding: 14px;
+  border: 1px solid var(--qe-line);
+  border-radius: 10px;
+  background: var(--qe-panel);
+}
+
+.quadratic-explorer-control {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 6px;
+  min-width: 0;
+}
+
+.quadratic-explorer-control-head {
+  display: flex;
+  justify-content: space-between;
+  color: var(--qe-muted);
+  font-size: 0.9rem;
+}
+
+.quadratic-explorer-control-head strong {
+  color: var(--qe-text);
+  font-family: "Cambria Math", Georgia, serif;
+  font-style: italic;
+}
+
+.quadratic-explorer-control output {
+  color: var(--qe-text);
+  font-weight: 600;
+}
+
+.quadratic-explorer-control input[type="range"] {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  accent-color: var(--qe-curve);
+}
+
+.quadratic-explorer-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.quadratic-explorer-presets button {
+  padding: 6px 12px;
+  border: 1px solid var(--qe-line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--qe-text);
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.quadratic-explorer-presets button:hover {
+  border-color: var(--qe-curve);
+  background: #e5f3f3;
+}
+
+.quadratic-explorer-stats {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  border: 1px solid var(--qe-line);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.quadratic-explorer-stats > div {
+  display: grid;
+  grid-template-columns: 12px minmax(0, 1fr);
+  column-gap: 10px;
+  padding: 10px 14px;
+  background: var(--qe-panel);
+}
+
+.quadratic-explorer-stats > div + div {
+  border-top: 1px solid var(--qe-line);
+}
+
+.quadratic-explorer-stats > div::before {
+  content: "";
+  grid-row: 1 / span 2;
+  align-self: center;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--dot);
+}
+
+.quadratic-explorer-stats dt {
+  color: var(--qe-muted);
+  font-size: 0.78rem;
+}
+
+.quadratic-explorer-stats dd {
+  margin: 0;
+  font-size: 0.98rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.quadratic-explorer button:focus-visible,
+.quadratic-explorer input:focus-visible {
+  outline: 2px solid var(--qe-curve);
+  outline-offset: 2px;
+}
+
+@media (max-width: 860px) {
+  .quadratic-explorer-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .quadratic-explorer {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .quadratic-explorer .quadratic-explorer-board {
+    aspect-ratio: 1 / 1;
+    min-height: 0;
+  }
+
+  .quadratic-explorer-controls {
+    padding: 12px;
+  }
+
+  .quadratic-explorer-presets button {
+    padding: 6px 10px;
+    font-size: 0.78rem;
+  }
+}
