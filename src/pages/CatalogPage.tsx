@@ -29,6 +29,7 @@ const subjectFilters = [
       "vektor",
       "transformasi-geometri",
       "busur-dan-juring-lingkaran",
+      "irisan-kerucut",
     ],
   },
   { name: "Statistika & Peluang", slugs: ["statistika", "peluang"] },
@@ -110,9 +111,9 @@ export function CatalogPage({ navigate }: CatalogPageProps) {
     },
     {
       title:
-        "3. Kelas XII (Fase F Lanjut) — Fungsi, Pencacahan, Peluang & Kalkulus",
+        "3. Kelas XII (Fase F Lanjut) — Geometri, Fungsi, Pencacahan, Peluang & Kalkulus",
       subtitle:
-        "Transformasi grafik fungsi, kombinatorika, peluang, serta limit sebagai fondasi turunan.",
+        "Irisan kerucut, transformasi grafik fungsi, kombinatorika, peluang, serta limit sebagai fondasi turunan.",
       items: filteredMaterials.filter((m) =>
         [
           "limit",
@@ -120,6 +121,7 @@ export function CatalogPage({ navigate }: CatalogPageProps) {
           "kombinatorika",
           "peluang",
           "transformasi-fungsi",
+          "irisan-kerucut",
         ].includes(m.slug),
       ),
     },

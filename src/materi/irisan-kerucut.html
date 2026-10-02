@@ -1,0 +1,1740 @@
+<style>
+  .geo-figure {
+    margin: 1.25rem auto;
+    text-align: center;
+  }
+  .geo-figure svg {
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+  }
+  .geo-figure figcaption {
+    font-size: 0.9em;
+    opacity: 0.85;
+    margin-top: 0.4rem;
+  }
+  .geo-figure text {
+    fill: currentColor;
+    font-family: inherit;
+    font-size: 14px;
+  }
+  .geo-figure .ta {
+    fill: #2563eb;
+  }
+  .geo-figure .tb {
+    fill: #dc2626;
+  }
+  .geo-figure .tc {
+    fill: #16a34a;
+  }
+  .geo-figure .ga,
+  .geo-figure .gb,
+  .geo-figure .gc {
+    fill: none;
+    stroke-width: 3;
+  }
+  .geo-figure .ga {
+    stroke: #2563eb;
+  }
+  .geo-figure .gb {
+    stroke: #dc2626;
+    stroke-width: 2.5;
+  }
+  .geo-figure .gc {
+    stroke: #16a34a;
+    stroke-width: 2.5;
+  }
+  .geo-figure .gax {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+  }
+  .geo-figure .gdash {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-dasharray: 5 4;
+    opacity: 0.55;
+  }
+  .geo-figure .gdir {
+    fill: none;
+    stroke: #dc2626;
+    stroke-width: 1.5;
+    stroke-dasharray: 5 4;
+  }
+  .geo-figure .gpt {
+    fill: currentColor;
+  }
+  .geo-figure .gang {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+  }
+</style>
+
+<section id="lingkaran" data-title="Lingkaran">
+  <h2>1. Lingkaran</h2>
+
+  <p>
+    <strong>Lingkaran</strong> adalah himpunan semua titik pada bidang yang
+    berjarak sama terhadap sebuah titik tertentu. Titik tersebut disebut
+    <strong>pusat</strong> dan jarak tetapnya disebut <strong>jari-jari</strong>
+    (\(r\)).
+  </p>
+
+  <h3>Persamaan Lingkaran</h3>
+
+  <p>
+    Titik \(T(x,y)\) berada pada lingkaran berpusat di \(P(a,b)\) dengan
+    jari-jari \(r\) jika \(|PT|=r\). Dengan rumus jarak dua titik diperoleh:
+  </p>
+
+  <div class="math-display">\[ (x-a)^2+(y-b)^2=r^2 \]</div>
+
+  <p>
+    Jika pusatnya di titik asal \(O(0,0)\), persamaannya menjadi
+    \(x^2+y^2=r^2\).
+  </p>
+
+  <figure class="geo-figure">
+    <svg
+      viewBox="0 0 400 280"
+      role="img"
+      aria-label="Lingkaran berpusat di P(a,b) dengan jari-jari r dan titik T(x,y) pada lingkaran"
+    >
+      <line class="gax" x1="30" y1="240" x2="380" y2="240" />
+      <line class="gax" x1="60" y1="265" x2="60" y2="20" />
+      <text x="384" y="244">x</text>
+      <text x="66" y="24">y</text>
+      <text x="44" y="256">O</text>
+      <circle class="ga" cx="200" cy="130" r="70" />
+      <line class="gdash" x1="200" y1="130" x2="200" y2="240" />
+      <line class="gdash" x1="200" y1="130" x2="60" y2="130" />
+      <line class="gb" x1="200" y1="130" x2="250" y2="80" />
+      <circle class="gpt" cx="200" cy="130" r="4" />
+      <circle class="gpt" cx="250" cy="80" r="4" />
+      <text x="168" y="152">P(a, b)</text>
+      <text x="256" y="76">T(x, y)</text>
+      <text class="tb" x="232" y="116">r</text>
+      <text x="196" y="258">a</text>
+      <text x="40" y="134">b</text>
+    </svg>
+    <figcaption>
+      Lingkaran berpusat di P(a, b): setiap titik T(x, y) pada lingkaran
+      berjarak r dari pusat.
+    </figcaption>
+  </figure>
+
+  <h3>Bentuk Umum</h3>
+
+  <p>Jika persamaan di atas dijabarkan, diperoleh bentuk umum:</p>
+
+  <div class="math-display">
+    \[ x^2+y^2+Ax+By+C=0,\qquad P\left(-\frac A2,\,-\frac B2\right),\qquad
+    r=\sqrt{\frac{A^2}{4}+\frac{B^2}{4}-C} \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>Tentukan pusat dan jari-jari lingkaran \(x^2+y^2-6x+4y-12=0\).</p>
+    <p>Dengan \(A=-6\), \(B=4\), \(C=-12\):</p>
+    <div class="math-display">
+      \[ P\left(-\frac{-6}{2},-\frac42\right)=(3,-2),\qquad r=\sqrt{9+4+12}=5 \]
+    </div>
+  </div>
+
+  <h3>Kedudukan Titik terhadap Lingkaran</h3>
+
+  <p>
+    Untuk titik \(Q(x_1,y_1)\), hitung \(K=(x_1-a)^2+(y_1-b)^2-r^2\). Jika
+    \(K&lt;0\), titik \(Q\) di dalam lingkaran; jika \(K=0\), titik \(Q\) pada
+    lingkaran; jika \(K&gt;0\), titik \(Q\) di luar lingkaran.
+  </p>
+</section>
+
+<section id="singgung-lingkaran" data-title="Garis dan Lingkaran">
+  <h2>2. Garis Singgung dan Kedudukan Garis terhadap Lingkaran</h2>
+
+  <p>
+    Garis singgung adalah garis yang menyentuh lingkaran tepat di satu titik dan
+    <strong>tegak lurus</strong> terhadap jari-jari di titik singgung tersebut.
+  </p>
+
+  <figure class="geo-figure">
+    <svg
+      viewBox="0 0 400 280"
+      role="img"
+      aria-label="Garis singgung di titik T tegak lurus jari-jari PT"
+    >
+      <circle class="ga" cx="200" cy="140" r="70" />
+      <line class="gc" x1="190" y1="30" x2="310" y2="150" />
+      <line class="gb" x1="200" y1="140" x2="250" y2="90" />
+      <path class="gang" d="M243,97 L250,104 L257,97" />
+      <circle class="gpt" cx="200" cy="140" r="4" />
+      <circle class="gpt" cx="250" cy="90" r="4" />
+      <text x="184" y="162">P</text>
+      <text x="232" y="82">T</text>
+      <text class="tb" x="216" y="122">r</text>
+      <text class="tc" x="232" y="30">garis singgung</text>
+    </svg>
+    <figcaption>Garis singgung di T tegak lurus jari-jari PT.</figcaption>
+  </figure>
+
+  <h3>Singgung di Titik \((x_1,y_1)\) pada Lingkaran</h3>
+
+  <div class="math-display">
+    \[ x^2+y^2=r^2:\ \ x_1x+y_1y=r^2,\qquad (x-a)^2+(y-b)^2=r^2:\ \
+    (x_1-a)(x-a)+(y_1-b)(y-b)=r^2 \]
+  </div>
+
+  <h3>Singgung dengan Gradien \(m\)</h3>
+
+  <div class="math-display">\[ x^2+y^2=r^2:\ \ y=mx\pm r\sqrt{1+m^2} \]</div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>Tentukan garis singgung lingkaran \(x^2+y^2=25\) di titik \((3,4)\).</p>
+    <p>Titik \((3,4)\) memenuhi persamaan karena \(9+16=25\). Maka:</p>
+    <div class="math-display">\[ 3x+4y=25 \]</div>
+  </div>
+
+  <h3>Kedudukan Garis terhadap Lingkaran</h3>
+
+  <p>
+    Kedudukan garis \(g\) terhadap lingkaran dapat ditentukan dengan dua cara.
+    <strong>Cara diskriminan:</strong> substitusikan persamaan garis ke
+    persamaan lingkaran sehingga diperoleh persamaan kuadrat dengan diskriminan
+    \(D\). <strong>Cara jarak:</strong> bandingkan jarak pusat \(P(a,b)\) ke
+    garis \(Ax+By+C=0\) dengan jari-jari \(r\).
+  </p>
+
+  <div class="math-display">\[ d=\frac{|Aa+Bb+C|}{\sqrt{A^2+B^2}} \]</div>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Kedudukan garis</th>
+          <th scope="col">Diskriminan</th>
+          <th scope="col">Jarak pusat ke garis</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Memotong di dua titik</td>
+          <td>\(D&gt;0\)</td>
+          <td>\(d&lt;r\)</td>
+        </tr>
+        <tr>
+          <td>Menyinggung (satu titik)</td>
+          <td>\(D=0\)</td>
+          <td>\(d=r\)</td>
+        </tr>
+        <tr>
+          <td>Tidak memotong maupun menyinggung</td>
+          <td>\(D&lt;0\)</td>
+          <td>\(d&gt;r\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <figure class="geo-figure">
+    <svg
+      viewBox="0 0 480 220"
+      role="img"
+      aria-label="Tiga kedudukan garis terhadap lingkaran: memotong, menyinggung, dan tidak memotong"
+    >
+      <circle class="ga" cx="150" cy="110" r="60" />
+      <circle class="gpt" cx="150" cy="110" r="3.5" />
+      <line class="gb" x1="60" y1="75" x2="240" y2="75" />
+      <line class="gc" x1="60" y1="50" x2="240" y2="50" />
+      <line class="gdash" x1="60" y1="25" x2="240" y2="25" />
+      <circle class="gpt" cx="150" cy="50" r="4" />
+      <text class="tb" x="250" y="79">d &lt; r : memotong</text>
+      <text class="tc" x="250" y="54">d = r : menyinggung</text>
+      <text x="250" y="29">d &gt; r : tidak memotong</text>
+      <text x="136" y="132">P</text>
+    </svg>
+    <figcaption>
+      Semakin jauh garis dari pusat, semakin sedikit titik potongnya dengan
+      lingkaran.
+    </figcaption>
+  </figure>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>
+      Tentukan kedudukan garis \(3x+4y-10=0\) terhadap lingkaran \(x^2+y^2=4\).
+    </p>
+    <p>Pusat \((0,0)\) dan \(r=2\). Jarak pusat ke garis:</p>
+    <div class="math-display">
+      \[ d=\frac{|3\cdot0+4\cdot0-10|}{\sqrt{3^2+4^2}}=\frac{10}{5}=2=r \]
+    </div>
+    <p>Karena \(d=r\), garis menyinggung lingkaran.</p>
+  </div>
+
+  <h3>Garis Singgung dari Titik di Luar Lingkaran</h3>
+
+  <p>
+    Dari titik \(Q(x_1,y_1)\) di luar lingkaran \(x^2+y^2=r^2\) dapat ditarik
+    dua garis singgung. Garis yang melalui kedua titik singgung (garis polar)
+    adalah \(x_1x+y_1y=r^2\). Titik singgung diperoleh dari perpotongan garis
+    polar dengan lingkaran.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>
+      Tentukan titik-titik singgung dari titik \(Q(5,0)\) ke lingkaran
+      \(x^2+y^2=9\).
+    </p>
+    <p>
+      Garis polar: \(5x=9\), sehingga \(x=\displaystyle\frac95\). Substitusi ke
+      lingkaran:
+    </p>
+    <div class="math-display">
+      \[ y^2=9-\frac{81}{25}=\frac{144}{25}\ \Longrightarrow\ y=\pm\frac{12}{5}
+      \]
+    </div>
+    <p>
+      Titik singgungnya \(\left(\displaystyle\frac95,\frac{12}{5}\right)\) dan
+      \(\left(\displaystyle\frac95,-\frac{12}{5}\right)\).
+    </p>
+  </div>
+
+  <h3>Kedudukan Dua Lingkaran</h3>
+
+  <p>
+    Misalkan jarak kedua pusat adalah \(d\) dan jari-jari kedua lingkaran
+    \(r_1\) dan \(r_2\). Jika kedua lingkaran berpotongan, selisih persamaan
+    keduanya, \(L_1-L_2=0\), adalah persamaan garis yang melalui kedua titik
+    potong (garis kuasa).
+  </p>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Syarat</th>
+          <th scope="col">Kedudukan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(d&gt;r_1+r_2\)</td>
+          <td>Saling lepas</td>
+        </tr>
+        <tr>
+          <td>\(d=r_1+r_2\)</td>
+          <td>Bersinggungan di luar</td>
+        </tr>
+        <tr>
+          <td>\(|r_1-r_2|&lt;d&lt;r_1+r_2\)</td>
+          <td>Berpotongan di dua titik</td>
+        </tr>
+        <tr>
+          <td>\(d=|r_1-r_2|\)</td>
+          <td>Bersinggungan di dalam</td>
+        </tr>
+        <tr>
+          <td>\(d&lt;|r_1-r_2|\)</td>
+          <td>Yang satu di dalam yang lain</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="elips" data-title="Elips">
+  <h2>3. Elips</h2>
+
+  <p>
+    <strong>Elips</strong> adalah himpunan titik yang jumlah jaraknya terhadap
+    dua titik tetap (<strong>fokus</strong>) selalu sama, yaitu \(2a\).
+  </p>
+
+  <figure class="geo-figure">
+    <svg
+      viewBox="0 0 400 300"
+      role="img"
+      aria-label="Elips dengan fokus F1 dan F2, titik P, serta jumlah jarak PF1 dan PF2 sama dengan 2a"
+    >
+      <line class="gax" x1="30" y1="150" x2="375" y2="150" />
+      <line class="gax" x1="200" y1="30" x2="200" y2="275" />
+      <ellipse class="ga" cx="200" cy="150" rx="130" ry="80" />
+      <line class="gb" x1="265" y1="81" x2="98" y2="150" />
+      <line class="gc" x1="265" y1="81" x2="303" y2="150" />
+      <circle class="gpt" cx="98" cy="150" r="4" />
+      <circle class="gpt" cx="303" cy="150" r="4" />
+      <circle class="gpt" cx="265" cy="81" r="4" />
+      <text x="88" y="172">F₁</text>
+      <text x="298" y="172">F₂</text>
+      <text x="270" y="74">P</text>
+      <text x="34" y="140">(−a, 0)</text>
+      <text x="334" y="140">(a, 0)</text>
+      <text x="206" y="66">(0, b)</text>
+      <text x="206" y="248">(0, −b)</text>
+      <text x="140" y="112" text-anchor="middle">PF₁ + PF₂ = 2a</text>
+    </svg>
+    <figcaption>
+      Elips: untuk setiap titik P pada elips, PF₁ + PF₂ = 2a.
+    </figcaption>
+  </figure>
+
+  <h3>Persamaan Baku</h3>
+
+  <div class="math-display">
+    \[ \frac{x^2}{a^2}+\frac{y^2}{b^2}=1\ \ (a&gt;b),\qquad
+    \frac{(x-h)^2}{a^2}+\frac{(y-k)^2}{b^2}=1 \]
+  </div>
+
+  <p>
+    Elips berpusat di \((h,k)\) dengan sumbu mayor horizontal. Jika \(a^2\)
+    berada di bawah suku \(y\), sumbu mayor vertikal. Unsur-unsurnya dengan
+    pusat \(O\) dan sumbu mayor horizontal:
+  </p>
+
+  <div class="math-display">
+    \[ c^2=a^2-b^2,\qquad F(\pm c,0),\qquad \text{puncak }(\pm a,0),\qquad
+    e=\frac ca\ (0&lt;e&lt;1),\qquad \text{latus rektum}=\frac{2b^2}{a} \]
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>Tentukan fokus dan eksentrisitas elips \(9x^2+25y^2=225\).</p>
+    <p>
+      Bagi dengan \(225\): \(\displaystyle\frac{x^2}{25}+\frac{y^2}{9}=1\),
+      sehingga \(a=5\), \(b=3\).
+    </p>
+    <div class="math-display">
+      \[ c=\sqrt{25-9}=4,\qquad F(\pm4,0),\qquad e=\frac45 \]
+    </div>
+  </div>
+
+  <h3>Elips Vertikal dan Elips dengan Pusat \((h,k)\)</h3>
+
+  <p>
+    Pada setiap elips, \(a\) selalu menyatakan setengah panjang sumbu mayor
+    (\(a&gt;b\)). Letak fokus ditentukan oleh penyebut yang lebih besar.
+  </p>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Bentuk</th>
+          <th scope="col">Sumbu mayor</th>
+          <th scope="col">Fokus</th>
+          <th scope="col">Puncak</th>
+          <th scope="col">Direktriks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(\displaystyle\frac{x^2}{a^2}+\frac{y^2}{b^2}=1\)</td>
+          <td>horizontal</td>
+          <td>\((\pm c,0)\)</td>
+          <td>\((\pm a,0)\)</td>
+          <td>\(x=\pm\displaystyle\frac{a^2}{c}\)</td>
+        </tr>
+        <tr>
+          <td>\(\displaystyle\frac{x^2}{b^2}+\frac{y^2}{a^2}=1\)</td>
+          <td>vertikal</td>
+          <td>\((0,\pm c)\)</td>
+          <td>\((0,\pm a)\)</td>
+          <td>\(y=\pm\displaystyle\frac{a^2}{c}\)</td>
+        </tr>
+        <tr>
+          <td>\(\displaystyle\frac{(x-h)^2}{a^2}+\frac{(y-k)^2}{b^2}=1\)</td>
+          <td>horizontal</td>
+          <td>\((h\pm c,k)\)</td>
+          <td>\((h\pm a,k)\)</td>
+          <td>\(x=h\pm\displaystyle\frac{a^2}{c}\)</td>
+        </tr>
+        <tr>
+          <td>\(\displaystyle\frac{(x-h)^2}{b^2}+\frac{(y-k)^2}{a^2}=1\)</td>
+          <td>vertikal</td>
+          <td>\((h,k\pm c)\)</td>
+          <td>\((h,k\pm a)\)</td>
+          <td>\(y=k\pm\displaystyle\frac{a^2}{c}\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>Tentukan pusat dan fokus elips \(x^2+4y^2-6x+16y+21=0\).</p>
+    <p>Lengkapi kuadrat sempurna:</p>
+    <div class="math-display">
+      \[ (x-3)^2+4(y+2)^2=4\ \Longrightarrow\
+      \frac{(x-3)^2}{4}+\frac{(y+2)^2}{1}=1 \]
+    </div>
+    <p>
+      Maka \(a=2\), \(b=1\), \(c=\sqrt3\), pusat \((3,-2)\), dan fokus
+      \((3\pm\sqrt3,\,-2)\).
+    </p>
+  </div>
+
+  <h3>Garis Singgung dan Kedudukan Garis terhadap Elips</h3>
+
+  <div class="math-display">
+    \[ \text{di }(x_1,y_1):\ \ \frac{x_1x}{a^2}+\frac{y_1y}{b^2}=1,\qquad
+    \text{gradien }m:\ \ y=mx\pm\sqrt{a^2m^2+b^2} \]
+  </div>
+
+  <p>
+    Garis \(y=mx+n\) menyinggung elips
+    \(\displaystyle\frac{x^2}{a^2}+\frac{y^2}{b^2}=1\) jika \(n^2=a^2m^2+b^2\).
+    Secara umum, kedudukan garis ditentukan oleh tanda diskriminan setelah
+    substitusi: \(D&gt;0\) memotong, \(D=0\) menyinggung, \(D&lt;0\) tidak
+    memotong.
+  </p>
+</section>
+
+<section id="parabola" data-title="Parabola">
+  <h2>4. Parabola</h2>
+
+  <p>
+    <strong>Parabola</strong> adalah himpunan titik yang jaraknya ke sebuah
+    titik tetap (<strong>fokus</strong>) sama dengan jaraknya ke sebuah garis
+    tetap (<strong>direktriks</strong>).
+  </p>
+
+  <figure class="geo-figure">
+    <svg
+      viewBox="0 0 400 300"
+      role="img"
+      aria-label="Parabola y kuadrat sama dengan 4px dengan fokus F, direktriks x = -p, dan titik P"
+    >
+      <line class="gax" x1="20" y1="150" x2="390" y2="150" />
+      <line class="gax" x1="80" y1="20" x2="80" y2="280" />
+      <line
+        class="gdash"
+        x1="40"
+        y1="15"
+        x2="40"
+        y2="285"
+        style="stroke: #dc2626; opacity: 0.8"
+      />
+      <path class="ga" d="M170,30 Q-10,150 170,270" />
+      <line class="gb" x1="170" y1="30" x2="120" y2="150" />
+      <line class="gc" x1="170" y1="30" x2="40" y2="30" />
+      <circle class="gpt" cx="120" cy="150" r="4" />
+      <circle class="gpt" cx="170" cy="30" r="4" />
+      <circle class="gpt" cx="40" cy="30" r="3" />
+      <text x="124" y="170">F(p, 0)</text>
+      <text x="64" y="168">O</text>
+      <text x="176" y="26">P</text>
+      <text x="22" y="26">Q</text>
+      <text class="tb" x="46" y="276">x = −p</text>
+      <text x="230" y="110">y² = 4px</text>
+    </svg>
+    <figcaption>
+      Parabola y² = 4px: untuk setiap titik P pada parabola, PF = PQ (jarak P ke
+      direktriks).
+    </figcaption>
+  </figure>
+
+  <h3>Parabola Terbuka ke Kanan, Kiri, Atas, dan Bawah</h3>
+
+  <p>
+    Dengan puncak di \(O(0,0)\) dan \(p&gt;0\), terdapat empat bentuk baku
+    bergantung pada arah bukaan parabola.
+  </p>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Persamaan</th>
+          <th scope="col">Terbuka ke</th>
+          <th scope="col">Fokus</th>
+          <th scope="col">Direktriks</th>
+          <th scope="col">Sumbu simetri</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(y^2=4px\)</td>
+          <td>kanan</td>
+          <td>\((p,0)\)</td>
+          <td>\(x=-p\)</td>
+          <td>\(y=0\)</td>
+        </tr>
+        <tr>
+          <td>\(y^2=-4px\)</td>
+          <td>kiri</td>
+          <td>\((-p,0)\)</td>
+          <td>\(x=p\)</td>
+          <td>\(y=0\)</td>
+        </tr>
+        <tr>
+          <td>\(x^2=4py\)</td>
+          <td>atas</td>
+          <td>\((0,p)\)</td>
+          <td>\(y=-p\)</td>
+          <td>\(x=0\)</td>
+        </tr>
+        <tr>
+          <td>\(x^2=-4py\)</td>
+          <td>bawah</td>
+          <td>\((0,-p)\)</td>
+          <td>\(y=p\)</td>
+          <td>\(x=0\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <figure class="geo-figure">
+    <svg
+      viewBox="0 0 440 320"
+      role="img"
+      aria-label="Empat parabola yang terbuka ke kanan, kiri, atas, dan bawah beserta fokus dan direktriksnya"
+    >
+      <line class="gdash" x1="15" y1="80" x2="205" y2="80" />
+      <line class="gdir" x1="35" y1="15" x2="35" y2="145" />
+      <path class="ga" d="M110,20 Q-10,80 110,140" />
+      <circle class="gpt" cx="65" cy="80" r="3.5" />
+      <text x="60" y="98">F</text>
+      <text x="110" y="162" text-anchor="middle">kanan: y² = 4px</text>
+      <line class="gdash" x1="235" y1="80" x2="425" y2="80" />
+      <line class="gdir" x1="405" y1="15" x2="405" y2="145" />
+      <path class="ga" d="M330,20 Q450,80 330,140" />
+      <circle class="gpt" cx="375" cy="80" r="3.5" />
+      <text x="368" y="98">F</text>
+      <text x="330" y="162" text-anchor="middle">kiri: y² = −4px</text>
+      <line class="gdash" x1="110" y1="170" x2="110" y2="300" />
+      <line class="gdir" x1="40" y1="285" x2="180" y2="285" />
+      <path class="ga" d="M50,210 Q110,330 170,210" />
+      <circle class="gpt" cx="110" cy="255" r="3.5" />
+      <text x="118" y="252">F</text>
+      <text x="110" y="314" text-anchor="middle">atas: x² = 4py</text>
+      <line class="gdash" x1="330" y1="170" x2="330" y2="300" />
+      <line class="gdir" x1="260" y1="185" x2="400" y2="185" />
+      <path class="ga" d="M270,260 Q330,140 390,260" />
+      <circle class="gpt" cx="330" cy="215" r="3.5" />
+      <text x="338" y="222">F</text>
+      <text x="330" y="314" text-anchor="middle">bawah: x² = −4py</text>
+    </svg>
+    <figcaption>
+      Parabola selalu membuka ke arah fokus; garis putus-putus merah adalah
+      direktriks, tegak lurus sumbu simetri.
+    </figcaption>
+  </figure>
+
+  <h3>Parabola dengan Puncak \((h,k)\)</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Persamaan</th>
+          <th scope="col">Terbuka ke</th>
+          <th scope="col">Fokus</th>
+          <th scope="col">Direktriks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\((y-k)^2=4p(x-h)\)</td>
+          <td>kanan</td>
+          <td>\((h+p,k)\)</td>
+          <td>\(x=h-p\)</td>
+        </tr>
+        <tr>
+          <td>\((y-k)^2=-4p(x-h)\)</td>
+          <td>kiri</td>
+          <td>\((h-p,k)\)</td>
+          <td>\(x=h+p\)</td>
+        </tr>
+        <tr>
+          <td>\((x-h)^2=4p(y-k)\)</td>
+          <td>atas</td>
+          <td>\((h,k+p)\)</td>
+          <td>\(y=k-p\)</td>
+        </tr>
+        <tr>
+          <td>\((x-h)^2=-4p(y-k)\)</td>
+          <td>bawah</td>
+          <td>\((h,k-p)\)</td>
+          <td>\(y=k+p\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    Panjang latus rektum (tali busur melalui fokus tegak lurus sumbu) adalah
+    \(4p\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh 1</h4>
+    <p>Tentukan puncak, fokus, dan direktriks parabola \((y-2)^2=8(x+1)\).</p>
+    <p>
+      Dari \(4p=8\) diperoleh \(p=2\), puncak \((-1,2)\), parabola terbuka ke
+      kanan:
+    </p>
+    <div class="math-display">\[ F(-1+2,\,2)=(1,2),\qquad x=-1-2=-3 \]</div>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 2</h4>
+    <p>Tentukan unsur-unsur parabola \(y^2+6y+4x+1=0\).</p>
+    <p>Lengkapi kuadrat sempurna:</p>
+    <div class="math-display">\[ (y+3)^2=-4x+8=-4(x-2) \]</div>
+    <p>
+      Puncak \((2,-3)\), \(p=1\), parabola terbuka ke kiri. Fokus \((1,-3)\) dan
+      direktriks \(x=3\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Contoh 3</h4>
+    <p>Tentukan unsur-unsur parabola \(x^2-4x-8y+12=0\).</p>
+    <div class="math-display">\[ (x-2)^2=8y-8=8(y-1) \]</div>
+    <p>
+      Puncak \((2,1)\), \(p=2\), terbuka ke atas. Fokus \((2,3)\) dan direktriks
+      \(y=-1\).
+    </p>
+  </div>
+
+  <h3>Bentuk Fungsi Kuadrat</h3>
+
+  <p>
+    Grafik \(y=ax^2+bx+c\) adalah parabola dengan sumbu simetri vertikal,
+    terbuka ke atas jika \(a&gt;0\) dan ke bawah jika \(a&lt;0\), dengan puncak:
+  </p>
+
+  <div class="math-display">
+    \[ \left(-\frac{b}{2a},\ -\frac{D}{4a}\right),\qquad D=b^2-4ac,\qquad
+    p=\frac{1}{4a} \]
+  </div>
+
+  <p>
+    Demikian pula \(x=ay^2+by+c\) adalah parabola dengan sumbu simetri
+    horizontal, terbuka ke kanan jika \(a&gt;0\) dan ke kiri jika \(a&lt;0\).
+  </p>
+
+  <h3>Garis Singgung dan Kedudukan Garis terhadap Parabola</h3>
+
+  <div class="math-display">
+    \[ y^2=4px:\ \ y_1y=2p(x+x_1)\ \ \text{atau}\ \ y=mx+\frac pm \] \[
+    x^2=4py:\ \ x_1x=2p(y+y_1)\ \ \text{atau}\ \ y=mx-pm^2 \]
+  </div>
+
+  <p>
+    Kedudukan garis ditentukan dari diskriminan persamaan kuadrat hasil
+    substitusi: \(D&gt;0\) memotong di dua titik, \(D=0\) menyinggung, dan
+    \(D&lt;0\) tidak memotong. Garis yang sejajar sumbu simetri hanya memotong
+    parabola di satu titik.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>Tentukan garis singgung parabola \(y^2=8x\) yang bergradien \(2\).</p>
+    <p>Dari \(4p=8\), \(p=2\). Maka:</p>
+    <div class="math-display">\[ y=mx+\frac pm=2x+\frac22=2x+1 \]</div>
+  </div>
+</section>
+
+<section id="hiperbola" data-title="Hiperbola">
+  <h2>5. Hiperbola</h2>
+
+  <p>
+    <strong>Hiperbola</strong> adalah himpunan titik yang selisih jaraknya
+    terhadap dua titik tetap (fokus) selalu sama, yaitu \(2a\). Hiperbola
+    terdiri atas dua cabang dan mendekati dua garis <strong>asimtot</strong>.
+  </p>
+
+  <figure class="geo-figure">
+    <svg
+      viewBox="0 0 400 300"
+      role="img"
+      aria-label="Hiperbola dengan dua cabang, fokus F1 dan F2, dan dua asimtot"
+    >
+      <line class="gax" x1="20" y1="150" x2="385" y2="150" />
+      <line class="gax" x1="200" y1="20" x2="200" y2="282" />
+      <line class="gdash" x1="30" y1="22.5" x2="370" y2="277.5" />
+      <line class="gdash" x1="30" y1="277.5" x2="370" y2="22.5" />
+      <polyline
+        class="ga"
+        stroke-linejoin="round"
+        points="354.6,43.1 308.6,82.1 280.2,110 264.9,131.5 260,150 264.9,168.5 280.2,190 308.6,217.9 354.6,256.9"
+      />
+      <polyline
+        class="ga"
+        stroke-linejoin="round"
+        points="45.4,43.1 91.4,82.1 119.8,110 135.1,131.5 140,150 135.1,168.5 119.8,190 91.4,217.9 45.4,256.9"
+      />
+      <circle class="gpt" cx="125" cy="150" r="4" />
+      <circle class="gpt" cx="275" cy="150" r="4" />
+      <circle class="tb" cx="140" cy="150" r="4" />
+      <circle class="tb" cx="260" cy="150" r="4" />
+      <text x="106" y="172">F₁</text>
+      <text x="272" y="172">F₂</text>
+      <text class="tb" x="126" y="138">V₁</text>
+      <text class="tb" x="254" y="138">V₂</text>
+    </svg>
+    <figcaption>
+      Hiperbola x²/a² − y²/b² = 1 dengan puncak V₁, V₂, fokus F₁, F₂, dan
+      asimtot (garis putus-putus).
+    </figcaption>
+  </figure>
+
+  <div class="math-display">
+    \[ \frac{x^2}{a^2}-\frac{y^2}{b^2}=1,\qquad c^2=a^2+b^2,\qquad F(\pm c,0),
+    \qquad \text{asimtot: }y=\pm\frac bax,\qquad e=\frac ca&gt;1 \]
+  </div>
+
+  <p>
+    Jika suku \(y^2\) yang positif, yaitu
+    \(\displaystyle\frac{y^2}{a^2}-\frac{x^2}{b^2}=1\), hiperbola membuka ke
+    atas dan ke bawah dengan fokus \((0,\pm c)\) dan asimtot
+    \(y=\pm\displaystyle\frac abx\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>
+      Tentukan fokus dan asimtot hiperbola
+      \(\displaystyle\frac{x^2}{16}-\frac{y^2}{9}=1\).
+    </p>
+    <p>Diperoleh \(a=4\), \(b=3\), sehingga \(c=\sqrt{16+9}=5\).</p>
+    <div class="math-display">\[ F(\pm5,0),\qquad y=\pm\frac34x \]</div>
+  </div>
+
+  <h3>Hiperbola Vertikal dan Hiperbola dengan Pusat \((h,k)\)</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Bentuk</th>
+          <th scope="col">Cabang</th>
+          <th scope="col">Fokus</th>
+          <th scope="col">Asimtot</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>\(\displaystyle\frac{x^2}{a^2}-\frac{y^2}{b^2}=1\)</td>
+          <td>kiri–kanan</td>
+          <td>\((\pm c,0)\)</td>
+          <td>\(y=\pm\displaystyle\frac bax\)</td>
+        </tr>
+        <tr>
+          <td>\(\displaystyle\frac{y^2}{a^2}-\frac{x^2}{b^2}=1\)</td>
+          <td>atas–bawah</td>
+          <td>\((0,\pm c)\)</td>
+          <td>\(y=\pm\displaystyle\frac abx\)</td>
+        </tr>
+        <tr>
+          <td>\(\displaystyle\frac{(x-h)^2}{a^2}-\frac{(y-k)^2}{b^2}=1\)</td>
+          <td>kiri–kanan</td>
+          <td>\((h\pm c,k)\)</td>
+          <td>\(y-k=\pm\displaystyle\frac ba(x-h)\)</td>
+        </tr>
+        <tr>
+          <td>\(\displaystyle\frac{(y-k)^2}{a^2}-\frac{(x-h)^2}{b^2}=1\)</td>
+          <td>atas–bawah</td>
+          <td>\((h,k\pm c)\)</td>
+          <td>\(y-k=\pm\displaystyle\frac ab(x-h)\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    Pada hiperbola, \(a^2\) selalu penyebut suku yang bernilai positif,
+    \(c^2=a^2+b^2\), dan direktriks berjarak \(\displaystyle\frac{a^2}{c}\) dari
+    pusat. Panjang sumbu real (utama) adalah \(2a\) dan panjang sumbu imajiner
+    adalah \(2b\).
+  </p>
+
+  <div class="lesson-example">
+    <h4>Contoh</h4>
+    <p>
+      Tentukan pusat, fokus, dan asimtot hiperbola \(9x^2-16y^2-18x-64y-199=0\).
+    </p>
+    <div class="math-display">
+      \[ 9(x-1)^2-16(y+2)^2=144\ \Longrightarrow\
+      \frac{(x-1)^2}{16}-\frac{(y+2)^2}{9}=1 \]
+    </div>
+    <p>
+      Maka \(a=4\), \(b=3\), \(c=5\), pusat \((1,-2)\), fokus \((6,-2)\) dan
+      \((-4,-2)\), serta asimtot \(y+2=\pm\displaystyle\frac34(x-1)\).
+    </p>
+  </div>
+
+  <h3>Garis Singgung Hiperbola</h3>
+
+  <div class="math-display">
+    \[ \text{di }(x_1,y_1):\ \ \frac{x_1x}{a^2}-\frac{y_1y}{b^2}=1,\qquad
+    \text{gradien }m:\ \ y=mx\pm\sqrt{a^2m^2-b^2} \]
+  </div>
+</section>
+
+<section id="rangkuman-geometri" data-title="Rangkuman Irisan Kerucut">
+  <h2>6. Rangkuman Irisan Kerucut</h2>
+
+  <p>
+    Keempat kurva di atas disebut <strong>irisan kerucut</strong> dan dibedakan
+    oleh eksentrisitas \(e\), yaitu perbandingan jarak titik ke fokus dengan
+    jarak titik ke direktriks.
+  </p>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table">
+      <thead>
+        <tr>
+          <th scope="col">Kurva</th>
+          <th scope="col">Persamaan baku</th>
+          <th scope="col">Hubungan</th>
+          <th scope="col">\(e\)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Lingkaran</td>
+          <td>\(x^2+y^2=r^2\)</td>
+          <td>\(r\) = jari-jari</td>
+          <td>\(0\)</td>
+        </tr>
+        <tr>
+          <td>Elips</td>
+          <td>\(\displaystyle\frac{x^2}{a^2}+\frac{y^2}{b^2}=1\)</td>
+          <td>\(c^2=a^2-b^2\)</td>
+          <td>\(\displaystyle\frac ca&lt;1\)</td>
+        </tr>
+        <tr>
+          <td>Parabola</td>
+          <td>\(y^2=4px\)</td>
+          <td>fokus \((p,0)\)</td>
+          <td>\(1\)</td>
+        </tr>
+        <tr>
+          <td>Hiperbola</td>
+          <td>\(\displaystyle\frac{x^2}{a^2}-\frac{y^2}{b^2}=1\)</td>
+          <td>\(c^2=a^2+b^2\)</td>
+          <td>\(\displaystyle\frac ca&gt;1\)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Mengenali Kurva dari Bentuk Umum</h3>
+
+  <p>
+    Persamaan \(Ax^2+Cy^2+Dx+Ey+F=0\) dapat dikenali dari koefisien \(x^2\) dan
+    \(y^2\): jika \(A=C\), kurvanya lingkaran; jika \(A\) dan \(C\) bertanda
+    sama tetapi \(A\neq C\), kurvanya elips; jika \(A\) dan \(C\) berlawanan
+    tanda, kurvanya hiperbola; dan jika tepat satu di antara \(A\) dan \(C\)
+    bernilai nol, kurvanya parabola. Setelah dikenali, lengkapi kuadrat sempurna
+    untuk mendapatkan bentuk bakunya.
+  </p>
+</section>
+
+<section id="latihan-mandiri-geometri" data-title="Latihan Soal Mandiri">
+  <h2>7. Latihan Soal Mandiri</h2>
+
+  <p>
+    Soal nomor 1–6 dan 9–12 berbentuk pilihan ganda (pilih satu jawaban yang
+    paling tepat), sedangkan soal nomor 7–8 dan 13–14 berbentuk isian singkat.
+    Soal nomor 15–20 adalah soal berbasis gambar: soal 15–19 berbentuk pilihan
+    ganda dan soal 20 berbentuk isian singkat.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Soal 1</h4>
+    <p>
+      Persamaan lingkaran yang berpusat di \((2,-3)\) dan melalui titik
+      \((5,1)\) adalah ....
+    </p>
+    <ol type="A">
+      <li>\((x-2)^2+(y+3)^2=5\)</li>
+      <li>\((x+2)^2+(y-3)^2=25\)</li>
+      <li>\((x-2)^2+(y+3)^2=25\)</li>
+      <li>\((x-2)^2+(y-3)^2=25\)</li>
+      <li>\((x-5)^2+(y-1)^2=25\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 2</h4>
+    <p>
+      Pusat dan jari-jari lingkaran \(x^2+y^2+8x-6y+9=0\) berturut-turut adalah
+      ....
+    </p>
+    <ol type="A">
+      <li>\((4,-3)\) dan \(4\)</li>
+      <li>\((-4,3)\) dan \(4\)</li>
+      <li>\((-4,3)\) dan \(5\)</li>
+      <li>\((4,-3)\) dan \(5\)</li>
+      <li>\((-4,3)\) dan \(16\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 3</h4>
+    <p>
+      Persamaan garis singgung lingkaran \(x^2+y^2=20\) di titik \((2,-4)\)
+      adalah ....
+    </p>
+    <ol type="A">
+      <li>\(x+2y=10\)</li>
+      <li>\(x-2y=10\)</li>
+      <li>\(2x+4y=20\)</li>
+      <li>\(x-2y=-10\)</li>
+      <li>\(2x-y=10\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 4</h4>
+    <p>Jarak antara kedua fokus elips \(4x^2+9y^2=144\) adalah ....</p>
+    <ol type="A">
+      <li>\(4\)</li>
+      <li>\(2\sqrt5\)</li>
+      <li>\(4\sqrt5\)</li>
+      <li>\(2\sqrt{13}\)</li>
+      <li>\(12\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 5</h4>
+    <p>
+      Persamaan parabola dengan fokus \((0,-3)\) dan direktriks \(y=3\) adalah
+      ....
+    </p>
+    <ol type="A">
+      <li>\(x^2=12y\)</li>
+      <li>\(x^2=-12y\)</li>
+      <li>\(y^2=12x\)</li>
+      <li>\(y^2=-12x\)</li>
+      <li>\(x^2=-6y\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 6</h4>
+    <p>Persamaan asimtot hiperbola \(9x^2-16y^2=144\) adalah ....</p>
+    <ol type="A">
+      <li>\(y=\pm\displaystyle\frac43x\)</li>
+      <li>\(y=\pm\displaystyle\frac34x\)</li>
+      <li>\(y=\pm\displaystyle\frac{9}{16}x\)</li>
+      <li>\(y=\pm\displaystyle\frac{16}{9}x\)</li>
+      <li>\(y=\pm\displaystyle\frac35x\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 7</h4>
+    <p>
+      Garis \(y=x+k\) menyinggung lingkaran \(x^2+y^2=8\). Tentukan semua nilai
+      \(k\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 8</h4>
+    <p>
+      Titik \(P\) terletak pada parabola \(y^2=8x\) dan berjarak \(6\) satuan
+      dari fokus parabola. Tentukan koordinat \(P\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 9</h4>
+    <p>
+      Garis \(3x+4y=k\) memotong lingkaran \(x^2+y^2=25\) di dua titik berbeda
+      jika ....
+    </p>
+    <ol type="A">
+      <li>\(k&lt;5\)</li>
+      <li>\(-25&lt;k&lt;25\)</li>
+      <li>\(|k|&gt;25\)</li>
+      <li>\(-5&lt;k&lt;5\)</li>
+      <li>\(k=\pm25\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 10</h4>
+    <p>
+      Parabola dengan puncak \((2,-1)\) dan fokus \((2,-4)\) memiliki persamaan
+      ....
+    </p>
+    <ol type="A">
+      <li>\((x-2)^2=12(y+1)\)</li>
+      <li>\((x-2)^2=-12(y+1)\)</li>
+      <li>\((y+1)^2=-12(x-2)\)</li>
+      <li>\((x-2)^2=-3(y+1)\)</li>
+      <li>\((x+2)^2=-12(y-1)\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 11</h4>
+    <p>Persamaan direktriks parabola \(y^2+8y-12x+4=0\) adalah ....</p>
+    <ol type="A">
+      <li>\(x=-4\)</li>
+      <li>\(x=-3\)</li>
+      <li>\(x=2\)</li>
+      <li>\(x=4\)</li>
+      <li>\(y=-4\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 12</h4>
+    <p>
+      Persamaan elips yang berfokus di \((0,\pm3)\) dan panjang sumbu mayornya
+      \(10\) adalah ....
+    </p>
+    <ol type="A">
+      <li>\(\displaystyle\frac{x^2}{25}+\frac{y^2}{16}=1\)</li>
+      <li>\(\displaystyle\frac{x^2}{16}+\frac{y^2}{25}=1\)</li>
+      <li>\(\displaystyle\frac{x^2}{25}+\frac{y^2}{9}=1\)</li>
+      <li>\(\displaystyle\frac{x^2}{9}+\frac{y^2}{25}=1\)</li>
+      <li>\(\displaystyle\frac{x^2}{34}+\frac{y^2}{25}=1\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 13</h4>
+    <p>Tentukan koordinat fokus hiperbola \(9x^2-16y^2-18x-64y-199=0\).</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 14</h4>
+    <p>
+      Tentukan persamaan garis singgung parabola \(y^2=8x\) yang tegak lurus
+      garis \(2x-y+3=0\).
+    </p>
+  </div>
+
+  <h3>Soal Berbasis Gambar</h3>
+
+  <p>
+    Perhatikan gambar pada setiap soal, lalu baca informasi koordinat dan ukuran
+    yang tertera.
+  </p>
+
+  <div class="lesson-example">
+    <h4>Soal 15</h4>
+    <p>
+      Lingkaran pada gambar berpusat di \(P\) dan melalui titik \(A\). Persamaan
+      lingkaran tersebut adalah ....
+    </p>
+    <figure class="geo-figure">
+      <svg
+        viewBox="0 0 400 320"
+        role="img"
+        aria-label="Lingkaran berpusat di P(2,1) melalui A(5,5)"
+      >
+        <line class="gax" x1="20" y1="200" x2="340" y2="200" />
+        <line class="gax" x1="120" y1="318" x2="120" y2="10" />
+        <text x="346" y="204">x</text>
+        <text x="126" y="14">y</text>
+        <circle class="ga" cx="176" cy="172" r="140" />
+        <line class="gdash" x1="260" y1="60" x2="260" y2="200" />
+        <line class="gdash" x1="260" y1="60" x2="120" y2="60" />
+        <line class="gdash" x1="176" y1="172" x2="176" y2="200" />
+        <line class="gdash" x1="176" y1="172" x2="120" y2="172" />
+        <line class="gb" x1="176" y1="172" x2="260" y2="60" />
+        <circle class="gpt" cx="176" cy="172" r="4" />
+        <circle class="gpt" cx="260" cy="60" r="4" />
+        <text x="182" y="190">P(2, 1)</text>
+        <text x="266" y="56">A(5, 5)</text>
+        <text x="172" y="216">2</text>
+        <text x="256" y="216">5</text>
+        <text x="104" y="176">1</text>
+        <text x="104" y="64">5</text>
+      </svg>
+      <figcaption>Gambar untuk soal 15.</figcaption>
+    </figure>
+    <ol type="A">
+      <li>\((x-2)^2+(y-1)^2=5\)</li>
+      <li>\((x+2)^2+(y+1)^2=25\)</li>
+      <li>\((x-2)^2+(y-1)^2=25\)</li>
+      <li>\((x-5)^2+(y-5)^2=25\)</li>
+      <li>\((x-2)^2+(y-1)^2=16\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 16</h4>
+    <p>
+      Lingkaran pada gambar berpusat di \(O\) dengan jari-jari \(5\). Garis
+      \(g\) menyinggung lingkaran di titik \(T(-4,3)\). Persamaan garis \(g\)
+      adalah ....
+    </p>
+    <figure class="geo-figure">
+      <svg
+        viewBox="0 0 400 320"
+        role="img"
+        aria-label="Lingkaran berjari-jari 5 berpusat di O dengan garis singgung di T(-4,3)"
+      >
+        <line class="gax" x1="40" y1="160" x2="360" y2="160" />
+        <line class="gax" x1="200" y1="305" x2="200" y2="15" />
+        <text x="364" y="164">x</text>
+        <text x="206" y="20">y</text>
+        <text x="206" y="176">O</text>
+        <circle class="ga" cx="200" cy="160" r="120" />
+        <line class="gb" x1="200" y1="160" x2="104" y2="88" />
+        <line class="gc" x1="46" y1="165" x2="147" y2="30" />
+        <circle class="gpt" cx="104" cy="88" r="4" />
+        <text x="26" y="78">T(−4, 3)</text>
+        <text class="tb" x="140" y="146">r = 5</text>
+        <text class="tc" x="156" y="40">g</text>
+      </svg>
+      <figcaption>Gambar untuk soal 16.</figcaption>
+    </figure>
+    <ol type="A">
+      <li>\(4x-3y+25=0\)</li>
+      <li>\(4x+3y=25\)</li>
+      <li>\(3x+4y=25\)</li>
+      <li>\(4x-3y=25\)</li>
+      <li>\(3x-4y+25=0\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 17</h4>
+    <p>
+      Pada gambar, titik \((6,-1)\) adalah ujung sumbu mayor dan titik \((1,2)\)
+      adalah ujung sumbu minor elips. Persamaan elips tersebut adalah ....
+    </p>
+    <figure class="geo-figure">
+      <svg
+        viewBox="0 0 400 260"
+        role="img"
+        aria-label="Elips dengan ujung sumbu mayor (6,-1) dan ujung sumbu minor (1,2)"
+      >
+        <line class="gax" x1="10" y1="120" x2="350" y2="120" />
+        <line class="gax" x1="140" y1="250" x2="140" y2="15" />
+        <text x="356" y="124">x</text>
+        <text x="146" y="18">y</text>
+        <text x="124" y="134">O</text>
+        <ellipse class="ga" cx="168" cy="148" rx="140" ry="84" />
+        <circle class="gpt" cx="308" cy="148" r="4" />
+        <circle class="gpt" cx="168" cy="64" r="4" />
+        <text x="314" y="142">(6, −1)</text>
+        <text x="176" y="58">(1, 2)</text>
+      </svg>
+      <figcaption>Gambar untuk soal 17.</figcaption>
+    </figure>
+    <ol type="A">
+      <li>\(\displaystyle\frac{(x-1)^2}{25}+\frac{(y+1)^2}{9}=1\)</li>
+      <li>\(\displaystyle\frac{(x+1)^2}{25}+\frac{(y-1)^2}{9}=1\)</li>
+      <li>\(\displaystyle\frac{(x-1)^2}{9}+\frac{(y+1)^2}{25}=1\)</li>
+      <li>\(\displaystyle\frac{(x-1)^2}{25}+\frac{(y-1)^2}{9}=1\)</li>
+      <li>\(\displaystyle\frac{(x+1)^2}{9}+\frac{(y-1)^2}{25}=1\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 18</h4>
+    <p>
+      Parabola pada gambar memiliki puncak \(V(-2,1)\), sumbu simetri sejajar
+      sumbu-\(x\), dan melalui titik \(P(0,5)\). Persamaan parabola tersebut
+      adalah ....
+    </p>
+    <figure class="geo-figure">
+      <svg
+        viewBox="0 0 360 300"
+        role="img"
+        aria-label="Parabola terbuka ke kanan dengan puncak V(-2,1) melalui P(0,5)"
+      >
+        <line class="gax" x1="10" y1="200" x2="350" y2="200" />
+        <line class="gax" x1="150" y1="295" x2="150" y2="10" />
+        <text x="340" y="190">x</text>
+        <text x="156" y="16">y</text>
+        <line class="gdash" x1="60" y1="172" x2="300" y2="172" />
+        <path class="ga" d="M150,60 Q38,172 150,284" />
+        <circle class="gpt" cx="94" cy="172" r="4" />
+        <circle class="gpt" cx="150" cy="60" r="4" />
+        <text x="28" y="166">V(−2, 1)</text>
+        <text x="158" y="56">P(0, 5)</text>
+      </svg>
+      <figcaption>
+        Gambar untuk soal 18 (garis putus-putus adalah sumbu simetri).
+      </figcaption>
+    </figure>
+    <ol type="A">
+      <li>\((y-1)^2=8(x+2)\)</li>
+      <li>\((y-1)^2=16(x+2)\)</li>
+      <li>\((y+1)^2=8(x-2)\)</li>
+      <li>\((x+2)^2=8(y-1)\)</li>
+      <li>\((y-1)^2=4(x+2)\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 19</h4>
+    <p>
+      Hiperbola pada gambar berpusat di \(O\). Garis putus-putus adalah asimtot
+      yang melalui titik \((4,3)\), dan salah satu puncaknya adalah \((4,0)\).
+      Eksentrisitas hiperbola tersebut adalah ....
+    </p>
+    <figure class="geo-figure">
+      <svg
+        viewBox="0 0 400 300"
+        role="img"
+        aria-label="Hiperbola dengan puncak (4,0) dan asimtot melalui (4,3)"
+      >
+        <line class="gax" x1="10" y1="150" x2="390" y2="150" />
+        <line class="gax" x1="200" y1="288" x2="200" y2="12" />
+        <text x="386" y="140">x</text>
+        <text x="206" y="18">y</text>
+        <line class="gdash" x1="26" y1="19.5" x2="374" y2="280.5" />
+        <line class="gdash" x1="26" y1="280.5" x2="374" y2="19.5" />
+        <line class="gdash" x1="296" y1="78" x2="296" y2="150" />
+        <polyline
+          class="ga"
+          stroke-linejoin="round"
+          points="373.8,41.3 328.4,86.1 303.8,120.4 296,150 303.8,179.6 328.4,213.9 373.8,258.7"
+        />
+        <polyline
+          class="ga"
+          stroke-linejoin="round"
+          points="26.2,41.3 71.6,86.1 96.2,120.4 104,150 96.2,179.6 71.6,213.9 26.2,258.7"
+        />
+        <circle class="gpt" cx="296" cy="78" r="4" />
+        <circle class="gpt" cx="296" cy="150" r="4" />
+        <text x="302" y="72">(4, 3)</text>
+        <text x="240" y="168">(4, 0)</text>
+      </svg>
+      <figcaption>Gambar untuk soal 19.</figcaption>
+    </figure>
+    <ol type="A">
+      <li>\(\displaystyle\frac34\)</li>
+      <li>\(\displaystyle\frac45\)</li>
+      <li>\(\displaystyle\frac54\)</li>
+      <li>\(\displaystyle\frac53\)</li>
+      <li>\(\displaystyle\frac74\)</li>
+    </ol>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Soal 20</h4>
+    <p>
+      Lengkungan sebuah jembatan berbentuk parabola seperti pada gambar, dengan
+      lebar dasar \(16\) m dan tinggi \(8\) m. Tentukan tinggi lengkungan pada
+      jarak \(4\) m dari sumbu simetri (tanda \(?\) pada gambar).
+    </p>
+    <figure class="geo-figure">
+      <svg
+        viewBox="0 0 400 240"
+        role="img"
+        aria-label="Lengkungan jembatan berbentuk parabola lebar 16 m tinggi 8 m"
+      >
+        <line class="gax" x1="20" y1="200" x2="380" y2="200" />
+        <path class="ga" d="M40,200 Q200,-120 360,200" />
+        <line class="gdash" x1="200" y1="40" x2="200" y2="200" />
+        <line class="gdash" x1="280" y1="80" x2="280" y2="200" />
+        <line class="gax" x1="40" y1="214" x2="360" y2="214" />
+        <text x="200" y="232" text-anchor="middle">16 m</text>
+        <text x="206" y="125">8 m</text>
+        <text x="232" y="192">4 m</text>
+        <text class="tb" x="288" y="145">?</text>
+      </svg>
+      <figcaption>Gambar untuk soal 20.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section
+  id="pembahasan-latihan-geometri"
+  data-title="Pembahasan Latihan Mandiri"
+>
+  <h2>8. Pembahasan Latihan Mandiri</h2>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 1</h4>
+    <p>Kuadrat jari-jari adalah jarak pusat ke titik yang dilalui:</p>
+    <div class="math-display">\[ r^2=(5-2)^2+(1+3)^2=9+16=25 \]</div>
+    <p>
+      Persamaannya \((x-2)^2+(y+3)^2=25\). Jadi, jawaban yang benar adalah
+      <strong>C</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 2</h4>
+    <p>Dengan \(A=8\), \(B=-6\), \(C=9\):</p>
+    <div class="math-display">
+      \[ P\left(-\frac82,\,-\frac{-6}{2}\right)=(-4,3),\qquad r=\sqrt{16+9-9}=4
+      \]
+    </div>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 3</h4>
+    <p>
+      Titik \((2,-4)\) terletak pada lingkaran karena \(4+16=20\). Rumus
+      singgung:
+    </p>
+    <div class="math-display">\[ 2x-4y=20\ \Longrightarrow\ x-2y=10 \]</div>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 4</h4>
+    <p>
+      Bagi dengan \(144\): \(\displaystyle\frac{x^2}{36}+\frac{y^2}{16}=1\),
+      sehingga \(a^2=36\) dan \(b^2=16\).
+    </p>
+    <div class="math-display">
+      \[ c=\sqrt{36-16}=2\sqrt5,\qquad 2c=4\sqrt5 \]
+    </div>
+    <p>
+      Pilihan D muncul bila menggunakan \(a^2+b^2\) (rumus hiperbola). Jadi,
+      jawaban yang benar adalah <strong>C</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 5</h4>
+    <p>
+      Fokus \((0,p)\) dan direktriks \(y=-p\) memberi \(p=-3\), sehingga
+      parabola membuka ke bawah:
+    </p>
+    <div class="math-display">\[ x^2=4py=-12y \]</div>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 6</h4>
+    <p>
+      Bagi dengan \(144\): \(\displaystyle\frac{x^2}{16}-\frac{y^2}{9}=1\),
+      sehingga \(a=4\), \(b=3\).
+    </p>
+    <div class="math-display">\[ y=\pm\frac bax=\pm\frac34x \]</div>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 7</h4>
+    <p>Substitusikan \(y=x+k\) ke \(x^2+y^2=8\):</p>
+    <div class="math-display">\[ 2x^2+2kx+k^2-8=0 \]</div>
+    <p>Garis menyinggung jika \(D=0\):</p>
+    <div class="math-display">
+      \[ 4k^2-8(k^2-8)=0\ \Longrightarrow\ k^2=16\ \Longrightarrow\ k=\pm4 \]
+    </div>
+    <p>
+      Pemeriksaan dengan rumus gradien: \(m=1\), \(r=2\sqrt2\), sehingga \(k=\pm
+      r\sqrt{1+m^2}=\pm2\sqrt2\cdot\sqrt2=\pm4\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 8</h4>
+    <p>
+      Dari \(4p=8\) diperoleh \(p=2\), fokus \((2,0)\), direktriks \(x=-2\).
+      Jarak titik ke fokus sama dengan jaraknya ke direktriks:
+    </p>
+    <div class="math-display">
+      \[ x+2=6\ \Longrightarrow\ x=4,\qquad y^2=8\cdot4=32\ \Longrightarrow\
+      y=\pm4\sqrt2 \]
+    </div>
+    <p>Jadi, \(P(4,4\sqrt2)\) atau \(P(4,-4\sqrt2)\).</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 9</h4>
+    <p>Pusat \((0,0)\), \(r=5\). Jarak pusat ke garis \(3x+4y-k=0\):</p>
+    <div class="math-display">
+      \[ d=\frac{|{-k}|}{\sqrt{9+16}}=\frac{|k|}{5} \]
+    </div>
+    <p>
+      Garis memotong di dua titik jika \(d&lt;r\), yaitu
+      \(\displaystyle\frac{|k|}{5}&lt;5\Rightarrow|k|&lt;25\), atau
+      \(-25&lt;k&lt;25\).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 10</h4>
+    <p>
+      Fokus dan puncak memiliki absis sama, sehingga sumbu simetri vertikal.
+      Fokus berada di bawah puncak, sehingga parabola terbuka ke bawah dengan
+      \(p=|-4-(-1)|=3\):
+    </p>
+    <div class="math-display">\[ (x-2)^2=-4p(y+1)=-12(y+1) \]</div>
+    <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 11</h4>
+    <p>Lengkapi kuadrat sempurna:</p>
+    <div class="math-display">
+      \[ y^2+8y=12x-4\ \Longrightarrow\ (y+4)^2=12x+12=12(x+1) \]
+    </div>
+    <p>
+      Puncak \((-1,-4)\), \(4p=12\) sehingga \(p=3\), parabola terbuka ke kanan.
+      Direktriks \(x=-1-3=-4\).
+    </p>
+    <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 12</h4>
+    <p>
+      Fokus pada sumbu-\(y\), maka sumbu mayor vertikal dan \(a^2\) berada di
+      bawah \(y^2\). Dari \(2a=10\) diperoleh \(a=5\), dan \(c=3\):
+    </p>
+    <div class="math-display">
+      \[ b^2=a^2-c^2=25-9=16\ \Longrightarrow\ \frac{x^2}{16}+\frac{y^2}{25}=1
+      \]
+    </div>
+    <p>
+      Pilihan A adalah elips dengan fokus di sumbu-\(x\). Jadi, jawaban yang
+      benar adalah <strong>B</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 13</h4>
+    <p>Kelompokkan dan lengkapi kuadrat sempurna:</p>
+    <div class="math-display">
+      \[ 9(x-1)^2-16(y+2)^2=199+9-64=144\ \Longrightarrow\
+      \frac{(x-1)^2}{16}-\frac{(y+2)^2}{9}=1 \]
+    </div>
+    <p>
+      Pusat \((1,-2)\), \(a=4\), \(b=3\), \(c=\sqrt{16+9}=5\). Fokus berada
+      sejajar sumbu-\(x\): \((1\pm5,\,-2)\), yaitu \((6,-2)\) dan \((-4,-2)\).
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 14</h4>
+    <p>
+      Garis \(2x-y+3=0\) bergradien \(2\), sehingga gradien garis singgung
+      \(m=-\displaystyle\frac12\). Dari \(y^2=8x\), \(p=2\):
+    </p>
+    <div class="math-display">
+      \[ y=mx+\frac pm=-\frac12x+\frac{2}{-1/2}=-\frac12x-4\ \Longrightarrow\
+      x+2y+8=0 \]
+    </div>
+    <p>
+      Pemeriksaan: substitusi \(y=-\displaystyle\frac x2-4\) ke \(y^2=8x\)
+      menghasilkan \(x^2-16x+64=0\) dengan \(D=0\), sehingga benar menyinggung.
+    </p>
+  </div>
+
+  <h3>Pembahasan Soal Berbasis Gambar</h3>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 15</h4>
+    <p>
+      Dari gambar, pusat \(P(2,1)\) dan jari-jari adalah jarak \(P\) ke
+      \(A(5,5)\):
+    </p>
+    <div class="math-display">\[ r=\sqrt{(5-2)^2+(5-1)^2}=\sqrt{9+16}=5 \]</div>
+    <p>
+      Maka persamaannya \((x-2)^2+(y-1)^2=25\). Pilihan D keliru karena memakai
+      \(A\) sebagai pusat. Jadi, jawaban yang benar adalah <strong>C</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 16</h4>
+    <p>
+      Lingkaran berpusat di \(O\) dengan \(r=5\) berarti \(x^2+y^2=25\). Titik
+      \(T(-4,3)\) terletak pada lingkaran karena \(16+9=25\). Persamaan garis
+      singgung di \(T\):
+    </p>
+    <div class="math-display">\[ -4x+3y=25\ \Longrightarrow\ 4x-3y+25=0 \]</div>
+    <p>
+      Pemeriksaan dengan gambar: gradien \(g\) adalah \(\displaystyle\frac43\)
+      (naik ke kanan), tegak lurus gradien jari-jari
+      \(\displaystyle\frac{3}{-4}=-\frac34\). Jadi, jawaban yang benar adalah
+      <strong>A</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 17</h4>
+    <p>
+      Ujung sumbu mayor dan pusat memiliki ordinat yang sama, yaitu \(-1\).
+      Ujung sumbu minor dan pusat memiliki absis yang sama, yaitu \(1\). Jadi,
+      pusat elips adalah \((1,-1)\). Selanjutnya:
+    </p>
+    <div class="math-display">\[ a=6-1=5,\qquad b=2-(-1)=3 \]</div>
+    <p>
+      Sumbu mayor horizontal, sehingga \(a^2\) berada di bawah suku \(x\). Jadi,
+      jawaban yang benar adalah <strong>A</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 18</h4>
+    <p>
+      Titik \(P\) berada di kanan puncak, sehingga parabola terbuka ke kanan:
+      \((y-1)^2=4p(x+2)\). Substitusikan \(P(0,5)\):
+    </p>
+    <div class="math-display">
+      \[ (5-1)^2=4p(0+2)\ \Longrightarrow\ 16=8p\ \Longrightarrow\ 4p=8 \]
+    </div>
+    <p>
+      Maka \((y-1)^2=8(x+2)\), dengan fokus \((0,1)\). Jadi, jawaban yang benar
+      adalah <strong>A</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 19</h4>
+    <p>
+      Puncak \((4,0)\) memberi \(a=4\). Asimtot melalui \((4,3)\) memiliki
+      gradien \(\displaystyle\frac ba=\frac34\), sehingga \(b=3\).
+    </p>
+    <div class="math-display">
+      \[ c=\sqrt{a^2+b^2}=\sqrt{16+9}=5,\qquad e=\frac ca=\frac54 \]
+    </div>
+    <p>
+      Pilihan A adalah gradien asimtot, bukan eksentrisitas. Jadi, jawaban yang
+      benar adalah <strong>C</strong>.
+    </p>
+  </div>
+
+  <div class="lesson-example">
+    <h4>Pembahasan Soal 20</h4>
+    <p>
+      Letakkan puncak lengkungan di \((0,8)\) dan dasar di \((\pm8,0)\).
+      Parabola terbuka ke bawah:
+    </p>
+    <div class="math-display">
+      \[ x^2=-4p(y-8),\qquad 8^2=-4p(0-8)\ \Longrightarrow\ 64=32p\
+      \Longrightarrow\ 4p=8 \]
+    </div>
+    <p>Maka \(x^2=-8(y-8)\). Untuk \(x=4\):</p>
+    <div class="math-display">
+      \[ 16=-8(y-8)\ \Longrightarrow\ y-8=-2\ \Longrightarrow\ y=6 \]
+    </div>
+    <p>Jadi, tingginya adalah \(6\) m.</p>
+  </div>
+
+  <h3>Kunci Jawaban</h3>
+
+  <div class="material-table-wrap">
+    <table class="reflection-table answer-key-table">
+      <thead>
+        <tr>
+          <th scope="col">No.</th>
+          <th scope="col">Jawaban</th>
+          <th scope="col">Konsep</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>C</td>
+          <td>Persamaan lingkaran</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>B</td>
+          <td>Bentuk umum lingkaran</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>B</td>
+          <td>Garis singgung lingkaran</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>C</td>
+          <td>Fokus elips</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>B</td>
+          <td>Fokus dan direktriks parabola</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>B</td>
+          <td>Asimtot hiperbola</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>\(\pm4\)</td>
+          <td>Syarat singgung (diskriminan)</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>\((4,\pm4\sqrt2)\)</td>
+          <td>Definisi parabola</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>B</td>
+          <td>Kedudukan garis terhadap lingkaran</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>B</td>
+          <td>Parabola terbuka ke bawah</td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td>A</td>
+          <td>Direktriks parabola terbuka ke kanan</td>
+        </tr>
+        <tr>
+          <td>12</td>
+          <td>B</td>
+          <td>Elips vertikal</td>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>\((6,-2)\) dan \((-4,-2)\)</td>
+          <td>Hiperbola dengan pusat \((h,k)\)</td>
+        </tr>
+        <tr>
+          <td>14</td>
+          <td>\(x+2y+8=0\)</td>
+          <td>Garis singgung parabola dengan gradien</td>
+        </tr>
+        <tr>
+          <td>15</td>
+          <td>C</td>
+          <td>Persamaan lingkaran dari gambar</td>
+        </tr>
+        <tr>
+          <td>16</td>
+          <td>A</td>
+          <td>Garis singgung lingkaran dari gambar</td>
+        </tr>
+        <tr>
+          <td>17</td>
+          <td>A</td>
+          <td>Elips dengan pusat \((h,k)\) dari gambar</td>
+        </tr>
+        <tr>
+          <td>18</td>
+          <td>A</td>
+          <td>Persamaan parabola dari gambar</td>
+        </tr>
+        <tr>
+          <td>19</td>
+          <td>C</td>
+          <td>Eksentrisitas hiperbola dari gambar</td>
+        </tr>
+        <tr>
+          <td>20</td>
+          <td>6 m</td>
+          <td>Penerapan parabola (lengkungan jembatan)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>

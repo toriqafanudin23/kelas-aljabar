@@ -171,8 +171,8 @@ export function HomePage({ navigate }: HomePageProps) {
             <div className="pathway-step">Tahap 3</div>
             <h4>Kelas XII (Fase F Lanjut)</h4>
             <p className="pathway-desc">
-              Pelajari transformasi grafik fungsi, pencacahan, peluang, serta
-              limit sebagai fondasi kalkulus diferensial.
+              Pelajari geometri analitik, transformasi grafik fungsi,
+              pencacahan, peluang, serta kalkulus diferensial.
             </p>
             <ul className="pathway-list">
               <li>
@@ -190,6 +190,9 @@ export function HomePage({ navigate }: HomePageProps) {
               </li>
               <li>
                 <strong>Modul 19:</strong> Transformasi Fungsi
+              </li>
+              <li>
+                <strong>Modul 20:</strong> Irisan Kerucut
               </li>
             </ul>
           </div>

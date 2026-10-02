@@ -17,6 +17,7 @@ import bilanganKompleksHtml from "./bilangan-kompleks.html?raw";
 import fungsiPemodelanHtml from "./fungsi.html?raw";
 import transformasiFungsiHtml from "./transformasi-fungsi.html?raw";
 import trigonometriHtml from "./trigonometri.html?raw";
+import irisanKerucutHtml from "./irisan-kerucut.html?raw";
 
 export interface Material {
   id: string;
@@ -55,6 +56,7 @@ export interface Material {
  * 17. Kombinatorika (Kelas XII)
  * 18. Teori Peluang (Kelas XII)
  * 19. Transformasi Fungsi (Kelas XII)
+ * 20. Irisan Kerucut (Kelas XII)
  */
 export const materials: Material[] = [
   {
@@ -328,6 +330,20 @@ export const materials: Material[] = [
     description:
       "Pelajari perbandingan trigonometri, sudut istimewa, lingkaran satuan, identitas, persamaan trigonometri, aturan sinus dan cosinus, serta penerapannya.",
     htmlContent: trigonometriHtml,
+  },
+  {
+    id: "conic-sections",
+    slug: "irisan-kerucut",
+    number: "20",
+    category: "Geometri Analitik",
+    title: "Irisan Kerucut",
+    grade: "Kelas XII",
+    phase: "Fase F Tingkat Lanjut (Kelas XII)",
+    prerequisite: "Persamaan Kuadrat dan Geometri Koordinat",
+    formula: "e=\\frac{c}{a}",
+    description:
+      "Pelajari lingkaran, garis singgung, elips, parabola, dan hiperbola melalui persamaan serta sifat geometri analitiknya.",
+    htmlContent: irisanKerucutHtml,
   },
 ];
 
