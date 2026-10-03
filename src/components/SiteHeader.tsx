@@ -107,6 +107,14 @@ export function SiteHeader({
           </div>
 
           <a
+            className={page === "download" ? "active" : ""}
+            href="/unduh"
+            onClick={(event) => handleNavigation(event, "download")}
+          >
+            Unduh
+          </a>
+
+          <a
             className={page === "about" ? "active" : ""}
             href="/tentang"
             onClick={(event) => handleNavigation(event, "about")}
@@ -185,6 +193,14 @@ export function SiteHeader({
               onClick={(event) => handleNavigation(event, "catalog")}
             >
               Katalog Materi
+            </a>
+
+            <a
+              className={`drawer-primary-link ${page === "download" ? "active" : ""}`}
+              href="/unduh"
+              onClick={(event) => handleNavigation(event, "download")}
+            >
+              Unduh
             </a>
 
             {/* Accordion Modul Cepat yang Rapi dan Tidak Memenuhi Layar */}

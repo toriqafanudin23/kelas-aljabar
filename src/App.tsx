@@ -7,6 +7,7 @@ import { SiteFooter } from "./components/SiteFooter";
 import { HomePage } from "./pages/HomePage";
 import { CatalogPage } from "./pages/CatalogPage";
 import { AboutPage } from "./pages/AboutPage";
+import { DownloadPage } from "./pages/DownloadPage";
 import { LessonPage } from "./pages/LessonPage";
 
 function App() {
@@ -49,7 +50,10 @@ function App() {
   };
 
   const isMaterialPage =
-    page !== "home" && page !== "catalog" && page !== "about";
+    page !== "home" &&
+    page !== "catalog" &&
+    page !== "download" &&
+    page !== "about";
 
   return (
     <>
@@ -74,6 +78,7 @@ function App() {
       />
       {page === "home" && <HomePage navigate={navigate} />}
       {page === "catalog" && <CatalogPage navigate={navigate} />}
+      {page === "download" && <DownloadPage navigate={navigate} />}
       {page === "about" && <AboutPage />}
       {isMaterialPage && (
         <LessonPage
