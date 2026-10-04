@@ -1149,6 +1149,68 @@ summary:focus-visible {
   color: #697788;
   font-size: 14px;
 }
+.download-preview {
+  margin-top: 28px;
+  padding: 22px;
+  border-top: 3px solid var(--gold);
+  background: var(--navy-deep);
+  color: #fff;
+}
+.download-preview-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 18px;
+}
+.download-preview-kicker {
+  color: var(--gold);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.download-preview-heading h2 {
+  margin: 3px 0;
+  color: #fff;
+  font-size: 20px;
+  line-height: 1.35;
+}
+.download-preview-heading p {
+  margin: 0;
+  color: #c2d0db;
+  font-size: 12px;
+}
+.download-preview-link {
+  min-height: 40px;
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding-inline: 13px;
+  border: 1px solid var(--gold);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  transition:
+    background 0.18s ease,
+    color 0.18s ease;
+}
+.download-preview-link:hover {
+  background: var(--gold);
+  color: var(--navy-deep);
+}
+.download-preview-frame {
+  height: clamp(420px, 58vw, 680px);
+  overflow: hidden;
+  background: #fff;
+}
+.download-preview-frame iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+}
 .download-list {
   display: grid;
   gap: 10px;
@@ -1173,6 +1235,16 @@ summary:focus-visible {
 }
 .download-list-heading span:last-child {
   text-align: center;
+}
+.download-grade {
+  display: grid;
+  gap: 10px;
+}
+.download-grade-heading {
+  margin: 18px 0 0;
+  color: var(--navy);
+  font-size: 15px;
+  line-height: 1.4;
 }
 .download-row {
   min-height: 76px;
@@ -1210,15 +1282,25 @@ summary:focus-visible {
   font-weight: 700;
   font-variant-numeric: tabular-nums;
 }
-.download-topic h2 {
+.download-topic h2,
+.download-topic h3 {
   margin: 0;
   color: var(--navy);
   font-size: 15px;
   line-height: 1.4;
 }
+.download-row-unavailable {
+  border-left-color: #b7c1ca;
+  background: #f8fafb;
+}
 .download-actions {
   display: flex;
   gap: 9px;
+}
+.download-unavailable {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
 }
 .download-actions a {
   min-height: 38px;
@@ -1936,6 +2018,21 @@ summary:focus-visible {
   .page-intro p {
     font-size: 12px;
   }
+  .download-preview {
+    margin-top: 20px;
+    padding: 16px;
+  }
+  .download-preview-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .download-preview-heading h2 {
+    font-size: 17px;
+  }
+  .download-preview-frame {
+    height: 440px;
+  }
   .download-list-heading {
     display: none;
   }
@@ -1947,7 +2044,8 @@ summary:focus-visible {
   .download-row:hover {
     transform: none;
   }
-  .download-topic h2 {
+  .download-topic h2,
+  .download-topic h3 {
     font-size: 14px;
   }
   .download-actions a {
