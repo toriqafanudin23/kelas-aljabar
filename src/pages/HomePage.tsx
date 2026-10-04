@@ -45,6 +45,15 @@ export function HomePage({ navigate }: HomePageProps) {
                 Tentang Portal <span aria-hidden="true">→</span>
               </a>
             </div>
+            <a
+              className="hero-new-resource"
+              href="/unduh"
+              onClick={(event) => navigate(event, "download")}
+            >
+              <span className="hero-new-tag">Baru</span>
+              <span>Slide presentasi menarik berbasis LaTeX</span>
+              <span aria-hidden="true">→</span>
+            </a>
           </div>
           <aside className="focus-panel">
             <div className="panel-heading">
@@ -92,10 +101,10 @@ export function HomePage({ navigate }: HomePageProps) {
         <div className="section-heading">
           <div>
             <span className="section-kicker">Rekomendasi Alur Belajar</span>
-            <h2>Urutan Pembelajaran Berdasarkan Prasyarat</h2>
+            <h2>Urutan Materi Terbaru per Kelas</h2>
             <p>
-              Materi matematika saling berkesinambungan. Kuasai konsep fondasi
-              sebelum melanjutkan ke topik tingkat lanjut:
+              Ikuti susunan materi terbaru dari Kelas X hingga Kelas XII.
+              Analisis Data dan Peluang akan ditambahkan setelah materinya siap.
             </p>
           </div>
         </div>
@@ -105,8 +114,8 @@ export function HomePage({ navigate }: HomePageProps) {
             <div className="pathway-step">Tahap 1</div>
             <h4>Kelas X (Fase E)</h4>
             <p className="pathway-desc">
-              Bangun dasar aljabar, fungsi, dan literasi data sebelum masuk ke
-              materi lanjutan.
+              Mulai dari konsep dasar, lalu lanjutkan ke vektor, trigonometri,
+              dan topik aljabar serta statistika.
             </p>
             <ul className="pathway-list">
               <li>
@@ -116,17 +125,23 @@ export function HomePage({ navigate }: HomePageProps) {
                 <strong>Modul 02:</strong> Barisan &amp; Deret
               </li>
               <li>
-                <strong>Modul 03:</strong> Sistem Persamaan &amp; Pertidaksamaan
+                <strong>Modul 03:</strong> Vektor
+              </li>
+              <li>
+                <strong>Modul 04:</strong> Perbandingan Trigonometri
+              </li>
+              <li>
+                <strong>Modul 05:</strong> Sistem Persamaan &amp; Pertidaksamaan
                 Linear
               </li>
               <li>
-                <strong>Modul 04:</strong> Fungsi Kuadrat
+                <strong>Modul 06:</strong> Fungsi Kuadrat
               </li>
               <li>
-                <strong>Modul 05:</strong> Statistika
+                <strong>Modul 07:</strong> Statistika
               </li>
               <li>
-                <strong>Modul 06:</strong> Trigonometri
+                <strong>Modul 08:</strong> Peluang
               </li>
             </ul>
           </div>
@@ -135,34 +150,27 @@ export function HomePage({ navigate }: HomePageProps) {
             <div className="pathway-step">Tahap 2</div>
             <h4>Kelas XI (Fase F)</h4>
             <p className="pathway-desc">
-              Perkuat fungsi dan aljabar, lalu lanjutkan ke aljabar linear serta
-              geometri analitik.
+              Lanjutkan ke fungsi, geometri, bilangan kompleks, dan aljabar
+              linear.
             </p>
             <ul className="pathway-list">
               <li>
-                <strong>Modul 07:</strong> Komposisi Fungsi &amp; Invers
-              </li>
-              <li>
-                <strong>Modul 08:</strong> Polinomial
-              </li>
-              <li>
-                <strong>Modul 09:</strong> Matriks
+                <strong>Modul 09:</strong> Komposisi Fungsi &amp; Invers
               </li>
               <li>
                 <strong>Modul 10:</strong> Lingkaran
               </li>
               <li>
-                <strong>Modul 11:</strong> Transformasi Geometri (Prasyarat:
-                Matriks)
+                <strong>Modul 11:</strong> Bilangan Kompleks
               </li>
               <li>
-                <strong>Modul 12:</strong> Vektor
+                <strong>Modul 12:</strong> Polinomial
               </li>
               <li>
-                <strong>Modul 13:</strong> Bilangan Kompleks
+                <strong>Modul 13:</strong> Matriks
               </li>
               <li>
-                <strong>Modul 14:</strong> Fungsi dan Pemodelan
+                <strong>Modul 14:</strong> Transformasi Geometri
               </li>
             </ul>
           </div>
@@ -171,31 +179,34 @@ export function HomePage({ navigate }: HomePageProps) {
             <div className="pathway-step">Tahap 3</div>
             <h4>Kelas XII (Fase F Lanjut)</h4>
             <p className="pathway-desc">
-              Pelajari geometri analitik, transformasi grafik fungsi,
-              pencacahan, peluang, serta limit, turunan, dan integral.
+              Perdalam pemodelan fungsi, pencacahan, geometri analitik, dan
+              kalkulus.
             </p>
             <ul className="pathway-list">
               <li>
-                <strong>Modul 15:</strong> Limit Fungsi
+                <strong>Modul 15:</strong> Fungsi dan Pemodelan
               </li>
               <li>
-                <strong>Modul 16:</strong> Turunan Fungsi (Prasyarat: Limit)
+                <strong>Modul 16:</strong> Transformasi Fungsi
               </li>
               <li>
-                <strong>Modul 17:</strong> Kombinatorika (Kaidah Pencacahan)
+                <strong>Modul 17:</strong> Kombinatorika
               </li>
               <li>
-                <strong>Modul 18:</strong> Teori Peluang (Prasyarat:
-                Kombinatorika)
+                <strong>Modul 18:</strong> Irisan Kerucut
               </li>
               <li>
-                <strong>Modul 19:</strong> Transformasi Fungsi
+                <strong>Modul 19:</strong> Limit
               </li>
               <li>
-                <strong>Modul 20:</strong> Irisan Kerucut
+                <strong>Modul 20:</strong> Turunan Fungsi
               </li>
               <li>
                 <strong>Modul 21:</strong> Integral
+              </li>
+              <li>
+                <strong>Modul 22:</strong> Analisis Data dan Peluang
+                <span className="pathway-status">Belum tersedia</span>
               </li>
             </ul>
           </div>
@@ -208,9 +219,7 @@ export function HomePage({ navigate }: HomePageProps) {
               pelajaran reguler.
             </p>
             <ul className="pathway-list">
-              <li>
-                <strong>Modul 22:</strong> Teori Bilangan
-              </li>
+              <li>Teori Bilangan</li>
             </ul>
           </div>
         </div>

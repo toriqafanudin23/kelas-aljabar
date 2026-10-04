@@ -564,6 +564,35 @@ summary:focus-visible {
   border-radius: 0;
   background: var(--gold);
 }
+.hero-new-resource {
+  width: fit-content;
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 7px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease;
+}
+.hero-new-resource:hover {
+  border-color: var(--gold);
+  background: rgba(255, 255, 255, 0.06);
+}
+.hero-new-tag {
+  padding: 2px 6px;
+  background: var(--gold);
+  color: var(--navy-deep);
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
 .hero-copy h1 {
   max-width: 640px;
   margin: 22px 0 14px;
@@ -2364,6 +2393,12 @@ summary:focus-visible {
 }
 .pathway-list li {
   line-height: 1.4;
+}
+.pathway-status {
+  margin-left: 6px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
 }
 
 /* Card Header with Prerequisite */

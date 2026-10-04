@@ -76,59 +76,58 @@ export function CatalogPage({ navigate }: CatalogPageProps) {
     return matchesFilter && matchesSearch;
   });
 
-  // Pengelompokan materi sesuai urutan prasyarat kurikulum sekolah
+  // Pengelompokan mengikuti susunan materi SMA terbaru.
   const groups = [
     {
-      title: "1. Kelas X (Fase E) — Bilangan, Aljabar, Fungsi & Statistika",
+      title: "1. Kelas X (Fase E)",
       subtitle:
-        "Eksponen dan logaritma, barisan dan deret, sistem linear, fungsi kuadrat, statistika dasar, serta trigonometri.",
+        "Eksponensial dan logaritma, barisan dan deret, vektor, perbandingan trigonometri, sistem linear, fungsi kuadrat, statistika, dan peluang.",
       items: filteredMaterials.filter((m) =>
         [
           "eksponensial",
           "barisan-deret",
+          "vektor",
+          "trigonometri",
           "sppl",
           "fungsi-kuadrat",
           "statistika",
-          "trigonometri",
+          "peluang",
         ].includes(m.slug),
       ),
     },
     {
-      title: "2. Kelas XI (Fase F) — Aljabar, Geometri & Vektor",
+      title: "2. Kelas XI (Fase F)",
       subtitle:
-        "Komposisi fungsi dan invers, polinomial, matriks, vektor, transformasi geometri, serta lingkaran.",
+        "Komposisi fungsi dan invers, lingkaran, bilangan kompleks, polinomial, matriks, dan transformasi geometri.",
       items: filteredMaterials.filter((m) =>
         [
           "komposisi-fungsi-dan-invers",
-          "polinomial",
-          "matriks",
-          "vektor",
-          "transformasi-geometri",
           "busur-dan-juring-lingkaran",
           "bilangan-kompleks",
-          "fungsi",
+          "polinomial",
+          "matriks",
+          "transformasi-geometri",
         ].includes(m.slug),
       ),
     },
     {
-      title:
-        "3. Kelas XII (Fase F Lanjut) — Geometri, Fungsi, Pencacahan, Peluang & Kalkulus",
+      title: "3. Kelas XII (Fase F Lanjut)",
       subtitle:
-        "Irisan kerucut, transformasi grafik fungsi, kombinatorika, peluang, serta limit, turunan, dan integral.",
+        "Fungsi dan pemodelan, transformasi fungsi, kombinatorika, irisan kerucut, limit, turunan, dan integral.",
       items: filteredMaterials.filter((m) =>
         [
+          "fungsi",
+          "transformasi-fungsi",
+          "kombinatorika",
+          "irisan-kerucut",
           "limit",
           "turunan",
-          "kombinatorika",
-          "peluang",
-          "transformasi-fungsi",
-          "irisan-kerucut",
           "integral",
         ].includes(m.slug),
       ),
     },
     {
-      title: "4. Materi Khusus Olimpiade Matematika",
+      title: "Materi Pengayaan Olimpiade",
       subtitle: "Pendalaman teori bilangan di luar cakupan pelajaran reguler.",
       items: filteredMaterials.filter((m) => m.slug === "teori-bilangan"),
     },

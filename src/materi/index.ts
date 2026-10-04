@@ -36,31 +36,30 @@ export interface Material {
 }
 
 /**
- * Urutan materi disusun secara sistematis berdasarkan prasyarat keilmuan (pedagogis)
- * dan kesinambungan kurikulum matematika SMA (Fase E, Fase F, dan Fase F Lanjut):
+ * Nomor dan jenjang materi mengikuti susunan terbaru kurikulum matematika SMA:
  *
  * 1. Eksponensial dan Logaritma (Kelas X)
  * 2. Barisan dan Deret (Kelas X)
- * 3. Sistem Persamaan dan Pertidaksamaan Linear (Kelas X)
- * 4. Fungsi Kuadrat (Kelas X)
- * 5. Statistika (Kelas X)
- * 6. Trigonometri (Kelas X)
- * 7. Komposisi Fungsi dan Invers (Kelas XI)
- * 8. Polinomial (Kelas XI)
- * 9. Matriks (Kelas XI)
+ * 3. Vektor (Kelas X)
+ * 4. Perbandingan Trigonometri (Kelas X)
+ * 5. Sistem Persamaan dan Pertidaksamaan Linear (Kelas X)
+ * 6. Fungsi Kuadrat (Kelas X)
+ * 7. Statistika (Kelas X)
+ * 8. Peluang (Kelas X)
+ * 9. Komposisi Fungsi dan Invers (Kelas XI)
  * 10. Lingkaran (Kelas XI)
- * 11. Transformasi Geometri (Kelas XI)
- * 12. Vektor (Kelas XI)
- * 13. Bilangan Kompleks (Kelas XI)
- * 14. Fungsi dan Pemodelan (Kelas XI)
- * 15. Limit Fungsi (Kelas XII)
- * 16. Turunan (Kelas XII)
+ * 11. Bilangan Kompleks (Kelas XI)
+ * 12. Polinomial (Kelas XI)
+ * 13. Matriks (Kelas XI)
+ * 14. Transformasi Geometri (Kelas XI)
+ * 15. Fungsi dan Pemodelan (Kelas XII)
+ * 16. Transformasi Fungsi (Kelas XII)
  * 17. Kombinatorika (Kelas XII)
- * 18. Teori Peluang (Kelas XII)
- * 19. Transformasi Fungsi (Kelas XII)
- * 20. Irisan Kerucut (Kelas XII)
+ * 18. Irisan Kerucut (Kelas XII)
+ * 19. Limit (Kelas XII)
+ * 20. Turunan Fungsi (Kelas XII)
  * 21. Integral (Kelas XII)
- * 22. Teori Bilangan (Materi Khusus Olimpiade)
+ * 22. Analisis Data dan Peluang (belum siap)
  */
 export const materials: Material[] = [
   {
@@ -80,7 +79,7 @@ export const materials: Material[] = [
   {
     id: "linear-systems",
     slug: "sppl",
-    number: "03",
+    number: "05",
     category: "Aljabar Matematika",
     title: "Sistem Persamaan dan Pertidaksamaan Linear",
     grade: "Kelas X",
@@ -94,7 +93,7 @@ export const materials: Material[] = [
   {
     id: "quadratic-functions",
     slug: "fungsi-kuadrat",
-    number: "04",
+    number: "06",
     category: "Aljabar Matematika",
     title: "Fungsi Kuadrat",
     grade: "Kelas X",
@@ -108,7 +107,7 @@ export const materials: Material[] = [
   {
     id: "statistics",
     slug: "statistika",
-    number: "05",
+    number: "07",
     category: "Teori Peluang & Statistika",
     title: "Statistika",
     grade: "Kelas X",
@@ -123,7 +122,7 @@ export const materials: Material[] = [
   {
     id: "function-composition-inverse",
     slug: "komposisi-fungsi-dan-invers",
-    number: "07",
+    number: "09",
     category: "Aljabar Matematika",
     title: "Komposisi Fungsi dan Invers",
     grade: "Kelas XI",
@@ -166,11 +165,11 @@ export const materials: Material[] = [
   {
     id: "vectors",
     slug: "vektor",
-    number: "12",
+    number: "03",
     category: "Geometri Analitik",
     title: "Vektor",
-    grade: "Kelas XI",
-    phase: "Fase F (Kelas XI)",
+    grade: "Kelas X",
+    phase: "Fase E (Kelas X)",
     prerequisite: "Sistem Koordinat Kartesius & Trigonometri",
     formula:
       "\\vec{a}\\cdot\\vec{b}=|\\vec{a}||\\vec{b}|\\cos\\theta \\qquad |\\vec{a}|=\\sqrt{a_1^2+a_2^2+a_3^2}",
@@ -181,7 +180,7 @@ export const materials: Material[] = [
   {
     id: "geometry",
     slug: "transformasi-geometri",
-    number: "11",
+    number: "14",
     category: "Geometri Analitik",
     title: "Transformasi Geometri",
     grade: "Kelas XI",
@@ -211,11 +210,11 @@ export const materials: Material[] = [
   {
     id: "probability",
     slug: "peluang",
-    number: "18",
+    number: "08",
     category: "Teori Peluang & Statistika",
     title: "Teori Peluang",
-    grade: "Kelas XII",
-    phase: "Fase F Tingkat Lanjut (Kelas XII)",
+    grade: "Kelas X",
+    phase: "Fase E (Kelas X)",
     prerequisite: "Kombinatorika (Kaidah Pencacahan)",
     formula: "P(A)=\\frac{n(A)}{n(S)}",
     description:
@@ -225,7 +224,7 @@ export const materials: Material[] = [
   {
     id: "polynomials",
     slug: "polinomial",
-    number: "08",
+    number: "12",
     category: "Aljabar Matematika",
     title: "Polinomial",
     grade: "Kelas XI",
@@ -239,7 +238,7 @@ export const materials: Material[] = [
   {
     id: "limits",
     slug: "limit",
-    number: "15",
+    number: "19",
     category: "Kalkulus",
     title: "Limit Fungsi",
     grade: "Kelas XII",
@@ -253,7 +252,7 @@ export const materials: Material[] = [
   {
     id: "derivatives",
     slug: "turunan",
-    number: "16",
+    number: "20",
     category: "Kalkulus",
     title: "Turunan Fungsi",
     grade: "Kelas XII",
@@ -281,7 +280,7 @@ export const materials: Material[] = [
   {
     id: "complex-numbers",
     slug: "bilangan-kompleks",
-    number: "13",
+    number: "11",
     category: "Analisis",
     title: "Bilangan Kompleks",
     grade: "Kelas XI",
@@ -295,11 +294,11 @@ export const materials: Material[] = [
   {
     id: "functions-modeling",
     slug: "fungsi",
-    number: "14",
+    number: "15",
     category: "Aljabar Matematika",
     title: "Fungsi dan Pemodelan",
-    grade: "Kelas XI",
-    phase: "Fase F (Kelas XI)",
+    grade: "Kelas XII",
+    phase: "Fase F Tingkat Lanjut (Kelas XII)",
     prerequisite: "Relasi dan Fungsi Dasar",
     formula: "f:A\\to B \\qquad y=f(x)",
     description:
@@ -309,7 +308,7 @@ export const materials: Material[] = [
   {
     id: "function-transformations",
     slug: "transformasi-fungsi",
-    number: "19",
+    number: "16",
     category: "Aljabar Matematika",
     title: "Transformasi Fungsi",
     grade: "Kelas XII",
@@ -323,9 +322,9 @@ export const materials: Material[] = [
   {
     id: "trigonometry",
     slug: "trigonometri",
-    number: "06",
+    number: "04",
     category: "Geometri & Trigonometri",
-    title: "Trigonometri",
+    title: "Perbandingan Trigonometri",
     grade: "Kelas X",
     phase: "Fase E (Kelas X)",
     prerequisite: "Sudut dan Segitiga Siku-Siku",
@@ -338,7 +337,7 @@ export const materials: Material[] = [
   {
     id: "conic-sections",
     slug: "irisan-kerucut",
-    number: "20",
+    number: "18",
     category: "Geometri Analitik",
     title: "Irisan Kerucut",
     grade: "Kelas XII",
@@ -366,7 +365,7 @@ export const materials: Material[] = [
   {
     id: "number-theory",
     slug: "teori-bilangan",
-    number: "22",
+    number: "Khusus",
     category: "Olimpiade Matematika",
     title: "Teori Bilangan",
     grade: "Khusus Olimpiade",
