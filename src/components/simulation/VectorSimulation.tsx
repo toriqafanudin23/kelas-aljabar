@@ -361,7 +361,7 @@ export function VectorSimulation() {
       {
         strokeColor: colors.sum,
         strokeWidth: 3.5,
-        lastArrow: { type: 2, size: 3 },
+        lastArrow: { type: 2, size: 0.5 },
         highlight: false,
         fixed: true,
       },

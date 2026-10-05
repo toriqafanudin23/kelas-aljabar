@@ -12,6 +12,15 @@
   padding-top: 30px;
 }
 
+.simulation-section:fullscreen {
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  padding: 24px;
+  background: #fff;
+}
+
 .simulation-picker {
   display: grid;
   grid-template-columns: auto minmax(220px, 360px);
@@ -78,6 +87,35 @@
   color: #315d58;
   font-size: 10px;
   font-weight: 800;
+}
+
+.simulation-heading-actions {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 10px;
+}
+
+.simulation-fullscreen-button {
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1px solid #aebdc2;
+  background: #fff;
+  color: var(--sim-ink);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.simulation-fullscreen-button:hover {
+  border-color: var(--sim-teal);
+  background: #e8f3f1;
+}
+
+.simulation-fullscreen-button:focus-visible {
+  outline: 2px solid var(--sim-teal);
+  outline-offset: 3px;
 }
 
 .trigonometry-simulation {
@@ -359,6 +397,14 @@
 
   .simulation-heading {
     gap: 10px;
+  }
+
+  .simulation-heading-actions {
+    flex-wrap: wrap;
+  }
+
+  .simulation-section:fullscreen {
+    padding: 14px;
   }
 
   .simulation-heading h2 {

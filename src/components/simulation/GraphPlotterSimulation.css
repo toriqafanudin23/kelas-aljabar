@@ -1,0 +1,538 @@
+/* Memakai kelas .simulation-page, .simulation-section, .simulation-heading,
+   dst. dari TrigonometrySimulation.css (variabel --sim-* sudah tersedia). */
+
+.plotter-simulation {
+  --plot-inter: #b23a48;
+  --plot-accent: #087f8c;
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  border-top: 3px solid var(--gold);
+  background: var(--sim-paper, #f3f7f5);
+  color: var(--sim-ink, #18313d);
+  font-variant-numeric: tabular-nums;
+}
+
+.plot-boards {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+  gap: 14px;
+  min-width: 0;
+}
+
+.plot-board-panel {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto auto;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--sim-line, #d5e0e4);
+  background: #fff;
+}
+
+.plot-board-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  min-height: 32px;
+  margin-bottom: 4px;
+}
+
+.plot-board-heading h3 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.plot-zoom {
+  display: inline-flex;
+  border: 1px solid #aebdc2;
+}
+
+.plot-zoom button {
+  min-width: 34px;
+  min-height: 30px;
+  padding: 0 10px;
+  border: 0;
+  border-left: 1px solid #aebdc2;
+  background: #fff;
+  color: var(--sim-ink, #18313d);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.plot-zoom button:first-child {
+  border-left: 0;
+}
+
+.plot-zoom button:last-child {
+  font-size: 11px;
+}
+
+.plot-zoom button:hover {
+  background: #e8f3f1;
+}
+
+.plot-board {
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 1 / 1;
+  max-height: 560px;
+  margin-inline: auto;
+  overflow: hidden;
+  background-color: #fcfdfc;
+  cursor: grab;
+}
+
+.plot-board:active {
+  cursor: grabbing;
+}
+
+.plot-board .JXGtext {
+  font-family: "Open Sans", sans-serif;
+}
+
+.plot-legend {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  padding-top: 8px;
+  color: var(--sim-muted, #62727d);
+  font-size: 10px;
+}
+
+.plot-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.plot-legend i {
+  width: 16px;
+  height: 0;
+  border-top: 3px solid #183e54;
+}
+
+.plot-legend b {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.plot-legend .dot-inter {
+  background: var(--plot-inter);
+}
+
+.plot-legend .dot-axis {
+  background: #fff;
+  border: 2px solid #63727d;
+}
+
+.plot-hint {
+  margin: 6px 0 0;
+  color: var(--sim-muted, #62727d);
+  font-size: 10px;
+  text-align: center;
+}
+
+/* Kontrol */
+.plot-controls {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid var(--sim-line, #d5e0e4);
+  background: #fff;
+}
+
+.plot-slot {
+  display: grid;
+  gap: 5px;
+}
+
+.plot-slot-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.plot-slot-head > label:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.plot-slot-head em {
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.plot-swatch {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 3px;
+  border-radius: 3px;
+  vertical-align: -1px;
+}
+
+.plot-slot-head > label:first-child .plot-swatch {
+  margin-right: 0;
+}
+
+.plot-toggle,
+.plot-options label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--sim-muted, #62727d);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.plot-toggle input,
+.plot-options input {
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  accent-color: var(--plot-accent);
+}
+
+.plot-input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 40px;
+  padding: 0 11px;
+  border: 1px solid #aebdc2;
+  border-left-width: 4px;
+  background: #fcfdfc;
+  color: var(--sim-ink, #18313d);
+  font-family: "Cambria Math", "Courier New", monospace;
+  font-size: 15px;
+}
+
+.plot-input[aria-invalid="true"] {
+  border-color: #b23a48;
+  background: #fff6f6;
+}
+
+.plot-status {
+  min-height: 15px;
+  margin: 0;
+  color: var(--sim-muted, #62727d);
+  font-size: 10px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.plot-status.is-error {
+  color: #b23a48;
+  font-weight: 600;
+}
+
+.plot-palette,
+.plot-presets {
+  display: grid;
+  gap: 6px;
+}
+
+.plot-palette > span,
+.plot-presets > span {
+  color: var(--sim-muted, #62727d);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.plot-palette-buttons,
+.plot-presets-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.plot-palette-buttons button,
+.plot-presets-buttons button {
+  min-height: 32px;
+  padding: 0 11px;
+  border: 1px solid #aebdc2;
+  background: #fff;
+  color: var(--sim-ink, #18313d);
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.plot-presets-buttons button {
+  font-family: "Open Sans", sans-serif;
+  font-size: 11px;
+}
+
+.plot-palette-buttons button:hover,
+.plot-presets-buttons button:hover {
+  border-color: var(--plot-accent);
+  background: #e8f3f1;
+}
+
+.plot-options {
+  display: grid;
+  gap: 8px;
+}
+
+.plotter-simulation button:focus-visible,
+.plotter-simulation input:focus-visible,
+.plotter-simulation summary:focus-visible {
+  outline: 2px solid var(--plot-accent);
+  outline-offset: 3px;
+}
+
+.plot-warning {
+  margin: 0;
+  padding: 9px 12px;
+  border: 1px solid #e2c27a;
+  background: #fff7e0;
+  color: #6b5200;
+  font-size: 12px;
+}
+
+/* Readouts */
+.plot-readouts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+  border: 1px solid var(--sim-line, #d5e0e4);
+  background: #fff;
+}
+
+.plot-readouts > div {
+  min-width: 0;
+  padding: 10px 13px;
+  border-left: 1px solid var(--sim-line, #d5e0e4);
+}
+
+.plot-readouts > div:first-child {
+  border-left: 0;
+}
+
+.plot-readouts dt {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-bottom: 4px;
+  color: var(--sim-muted, #62727d);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.plot-readouts dt .plot-swatch {
+  width: 9px;
+  height: 9px;
+  margin-right: 0;
+}
+
+.plot-readouts dt .plot-swatch:last-of-type {
+  margin-right: 4px;
+}
+
+.plot-readouts dd {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  color: var(--plot-inter);
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.plot-readouts dd.plot-none {
+  color: var(--sim-muted, #62727d);
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
+}
+
+.plot-readouts dd.plot-same {
+  color: var(--plot-accent);
+  font-family: "Open Sans", sans-serif;
+  font-size: 13px;
+}
+
+.plot-readouts small {
+  display: block;
+  margin-top: 4px;
+  color: var(--sim-muted, #62727d);
+  font-size: 10px;
+}
+
+/* Tabel titik potong sumbu */
+.plot-axis-table-wrap {
+  min-width: 0;
+  overflow-x: auto;
+  border: 1px solid var(--sim-line, #d5e0e4);
+  background: #fff;
+}
+
+.plot-axis-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.plot-axis-table caption {
+  padding: 9px 13px;
+  color: var(--sim-muted, #62727d);
+  font-size: 10px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.plot-axis-table th,
+.plot-axis-table td {
+  padding: 7px 13px;
+  border-top: 1px solid var(--sim-line, #d5e0e4);
+  text-align: left;
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.plot-axis-table thead th {
+  color: var(--sim-muted, #62727d);
+  font-family: "Open Sans", sans-serif;
+  font-size: 10px;
+}
+
+.plot-axis-table tbody th {
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
+}
+
+.plot-axis-table td {
+  color: #183e54;
+  overflow-wrap: anywhere;
+}
+
+/* Panduan */
+.plot-guide {
+  border: 1px solid var(--sim-line, #d5e0e4);
+  background: #fff;
+  font-size: 12px;
+}
+
+.plot-guide summary {
+  padding: 10px 13px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.plot-guide table {
+  width: calc(100% - 26px);
+  margin: 0 13px;
+  border-collapse: collapse;
+}
+
+.plot-guide th,
+.plot-guide td {
+  padding: 6px 8px;
+  border-top: 1px solid var(--sim-line, #d5e0e4);
+  text-align: left;
+  vertical-align: top;
+  font-size: 11px;
+}
+
+.plot-guide thead th {
+  color: var(--sim-muted, #62727d);
+  font-weight: 700;
+}
+
+.plot-guide code {
+  padding: 1px 4px;
+  background: #eef3f2;
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
+.plot-guide p {
+  margin: 8px 13px 12px;
+  color: var(--sim-muted, #62727d);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* Penjelasan */
+.plot-insights {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--sim-muted, #62727d);
+  font-size: 11px;
+}
+
+.plot-insights li {
+  padding-left: 10px;
+  border-left: 3px solid var(--sim-line, #d5e0e4);
+}
+
+@media (max-width: 860px) {
+  .plot-boards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .plot-board {
+    width: min(100%, 560px);
+  }
+}
+
+@media (max-width: 640px) {
+  .plot-readouts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .plot-readouts > div {
+    border-left: 0;
+    border-top: 1px solid var(--sim-line, #d5e0e4);
+  }
+
+  .plot-readouts > div:first-child {
+    border-top: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .plotter-simulation {
+    gap: 10px;
+    padding: 9px;
+  }
+
+  .plot-board-panel {
+    padding: 8px;
+  }
+
+  .plot-controls {
+    padding: 10px;
+    gap: 12px;
+  }
+
+  .plot-input {
+    font-size: 16px;
+  }
+
+  .plot-axis-table th,
+  .plot-axis-table td {
+    padding: 6px 8px;
+  }
+}

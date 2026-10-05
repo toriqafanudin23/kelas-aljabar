@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { TrigonometrySimulation } from "../components/simulation/TrigonometrySimulation";
 import { QuadraticSimulation } from "../components/simulation/QuadraticSimulation";
 import { TransformationSimulation } from "../components/simulation/TransformationSimulation";
 import { FunctionTransformationSimulation } from "../components/simulation/FunctionTransformationSimulation";
 import { VectorSimulation } from "../components/simulation/VectorSimulation";
+import { CalculusSimulation } from "../components/simulation/CalculusSimulation";
+import { GraphPlotterSimulation } from "../components/simulation/GraphPlotterSimulation";
 import type { Navigate } from "../types/navigation";
 
 interface SimulationPageProps {
@@ -61,15 +63,64 @@ const simulations = [
     level: "KELAS X",
     component: VectorSimulation,
   },
+  {
+    id: "calculus",
+    index: "06",
+    category: "KALKULUS",
+    title: "Eksplorasi kalkulus",
+    description:
+      "Amati hubungan garis sekan dan tangen dengan turunan, lalu dekati luas daerah di bawah kurva menggunakan jumlah Riemann.",
+    level: "KELAS XI–XII",
+    component: CalculusSimulation,
+  },
+  {
+    id: "graph-plotter",
+    index: "07",
+    category: "FUNGSI",
+    title: "Penggambar grafik fungsi",
+    description:
+      "Gambarkan hingga tiga fungsi sekaligus, lalu amati titik potong antargrafik serta titik potong terhadap sumbu.",
+    level: "KELAS X–XII",
+    component: GraphPlotterSimulation,
+  },
 ];
 
 export function SimulationPage({ navigate }: SimulationPageProps) {
+  const simulationSectionRef = useRef<HTMLElement>(null);
   const [selectedSimulationId, setSelectedSimulationId] = useState(
     simulations[0].id,
   );
+  const [isSimulationFullscreen, setIsSimulationFullscreen] = useState(false);
   const activeSimulation =
     simulations.find(({ id }) => id === selectedSimulationId) ?? simulations[0];
   const ActiveSimulation = activeSimulation.component;
+
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsSimulationFullscreen(
+        document.fullscreenElement === simulationSectionRef.current,
+      );
+    };
+
+    document.addEventListener("fullscreenchange", handleFullscreenChange);
+    return () =>
+      document.removeEventListener("fullscreenchange", handleFullscreenChange);
+  }, []);
+
+  const toggleSimulationFullscreen = async () => {
+    const simulationSection = simulationSectionRef.current;
+    if (!simulationSection) return;
+
+    try {
+      if (document.fullscreenElement === simulationSection) {
+        await document.exitFullscreen();
+      } else {
+        await simulationSection.requestFullscreen();
+      }
+    } catch {
+      setIsSimulationFullscreen(false);
+    }
+  };
 
   const handleHome = (event: React.MouseEvent<HTMLAnchorElement>) => {
     if (navigate) navigate(event, "home");
@@ -110,6 +161,7 @@ export function SimulationPage({ navigate }: SimulationPageProps) {
       </div>
 
       <section
+        ref={simulationSectionRef}
         className="simulation-section"
         aria-labelledby={`simulation-${activeSimulation.id}-title`}
       >
@@ -123,7 +175,17 @@ export function SimulationPage({ navigate }: SimulationPageProps) {
             </h2>
             <p>{activeSimulation.description}</p>
           </div>
-          <span className="simulation-level">{activeSimulation.level}</span>
+          <div className="simulation-heading-actions">
+            <span className="simulation-level">{activeSimulation.level}</span>
+            <button
+              className="simulation-fullscreen-button"
+              type="button"
+              aria-expanded={isSimulationFullscreen}
+              onClick={toggleSimulationFullscreen}
+            >
+              {isSimulationFullscreen ? "Keluar layar penuh" : "Layar penuh"}
+            </button>
+          </div>
         </div>
 
         <ActiveSimulation />
