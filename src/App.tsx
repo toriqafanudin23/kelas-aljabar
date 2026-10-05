@@ -9,6 +9,7 @@ import { CatalogPage } from "./pages/CatalogPage";
 import { AboutPage } from "./pages/AboutPage";
 import { DownloadPage } from "./pages/DownloadPage";
 import { BankSoalDownloadPage } from "./pages/BankSoalDownloadPage";
+import { SimulationPage } from "./pages/SimulationPage";
 import { LessonPage } from "./pages/LessonPage";
 
 function App() {
@@ -51,6 +52,7 @@ function App() {
     page !== "catalog" &&
     page !== "download" &&
     page !== "bank-download" &&
+    page !== "simulation" &&
     page !== "about";
 
   return (
@@ -78,7 +80,8 @@ function App() {
       {page === "catalog" && <CatalogPage navigate={navigate} />}
       {page === "download" && <DownloadPage navigate={navigate} />}
       {page === "bank-download" && <BankSoalDownloadPage navigate={navigate} />}
-      {page === "about" && <AboutPage />}
+      {page === "simulation" && <SimulationPage navigate={navigate} />}
+      {page === "about" && <AboutPage navigate={navigate} />}
       {isMaterialPage && (
         <LessonPage
           slug={page}

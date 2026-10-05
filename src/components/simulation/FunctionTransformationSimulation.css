@@ -1,0 +1,437 @@
+/* Memakai variabel --sim-* dan --gold dari TrigonometrySimulation.css. */
+
+.function-transformation-simulation {
+  --ft-original: #087f8c;
+  --ft-image: #d16b36;
+  --ft-guide: #183e54;
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  border-top: 3px solid var(--gold);
+  background: var(--sim-paper, #f3f7f5);
+  color: var(--sim-ink, #18313d);
+  font-variant-numeric: tabular-nums;
+}
+
+.function-transformation-simulation h3 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.function-transformation-simulation h4 {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.ft-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  gap: 14px;
+  min-width: 0;
+}
+
+.ft-board-panel,
+.ft-panel {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--sim-line, #d5e0e4);
+  background: #fff;
+}
+
+.ft-board-panel {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+
+.ft-board-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.ft-board-heading h3 {
+  margin: 0;
+}
+
+.ft-board-heading > span {
+  color: var(--sim-muted, #62727d);
+  font-size: 10px;
+}
+
+.ft-board {
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 1 / 1;
+  max-height: 560px;
+  margin-inline: auto;
+  overflow: hidden;
+  background: #fcfdfc;
+  touch-action: none;
+}
+
+.ft-board .JXGtext {
+  font-family: "Open Sans", sans-serif;
+}
+
+.ft-legend {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  color: var(--sim-muted, #62727d);
+  font-size: 10px;
+}
+
+.ft-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ft-legend i {
+  width: 14px;
+  height: 0;
+  border: 0 solid;
+  border-top-width: 3px;
+}
+
+.ft-legend .legend-original {
+  border-color: var(--ft-original);
+}
+
+.ft-legend .legend-image {
+  border-color: var(--ft-image);
+}
+
+.ft-legend .legend-guide {
+  border-width: 2px 0 0;
+  border-color: var(--ft-guide);
+  border-style: dashed;
+}
+
+.ft-caption {
+  min-height: 1.5em;
+  margin: 0;
+  color: var(--ft-image);
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+/* Tombol */
+.function-transformation-simulation button {
+  font-family: inherit;
+}
+
+.ft-reset-button {
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid #aebdc2;
+  background: #fff;
+  color: var(--sim-ink, #18313d);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ft-reset-button:hover:not(:disabled) {
+  border-color: var(--ft-original);
+  background: #e8f3f1;
+}
+
+.ft-reset-button[aria-pressed="true"] {
+  border-color: var(--ft-original);
+  background: var(--ft-original);
+  color: #fff;
+}
+
+.function-transformation-simulation button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.function-transformation-simulation button:focus-visible,
+.function-transformation-simulation input:focus-visible,
+.function-transformation-simulation select:focus-visible {
+  outline: 2px solid var(--ft-original);
+  outline-offset: 2px;
+}
+
+/* Panel samping */
+.ft-side {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-width: 0;
+}
+
+.ft-segmented {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.ft-segmented button {
+  flex: 1 1 auto;
+  min-width: 52px;
+  min-height: 34px;
+  padding: 0 10px;
+  border: 1px solid #aebdc2;
+  margin-left: -1px;
+  margin-top: -1px;
+  background: #fff;
+  color: var(--sim-ink, #18313d);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ft-segmented button[aria-pressed="true"] {
+  position: relative;
+  border-color: var(--ft-original);
+  background: var(--ft-original);
+  color: #fff;
+}
+
+.ft-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  color: var(--sim-muted, #62727d);
+  font-size: 11px;
+}
+
+.ft-check input {
+  accent-color: var(--ft-original);
+}
+
+.ft-hint {
+  margin: 6px 0 0;
+  color: var(--sim-muted, #62727d);
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
+/* Slider */
+.ft-slider {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 10px;
+  margin-top: 8px;
+}
+
+.ft-panel h3 + .ft-slider {
+  margin-top: 0;
+}
+
+.ft-slider label {
+  color: var(--sim-muted, #62727d);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.ft-slider output {
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.ft-slider input {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 24px;
+  margin: 0;
+  accent-color: var(--ft-image);
+  cursor: ew-resize;
+}
+
+.ft-actions,
+.ft-reset-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.ft-reset-row {
+  margin-top: 0;
+}
+
+/* Persamaan */
+.ft-wide {
+  display: grid;
+  gap: 8px;
+}
+
+.ft-wide h3 {
+  margin-bottom: 0;
+}
+
+.ft-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+.ft-card {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--sim-line, #d5e0e4);
+  background: var(--sim-paper, #f3f7f5);
+}
+
+.ft-card p {
+  margin: 0;
+  color: var(--sim-muted, #62727d);
+  font-size: 10px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.ft-card .ft-formula {
+  color: var(--ft-guide);
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.ft-card .ft-formula-original {
+  color: var(--ft-original);
+}
+
+.ft-card .ft-formula-image {
+  color: var(--ft-image);
+}
+
+.ft-card.ft-card-result {
+  border-color: var(--ft-image);
+  background: #fdf3ec;
+}
+
+.ft-effects {
+  margin-top: 4px;
+}
+
+/* Tabel koordinat */
+.ft-table-wrap {
+  overflow-x: auto;
+}
+
+.ft-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.ft-table th,
+.ft-table td {
+  padding: 7px 10px;
+  border-bottom: 1px solid var(--sim-line, #d5e0e4);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.ft-table thead th {
+  color: var(--sim-muted, #62727d);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.ft-table tbody th {
+  font-weight: 800;
+}
+
+.ft-table td {
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.ft-cell-original {
+  color: var(--ft-original);
+}
+
+.ft-cell-image {
+  color: var(--ft-image);
+}
+
+.ft-insights {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--sim-muted, #62727d);
+  font-size: 11px;
+}
+
+.ft-insights li {
+  padding-left: 10px;
+  border-left: 3px solid var(--sim-line, #d5e0e4);
+}
+
+.ft-insights strong {
+  color: var(--sim-ink, #18313d);
+}
+
+@media (max-width: 900px) {
+  .ft-main {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ft-board {
+    width: min(100%, 560px);
+  }
+}
+
+@media (max-width: 520px) {
+  .function-transformation-simulation {
+    gap: 10px;
+    padding: 9px;
+  }
+
+  .ft-board-panel,
+  .ft-panel {
+    padding: 8px;
+  }
+
+  .ft-board-heading > span {
+    display: none;
+  }
+
+  .ft-caption {
+    font-size: 13px;
+  }
+
+  .ft-table th,
+  .ft-table td {
+    padding: 6px;
+  }
+
+  .ft-table td {
+    font-size: 12px;
+  }
+
+  .ft-actions button,
+  .ft-reset-row button {
+    flex: 1 1 auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .function-transformation-simulation * {
+    transition: none !important;
+  }
+}

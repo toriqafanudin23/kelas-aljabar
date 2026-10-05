@@ -106,6 +106,14 @@ export function SiteHeader({
             </div>
           </div>
 
+          <a
+            className={page === "simulation" ? "active" : ""}
+            href="/simulasi"
+            onClick={(event) => handleNavigation(event, "simulation")}
+          >
+            Simulasi
+          </a>
+
           <div className="download-menu">
             <a
               className={
@@ -212,6 +220,14 @@ export function SiteHeader({
               onClick={(event) => handleNavigation(event, "catalog")}
             >
               Katalog Materi
+            </a>
+
+            <a
+              className={`drawer-primary-link ${page === "simulation" ? "active" : ""}`}
+              href="/simulasi"
+              onClick={(event) => handleNavigation(event, "simulation")}
+            >
+              Simulasi
             </a>
 
             <div className="drawer-download-group">

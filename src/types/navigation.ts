@@ -19,6 +19,7 @@ export function getPageFromPath(path: string): Page {
   if (path === "/unduh-bank-soal" || path === "/unduh-bank-soal/") {
     return "bank-download";
   }
+  if (path === "/simulasi" || path === "/simulasi/") return "simulation";
   if (path.startsWith("/materi/")) {
     const slug = path.replace("/materi/", "").replace(/\/$/, "");
     if (slug) return slug;
@@ -31,6 +32,7 @@ export function getPathFromPage(page: Page): string {
   if (page === "catalog") return "/katalog";
   if (page === "download") return "/unduh";
   if (page === "bank-download") return "/unduh-bank-soal";
+  if (page === "simulation") return "/simulasi";
   if (page === "about") return "/tentang";
   return `/materi/${page}`;
 }

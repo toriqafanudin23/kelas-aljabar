@@ -1,0 +1,621 @@
+/* Memakai variabel --sim-* dan --gold dari TrigonometrySimulation.css. */
+
+.transformation-simulation {
+  --tf-original: #087f8c;
+  --tf-image: #d16b36;
+  --tf-ghost: #8d9ba3;
+  --tf-guide: #183e54;
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  border-top: 3px solid var(--gold);
+  background: var(--sim-paper, #f3f7f5);
+  color: var(--sim-ink, #18313d);
+  font-variant-numeric: tabular-nums;
+}
+
+.transformation-simulation h3 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.transformation-simulation h3 small {
+  color: var(--sim-muted, #62727d);
+  font-weight: 600;
+}
+
+.transformation-simulation h4 {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.tf-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  gap: 14px;
+  min-width: 0;
+}
+
+.tf-board-panel,
+.tf-panel {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--sim-line, #d5e0e4);
+  background: #fff;
+}
+
+.tf-board-panel {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+
+.tf-board-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.tf-board-heading h3 {
+  margin: 0;
+}
+
+.tf-board-heading > span {
+  color: var(--sim-muted, #62727d);
+  font-size: 10px;
+}
+
+.tf-board {
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 1 / 1;
+  max-height: 560px;
+  margin-inline: auto;
+  overflow: hidden;
+  background: #fcfdfc;
+  touch-action: none;
+}
+
+.tf-board .JXGtext {
+  font-family: "Open Sans", sans-serif;
+}
+
+.tf-legend {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  color: var(--sim-muted, #62727d);
+  font-size: 10px;
+}
+
+.tf-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tf-legend i {
+  width: 14px;
+  height: 10px;
+  border: 2px solid;
+}
+
+.tf-legend .legend-original {
+  border-color: var(--tf-original);
+  background: rgba(8, 127, 140, 0.15);
+}
+
+.tf-legend .legend-image {
+  border-color: var(--tf-image);
+  background: rgba(209, 107, 54, 0.18);
+}
+
+.tf-legend .legend-ghost {
+  border-color: var(--tf-ghost);
+  border-style: dashed;
+}
+
+.tf-legend .legend-guide {
+  height: 0;
+  border-width: 2px 0 0;
+  border-color: var(--tf-guide);
+  border-style: dashed;
+}
+
+/* Pemutar */
+.tf-playback {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--sim-line, #d5e0e4);
+  background: var(--sim-paper, #f3f7f5);
+}
+
+.tf-progress {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  gap: 2px 10px;
+  min-width: 0;
+}
+
+.tf-progress label,
+.tf-speed span,
+.tf-field span {
+  color: var(--sim-muted, #62727d);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.tf-progress-value {
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.tf-progress input {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 24px;
+  margin: 0;
+  accent-color: var(--tf-image);
+  cursor: ew-resize;
+}
+
+.tf-speed {
+  display: grid;
+  gap: 2px;
+}
+
+.tf-caption {
+  min-height: 1.5em;
+  margin: 0;
+  color: var(--sim-ink, #18313d);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Tombol */
+.transformation-simulation button {
+  font-family: inherit;
+}
+
+.tf-play-button,
+.tf-add-button {
+  min-height: 38px;
+  padding: 0 16px;
+  border: 1px solid var(--tf-original);
+  background: var(--tf-original);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tf-play-button {
+  min-width: 96px;
+}
+
+.tf-play-button:hover:not(:disabled),
+.tf-add-button:hover:not(:disabled) {
+  background: #066b76;
+}
+
+.tf-reset-button {
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid #aebdc2;
+  background: #fff;
+  color: var(--sim-ink, #18313d);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tf-reset-button:hover:not(:disabled) {
+  border-color: var(--tf-original);
+  background: #e8f3f1;
+}
+
+.transformation-simulation button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.transformation-simulation button:focus-visible,
+.transformation-simulation input:focus-visible,
+.transformation-simulation select:focus-visible {
+  outline: 2px solid var(--tf-original);
+  outline-offset: 2px;
+}
+
+/* Panel samping */
+.tf-side {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-width: 0;
+}
+
+.tf-segmented {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.tf-segmented button {
+  flex: 1 1 auto;
+  min-height: 34px;
+  padding: 0 10px;
+  border: 1px solid #aebdc2;
+  margin-left: -1px;
+  background: #fff;
+  color: var(--sim-ink, #18313d);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tf-segmented button:first-child {
+  margin-left: 0;
+}
+
+.tf-segmented button[aria-pressed="true"] {
+  position: relative;
+  border-color: var(--tf-original);
+  background: var(--tf-original);
+  color: #fff;
+}
+
+.tf-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  color: var(--sim-muted, #62727d);
+  font-size: 11px;
+}
+
+.tf-check input {
+  accent-color: var(--tf-original);
+}
+
+.tf-empty,
+.tf-hint {
+  margin: 6px 0 0;
+  color: var(--sim-muted, #62727d);
+  font-size: 11px;
+}
+
+.tf-steps {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tf-steps li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 6px;
+  border: 1px solid var(--sim-line, #d5e0e4);
+  background: #fff;
+}
+
+.tf-steps li.is-active {
+  border-color: var(--tf-image);
+  background: #fdf3ec;
+}
+
+.tf-step-index {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  background: var(--tf-guide);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.tf-step-label {
+  padding: 4px 2px;
+  border: 0;
+  background: none;
+  color: var(--sim-ink, #18313d);
+  font-size: 11px;
+  line-height: 1.35;
+  text-align: left;
+  cursor: pointer;
+}
+
+.tf-step-label b {
+  color: var(--tf-image);
+}
+
+.tf-step-remove {
+  width: 26px;
+  height: 26px;
+  border: 0;
+  background: none;
+  color: var(--sim-muted, #62727d);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.tf-step-remove:hover {
+  color: #b23a48;
+}
+
+.tf-fields {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.tf-field {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.tf-field-wide {
+  grid-column: 1 / -1;
+}
+
+.tf-field input,
+.tf-field select,
+.tf-speed select {
+  min-height: 32px;
+  padding: 0 8px;
+  border: 1px solid #aebdc2;
+  background: #fff;
+  color: var(--sim-ink, #18313d);
+  font-size: 12px;
+  font-family: inherit;
+}
+
+.tf-field input {
+  width: 100%;
+  min-width: 0;
+}
+
+.tf-builder-actions,
+.tf-reset-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.tf-reset-row {
+  margin-top: 0;
+}
+
+/* Tabel koordinat */
+.tf-wide {
+  display: grid;
+  gap: 8px;
+}
+
+.tf-wide h3 {
+  margin-bottom: 0;
+}
+
+.tf-table-wrap {
+  overflow-x: auto;
+}
+
+.tf-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.tf-table th,
+.tf-table td {
+  padding: 7px 10px;
+  border-bottom: 1px solid var(--sim-line, #d5e0e4);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.tf-table thead th {
+  color: var(--sim-muted, #62727d);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.tf-table tbody th {
+  font-weight: 800;
+}
+
+.tf-table td {
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.cell-original {
+  color: var(--tf-original);
+}
+
+.cell-current {
+  color: var(--sim-muted, #62727d);
+}
+
+.cell-image {
+  color: var(--tf-image);
+}
+
+/* Matriks */
+.tf-matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 10px;
+}
+
+.tf-matrix-card {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  padding: 10px 12px;
+  border: 1px solid var(--sim-line, #d5e0e4);
+  background: var(--sim-paper, #f3f7f5);
+}
+
+.tf-matrix-card p {
+  margin: 0;
+  color: var(--sim-muted, #62727d);
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.tf-matrix-card.is-active {
+  border-color: var(--tf-image);
+  background: #fdf3ec;
+}
+
+.tf-matrix-card.tf-composite {
+  border-color: var(--tf-original);
+  background: #eaf5f4;
+}
+
+.tf-matrix {
+  position: relative;
+  display: inline-grid;
+  gap: 4px 14px;
+  justify-self: start;
+  padding: 6px 12px;
+  border: 2px solid var(--tf-guide);
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.tf-matrix span {
+  min-width: 2.2ch;
+}
+
+.tf-sample {
+  display: grid;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--sim-line, #d5e0e4);
+}
+
+.tf-sample-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.tf-equation {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tf-operator {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.tf-insights {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--sim-muted, #62727d);
+  font-size: 11px;
+}
+
+.tf-insights li {
+  padding-left: 10px;
+  border-left: 3px solid var(--sim-line, #d5e0e4);
+}
+
+.tf-insights strong {
+  color: var(--sim-ink, #18313d);
+}
+
+@media (max-width: 900px) {
+  .tf-main {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .tf-board {
+    width: min(100%, 560px);
+  }
+}
+
+@media (max-width: 520px) {
+  .transformation-simulation {
+    gap: 10px;
+    padding: 9px;
+  }
+
+  .tf-board-panel,
+  .tf-panel {
+    padding: 8px;
+  }
+
+  .tf-board-heading > span {
+    display: none;
+  }
+
+  .tf-playback {
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding: 8px;
+  }
+
+  .tf-progress {
+    grid-column: 1 / -1;
+    order: 3;
+  }
+
+  .tf-fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tf-matrix {
+    font-size: 12px;
+    gap: 3px 10px;
+  }
+
+  .tf-table th,
+  .tf-table td {
+    padding: 6px;
+  }
+
+  .tf-table td {
+    font-size: 12px;
+  }
+
+  .tf-builder-actions button,
+  .tf-reset-row button {
+    flex: 1 1 auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .transformation-simulation * {
+    transition: none !important;
+  }
+}

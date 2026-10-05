@@ -36,7 +36,7 @@ export function SiteFooter({ navigate }: SiteFooterProps) {
       </div>
       <div className="site-width footer-bottom">
         <span>© 2026 Sumber Belajar Matematika · Toriq Afanudin</span>
-        <a href="mailto:toriqafanudin23@gmail.com">
+        <a href="mailto:pesan.math1729@gmail.com">
           Kalikajar, Wonosobo · Hubungi pengembang
         </a>
       </div>

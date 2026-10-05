@@ -1,0 +1,373 @@
+/* Memakai kelas .simulation-page, .simulation-section, .simulation-heading,
+   dst. dari TrigonometrySimulation.css (variabel --sim-* sudah tersedia). */
+
+.quadratic-simulation {
+  --quad-a: #087f8c;
+  --quad-b: #d16b36;
+  --quad-c: #527a41;
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  border-top: 3px solid var(--gold);
+  background: var(--sim-paper, #f3f7f5);
+  color: var(--sim-ink, #18313d);
+  font-variant-numeric: tabular-nums;
+}
+
+.quad-boards {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(250px, 0.75fr);
+  gap: 14px;
+  min-width: 0;
+}
+
+.quad-board-panel {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--sim-line, #d5e0e4);
+  background: #fff;
+}
+
+.quad-board-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  min-height: 28px;
+}
+
+.quad-board-heading h3 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.quad-equation {
+  color: #183e54;
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.quad-board {
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 1 / 1;
+  max-height: 520px;
+  margin-inline: auto;
+  overflow: hidden;
+  background-color: #fcfdfc;
+  background-image:
+    linear-gradient(rgba(72, 101, 103, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(72, 101, 103, 0.045) 1px, transparent 1px);
+  background-size: 24px 24px;
+  touch-action: none;
+}
+
+.quad-board .JXGtext {
+  font-family: "Open Sans", sans-serif;
+}
+
+.quad-legend {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  padding-top: 8px;
+  color: var(--sim-muted, #62727d);
+  font-size: 10px;
+}
+
+.quad-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.quad-legend i {
+  width: 16px;
+  height: 0;
+  border-top: 3px solid #183e54;
+}
+
+.quad-legend .legend-ref {
+  border-top: 2px dashed #9aa8b0;
+}
+
+.quad-legend .legend-axis {
+  border-top: 2px dashed var(--quad-b);
+}
+
+.quad-legend b {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.quad-legend .dot-vertex {
+  background: #927000;
+}
+
+.quad-legend .dot-root {
+  background: #b23a48;
+}
+
+.quad-legend .dot-c {
+  background: var(--quad-c);
+}
+
+/* Kontrol */
+.quad-controls {
+  display: grid;
+  align-content: start;
+  gap: 16px;
+  padding: 14px;
+  border: 1px solid var(--sim-line, #d5e0e4);
+  background: #fff;
+}
+
+.quad-slider {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  gap: 4px 12px;
+}
+
+.quad-slider label {
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 800;
+  font-family: "Cambria Math", Georgia, serif;
+}
+
+.quad-slider label small {
+  margin-left: 8px;
+  color: var(--sim-muted, #62727d);
+  font-family: "Open Sans", sans-serif;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.quad-slider output {
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.quad-slider-a label,
+.quad-slider-a output {
+  color: var(--quad-a);
+}
+
+.quad-slider-b label,
+.quad-slider-b output {
+  color: var(--quad-b);
+}
+
+.quad-slider-c label,
+.quad-slider-c output {
+  color: var(--quad-c);
+}
+
+.quad-slider input {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 26px;
+  margin: 2px 0 0;
+  cursor: ew-resize;
+}
+
+.quad-slider-a input {
+  accent-color: var(--quad-a);
+}
+
+.quad-slider-b input {
+  accent-color: var(--quad-b);
+}
+
+.quad-slider-c input {
+  accent-color: var(--quad-c);
+}
+
+.quad-range-labels {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  color: var(--sim-muted, #62727d);
+  font-size: 9px;
+  line-height: 1;
+}
+
+.quad-reset-button {
+  min-height: 38px;
+  padding: 0 13px;
+  border: 1px solid #aebdc2;
+  background: #fff;
+  color: var(--sim-ink, #18313d);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.quad-reset-button:hover {
+  border-color: var(--quad-a);
+  background: #e8f3f1;
+}
+
+.quadratic-simulation button:focus-visible,
+.quadratic-simulation input:focus-visible {
+  outline: 2px solid var(--quad-a);
+  outline-offset: 3px;
+}
+
+.quad-warning {
+  margin: 0;
+  padding: 9px 12px;
+  border: 1px solid #e2c27a;
+  background: #fff7e0;
+  color: #6b5200;
+  font-size: 12px;
+}
+
+/* Readouts */
+.quad-readouts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0;
+  border: 1px solid var(--sim-line, #d5e0e4);
+  background: #fff;
+}
+
+.quad-readouts > div {
+  min-width: 0;
+  padding: 10px 13px;
+  border-left: 1px solid var(--sim-line, #d5e0e4);
+  border-top: 1px solid var(--sim-line, #d5e0e4);
+}
+
+.quad-readouts > div:nth-child(-n + 3) {
+  border-top: 0;
+}
+
+.quad-readouts > div:nth-child(3n + 1) {
+  border-left: 0;
+}
+
+.quad-readouts dt {
+  margin-bottom: 2px;
+  color: var(--sim-muted, #62727d);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.quad-readouts dd {
+  margin: 0;
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.quad-readouts small {
+  display: block;
+  margin-top: 2px;
+  color: var(--sim-muted, #62727d);
+  font-size: 10px;
+}
+
+.quad-readouts .readout-a dd {
+  color: var(--quad-a);
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+}
+
+.quad-readouts .readout-b dd {
+  color: var(--quad-b);
+}
+
+.quad-readouts .readout-c dd {
+  color: var(--quad-c);
+}
+
+.quad-readouts .readout-vertex dd {
+  color: #927000;
+}
+
+.quad-readouts .readout-roots dd {
+  color: #b23a48;
+}
+
+/* Penjelasan */
+.quad-insights {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--sim-muted, #62727d);
+  font-size: 11px;
+}
+
+.quad-insights li {
+  padding-left: 10px;
+  border-left: 3px solid var(--sim-line, #d5e0e4);
+}
+
+@media (max-width: 860px) {
+  .quad-boards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .quad-board {
+    width: min(100%, 520px);
+  }
+}
+
+@media (max-width: 520px) {
+  .quadratic-simulation {
+    gap: 10px;
+    padding: 9px;
+  }
+
+  .quad-board-panel {
+    padding: 8px;
+  }
+
+  .quad-controls {
+    padding: 10px;
+    gap: 12px;
+  }
+
+  .quad-readouts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .quad-readouts > div {
+    padding: 8px;
+    border-top: 1px solid var(--sim-line, #d5e0e4);
+  }
+
+  .quad-readouts > div:nth-child(-n + 2) {
+    border-top: 0;
+  }
+
+  .quad-readouts > div:nth-child(3n + 1) {
+    border-left: 1px solid var(--sim-line, #d5e0e4);
+  }
+
+  .quad-readouts > div:nth-child(odd) {
+    border-left: 0;
+  }
+
+  .quad-readouts dd {
+    font-size: 14px;
+  }
+
+  .quad-reset-button {
+    width: 100%;
+  }
+}
