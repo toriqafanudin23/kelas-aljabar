@@ -106,13 +106,32 @@ export function SiteHeader({
             </div>
           </div>
 
-          <a
-            className={page === "download" ? "active" : ""}
-            href="/unduh"
-            onClick={(event) => handleNavigation(event, "download")}
-          >
-            Unduh
-          </a>
+          <div className="download-menu">
+            <a
+              className={
+                page === "download" || page === "bank-download" ? "active" : ""
+              }
+              href="/unduh"
+              onClick={(event) => handleNavigation(event, "download")}
+              aria-haspopup="true"
+            >
+              Unduh
+            </a>
+            <div className="download-dropdown" aria-label="Pilihan unduhan">
+              <a
+                href="/unduh"
+                onClick={(event) => handleNavigation(event, "download")}
+              >
+                Unduh Slide Presentasi
+              </a>
+              <a
+                href="/unduh-bank-soal"
+                onClick={(event) => handleNavigation(event, "bank-download")}
+              >
+                Unduh Bank Soal
+              </a>
+            </div>
+          </div>
 
           <a
             className={page === "about" ? "active" : ""}
@@ -195,13 +214,31 @@ export function SiteHeader({
               Katalog Materi
             </a>
 
-            <a
-              className={`drawer-primary-link ${page === "download" ? "active" : ""}`}
-              href="/unduh"
-              onClick={(event) => handleNavigation(event, "download")}
-            >
-              Unduh
-            </a>
+            <div className="drawer-download-group">
+              <a
+                className={`drawer-primary-link ${page === "download" || page === "bank-download" ? "active" : ""}`}
+                href="/unduh"
+                onClick={(event) => handleNavigation(event, "download")}
+              >
+                Unduh
+              </a>
+              <div className="drawer-download-links">
+                <a
+                  className={page === "download" ? "active" : ""}
+                  href="/unduh"
+                  onClick={(event) => handleNavigation(event, "download")}
+                >
+                  Unduh Slide Presentasi
+                </a>
+                <a
+                  className={page === "bank-download" ? "active" : ""}
+                  href="/unduh-bank-soal"
+                  onClick={(event) => handleNavigation(event, "bank-download")}
+                >
+                  Unduh Bank Soal
+                </a>
+              </div>
+            </div>
 
             {/* Accordion Modul Cepat yang Rapi dan Tidak Memenuhi Layar */}
             <div className="drawer-accordion">

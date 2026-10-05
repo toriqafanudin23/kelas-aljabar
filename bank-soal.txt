@@ -1,0 +1,81 @@
+DAFTAR BANK SOAL
+
+
+
+
+Eksponensial dan Logaritma
+https://tpaknparzpagspfgwigx.supabase.co/storage/v1/object/public/slide-berdasarkan-kelas/soal10/01latihan_eksponen_logaritma.pdf
+
+Barisan dan Deret
+https://tpaknparzpagspfgwigx.supabase.co/storage/v1/object/public/slide-berdasarkan-kelas/soal10/02latihan_barisan_deret.pdf
+
+Vektor
+https://tpaknparzpagspfgwigx.supabase.co/storage/v1/object/public/slide-berdasarkan-kelas/soal10/03latihan_vektor.pdf
+
+Perbandingan Trigonometri
+https://tpaknparzpagspfgwigx.supabase.co/storage/v1/object/public/slide-berdasarkan-kelas/soal10/04latihan_perbandingan_trigonometri.pdf
+
+Sistem Persamaan dan Pertidaksamaan Linear
+https://tpaknparzpagspfgwigx.supabase.co/storage/v1/object/public/slide-berdasarkan-kelas/soal10/05latihan_sistem_persamaan_pertidaksamaan_linear.pdf
+
+Fungsi Kuadrat
+https://tpaknparzpagspfgwigx.supabase.co/storage/v1/object/public/slide-berdasarkan-kelas/soal10/06latihan_fungsi_kuadrat.pdf
+
+Statistika
+https://tpaknparzpagspfgwigx.supabase.co/storage/v1/object/public/slide-berdasarkan-kelas/soal10/07latihan_statistika.pdf
+
+Teori Peluang
+https://tpaknparzpagspfgwigx.supabase.co/storage/v1/object/public/slide-berdasarkan-kelas/soal10/08latihan_peluang.pdf
+
+Bilangan Kompleks
+https://tpaknparzpagspfgwigx.supabase.co/storage/v1/object/public/slide-berdasarkan-kelas/soal11/latihan_bilangan_kompleks.pdf
+
+Komposisi Fungsi dan Invers
+https://tpaknparzpagspfgwigx.supabase.co/storage/v1/object/public/slide-berdasarkan-kelas/soal11/latihan_komposisi_fungsi_invers.pdf
+
+Lingkaran
+https://tpaknparzpagspfgwigx.supabase.co/storage/v1/object/public/slide-berdasarkan-kelas/soal11/latihan_lingkaran.pdf
+
+Polinomial
+https://tpaknparzpagspfgwigx.supabase.co/storage/v1/object/public/slide-berdasarkan-kelas/soal11/latihan_polinomial.pdf
+
+Transformasi Geometri
+https://tpaknparzpagspfgwigx.supabase.co/storage/v1/object/public/slide-berdasarkan-kelas/soal11/latihan_transformasi_geometri.pdf
+
+Matriks
+https://tpaknparzpagspfgwigx.supabase.co/storage/v1/object/public/slide-berdasarkan-kelas/soal11/matriks_latihan.pdf
+
+Irisan Kerucut
+https://tpaknparzpagspfgwigx.supabase.co/storage/v1/object/public/slide-berdasarkan-kelas/soal12/latihan_irisan_kerucut.pdf
+
+Fungsi dan Pemodelan
+https://tpaknparzpagspfgwigx.supabase.co/storage/v1/object/public/slide-berdasarkan-kelas/soal12/fungsi_latihan.pdf
+
+Transformasi Fungsi
+https://tpaknparzpagspfgwigx.supabase.co/storage/v1/object/public/slide-berdasarkan-kelas/soal12/latihan_transformasi_fungsi.pdf
+
+Kombinatorika
+https://tpaknparzpagspfgwigx.supabase.co/storage/v1/object/public/slide-berdasarkan-kelas/soal12/latihan_kombinatorika.pdf
+
+Analisis Data dan Peluang
+https://tpaknparzpagspfgwigx.supabase.co/storage/v1/object/public/slide-berdasarkan-kelas/soal12/latihan_analisis_data_peluang.pdf
+
+Limit
+https://tpaknparzpagspfgwigx.supabase.co/storage/v1/object/public/slide-berdasarkan-kelas/soal12/latihan_limit.pdf
+
+Turunan Fungsi
+https://tpaknparzpagspfgwigx.supabase.co/storage/v1/object/public/slide-berdasarkan-kelas/soal12/latihan_turunan.pdf
+
+Integral
+https://tpaknparzpagspfgwigx.supabase.co/storage/v1/object/public/slide-berdasarkan-kelas/soal12/latihan_integral.pdf
+
+SERIES SOAL SMP
+Pegantar Himpunan, Relasi, dan Fungsi
+https://tpaknparzpagspfgwigx.supabase.co/storage/v1/object/public/slide-berdasarkan-kelas/soalSMP/latihan_himpunan_relasi_fungsi.pdf
+
+
+
+
+
+
+

@@ -208,8 +208,15 @@ summary:focus-visible {
   display: flex;
   align-items: center;
 }
+.download-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
 .catalog-menu:hover .catalog-dropdown,
-.catalog-menu:focus-within .catalog-dropdown {
+.catalog-menu:focus-within .catalog-dropdown,
+.download-menu:hover .download-dropdown,
+.download-menu:focus-within .download-dropdown {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -240,6 +247,27 @@ summary:focus-visible {
     transform 0.18s ease;
   z-index: 100;
 }
+.download-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px;
+  background: rgba(10, 28, 42, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition:
+    opacity 0.18s ease,
+    visibility 0.18s ease,
+    transform 0.18s ease;
+  z-index: 100;
+}
 .catalog-dropdown::-webkit-scrollbar {
   display: none;
 }
@@ -255,6 +283,23 @@ summary:focus-visible {
     border-color 0.18s ease;
 }
 .catalog-dropdown a:hover {
+  color: var(--gold-light);
+  background: rgba(255, 255, 255, 0.06);
+  border-left-color: var(--gold);
+}
+.download-dropdown a {
+  padding: 7px 10px;
+  border-left: 2px solid transparent;
+  color: #e2e8ef;
+  font-size: 12.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition:
+    background 0.18s ease,
+    color 0.18s ease,
+    border-color 0.18s ease;
+}
+.download-dropdown a:hover {
   color: var(--gold-light);
   background: rgba(255, 255, 255, 0.06);
   border-left-color: var(--gold);
@@ -363,6 +408,29 @@ summary:focus-visible {
   color: var(--navy-deep);
   background: var(--gold);
   font-weight: 700;
+}
+.drawer-download-group {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.drawer-download-group .drawer-primary-link {
+  border-bottom: 0;
+}
+.drawer-download-links {
+  display: grid;
+  padding: 0 14px 10px 28px;
+}
+.drawer-download-links a {
+  padding: 7px 10px;
+  border-left: 2px solid transparent;
+  color: #c8d4de;
+  font-size: 12px;
+  font-weight: 600;
+}
+.drawer-download-links a:hover,
+.drawer-download-links a.active {
+  border-left-color: var(--gold);
+  color: var(--gold-light);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 /* Accordion Modul Cepat */
@@ -1230,8 +1298,14 @@ summary:focus-visible {
   color: var(--navy-deep);
 }
 .download-preview-frame {
+  position: relative;
   height: clamp(420px, 58vw, 680px);
   overflow: hidden;
+  background: #fff;
+}
+.download-preview-frame:fullscreen {
+  width: 100vw;
+  height: 100vh;
   background: #fff;
 }
 .download-preview-frame iframe {
@@ -1239,6 +1313,28 @@ summary:focus-visible {
   height: 100%;
   display: block;
   border: 0;
+}
+.download-preview-fullscreen {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: rgba(15, 23, 32, 0.82);
+  color: #fff;
+  cursor: pointer;
+}
+.download-preview-fullscreen:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.download-preview-fullscreen:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
 }
 .download-list {
   display: grid;
@@ -2060,7 +2156,7 @@ summary:focus-visible {
     font-size: 17px;
   }
   .download-preview-frame {
-    height: 440px;
+    display: none;
   }
   .download-list-heading {
     display: none;

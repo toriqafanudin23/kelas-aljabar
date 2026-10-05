@@ -39,21 +39,14 @@ export function HomePage({ navigate }: HomePageProps) {
               </a>
               <a
                 className="button button-quiet"
-                href="/tentang"
-                onClick={(event) => navigate(event, "about")}
+                href="/unduh"
+                onClick={(event) => navigate(event, "download")}
               >
-                Tentang Portal <span aria-hidden="true">→</span>
+                <span className="hero-new-tag">Baru</span>
+                <span>Slide Presentasi Menarik</span>
+                <span aria-hidden="true">→</span>
               </a>
             </div>
-            <a
-              className="hero-new-resource"
-              href="/unduh"
-              onClick={(event) => navigate(event, "download")}
-            >
-              <span className="hero-new-tag">Baru</span>
-              <span>Slide presentasi menarik berbasis LaTeX</span>
-              <span aria-hidden="true">→</span>
-            </a>
           </div>
           <aside className="focus-panel">
             <div className="panel-heading">

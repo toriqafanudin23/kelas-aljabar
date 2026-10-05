@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import type { Navigate } from "../types/navigation";
 
 interface SlideDownload {
@@ -97,7 +98,11 @@ const gradeSlides: GradeSlides[] = [
       { number: "19", title: "Limit", file: "kelas12/19limit.pdf" },
       { number: "20", title: "Turunan Fungsi", file: "kelas12/20turunan.pdf" },
       { number: "21", title: "Integral", file: "kelas12/21integral.pdf" },
-      { number: "22", title: "Analisis Data dan Peluang", file: null },
+      {
+        number: "22",
+        title: "Analisis Data dan Peluang",
+        file: "kelas12/22analisis-data-peluang.pdf",
+      },
     ],
   },
 ];
@@ -107,6 +112,36 @@ interface DownloadPageProps {
 }
 
 export function DownloadPage({ navigate }: DownloadPageProps) {
+  const previewFrameRef = useRef<HTMLDivElement>(null);
+  const [isPreviewFullscreen, setIsPreviewFullscreen] = useState(false);
+
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsPreviewFullscreen(
+        document.fullscreenElement === previewFrameRef.current,
+      );
+    };
+
+    document.addEventListener("fullscreenchange", handleFullscreenChange);
+    return () =>
+      document.removeEventListener("fullscreenchange", handleFullscreenChange);
+  }, []);
+
+  const togglePreviewFullscreen = async () => {
+    const previewFrame = previewFrameRef.current;
+    if (!previewFrame) return;
+
+    try {
+      if (document.fullscreenElement === previewFrame) {
+        await document.exitFullscreen();
+      } else {
+        await previewFrame.requestFullscreen();
+      }
+    } catch {
+      setIsPreviewFullscreen(false);
+    }
+  };
+
   return (
     <main className="site-width inner-page download-page">
       <div className="breadcrumb">
@@ -162,12 +197,53 @@ export function DownloadPage({ navigate }: DownloadPageProps) {
             </svg>
           </a>
         </div>
-        <div className="download-preview-frame">
+        <div className="download-preview-frame" ref={previewFrameRef}>
           <iframe
             src={`${slideFolder}kelas10/01eksponensial.pdf`}
             title="Pratinjau PDF Eksponensial dan Logaritma"
             loading="lazy"
           />
+          <button
+            className="download-preview-fullscreen"
+            type="button"
+            onClick={togglePreviewFullscreen}
+            aria-label={
+              isPreviewFullscreen ? "Keluar dari layar penuh" : "Layar penuh"
+            }
+            title={
+              isPreviewFullscreen ? "Keluar dari layar penuh" : "Layar penuh"
+            }
+          >
+            {isPreviewFullscreen ? (
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M8 3v5H3M16 3v5h5M8 21v-5H3m13 5v-5h5" />
+              </svg>
+            ) : (
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M8 3H5a2 2 0 0 0-2 2v3m13-5h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3m13 5h3a2 2 0 0 0 2-2v-3" />
+              </svg>
+            )}
+          </button>
         </div>
       </section>
 

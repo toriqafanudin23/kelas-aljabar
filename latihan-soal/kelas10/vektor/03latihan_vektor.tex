@@ -1,0 +1,160 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage[a4paper,left=2cm,right=2cm,top=3.6cm,bottom=2.3cm,headheight=1.1cm,headsep=0.6cm,footskip=1cm]{geometry}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{needspace}
+
+\definecolor{navy}{HTML}{1F3A5F}
+\definecolor{teal}{HTML}{0F8B7D}
+\definecolor{softbg}{HTML}{F4F7FA}
+\newcommand{\dis}{\displaystyle}
+\newcommand{\ov}[1]{\overrightarrow{#1}}
+
+\setlength{\parindent}{0pt}
+\renewcommand{\arraystretch}{1.35}
+
+% ---------- header berwarna navy ----------
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[L]{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[navy] ([yshift=-1.2cm]current page.north west) rectangle ([yshift=-3.15cm]current page.north east);
+    \fill[teal] ([yshift=-3.15cm]current page.north west) rectangle ([yshift=-3.25cm]current page.north east);
+  \end{tikzpicture}%
+  \color{white}\bfseries\large Latihan Soal Vektor}
+\fancyhead[R]{\color{white}\small Diunduh dari website \textbf{Math1729}\ \,|\,\ 4 Oktober 2026}
+\fancyfoot[L]{\small\color{navy}Math1729 --- Vektor}
+\fancyfoot[R]{\small\color{navy}Halaman \thepage\ dari \pageref{LastPage}}
+
+% ---------- komponen ----------
+\newcounter{no}
+\newcommand{\bagian}[2]{\par\Needspace{6\baselineskip}\vspace{1.0em}\noindent
+  \begin{tcolorbox}[colback=navy,colframe=navy,coltext=white,boxrule=0pt,arc=2pt,left=6pt,right=6pt,top=3pt,bottom=3pt]
+  \textbf{#1}\hfill{\small #2}\end{tcolorbox}\setcounter{no}{0}\par\vspace{-0.3em}}
+\newcommand{\tingkat}[2]{\par\Needspace{7\baselineskip}\vspace{0.6em}\noindent
+  {\color{teal}\rule{3pt}{1.1em}}\ {\color{navy}\bfseries #1}\ {\small\color{gray}--- #2}\par\vspace{0.1em}}
+\newcommand{\soal}[2]{\par\vspace{0.75em}\stepcounter{no}\noindent
+  \begin{minipage}[t]{1.8em}\textbf{\theno.}\end{minipage}%
+  \begin{minipage}[t]{\dimexpr\linewidth-1.8em\relax}#1\par\vspace{0.35em}#2\end{minipage}\par}
+\newcommand{\poin}[1]{\hfill{\small\color{navy}[#1 poin]}}
+% pilihan jawaban: 5 kolom atau 3 kolom (dua baris)
+\newcommand{\pil}[5]{\begin{tabularx}{\linewidth}{@{}*{5}{X}@{}}\textbf{A.}\;$#1$ & \textbf{B.}\;$#2$ & \textbf{C.}\;$#3$ & \textbf{D.}\;$#4$ & \textbf{E.}\;$#5$\end{tabularx}}
+\newcommand{\pilt}[5]{\begin{tabularx}{\linewidth}{@{}*{3}{X}@{}}\textbf{A.}\;$#1$ & \textbf{B.}\;$#2$ & \textbf{C.}\;$#3$\\[3pt]\textbf{D.}\;$#4$ & \textbf{E.}\;$#5$ & \end{tabularx}}
+
+\begin{document}
+\thispagestyle{fancy}
+
+\begin{center}
+  {\color{navy}\fontsize{22}{26}\selectfont\bfseries Latihan Soal Vektor\par}
+\end{center}
+\vspace{2pt}
+\begin{tcolorbox}[colback=softbg,colframe=navy!40,boxrule=0.6pt,arc=3pt,left=8pt,right=8pt,top=5pt,bottom=5pt]
+\noindent\textbf{Nama} : \rule{4.6cm}{0.4pt}\hfill\textbf{Kelas} : \rule{2.2cm}{0.4pt}\hfill\textbf{Skor} : \rule{2.2cm}{0.4pt}
+\end{tcolorbox}
+\vspace{2pt}
+\begin{tcolorbox}[colback=white,colframe=teal,boxrule=0.8pt,arc=3pt,left=8pt,right=8pt,top=4pt,bottom=4pt,title={\bfseries Petunjuk Pengerjaan},coltitle=white,fonttitle=\small]
+\small
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt,topsep=1pt]
+\item Soal terdiri atas \textbf{20 pilihan ganda} (5 mudah, 5 sedang, 10 sulit), \textbf{5 isian singkat}, dan \textbf{5 uraian (essay)}. Alokasi waktu yang disarankan: 90 menit.
+\item Skor: pilihan ganda 2 poin, isian singkat 4 poin, uraian 8 poin per soal (total 100 poin). Tidak ada pengurangan skor untuk jawaban salah.
+\item Vektor di ruang ditulis $\vec a=(a_1,a_2,a_3)=a_1\vec i+a_2\vec j+a_3\vec k$. Notasi $|\vec a|$ adalah panjang vektor, $\vec a\cdot\vec b$ hasil kali titik, dan $\vec a\times\vec b$ hasil kali silang.
+\item Soal tingkat sulit (nomor 11--20) banyak mengikuti pola soal UTBK/SNBT; gambarlah sketsa bila perlu.
+\end{enumerate}
+\end{tcolorbox}
+
+\bagian{A. Pilihan Ganda}{20 soal $\times$ 2 poin = 40 poin. Pilih satu jawaban yang paling tepat.}
+
+\tingkat{Tingkat Mudah}{soal 1--5}
+\soal{Diketahui titik $A(3,-2,5)$ dan $B(-1,4,2)$. Vektor $\ov{AB}$ adalah \dots.}{\pilt{4\vec i-6\vec j+3\vec k}{2\vec i+2\vec j+7\vec k}{-4\vec i+6\vec j-3\vec k}{-4\vec i+6\vec j+3\vec k}{2\vec i+2\vec j+3\vec k}}
+\soal{Diketahui $\vec a=3\vec i-\vec j+2\vec k$ dan $\vec b=\vec i+3\vec j-2\vec k$. Panjang vektor $\vec a+\vec b$ adalah \dots.}{\pil{\sqrt{10}}{2\sqrt5}{5}{2\sqrt{10}}{8}}
+\soal{Vektor $\vec a=(p,-4,6)$ sejajar dengan vektor $\vec b=(3,2,-3)$. Nilai $p$ adalah \dots.}{\pil{-12}{-9}{-6}{6}{9}}
+\soal{Vektor $\vec a=p\vec i-3\vec j+2\vec k$ tegak lurus dengan vektor $\vec b=2\vec i+p\vec j+3\vec k$. Nilai $p$ adalah \dots.}{\pil{-6}{-3}{3}{6}{9}}
+\soal{Titik $M$ adalah titik tengah ruas garis $AB$ dengan $A(4,-2,7)$ dan $B(-2,6,1)$. Koordinat $M$ adalah \dots.}{\pil{(-3,4,-3)}{(3,-4,3)}{(2,4,8)}{(6,-8,6)}{(1,2,4)}}
+
+\tingkat{Tingkat Sedang}{soal 6--10}
+\soal{Besar sudut antara vektor $\vec a=\vec i+2\vec j+2\vec k$ dan $\vec b=-3\vec i-3\vec j$ adalah \dots.}{\pil{45^\circ}{60^\circ}{120^\circ}{135^\circ}{150^\circ}}
+\soal{Diketahui $\vec a=(p,3,-1)$ dan $\vec b=(1,-2,2)$. Jika panjang proyeksi $\vec a$ pada $\vec b$ sama dengan $2$, maka jumlah semua nilai $p$ yang mungkin adalah \dots.}{\pil{8}{10}{12}{14}{16}}
+\soal{Titik $B$ terletak pada ruas garis $AC$ dengan $A(-1,3,2)$ dan $C(9,-2,7)$ sehingga $AB:BC=2:3$. Koordinat titik $B$ adalah \dots.}{\pilt{(5,0,5)}{(3,1,4)}{\left(4,\dis\frac12,\dis\frac92\right)}{(1,2,3)}{(15,5,20)}}
+\soal{Luas segitiga $ABC$ dengan $A(1,0,2)$, $B(4,2,4)$, dan $C(2,2,0)$ adalah \dots\ satuan luas.}{\pil{3}{4}{6}{9}{12}}
+\soal{Diketahui $\vec a=(1,2,-1)$, $\vec b=(2,-1,1)$, dan $\vec c=(p,5,-4)$. Jika $\vec c=m\vec a+n\vec b$, nilai $p$ adalah \dots.}{\pil{-5}{-3}{-1}{1}{5}}
+
+\tingkat{Tingkat Sulit}{soal 11--20, sebagian bergaya UTBK/SNBT}
+\soal{Sudut antara vektor $\vec a=x\vec i+2x\vec j+4\vec k$ (dengan $x>0$) dan vektor $\vec b$ adalah $60^\circ$. Jika panjang proyeksi $\vec a$ pada $\vec b$ sama dengan $3$, maka $x=$ \dots.}{\pil{1}{2}{3}{4}{5}}
+\soal{Segitiga $ABC$ dengan $A(1,2,0)$, $B(3,1,2)$, dan $C(p,3,-2)$ siku-siku di salah satu titik sudutnya. Jumlah semua nilai $p$ yang mungkin adalah \dots.}{\pil{\dis\frac72}{\dis\frac{15}{2}}{8}{\dis\frac{21}{2}}{\dis\frac{23}{2}}}
+\soal{Vektor $\vec a$, $\vec b$, dan $\vec c$ adalah vektor satuan dengan $\vec a+\vec b+\vec c=\vec 0$. Nilai $\vec a\cdot\vec b+\vec b\cdot\vec c+\vec c\cdot\vec a$ adalah \dots.}{\pil{-3}{-2}{-\dis\frac32}{-\dis\frac12}{0}}
+\soal{Diketahui $\vec a=(p,3,-2)$ dan $\vec b=(p-8,1,-2)$. Banyak bilangan bulat $p$ sehingga sudut antara $\vec a$ dan $\vec b$ tumpul adalah \dots.}{\pil{5}{6}{7}{8}{\text{tak hingga}}}
+\soal{Pada segitiga $ABC$, titik $D$ terletak pada $BC$ dengan $BD:DC=2:1$, dan titik $E$ terletak pada $AD$ dengan $AE:ED=3:1$. Garis $BE$ diperpanjang memotong $AC$ di $F$. Perbandingan $AF:FC$ adalah \dots.}{\pil{1:2}{1:1}{3:2}{2:1}{3:1}}
+\soal{Diketahui titik $O(0,0,0)$, $A(2,1,0)$, $B(0,3,1)$, dan $C(2,1,3)$. Volume limas segitiga $O.ABC$ adalah \dots\ satuan volume.}{\pil{\dis\frac12}{1}{\dis\frac32}{3}{6}}
+\soal{Garis $g$ melalui titik $A(1,1,1)$ dengan vektor arah $\vec d=(2,1,2)$. Jarak titik $Q(4,3,6)$ ke garis $g$ adalah \dots.}{\pil{\sqrt2}{\sqrt3}{2}{2\sqrt2}{3\sqrt2}}
+\soal{Pada kubus $ABCD.EFGH$ dengan panjang rusuk $4$, titik $P$ adalah titik tengah rusuk $EF$. Nilai kosinus sudut $\angle APC$ adalah \dots.}{\pil{\dis\frac15}{\dis\frac{\sqrt5}{10}}{\dis\frac{\sqrt5}{6}}{\dis\frac25}{\dis\frac{\sqrt5}{5}}}
+\soal{Diketahui $|\vec a|=|\vec b|=|\vec a+\vec b|$. Besar sudut antara vektor $\vec a$ dan vektor $\vec a-\vec b$ adalah \dots.}{\pil{15^\circ}{30^\circ}{45^\circ}{60^\circ}{90^\circ}}
+\soal{Diketahui $|\vec a|=3$, $|\vec b|=4$, dan $|\vec a+\vec b|=2|\vec a-\vec b|$. Jika $\theta$ adalah sudut antara $\vec a$ dan $\vec b$, maka $\cos\theta=$ \dots.}{\pil{\dis\frac58}{\dis\frac23}{\dis\frac34}{\dis\frac45}{\dis\frac78}}
+
+\bagian{B. Isian Singkat}{5 soal $\times$ 4 poin = 20 poin. Tuliskan hanya jawaban akhir.}
+\soal{Diketahui $\vec u=6\vec i+a\vec j+b\vec k$ dan $\vec v=a\vec i-\vec j+2\vec k$. Jika proyeksi vektor ortogonal $\vec u$ pada $\vec v$ adalah $\vec p=4\vec i-2\vec j+4\vec k$, maka nilai $a+b$ adalah \dots}{\hfill Jawaban: \rule{4.5cm}{0.4pt}}
+\soal{Diketahui $|\vec a|=4$, $|\vec b|=6$, dan sudut antara $\vec a$ dan $\vec b$ adalah $120^\circ$. Nilai $|2\vec a-\vec b|$ adalah \dots}{\hfill Jawaban: \rule{4.5cm}{0.4pt}}
+\soal{Garis $g$ melalui $A(2,-1,3)$ dengan vektor arah $\vec d=(1,2,-2)$. Titik $P$ pada $g$ berjarak $6$ satuan dari $A$ dan berabsis lebih dari $2$. Jumlah koordinat titik $P$ adalah \dots}{\hfill Jawaban: \rule{4.5cm}{0.4pt}}
+\soal{Titik $P$ terletak pada sumbu-$x$ dan berjarak sama terhadap $A(1,2,2)$ dan $B(3,-2,4)$. Koordinat titik $P$ adalah \dots}{\hfill Jawaban: \rule{4.5cm}{0.4pt}}
+\soal{Vektor $\vec a=(2,-1,k)$, $\vec b=(1,3,2)$, dan $\vec c=(0,1,-1)$ terletak pada satu bidang (sebidang). Nilai $k$ adalah \dots}{\hfill Jawaban: \rule{4.5cm}{0.4pt}}
+
+\bagian{C. Uraian (Essay)}{5 soal $\times$ 8 poin = 40 poin. Tuliskan langkah penyelesaian dengan lengkap.}
+\soal{Diketahui vektor $\vec a$ dan $\vec b$ tak nol.\par\smallskip\hspace*{0.3em}(a) Buktikan bahwa jika $|\vec a|=|\vec b|$, maka $(\vec a+\vec b)\perp(\vec a-\vec b)$.\par\hspace*{0.3em}(b) Diketahui $\vec a=\vec i+2\vec j+2\vec k$ dan $\vec b=2\vec i+p\vec j+\vec k$ dengan $p>0$ dan $|\vec a|=|\vec b|$. Tentukan $p$.\par\hspace*{0.3em}(c) Dengan nilai $p$ tersebut, hitunglah luas jajargenjang yang dibentuk $\vec a$ dan $\vec b$ dengan dua cara: memakai hasil kali silang, dan memakai panjang kedua diagonalnya.}{\poin{8}}
+\soal{Diketahui titik $A(2,0,-1)$, $B(4,2,0)$, dan $C(5,3,5)$.\par\smallskip\hspace*{0.3em}(a) Tulislah persamaan vektor garis $AB$.\par\hspace*{0.3em}(b) Tentukan koordinat titik $T$ pada garis $AB$ yang terdekat dengan $C$, lalu hitung jarak $C$ ke garis $AB$.\par\hspace*{0.3em}(c) Hitunglah luas segitiga $ABC$ dengan dua cara.}{\poin{8}}
+\soal{Pada segitiga $ABC$, titik $D$ adalah titik tengah $BC$, dan $G$ adalah titik berat segitiga.\par\smallskip\hspace*{0.3em}(a) Buktikan dengan vektor posisi bahwa $\vec g=\dis\frac{\vec a+\vec b+\vec c}{3}$ terletak pada $AD$ dan $AG:GD=2:1$.\par\hspace*{0.3em}(b) Jika $A(4,-1,1)$, $B(0,1,3)$, dan $C(2,3,5)$, tentukan koordinat $G$ dan $D$.\par\hspace*{0.3em}(c) Hitunglah panjang $AG$ dan $GD$, lalu periksa perbandingannya.}{\poin{8}}
+\soal{Ketaksamaan Cauchy-Schwarz menyatakan $|\vec a\cdot\vec b|\le|\vec a|\,|\vec b|$.\par\smallskip\hspace*{0.3em}(a) Buktikan ketaksamaan tersebut menggunakan $\vec a\cdot\vec b=|\vec a||\vec b|\cos\theta$, dan tentukan kapan kesamaan terjadi.\par\hspace*{0.3em}(b) Jika $x^{2}+y^{2}+z^{2}=49$, tentukan nilai maksimum $2x+3y+6z$ beserta nilai $x,y,z$ saat maksimum tercapai.\par\hspace*{0.3em}(c) Jika $2x+3y+6z=21$, tentukan nilai minimum $x^{2}+y^{2}+z^{2}$.}{\poin{8}}
+\soal{Kubus $ABCD.EFGH$ memiliki panjang rusuk $6$. Tempatkan $A(0,0,0)$, $B(6,0,0)$, $D(0,6,0)$, dan $E(0,0,6)$. Titik $P$ adalah titik tengah rusuk $CG$ dan $Q$ adalah titik tengah rusuk $EH$.\par\smallskip\hspace*{0.3em}(a) Tentukan nilai $\cos\angle PAQ$.\par\hspace*{0.3em}(b) Tentukan proyeksi skalar ortogonal $\ov{AP}$ pada $\ov{AQ}$.\par\hspace*{0.3em}(c) Hitunglah luas segitiga $APQ$.}{\poin{8}}
+
+\newpage
+\bagian{Kunci Jawaban dan Pembahasan Singkat}{Untuk guru dan pembahasan mandiri}
+\par\vspace{0.6em}{\bfseries\color{navy}Kunci Pilihan Ganda}\par\vspace{0.3em}
+\begin{tabularx}{\linewidth}{@{}*{10}{>{\centering\arraybackslash}X}@{}}\hline \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10}\\ \hline C & B & C & D & E & D & E & B & C & A\\ \hline\end{tabularx}\par\vspace{0.4em}\begin{tabularx}{\linewidth}{@{}*{10}{>{\centering\arraybackslash}X}@{}}\hline \textbf{11} & \textbf{12} & \textbf{13} & \textbf{14} & \textbf{15} & \textbf{16} & \textbf{17} & \textbf{18} & \textbf{19} & \textbf{20}\\ \hline B & E & C & A & D & D & A & E & B & A\\ \hline\end{tabularx}
+\par\vspace{0.8em}{\bfseries\color{navy}Pembahasan Pilihan Ganda}\par\vspace{0.2em}
+\small\begin{enumerate}[leftmargin=2em,itemsep=2pt,topsep=2pt]
+\item[\textbf{1.}] \textbf{(C)} Ujung dikurangi pangkal: $\ov{AB}=(-1-3,\ 4-(-2),\ 2-5)=(-4,6,-3)$.
+\item[\textbf{2.}] \textbf{(B)} $\vec a+\vec b=(4,2,0)$, sehingga $|\vec a+\vec b|=\sqrt{16+4}=2\sqrt5$.
+\item[\textbf{3.}] \textbf{(C)} Karena $\dis\frac{-4}{2}=\dis\frac{6}{-3}=-2$, maka $\vec a=-2\vec b$, sehingga $p=-2\cdot3=-6$.
+\item[\textbf{4.}] \textbf{(D)} $\vec a\cdot\vec b=2p-3p+6=6-p=0\Rightarrow p=6$.
+\item[\textbf{5.}] \textbf{(E)} $M=\left(\dis\frac{4-2}{2},\dis\frac{-2+6}{2},\dis\frac{7+1}{2}\right)=(1,2,4)$.
+\item[\textbf{6.}] \textbf{(D)} $\vec a\cdot\vec b=-3-6=-9$, $|\vec a|=3$, $|\vec b|=3\sqrt2$. Maka $\cos\theta=\dis\frac{-9}{9\sqrt2}=-\dis\frac{\sqrt2}{2}\Rightarrow\theta=135^\circ$.
+\item[\textbf{7.}] \textbf{(E)} $\vec a\cdot\vec b=p-6-2=p-8$ dan $|\vec b|=3$. Panjang proyeksi $=\dis\frac{|p-8|}{3}=2\Rightarrow p-8=\pm6\Rightarrow p=14$ atau $p=2$. Jumlahnya $16$.
+\item[\textbf{8.}] \textbf{(B)} $AB:BC=2:3$ sehingga $\vec b=\dis\frac{3\vec a+2\vec c}{5}=\dis\frac{(-3,9,6)+(18,-4,14)}{5}=(3,1,4)$.
+\item[\textbf{9.}] \textbf{(C)} $\ov{AB}=(3,2,2)$, $\ov{AC}=(1,2,-2)$, $\ov{AB}\times\ov{AC}=(-8,8,4)$ dengan panjang $\sqrt{64+64+16}=12$. Luas $=\dis\frac12\cdot12=6$.
+\item[\textbf{10.}] \textbf{(A)} Komponen $y$: $2m-n=5$; komponen $z$: $-m+n=-4$. Dijumlahkan: $m=1$, sehingga $n=-3$. Komponen $x$: $p=m+2n=1-6=-5$.
+\item[\textbf{11.}] \textbf{(B)} Panjang proyeksi $=|\vec a|\cos60^\circ=\dis\frac12|\vec a|=3\Rightarrow|\vec a|=6$. Maka $x^{2}+4x^{2}+16=36\Rightarrow x^{2}=4$, dan karena $x>0$, $x=2$.
+\item[\textbf{12.}] \textbf{(E)} Siku-siku di $A$: $\ov{AB}\cdot\ov{AC}=2(p-1)-1-4=0\Rightarrow p=\dis\frac72$. Siku-siku di $B$: $\ov{BA}\cdot\ov{BC}=-2(p-3)+2+8=0\Rightarrow p=8$. Siku-siku di $C$: $\ov{CA}\cdot\ov{CB}=p^{2}-4p+13=0$ tidak punya akar real (diskriminan $16-52<0$). Jumlahnya $\dis\frac72+8=\dis\frac{23}{2}$.
+\item[\textbf{13.}] \textbf{(C)} $|\vec a+\vec b+\vec c|^{2}=0=1+1+1+2(\vec a\cdot\vec b+\vec b\cdot\vec c+\vec c\cdot\vec a)$, sehingga jumlahnya $-\dis\frac32$.
+\item[\textbf{14.}] \textbf{(A)} Sudut tumpul $\iff\vec a\cdot\vec b<0$: $p(p-8)+3+4=p^{2}-8p+7=(p-1)(p-7)<0\Rightarrow1<p<7$. Bilangan bulatnya $2,3,4,5,6$, yaitu $5$ bilangan. (Kedua vektor tidak mungkin berlawanan arah karena komponen $z$ keduanya sama.)
+\item[\textbf{15.}] \textbf{(D)} Ambil $A$ sebagai titik asal, $\vec b=\ov{AB}$, $\vec c=\ov{AC}$. Maka $\vec d=\dis\frac{\vec b+2\vec c}{3}$ dan $\vec e=\dis\frac34\vec d=\dis\frac{\vec b+2\vec c}{4}$. Titik $F$ pada $BE$: $(1-\mu)\vec b+\mu\vec e$ harus sejajar $\vec c$, jadi koefisien $\vec b$ sama dengan nol: $1-\mu+\dis\frac{\mu}{4}=0\Rightarrow\mu=\dis\frac43$. Koefisien $\vec c$: $\dis\frac{\mu}{2}=\dis\frac23$, sehingga $\ov{AF}=\dis\frac23\vec c$ dan $AF:FC=2:1$.
+\item[\textbf{16.}] \textbf{(D)} $\vec b\times\vec c=(8,2,-6)$ dan $\vec a\cdot(\vec b\times\vec c)=16+2+0=18$. Volume limas $=\dis\frac16\cdot18=3$.
+\item[\textbf{17.}] \textbf{(A)} $\ov{AQ}=(3,2,5)$ dan $\ov{AQ}\times\vec d=(-1,4,-1)$ dengan panjang $\sqrt{18}=3\sqrt2$. Jarak $=\dis\frac{3\sqrt2}{|\vec d|}=\dis\frac{3\sqrt2}{3}=\sqrt2$.
+\item[\textbf{18.}] \textbf{(E)} Dengan $A(0,0,0)$, $C(4,4,0)$, $P(2,0,4)$: $\ov{PA}=(-2,0,-4)$ dan $\ov{PC}=(2,4,-4)$. Hasil kali titik $=-4+16=12$, $|\ov{PA}|=2\sqrt5$, $|\ov{PC}|=6$. Maka $\cos\angle APC=\dis\frac{12}{12\sqrt5}=\dis\frac{\sqrt5}{5}$.
+\item[\textbf{19.}] \textbf{(B)} Misal panjang ketiganya $k$. $k^{2}=2k^{2}+2\vec a\cdot\vec b\Rightarrow\vec a\cdot\vec b=-\dis\frac{k^{2}}{2}$. Maka $|\vec a-\vec b|^{2}=3k^{2}$ dan $\vec a\cdot(\vec a-\vec b)=\dis\frac{3k^{2}}{2}$, sehingga $\cos\alpha=\dis\frac{3k^{2}/2}{k\cdot\sqrt3k}=\dis\frac{\sqrt3}{2}\Rightarrow\alpha=30^\circ$.
+\item[\textbf{20.}] \textbf{(A)} $|\vec a+\vec b|^{2}=25+24\cos\theta$ dan $|\vec a-\vec b|^{2}=25-24\cos\theta$. Syarat: $25+24\cos\theta=4(25-24\cos\theta)\Rightarrow120\cos\theta=75\Rightarrow\cos\theta=\dis\frac58$.
+\end{enumerate}
+\par\Needspace{6\baselineskip}\vspace{0.6em}{\bfseries\color{navy}\normalsize Pembahasan Isian Singkat}\par\vspace{0.2em}
+\small\begin{enumerate}[leftmargin=2em,itemsep=2pt,topsep=2pt]
+\item[\textbf{1.}] \textbf{Jawaban: $6$.} $\vec p\parallel\vec v$: $\vec p=n\vec v\Rightarrow(4,-2,4)=(na,-n,2n)\Rightarrow n=2,\ a=2$. Karena $n=\dis\frac{\vec u\cdot\vec v}{|\vec v|^{2}}$, dengan $\vec u=(6,2,b)$ dan $\vec v=(2,-1,2)$: $\dis\frac{12-2+2b}{9}=2\Rightarrow b=4$. Jadi $a+b=6$.
+\item[\textbf{2.}] \textbf{Jawaban: $2\sqrt{37}$.} $\vec a\cdot\vec b=4\cdot6\cos120^\circ=-12$. $|2\vec a-\vec b|^{2}=4(16)-4(-12)+36=148$, sehingga $|2\vec a-\vec b|=\sqrt{148}=2\sqrt{37}$.
+\item[\textbf{3.}] \textbf{Jawaban: $6$.} $|\vec d|=3$, sehingga $P=A+t\vec d$ dengan $|t|\cdot3=6\Rightarrow t=\pm2$. Absis $2+t>2$ berarti $t=2$ dan $P=(4,3,-1)$. Jumlah koordinatnya $6$.
+\item[\textbf{4.}] \textbf{Jawaban: $P(5,0,0)$.} Misal $P(t,0,0)$. $|PA|^{2}=(t-1)^{2}+8$ dan $|PB|^{2}=(t-3)^{2}+20$. Samakan: $t^{2}-2t+9=t^{2}-6t+29\Rightarrow t=5$.
+\item[\textbf{5.}] \textbf{Jawaban: $11$.} Sebidang berarti $\vec a\cdot(\vec b\times\vec c)=0$. $\vec b\times\vec c=(-5,1,1)$, sehingga $-10-1+k=0\Rightarrow k=11$.
+\end{enumerate}
+\par\Needspace{8\baselineskip}\vspace{0.6em}{\bfseries\color{navy}\normalsize Pembahasan dan Pedoman Penskoran Uraian}\par\vspace{0.2em}
+\small\begin{enumerate}[leftmargin=2em,itemsep=3pt,topsep=2pt]
+\item[\textbf{1.}] (a) $(\vec a+\vec b)\cdot(\vec a-\vec b)=|\vec a|^{2}-|\vec b|^{2}=0$ karena $|\vec a|=|\vec b|$, sehingga kedua vektor tegak lurus. (b) $|\vec a|^{2}=9$ dan $|\vec b|^{2}=5+p^{2}$. Maka $p^{2}=4$ dan karena $p>0$, $p=2$. (c) Cara 1: $\vec a\times\vec b=(-2,3,-2)$, luas $=\sqrt{4+9+4}=\sqrt{17}$. Cara 2: karena $|\vec a|=|\vec b|$, jajargenjang berupa belah ketupat dengan diagonal $\vec a+\vec b=(3,4,3)$ dan $\vec a-\vec b=(-1,0,1)$. Luas $=\dis\frac12\sqrt{34}\cdot\sqrt2=\sqrt{17}$. \\ \textit{Penskoran: Bagian (a) 3 poin; (b) 2 poin; (c) 3 poin.}
+\item[\textbf{2.}] (a) $\ov{AB}=(2,2,1)$, sehingga $\vec r=(2,0,-1)+t(2,2,1)$. (b) $\ov{AC}=(3,3,6)$. Misal $T=A+t\vec d$ dengan $\ov{CT}\perp\vec d$: $t=\dis\frac{\ov{AC}\cdot\vec d}{|\vec d|^{2}}=\dis\frac{18}{9}=2$, sehingga $T(6,4,1)$. $\ov{CT}=(1,1,-4)$ dan jarak $=\sqrt{18}=3\sqrt2$. (c) Cara 1: $\ov{AB}\times\ov{AC}=(9,-9,0)$, luas $=\dis\frac12\cdot9\sqrt2=\dis\frac{9\sqrt2}{2}$. Cara 2: $\dis\frac12\cdot|AB|\cdot CT=\dis\frac12\cdot3\cdot3\sqrt2=\dis\frac{9\sqrt2}{2}$. \\ \textit{Penskoran: Bagian (a) 2 poin; (b) 4 poin; (c) 2 poin.}
+\item[\textbf{3.}] (a) $\vec d=\dis\frac{\vec b+\vec c}{2}$. Titik yang membagi $AD$ dengan perbandingan $2:1$ adalah $\vec g=\dis\frac{1\cdot\vec a+2\vec d}{3}$, yaitu $\vec g=\dis\frac{\vec a+\vec b+\vec c}{3}$, yang sama dengan rumus titik berat. Jadi $G$ pada $AD$ dan $AG:GD=2:1$. (b) $G=\left(\dis\frac{4+0+2}{3},\dis\frac{-1+1+3}{3},\dis\frac{1+3+5}{3}\right)=(2,1,3)$ dan $D=(1,2,4)$. (c) $\ov{AG}=(-2,2,2)$ sehingga $|AG|=2\sqrt3$; $\ov{GD}=(-1,1,1)$ sehingga $|GD|=\sqrt3$. Maka $AG:GD=2\sqrt3:\sqrt3=2:1$. \\ \textit{Penskoran: Bagian (a) 4 poin; (b) 2 poin; (c) 2 poin.}
+\item[\textbf{4.}] (a) $(\vec a\cdot\vec b)^{2}=|\vec a|^{2}|\vec b|^{2}\cos^{2}\theta\le|\vec a|^{2}|\vec b|^{2}$ karena $\cos^{2}\theta\le1$. Kesamaan terjadi saat $\cos^{2}\theta=1$, yaitu $\vec a\parallel\vec b$. (b) Ambil $\vec a=(2,3,6)$ dan $\vec b=(x,y,z)$: $2x+3y+6z\le\sqrt{49}\cdot\sqrt{49}=49$. Maksimum $49$ dicapai saat $(x,y,z)=k(2,3,6)$ dengan $49k^{2}=49$, yaitu $(x,y,z)=(2,3,6)$. (c) $21=2x+3y+6z\le7\sqrt{x^{2}+y^{2}+z^{2}}\Rightarrow x^{2}+y^{2}+z^{2}\ge9$. Minimum $9$ dicapai di $(x,y,z)=\left(\dis\frac67,\dis\frac97,\dis\frac{18}{7}\right)$. \\ \textit{Penskoran: Bagian (a) 2 poin; (b) 3 poin; (c) 3 poin.}
+\item[\textbf{5.}] $C(6,6,0)$, $G(6,6,6)$, $H(0,6,6)$, sehingga $P(6,6,3)$ dan $Q(0,3,6)$. (a) $\ov{AP}=(6,6,3)$ dengan $|AP|=9$, dan $\ov{AQ}=(0,3,6)$ dengan $|AQ|=3\sqrt5$. $\ov{AP}\cdot\ov{AQ}=36$, sehingga $\cos\angle PAQ=\dis\frac{36}{27\sqrt5}=\dis\frac{4\sqrt5}{15}$. (b) Proyeksi skalar $=\dis\frac{36}{3\sqrt5}=\dis\frac{12\sqrt5}{5}$. (c) $\ov{AP}\times\ov{AQ}=(27,-36,18)$ dengan panjang $9\sqrt{29}$, sehingga luas $=\dis\frac{9\sqrt{29}}{2}$. \\ \textit{Penskoran: Bagian (a) 3 poin; (b) 2 poin; (c) 3 poin.}
+\end{enumerate}
+\end{document}
