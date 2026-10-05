@@ -23,11 +23,13 @@ export function LessonPage({
   const [activeSectionId, setActiveSectionId] = useState<string>("");
 
   const material: Material | undefined = getMaterialBySlug(slug);
-  const currentDate = new Intl.DateTimeFormat("id-ID", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  }).format(new Date());
+  const [currentDate] = useState(() =>
+    new Intl.DateTimeFormat("id-ID", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    }).format(new Date())
+  );
 
   const currentIndex = materials.findIndex((m) => m.slug === slug);
   const prevMaterial = currentIndex > 0 ? materials[currentIndex - 1] : null;

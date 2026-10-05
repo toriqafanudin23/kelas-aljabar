@@ -27,15 +27,11 @@ function App() {
     const syncPage = () => {
       setIsLoading(true);
       setPage(getPageFromPath(window.location.pathname));
+      setMobileTocOpen(false);
     };
     window.addEventListener("popstate", syncPage);
     return () => window.removeEventListener("popstate", syncPage);
   }, []);
-
-  // Tutup drawer TOC jika berpindah halaman
-  useEffect(() => {
-    setMobileTocOpen(false);
-  }, [page]);
 
   const navigate: Navigate = (event, nextPage) => {
     event.preventDefault();
