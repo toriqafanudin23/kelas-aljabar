@@ -2,7 +2,6 @@ import { useState } from "react";
 import { materials } from "../materi";
 import type { Navigate } from "../types/navigation";
 import { getPathFromPage } from "../types/navigation";
-import { CourseCard } from "../components/CourseCard";
 import { Formula } from "../components/Formula";
 import { TrigonometrySimulation } from "../components/simulation/TrigonometrySimulation";
 
@@ -12,8 +11,6 @@ interface HomePageProps {
 
 type HeroTabKey = "ramanujan" | "euler" | "calculus";
 type PathwayFilterKey = "all" | "fase-e" | "fase-f" | "fase-f-lanjut" | "osn";
-type ShowcaseCategoryKey =
-  "featured" | "algebra" | "calculus" | "geometry-olympiad";
 
 const HERO_PROOFS: Record<
   HeroTabKey,
@@ -59,44 +56,8 @@ export function HomePage({ navigate }: HomePageProps) {
   const [activeHeroTab, setActiveHeroTab] = useState<HeroTabKey>("ramanujan");
   const [activePathwayFilter, setActivePathwayFilter] =
     useState<PathwayFilterKey>("all");
-  const [activeShowcase, setActiveShowcase] =
-    useState<ShowcaseCategoryKey>("featured");
 
   const currentProof = HERO_PROOFS[activeHeroTab];
-
-  // Modul untuk showcase berdasarkan kategori
-  const getShowcaseMaterials = () => {
-    switch (activeShowcase) {
-      case "algebra":
-        return materials.filter((m) =>
-          ["eksponensial", "sppl", "fungsi-kuadrat", "polinomial"].includes(
-            m.slug,
-          ),
-        );
-      case "calculus":
-        return materials.filter((m) =>
-          ["limit", "turunan", "integral"].includes(m.slug),
-        );
-      case "geometry-olympiad":
-        return materials.filter((m) =>
-          [
-            "vektor",
-            "lingkaran",
-            "transformasi-geometri",
-            "teori-bilangan",
-          ].includes(m.slug),
-        );
-      case "featured":
-      default:
-        return materials.filter((m) =>
-          ["matriks", "kombinatorika", "turunan", "bilangan-kompleks"].includes(
-            m.slug,
-          ),
-        );
-    }
-  };
-
-  const showcaseMaterials = getShowcaseMaterials();
 
   return (
     <>
@@ -109,7 +70,7 @@ export function HomePage({ navigate }: HomePageProps) {
               Math 1729 · Belajar, Berlatih, dan Bersiap
             </span>
             <h1>
-              Belajar konsep. Coba simulasi. <em>Siap UTBK.</em>
+              Produk Digital dan <em>Simulasi Matematika</em>
             </h1>
             <p>
               Pelajari matematika gratis melalui materi berbasis web, eksplorasi
@@ -137,13 +98,6 @@ export function HomePage({ navigate }: HomePageProps) {
                 onClick={(event) => navigate(event, "catalog")}
               >
                 Materi Gratis <span aria-hidden="true">→</span>
-              </a>
-              <a
-                className="button button-quiet"
-                href="/unduh-bank-soal"
-                onClick={(event) => navigate(event, "bank-download")}
-              >
-                Latihan UTBK <span aria-hidden="true">→</span>
               </a>
             </div>
             <div className="hero-new-resource" aria-label="Segera hadir">
@@ -285,78 +239,6 @@ export function HomePage({ navigate }: HomePageProps) {
                 non-rutin.
               </span>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4 Pilar Keunggulan Platform */}
-      <section
-        className="pillars-section"
-        aria-label="Standar Keunggulan Math 1729"
-      >
-        <div className="site-width">
-          <div className="section-heading">
-            <div>
-              <span className="section-kicker">
-                Standar Kualitas &amp; Rigoritas
-              </span>
-              <h2>Mengapa Belajar di Math 1729?</h2>
-              <p>
-                Fondasi pendidikan matematika modern yang mengedepankan
-                pemahaman konseptual mendalam, bukan sekadar hafalan rumus
-                instan.
-              </p>
-            </div>
-          </div>
-
-          <div className="pillars-grid">
-            <article className="pillar-card">
-              <span className="pillar-badge-num">PILAR 01</span>
-              <h3>Rigoritas Konseptual &amp; Bukti Formal</h3>
-              <p>
-                Setiap teorema, identitas, dan sifat aljabar dijabarkan dari
-                aksioma dasar, penurunan matematis runtut, dan makna
-                intuitifnya. Siswa mengerti asal-usul rumus.
-              </p>
-              <span className="pillar-footer-tag">Standar Akademik Formal</span>
-            </article>
-
-            <article className="pillar-card">
-              <span className="pillar-badge-num">PILAR 02</span>
-              <h3>Alur Prasyarat Tanpa Celah (Zero Gaps)</h3>
-              <p>
-                Setiap modul mencantumkan prasyarat materi sebelumnya secara
-                eksplisit. Tidak ada materi lanjutan yang diajarkan sebelum
-                fondasi dasarnya dikuasai dengan kokoh.
-              </p>
-              <span className="pillar-footer-tag">
-                Pemetaan Kurikulum Terarah
-              </span>
-            </article>
-
-            <article className="pillar-card">
-              <span className="pillar-badge-num">PILAR 03</span>
-              <h3>Penalaran Analitis &amp; Soal Non-Rutin</h3>
-              <p>
-                Disusun khusus untuk melatih ketajaman nalar tingkat tinggi
-                (HOTS) yang diujikan pada UTBK-SNBT (Penalaran Matematika) serta
-                seleksi kompetisi sains nasional (OSN).
-              </p>
-              <span className="pillar-footer-tag">
-                Kesiapan Kompetisi &amp; Ujian
-              </span>
-            </article>
-
-            <article className="pillar-card">
-              <span className="pillar-badge-num">PILAR 04</span>
-              <h3>Lingkungan Bebas Distraksi &amp; Presisi</h3>
-              <p>
-                Antarmuka belajar bersih tanpa banner iklan atau elemen
-                mengganggu, dilengkapi dengan visualisasi grafik interaktif dan
-                render formula matematika berkecepatan tinggi.
-              </p>
-              <span className="pillar-footer-tag">100% Fokus Pembelajaran</span>
-            </article>
           </div>
         </div>
       </section>
@@ -659,140 +541,6 @@ export function HomePage({ navigate }: HomePageProps) {
               </div>
             </div>
           )}
-        </div>
-      </section>
-
-      {/* Curated Showcase Section */}
-      <section id="materi" className="site-width catalog-section">
-        <div className="section-heading">
-          <div>
-            <span className="section-kicker">Eksplorasi Modul Pilihan</span>
-            <h2>Kurikulum Unggulan Terkurasi</h2>
-            <p>
-              Kumpulan materi terpopuler yang telah dilengkapi penjelasan
-              formal, visualisasi interaktif, dan penurunan rumus terperinci.
-            </p>
-          </div>
-          <a
-            className="button button-quiet"
-            href="/katalog"
-            onClick={(event) => navigate(event, "catalog")}
-          >
-            Lihat Semua {materials.length} Modul di Katalog{" "}
-            <span aria-hidden="true">→</span>
-          </a>
-        </div>
-
-        {/* Showcase Category Tabs */}
-        <div className="showcase-filter-bar" role="tablist">
-          <button
-            type="button"
-            className={`showcase-tab-btn ${activeShowcase === "featured" ? "active" : ""}`}
-            onClick={() => setActiveShowcase("featured")}
-          >
-            Paling Populer
-          </button>
-          <button
-            type="button"
-            className={`showcase-tab-btn ${activeShowcase === "algebra" ? "active" : ""}`}
-            onClick={() => setActiveShowcase("algebra")}
-          >
-            Aljabar &amp; Sistem Persamaan
-          </button>
-          <button
-            type="button"
-            className={`showcase-tab-btn ${activeShowcase === "calculus" ? "active" : ""}`}
-            onClick={() => setActiveShowcase("calculus")}
-          >
-            Kalkulus &amp; Analisis
-          </button>
-          <button
-            type="button"
-            className={`showcase-tab-btn ${activeShowcase === "geometry-olympiad" ? "active" : ""}`}
-            onClick={() => setActiveShowcase("geometry-olympiad")}
-          >
-            Geometri &amp; Olimpiade
-          </button>
-        </div>
-
-        <div className="course-grid">
-          {showcaseMaterials.map((material) => (
-            <CourseCard
-              key={material.slug}
-              material={material}
-              navigate={navigate}
-            />
-          ))}
-        </div>
-      </section>
-
-      {/* Future Premium / Value Assurance Box */}
-      <section
-        className="premium-future-band"
-        aria-label="Rencana Keanggotaan dan Pembinaan"
-      >
-        <div className="site-width">
-          <div className="premium-future-box">
-            <div className="future-tier-item">
-              <span className="future-tier-badge tier-open">
-                Komitmen Publik
-              </span>
-              <h3>Akses Terbuka Selamanya</h3>
-              <p>
-                Math 1729 berkomitmen menjaga seluruh silabus bacaan dasar,
-                konsep matematika, dan contoh latihan esensial tetap dapat
-                diakses bebas oleh seluruh siswa di seluruh pelosok Indonesia.
-              </p>
-              <ul className="future-tier-list">
-                <li>
-                  <span className="future-check-icon">✓</span> 22 Modul Lengkap
-                  Kurikulum Matematika SMA
-                </li>
-                <li>
-                  <span className="future-check-icon">✓</span> Render Formula
-                  KaTeX Definisi &amp; Teorema
-                </li>
-                <li>
-                  <span className="future-check-icon">✓</span> Peta Alur
-                  Prasyarat Antar Topik
-                </li>
-                <li>
-                  <span className="future-check-icon">✓</span> Akses Bebas Iklan
-                  Distraktif
-                </li>
-              </ul>
-            </div>
-
-            <div className="future-tier-item">
-              <span className="future-tier-badge tier-premium">
-                Rencana Program Premium
-              </span>
-              <h3>Pembinaan Intensif &amp; Bank Soal Terbimbing</h3>
-              <p>
-                Ke depannya, Math 1729 akan menghadirkan program berbayar berupa
-                pendampingan belajar intensif bagi siswa yang menargetkan skor
-                UTBK 700+ dan medali OSN Matematika.
-              </p>
-              <ul className="future-tier-list">
-                <li>
-                  <span className="future-check-icon">★</span> Bank Soal
-                  Non-Rutin dengan Video Bedah Solusi Langkah demi Langkah
-                </li>
-                <li>
-                  <span className="future-check-icon">★</span> Kelas Mentoring
-                  Mingguan &amp; Diskusi Pembuktian Teorema
-                </li>
-                <li>
-                  <span className="future-check-icon">★</span> Modul Interaktif
-                  Eksplorasi Geometri &amp; Analisis Real-Time
-                </li>
-                <li>
-                  <span className="future-check-icon">★</span> Sesi Konsultasi
-                  Privat Pemecahan Masalah Matematika
-                </li>
-              </ul>
-            </div>
-          </div>
         </div>
       </section>
 

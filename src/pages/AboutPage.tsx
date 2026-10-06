@@ -30,16 +30,17 @@ export function AboutPage({ navigate }: AboutPageProps) {
       {/* Page Intro / Header */}
       <div className="page-intro">
         <span className="section-kicker">
-          Inisiatif Pendidikan · Profil Pengajar · Filosofi Keilmuan
+          Materi Matematika · Simulasi Interaktif · Produk Digital
         </span>
         <h1>
-          Membangun Tradisi Penalaran Matematika yang Presisi &amp; Terpercaya
+          Belajar Matematika Lewat Materi Web, Simulasi, dan Bahan Ajar Digital
         </h1>
         <p>
-          Math 1729 adalah platform edukasi matematika independen yang
-          didedikasikan untuk menyediakan kurikulum berstandar ilmiah, runtut
-          secara pedagogis, serta bebas dari hafalan rumus buta bagi pelajar di
-          seluruh Indonesia.
+          Math 1729 menyediakan {materials.length} modul matematika SMA berbasis
+          web, simulasi interaktif, serta produk digital berupa paket soal,
+          slide presentasi, dan bahan ajar per materi. Materi web dapat
+          dipelajari langsung, sementara produk digital tersedia melalui halaman
+          toko.
         </p>
       </div>
 
@@ -71,7 +72,7 @@ export function AboutPage({ navigate }: AboutPageProps) {
             </div>
             <div className="contact-item">
               <span className="contact-label">FOKUS KEILMUAN</span>
-              <strong>Pendidikan Matematika SMA, UTBK &amp; OSN</strong>
+              <strong>Matematika SMA, Materi Web &amp; Simulasi</strong>
             </div>
           </div>
 
@@ -249,122 +250,57 @@ export function AboutPage({ navigate }: AboutPageProps) {
       {/* Program dan Cakupan Kurikulum */}
       <section
         className="program-section"
-        aria-label="Cakupan Kurikulum dan Program"
+        aria-label="Materi dan Fitur Math 1729"
       >
         <div className="section-heading">
           <div>
-            <span className="section-kicker">Kurikulum dan Program</span>
-            <h2>Tiga Jalur Pembelajaran</h2>
+            <span className="section-kicker">Yang Tersedia di Platform</span>
+            <h2>Materi dan Fitur Math 1729</h2>
             <p>
-              Mencakup total {materials.length} modul komprehensif dari tingkat
-              fondasi hingga pembinaan kompetisi.
+              Pilih materi untuk dipelajari langsung di web, gunakan simulasi
+              untuk mengeksplorasi konsep, atau pesan bahan ajar digital.
             </p>
           </div>
         </div>
 
         <div className="program-grid">
           <article>
-            <span>01 / SMA REGULER</span>
-            <h3>Matematika SMA (Kurikulum Merdeka)</h3>
+            <span>01 / MATERI WEB</span>
+            <h3>Modul Matematika SMA</h3>
             <p>
-              Kurikulum berjenjang dari kelas X hingga XII (Fase E, Fase F, dan
-              Fase F Lanjut). Mencakup aljabar eksponensial, deret, vektor,
-              trigonometri analitik, matriks, geometri lingkaran, transformasi,
-              hingga cabang kalkulus diferensial dan integral.
+              Jelajahi {materials.length} modul kelas X hingga XII dengan materi
+              konsep, contoh, dan pembahasan yang tersusun berjenjang. Semua
+              materi dapat dibuka langsung melalui katalog website.
             </p>
             <div className="program-footer">
-              <strong>Fase E, Fase F, Fase F Lanjut</strong>
+              <strong>Fase E, Fase F, dan Fase F Lanjut</strong>
             </div>
           </article>
 
           <article>
-            <span>02 / OSN &amp; KOMPETISI</span>
-            <h3>Persiapan Olimpiade Sains Nasional</h3>
+            <span>02 / SIMULASI</span>
+            <h3>Eksplorasi Matematika Interaktif</h3>
             <p>
-              Pembinaan kemampuan pembuktian formal dan pemecahan masalah
-              non-rutin dalam cabang Teori Bilangan (kongruensi modulo,
-              keterbagian, teorema Fermat/Euler), Aljabar Lanjut, Geometri
-              Sintetis, dan Kombinatorika Diskrit.
+              Gunakan visualisasi interaktif untuk mengamati perubahan konsep
+              matematika secara langsung, termasuk simulasi trigonometri dan
+              lingkaran satuan.
             </p>
             <div className="program-footer">
-              <strong>Standar OSN-K, OSN-P, dan KSM</strong>
+              <strong>Visualisasi konsep matematika</strong>
             </div>
           </article>
 
           <article>
-            <span>03 / UTBK-SNBT</span>
-            <h3>Penalaran Matematika &amp; Kuantitatif</h3>
+            <span>03 / PRODUK DIGITAL</span>
+            <h3>Paket Bahan Ajar Siap Pakai</h3>
             <p>
-              Penguatan kemampuan penalaran analitis, pemodelan matematis
-              terhadap fenomena nyata, analisis data, dan logika kuantitatif
-              dengan target capaian skor maksimal pada seleksi masuk perguruan
-              tinggi negeri unggulan.
+              Pesan paket soal per kelas, slide presentasi, atau paket bahan
+              ajar per materi. Produk tersedia dalam format PDF dan TeX.
             </p>
             <div className="program-footer">
-              <strong>Target Skor 700+ SNBT</strong>
+              <strong>Pesanan melalui halaman toko</strong>
             </div>
           </article>
-        </div>
-      </section>
-
-      {/* Transparansi & Rencana Keberlanjutan Masa Depan */}
-      <section
-        className="about-future-band"
-        aria-label="Model Masa Depan dan Keberlanjutan"
-      >
-        <div className="future-card-box">
-          <div className="future-card-content">
-            <span className="section-kicker">Keberlanjutan &amp; Komitmen</span>
-            <h2>Komitmen Akses Terbuka &amp; Arah Masa Depan</h2>
-            <p>
-              Untuk menjaga integritas dan pemerataan, Math 1729 memegang teguh
-              komitmen bahwa
-              <strong>
-                {" "}
-                seluruh silabus teks dasar, ringkasan rumus, dan konsep
-                fundamental selalu bebas biaya
-              </strong>{" "}
-              bagi seluruh siswa di Indonesia.
-            </p>
-            <p>
-              Seiring dengan pertumbuhan platform dan untuk mendukung
-              keberlanjutan riset kurikulum, ke depannya Math 1729 akan
-              menghadirkan <strong>program pembinaan intensif premium</strong>{" "}
-              bagi siswa yang membutuhkan akselerasi prestasi:
-            </p>
-            <div className="future-feature-list">
-              <div className="feature-item">
-                <span className="feature-dot">✓</span>
-                <div>
-                  <strong>Bank Soal Non-Rutin Terbimbing</strong>
-                  <p>
-                    Dilengkapi pembahasan video langkah demi langkah secara
-                    analitis dan mendalam.
-                  </p>
-                </div>
-              </div>
-              <div className="feature-item">
-                <span className="feature-dot">✓</span>
-                <div>
-                  <strong>Kelas Mentoring &amp; Diskusi Pembuktian</strong>
-                  <p>
-                    Sesi interaktif mingguan membahas strategi problem solving
-                    olimpiade dan penalaran UTBK.
-                  </p>
-                </div>
-              </div>
-              <div className="feature-item">
-                <span className="feature-dot">✓</span>
-                <div>
-                  <strong>Konsultasi Privat Pemecahan Masalah</strong>
-                  <p>
-                    Ruang diskusi langsung bersama pengajar untuk membongkar
-                    soal-soal tingkat tinggi.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -385,6 +321,13 @@ export function AboutPage({ navigate }: AboutPageProps) {
             >
               Jelajahi Katalog {materials.length} Modul{" "}
               <span aria-hidden="true">→</span>
+            </a>
+            <a
+              href="/beli"
+              className="button button-quiet"
+              onClick={(e) => handleNav(e, "shop")}
+            >
+              Lihat Produk Digital <span aria-hidden="true">→</span>
             </a>
             <a
               href="mailto:pesan.math1729@gmail.com"

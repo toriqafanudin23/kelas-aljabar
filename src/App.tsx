@@ -12,6 +12,7 @@ import { BankSoalDownloadPage } from "./pages/BankSoalDownloadPage";
 import { SimulationPage } from "./pages/SimulationPage";
 import { ShopPage } from "./pages/ShopPage";
 import { LessonPage } from "./pages/LessonPage";
+import { SEOHead } from "./components/SEOHead";
 
 function App() {
   const [page, setPage] = useState<Page>(() =>
@@ -59,6 +60,7 @@ function App() {
 
   return (
     <>
+      <SEOHead page={page} />
       {isLoading && (
         <div className="page-loader" role="status" aria-live="polite">
           <div className="page-loader-mark" aria-hidden="true">

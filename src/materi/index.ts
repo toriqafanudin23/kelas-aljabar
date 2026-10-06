@@ -379,5 +379,9 @@ export const materials: Material[] = [
 ];
 
 export function getMaterialBySlug(slug: string): Material | undefined {
+  if (slug === "lingkaran") {
+    return materials.find((m) => m.slug === "busur-dan-juring-lingkaran" || m.slug === "lingkaran");
+  }
   return materials.find((m) => m.slug === slug);
 }
+
