@@ -8,8 +8,18 @@ interface ShopPageProps {
 const ORDER_EMAIL = "pesan.math1729@gmail.com";
 const BANK_NAME = "BNI";
 const BANK_ACCOUNT = "0707704528";
+const BRI_ACCOUNT = "300601027906539";
+const SHOPEEPAY_NUMBER = "082122214133";
 const ACCOUNT_HOLDER = "Thoriq Afanudin";
 const PHONE_WA = "088226179468";
+const PAYMENT_METHODS = [
+  { name: BANK_NAME, account: BANK_ACCOUNT },
+  { name: "BRI", account: BRI_ACCOUNT },
+  { name: "ShopeePay", account: SHOPEEPAY_NUMBER },
+];
+const PAYMENT_DETAILS = PAYMENT_METHODS.map(
+  ({ name, account }) => `${name} ${account} a.n. ${ACCOUNT_HOLDER}`,
+).join("\n");
 
 const SAMPLE_PRODUCTS = [
   {
@@ -76,10 +86,8 @@ Data pemesan:
 - Email : [ISI EMAIL ANDA]
 - WA    : [ISI NOMOR WA]
 
-Saya telah melakukan transfer sebesar Rp20.000 ke rekening:
-Bank : ${BANK_NAME}
-No.Rek: ${BANK_ACCOUNT}
-a.n.  : ${ACCOUNT_HOLDER}
+Silakan transfer sebesar Rp20.000 ke salah satu metode berikut:
+${PAYMENT_DETAILS}
 
 [LAMPIRKAN BUKTI TRANSFER DI EMAIL INI]
 
@@ -112,10 +120,8 @@ Data pemesan:
 - Email : [ISI EMAIL ANDA]
 - WA    : [ISI NOMOR WA]
 
-Saya telah melakukan transfer sebesar Rp15.000 ke rekening:
-Bank : ${BANK_NAME}
-No.Rek: ${BANK_ACCOUNT}
-a.n.  : ${ACCOUNT_HOLDER}
+Silakan transfer sebesar Rp15.000 ke salah satu metode berikut:
+${PAYMENT_DETAILS}
 
 [LAMPIRKAN BUKTI TRANSFER DI EMAIL INI]
 
@@ -150,10 +156,8 @@ Data pemesan:
 - Email : [ISI EMAIL ANDA]
 - WA    : [ISI NOMOR WA]
 
-Saya telah melakukan transfer sebesar Rp20.000 ke rekening:
-Bank : ${BANK_NAME}
-No.Rek: ${BANK_ACCOUNT}
-a.n.  : ${ACCOUNT_HOLDER}
+Silakan transfer sebesar Rp20.000 ke salah satu metode berikut:
+${PAYMENT_DETAILS}
 
 [LAMPIRKAN BUKTI TRANSFER DI EMAIL INI]
 
@@ -177,10 +181,8 @@ Data pemesan:
 - Email : [ISI EMAIL ANDA]
 - WA    : [ISI NOMOR WA]
 
-Saya telah melakukan transfer sebesar ${pkg.price} ke rekening:
-Bank : ${BANK_NAME}
-No.Rek: ${BANK_ACCOUNT}
-a.n.  : ${ACCOUNT_HOLDER}
+Silakan transfer sebesar ${pkg.price} ke salah satu metode berikut:
+${PAYMENT_DETAILS}
 
 [LAMPIRKAN BUKTI TRANSFER DI EMAIL INI]
 
@@ -219,10 +221,8 @@ Data pemesan:
 - Email : [ISI EMAIL ANDA]
 - WA    : [ISI NOMOR WA]
 
-Saya telah melakukan transfer sebesar Rp[JUMLAH SESUAI PESANAN] ke rekening:
-Bank : ${BANK_NAME}
-No.Rek: ${BANK_ACCOUNT}
-a.n.  : ${ACCOUNT_HOLDER}
+Silakan transfer sebesar Rp[JUMLAH SESUAI PESANAN] ke salah satu metode berikut:
+${PAYMENT_DETAILS}
 
 [LAMPIRKAN BUKTI TRANSFER DI EMAIL INI]
 
@@ -274,10 +274,8 @@ Data pemesan:
 - Email : [ISI EMAIL ANDA]
 - WA    : [ISI NOMOR WA]
 
-Saya telah melakukan transfer sebesar Rp[JUMLAH] ke rekening:
-Bank : ${BANK_NAME}
-No.Rek: ${BANK_ACCOUNT}
-a.n.  : ${ACCOUNT_HOLDER}
+Silakan transfer sebesar Rp[JUMLAH] ke salah satu metode berikut:
+${PAYMENT_DETAILS}
 
 [LAMPIRKAN BUKTI TRANSFER DI EMAIL INI]
 
@@ -401,8 +399,8 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
               <div>
                 <strong>Transfer Pembayaran</strong>
                 <p>
-                  Transfer ke <strong>BNI {BANK_ACCOUNT}</strong> a.n.{" "}
-                  <strong>{ACCOUNT_HOLDER}</strong>
+                  Pilih salah satu metode pembayaran:{" "}
+                  <strong>BNI, BRI, atau ShopeePay</strong>.
                 </p>
               </div>
             </div>
@@ -452,11 +450,17 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
         role="note"
         aria-label="Info rekening pembayaran"
       >
-        <span className="shop-bank-label">Pembayaran via Transfer Bank:</span>
-        <span className="shop-bank-detail">
-          <strong>{BANK_NAME}</strong> · {BANK_ACCOUNT} · a.n.{" "}
-          <strong>{ACCOUNT_HOLDER}</strong>
+        <span className="shop-bank-label">
+          Pembayaran via Transfer Bank / E-Wallet:
         </span>
+        <div className="shop-bank-detail">
+          {PAYMENT_METHODS.map((method) => (
+            <span key={method.name}>
+              <strong>{method.name}</strong> · {method.account} · a.n.{" "}
+              <strong>{ACCOUNT_HOLDER}</strong>
+            </span>
+          ))}
+        </div>
       </div>
 
       {/* ===================== SEKSI 1: Paket Soal Per Kelas ===================== */}
@@ -732,12 +736,10 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
             <div className="faq-item">
               <strong>Pembayaran</strong>
               <p>
-                Transfer ke rekening{" "}
-                <strong>
-                  {BANK_NAME} {BANK_ACCOUNT}
-                </strong>{" "}
-                atas nama <strong>{ACCOUNT_HOLDER}</strong>. Lampirkan
-                screenshot bukti transfer di email pesanan Anda.
+                Pembayaran tersedia melalui{" "}
+                <strong>BNI, BRI, atau ShopeePay</strong>. Nomor rekening dan
+                nama pemilik tercantum pada informasi pembayaran di atas.
+                Lampirkan screenshot bukti transfer di email pesanan Anda.
               </p>
             </div>
             <div className="faq-item">

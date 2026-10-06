@@ -4073,6 +4073,9 @@ summary:focus-visible {
   letter-spacing: 0.6px;
 }
 .shop-bank-detail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
   font-size: 13px;
   color: #e2eaf2;
 }
