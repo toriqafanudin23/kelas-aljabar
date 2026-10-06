@@ -3,5 +3,5 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://math1729.com/sitemap.xml
+Sitemap: https://kelas1729.vercel.app/sitemap.xml
 

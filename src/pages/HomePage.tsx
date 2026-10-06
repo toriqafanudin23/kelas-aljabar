@@ -10,7 +10,7 @@ interface HomePageProps {
 }
 
 type HeroTabKey = "ramanujan" | "euler" | "calculus";
-type PathwayFilterKey = "all" | "fase-e" | "fase-f" | "fase-f-lanjut" | "osn";
+type PathwayFilterKey = "all" | "fase-e" | "fase-f" | "fase-f-lanjut";
 
 const HERO_PROOFS: Record<
   HeroTabKey,
@@ -30,7 +30,7 @@ const HERO_PROOFS: Record<
     description:
       "Bilangan bulat positif terkecil yang dapat dinyatakan sebagai penjumlahan dua kubus positif dalam dua cara berbeda. Bukti dedikasi terhadap eksplorasi murni teori bilangan.",
     moduleSlug: "teori-bilangan",
-    moduleTag: "Olimpiade · Teori Bilangan",
+    moduleTag: "Eksplorasi · Teori Bilangan",
   },
   euler: {
     tabLabel: "Identitas Euler",
@@ -201,8 +201,8 @@ export function HomePage({ navigate }: HomePageProps) {
                 Modul Akademis Lengkap
               </strong>
               <span className="trust-metric-desc">
-                Mencakup kurikulum Fase E, Fase F, Fase F Lanjut, hingga materi
-                OSN.
+                Mencakup kurikulum matematika SMA dari Fase E hingga Fase F
+                Lanjut.
               </span>
             </div>
             <div className="trust-metric-item">
@@ -230,13 +230,12 @@ export function HomePage({ navigate }: HomePageProps) {
               </span>
             </div>
             <div className="trust-metric-item">
-              <span className="trust-metric-val">OSN &amp; SNBT</span>
+              <span className="trust-metric-val">UTBK-SNBT</span>
               <strong className="trust-metric-title">
-                Standar Soal Penalaran
+                Penalaran Matematika
               </strong>
               <span className="trust-metric-desc">
-                Melatih penalaran matematis murni dan pemecahan masalah
-                non-rutin.
+                Menguatkan penalaran kuantitatif untuk persiapan UTBK-SNBT.
               </span>
             </div>
           </div>
@@ -248,7 +247,7 @@ export function HomePage({ navigate }: HomePageProps) {
         <div className="section-heading">
           <div>
             <span className="section-kicker">Peta Navigasi Kurikulum</span>
-            <h2>Alur Belajar Berjenjang (Fase E s.d. Olimpiade)</h2>
+            <h2>Alur Belajar Berjenjang (Kelas X–XII)</h2>
             <p>
               Klik modul di bawah untuk langsung membuka materi pembelajaran
               sesuai tahapan kesiapan Anda.
@@ -289,13 +288,6 @@ export function HomePage({ navigate }: HomePageProps) {
             onClick={() => setActivePathwayFilter("fase-f-lanjut")}
           >
             Kelas XII (Fase F Lanjut)
-          </button>
-          <button
-            type="button"
-            className={`pathway-filter-btn ${activePathwayFilter === "osn" ? "active" : ""}`}
-            onClick={() => setActivePathwayFilter("osn")}
-          >
-            Pengayaan Olimpiade (OSN)
           </button>
         </div>
 
@@ -488,56 +480,6 @@ export function HomePage({ navigate }: HomePageProps) {
                     </span>
                   </a>
                 ))}
-              </div>
-            </div>
-          )}
-
-          {/* Tahap Pengayaan OSN */}
-          {(activePathwayFilter === "all" || activePathwayFilter === "osn") && (
-            <div className="pathway-interactive-card highlight">
-              <div className="pathway-step">Pengayaan Khusus · OSN</div>
-              <h4>Pembinaan Prestasi Olimpiade</h4>
-              <p className="pathway-desc">
-                Materi matematika murni non-sekolah untuk persiapan Kompetisi
-                Sains Madrasah (KSM), Olimpiade Sains Nasional (OSN), dan
-                kompetisi matematika universitas.
-              </p>
-              <div className="pathway-modules-flow">
-                {[
-                  {
-                    slug: "teori-bilangan",
-                    id: "OSN",
-                    name: "Teori Bilangan & Kongruensi Modulo",
-                  },
-                ].map((item) => (
-                  <a
-                    key={item.slug}
-                    href={`/${item.slug}`}
-                    className="pathway-mod-link"
-                    onClick={(e) => navigate(e, item.slug)}
-                  >
-                    <span>
-                      <strong className="pathway-mod-id">{item.id}.</strong>{" "}
-                      {item.name}
-                    </span>
-                    <span className="pathway-mod-action" aria-hidden="true">
-                      Buka →
-                    </span>
-                  </a>
-                ))}
-                <div
-                  style={{
-                    padding: "8px 10px",
-                    fontSize: "11px",
-                    color: "var(--muted)",
-                    background: "#fafafa",
-                  }}
-                >
-                  <em>
-                    Modul geometri sintetis &amp; ketaksamaan aljabar olimpiade
-                    sedang disiapkan.
-                  </em>
-                </div>
               </div>
             </div>
           )}

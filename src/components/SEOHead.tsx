@@ -7,7 +7,7 @@ interface SEOHeadProps {
   page: Page;
 }
 
-const BASE_URL = "https://math1729.com";
+const BASE_URL = "https://kelas1729.vercel.app";
 const DEFAULT_IMAGE = `${BASE_URL}/logo_math1729.png`;
 
 interface PageMeta {
