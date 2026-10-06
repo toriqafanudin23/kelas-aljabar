@@ -8,6 +8,7 @@
 export type Node =
   | { k: "num"; v: number; s?: string }
   | { k: "var" }
+  | { k: "par"; name: string }
   | { k: "neg"; a: Node }
   | { k: "bin"; op: "+" | "-" | "*" | "/"; a: Node; b: Node }
   | { k: "pow"; a: Node; b: Node }
@@ -16,17 +17,35 @@ export type Node =
   | { k: "abs"; a: Node };
 
 type Tok =
-  | { t: "num"; v: number }
-  | { t: "id"; v: string }
-  | { t: "op"; v: string };
+  { t: "num"; v: number } | { t: "id"; v: string } | { t: "op"; v: string };
 
 class ParseError extends Error {}
 
+/** Parameter yang boleh dipakai selain x (dapat digeser dengan slider). */
+export const PARAM_NAMES = ["a", "b", "c", "k"] as const;
+const PARAM_SET = new Set<string>(PARAM_NAMES);
+export type Params = Record<string, number>;
+
 // ───────────────────────── Tokenizer ─────────────────────────
 const WORDS = [
-  "arcsin", "arccos", "arctan", "sinh", "cosh", "tanh",
-  "sin", "cos", "tan", "cot", "sec", "csc",
-  "ln", "log", "exp", "sqrt", "abs", "pi",
+  "arcsin",
+  "arccos",
+  "arctan",
+  "sinh",
+  "cosh",
+  "tanh",
+  "sin",
+  "cos",
+  "tan",
+  "cot",
+  "sec",
+  "csc",
+  "ln",
+  "log",
+  "exp",
+  "sqrt",
+  "abs",
+  "pi",
 ].sort((p, q) => q.length - p.length);
 
 function tokenize(src: string): Tok[] {
@@ -130,16 +149,29 @@ function tokenize(src: string): Tok[] {
 
 // ───────────────────────── Parser ─────────────────────────
 const FUNCTIONS = new Set([
-  "sin", "cos", "tan", "cot", "sec", "csc",
-  "arcsin", "arccos", "arctan",
-  "sinh", "cosh", "tanh",
-  "ln", "log", "exp", "abs",
+  "sin",
+  "cos",
+  "tan",
+  "cot",
+  "sec",
+  "csc",
+  "arcsin",
+  "arccos",
+  "arctan",
+  "sinh",
+  "cosh",
+  "tanh",
+  "ln",
+  "log",
+  "exp",
+  "abs",
 ]);
 const TRIG = new Set(["sin", "cos", "tan"]);
 
 class Parser {
   private i = 0;
   private plainAbs = 0;
+  readonly used = new Set<string>();
   private toks: Tok[];
   constructor(toks: Tok[]) {
     this.toks = toks;
@@ -149,7 +181,9 @@ class Parser {
     if (this.toks.length === 0) throw new ParseError("Ekspresi kosong.");
     const node = this.parseExpr();
     if (this.i < this.toks.length) {
-      throw new ParseError(`Bagian "${this.describe(this.toks[this.i])}" tidak terduga.`);
+      throw new ParseError(
+        `Bagian "${this.describe(this.toks[this.i])}" tidak terduga.`,
+      );
     }
     return node;
   }
@@ -289,7 +323,10 @@ class Parser {
     for (;;) {
       const t = this.peek();
       const simple =
-        !!t && (t.t === "num" || (t.t === "id" && (t.v === "x" || t.v === "pi")));
+        !!t &&
+        (t.t === "num" ||
+          (t.t === "id" &&
+            (t.v === "x" || t.v === "pi" || PARAM_SET.has(t.v))));
       if (!simple) return node;
       node = { k: "bin", op: "*", a: node, b: this.parsePower() };
     }
@@ -367,10 +404,16 @@ class Parser {
         this.expect("|");
         return { k: "abs", a: e };
       }
-      throw new ParseError(`Tanda "${this.describe(t)}" muncul di tempat yang tidak tepat.`);
+      throw new ParseError(
+        `Tanda "${this.describe(t)}" muncul di tempat yang tidak tepat.`,
+      );
     }
     const name = t.v;
     if (name === "x") return { k: "var" };
+    if (PARAM_SET.has(name)) {
+      this.used.add(name);
+      return { k: "par", name };
+    }
     if (name === "e") return { k: "num", v: Math.E, s: "e" };
     if (name === "pi") return { k: "num", v: Math.PI, s: "π" };
     if (name === "frac" || name === "dfrac" || name === "tfrac") {
@@ -389,7 +432,9 @@ class Parser {
     }
     if (FUNCTIONS.has(name)) return this.parseFunction(name);
     if (name.length === 1) {
-      throw new ParseError(`Huruf "${name}" tidak dikenal. Variabel yang dipakai hanya x.`);
+      throw new ParseError(
+        `Huruf "${name}" tidak dikenal. Variabel utama x; parameter yang boleh: ${PARAM_NAMES.join(", ")}.`,
+      );
     }
     throw new ParseError(`Perintah "\\${name}" belum didukung.`);
   }
@@ -428,8 +473,13 @@ const UNARY: Record<string, (v: number) => number> = {
   abs: Math.abs,
 };
 
-export function compile(n: Node): (x: number) => number {
+export function compile(n: Node, P: Params = {}): (x: number) => number {
   switch (n.k) {
+    case "par": {
+      const name = n.name;
+      // dibaca saat dipanggil, sehingga slider cukup mengubah P tanpa parse ulang
+      return () => P[name] ?? 1;
+    }
     case "num": {
       const v = n.v;
       return () => v;
@@ -437,16 +487,16 @@ export function compile(n: Node): (x: number) => number {
     case "var":
       return (x) => x;
     case "neg": {
-      const a = compile(n.a);
+      const a = compile(n.a, P);
       return (x) => -a(x);
     }
     case "abs": {
-      const a = compile(n.a);
+      const a = compile(n.a, P);
       return (x) => Math.abs(a(x));
     }
     case "bin": {
-      const a = compile(n.a);
-      const b = compile(n.b);
+      const a = compile(n.a, P);
+      const b = compile(n.b, P);
       switch (n.op) {
         case "+":
           return (x) => a(x) + b(x);
@@ -459,20 +509,20 @@ export function compile(n: Node): (x: number) => number {
       }
     }
     case "pow": {
-      const a = compile(n.a);
-      const b = compile(n.b);
+      const a = compile(n.a, P);
+      const b = compile(n.b, P);
       return (x) => rpow(a(x), b(x));
     }
     case "root": {
-      const a = compile(n.a);
+      const a = compile(n.a, P);
       if (!n.n) return (x) => Math.sqrt(a(x));
-      const idx = compile(n.n);
+      const idx = compile(n.n, P);
       return (x) => rpow(a(x), 1 / idx(x));
     }
     case "fn": {
-      const a = compile(n.a);
+      const a = compile(n.a, P);
       if (n.name === "log" && n.base) {
-        const b = compile(n.base);
+        const b = compile(n.base, P);
         return (x) => Math.log(a(x)) / Math.log(b(x));
       }
       const f = UNARY[n.name];
@@ -498,6 +548,9 @@ function show(n: Node, parent = 0): string {
       break;
     case "var":
       text = "x";
+      break;
+    case "par":
+      text = n.name;
       break;
     case "neg":
       text = `−${show(n.a, PREC.neg)}`;
@@ -535,26 +588,31 @@ function show(n: Node, parent = 0): string {
 
 // ───────────────────────── API publik ─────────────────────────
 export type ParseResult =
-  | { ok: true; fn: (x: number) => number; text: string }
+  | { ok: true; fn: (x: number) => number; text: string; params: string[] }
   | { ok: false; error: string };
 
 /** Mengembalikan null bila masukan kosong. */
-export function parseLatex(source: string): ParseResult | null {
+export function parseLatex(source: string, P: Params = {}): ParseResult | null {
   let src = source.trim();
   if (!src) return null;
   const eq = src.split("=");
-  if (eq.length > 2) return { ok: false, error: "Hanya boleh ada satu tanda =." };
+  if (eq.length > 2)
+    return { ok: false, error: "Hanya boleh ada satu tanda =." };
   if (eq.length === 2) {
     const left = eq[0].replace(/\s/g, "");
     if (!/^(y|f|f\(x\))$/i.test(left)) {
-      return { ok: false, error: "Tulis sisi kanan saja, atau awali dengan y = atau f(x) =." };
+      return {
+        ok: false,
+        error: "Tulis sisi kanan saja, atau awali dengan y = atau f(x) =.",
+      };
     }
     src = eq[1].trim();
     if (!src) return { ok: false, error: "Sisi kanan tanda = masih kosong." };
   }
   try {
-    const ast = new Parser(tokenize(src)).parseAll();
-    const raw = compile(ast);
+    const parser = new Parser(tokenize(src));
+    const ast = parser.parseAll();
+    const raw = compile(ast, P);
     return {
       ok: true,
       fn: (x) => {
@@ -562,6 +620,7 @@ export function parseLatex(source: string): ParseResult | null {
         return Number.isFinite(v) ? v : Number.NaN;
       },
       text: show(ast),
+      params: PARAM_NAMES.filter((name) => parser.used.has(name)),
     };
   } catch (error) {
     if (error instanceof ParseError) return { ok: false, error: error.message };
@@ -598,7 +657,8 @@ export function findRoots(
 
   const roots: number[] = [];
   const push = (r: number) => {
-    if (!roots.some((q) => Math.abs(q - r) < 1e-6 * (1 + Math.abs(r)))) roots.push(r);
+    if (!roots.some((q) => Math.abs(q - r) < 1e-6 * (1 + Math.abs(r))))
+      roots.push(r);
   };
 
   for (let i = 0; i < samples; i += 1) {
@@ -635,7 +695,8 @@ export function findRoots(
     const a = vs[i - 1];
     const b = vs[i];
     const c = vs[i + 1];
-    if (!Number.isFinite(a) || !Number.isFinite(b) || !Number.isFinite(c)) continue;
+    if (!Number.isFinite(a) || !Number.isFinite(b) || !Number.isFinite(c))
+      continue;
     if (a * c <= 0 || b * a <= 0) continue;
     if (!(Math.abs(b) <= Math.abs(a) && Math.abs(b) <= Math.abs(c))) continue;
     let l = xs[i - 1];
@@ -653,4 +714,71 @@ export function findRoots(
 
   roots.sort((p, q) => p - q);
   return { roots, coincident: false };
+}
+
+// ───────────────────────── Turunan & ekstrem ─────────────────────────
+/** Turunan numerik (selisih pusat 5 titik). NaN bila tidak terdefinisi. */
+export function derivative(f: (x: number) => number, x: number): number {
+  const h = 1e-3 * (1 + Math.abs(x));
+  const d =
+    (-f(x + 2 * h) + 8 * f(x + h) - 8 * f(x - h) + f(x - 2 * h)) / (12 * h);
+  return Number.isFinite(d) ? d : Number.NaN;
+}
+
+export type Extremum = { x: number; y: number; kind: "max" | "min" };
+
+/**
+ * Mencari maksimum/minimum lokal pada [lo, hi].
+ * ySpan (tinggi jendela) dipakai membuang "puncak palsu" di dekat asimtot tegak.
+ */
+export function findExtrema(
+  f: (x: number) => number,
+  lo: number,
+  hi: number,
+  ySpan = Number.POSITIVE_INFINITY,
+  samples = 1500,
+): Extremum[] {
+  const dx = (hi - lo) / samples;
+  const xs: number[] = [];
+  const vs: number[] = [];
+  for (let i = 0; i <= samples; i += 1) {
+    const x = lo + i * dx;
+    xs.push(x);
+    vs.push(f(x));
+  }
+  const out: Extremum[] = [];
+  const jump = 0.35 * ySpan;
+  for (let i = 1; i < samples; i += 1) {
+    const a = vs[i - 1];
+    const b = vs[i];
+    const c = vs[i + 1];
+    if (!Number.isFinite(a) || !Number.isFinite(b) || !Number.isFinite(c))
+      continue;
+    if (Math.abs(b - a) > jump || Math.abs(c - b) > jump) continue;
+    const tol = 1e-12 * (1 + Math.abs(b));
+    let kind: "max" | "min" | null = null;
+    if (b <= a && b < c && (a - b > tol || c - b > tol)) kind = "min";
+    else if (b >= a && b > c && (b - a > tol || b - c > tol)) kind = "max";
+    if (!kind) continue;
+    const sign = kind === "max" ? -1 : 1; // minimalkan sign * f
+    let l = xs[i - 1];
+    let r = xs[i + 1];
+    for (let k = 0; k < 70; k += 1) {
+      const m1 = l + (r - l) / 3;
+      const m2 = r - (r - l) / 3;
+      const f1 = sign * f(m1);
+      const f2 = sign * f(m2);
+      if (!Number.isFinite(f1) || !Number.isFinite(f2)) break;
+      if (f1 < f2) r = m2;
+      else l = m1;
+    }
+    const m = (l + r) / 2;
+    const y = f(m);
+    if (!Number.isFinite(y)) continue;
+    // titik hasil penghalusan tidak boleh lebih buruk dari sampel awal
+    if (sign * y > sign * b + 1e-9 * (1 + Math.abs(b))) continue;
+    if (out.some((q) => Math.abs(q.x - m) < 4 * dx)) continue;
+    out.push({ x: m, y, kind });
+  }
+  return out;
 }

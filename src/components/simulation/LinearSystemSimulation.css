@@ -1,0 +1,583 @@
+/* Memakai variabel --sim-*, --gold dari TrigonometrySimulation.css (sama seperti GraphPlotterSimulation.css). */
+
+.linear-simulation {
+  --lin-accent: #087f8c;
+  --lin-bad: #b23a48;
+  --lin-ok: #2c7a3f;
+  --lin-opt: #e0a100;
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  border-top: 3px solid var(--gold);
+  background: var(--sim-paper, #f3f7f5);
+  color: var(--sim-ink, #18313d);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Tab mode */
+.lin-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  border: 1px solid #aebdc2;
+  background: #fff;
+}
+
+.lin-tabs button {
+  flex: 1 1 160px;
+  min-height: 40px;
+  padding: 0 14px;
+  border: 0;
+  border-left: 1px solid #aebdc2;
+  background: #fff;
+  color: var(--sim-ink, #18313d);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.lin-tabs button:first-child {
+  border-left: 0;
+}
+
+.lin-tabs button:hover {
+  background: #e8f3f1;
+}
+
+.lin-tabs button.is-active {
+  background: var(--lin-accent);
+  color: #fff;
+}
+
+.lin-boards {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+  gap: 14px;
+  min-width: 0;
+}
+
+.lin-board-panel {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  grid-auto-rows: auto;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--sim-line, #d5e0e4);
+  background: #fff;
+}
+
+.lin-board-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  min-height: 32px;
+  margin-bottom: 4px;
+}
+
+.lin-board-heading h3 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.lin-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.lin-zoom {
+  display: inline-flex;
+  border: 1px solid #aebdc2;
+}
+
+.lin-zoom button {
+  min-width: 34px;
+  min-height: 30px;
+  padding: 0 10px;
+  border: 0;
+  border-left: 1px solid #aebdc2;
+  background: #fff;
+  color: var(--sim-ink, #18313d);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.lin-zoom button:first-child {
+  border-left: 0;
+}
+
+.lin-zoom button:last-child {
+  font-size: 11px;
+}
+
+.lin-zoom button:hover {
+  background: #e8f3f1;
+}
+
+.lin-board {
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 1 / 1;
+  max-height: 560px;
+  margin-inline: auto;
+  overflow: hidden;
+  background-color: #fcfdfc;
+  cursor: grab;
+}
+
+.lin-board:active {
+  cursor: grabbing;
+}
+
+.lin-board:focus-visible {
+  outline: 2px solid var(--lin-accent);
+  outline-offset: 2px;
+}
+
+.lin-board .JXGtext {
+  font-family: "Open Sans", sans-serif;
+}
+
+.lin-board-panel:fullscreen {
+  height: 100%;
+  padding: 14px;
+  background: #fff;
+}
+
+.lin-board-panel:fullscreen .lin-board {
+  aspect-ratio: auto;
+  max-height: none;
+  height: 100%;
+  min-height: 0;
+}
+
+/* Ringkasan hasil di bawah papan */
+.lin-result {
+  min-height: 42px;
+  margin: 0;
+  padding: 9px 4px 2px;
+  border-top: 1px solid var(--sim-line, #d5e0e4);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.lin-legend {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  padding-top: 8px;
+  color: var(--sim-muted, #62727d);
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 12px;
+}
+
+.lin-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.lin-legend i {
+  width: 16px;
+  height: 0;
+  border-top: 3px solid #183e54;
+}
+
+.lin-legend b {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.lin-legend .dot-inter {
+  background: #b23a48;
+}
+
+.lin-legend .dot-region {
+  border-radius: 0;
+  background: rgba(79, 159, 209, 0.45);
+  border: 1px solid #4f9fd1;
+}
+
+.lin-legend .dot-vertex {
+  background: #183e54;
+}
+
+.lin-legend .dot-opt {
+  background: var(--lin-opt);
+}
+
+.lin-legend .dot-test {
+  border-radius: 0;
+  background: #fff;
+  border: 2px solid #183e54;
+}
+
+.lin-hint {
+  margin: 6px 0 0;
+  color: var(--sim-muted, #62727d);
+  font-size: 10px;
+  text-align: center;
+}
+
+/* Kontrol */
+.lin-controls {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid var(--sim-line, #d5e0e4);
+  background: #fff;
+}
+
+.lin-group {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.lin-group-title {
+  color: var(--sim-muted, #62727d);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.lin-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.lin-swatch {
+  display: inline-block;
+  flex: none;
+  width: 12px;
+  height: 12px;
+  margin-right: 3px;
+  border-radius: 3px;
+  vertical-align: -1px;
+}
+
+.lin-row .lin-swatch {
+  margin-right: 0;
+}
+
+.lin-sym,
+.lin-op-static {
+  color: var(--sim-ink, #18313d);
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.lin-num {
+  box-sizing: border-box;
+  width: 54px;
+  min-height: 34px;
+  padding: 0 6px;
+  border: 1px solid #aebdc2;
+  background: #fcfdfc;
+  color: var(--sim-ink, #18313d);
+  font-family: "Cambria Math", "Courier New", monospace;
+  font-size: 15px;
+  text-align: center;
+}
+
+.lin-op {
+  min-height: 34px;
+  padding: 0 4px;
+  border: 1px solid #aebdc2;
+  background: #fff;
+  color: var(--sim-ink, #18313d);
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.lin-icon-btn {
+  min-width: 26px;
+  min-height: 26px;
+  padding: 0 6px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--sim-muted, #62727d);
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lin-icon-btn:hover {
+  border-color: #aebdc2;
+  background: #f3f7f5;
+  color: var(--lin-bad);
+}
+
+.lin-inline {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+}
+
+.lin-btn {
+  min-height: 32px;
+  padding: 0 12px;
+  border: 1px solid #aebdc2;
+  background: #fff;
+  color: var(--sim-ink, #18313d);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.lin-btn:hover:not(:disabled) {
+  border-color: var(--lin-accent);
+  background: #e8f3f1;
+}
+
+.lin-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.lin-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--sim-muted, #62727d);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.lin-check input {
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  accent-color: var(--lin-accent);
+}
+
+.lin-options {
+  display: grid;
+  gap: 8px;
+}
+
+.lin-slider {
+  display: grid;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.lin-slider input[type="range"] {
+  width: 100%;
+  min-width: 0;
+  accent-color: var(--lin-opt);
+}
+
+.lin-note {
+  min-height: 15px;
+  margin: 0;
+  color: var(--sim-muted, #62727d);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.lin-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.lin-presets button {
+  min-height: 32px;
+  padding: 0 11px;
+  border: 1px solid #aebdc2;
+  background: #fff;
+  color: var(--sim-ink, #18313d);
+  font-family: "Open Sans", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.lin-presets button:hover {
+  border-color: var(--lin-accent);
+  background: #e8f3f1;
+}
+
+.linear-simulation button:focus-visible,
+.linear-simulation input:focus-visible,
+.linear-simulation select:focus-visible,
+.linear-simulation summary:focus-visible {
+  outline: 2px solid var(--lin-accent);
+  outline-offset: 3px;
+}
+
+/* Kartu hasil */
+.lin-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1px;
+  border: 1px solid var(--sim-line, #d5e0e4);
+  background: var(--sim-line, #d5e0e4);
+}
+
+.lin-card {
+  min-width: 0;
+  padding: 10px 13px;
+  background: #fff;
+}
+
+.lin-card h4 {
+  margin: 0 0 6px;
+  color: var(--sim-muted, #62727d);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.lin-card p {
+  margin: 4px 0;
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.lin-card small {
+  margin-left: 8px;
+  color: var(--sim-muted, #62727d);
+  font-family: "Open Sans", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.lin-card p.lin-muted,
+.lin-muted {
+  color: var(--sim-muted, #62727d);
+  font-family: "Open Sans", sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.lin-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+}
+
+.lin-ok {
+  color: var(--lin-ok);
+}
+
+.lin-bad {
+  color: var(--lin-bad);
+}
+
+/* Tabel titik sudut */
+.lin-table-wrap {
+  min-width: 0;
+  overflow-x: auto;
+  border: 1px solid var(--sim-line, #d5e0e4);
+  background: #fff;
+}
+
+.lin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.lin-table caption {
+  padding: 9px 13px;
+  color: var(--sim-muted, #62727d);
+  font-size: 11px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.lin-table th,
+.lin-table td {
+  padding: 7px 13px;
+  border-top: 1px solid var(--sim-line, #d5e0e4);
+  text-align: left;
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.lin-table thead th {
+  color: var(--sim-muted, #62727d);
+  font-family: "Open Sans", sans-serif;
+  font-size: 10px;
+}
+
+.lin-table tr.is-best th,
+.lin-table tr.is-best td {
+  background: #fff6d6;
+  color: #6b4e00;
+}
+
+/* Panduan */
+.lin-guide {
+  border: 1px solid var(--sim-line, #d5e0e4);
+  background: #fff;
+  font-size: 12px;
+}
+
+.lin-guide summary {
+  padding: 10px 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.lin-guide ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0 13px 12px 30px;
+  color: var(--sim-muted, #62727d);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+@media (max-width: 860px) {
+  .lin-boards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .lin-board {
+    width: min(100%, 560px);
+  }
+}
+
+@media (max-width: 520px) {
+  .linear-simulation {
+    gap: 10px;
+    padding: 9px;
+  }
+
+  .lin-board-panel {
+    padding: 8px;
+  }
+
+  .lin-controls {
+    padding: 10px;
+    gap: 12px;
+  }
+
+  .lin-num {
+    width: 48px;
+    font-size: 16px;
+  }
+}

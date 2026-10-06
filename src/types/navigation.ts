@@ -1,7 +1,7 @@
 import type { MouseEvent } from "react";
 
 export type Page =
-  "home" | "catalog" | "download" | "bank-download" | "about" | string;
+  "home" | "catalog" | "download" | "bank-download" | "about" | "simulation" | "shop" | string;
 export type Navigate = (
   event: MouseEvent<HTMLAnchorElement>,
   page: Page,
@@ -20,6 +20,7 @@ export function getPageFromPath(path: string): Page {
     return "bank-download";
   }
   if (path === "/simulasi" || path === "/simulasi/") return "simulation";
+  if (path === "/beli" || path === "/beli/") return "shop";
   if (path.startsWith("/materi/")) {
     const slug = path.replace("/materi/", "").replace(/\/$/, "");
     if (slug) return slug;
@@ -34,5 +35,6 @@ export function getPathFromPage(page: Page): string {
   if (page === "bank-download") return "/unduh-bank-soal";
   if (page === "simulation") return "/simulasi";
   if (page === "about") return "/tentang";
+  if (page === "shop") return "/beli";
   return `/materi/${page}`;
 }

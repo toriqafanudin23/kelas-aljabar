@@ -6,6 +6,7 @@ import { FunctionTransformationSimulation } from "../components/simulation/Funct
 import { VectorSimulation } from "../components/simulation/VectorSimulation";
 import { CalculusSimulation } from "../components/simulation/CalculusSimulation";
 import { GraphPlotterSimulation } from "../components/simulation/GraphPlotterSimulation";
+import { LinearSystemSimulation } from "../components/simulation/LinearSystemSimulation";
 import type { Navigate } from "../types/navigation";
 
 interface SimulationPageProps {
@@ -82,6 +83,16 @@ const simulations = [
       "Gambarkan hingga tiga fungsi sekaligus, lalu amati titik potong antargrafik serta titik potong terhadap sumbu.",
     level: "KELAS X–XII",
     component: GraphPlotterSimulation,
+  },
+  {
+    id: "linear-system",
+    index: "08",
+    category: "SISTEM LINEAR",
+    title: "Eksplorasi sistem linear",
+    description:
+      "Jelajahi titik potong dua garis, daerah penyelesaian pertidaksamaan, dan optimasi program linear melalui grafik interaktif.",
+    level: "KELAS X–XI",
+    component: LinearSystemSimulation,
   },
 ];
 

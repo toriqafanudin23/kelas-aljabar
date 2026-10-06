@@ -4,6 +4,7 @@ import type { Navigate } from "../types/navigation";
 import { getPathFromPage } from "../types/navigation";
 import { CourseCard } from "../components/CourseCard";
 import { Formula } from "../components/Formula";
+import { TrigonometrySimulation } from "../components/simulation/TrigonometrySimulation";
 
 interface HomePageProps {
   navigate: Navigate;
@@ -105,41 +106,49 @@ export function HomePage({ navigate }: HomePageProps) {
           <div className="hero-copy">
             <span className="eyebrow">
               <span className="eyebrow-dot" />
-              Standar Akademis Terstruktur · Kurikulum Prestasi
+              Math 1729 · Belajar, Berlatih, dan Bersiap
             </span>
             <h1>
-              Kuasai matematika dalam <em>30 hari.</em>
+              Belajar konsep. Coba simulasi. <em>Siap UTBK.</em>
             </h1>
             <p>
-              Platform pembelajaran matematika komprehensif yang disusun dengan
-              ketelitian teoritis formal, penalaran analitis UTBK-SNBT, dan
-              pembinaan intensif Olimpiade Sains Nasional (OSN). Disajikan
-              secara berjenjang tanpa lompatan logika.
+              Pelajari matematika gratis melalui materi berbasis web, eksplorasi
+              konsep dengan simulasi interaktif, dan persiapkan diri untuk UTBK.
+              Temukan juga produk digital untuk mendukung kegiatan belajar.
             </p>
             <div className="hero-actions">
               <a
                 className="button button-primary"
+                href="/beli"
+                onClick={(event) => navigate(event, "shop")}
+              >
+                Beli Produk Digital <span aria-hidden="true">→</span>
+              </a>
+              <a
+                className="button button-quiet"
+                href="/simulasi"
+                onClick={(event) => navigate(event, "simulation")}
+              >
+                Simulasi Matematika <span aria-hidden="true">→</span>
+              </a>
+              <a
+                className="button button-quiet"
                 href="/katalog"
                 onClick={(event) => navigate(event, "catalog")}
               >
-                Jelajahi 22 Modul Lengkap <span aria-hidden="true">→</span>
+                Materi Gratis <span aria-hidden="true">→</span>
               </a>
               <a
                 className="button button-quiet"
-                href="/eksponensial"
-                onClick={(event) => navigate(event, "eksponensial")}
+                href="/unduh-bank-soal"
+                onClick={(event) => navigate(event, "bank-download")}
               >
-                <span>Mulai dari Modul 01</span>
-                <span aria-hidden="true">→</span>
+                Latihan UTBK <span aria-hidden="true">→</span>
               </a>
-              <a
-                className="button button-quiet"
-                href="/unduh"
-                onClick={(event) => navigate(event, "download")}
-              >
-                <span className="hero-new-tag">Aset</span>
-                <span>Slide Presentasi</span>
-              </a>
+            </div>
+            <div className="hero-new-resource" aria-label="Segera hadir">
+              <span className="hero-new-tag">Segera Hadir</span>
+              <span>Generate Soal Otomatis</span>
             </div>
           </div>
 
@@ -192,6 +201,34 @@ export function HomePage({ navigate }: HomePageProps) {
               </a>
             </div>
           </aside>
+        </div>
+      </section>
+
+      <section
+        className="home-trig-showcase simulation-page"
+        aria-labelledby="home-trig-title"
+      >
+        <div className="site-width">
+          <div className="home-trig-showcase-heading">
+            <div>
+              <span className="home-trig-showcase-kicker">
+                Simulasi Interaktif · Trigonometri
+              </span>
+              <h2 id="home-trig-title">Lihat trigonometri bergerak</h2>
+              <p>
+                Geser titik pada lingkaran satuan dan amati bagaimana sudut
+                mengubah nilai sinus, kosinus, dan tangen.
+              </p>
+            </div>
+            <a
+              className="button button-primary"
+              href="/simulasi"
+              onClick={(event) => navigate(event, "simulation")}
+            >
+              Jelajahi semua simulasi <span aria-hidden="true">→</span>
+            </a>
+          </div>
+          <TrigonometrySimulation />
         </div>
       </section>
 
