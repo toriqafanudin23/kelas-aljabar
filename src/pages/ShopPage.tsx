@@ -1,4 +1,14 @@
 import { useState } from "react";
+import {
+  ArrowRight,
+  Check,
+  ClipboardList,
+  ExternalLink,
+  FileText,
+  Mail,
+  Pencil,
+  Presentation,
+} from "lucide-react";
 import type { Navigate } from "../types/navigation";
 
 interface ShopPageProps {
@@ -79,7 +89,7 @@ const PACKAGES = [
     emailBody: `Assalamualaikum / Selamat pagi,
 
 Saya ingin memesan:
-✅ Paket Soal Kelas 10 — Rp20.000
+Paket Soal Kelas 10 — Rp20.000
 
 Data pemesan:
 - Nama  : [ISI NAMA ANDA]
@@ -113,7 +123,7 @@ Terima kasih.`,
     emailBody: `Assalamualaikum / Selamat pagi,
 
 Saya ingin memesan:
-✅ Paket Soal Kelas 11 — Rp15.000
+Paket Soal Kelas 11 — Rp15.000
 
 Data pemesan:
 - Nama  : [ISI NAMA ANDA]
@@ -149,7 +159,7 @@ Terima kasih.`,
     emailBody: `Assalamualaikum / Selamat pagi,
 
 Saya ingin memesan:
-✅ Paket Soal Kelas 12 — Rp20.000
+Paket Soal Kelas 12 — Rp20.000
 
 Data pemesan:
 - Nama  : [ISI NAMA ANDA]
@@ -174,7 +184,7 @@ const SLIDE_PACKAGES = PACKAGES.map((pkg) => ({
   emailBody: `Assalamualaikum / Selamat pagi,
 
 Saya ingin memesan:
-✅ Paket Slide Presentasi ${pkg.grade} — ${pkg.price}
+Paket Slide Presentasi ${pkg.grade} — ${pkg.price}
 
 Data pemesan:
 - Nama  : [ISI NAMA ANDA]
@@ -189,39 +199,54 @@ ${PAYMENT_DETAILS}
 Terima kasih.`,
 }));
 
-const BAHAN_AJAR = {
-  title: "Paket Bahan Ajar per Materi",
-  grade: "Semua Kelas",
-  gradeLabel: "TERSEDIA",
-  price: "Rp35.000 / materi",
-  desc: "Paket bahan ajar berbasis LaTeX, siap cetak dan diproyeksikan untuk satu materi pilihan.",
-  materials: [
-    { title: "Matriks", grade: "Kelas XI" },
-    { title: "Fungsi Kuadrat", grade: "Kelas X" },
-  ],
-  includes: [
-    "Slide Presentasi Statis (penjelasan teori & definisi)",
-    "Slide Presentasi Dinamis (animasi bertahap untuk kelas)",
-    "Latihan Soal Paket A (dengan kunci & pembahasan)",
-    "Latihan Soal Paket B (dengan kunci & pembahasan)",
-    "1 LKPD (Discovery Learning atau PBL)",
-  ],
-  formats: [".pdf", ".tex"],
-  emailSubject: "Pemesanan Paket Bahan Ajar per Materi — Math 1729",
+const TKA_SMP_PACKAGE = {
+  emailSubject: "Pemesanan Paket Latihan TKA SMP — Math 1729",
   emailBody: `Assalamualaikum / Selamat pagi,
 
 Saya ingin memesan:
-✅ Paket Bahan Ajar per Materi — Rp35.000 per materi
-
-Materi yang dipilih: [Matriks / Fungsi Kuadrat]
-Jumlah pesanan: [ISI JUMLAH MATERI]
+Paket Latihan TKA SMP
+Harga normal: Rp20.000
+Diskon 25%: Rp15.000
 
 Data pemesan:
 - Nama  : [ISI NAMA ANDA]
 - Email : [ISI EMAIL ANDA]
 - WA    : [ISI NOMOR WA]
 
-Silakan transfer sebesar Rp[JUMLAH SESUAI PESANAN] ke salah satu metode berikut:
+Silakan transfer sebesar Rp15.000 ke salah satu metode berikut:
+${PAYMENT_DETAILS}
+
+[LAMPIRKAN BUKTI TRANSFER DI EMAIL INI]
+
+Terima kasih.`,
+};
+
+const BAHAN_AJAR = {
+  title: "Bahan Ajar Matriks",
+  grade: "Kelas XI",
+  gradeLabel: "TERSEDIA",
+  originalPrice: "Rp20.000",
+  price: "Rp15.000",
+  desc: "Paket bahan ajar Matriks untuk mendukung pembelajaran di kelas.",
+  includes: [
+    "Slide Presentasi",
+    "Slide Presentasi Interaktif",
+    "2 Paket Latihan Soal Matriks",
+    "LKPD Discovery Learning",
+  ],
+  formats: [".pdf", ".tex"],
+  emailSubject: "Pemesanan Bahan Ajar Matriks — Math 1729",
+  emailBody: `Assalamualaikum / Selamat pagi,
+
+Saya ingin memesan:
+Bahan Ajar Matriks — Rp15.000 (harga normal Rp20.000, diskon 25%)
+
+Data pemesan:
+- Nama  : [ISI NAMA ANDA]
+- Email : [ISI EMAIL ANDA]
+- WA    : [ISI NOMOR WA]
+
+Silakan transfer sebesar Rp15.000 ke salah satu metode berikut:
 ${PAYMENT_DETAILS}
 
 [LAMPIRKAN BUKTI TRANSFER DI EMAIL INI]
@@ -234,52 +259,54 @@ const SATUAN_ITEMS = [
     label: "Soal Latihan 1 Materi",
     price: "Rp5.000",
     desc: "1 paket latihan soal + kunci + pembahasan untuk 1 materi pilihan Anda.",
-    icon: "📄",
+    icon: <FileText size={20} strokeWidth={1.8} aria-hidden="true" />,
   },
   {
     label: "Slide Presentasi 1 Materi",
     price: "Rp5.000",
     desc: "1 file slide (statis atau dinamis) untuk 1 materi pilihan Anda.",
-    icon: "📊",
+    icon: <Presentation size={20} strokeWidth={1.8} aria-hidden="true" />,
   },
   {
     label: "LKPD 1 Materi",
     price: "Rp10.000",
     desc: "1 lembar kerja peserta didik (discovery/PBL) untuk 1 materi pilihan Anda.",
-    icon: "📋",
+    icon: <ClipboardList size={20} strokeWidth={1.8} aria-hidden="true" />,
   },
   {
     label: "Custom Soal / Slide / LKPD",
     price: "mulai Rp20.000",
     desc: "Pembuatan soal, slide, atau LKPD sesuai kebutuhan spesifik Anda (materi, indikator, KD).",
-    icon: "✏️",
+    icon: <Pencil size={20} strokeWidth={1.8} aria-hidden="true" />,
   },
 ];
 
-const SATUAN_EMAIL_BODY = `Assalamualaikum / Selamat pagi,
+function buildSatuanEmailBody(item: (typeof SATUAN_ITEMS)[number]) {
+  const isCustom = item.label.startsWith("Custom");
+  const transferAmount = isCustom
+    ? "Rp[JUMLAH SESUAI KESEPAKATAN]"
+    : item.price;
 
-Saya ingin memesan produk satuan Math 1729:
+  return `Assalamualaikum / Selamat pagi,
 
-Jenis produk yang dipesan:
-□ Soal Latihan 1 Materi — Rp5.000
-□ Slide Presentasi 1 Materi — Rp5.000  
-□ LKPD 1 Materi — Rp10.000
-□ Custom (jelaskan di bawah)
+Saya ingin memesan:
+${item.label} — ${item.price}
 
 Materi yang diinginkan: [ISI NAMA MATERI]
-Keterangan tambahan (jika custom): [ISI KETERANGAN]
+${isCustom ? "Keterangan tambahan: [ISI KETERANGAN]" : ""}
 
 Data pemesan:
 - Nama  : [ISI NAMA ANDA]
 - Email : [ISI EMAIL ANDA]
 - WA    : [ISI NOMOR WA]
 
-Silakan transfer sebesar Rp[JUMLAH] ke salah satu metode berikut:
+Silakan transfer sebesar ${transferAmount} ke salah satu metode berikut:
 ${PAYMENT_DETAILS}
 
 [LAMPIRKAN BUKTI TRANSFER DI EMAIL INI]
 
 Terima kasih.`;
+}
 
 export function ShopPage({ navigate: _navigate }: ShopPageProps) {
   const [activeSampleId, setActiveSampleId] =
@@ -337,7 +364,7 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
             <div className="shop-preview-stage-head">
               <strong>{activeSample.title}</strong>
               <a href={activeSample.url} target="_blank" rel="noreferrer">
-                Buka PDF <span aria-hidden="true">↗</span>
+                Buka PDF <ExternalLink size={14} aria-hidden="true" />
               </a>
             </div>
             <iframe
@@ -392,7 +419,7 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
               </div>
             </div>
             <span className="flow-arrow" aria-hidden="true">
-              →
+              <ArrowRight size={16} />
             </span>
             <div className="shop-flow-step">
               <span className="flow-step-num">02</span>
@@ -405,7 +432,7 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
               </div>
             </div>
             <span className="flow-arrow" aria-hidden="true">
-              →
+              <ArrowRight size={16} />
             </span>
             <div className="shop-flow-step">
               <span className="flow-step-num">03</span>
@@ -418,7 +445,7 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
               </div>
             </div>
             <span className="flow-arrow" aria-hidden="true">
-              →
+              <ArrowRight size={16} />
             </span>
             <div className="shop-flow-step">
               <span className="flow-step-num">04</span>
@@ -511,7 +538,7 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
                   href={buildEmailLink(pkg.emailSubject, pkg.emailBody)}
                   className="button button-primary shop-order-btn"
                 >
-                  Pesan via Email <span aria-hidden="true">✉</span>
+                  Pesan via Email <Mail size={16} aria-hidden="true" />
                 </a>
               </div>
             </article>
@@ -570,11 +597,65 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
                   href={buildEmailLink(pkg.emailSubject, pkg.emailBody)}
                   className="button button-primary shop-order-btn"
                 >
-                  Pesan via Email <span aria-hidden="true">✉</span>
+                  Pesan via Email <Mail size={16} aria-hidden="true" />
                 </a>
               </div>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="shop-section" aria-label="Paket Latihan TKA SMP">
+        <div className="shop-package-grid shop-package-grid--single">
+          <article className="shop-card shop-card--featured">
+            <div className="shop-card-header">
+              <span className="shop-card-grade-badge shop-card-grade-badge--green">
+                DISKON 25%
+              </span>
+              <span className="shop-card-grade">SMP</span>
+            </div>
+            <div className="shop-card-body">
+              <h3 className="shop-card-title">Paket Latihan TKA SMP</h3>
+              <div className="shop-promo-price">
+                <del>Rp20.000</del>
+                <span className="shop-promo-current-price">Rp15.000</span>
+              </div>
+              <p className="shop-card-desc">
+                Empat paket latihan TKA untuk membantu persiapan siswa SMP.
+              </p>
+              <ul className="shop-card-list shop-card-list--check">
+                <li>
+                  <span className="shop-check-icon" aria-hidden="true">
+                    <Check size={15} strokeWidth={2.5} />
+                  </span>
+                  4 paket soal TKA
+                </li>
+                <li>
+                  <span className="shop-check-icon" aria-hidden="true">
+                    <Check size={15} strokeWidth={2.5} />
+                  </span>
+                  30 soal per paket (total 120 soal)
+                </li>
+                <li>
+                  <span className="shop-check-icon" aria-hidden="true">
+                    <Check size={15} strokeWidth={2.5} />
+                  </span>
+                  Bentuk soal: Pilihan ganda, multiple choice, benar atau salah
+                </li>
+              </ul>
+            </div>
+            <div className="shop-card-footer">
+              <a
+                href={buildEmailLink(
+                  TKA_SMP_PACKAGE.emailSubject,
+                  TKA_SMP_PACKAGE.emailBody,
+                )}
+                className="button button-primary shop-order-btn"
+              >
+                Pesan via Email <Mail size={16} aria-hidden="true" />
+              </a>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -585,13 +666,11 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
       >
         <div className="section-heading">
           <div>
-            <span className="section-kicker">Bahan Ajar Lengkap per Topik</span>
-            <h2>Paket Bahan Ajar per Materi</h2>
+            <span className="section-kicker">Bahan Ajar Lengkap</span>
+            <h2>Bahan Ajar Matriks</h2>
             <p>
-              Paket komprehensif untuk satu topik — mencakup slide presentasi
-              (statis &amp; dinamis), dua paket soal, dan satu LKPD dengan
-              pilihan pendekatan Discovery Learning atau PBL. Materi lainnya
-              menyusul.
+              Paket bahan ajar Matriks dengan slide, latihan soal, dan LKPD.
+              Tersedia dalam format <code>.pdf</code> dan <code>.tex</code>.
             </p>
           </div>
         </div>
@@ -606,25 +685,22 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
             </div>
             <div className="shop-card-body">
               <h3 className="shop-card-title">{BAHAN_AJAR.title}</h3>
-              <div className="shop-card-price">{BAHAN_AJAR.price}</div>
+              <div className="shop-promo-price">
+                <del>{BAHAN_AJAR.originalPrice}</del>
+                <span className="shop-promo-current-price">
+                  {BAHAN_AJAR.price}
+                </span>
+                <span className="shop-card-grade-badge shop-card-grade-badge--green">
+                  DISKON 25%
+                </span>
+              </div>
               <p className="shop-card-desc">{BAHAN_AJAR.desc}</p>
-              <p className="shop-includes-label">Materi tersedia:</p>
-              <ul className="shop-card-list shop-card-list--check">
-                {BAHAN_AJAR.materials.map((material) => (
-                  <li key={material.title}>
-                    <span className="shop-check-icon" aria-hidden="true">
-                      ✓
-                    </span>
-                    {material.title} ({material.grade})
-                  </li>
-                ))}
-              </ul>
               <p className="shop-includes-label">Yang didapatkan:</p>
               <ul className="shop-card-list shop-card-list--check">
                 {BAHAN_AJAR.includes.map((item, i) => (
                   <li key={i}>
                     <span className="shop-check-icon" aria-hidden="true">
-                      ✓
+                      <Check size={15} strokeWidth={2.5} />
                     </span>
                     {item}
                   </li>
@@ -646,7 +722,7 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
                 )}
                 className="button button-primary shop-order-btn"
               >
-                Pesan via Email <span aria-hidden="true">✉</span>
+                Pesan via Email <Mail size={16} aria-hidden="true" />
               </a>
             </div>
           </article>
@@ -677,24 +753,23 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
                 <span className="satuan-price">{item.price}</span>
                 <p className="satuan-desc">{item.desc}</p>
               </div>
+              <a
+                href={buildEmailLink(
+                  `Pemesanan ${item.label} — Math 1729`,
+                  buildSatuanEmailBody(item),
+                )}
+                className="satuan-order-link"
+              >
+                Pesan via Email <Mail size={15} aria-hidden="true" />
+              </a>
             </div>
           ))}
         </div>
 
         <div className="shop-satuan-cta">
-          <a
-            href={buildEmailLink(
-              "Pemesanan Produk Satuan / Custom — Math 1729",
-              SATUAN_EMAIL_BODY,
-            )}
-            className="button button-primary"
-          >
-            Pesan Produk Satuan / Custom via Email{" "}
-            <span aria-hidden="true">✉</span>
-          </a>
           <p className="shop-satuan-note">
-            Sebutkan jenis produk, nama materi, dan kelas/jenjang yang
-            diinginkan dalam email pesanan Anda.
+            Isi nama materi dan data pemesan pada email yang terbuka. Untuk
+            pesanan custom, tambahkan keterangan dan nominal yang disepakati.
           </p>
         </div>
       </section>

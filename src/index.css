@@ -3899,6 +3899,9 @@ summary:focus-visible {
   font-size: 13px;
 }
 .shop-preview-stage-head a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   flex-shrink: 0;
   color: var(--navy-bright);
   font-size: 12px;
@@ -4034,9 +4037,9 @@ summary:focus-visible {
   line-height: 1.5;
 }
 .flow-arrow {
+  display: flex;
+  align-items: center;
   color: var(--gold);
-  font-size: 22px;
-  font-weight: 700;
   align-self: flex-start;
   margin-top: 6px;
 }
@@ -4175,6 +4178,23 @@ summary:focus-visible {
   line-height: 1;
   letter-spacing: -0.5px;
 }
+.shop-promo-price {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 12px;
+}
+.shop-promo-price del {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+}
+.shop-promo-current-price {
+  color: #16a34a;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1;
+}
 .shop-card-desc {
   margin: 0;
   font-size: 12px;
@@ -4211,9 +4231,14 @@ summary:focus-visible {
   gap: 10px;
 }
 .shop-check-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: #16a34a;
-  font-weight: 700;
   flex-shrink: 0;
+  margin-top: 1px;
 }
 .shop-includes-label {
   font-size: 11px;
@@ -4270,8 +4295,12 @@ summary:focus-visible {
   box-shadow: 0 8px 18px rgba(16, 41, 67, 0.06);
 }
 .satuan-icon {
-  font-size: 28px;
-  line-height: 1;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  background: #eef3f6;
+  color: var(--navy);
 }
 .satuan-body {
   display: flex;
@@ -4295,6 +4324,18 @@ summary:focus-visible {
   font-size: 11.5px;
   color: var(--muted);
   line-height: 1.6;
+}
+.satuan-order-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: auto;
+  color: var(--navy-bright);
+  font-size: 12px;
+  font-weight: 700;
+}
+.satuan-order-link:hover {
+  color: #a16207;
 }
 .shop-satuan-cta {
   margin-top: 28px;

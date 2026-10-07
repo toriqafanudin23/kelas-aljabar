@@ -100,6 +100,15 @@ export function HomePage({ navigate }: HomePageProps) {
                 Materi Gratis <span aria-hidden="true">→</span>
               </a>
             </div>
+            <a
+              className="hero-new-resource"
+              href="/beli"
+              aria-label="Ada yang baru: Paket Soal TKA SMP"
+              onClick={(event) => navigate(event, "shop")}
+            >
+              <span className="hero-new-tag">Ada yang Baru</span>
+              <span>Paket Soal TKA SMP →</span>
+            </a>
             <div className="hero-new-resource" aria-label="Segera hadir">
               <span className="hero-new-tag">Segera Hadir</span>
               <span>Generate Soal Otomatis</span>
