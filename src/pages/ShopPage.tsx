@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { ArrowRight, Check, ExternalLink, Mail } from "lucide-react";
+import { ArrowRight, Check, Mail } from "lucide-react";
 import type { Navigate } from "../types/navigation";
+import { PdfPreview } from "../components/PdfPreview";
 import {
   ACCOUNT_HOLDER,
   BAHAN_AJAR,
@@ -191,16 +192,11 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
           <div className="shop-preview-stage">
             <div className="shop-preview-stage-head">
               <strong>{activeSample.title}</strong>
-              <a href={activeSample.url} target="_blank" rel="noreferrer">
-                Buka PDF <ExternalLink size={14} aria-hidden="true" />
-              </a>
             </div>
-            <iframe
+            <PdfPreview
               key={activeSample.id}
-              className="shop-preview-frame"
-              src={activeSample.url}
+              url={activeSample.url}
               title={activeSample.title}
-              loading="lazy"
             />
           </div>
 

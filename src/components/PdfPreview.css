@@ -1,0 +1,112 @@
+.pdf-preview {
+  min-width: 0;
+  background: #e8edf1;
+}
+
+.pdf-preview-toolbar {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 5px 10px;
+  border-bottom: 1px solid #dce2e8;
+  background: #f5f7f9;
+  color: #073c64;
+}
+
+.pdf-preview-page-controls,
+.pdf-preview-zoom-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pdf-preview-icon-button {
+  width: 30px;
+  height: 30px;
+  display: inline-grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid #cbd5dc;
+  background: #fff;
+  color: #073c64;
+  cursor: pointer;
+}
+
+.pdf-preview-icon-button:hover:not(:disabled) {
+  border-color: #1196c3;
+  color: #087f8c;
+}
+
+.pdf-preview-icon-button:focus-visible {
+  outline: 2px solid #facc15;
+  outline-offset: 2px;
+}
+
+.pdf-preview-icon-button:disabled {
+  color: #9aa6af;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.pdf-preview-page-count,
+.pdf-preview-zoom-value {
+  min-width: 48px;
+  color: #526575;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+.pdf-preview-viewport {
+  position: relative;
+  width: 100%;
+  height: clamp(520px, 72vh, 800px);
+  overflow: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  background: #e8edf1;
+}
+
+.pdf-preview-viewport canvas {
+  display: block;
+  max-width: none;
+  margin: 16px auto;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(11, 30, 49, 0.18);
+}
+
+.pdf-preview-status {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  color: #526575;
+  font-size: 12px;
+  text-align: center;
+}
+
+.pdf-preview-error {
+  color: #a33131;
+}
+
+@media (max-width: 760px) {
+  .pdf-preview-viewport {
+    height: 68vh;
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 420px) {
+  .pdf-preview-toolbar {
+    gap: 6px;
+    padding-inline: 6px;
+  }
+
+  .pdf-preview-page-controls,
+  .pdf-preview-zoom-controls {
+    gap: 4px;
+  }
+}

@@ -4016,25 +4016,6 @@ summary:focus-visible {
 .shop-preview-stage-head strong {
   font-size: 13px;
 }
-.shop-preview-stage-head a {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  flex-shrink: 0;
-  color: var(--navy-bright);
-  font-size: 12px;
-  font-weight: 700;
-}
-.shop-preview-stage-head a:hover {
-  color: #a16207;
-}
-.shop-preview-frame {
-  display: block;
-  width: 100%;
-  height: clamp(520px, 72vh, 800px);
-  border: 0;
-  background: #e8edf1;
-}
 .shop-preview-picker-label {
   display: block;
   margin-bottom: 10px;
@@ -4109,10 +4090,6 @@ summary:focus-visible {
   }
   .shop-preview-layout {
     grid-template-columns: minmax(0, 1fr);
-  }
-  .shop-preview-frame {
-    height: 68vh;
-    min-height: 420px;
   }
 }
 
