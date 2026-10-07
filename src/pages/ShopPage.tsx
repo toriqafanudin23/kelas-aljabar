@@ -12,7 +12,7 @@ import {
   SAMPLE_PRODUCTS,
   SATUAN_ITEMS,
   SLIDE_PACKAGES,
-  TKA_SMP_PACKAGE,
+  TKA_PACKAGES,
   type SampleProductId,
   type SatuanItem,
   WHATSAPP_LINK,
@@ -388,57 +388,57 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
         </div>
       </section>
 
-      <section className="shop-section" aria-label="Paket Latihan TKA SMP">
-        <div className="shop-package-grid shop-package-grid--single">
-          <article className="shop-card shop-card--featured">
-            <div className="shop-card-header">
-              <span className="shop-card-grade-badge shop-card-grade-badge--green">
-                DISKON 25%
-              </span>
-              <span className="shop-card-grade">SMP</span>
-            </div>
-            <div className="shop-card-body">
-              <h3 className="shop-card-title">Paket Latihan TKA SMP</h3>
-              <div className="shop-promo-price">
-                <del>Rp20.000</del>
-                <span className="shop-promo-current-price">Rp15.000</span>
+      <section
+        className="shop-section"
+        aria-label="Paket Latihan TKA SMP dan SMA"
+      >
+        <div className="section-heading">
+          <div>
+            <span className="section-kicker">Persiapan TKA</span>
+            <h2>Paket Latihan TKA SMP dan SMA</h2>
+            <p>
+              Empat paket latihan dengan benefit dan harga yang sama untuk
+              jenjang SMP maupun SMA.
+            </p>
+          </div>
+        </div>
+        <div className="shop-package-grid shop-package-grid--2col">
+          {TKA_PACKAGES.map((pkg) => (
+            <article key={pkg.grade} className="shop-card shop-card--featured">
+              <div className="shop-card-header">
+                <span className="shop-card-grade-badge shop-card-grade-badge--green">
+                  DISKON 25%
+                </span>
+                <span className="shop-card-grade">{pkg.grade}</span>
               </div>
-              <p className="shop-card-desc">
-                Empat paket latihan TKA untuk membantu persiapan siswa SMP.
-              </p>
-              <ul className="shop-card-list shop-card-list--check">
-                <li>
-                  <span className="shop-check-icon" aria-hidden="true">
-                    <Check size={15} strokeWidth={2.5} />
-                  </span>
-                  4 paket soal TKA
-                </li>
-                <li>
-                  <span className="shop-check-icon" aria-hidden="true">
-                    <Check size={15} strokeWidth={2.5} />
-                  </span>
-                  30 soal per paket (total 120 soal)
-                </li>
-                <li>
-                  <span className="shop-check-icon" aria-hidden="true">
-                    <Check size={15} strokeWidth={2.5} />
-                  </span>
-                  Bentuk soal: Pilihan ganda, multiple choice, benar atau salah
-                </li>
-              </ul>
-            </div>
-            <div className="shop-card-footer">
-              <a
-                href={buildEmailLink(
-                  TKA_SMP_PACKAGE.emailSubject,
-                  TKA_SMP_PACKAGE.emailBody,
-                )}
-                className="button button-primary shop-order-btn"
-              >
-                Pesan via Email <Mail size={16} aria-hidden="true" />
-              </a>
-            </div>
-          </article>
+              <div className="shop-card-body">
+                <h3 className="shop-card-title">{pkg.title}</h3>
+                <div className="shop-promo-price">
+                  <del>{pkg.originalPrice}</del>
+                  <span className="shop-promo-current-price">{pkg.price}</span>
+                </div>
+                <p className="shop-card-desc">{pkg.desc}</p>
+                <ul className="shop-card-list shop-card-list--check">
+                  {pkg.benefits.map((benefit) => (
+                    <li key={benefit}>
+                      <span className="shop-check-icon" aria-hidden="true">
+                        <Check size={15} strokeWidth={2.5} />
+                      </span>
+                      {benefit}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="shop-card-footer">
+                <a
+                  href={buildEmailLink(pkg.emailSubject, pkg.emailBody)}
+                  className="button button-primary shop-order-btn"
+                >
+                  Pesan via Email <Mail size={16} aria-hidden="true" />
+                </a>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 

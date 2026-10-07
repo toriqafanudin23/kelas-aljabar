@@ -181,12 +181,24 @@ ${PAYMENT_DETAILS}
 Terima kasih.`,
 }));
 
-export const TKA_SMP_PACKAGE = {
-  emailSubject: "Pemesanan Paket Latihan TKA SMP — Math 1729",
+const TKA_BENEFITS = [
+  "4 paket soal TKA",
+  "30 soal per paket (total 120 soal)",
+  "Bentuk soal: Pilihan ganda, multiple choice, benar atau salah",
+];
+
+export const TKA_PACKAGES = (["SMP", "SMA"] as const).map((grade) => ({
+  grade,
+  title: `Paket Latihan TKA ${grade}`,
+  originalPrice: "Rp20.000",
+  price: "Rp15.000",
+  desc: `Empat paket latihan TKA untuk membantu persiapan siswa ${grade}.`,
+  benefits: TKA_BENEFITS,
+  emailSubject: `Pemesanan Paket Latihan TKA ${grade} — Math 1729`,
   emailBody: `Assalamualaikum / Selamat pagi,
 
 Saya ingin memesan:
-Paket Latihan TKA SMP
+Paket Latihan TKA ${grade}
 Harga normal: Rp20.000
 Diskon 25%: Rp15.000
 
@@ -201,7 +213,7 @@ ${PAYMENT_DETAILS}
 [LAMPIRKAN BUKTI TRANSFER DI EMAIL INI]
 
 Terima kasih.`,
-};
+}));
 
 export const BAHAN_AJAR = [
   { title: "Matriks", grade: "Kelas XI" },
