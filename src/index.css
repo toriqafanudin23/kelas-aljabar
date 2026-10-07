@@ -3856,6 +3856,112 @@ summary:focus-visible {
   padding-bottom: 80px;
 }
 
+.shop-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(220px, 0.8fr);
+  gap: 24px;
+  align-items: center;
+  margin-top: 18px;
+  padding: 30px 28px;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--navy);
+  background: linear-gradient(135deg, #f8fbff 0%, #eef3f9 100%);
+}
+
+.shop-hero-copy h1 {
+  margin: 10px 0 12px;
+  color: var(--navy-deep);
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.shop-hero-copy p {
+  max-width: 640px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.shop-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.shop-hero-chat {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  min-height: 42px;
+  border-radius: 999px;
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.shop-hero-chat:hover {
+  border-color: var(--gold);
+  color: var(--navy-deep);
+}
+
+.shop-hero-panel {
+  display: grid;
+  gap: 12px;
+}
+
+.shop-hero-panel-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.shop-hero-panel-item strong {
+  color: var(--navy);
+  font-size: 13px;
+}
+
+.shop-hero-panel-item span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.shop-quick-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0 12px;
+}
+
+.shop-quick-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--navy);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+}
+
+.shop-quick-nav a:hover {
+  border-color: var(--gold);
+  color: var(--navy-deep);
+}
+
 .shop-product-preview {
   margin-block: 36px 44px;
   padding-top: 24px;
@@ -3977,6 +4083,18 @@ summary:focus-visible {
 }
 
 @media (max-width: 760px) {
+  .shop-hero {
+    grid-template-columns: 1fr;
+    padding: 22px 18px;
+  }
+  .shop-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .shop-hero-actions .button,
+  .shop-hero-chat {
+    width: 100%;
+  }
   .shop-preview-layout {
     grid-template-columns: minmax(0, 1fr);
   }

@@ -1,18 +1,37 @@
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import "katex/dist/katex.min.css";
 import { getPageFromPath, getPathFromPage } from "./types/navigation";
 import type { Page, Navigate } from "./types/navigation";
 import { SiteHeader } from "./components/SiteHeader";
 import { SiteFooter } from "./components/SiteFooter";
-import { HomePage } from "./pages/HomePage";
-import { CatalogPage } from "./pages/CatalogPage";
-import { AboutPage } from "./pages/AboutPage";
-import { DownloadPage } from "./pages/DownloadPage";
-import { BankSoalDownloadPage } from "./pages/BankSoalDownloadPage";
-import { SimulationPage } from "./pages/SimulationPage";
-import { ShopPage } from "./pages/ShopPage";
-import { LessonPage } from "./pages/LessonPage";
 import { SEOHead } from "./components/SEOHead";
+
+const HomePage = lazy(() =>
+  import("./pages/HomePage").then((m) => ({ default: m.HomePage })),
+);
+const CatalogPage = lazy(() =>
+  import("./pages/CatalogPage").then((m) => ({ default: m.CatalogPage })),
+);
+const AboutPage = lazy(() =>
+  import("./pages/AboutPage").then((m) => ({ default: m.AboutPage })),
+);
+const DownloadPage = lazy(() =>
+  import("./pages/DownloadPage").then((m) => ({ default: m.DownloadPage })),
+);
+const BankSoalDownloadPage = lazy(() =>
+  import("./pages/BankSoalDownloadPage").then((m) => ({
+    default: m.BankSoalDownloadPage,
+  })),
+);
+const SimulationPage = lazy(() =>
+  import("./pages/SimulationPage").then((m) => ({ default: m.SimulationPage })),
+);
+const ShopPage = lazy(() =>
+  import("./pages/ShopPage").then((m) => ({ default: m.ShopPage })),
+);
+const LessonPage = lazy(() =>
+  import("./pages/LessonPage").then((m) => ({ default: m.LessonPage })),
+);
 
 function App() {
   const [page, setPage] = useState<Page>(() =>
@@ -80,21 +99,25 @@ function App() {
         isTocOpen={mobileTocOpen}
         onToggleToc={() => setMobileTocOpen(!mobileTocOpen)}
       />
-      {page === "home" && <HomePage navigate={navigate} />}
-      {page === "catalog" && <CatalogPage navigate={navigate} />}
-      {page === "download" && <DownloadPage navigate={navigate} />}
-      {page === "bank-download" && <BankSoalDownloadPage navigate={navigate} />}
-      {page === "simulation" && <SimulationPage navigate={navigate} />}
-      {page === "shop" && <ShopPage navigate={navigate} />}
-      {page === "about" && <AboutPage navigate={navigate} />}
-      {isMaterialPage && (
-        <LessonPage
-          slug={page}
-          navigate={navigate}
-          mobileTocOpen={mobileTocOpen}
-          setMobileTocOpen={setMobileTocOpen}
-        />
-      )}
+      <Suspense fallback={null}>
+        {page === "home" && <HomePage navigate={navigate} />}
+        {page === "catalog" && <CatalogPage navigate={navigate} />}
+        {page === "download" && <DownloadPage navigate={navigate} />}
+        {page === "bank-download" && (
+          <BankSoalDownloadPage navigate={navigate} />
+        )}
+        {page === "simulation" && <SimulationPage navigate={navigate} />}
+        {page === "shop" && <ShopPage navigate={navigate} />}
+        {page === "about" && <AboutPage navigate={navigate} />}
+        {isMaterialPage && (
+          <LessonPage
+            slug={page}
+            navigate={navigate}
+            mobileTocOpen={mobileTocOpen}
+            setMobileTocOpen={setMobileTocOpen}
+          />
+        )}
+      </Suspense>
       <SiteFooter navigate={navigate} />
     </>
   );
