@@ -305,6 +305,9 @@ summary:focus-visible {
   border-left-color: var(--gold);
 }
 .desktop-nav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   padding: 8px 16px;
   border-radius: 0;
   color: #e2e8ef;
@@ -313,6 +316,14 @@ summary:focus-visible {
   transition:
     background 0.18s ease,
     color 0.18s ease;
+}
+.nav-item-with-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav-item-with-icon svg {
+  flex-shrink: 0;
 }
 .desktop-nav a:hover {
   color: var(--gold-light);
@@ -391,6 +402,7 @@ summary:focus-visible {
 .drawer-primary-link {
   display: flex;
   align-items: center;
+  gap: 10px;
   padding: 12px 14px;
   border-radius: 0;
   color: #e2e8ef;

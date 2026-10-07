@@ -21,6 +21,8 @@ const simulations = [
     title: "Lingkaran satuan",
     description:
       "Geser titik pada lingkaran atau atur sudutnya. Koordinat titik menunjukkan nilai kosinus dan sinus; grafik memperlihatkan nilai sinus, kosinus, dan tangen untuk sudut yang sama.",
+    prompt:
+      "Pada sudut mana nilai sinus dan kosinus sama? Amati bagaimana koordinat berubah saat titik melewati kuadran.",
     level: "KELAS X",
     component: TrigonometrySimulation,
   },
@@ -31,6 +33,8 @@ const simulations = [
     title: "Eksplorasi fungsi kuadrat",
     description:
       "Ubah koefisien a, b, dan c untuk melihat pengaruhnya terhadap bentuk parabola, titik puncak, akar, dan diskriminan.",
+    prompt:
+      "Ubah satu koefisien setiap kali. Bagaimana a mengubah bentuk parabola, dan bagaimana b atau c memengaruhi letak titik puncak serta akar?",
     level: "KELAS X",
     component: QuadraticSimulation,
   },
@@ -41,6 +45,8 @@ const simulations = [
     title: "Eksplorasi transformasi geometri",
     description:
       "Geser bangun asal, susun translasi, refleksi, rotasi, atau dilatasi, lalu amati bayangan, koordinat, dan matriks transformasinya.",
+    prompt:
+      "Terapkan satu transformasi setiap langkah. Transformasi mana yang mempertahankan panjang dan sudut, dan mana yang mengubah ukuran?",
     level: "KELAS XI",
     component: TransformationSimulation,
   },
@@ -51,6 +57,8 @@ const simulations = [
     title: "Eksplorasi transformasi fungsi",
     description:
       "Pilih fungsi dasar, lalu ubah pergeseran, refleksi, dan peregangan grafik untuk melihat pengaruh setiap parameter.",
+    prompt:
+      "Prediksi perubahan grafik sebelum menggeser parameter. Bandingkan pengaruh pergeseran horizontal dengan pergeseran vertikal.",
     level: "KELAS XII",
     component: FunctionTransformationSimulation,
   },
@@ -61,6 +69,8 @@ const simulations = [
     title: "Eksplorasi vektor",
     description:
       "Atur dua vektor untuk menjelajahi penjumlahan, pengurangan, hasil kali titik, sudut antara vektor, dan proyeksinya.",
+    prompt:
+      "Bandingkan hasil kali titik saat kedua vektor searah, tegak lurus, dan berlawanan arah. Apa yang terjadi pada sudutnya?",
     level: "KELAS X",
     component: VectorSimulation,
   },
@@ -71,6 +81,8 @@ const simulations = [
     title: "Eksplorasi kalkulus",
     description:
       "Amati hubungan garis sekan dan tangen dengan turunan, lalu dekati luas daerah di bawah kurva menggunakan jumlah Riemann.",
+    prompt:
+      "Dekatkan garis sekan ke garis tangen dengan mengecilkan h. Lalu tambah persegi panjang Riemann dan amati pendekatan luasnya.",
     level: "KELAS XI–XII",
     component: CalculusSimulation,
   },
@@ -81,6 +93,8 @@ const simulations = [
     title: "Penggambar grafik fungsi",
     description:
       "Gambarkan hingga tiga fungsi sekaligus, lalu amati titik potong antargrafik serta titik potong terhadap sumbu.",
+    prompt:
+      "Gambarkan dua fungsi dan cari titik potongnya. Bagaimana titik-titik itu berkaitan dengan solusi persamaan saat kedua fungsi disamakan?",
     level: "KELAS X–XII",
     component: GraphPlotterSimulation,
   },
@@ -91,6 +105,8 @@ const simulations = [
     title: "Eksplorasi sistem linear",
     description:
       "Jelajahi titik potong dua garis, daerah penyelesaian pertidaksamaan, dan optimasi program linear melalui grafik interaktif.",
+    prompt:
+      "Ubah kendala dan amati daerah layak. Kapan sistem memiliki satu solusi, banyak solusi, atau tidak memiliki solusi?",
     level: "KELAS X–XI",
     component: LinearSystemSimulation,
   },
@@ -98,13 +114,32 @@ const simulations = [
 
 export function SimulationPage({ navigate }: SimulationPageProps) {
   const simulationSectionRef = useRef<HTMLElement>(null);
-  const [selectedSimulationId, setSelectedSimulationId] = useState(
-    simulations[0].id,
-  );
+  const [selectedSimulationId, setSelectedSimulationId] = useState(() => {
+    try {
+      const savedId = window.sessionStorage.getItem(
+        "math1729.active-simulation",
+      );
+      return simulations.some(({ id }) => id === savedId)
+        ? savedId!
+        : simulations[0].id;
+    } catch {
+      return simulations[0].id;
+    }
+  });
   const [isSimulationFullscreen, setIsSimulationFullscreen] = useState(false);
+  const [fullscreenError, setFullscreenError] = useState("");
   const activeSimulation =
     simulations.find(({ id }) => id === selectedSimulationId) ?? simulations[0];
   const ActiveSimulation = activeSimulation.component;
+
+  useEffect(() => {
+    try {
+      window.sessionStorage.setItem(
+        "math1729.active-simulation",
+        selectedSimulationId,
+      );
+    } catch {}
+  }, [selectedSimulationId]);
 
   useEffect(() => {
     const handleFullscreenChange = () => {
@@ -121,6 +156,15 @@ export function SimulationPage({ navigate }: SimulationPageProps) {
   const toggleSimulationFullscreen = async () => {
     const simulationSection = simulationSectionRef.current;
     if (!simulationSection) return;
+    setFullscreenError("");
+
+    if (
+      document.fullscreenElement !== simulationSection &&
+      (!document.fullscreenEnabled || !simulationSection.requestFullscreen)
+    ) {
+      setFullscreenError("Layar penuh tidak didukung oleh browser ini.");
+      return;
+    }
 
     try {
       if (document.fullscreenElement === simulationSection) {
@@ -130,6 +174,7 @@ export function SimulationPage({ navigate }: SimulationPageProps) {
       }
     } catch {
       setIsSimulationFullscreen(false);
+      setFullscreenError("Tidak dapat membuka layar penuh. Coba lagi.");
     }
   };
 
@@ -157,23 +202,43 @@ export function SimulationPage({ navigate }: SimulationPageProps) {
       </div>
 
       <div className="simulation-picker">
-        <label htmlFor="simulation-choice">Pilih simulasi</label>
-        <select
-          id="simulation-choice"
-          value={selectedSimulationId}
-          onChange={(event) => setSelectedSimulationId(event.target.value)}
+        <div className="simulation-picker-heading">
+          <span className="simulation-picker-label">Pilih simulasi</span>
+          <span className="simulation-picker-count">
+            {simulations.length} topik
+          </span>
+        </div>
+        <div
+          className="simulation-options"
+          role="group"
+          aria-label="Pilih simulasi"
         >
           {simulations.map((simulation) => (
-            <option key={simulation.id} value={simulation.id}>
-              {simulation.index}. {simulation.title}
-            </option>
+            <button
+              key={simulation.id}
+              className={`simulation-option ${selectedSimulationId === simulation.id ? "active" : ""}`}
+              type="button"
+              aria-pressed={selectedSimulationId === simulation.id}
+              onClick={() => setSelectedSimulationId(simulation.id)}
+            >
+              <span className="simulation-option-category">
+                {simulation.category}
+              </span>
+              <span className="simulation-option-title">
+                {simulation.title}
+              </span>
+              <span className="simulation-option-level">
+                {simulation.level}
+              </span>
+            </button>
           ))}
-        </select>
+        </div>
       </div>
 
       <section
         ref={simulationSectionRef}
         className="simulation-section"
+        id="active-simulation-content"
         aria-labelledby={`simulation-${activeSimulation.id}-title`}
       >
         <div className="simulation-heading">
@@ -185,19 +250,36 @@ export function SimulationPage({ navigate }: SimulationPageProps) {
               {activeSimulation.title}
             </h2>
             <p>{activeSimulation.description}</p>
+            <aside
+              className="simulation-prompt"
+              aria-label="Pertanyaan eksplorasi"
+            >
+              <strong>Coba amati</strong>
+              <p>{activeSimulation.prompt}</p>
+            </aside>
           </div>
           <div className="simulation-heading-actions">
             <span className="simulation-level">{activeSimulation.level}</span>
             <button
               className="simulation-fullscreen-button"
               type="button"
-              aria-expanded={isSimulationFullscreen}
+              aria-pressed={isSimulationFullscreen}
+              aria-controls="active-simulation-content"
               onClick={toggleSimulationFullscreen}
             >
               {isSimulationFullscreen ? "Keluar layar penuh" : "Layar penuh"}
             </button>
           </div>
         </div>
+        {fullscreenError && (
+          <p
+            className="simulation-fullscreen-error"
+            role="status"
+            aria-live="polite"
+          >
+            {fullscreenError}
+          </p>
+        )}
 
         <ActiveSimulation />
       </section>

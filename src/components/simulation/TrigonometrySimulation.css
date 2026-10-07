@@ -63,32 +63,89 @@
 
 .simulation-picker {
   display: grid;
-  grid-template-columns: auto minmax(220px, 360px);
-  align-items: center;
   gap: 12px;
   padding-top: 24px;
 }
 
-.simulation-picker label {
+.simulation-picker-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.simulation-picker-label {
   color: var(--sim-ink);
   font-size: 12px;
   font-weight: 700;
 }
 
-.simulation-picker select {
-  min-height: 42px;
-  padding: 0 36px 0 12px;
+.simulation-picker-count {
+  color: var(--sim-muted);
+  font-size: 11px;
+}
+
+.simulation-options {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.simulation-option {
+  display: grid;
+  align-content: start;
+  gap: 5px;
+  min-width: 0;
+  min-height: 94px;
+  padding: 11px 12px;
   border: 1px solid var(--sim-line);
-  border-radius: 0;
   background: #fff;
   color: var(--sim-ink);
   font: inherit;
-  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease,
+    color 0.18s ease;
 }
 
-.simulation-picker select:focus-visible {
+.simulation-option:hover {
+  border-color: var(--sim-teal);
+  background: #f3f8f6;
+}
+
+.simulation-option:focus-visible {
   outline: 2px solid var(--sim-teal);
   outline-offset: 3px;
+}
+
+.simulation-option.active {
+  border-color: var(--sim-teal);
+  background: #e7f2ef;
+  box-shadow: inset 0 3px 0 var(--sim-teal);
+}
+
+.simulation-option-category {
+  color: #927000;
+  font-size: 9px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.simulation-option-title {
+  color: var(--sim-ink);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.simulation-option-level {
+  align-self: end;
+  color: var(--sim-muted);
+  font-size: 9px;
+  font-weight: 700;
 }
 
 .simulation-heading {
@@ -118,6 +175,26 @@
   margin: 0;
   color: var(--sim-muted);
   font-size: 13px;
+}
+
+.simulation-prompt {
+  max-width: 720px;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-left: 3px solid var(--sim-orange);
+  background: #fff8f2;
+}
+
+.simulation-prompt strong {
+  display: block;
+  margin-bottom: 2px;
+  color: #8b451f;
+  font-size: 10px;
+}
+
+.simulation-prompt p {
+  color: var(--sim-ink);
+  font-size: 11px;
 }
 
 .simulation-level {
@@ -156,6 +233,12 @@
 .simulation-fullscreen-button:focus-visible {
   outline: 2px solid var(--sim-ink);
   outline-offset: 3px;
+}
+
+.simulation-fullscreen-error {
+  margin: -6px 0 12px;
+  color: #9b2c2c;
+  font-size: 12px;
 }
 
 .trigonometry-simulation {
@@ -419,8 +502,11 @@
   }
 
   .simulation-picker {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 7px;
+    gap: 9px;
+  }
+
+  .simulation-options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .trig-boards {
@@ -450,11 +536,35 @@
   }
 
   .simulation-heading {
+    flex-direction: column;
     gap: 10px;
   }
 
   .simulation-heading-actions {
+    align-self: flex-start;
     flex-wrap: wrap;
+  }
+
+  .simulation-options {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .simulation-option {
+    min-height: 0;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 3px 10px;
+  }
+
+  .simulation-option-category,
+  .simulation-option-title {
+    grid-column: 1;
+  }
+
+  .simulation-option-level {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    text-align: right;
   }
 
   .simulation-section:fullscreen {

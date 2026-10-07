@@ -3,6 +3,7 @@ import type { KeyboardEvent as ReactKeyboardEvent } from "react";
 import JXG from "jsxgraph";
 import "../../../node_modules/jsxgraph/distrib/jsxgraph.css";
 import "./LinearSystemSimulation.css";
+import { useStoredSimulationState } from "./useStoredSimulationState";
 import {
   OP_SYMBOL,
   boxPoly,
@@ -192,13 +193,7 @@ export function LinearSystemSimulation() {
   const interTextRef = useRef<JEl | null>(null);
 
   // data yang dibaca papan (selalu lewat ref)
-  const modeRef = useRef<Mode>("lp");
   const linesRef = useRef<Cons[]>([]);
-  const nonnegRef = useRef(true);
-  const showHalfRef = useRef(true);
-  const snapRef = useRef(true);
-  const pqRef = useRef({ p: 2, q: 3, goal: "max" as Goal });
-  const kRef = useRef(0);
   const handleAbcRef = useRef<(Line | null)[]>([]);
   const dragRef = useRef<{ i: number; kind: "line" | "handle" } | null>(null);
   const dashRef = useRef<number[]>([]);
@@ -212,21 +207,49 @@ export function LinearSystemSimulation() {
   const rafRef = useRef<number | null>(null);
   const lastKeyRef = useRef("");
 
-  const [mode, setMode] = useState<Mode>("lp");
-  const [eq, setEq] = useState<Cons[]>(SPLDV_PRESETS[0].cons);
-  const [ineq, setIneq] = useState<Cons[]>(LP_PRESETS[0].cons);
-  const [nonneg, setNonneg] = useState(true);
-  const [showHalf, setShowHalf] = useState(true);
-  const [snap, setSnap] = useState(true);
-  const [p, setP] = useState(2);
-  const [q, setQ] = useState(3);
-  const [goal, setGoal] = useState<Goal>("max");
-  const [k, setK] = useState(0);
+  const [mode, setMode] = useStoredSimulationState<Mode>(
+    "linear-system.mode",
+    "lp",
+  );
+  const [eq, setEq] = useStoredSimulationState<Cons[]>(
+    "linear-system.equations",
+    SPLDV_PRESETS[0].cons,
+  );
+  const [ineq, setIneq] = useStoredSimulationState<Cons[]>(
+    "linear-system.inequalities",
+    LP_PRESETS[0].cons,
+  );
+  const [nonneg, setNonneg] = useStoredSimulationState(
+    "linear-system.nonnegative",
+    true,
+  );
+  const [showHalf, setShowHalf] = useStoredSimulationState(
+    "linear-system.show-regions",
+    true,
+  );
+  const [snap, setSnap] = useStoredSimulationState("linear-system.snap", true);
+  const [p, setP] = useStoredSimulationState("linear-system.objective-p", 2);
+  const [q, setQ] = useStoredSimulationState("linear-system.objective-q", 3);
+  const [goal, setGoal] = useStoredSimulationState<Goal>(
+    "linear-system.goal",
+    "max",
+  );
+  const [k, setK] = useStoredSimulationState("linear-system.level", 0);
   const [anim, setAnim] = useState(false);
-  const [testPt, setTestPt] = useState<Pt>({ x: 1, y: 1 });
+  const [testPt, setTestPt] = useStoredSimulationState<Pt>(
+    "linear-system.test-point",
+    { x: 1, y: 1 },
+  );
   const [analysis, setAnalysis] = useState<Analysis | null>(null);
   const [isFull, setIsFull] = useState(false);
   const [message, setMessage] = useState("");
+
+  const modeRef = useRef<Mode>(mode);
+  const nonnegRef = useRef(nonneg);
+  const showHalfRef = useRef(showHalf);
+  const snapRef = useRef(snap);
+  const pqRef = useRef({ p, q, goal });
+  const kRef = useRef(k);
 
   const lines = mode === "spldv" ? eq : ineq;
 
@@ -756,7 +779,7 @@ export function LinearSystemSimulation() {
     interTextRef.current = interText;
 
     // titik uji (hanya pada mode pertidaksamaan)
-    const test = create("point", [1, 1], {
+    const test = create("point", [testPt.x, testPt.y], {
       name: "",
       withLabel: false,
       size: 4,

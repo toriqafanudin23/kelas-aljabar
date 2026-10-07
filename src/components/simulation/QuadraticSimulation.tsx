@@ -1,7 +1,8 @@
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useRef } from "react";
 import JXG from "jsxgraph";
 import "../../../node_modules/jsxgraph/distrib/jsxgraph.css";
 import "./QuadraticSimulation.css";
+import { useStoredSimulationState } from "./useStoredSimulationState";
 
 type Params = { a: number; b: number; c: number };
 
@@ -47,8 +48,11 @@ export function QuadraticSimulation() {
   const boardRef = useRef<ReturnType<typeof JXG.JSXGraph.initBoard> | null>(
     null,
   );
-  const paramsRef = useRef<Params>(initialParams);
-  const [params, setParams] = useState<Params>(initialParams);
+  const [params, setParams] = useStoredSimulationState(
+    "quadratic.params",
+    initialParams,
+  );
+  const paramsRef = useRef<Params>(params);
 
   const updateParam = (key: keyof Params, value: number) => {
     const next = { ...paramsRef.current, [key]: round1(value) };

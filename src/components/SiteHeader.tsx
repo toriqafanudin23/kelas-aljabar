@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { MouseEvent } from "react";
+import { BookOpenText, Home, Info, Play, ShoppingCart } from "lucide-react";
 import { materials } from "../materi";
 import { getPathFromPage } from "../types/navigation";
 import type { Page, Navigate } from "../types/navigation";
@@ -74,20 +75,22 @@ export function SiteHeader({
 
         <nav className="desktop-nav" aria-label="Navigasi utama">
           <a
-            className={page === "home" ? "active" : ""}
+            className={`nav-item-with-icon ${page === "home" ? "active" : ""}`}
             href="/"
             onClick={(event) => handleNavigation(event, "home")}
           >
-            Beranda
+            <Home size={15} strokeWidth={2.15} aria-hidden="true" />
+            <span>Beranda</span>
           </a>
 
           <div className="catalog-menu">
             <a
-              className={page === "catalog" ? "active" : ""}
+              className={`nav-item-with-icon ${page === "catalog" ? "active" : ""}`}
               href="/katalog"
               onClick={(event) => handleNavigation(event, "catalog")}
             >
-              Katalog Materi
+              <BookOpenText size={15} strokeWidth={2.15} aria-hidden="true" />
+              <span>Katalog Materi</span>
             </a>
             <div className="catalog-dropdown" aria-label="Daftar materi">
               {orderedMaterials.map((material) => (
@@ -107,27 +110,30 @@ export function SiteHeader({
           </div>
 
           <a
-            className={page === "simulation" ? "active" : ""}
+            className={`nav-item-with-icon ${page === "simulation" ? "active" : ""}`}
             href="/simulasi"
             onClick={(event) => handleNavigation(event, "simulation")}
           >
-            Simulasi
+            <Play size={15} strokeWidth={2.15} aria-hidden="true" />
+            <span>Simulasi</span>
           </a>
 
           <a
-            className={page === "shop" ? "active" : ""}
+            className={`nav-item-with-icon ${page === "shop" ? "active" : ""}`}
             href="/beli"
             onClick={(event) => handleNavigation(event, "shop")}
           >
-            Beli Produk
+            <ShoppingCart size={15} strokeWidth={2.15} aria-hidden="true" />
+            <span>Beli Produk</span>
           </a>
 
           <a
-            className={page === "about" ? "active" : ""}
+            className={`nav-item-with-icon ${page === "about" ? "active" : ""}`}
             href="/tentang"
             onClick={(event) => handleNavigation(event, "about")}
           >
-            Tentang
+            <Info size={15} strokeWidth={2.15} aria-hidden="true" />
+            <span>Tentang</span>
           </a>
         </nav>
 
@@ -188,35 +194,39 @@ export function SiteHeader({
         <div className="mobile-drawer">
           <div className="site-width drawer-links">
             <a
-              className={`drawer-primary-link ${page === "home" ? "active" : ""}`}
+              className={`drawer-primary-link nav-item-with-icon ${page === "home" ? "active" : ""}`}
               href="/"
               onClick={(event) => handleNavigation(event, "home")}
             >
-              Beranda
+              <Home size={16} strokeWidth={2.15} aria-hidden="true" />
+              <span>Beranda</span>
             </a>
 
             <a
-              className={`drawer-primary-link ${page === "catalog" ? "active" : ""}`}
+              className={`drawer-primary-link nav-item-with-icon ${page === "catalog" ? "active" : ""}`}
               href="/katalog"
               onClick={(event) => handleNavigation(event, "catalog")}
             >
-              Katalog Materi
+              <BookOpenText size={16} strokeWidth={2.15} aria-hidden="true" />
+              <span>Katalog Materi</span>
             </a>
 
             <a
-              className={`drawer-primary-link ${page === "simulation" ? "active" : ""}`}
+              className={`drawer-primary-link nav-item-with-icon ${page === "simulation" ? "active" : ""}`}
               href="/simulasi"
               onClick={(event) => handleNavigation(event, "simulation")}
             >
-              Simulasi
+              <Play size={16} strokeWidth={2.15} aria-hidden="true" />
+              <span>Simulasi</span>
             </a>
 
             <a
-              className={`drawer-primary-link ${page === "shop" ? "active" : ""}`}
+              className={`drawer-primary-link nav-item-with-icon ${page === "shop" ? "active" : ""}`}
               href="/beli"
               onClick={(event) => handleNavigation(event, "shop")}
             >
-              Beli Produk
+              <ShoppingCart size={16} strokeWidth={2.15} aria-hidden="true" />
+              <span>Beli Produk</span>
             </a>
 
             {/* Accordion Modul Cepat yang Rapi dan Tidak Memenuhi Layar */}
@@ -283,11 +293,12 @@ export function SiteHeader({
             </div>
 
             <a
-              className={`drawer-primary-link ${page === "about" ? "active" : ""}`}
+              className={`drawer-primary-link nav-item-with-icon ${page === "about" ? "active" : ""}`}
               href="/tentang"
               onClick={(event) => handleNavigation(event, "about")}
             >
-              Tentang
+              <Info size={16} strokeWidth={2.15} aria-hidden="true" />
+              <span>Tentang</span>
             </a>
           </div>
         </div>

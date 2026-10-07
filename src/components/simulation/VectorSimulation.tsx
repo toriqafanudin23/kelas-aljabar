@@ -1,7 +1,8 @@
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useRef } from "react";
 import JXG from "jsxgraph";
 import "../../../node_modules/jsxgraph/distrib/jsxgraph.css";
 import "./VectorSimulation.css";
+import { useStoredSimulationState } from "./useStoredSimulationState";
 
 /* ---------- Tipe ---------- */
 
@@ -164,22 +165,31 @@ export function VectorSimulation() {
   );
   const pointsRef = useRef<JXG.Point[]>([]);
 
-  const vectorsRef = useRef<{ a: Vec; b: Vec }>({
-    a: [...defaultA],
-    b: [...defaultB],
-  });
-  const showSumRef = useRef(true);
-  const showAngleRef = useRef(true);
-  const projectionRef = useRef<ProjectionMode>("a");
-  const snapRef = useRef(true);
+  const [vecA, setVecA] = useStoredSimulationState<Vec>("vector.a", defaultA);
+  const [vecB, setVecB] = useStoredSimulationState<Vec>("vector.b", defaultB);
+  const [fields, setFields] = useStoredSimulationState<Fields>(
+    "vector.fields",
+    toFields(defaultA, defaultB),
+  );
+  const [snap, setSnap] = useStoredSimulationState("vector.snap", true);
+  const [showSum, setShowSum] = useStoredSimulationState(
+    "vector.show-sum",
+    true,
+  );
+  const [showAngle, setShowAngle] = useStoredSimulationState(
+    "vector.show-angle",
+    true,
+  );
+  const [projection, setProjection] = useStoredSimulationState<ProjectionMode>(
+    "vector.projection",
+    "a",
+  );
 
-  const [vecA, setVecA] = useState<Vec>(defaultA);
-  const [vecB, setVecB] = useState<Vec>(defaultB);
-  const [fields, setFields] = useState<Fields>(toFields(defaultA, defaultB));
-  const [snap, setSnap] = useState(true);
-  const [showSum, setShowSum] = useState(true);
-  const [showAngle, setShowAngle] = useState(true);
-  const [projection, setProjection] = useState<ProjectionMode>("a");
+  const vectorsRef = useRef<{ a: Vec; b: Vec }>({ a: vecA, b: vecB });
+  const showSumRef = useRef(showSum);
+  const showAngleRef = useRef(showAngle);
+  const projectionRef = useRef(projection);
+  const snapRef = useRef(snap);
 
   const refresh = () => boardRef.current?.update();
 

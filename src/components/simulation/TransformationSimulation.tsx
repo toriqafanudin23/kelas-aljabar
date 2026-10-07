@@ -2,6 +2,7 @@ import { useEffect, useId, useRef, useState } from "react";
 import JXG from "jsxgraph";
 import "../../../node_modules/jsxgraph/distrib/jsxgraph.css";
 import "./TransformationSimulation.css";
+import { useStoredSimulationState } from "./useStoredSimulationState";
 
 /* ---------- Tipe ---------- */
 
@@ -341,23 +342,40 @@ export function TransformationSimulation() {
   );
   const pointsRef = useRef<JXG.Point[]>([]);
 
-  const verticesRef = useRef<Vec[]>(defaultVertices[3].map((v) => [...v]));
-  const stepsRef = useRef<Step[]>(initialSteps);
-  const progressRef = useRef(0);
-  const speedRef = useRef(1);
-  const snapRef = useRef(true);
-  const nextId = useRef(3);
-
-  const [shape, setShape] = useState(3);
-  const [vertices, setVertices] = useState<Vec[]>(verticesRef.current);
-  const [steps, setSteps] = useState<Step[]>(initialSteps);
+  const [shape, setShape] = useStoredSimulationState("transformation.shape", 3);
+  const [vertices, setVertices] = useStoredSimulationState<Vec[]>(
+    "transformation.vertices",
+    defaultVertices[3].map((v) => [...v]),
+  );
+  const [steps, setSteps] = useStoredSimulationState(
+    "transformation.steps",
+    initialSteps,
+  );
   const [progress, setProgress] = useState(0);
   const [playing, setPlaying] = useState(false);
-  const [speed, setSpeed] = useState(1);
-  const [snap, setSnap] = useState(true);
-  const [draftType, setDraftType] = useState<StepType>("rotation");
-  const [draft, setDraft] = useState<Draft>(initialDraft);
-  const [sampleIndex, setSampleIndex] = useState(0);
+  const [speed, setSpeed] = useStoredSimulationState("transformation.speed", 1);
+  const [snap, setSnap] = useStoredSimulationState("transformation.snap", true);
+  const [draftType, setDraftType] = useStoredSimulationState<StepType>(
+    "transformation.draft-type",
+    "rotation",
+  );
+  const [draft, setDraft] = useStoredSimulationState<Draft>(
+    "transformation.draft",
+    initialDraft,
+  );
+  const [sampleIndex, setSampleIndex] = useStoredSimulationState(
+    "transformation.sample-index",
+    0,
+  );
+
+  const verticesRef = useRef<Vec[]>(vertices);
+  const stepsRef = useRef<Step[]>(steps);
+  const progressRef = useRef(0);
+  const speedRef = useRef(speed);
+  const snapRef = useRef(snap);
+  const nextId = useRef(
+    steps.reduce((next, step) => Math.max(next, step.id + 1), 3),
+  );
 
   const setProgressValue = (value: number) => {
     const safe = Number.isFinite(value)

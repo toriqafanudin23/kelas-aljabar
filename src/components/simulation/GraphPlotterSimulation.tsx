@@ -3,6 +3,7 @@ import type { KeyboardEvent as ReactKeyboardEvent } from "react";
 import JXG from "jsxgraph";
 import "../../../node_modules/jsxgraph/distrib/jsxgraph.css";
 import "./GraphPlotterSimulation.css";
+import { useStoredSimulationState } from "./useStoredSimulationState";
 import {
   PARAM_NAMES,
   derivative,
@@ -203,7 +204,6 @@ export function GraphPlotterSimulation() {
   const shared = sharedRef.current;
 
   // data yang dibaca papan JSXGraph (selalu lewat ref agar tidak basi)
-  const pRef = useRef<Params>({ ...DEFAULT_PARAMS });
   const fnsRef = useRef<(((x: number) => number) | null)[]>(
     Array(MAX_SLOTS).fill(null),
   );
@@ -214,31 +214,63 @@ export function GraphPlotterSimulation() {
   const pinRef = useRef<Pin[]>([]);
   const traceXRef = useRef(Number.NaN);
   const tanRef = useRef<({ x: number; y: number; m: number } | null)[]>([]);
-  const showInterRef = useRef(true);
-  const showAxisRef = useRef(false);
-  const showExtRef = useRef(false);
-  const showTanRef = useRef(false);
-  const lockRef = useRef(shared?.lock ?? true);
   const pinIdRef = useRef(1);
   const rafRef = useRef<number | null>(null);
   const lastKeyRef = useRef("");
 
-  const [slots, setSlots] = useState<Slot[]>(shared?.slots ?? initialSlots);
-  const [params, setParams] = useState<Params>(
-    shared?.params ?? DEFAULT_PARAMS,
+  const [slots, setSlots] = useStoredSimulationState<Slot[]>(
+    "graph-plotter.slots",
+    shared?.slots ?? initialSlots,
+    !shared,
   );
-  const [active, setActive] = useState(0);
-  const [showInter, setShowInter] = useState(true);
-  const [showAxis, setShowAxis] = useState(false);
-  const [showExt, setShowExt] = useState(false);
-  const [showTan, setShowTan] = useState(false);
-  const [lockRatio, setLockRatio] = useState(shared?.lock ?? true);
+  const [params, setParams] = useStoredSimulationState<Params>(
+    "graph-plotter.params",
+    shared?.params ?? DEFAULT_PARAMS,
+    !shared,
+  );
+  const [active, setActive] = useStoredSimulationState(
+    "graph-plotter.active-slot",
+    0,
+    !shared,
+  );
+  const [showInter, setShowInter] = useStoredSimulationState(
+    "graph-plotter.intersections",
+    true,
+    !shared,
+  );
+  const [showAxis, setShowAxis] = useStoredSimulationState(
+    "graph-plotter.axis-intercepts",
+    false,
+    !shared,
+  );
+  const [showExt, setShowExt] = useStoredSimulationState(
+    "graph-plotter.extrema",
+    false,
+    !shared,
+  );
+  const [showTan, setShowTan] = useStoredSimulationState(
+    "graph-plotter.tangents",
+    false,
+    !shared,
+  );
+  const [lockRatio, setLockRatio] = useStoredSimulationState(
+    "graph-plotter.lock-ratio",
+    shared?.lock ?? true,
+    !shared,
+  );
   const [anim, setAnim] = useState<string | null>(null);
   const [pins, setPins] = useState<Pin[]>([]);
   const [trace, setTrace] = useState<Trace | null>(null);
   const [results, setResults] = useState<Results>({ pairs: [], axes: [] });
   const [message, setMessage] = useState("");
   const [isFull, setIsFull] = useState(false);
+
+  const pRef = useRef<Params>({ ...params });
+  const showInterRef = useRef(showInter);
+  const showAxisRef = useRef(showAxis);
+  const showExtRef = useRef(showExt);
+  const showTanRef = useRef(showTan);
+  const lockRef = useRef(lockRatio);
 
   const parsed = useMemo(
     () => slots.map((slot) => parseLatex(slot.src, pRef.current)),

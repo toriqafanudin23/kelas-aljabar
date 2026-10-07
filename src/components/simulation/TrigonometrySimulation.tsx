@@ -1,7 +1,8 @@
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useRef } from "react";
 import JXG from "jsxgraph";
 import "../../../node_modules/jsxgraph/distrib/jsxgraph.css";
 import "./TrigonometrySimulation.css";
+import { useStoredSimulationState } from "./useStoredSimulationState";
 
 const initialAngle = 45;
 const graphLimit = Math.PI * 2;
@@ -50,8 +51,11 @@ export function TrigonometrySimulation() {
     typeof JXG.JSXGraph.initBoard
   > | null>(null);
   const anglePointRef = useRef<JXG.Point | null>(null);
-  const angleRef = useRef(initialAngle);
-  const [angleDegrees, setAngleDegrees] = useState(initialAngle);
+  const [angleDegrees, setAngleDegrees] = useStoredSimulationState(
+    "trigonometry.angle",
+    initialAngle,
+  );
+  const angleRef = useRef(angleDegrees);
 
   const updateAngle = (value: number) => {
     const nextAngle = normalizeDegrees(value);

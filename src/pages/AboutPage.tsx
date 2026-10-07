@@ -33,14 +33,14 @@ export function AboutPage({ navigate }: AboutPageProps) {
           Materi Matematika · Simulasi Interaktif · Produk Digital
         </span>
         <h1>
-          Belajar Matematika Lewat Materi Web, Simulasi, dan Bahan Ajar Digital
+          Platform belajar matematika yang membantu siswa memahami konsep, bukan
+          sekadar menghafal rumus.
         </h1>
         <p>
-          Math 1729 menyediakan {materials.length} modul matematika SMA berbasis
-          web, simulasi interaktif, serta produk digital berupa paket soal,
-          slide presentasi, dan bahan ajar per materi. Materi web dapat
-          dipelajari langsung, sementara produk digital tersedia melalui halaman
-          toko.
+          Math 1729 menghadirkan materi matematika SMA, simulasi interaktif, dan
+          produk digital yang siap dipakai oleh siswa maupun guru. Tujuan
+          platform ini adalah membuat pembelajaran matematika terasa lebih
+          terstruktur, visual, dan bermakna dalam setiap jenjang belajar.
         </p>
       </div>
 
@@ -84,34 +84,31 @@ export function AboutPage({ navigate }: AboutPageProps) {
 
         <div className="profile-story">
           <span className="section-kicker">
-            Catatan Inisiator &amp; Manifesto
+            Visi Platform &amp; Fokus Pembelajaran
           </span>
-          <h2>Alasan Dibangunnya Platform Ini</h2>
+          <h2>Kenapa Math 1729 dibangun?</h2>
           <p className="story-lead">
-            Berawal dari keresahan mendalam terhadap kesenjangan kualitas
-            pendidikan matematika di Indonesia, khususnya perbedaan akses materi
-            berkualitas antara kota-kota metropolitan dengan daerah.
+            Banyak siswa merasa matematika sulit bukan karena tidak mampu,
+            tetapi karena materi yang mereka temui sering kali terlalu cepat,
+            tidak runtut, atau hanya menampilkan rumus tanpa konteks pemahaman.
           </p>
           <p>
-            Banyak siswa berbakat dan berpotensi tinggi mengalami kesulitan
-            memahami matematika bukan karena mereka kekurangan kemampuan logika,
-            melainkan karena sebagian besar sumber belajar yang beredar sekadar
-            menyodorkan rumus instan tanpa penurunan konsep, lompat-lompat tanpa
-            prasyarat runtut, atau dijejali materi hafalan yang membingungkan.
+            Math 1729 hadir untuk menjawab kebutuhan itu. Kami membangun materi
+            yang mengutamakan alur konsep yang logis, contoh yang jelas, dan
+            latihan yang mengasah cara berpikir, bukan sekadar menghafal cara
+            menjawab.
           </p>
           <p>
-            Oleh karena itu, Math 1729 hadir sebagai ikhtiar nyata: menyusun
-            materi matematika sekolah secara lengkap, presisi, dan terstruktur
-            berdasarkan alur prasyarat keilmuan yang kokoh. Dengan demikian,
-            setiap siswa di mana pun mereka berada dapat belajar mandiri secara
-            optimal dan memiliki daya saing yang setara.
+            Dengan pendekatan yang terstruktur, siswa dapat belajar mandiri,
+            memahami makna di balik setiap prosedur, dan merasa lebih percaya
+            diri saat menghadapi ujian, tugas, maupun tantangan matematis di
+            level yang lebih tinggi.
           </p>
           <div className="quote-box">
             <blockquote>
-              &ldquo;Pendidikan matematika yang benar bukan tentang menghafal
-              rumus paling cepat, melainkan tentang melatih ketajaman akal budi
-              untuk mengenali struktur, pola, dan kebenaran logis secara
-              jernih.&rdquo;
+              &ldquo;Matematika bukan tentang mengingat langkah paling cepat,
+              tetapi tentang melihat pola, membangun pemahaman, dan menyusun
+              alasan dengan jelas.&rdquo;
             </blockquote>
             <cite>— Toriq Afanudin</cite>
           </div>
@@ -122,7 +119,7 @@ export function AboutPage({ navigate }: AboutPageProps) {
       <section className="method-note" aria-label="Filosofi Nama Math 1729">
         <div className="method-header">
           <span className="section-kicker">
-            Filosofi Keilmuan &amp; Nama Platform
+            Filosofi Nama &amp; Cara Pandang Kami
           </span>
           <h2>Mengapa Dinamai &ldquo;Math 1729&rdquo;?</h2>
         </div>
@@ -130,39 +127,27 @@ export function AboutPage({ navigate }: AboutPageProps) {
         <div className="method-content-grid">
           <div className="method-narrative">
             <p>
-              Nama portal ini terinspirasi dari percakapan legendaris pada tahun
-              1918 antara matematikawan asal Inggris <strong>G.H. Hardy</strong>{" "}
-              dan jenius matematika asal India{" "}
-              <strong>Srinivasa Ramanujan</strong>.
+              Nama <strong>Math 1729</strong> diambil dari angka 1729, yang
+              terkenal dalam sejarah matematika karena melambangkan keindahan di
+              balik hal yang tampak biasa.
             </p>
             <p>
-              Saat Hardy mengunjungi Ramanujan yang terbaring sakit di Putney,
-              London, Hardy menceritakan bahwa ia baru saja menaiki taksi dengan
-              nomor pelat <strong>1729</strong>, yang menurut Hardy terasa
-              sangat membosankan dan pertanda yang kurang menguntungkan.
-              Mendengar hal itu, Ramanujan seketika menyanggah:
+              Angka ini mengingatkan kami bahwa matematika tidak selalu tampak
+              istimewa pada awalnya. Kadang, yang terlihat sederhana justru
+              menyimpan struktur yang luar biasa ketika kita melihatnya dengan
+              fokus, ketelitian, dan pola berpikir yang benar.
             </p>
-            <div className="dialogue-card">
-              <span className="speaker">Srinivasa Ramanujan:</span>
-              <p>
-                &ldquo;Tidak, Hardy! Itu adalah angka yang sangat istimewa. 1729
-                adalah bilangan bulat positif terkecil yang dapat dinyatakan
-                sebagai jumlah dari dua kubus positif dengan dua cara
-                berbeda!&rdquo;
-              </p>
-            </div>
             <p>
-              Kisah ini mengabadikan angka 1729 sebagai{" "}
-              <em>Hardy-Ramanujan Taxicab Number</em> dan menjadi simbol abadi
-              tentang bagaimana rasa ingin tahu intelektual mampu melihat
-              keindahan luar biasa di balik hal yang dianggap remeh oleh orang
-              lain.
+              Itulah juga yang kami usung dalam setiap materi: tidak hanya
+              menyajikan jawaban, tetapi menuntun siswa untuk menemukan
+              hubungan, memahami logika, dan menghargai keindahan dalam pola
+              matematika.
             </p>
           </div>
 
           <div className="method-formula-panel">
             <span className="formula-panel-label">
-              Notasi Matematika Taksi Ramanujan
+              Representasi Matematika Ikonik
             </span>
             <div className="formula-box-large">
               <Formula math="1729 = 1^3 + 12^3 = 9^3 + 10^3" />
@@ -179,10 +164,9 @@ export function AboutPage({ navigate }: AboutPageProps) {
             </div>
             <div className="method-lesson-quote">
               <em>
-                &ldquo;Hal yang tampak biasa terkadang menyimpan keteraturan
-                yang menakjubkan. Dengan penalaran yang tepat, matematika tidak
-                lagi menjadi beban, melainkan jendela untuk menyaksikan
-                keindahan logika murni.&rdquo;
+                &ldquo;Keindahan matematika bukan hanya ada pada hasil akhir,
+                tetapi pada proses melihat keteraturan di balik rincian yang
+                tampak rumit.&rdquo;
               </em>
             </div>
           </div>
@@ -201,8 +185,8 @@ export function AboutPage({ navigate }: AboutPageProps) {
             </span>
             <h2>Tiga Standar Utama Math 1729</h2>
             <p>
-              Setiap bab dan latihan soal dirancang berdasarkan pedoman
-              pedagogis yang ketat untuk menjamin kedalaman pemahaman siswa.
+              Kami membangun platform ini dengan fokus pada pemahaman, struktur,
+              dan penggunaan yang praktis bagi siswa maupun guru.
             </p>
           </div>
         </div>
@@ -210,39 +194,35 @@ export function AboutPage({ navigate }: AboutPageProps) {
         <div className="principles-grid">
           <article className="principle-card">
             <span className="principle-index">01</span>
-            <h3>Rigoritas Konsep &amp; Pembuktian Formal</h3>
+            <h3>Konsep yang Jelas dan Runtut</h3>
             <p>
-              Kami menolak doktrin &ldquo;hafal rumus tanpa paham&rdquo;. Setiap
-              rumus, teorema, dan sifat aljabar selalu dilengkapi bukti logis,
-              penurunan matematis bertahap, dan visualisasi geometris agar
-              konsep menancap kuat dalam memori jangka panjang.
+              Setiap materi disusun secara bertahap agar siswa tidak sekadar
+              menerima rumus, tetapi memahami mengapa rumus itu muncul dan
+              bagaimana cara menggunakannya dalam konteks yang benar.
             </p>
-            <span className="principle-tag">Bukan Trik Cepat Sesaat</span>
+            <span className="principle-tag">Pemahaman, bukan hafalan</span>
           </article>
 
           <article className="principle-card">
             <span className="principle-index">02</span>
-            <h3>Alur Prasyarat Runtut (Zero Gaps)</h3>
+            <h3>Visualisasi dan Eksplorasi</h3>
             <p>
-              Matematika bersifat hierarkis dan kumulatif. Kami memetakan
-              seluruh modul berdasarkan ketergantungan logika prasyaratnya.
-              Siswa tidak akan dibiarkan tersesat di kalkulus atau polinomial
-              tingkat tinggi tanpa fondasi aljabar dan fungsi yang matang.
+              Matematika menjadi lebih mudah dipahami ketika siswa dapat melihat
+              hubungan antar konsep, membandingkan bentuk, dan mengamati pola
+              secara langsung melalui simulasi maupun representasi visual.
             </p>
-            <span className="principle-tag">Tangga Pemahaman Sistematis</span>
+            <span className="principle-tag">Belajar lebih konkret</span>
           </article>
 
           <article className="principle-card">
             <span className="principle-index">03</span>
-            <h3>Penalaran Abstraksi &amp; Soal Non-Rutin</h3>
+            <h3>Siap Digunakan dalam Kelas dan Belajar Mandiri</h3>
             <p>
-              Untuk menguasai UTBK-SNBT dan seleksi Olimpiade (OSN), siswa
-              membutuhkan fleksibilitas berpikir, bukan hafalan tipe soal.
-              Kurikulum Math 1729 melatih abstraksi tingkat tinggi agar siswa
-              siap menghadapi permasalahan matematika yang belum pernah dilihat
-              sebelumnya.
+              Platform ini dirancang agar materi dapat dipakai siswa untuk
+              belajar mandiri, guru untuk bahan ajar, dan kelas untuk
+              mengeksplorasi konsep matematika dengan lebih efektif dan efisien.
             </p>
-            <span className="principle-tag">Kesiapan Kompetisi Nasional</span>
+            <span className="principle-tag">Fleksibel untuk pembelajaran</span>
           </article>
         </div>
       </section>
@@ -255,10 +235,10 @@ export function AboutPage({ navigate }: AboutPageProps) {
         <div className="section-heading">
           <div>
             <span className="section-kicker">Yang Tersedia di Platform</span>
-            <h2>Materi dan Fitur Math 1729</h2>
+            <h2>Materi dan Fitur yang Mendukung Pembelajaran</h2>
             <p>
-              Pilih materi untuk dipelajari langsung di web, gunakan simulasi
-              untuk mengeksplorasi konsep, atau pesan bahan ajar digital.
+              Platform ini dirancang untuk menjembatani kebutuhan belajar siswa,
+              bahan ajar guru, dan eksplorasi konsep matematika secara visual.
             </p>
           </div>
         </div>
@@ -268,9 +248,9 @@ export function AboutPage({ navigate }: AboutPageProps) {
             <span>01 / MATERI WEB</span>
             <h3>Modul Matematika SMA</h3>
             <p>
-              Jelajahi {materials.length} modul kelas X hingga XII dengan materi
-              konsep, contoh, dan pembahasan yang tersusun berjenjang. Semua
-              materi dapat dibuka langsung melalui katalog website.
+              Jelajahi {materials.length} modul yang disusun secara bertahap dan
+              mudah diikuti, mulai dari konsep dasar hingga aplikasi dalam
+              konteks yang lebih kompleks.
             </p>
             <div className="program-footer">
               <strong>Fase E, Fase F, dan Fase F Lanjut</strong>
@@ -279,14 +259,14 @@ export function AboutPage({ navigate }: AboutPageProps) {
 
           <article>
             <span>02 / SIMULASI</span>
-            <h3>Eksplorasi Matematika Interaktif</h3>
+            <h3>Eksplorasi Konsep Secara Interaktif</h3>
             <p>
-              Gunakan visualisasi interaktif untuk mengamati perubahan konsep
-              matematika secara langsung, termasuk simulasi trigonometri dan
-              lingkaran satuan.
+              Simulasi membantu siswa memahami bagaimana perubahan parameter
+              memengaruhi bentuk, grafik, maupun hubungan antar variabel dalam
+              matematika.
             </p>
             <div className="program-footer">
-              <strong>Visualisasi konsep matematika</strong>
+              <strong>Visualisasi yang lebih intuitif</strong>
             </div>
           </article>
 
@@ -294,11 +274,12 @@ export function AboutPage({ navigate }: AboutPageProps) {
             <span>03 / PRODUK DIGITAL</span>
             <h3>Paket Bahan Ajar Siap Pakai</h3>
             <p>
-              Pesan paket soal per kelas, slide presentasi, atau paket bahan
-              ajar per materi. Produk tersedia dalam format PDF dan TeX.
+              Kami menyediakan paket soal, slide presentasi, dan bahan ajar yang
+              dapat langsung dipakai guru maupun siswa untuk mendukung proses
+              belajar mengajar.
             </p>
             <div className="program-footer">
-              <strong>Pesanan melalui halaman toko</strong>
+              <strong>Format PDF dan TeX yang fleksibel</strong>
             </div>
           </article>
         </div>
@@ -307,11 +288,11 @@ export function AboutPage({ navigate }: AboutPageProps) {
       {/* CTA Box Ajakan Belajar & Kolaborasi */}
       <section className="about-cta-section" aria-label="Ajakan Belajar">
         <div className="about-cta-inner">
-          <h2>Siap Menyelami Matematika yang Sesungguhnya?</h2>
+          <h2>Siap mulai belajar matematika dengan cara yang lebih jernih?</h2>
           <p>
-            Mulailah menjelajahi seluruh {materials.length} modul yang telah
-            kami susun secara terstruktur, atau hubungi pengajar untuk
-            pertanyaan dan kolaborasi keilmuan.
+            Jelajahi materi yang sudah kami susun, gunakan simulasi untuk
+            memahami konsep, atau pilih produk digital yang sesuai kebutuhan
+            kelas dan pembelajaran Anda.
           </p>
           <div className="about-cta-buttons">
             <a
@@ -333,7 +314,7 @@ export function AboutPage({ navigate }: AboutPageProps) {
               href="mailto:pesan.math1729@gmail.com"
               className="button button-quiet"
             >
-              Hubungi Toriq Afanudin (Surel) ↗
+              Hubungi Admin Math 1729 ↗
             </a>
           </div>
         </div>

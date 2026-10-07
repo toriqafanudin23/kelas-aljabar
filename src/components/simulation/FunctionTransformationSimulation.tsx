@@ -1,21 +1,15 @@
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useRef } from "react";
 import JXG from "jsxgraph";
 import "../../../node_modules/jsxgraph/distrib/jsxgraph.css";
 import "./FunctionTransformationSimulation.css";
+import { useStoredSimulationState } from "./useStoredSimulationState";
 
 /* ---------- Tipe ---------- */
 
 type Vec = [number, number];
 
 type FunctionId =
-  | "square"
-  | "cube"
-  | "abs"
-  | "sqrt"
-  | "inverse"
-  | "sine"
-  | "exp"
-  | "ln";
+  "square" | "cube" | "abs" | "sqrt" | "inverse" | "sine" | "exp" | "ln";
 
 /** g(x) = a · f(b(x − h)) + k */
 type Params = { h: number; k: number; a: number; b: number; x0: number };
@@ -229,7 +223,8 @@ function formulaText(fn: BaseFunction, { h, k, a, b }: Params) {
   if (a === 1) body = core;
   else if (a === -1) body = `−${core}`;
   else body = `${formatValue(a)}${fn.tight ? "" : " · "}${core}`;
-  const shift = k === 0 ? "" : ` ${k > 0 ? "+" : "−"} ${formatValue(Math.abs(k))}`;
+  const shift =
+    k === 0 ? "" : ` ${k > 0 ? "+" : "−"} ${formatValue(Math.abs(k))}`;
   return `g(x) = ${body}${shift}`;
 }
 
@@ -320,15 +315,27 @@ export function FunctionTransformationSimulation() {
     null,
   );
 
-  const functionRef = useRef<BaseFunction>(functionMap.square);
-  const paramsRef = useRef<Params>(defaultParams);
-  const showOriginalRef = useRef(true);
-  const showKeyRef = useRef(true);
+  const [functionId, setFunctionId] = useStoredSimulationState<FunctionId>(
+    "function-transformation.function",
+    "square",
+  );
+  const [params, setParams] = useStoredSimulationState(
+    "function-transformation.params",
+    defaultParams,
+  );
+  const [showOriginal, setShowOriginal] = useStoredSimulationState(
+    "function-transformation.show-original",
+    true,
+  );
+  const [showKey, setShowKey] = useStoredSimulationState(
+    "function-transformation.show-key",
+    true,
+  );
 
-  const [functionId, setFunctionId] = useState<FunctionId>("square");
-  const [params, setParams] = useState<Params>(defaultParams);
-  const [showOriginal, setShowOriginal] = useState(true);
-  const [showKey, setShowKey] = useState(true);
+  const functionRef = useRef<BaseFunction>(functionMap[functionId]);
+  const paramsRef = useRef<Params>(params);
+  const showOriginalRef = useRef(showOriginal);
+  const showKeyRef = useRef(showKey);
 
   const refresh = () => boardRef.current?.update();
 
@@ -440,8 +447,10 @@ export function FunctionTransformationSimulation() {
       highlight: false,
       fixed: true,
     };
-    const guideX = () => (paramsRef.current.h === 0 ? 1000 : paramsRef.current.h);
-    const guideY = () => (paramsRef.current.k === 0 ? 1000 : paramsRef.current.k);
+    const guideX = () =>
+      paramsRef.current.h === 0 ? 1000 : paramsRef.current.h;
+    const guideY = () =>
+      paramsRef.current.k === 0 ? 1000 : paramsRef.current.k;
     board.create(
       "line",
       [
@@ -492,14 +501,13 @@ export function FunctionTransformationSimulation() {
     const keyBase = (i: number): Vec => {
       const fn = functionRef.current;
       const u = fn.keyU[i];
-      if (!showKeyRef.current || u === undefined) return [Number.NaN, Number.NaN];
+      if (!showKeyRef.current || u === undefined)
+        return [Number.NaN, Number.NaN];
       return [u, fn.evaluate(u)];
     };
     const keyImage = (i: number): Vec => {
       const base = keyBase(i);
-      return Number.isNaN(base[0])
-        ? base
-        : mapPoint(paramsRef.current, base);
+      return Number.isNaN(base[0]) ? base : mapPoint(paramsRef.current, base);
     };
 
     keyLetters.forEach((name, i) => {
@@ -687,7 +695,9 @@ export function FunctionTransformationSimulation() {
               <input
                 type="checkbox"
                 checked={showOriginal}
-                onChange={(event) => toggleOriginal(event.currentTarget.checked)}
+                onChange={(event) =>
+                  toggleOriginal(event.currentTarget.checked)
+                }
               />
               Tampilkan grafik awal f(x)
             </label>
@@ -793,7 +803,11 @@ export function FunctionTransformationSimulation() {
             >
               Tanpa transformasi
             </button>
-            <button type="button" className="ft-reset-button" onClick={resetAll}>
+            <button
+              type="button"
+              className="ft-reset-button"
+              onClick={resetAll}
+            >
               Atur ulang semua
             </button>
           </div>
@@ -866,8 +880,8 @@ export function FunctionTransformationSimulation() {
           x dan arahnya tampak berlawanan.
         </li>
         <li>
-          <strong>Refleksi</strong>: −f(x) mencerminkan grafik terhadap sumbu
-          x, sedangkan f(−x) mencerminkannya terhadap sumbu y.
+          <strong>Refleksi</strong>: −f(x) mencerminkan grafik terhadap sumbu x,
+          sedangkan f(−x) mencerminkannya terhadap sumbu y.
         </li>
         <li>
           <strong>Peregangan vertikal</strong>: a · f(x) mengalikan setiap
@@ -875,9 +889,9 @@ export function FunctionTransformationSimulation() {
           grafik memampat.
         </li>
         <li>
-          <strong>Peregangan horizontal</strong>: f(bx) mengalikan setiap
-          absis dengan 1/b. Jika |b| &gt; 1 grafik memampat, jika |b| &lt; 1
-          grafik meregang.
+          <strong>Peregangan horizontal</strong>: f(bx) mengalikan setiap absis
+          dengan 1/b. Jika |b| &gt; 1 grafik memampat, jika |b| &lt; 1 grafik
+          meregang.
         </li>
         <li>
           <strong>Titik (h, k)</strong> berperan sebagai titik asal baru:

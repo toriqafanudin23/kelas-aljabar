@@ -2,6 +2,7 @@ import { useEffect, useId, useRef, useState } from "react";
 import JXG from "jsxgraph";
 import "../../../node_modules/jsxgraph/distrib/jsxgraph.css";
 import "./CalculusSimulation.css";
+import { useStoredSimulationState } from "./useStoredSimulationState";
 
 type FnKey = "quad" | "cubic" | "sine";
 type Method = "left" | "right" | "mid";
@@ -194,10 +195,10 @@ export function CalculusSimulation() {
   const containerD = useRef<HTMLDivElement | null>(null);
   const containerI = useRef<HTMLDivElement | null>(null);
   const boardsRef = useRef<Board[]>([]);
-  const stRef = useRef<State>(initialState);
   const hRaf = useRef<number | null>(null);
   const nTimer = useRef<number | null>(null);
-  const [st, setSt] = useState<State>(initialState);
+  const [st, setSt] = useStoredSimulationState("calculus.state", initialState);
+  const stRef = useRef<State>(st);
   const [hAnimating, setHAnimating] = useState(false);
   const [nAnimating, setNAnimating] = useState(false);
 
