@@ -189,6 +189,57 @@ export function SEOHead({ page }: SEOHeadProps) {
           };
           break;
 
+        case "practice-vektor":
+          meta = {
+            title: "Latihan Soal Vektor Kelas X | Math 1729",
+            description:
+              "Kerjakan latihan interaktif vektor dengan pilihan ganda, isian singkat, soal uraian, skor langsung, dan pembahasan.",
+            keywords:
+              "latihan soal vektor kelas 10, soal vektor matematika kelas X, operasi vektor, pembahasan soal vektor, latihan matematika interaktif",
+            ogType: "article",
+            schema: {
+              "@context": "https://schema.org",
+              "@type": "LearningResource",
+              name: "Latihan Soal Vektor",
+              learningResourceType: "Quiz",
+              educationalLevel: "Kelas X",
+              inLanguage: "id",
+              url: currentUrl,
+              provider: {
+                "@type": "EducationalOrganization",
+                name: "Math 1729",
+                url: BASE_URL,
+              },
+            },
+          };
+          break;
+
+        case "practice-sppl":
+          meta = {
+            title:
+              "Latihan Soal Sistem Persamaan dan Pertidaksamaan Linear Kelas X | Math 1729",
+            description:
+              "Kerjakan latihan interaktif persamaan linear, pertidaksamaan, dan program linear. Dilengkapi pilihan ganda, isian singkat, skor langsung, dan pembahasan.",
+            keywords:
+              "latihan soal sistem persamaan linear, soal pertidaksamaan linear kelas 10, soal program linear, latihan matematika kelas X, pembahasan SPPL",
+            ogType: "article",
+            schema: {
+              "@context": "https://schema.org",
+              "@type": "LearningResource",
+              name: "Latihan Soal Sistem Persamaan dan Pertidaksamaan Linear",
+              learningResourceType: "Quiz",
+              educationalLevel: "Kelas X",
+              inLanguage: "id",
+              url: currentUrl,
+              provider: {
+                "@type": "EducationalOrganization",
+                name: "Math 1729",
+                url: BASE_URL,
+              },
+            },
+          };
+          break;
+
         case "shop":
           meta = {
             title:

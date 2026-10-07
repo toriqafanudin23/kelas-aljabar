@@ -117,7 +117,7 @@ export function SiteHeader({
           </div>
 
           <a
-            className={`nav-item-with-icon ${page === "practice" || page === "practice-eksponensial" || page === "practice-barisan-deret" ? "active" : ""}`}
+            className={`nav-item-with-icon ${page === "practice" || page === "practice-eksponensial" || page === "practice-barisan-deret" || page === "practice-vektor" || page === "practice-sppl" ? "active" : ""}`}
             href="/latihan-soal"
             onClick={(event) => handleNavigation(event, "practice")}
           >
@@ -228,7 +228,7 @@ export function SiteHeader({
             </a>
 
             <a
-              className={`drawer-primary-link nav-item-with-icon ${page === "practice" || page === "practice-eksponensial" || page === "practice-barisan-deret" ? "active" : ""}`}
+              className={`drawer-primary-link nav-item-with-icon ${page === "practice" || page === "practice-eksponensial" || page === "practice-barisan-deret" || page === "practice-vektor" || page === "practice-sppl" ? "active" : ""}`}
               href="/latihan-soal"
               onClick={(event) => handleNavigation(event, "practice")}
             >

@@ -84,6 +84,8 @@ function App() {
     page !== "practice" &&
     page !== "practice-eksponensial" &&
     page !== "practice-barisan-deret" &&
+    page !== "practice-vektor" &&
+    page !== "practice-sppl" &&
     page !== "simulation" &&
     page !== "shop" &&
     page !== "about";
@@ -123,6 +125,12 @@ function App() {
         )}
         {page === "practice-barisan-deret" && (
           <PracticeExercisePage navigate={navigate} exercise="barisan-deret" />
+        )}
+        {page === "practice-vektor" && (
+          <PracticeExercisePage navigate={navigate} exercise="vektor" />
+        )}
+        {page === "practice-sppl" && (
+          <PracticeExercisePage navigate={navigate} exercise="sppl" />
         )}
         {page === "simulation" && <SimulationPage navigate={navigate} />}
         {page === "shop" && <ShopPage navigate={navigate} />}

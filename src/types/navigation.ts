@@ -11,6 +11,8 @@ export type Page =
   | "practice"
   | "practice-eksponensial"
   | "practice-barisan-deret"
+  | "practice-vektor"
+  | "practice-sppl"
   | string;
 export type Navigate = (
   event: MouseEvent<HTMLAnchorElement>,
@@ -44,6 +46,12 @@ export function getPageFromPath(path: string): Page {
   ) {
     return "practice-barisan-deret";
   }
+  if (path === "/latihan-soal/vektor" || path === "/latihan-soal/vektor/") {
+    return "practice-vektor";
+  }
+  if (path === "/latihan-soal/sppl" || path === "/latihan-soal/sppl/") {
+    return "practice-sppl";
+  }
   if (path === "/simulasi" || path === "/simulasi/") return "simulation";
   if (path === "/beli" || path === "/beli/") return "shop";
   if (path.startsWith("/materi/")) {
@@ -61,6 +69,8 @@ export function getPathFromPage(page: Page): string {
   if (page === "practice") return "/latihan-soal";
   if (page === "practice-eksponensial") return "/latihan-soal/eksponensial";
   if (page === "practice-barisan-deret") return "/latihan-soal/barisan-deret";
+  if (page === "practice-vektor") return "/latihan-soal/vektor";
+  if (page === "practice-sppl") return "/latihan-soal/sppl";
   if (page === "simulation") return "/simulasi";
   if (page === "about") return "/tentang";
   if (page === "shop") return "/beli";

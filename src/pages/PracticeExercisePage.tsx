@@ -4,7 +4,7 @@ import type { Navigate } from "../types/navigation";
 import "../latihan_soal/latihan-soal.css";
 import "./PracticePage.css";
 
-type PracticeExerciseId = "eksponensial" | "barisan-deret";
+type PracticeExerciseId = "eksponensial" | "barisan-deret" | "vektor" | "sppl";
 
 interface PracticeExercisePageProps {
   navigate: Navigate;
@@ -17,6 +17,11 @@ const exerciseDetails: Record<
 > = {
   eksponensial: { title: "Eksponensial", grade: "Kelas X · Fase E" },
   "barisan-deret": { title: "Barisan dan Deret", grade: "Kelas X · Fase E" },
+  vektor: { title: "Vektor", grade: "Kelas X · Fase E" },
+  sppl: {
+    title: "Sistem Persamaan dan Pertidaksamaan Linear",
+    grade: "Kelas X · Fase E",
+  },
 };
 
 export function PracticeExercisePage({
@@ -34,7 +39,11 @@ export function PracticeExercisePage({
     const loadHtml =
       exercise === "barisan-deret"
         ? import("../latihan_soal/latihan-barisan-deret.html?raw")
-        : import("../latihan_soal/eksponensial.html?raw");
+        : exercise === "vektor"
+          ? import("../latihan_soal/vektor.html?raw")
+          : exercise === "sppl"
+            ? import("../latihan_soal/sppl.html?raw")
+            : import("../latihan_soal/eksponensial.html?raw");
 
     loadHtml
       .then(({ default: html }) => {
