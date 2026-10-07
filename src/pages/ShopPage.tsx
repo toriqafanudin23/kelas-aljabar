@@ -221,25 +221,28 @@ ${PAYMENT_DETAILS}
 Terima kasih.`,
 };
 
-const BAHAN_AJAR = {
-  title: "Bahan Ajar Matriks",
-  grade: "Kelas XI",
+const BAHAN_AJAR = [
+  { title: "Matriks", grade: "Kelas XI" },
+  { title: "Fungsi Kuadrat", grade: "Kelas X" },
+].map(({ title, grade }) => ({
+  title: `Bahan Ajar ${title}`,
+  grade,
   gradeLabel: "TERSEDIA",
   originalPrice: "Rp20.000",
   price: "Rp15.000",
-  desc: "Paket bahan ajar Matriks untuk mendukung pembelajaran di kelas.",
+  desc: `Paket bahan ajar ${title} untuk mendukung pembelajaran di kelas.`,
   includes: [
     "Slide Presentasi",
     "Slide Presentasi Interaktif",
-    "2 Paket Latihan Soal Matriks",
+    `2 Paket Latihan Soal ${title}`,
     "LKPD Discovery Learning",
   ],
   formats: [".pdf", ".tex"],
-  emailSubject: "Pemesanan Bahan Ajar Matriks — Math 1729",
+  emailSubject: `Pemesanan Bahan Ajar ${title} — Math 1729`,
   emailBody: `Assalamualaikum / Selamat pagi,
 
 Saya ingin memesan:
-Bahan Ajar Matriks — Rp15.000 (harga normal Rp20.000, diskon 25%)
+Bahan Ajar ${title} — Rp15.000 (harga normal Rp20.000, diskon 25%)
 
 Data pemesan:
 - Nama  : [ISI NAMA ANDA]
@@ -252,7 +255,7 @@ ${PAYMENT_DETAILS}
 [LAMPIRKAN BUKTI TRANSFER DI EMAIL INI]
 
 Terima kasih.`,
-};
+}));
 
 const SATUAN_ITEMS = [
   {
@@ -401,73 +404,6 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
               {activeSample.description}
             </p>
           </div>
-        </div>
-      </section>
-
-      {/* Alur Pembelian */}
-      <section className="shop-flow-band" aria-label="Alur Pembelian">
-        <div className="shop-flow-inner">
-          <span className="section-kicker">Cara Memesan</span>
-          <div className="shop-flow-steps">
-            <div className="shop-flow-step">
-              <span className="flow-step-num">01</span>
-              <div>
-                <strong>Pilih Produk</strong>
-                <p>
-                  Pilih paket atau produk satuan yang sesuai kebutuhan Anda.
-                </p>
-              </div>
-            </div>
-            <span className="flow-arrow" aria-hidden="true">
-              <ArrowRight size={16} />
-            </span>
-            <div className="shop-flow-step">
-              <span className="flow-step-num">02</span>
-              <div>
-                <strong>Transfer Pembayaran</strong>
-                <p>
-                  Pilih salah satu metode pembayaran:{" "}
-                  <strong>BNI, BRI, atau ShopeePay</strong>.
-                </p>
-              </div>
-            </div>
-            <span className="flow-arrow" aria-hidden="true">
-              <ArrowRight size={16} />
-            </span>
-            <div className="shop-flow-step">
-              <span className="flow-step-num">03</span>
-              <div>
-                <strong>Kirim Email Pesanan</strong>
-                <p>
-                  Klik tombol &quot;Pesan via Email&quot; dan lampirkan bukti
-                  transfer di email Anda.
-                </p>
-              </div>
-            </div>
-            <span className="flow-arrow" aria-hidden="true">
-              <ArrowRight size={16} />
-            </span>
-            <div className="shop-flow-step">
-              <span className="flow-step-num">04</span>
-              <div>
-                <strong>Terima File</strong>
-                <p>
-                  File dikirim ke email Anda <strong>maks. 12 jam</strong>{" "}
-                  setelah pesanan diterima.
-                </p>
-              </div>
-            </div>
-          </div>
-          <p className="shop-flow-note">
-            Belum menerima file setelah 12 jam? Hubungi via WhatsApp:{" "}
-            <a
-              href={`https://wa.me/62${PHONE_WA.replace(/^0/, "")}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <strong>{PHONE_WA}</strong>
-            </a>
-          </p>
         </div>
       </section>
 
@@ -667,65 +603,62 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
         <div className="section-heading">
           <div>
             <span className="section-kicker">Bahan Ajar Lengkap</span>
-            <h2>Bahan Ajar Matriks</h2>
+            <h2>Paket Bahan Ajar per Materi</h2>
             <p>
-              Paket bahan ajar Matriks dengan slide, latihan soal, dan LKPD.
-              Tersedia dalam format <code>.pdf</code> dan <code>.tex</code>.
+              Pilih Bahan Ajar Matriks atau Fungsi Kuadrat. Kedua paket
+              mendapatkan benefit dan harga promo yang sama.
             </p>
           </div>
         </div>
 
-        <div className="shop-package-grid shop-package-grid--single">
-          <article className="shop-card shop-card--featured">
-            <div className="shop-card-header">
-              <span className="shop-card-grade-badge shop-card-grade-badge--green">
-                {BAHAN_AJAR.gradeLabel}
-              </span>
-              <span className="shop-card-grade">{BAHAN_AJAR.grade}</span>
-            </div>
-            <div className="shop-card-body">
-              <h3 className="shop-card-title">{BAHAN_AJAR.title}</h3>
-              <div className="shop-promo-price">
-                <del>{BAHAN_AJAR.originalPrice}</del>
-                <span className="shop-promo-current-price">
-                  {BAHAN_AJAR.price}
-                </span>
+        <div className="shop-package-grid shop-package-grid--2col">
+          {BAHAN_AJAR.map((pkg) => (
+            <article key={pkg.title} className="shop-card shop-card--featured">
+              <div className="shop-card-header">
                 <span className="shop-card-grade-badge shop-card-grade-badge--green">
-                  DISKON 25%
+                  {pkg.gradeLabel}
                 </span>
+                <span className="shop-card-grade">{pkg.grade}</span>
               </div>
-              <p className="shop-card-desc">{BAHAN_AJAR.desc}</p>
-              <p className="shop-includes-label">Yang didapatkan:</p>
-              <ul className="shop-card-list shop-card-list--check">
-                {BAHAN_AJAR.includes.map((item, i) => (
-                  <li key={i}>
-                    <span className="shop-check-icon" aria-hidden="true">
-                      <Check size={15} strokeWidth={2.5} />
-                    </span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <div className="shop-card-formats">
-                {BAHAN_AJAR.formats.map((f) => (
-                  <span key={f} className="format-badge">
-                    {f}
+              <div className="shop-card-body">
+                <h3 className="shop-card-title">{pkg.title}</h3>
+                <div className="shop-promo-price">
+                  <del>{pkg.originalPrice}</del>
+                  <span className="shop-promo-current-price">{pkg.price}</span>
+                  <span className="shop-card-grade-badge shop-card-grade-badge--green">
+                    DISKON 25%
                   </span>
-                ))}
+                </div>
+                <p className="shop-card-desc">{pkg.desc}</p>
+                <p className="shop-includes-label">Yang didapatkan:</p>
+                <ul className="shop-card-list shop-card-list--check">
+                  {pkg.includes.map((item, i) => (
+                    <li key={i}>
+                      <span className="shop-check-icon" aria-hidden="true">
+                        <Check size={15} strokeWidth={2.5} />
+                      </span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <div className="shop-card-formats">
+                  {pkg.formats.map((f) => (
+                    <span key={f} className="format-badge">
+                      {f}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-            <div className="shop-card-footer">
-              <a
-                href={buildEmailLink(
-                  BAHAN_AJAR.emailSubject,
-                  BAHAN_AJAR.emailBody,
-                )}
-                className="button button-primary shop-order-btn"
-              >
-                Pesan via Email <Mail size={16} aria-hidden="true" />
-              </a>
-            </div>
-          </article>
+              <div className="shop-card-footer">
+                <a
+                  href={buildEmailLink(pkg.emailSubject, pkg.emailBody)}
+                  className="button button-primary shop-order-btn"
+                >
+                  Pesan via Email <Mail size={16} aria-hidden="true" />
+                </a>
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -842,6 +775,73 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Alur Pembelian */}
+      <section className="shop-flow-band" aria-label="Alur Pembelian">
+        <div className="shop-flow-inner">
+          <span className="section-kicker">Cara Memesan</span>
+          <div className="shop-flow-steps">
+            <div className="shop-flow-step">
+              <span className="flow-step-num">01</span>
+              <div>
+                <strong>Pilih Produk</strong>
+                <p>
+                  Pilih paket atau produk satuan yang sesuai kebutuhan Anda.
+                </p>
+              </div>
+            </div>
+            <span className="flow-arrow" aria-hidden="true">
+              <ArrowRight size={16} />
+            </span>
+            <div className="shop-flow-step">
+              <span className="flow-step-num">02</span>
+              <div>
+                <strong>Transfer Pembayaran</strong>
+                <p>
+                  Pilih salah satu metode pembayaran:{" "}
+                  <strong>BNI, BRI, atau ShopeePay</strong>.
+                </p>
+              </div>
+            </div>
+            <span className="flow-arrow" aria-hidden="true">
+              <ArrowRight size={16} />
+            </span>
+            <div className="shop-flow-step">
+              <span className="flow-step-num">03</span>
+              <div>
+                <strong>Kirim Email Pesanan</strong>
+                <p>
+                  Klik tombol &quot;Pesan via Email&quot; dan lampirkan bukti
+                  transfer di email Anda.
+                </p>
+              </div>
+            </div>
+            <span className="flow-arrow" aria-hidden="true">
+              <ArrowRight size={16} />
+            </span>
+            <div className="shop-flow-step">
+              <span className="flow-step-num">04</span>
+              <div>
+                <strong>Terima File</strong>
+                <p>
+                  File dikirim ke email Anda <strong>maks. 12 jam</strong>{" "}
+                  setelah pesanan diterima.
+                </p>
+              </div>
+            </div>
+          </div>
+          <p className="shop-flow-note">
+            Belum menerima file setelah 12 jam? Hubungi via WhatsApp:{" "}
+            <a
+              href={`https://wa.me/62${PHONE_WA.replace(/^0/, "")}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <strong>{PHONE_WA}</strong>
+            </a>
+          </p>
         </div>
       </section>
     </main>
