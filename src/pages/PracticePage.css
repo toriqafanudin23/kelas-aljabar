@@ -1,0 +1,280 @@
+.practice-page {
+  padding-bottom: 56px;
+}
+
+.practice-list {
+  padding-top: 18px;
+}
+
+.practice-section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--line);
+}
+
+.practice-section-index {
+  color: #927000;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.practice-section-heading h2 {
+  margin: 3px 0 0;
+  color: var(--navy);
+  font-size: 22px;
+  line-height: 1.35;
+}
+
+.practice-level {
+  padding: 5px 8px;
+  border: 1px solid #c9d7d4;
+  color: #315d58;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.practice-card-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 820px);
+  gap: 14px;
+  padding-top: 16px;
+}
+
+.practice-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--gold);
+  background: #fff;
+  color: var(--ink);
+  transition:
+    border-color 0.18s ease,
+    box-shadow 0.18s ease,
+    transform 0.18s ease;
+}
+
+.practice-card:hover {
+  transform: translateY(-2px);
+  border-color: #b7c5ce;
+  border-top-color: var(--gold);
+  box-shadow: 0 12px 26px rgba(16, 41, 67, 0.08);
+}
+
+.practice-card:focus-visible {
+  outline: 3px solid var(--navy-bright);
+  outline-offset: 3px;
+}
+
+.practice-card-main {
+  padding: 22px 24px;
+}
+
+.practice-card-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #087f8c;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.practice-card-main h3 {
+  margin: 9px 0 6px;
+  color: var(--navy);
+  font-size: 20px;
+  line-height: 1.35;
+}
+
+.practice-card-main p {
+  max-width: 520px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.practice-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  color: var(--navy-bright);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.practice-card-aside {
+  display: grid;
+  align-content: center;
+  gap: 9px;
+  padding: 18px 20px;
+  border-left: 1px solid var(--line);
+  background: #f4f7f8;
+}
+
+.practice-math-mark {
+  margin-bottom: 1px;
+  color: var(--navy);
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.practice-math-mark sup {
+  color: #087f8c;
+  font-size: 17px;
+}
+
+.practice-card-stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--sim-muted, #62727d);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.practice-card-types {
+  padding-top: 7px;
+  border-top: 1px solid #dce4e6;
+  color: #62727d;
+  font-size: 9px;
+}
+
+.practice-exercise-page {
+  max-width: 920px;
+}
+
+.practice-exercise-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 12px 0 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.practice-exercise-toolbar a {
+  color: var(--navy-bright);
+  font-weight: 700;
+}
+
+.practice-exercise-toolbar a:hover {
+  color: #927000;
+}
+
+.practice-exercise-content {
+  min-width: 0;
+  padding: 24px clamp(16px, 4vw, 36px);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--gold);
+  background: #fff;
+}
+
+.practice-exercise-content .latihan-eks {
+  width: 100%;
+  min-width: 0;
+}
+
+.practice-exercise-content .lesson-example,
+.practice-exercise-content .pembahasan,
+.practice-exercise-content .math-display,
+.practice-exercise-content .material-table-wrap {
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.practice-exercise-content .lesson-example {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.practice-exercise-content .lesson-example > p,
+.practice-exercise-content .pembahasan p {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.practice-exercise-content .math-display {
+  width: 100%;
+  overscroll-behavior-inline: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.practice-exercise-content .latihan-eks > h2:first-child {
+  margin-top: 0;
+  color: var(--navy);
+}
+
+.practice-exercise-content .latihan-eks .skor-bar {
+  border-radius: 0;
+}
+
+.practice-exercise-content .latihan-eks .opsi,
+.practice-exercise-content .latihan-eks .pembahasan {
+  border-radius: 0;
+}
+
+.practice-exercise-content .latihan-eks .btn-ulang,
+.practice-exercise-content .latihan-eks .btn-cek {
+  border-radius: 0;
+}
+
+@media (max-width: 640px) {
+  .practice-page {
+    padding-bottom: 36px;
+  }
+
+  .practice-section-heading h2 {
+    font-size: 19px;
+  }
+
+  .practice-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .practice-card-main {
+    padding: 18px;
+  }
+
+  .practice-card-main h3 {
+    font-size: 18px;
+  }
+
+  .practice-card-aside {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    padding: 12px 18px;
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+
+  .practice-math-mark {
+    grid-row: span 2;
+    margin: 0;
+  }
+
+  .practice-card-types {
+    grid-column: 1 / -1;
+  }
+
+  .practice-exercise-content {
+    padding: 16px 12px;
+  }
+
+  .practice-exercise-content .lesson-example {
+    padding: 12px;
+  }
+
+  .practice-exercise-content .pembahasan {
+    padding-inline: 10px;
+  }
+}

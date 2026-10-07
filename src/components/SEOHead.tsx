@@ -80,15 +80,19 @@ export function SEOHead({ page }: SEOHeadProps) {
       switch (page) {
         case "catalog":
           meta = {
-            title: "Katalog 22 Modul Matematika SMA (Kelas X, XI, XII) | Math 1729",
-            description: "Daftar lengkap 22 modul pembelajaran matematika SMA Kurikulum Merdeka (Fase E, Fase F, Fase F Lanjut) dan materi olimpiade (OSN) terstruktur berdasarkan alur prasyarat keilmuan.",
-            keywords: "katalog materi matematika sma, modul matematika kelas 10 11 12, silabus matematika kurikulum merdeka, materi osn matematika sma, daftar bab matematika sma, math 1729",
+            title:
+              "Katalog 22 Modul Matematika SMA (Kelas X, XI, XII) | Math 1729",
+            description:
+              "Daftar lengkap 22 modul pembelajaran matematika SMA Kurikulum Merdeka (Fase E, Fase F, Fase F Lanjut) dan materi olimpiade (OSN) terstruktur berdasarkan alur prasyarat keilmuan.",
+            keywords:
+              "katalog materi matematika sma, modul matematika kelas 10 11 12, silabus matematika kurikulum merdeka, materi osn matematika sma, daftar bab matematika sma, math 1729",
             ogType: "website",
             schema: {
               "@context": "https://schema.org",
               "@type": "CollectionPage",
               name: "Katalog Materi Matematika SMA - Math 1729",
-              description: "Daftar 22 modul pembelajaran matematika SMA Kurikulum Merdeka dari dasar hingga olimpiade.",
+              description:
+                "Daftar 22 modul pembelajaran matematika SMA Kurikulum Merdeka dari dasar hingga olimpiade.",
               url: currentUrl,
             },
           };
@@ -97,14 +101,17 @@ export function SEOHead({ page }: SEOHeadProps) {
         case "simulation":
           meta = {
             title: "Simulasi Matematika Interaktif (JSXGraph) | Math 1729",
-            description: "Eksplorasi konsep matematika visual secara real-time dengan JSXGraph: Grafik Fungsi Kuadrat, Transformasi Geometri, Kalkulus Turunan & Integral Riemann, SPLDV, dan Plotter Fungsi.",
-            keywords: "simulasi matematika interaktif, visualisasi grafik matematika, jsxgraph indonesia, simulasi fungsi kuadrat, kalkulus interaktif, visualisasi transformasi geometri, plotter grafik matematika",
+            description:
+              "Eksplorasi konsep matematika visual secara real-time dengan JSXGraph: Grafik Fungsi Kuadrat, Transformasi Geometri, Kalkulus Turunan & Integral Riemann, SPLDV, dan Plotter Fungsi.",
+            keywords:
+              "simulasi matematika interaktif, visualisasi grafik matematika, jsxgraph indonesia, simulasi fungsi kuadrat, kalkulus interaktif, visualisasi transformasi geometri, plotter grafik matematika",
             ogType: "website",
             schema: {
               "@context": "https://schema.org",
               "@type": "WebApplication",
               name: "Simulasi Matematika Interaktif Math 1729",
-              description: "Alat visualisasi interaktif untuk memahami konsep geometri, aljabar, dan kalkulus secara real-time berbasis JSXGraph.",
+              description:
+                "Alat visualisasi interaktif untuk memahami konsep geometri, aljabar, dan kalkulus secara real-time berbasis JSXGraph.",
               applicationCategory: "EducationalApplication",
               operatingSystem: "All",
               browserRequirements: "Requires JavaScript. Requires HTML5.",
@@ -113,17 +120,90 @@ export function SEOHead({ page }: SEOHeadProps) {
           };
           break;
 
+        case "practice":
+          meta = {
+            title: "Latihan Soal Matematika SMA | Math 1729",
+            description:
+              "Kumpulan latihan soal matematika SMA interaktif untuk menguji pemahaman materi. Mulai dengan latihan eksponen dan logaritma kelas X.",
+            keywords:
+              "latihan soal matematika sma, latihan soal eksponen, latihan soal logaritma, soal matematika kelas 10, latihan matematika interaktif",
+            ogType: "website",
+            schema: {
+              "@context": "https://schema.org",
+              "@type": "CollectionPage",
+              name: "Latihan Soal Matematika SMA - Math 1729",
+              description:
+                "Kumpulan latihan soal matematika SMA interaktif berdasarkan materi.",
+              url: currentUrl,
+            },
+          };
+          break;
+
+        case "practice-eksponensial":
+          meta = {
+            title: "Latihan Soal Eksponen dan Logaritma Kelas X | Math 1729",
+            description:
+              "Kerjakan 20 pilihan ganda, 5 isian singkat, dan 5 uraian eksponen dan logaritma. Dilengkapi skor langsung dan pembahasan.",
+            keywords:
+              "latihan soal eksponen dan logaritma, soal eksponen kelas 10, latihan matematika kelas X, pembahasan eksponen logaritma",
+            ogType: "article",
+            schema: {
+              "@context": "https://schema.org",
+              "@type": "LearningResource",
+              name: "Latihan Soal Eksponen dan Logaritma",
+              learningResourceType: "Quiz",
+              educationalLevel: "Kelas X",
+              inLanguage: "id",
+              url: currentUrl,
+              provider: {
+                "@type": "EducationalOrganization",
+                name: "Math 1729",
+                url: BASE_URL,
+              },
+            },
+          };
+          break;
+
+        case "practice-barisan-deret":
+          meta = {
+            title: "Latihan Soal Barisan dan Deret Kelas X | Math 1729",
+            description:
+              "Kerjakan latihan interaktif barisan dan deret aritmetika serta geometri. Dilengkapi pilihan ganda, isian singkat, soal uraian, dan pembahasan.",
+            keywords:
+              "latihan soal barisan dan deret, soal barisan aritmetika kelas 10, soal deret geometri, latihan matematika kelas X, pembahasan barisan deret",
+            ogType: "article",
+            schema: {
+              "@context": "https://schema.org",
+              "@type": "LearningResource",
+              name: "Latihan Soal Barisan dan Deret",
+              learningResourceType: "Quiz",
+              educationalLevel: "Kelas X",
+              inLanguage: "id",
+              url: currentUrl,
+              provider: {
+                "@type": "EducationalOrganization",
+                name: "Math 1729",
+                url: BASE_URL,
+              },
+            },
+          };
+          break;
+
         case "shop":
           meta = {
-            title: "Beli Bahan Ajar, LKPD & Paket Soal Matematika LaTeX | Math 1729",
-            description: "Pesan paket latihan soal, kunci pembahasan, slide presentasi Beamer, dan LKPD Discovery/PBL matematika SMA berbasis LaTeX. File siap cetak PDF dan source code .tex.",
-            keywords: "beli soal matematika sma latex, lkpd matematika kurikulum merdeka, slide presentasi beamer latex matematika, paket soal kelas 10 11 12 pdf tex, bahan ajar matematika sma, download soal matematika latex",
+            title:
+              "Beli Bahan Ajar, LKPD & Paket Soal Matematika LaTeX | Math 1729",
+            description:
+              "Beli bahan ajar matematika SMA berbasis LaTeX: paket latihan soal, slide presentasi, dan LKPD. Tinjau preview sebelum membeli; file tersedia dalam PDF dan .tex.",
+            keywords:
+              "beli soal matematika sma latex, lkpd matematika kurikulum merdeka, slide presentasi beamer latex matematika, paket soal kelas 10 11 12 pdf tex, bahan ajar matematika sma, download soal matematika latex",
             ogType: "website",
             schema: {
               "@context": "https://schema.org",
               "@type": "Store",
               name: "Bahan Ajar & Produk Digital Math 1729",
-              description: "Layanan pemesanan produk digital bahan ajar matematika SMA (LKPD, Slide, Paket Soal) berbasis LaTeX.",
+              description:
+                "Layanan pemesanan produk digital bahan ajar matematika SMA (LKPD, Slide, Paket Soal) berbasis LaTeX.",
               url: currentUrl,
               currenciesAccepted: "IDR",
               paymentAccepted: "Bank Transfer",
@@ -133,15 +213,19 @@ export function SEOHead({ page }: SEOHeadProps) {
 
         case "about":
           meta = {
-            title: "Tentang Math 1729 - Profil Toriq Afanudin & Filosofi Ramanujan",
-            description: "Mengenal Toriq Afanudin (Pengajar Matematika Kalikajar Wonosobo), inisiator portal Math 1729, manifesto pendidikan matematika tanpa kompromi, dan kisah legendaris bilangan taksi Ramanujan 1729.",
-            keywords: "tentang math 1729, toriq afanudin, profil pengajar matematika wonosobo, bilangan taksi ramanujan 1729, hardy ramanujan number, filosofi pendidikan matematika",
+            title:
+              "Tentang Math 1729 - Profil Toriq Afanudin & Filosofi Ramanujan",
+            description:
+              "Mengenal Toriq Afanudin (Pengajar Matematika Kalikajar Wonosobo), inisiator portal Math 1729, manifesto pendidikan matematika tanpa kompromi, dan kisah legendaris bilangan taksi Ramanujan 1729.",
+            keywords:
+              "tentang math 1729, toriq afanudin, profil pengajar matematika wonosobo, bilangan taksi ramanujan 1729, hardy ramanujan number, filosofi pendidikan matematika",
             ogType: "profile",
             schema: {
               "@context": "https://schema.org",
               "@type": "AboutPage",
               name: "Tentang Math 1729",
-              description: "Latar belakang, profil pengajar, dan filosofi nama Math 1729.",
+              description:
+                "Latar belakang, profil pengajar, dan filosofi nama Math 1729.",
               url: currentUrl,
               mainEntity: {
                 "@type": "Person",
@@ -156,9 +240,12 @@ export function SEOHead({ page }: SEOHeadProps) {
         case "home":
         default:
           meta = {
-            title: "Math 1729 | Modul Matematika SMA Lengkap, OSN, UTBK & Simulasi Interaktif",
-            description: "Portal referensi & pembelajaran matematika SMA (Kelas X, XI, XII) Kurikulum Merdeka terstruktur: Eksponen, Vektor, Trigonometri, Matriks, Kalkulus, Simulasi Interaktif JSXGraph, Bank Soal, persiapan OSN & UTBK-SNBT.",
-            keywords: "matematika sma, kurikulum merdeka matematika, materi matematika kelas 10 11 12, fase e, fase f, fase f lanjut, latihan soal matematika sma, utbk penalaran matematika, osn matematika sma, rumus matematika lengkap, simulasi matematika interaktif, jsxgraph, math 1729, toriq afanudin",
+            title:
+              "Math 1729 | Modul Matematika SMA Lengkap, OSN, UTBK & Simulasi Interaktif",
+            description:
+              "Portal belajar matematika SMA kelas X–XII: materi Kurikulum Merdeka, bahan ajar, bank soal, simulasi interaktif, serta persiapan OSN dan UTBK-SNBT.",
+            keywords:
+              "matematika sma, bahan ajar matematika sma, bahan ajar matematika kelas 10 11 12, kurikulum merdeka matematika, materi matematika kelas 10 11 12, fase e, fase f, fase f lanjut, latihan soal matematika sma, utbk penalaran matematika, osn matematika sma, rumus matematika lengkap, simulasi matematika interaktif, jsxgraph, math 1729, toriq afanudin",
             ogType: "website",
           };
           break;
@@ -169,8 +256,14 @@ export function SEOHead({ page }: SEOHeadProps) {
     document.title = meta.title;
 
     // Helper untuk set/update meta tag
-    const setMeta = (nameAttr: "name" | "property", attrValue: string, content: string) => {
-      let el = document.querySelector<HTMLMetaElement>(`meta[${nameAttr}="${attrValue}"]`);
+    const setMeta = (
+      nameAttr: "name" | "property",
+      attrValue: string,
+      content: string,
+    ) => {
+      let el = document.querySelector<HTMLMetaElement>(
+        `meta[${nameAttr}="${attrValue}"]`,
+      );
       if (!el) {
         el = document.createElement("meta");
         el.setAttribute(nameAttr, attrValue);
@@ -184,7 +277,9 @@ export function SEOHead({ page }: SEOHeadProps) {
     setMeta("name", "keywords", meta.keywords);
 
     // 3. Canonical Link
-    let canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    let canonical = document.querySelector<HTMLLinkElement>(
+      'link[rel="canonical"]',
+    );
     if (!canonical) {
       canonical = document.createElement("link");
       canonical.setAttribute("rel", "canonical");
@@ -220,4 +315,3 @@ export function SEOHead({ page }: SEOHeadProps) {
 
   return null;
 }
-

@@ -4,9 +4,9 @@ import type { Navigate } from "../types/navigation";
 import {
   ACCOUNT_HOLDER,
   BAHAN_AJAR,
+  buildPreviewRequestEmailBody,
   ORDER_EMAIL,
   PACKAGES,
-  PAYMENT_DETAILS,
   PAYMENT_METHODS,
   PHONE_WA,
   SAMPLE_PRODUCTS,
@@ -28,29 +28,13 @@ function buildEmailLink(subject: string, body: string) {
 
 function buildSatuanEmailBody(item: SatuanItem) {
   const isCustom = item.label.startsWith("Custom");
-  const transferAmount = isCustom
-    ? "Rp[JUMLAH SESUAI KESEPAKATAN]"
-    : item.price;
+  const additionalDetails = ["Materi yang diinginkan: [ISI NAMA MATERI]"];
+  if (isCustom) additionalDetails.push("Keterangan tambahan: [ISI KETERANGAN]");
 
-  return `Assalamualaikum / Selamat pagi,
-
-Saya ingin memesan:
-${item.label} — ${item.price}
-
-Materi yang diinginkan: [ISI NAMA MATERI]
-${isCustom ? "Keterangan tambahan: [ISI KETERANGAN]" : ""}
-
-Data pemesan:
-- Nama  : [ISI NAMA ANDA]
-- Email : [ISI EMAIL ANDA]
-- WA    : [ISI NOMOR WA]
-
-Silakan transfer sebesar ${transferAmount} ke salah satu metode berikut:
-${PAYMENT_DETAILS}
-
-[LAMPIRKAN BUKTI TRANSFER DI EMAIL INI]
-
-Terima kasih.`;
+  return buildPreviewRequestEmailBody(
+    `${item.label} — ${item.price}`,
+    additionalDetails,
+  );
 }
 
 export function ShopPage({ navigate: _navigate }: ShopPageProps) {
@@ -139,8 +123,8 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
             <span>PDF + LaTeX</span>
           </div>
           <div className="shop-hero-panel-item">
-            <strong>Pengiriman cepat</strong>
-            <span>Maks. 12 jam</span>
+            <strong>Preview sebelum membeli</strong>
+            <span>Periksa isi sebelum membayar</span>
           </div>
           <div className="shop-hero-panel-item">
             <strong>Standar guru</strong>
@@ -256,7 +240,7 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
         aria-label="Info rekening pembayaran"
       >
         <span className="shop-bank-label">
-          Pembayaran via Transfer Bank / E-Wallet:
+          Metode pembayaran setelah preview disetujui:
         </span>
         <div className="shop-bank-detail">
           {PAYMENT_METHODS.map((method) => (
@@ -266,6 +250,10 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
             </span>
           ))}
         </div>
+        <p className="shop-bank-note">
+          Jangan transfer sebelum menerima dan menyetujui preview. File asli
+          dikirim setelah pembayaran terkonfirmasi.
+        </p>
       </div>
 
       {/* ===================== SEKSI 1: Paket Soal Per Kelas ===================== */}
@@ -320,7 +308,7 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
                   href={buildEmailLink(pkg.emailSubject, pkg.emailBody)}
                   className="button button-primary shop-order-btn"
                 >
-                  Pesan via Email <Mail size={16} aria-hidden="true" />
+                  Minta Preview via Email <Mail size={16} aria-hidden="true" />
                 </a>
               </div>
             </article>
@@ -380,7 +368,7 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
                   href={buildEmailLink(pkg.emailSubject, pkg.emailBody)}
                   className="button button-primary shop-order-btn"
                 >
-                  Pesan via Email <Mail size={16} aria-hidden="true" />
+                  Minta Preview via Email <Mail size={16} aria-hidden="true" />
                 </a>
               </div>
             </article>
@@ -434,7 +422,7 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
                   href={buildEmailLink(pkg.emailSubject, pkg.emailBody)}
                   className="button button-primary shop-order-btn"
                 >
-                  Pesan via Email <Mail size={16} aria-hidden="true" />
+                  Minta Preview via Email <Mail size={16} aria-hidden="true" />
                 </a>
               </div>
             </article>
@@ -502,7 +490,7 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
                   href={buildEmailLink(pkg.emailSubject, pkg.emailBody)}
                   className="button button-primary shop-order-btn"
                 >
-                  Pesan via Email <Mail size={16} aria-hidden="true" />
+                  Minta Preview via Email <Mail size={16} aria-hidden="true" />
                 </a>
               </div>
             </article>
@@ -540,12 +528,12 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
               </div>
               <a
                 href={buildEmailLink(
-                  `Pemesanan ${item.label} — Math 1729`,
+                  `Permintaan Preview ${item.label} — Math 1729`,
                   buildSatuanEmailBody(item),
                 )}
                 className="satuan-order-link"
               >
-                Pesan via Email <Mail size={15} aria-hidden="true" />
+                Minta Preview via Email <Mail size={15} aria-hidden="true" />
               </a>
             </div>
           ))}
@@ -553,8 +541,9 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
 
         <div className="shop-satuan-cta">
           <p className="shop-satuan-note">
-            Isi nama materi dan data pemesan pada email yang terbuka. Untuk
-            pesanan custom, tambahkan keterangan dan nominal yang disepakati.
+            Isi data pemesan pada email yang terbuka. Untuk pesanan custom,
+            tambahkan materi dan keterangan yang diinginkan. Preview akan
+            dikirim sebelum pembayaran.
           </p>
         </div>
       </section>
@@ -577,17 +566,18 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
               </p>
             </div>
             <div className="faq-item">
-              <strong>Estimasi Pengiriman File</strong>
+              <strong>Preview dan File Asli</strong>
               <p>
-                File akan dikirim ke email Anda <strong>maksimal 12 jam</strong>{" "}
-                setelah pesanan dan bukti transfer diterima.
+                Preview dikirim setelah permintaan diterima. Setelah preview
+                disetujui dan pembayaran terkonfirmasi, file asli dikirim ke
+                email Anda maksimal <strong>12 jam</strong>.
               </p>
             </div>
             <div className="faq-item">
               <strong>Jika File Belum Diterima</strong>
               <p>
-                Jika sudah lebih dari 12 jam dan file belum terkirim, silakan
-                hubungi via WhatsApp:{" "}
+                Jika sudah lebih dari 12 jam sejak pembayaran terkonfirmasi dan
+                file belum terkirim, silakan hubungi via WhatsApp:{" "}
                 <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer">
                   {PHONE_WA}
                 </a>
@@ -596,10 +586,10 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
             <div className="faq-item">
               <strong>Pembayaran</strong>
               <p>
-                Pembayaran tersedia melalui{" "}
-                <strong>BNI, BRI, atau ShopeePay</strong>. Nomor rekening dan
-                nama pemilik tercantum pada informasi pembayaran di atas.
-                Lampirkan screenshot bukti transfer di email pesanan Anda.
+                Bayar hanya setelah Anda menyetujui preview. Pembayaran tersedia
+                melalui <strong>BNI, BRI, atau ShopeePay</strong>. Setelah
+                transfer, kirim bukti pembayaran kepada admin untuk dikonfirmasi
+                sebelum file asli dikirim.
               </p>
             </div>
             <div className="faq-item">
@@ -646,10 +636,9 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
             <div className="shop-flow-step">
               <span className="flow-step-num">02</span>
               <div>
-                <strong>Transfer Pembayaran</strong>
+                <strong>Minta Preview</strong>
                 <p>
-                  Pilih salah satu metode pembayaran:{" "}
-                  <strong>BNI, BRI, atau ShopeePay</strong>.
+                  Klik &quot;Minta Preview via Email&quot; dan isi data pemesan.
                 </p>
               </div>
             </div>
@@ -659,10 +648,10 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
             <div className="shop-flow-step">
               <span className="flow-step-num">03</span>
               <div>
-                <strong>Kirim Email Pesanan</strong>
+                <strong>Tinjau Preview</strong>
                 <p>
-                  Klik tombol &quot;Pesan via Email&quot; dan lampirkan bukti
-                  transfer di email Anda.
+                  Admin mengirim preview agar Anda dapat memeriksa isi produk
+                  sebelum membeli.
                 </p>
               </div>
             </div>
@@ -672,16 +661,30 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
             <div className="shop-flow-step">
               <span className="flow-step-num">04</span>
               <div>
-                <strong>Terima File</strong>
+                <strong>Bayar Setelah Setuju</strong>
                 <p>
-                  File dikirim ke email Anda <strong>maks. 12 jam</strong>{" "}
-                  setelah pesanan diterima.
+                  Jika preview sesuai, lakukan pembayaran dan kirim bukti
+                  transfer untuk konfirmasi.
+                </p>
+              </div>
+            </div>
+            <span className="flow-arrow" aria-hidden="true">
+              <ArrowRight size={16} />
+            </span>
+            <div className="shop-flow-step">
+              <span className="flow-step-num">05</span>
+              <div>
+                <strong>Terima File Asli</strong>
+                <p>
+                  File asli dikirim maksimal <strong>12 jam</strong> setelah
+                  pembayaran terkonfirmasi.
                 </p>
               </div>
             </div>
           </div>
           <p className="shop-flow-note">
-            Belum menerima file setelah 12 jam? Hubungi via WhatsApp:{" "}
+            Belum menerima file setelah 12 jam dari konfirmasi pembayaran?
+            Hubungi via WhatsApp:{" "}
             <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer">
               <strong>{PHONE_WA}</strong>
             </a>

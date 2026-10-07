@@ -23,6 +23,14 @@ const BankSoalDownloadPage = lazy(() =>
     default: m.BankSoalDownloadPage,
   })),
 );
+const PracticePage = lazy(() =>
+  import("./pages/PracticePage").then((m) => ({ default: m.PracticePage })),
+);
+const PracticeExercisePage = lazy(() =>
+  import("./pages/PracticeExercisePage").then((m) => ({
+    default: m.PracticeExercisePage,
+  })),
+);
 const SimulationPage = lazy(() =>
   import("./pages/SimulationPage").then((m) => ({ default: m.SimulationPage })),
 );
@@ -73,6 +81,9 @@ function App() {
     page !== "catalog" &&
     page !== "download" &&
     page !== "bank-download" &&
+    page !== "practice" &&
+    page !== "practice-eksponensial" &&
+    page !== "practice-barisan-deret" &&
     page !== "simulation" &&
     page !== "shop" &&
     page !== "about";
@@ -105,6 +116,13 @@ function App() {
         {page === "download" && <DownloadPage navigate={navigate} />}
         {page === "bank-download" && (
           <BankSoalDownloadPage navigate={navigate} />
+        )}
+        {page === "practice" && <PracticePage navigate={navigate} />}
+        {page === "practice-eksponensial" && (
+          <PracticeExercisePage navigate={navigate} exercise="eksponensial" />
+        )}
+        {page === "practice-barisan-deret" && (
+          <PracticeExercisePage navigate={navigate} exercise="barisan-deret" />
         )}
         {page === "simulation" && <SimulationPage navigate={navigate} />}
         {page === "shop" && <ShopPage navigate={navigate} />}

@@ -1,6 +1,13 @@
 import { useState } from "react";
 import type { MouseEvent } from "react";
-import { BookOpenText, Home, Info, Play, ShoppingCart } from "lucide-react";
+import {
+  BookOpenText,
+  ClipboardList,
+  Home,
+  Info,
+  Play,
+  ShoppingCart,
+} from "lucide-react";
 import { materials } from "../materi";
 import { getPathFromPage } from "../types/navigation";
 import type { Page, Navigate } from "../types/navigation";
@@ -110,6 +117,15 @@ export function SiteHeader({
           </div>
 
           <a
+            className={`nav-item-with-icon ${page === "practice" || page === "practice-eksponensial" || page === "practice-barisan-deret" ? "active" : ""}`}
+            href="/latihan-soal"
+            onClick={(event) => handleNavigation(event, "practice")}
+          >
+            <ClipboardList size={15} strokeWidth={2.15} aria-hidden="true" />
+            <span>Latihan Soal</span>
+          </a>
+
+          <a
             className={`nav-item-with-icon ${page === "simulation" ? "active" : ""}`}
             href="/simulasi"
             onClick={(event) => handleNavigation(event, "simulation")}
@@ -209,6 +225,15 @@ export function SiteHeader({
             >
               <BookOpenText size={16} strokeWidth={2.15} aria-hidden="true" />
               <span>Katalog Materi</span>
+            </a>
+
+            <a
+              className={`drawer-primary-link nav-item-with-icon ${page === "practice" || page === "practice-eksponensial" || page === "practice-barisan-deret" ? "active" : ""}`}
+              href="/latihan-soal"
+              onClick={(event) => handleNavigation(event, "practice")}
+            >
+              <ClipboardList size={16} strokeWidth={2.15} aria-hidden="true" />
+              <span>Latihan Soal</span>
             </a>
 
             <a

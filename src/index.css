@@ -4215,6 +4215,13 @@ summary:focus-visible {
 .shop-bank-detail strong {
   color: #fff;
 }
+.shop-bank-note {
+  flex-basis: 100%;
+  margin: 0;
+  color: #e2eaf2;
+  font-size: 11px;
+  line-height: 1.5;
+}
 
 /* Shop section generic */
 .shop-section {

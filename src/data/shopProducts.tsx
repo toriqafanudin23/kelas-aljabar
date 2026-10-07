@@ -13,9 +13,28 @@ export const PAYMENT_METHODS = [
   { name: "BRI", account: BRI_ACCOUNT },
   { name: "ShopeePay", account: SHOPEEPAY_NUMBER },
 ];
-export const PAYMENT_DETAILS = PAYMENT_METHODS.map(
-  ({ name, account }) => `${name} ${account} a.n. ${ACCOUNT_HOLDER}`,
-).join("\n");
+
+export function buildPreviewRequestEmailBody(
+  productName: string,
+  additionalDetails: string[] = [],
+) {
+  const details = additionalDetails.length
+    ? `\n${additionalDetails.join("\n")}\n`
+    : "";
+
+  return `Assalamualaikum / Selamat pagi,
+
+Saya ingin meminta preview untuk produk berikut:
+${productName}${details}
+Mohon kirimkan preview ke email saya. Saya akan meninjau terlebih dahulu. Jika preview sesuai, saya akan melanjutkan pembayaran setelah menerima konfirmasi dari admin. Mohon kirim file asli setelah pembayaran terkonfirmasi.
+
+Data pemesan:
+- Nama  : [ISI NAMA ANDA]
+- Email : [ISI EMAIL ANDA]
+- WA    : [ISI NOMOR WA]
+
+Terima kasih.`;
+}
 
 export const SAMPLE_PRODUCTS = [
   {
@@ -67,23 +86,8 @@ export const PACKAGES = [
       "Teori Peluang",
     ],
     formats: [".pdf", ".tex"],
-    emailSubject: "Pemesanan Paket Soal Kelas 10 — Math 1729",
-    emailBody: `Assalamualaikum / Selamat pagi,
-
-Saya ingin memesan:
-Paket Soal Kelas 10 — Rp20.000
-
-Data pemesan:
-- Nama  : [ISI NAMA ANDA]
-- Email : [ISI EMAIL ANDA]
-- WA    : [ISI NOMOR WA]
-
-Silakan transfer sebesar Rp20.000 ke salah satu metode berikut:
-${PAYMENT_DETAILS}
-
-[LAMPIRKAN BUKTI TRANSFER DI EMAIL INI]
-
-Terima kasih.`,
+    emailSubject: "Permintaan Preview Paket Soal Kelas 10 — Math 1729",
+    emailBody: buildPreviewRequestEmailBody("Paket Soal Kelas 10 — Rp20.000"),
   },
   {
     id: "paket-kelas-11",
@@ -101,23 +105,8 @@ Terima kasih.`,
       "Transformasi Geometri",
     ],
     formats: [".pdf", ".tex"],
-    emailSubject: "Pemesanan Paket Soal Kelas 11 — Math 1729",
-    emailBody: `Assalamualaikum / Selamat pagi,
-
-Saya ingin memesan:
-Paket Soal Kelas 11 — Rp15.000
-
-Data pemesan:
-- Nama  : [ISI NAMA ANDA]
-- Email : [ISI EMAIL ANDA]
-- WA    : [ISI NOMOR WA]
-
-Silakan transfer sebesar Rp15.000 ke salah satu metode berikut:
-${PAYMENT_DETAILS}
-
-[LAMPIRKAN BUKTI TRANSFER DI EMAIL INI]
-
-Terima kasih.`,
+    emailSubject: "Permintaan Preview Paket Soal Kelas 11 — Math 1729",
+    emailBody: buildPreviewRequestEmailBody("Paket Soal Kelas 11 — Rp15.000"),
   },
   {
     id: "paket-kelas-12",
@@ -137,23 +126,8 @@ Terima kasih.`,
       "Integral",
     ],
     formats: [".pdf", ".tex"],
-    emailSubject: "Pemesanan Paket Soal Kelas 12 — Math 1729",
-    emailBody: `Assalamualaikum / Selamat pagi,
-
-Saya ingin memesan:
-Paket Soal Kelas 12 — Rp20.000
-
-Data pemesan:
-- Nama  : [ISI NAMA ANDA]
-- Email : [ISI EMAIL ANDA]
-- WA    : [ISI NOMOR WA]
-
-Silakan transfer sebesar Rp20.000 ke salah satu metode berikut:
-${PAYMENT_DETAILS}
-
-[LAMPIRKAN BUKTI TRANSFER DI EMAIL INI]
-
-Terima kasih.`,
+    emailSubject: "Permintaan Preview Paket Soal Kelas 12 — Math 1729",
+    emailBody: buildPreviewRequestEmailBody("Paket Soal Kelas 12 — Rp20.000"),
   },
 ];
 
@@ -162,23 +136,10 @@ export const SLIDE_PACKAGES = PACKAGES.map((pkg) => ({
   id: `slide-${pkg.id}`,
   title: `Paket Slide Presentasi ${pkg.grade}`,
   desc: `Paket slide presentasi untuk seluruh ${pkg.items.length} materi ${pkg.grade}.`,
-  emailSubject: `Pemesanan Paket Slide Presentasi ${pkg.grade} — Math 1729`,
-  emailBody: `Assalamualaikum / Selamat pagi,
-
-Saya ingin memesan:
-Paket Slide Presentasi ${pkg.grade} — ${pkg.price}
-
-Data pemesan:
-- Nama  : [ISI NAMA ANDA]
-- Email : [ISI EMAIL ANDA]
-- WA    : [ISI NOMOR WA]
-
-Silakan transfer sebesar ${pkg.price} ke salah satu metode berikut:
-${PAYMENT_DETAILS}
-
-[LAMPIRKAN BUKTI TRANSFER DI EMAIL INI]
-
-Terima kasih.`,
+  emailSubject: `Permintaan Preview Paket Slide Presentasi ${pkg.grade} — Math 1729`,
+  emailBody: buildPreviewRequestEmailBody(
+    `Paket Slide Presentasi ${pkg.grade} — ${pkg.price}`,
+  ),
 }));
 
 const TKA_BENEFITS = [
@@ -194,25 +155,10 @@ export const TKA_PACKAGES = (["SMP", "SMA"] as const).map((grade) => ({
   price: "Rp15.000",
   desc: `Empat paket latihan TKA untuk membantu persiapan siswa ${grade}.`,
   benefits: TKA_BENEFITS,
-  emailSubject: `Pemesanan Paket Latihan TKA ${grade} — Math 1729`,
-  emailBody: `Assalamualaikum / Selamat pagi,
-
-Saya ingin memesan:
-Paket Latihan TKA ${grade}
-Harga normal: Rp20.000
-Diskon 25%: Rp15.000
-
-Data pemesan:
-- Nama  : [ISI NAMA ANDA]
-- Email : [ISI EMAIL ANDA]
-- WA    : [ISI NOMOR WA]
-
-Silakan transfer sebesar Rp15.000 ke salah satu metode berikut:
-${PAYMENT_DETAILS}
-
-[LAMPIRKAN BUKTI TRANSFER DI EMAIL INI]
-
-Terima kasih.`,
+  emailSubject: `Permintaan Preview Paket Latihan TKA ${grade} — Math 1729`,
+  emailBody: buildPreviewRequestEmailBody(
+    `Paket Latihan TKA ${grade} — Rp15.000 (harga normal Rp20.000, diskon 25%)`,
+  ),
 }));
 
 export const BAHAN_AJAR = [
@@ -232,23 +178,10 @@ export const BAHAN_AJAR = [
     "LKPD Discovery Learning",
   ],
   formats: [".pdf", ".tex"],
-  emailSubject: `Pemesanan Bahan Ajar ${title} — Math 1729`,
-  emailBody: `Assalamualaikum / Selamat pagi,
-
-Saya ingin memesan:
-Bahan Ajar ${title} — Rp15.000 (harga normal Rp20.000, diskon 25%)
-
-Data pemesan:
-- Nama  : [ISI NAMA ANDA]
-- Email : [ISI EMAIL ANDA]
-- WA    : [ISI NOMOR WA]
-
-Silakan transfer sebesar Rp15.000 ke salah satu metode berikut:
-${PAYMENT_DETAILS}
-
-[LAMPIRKAN BUKTI TRANSFER DI EMAIL INI]
-
-Terima kasih.`,
+  emailSubject: `Permintaan Preview Bahan Ajar ${title} — Math 1729`,
+  emailBody: buildPreviewRequestEmailBody(
+    `Bahan Ajar ${title} — Rp15.000 (harga normal Rp20.000, diskon 25%)`,
+  ),
 }));
 
 export const SATUAN_ITEMS = [

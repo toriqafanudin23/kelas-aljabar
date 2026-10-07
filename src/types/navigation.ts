@@ -1,7 +1,17 @@
 import type { MouseEvent } from "react";
 
 export type Page =
-  "home" | "catalog" | "download" | "bank-download" | "about" | "simulation" | "shop" | string;
+  | "home"
+  | "catalog"
+  | "download"
+  | "bank-download"
+  | "about"
+  | "simulation"
+  | "shop"
+  | "practice"
+  | "practice-eksponensial"
+  | "practice-barisan-deret"
+  | string;
 export type Navigate = (
   event: MouseEvent<HTMLAnchorElement>,
   page: Page,
@@ -19,6 +29,21 @@ export function getPageFromPath(path: string): Page {
   if (path === "/unduh-bank-soal" || path === "/unduh-bank-soal/") {
     return "bank-download";
   }
+  if (path === "/latihan-soal" || path === "/latihan-soal/") {
+    return "practice";
+  }
+  if (
+    path === "/latihan-soal/eksponensial" ||
+    path === "/latihan-soal/eksponensial/"
+  ) {
+    return "practice-eksponensial";
+  }
+  if (
+    path === "/latihan-soal/barisan-deret" ||
+    path === "/latihan-soal/barisan-deret/"
+  ) {
+    return "practice-barisan-deret";
+  }
   if (path === "/simulasi" || path === "/simulasi/") return "simulation";
   if (path === "/beli" || path === "/beli/") return "shop";
   if (path.startsWith("/materi/")) {
@@ -33,6 +58,9 @@ export function getPathFromPage(page: Page): string {
   if (page === "catalog") return "/katalog";
   if (page === "download") return "/unduh";
   if (page === "bank-download") return "/unduh-bank-soal";
+  if (page === "practice") return "/latihan-soal";
+  if (page === "practice-eksponensial") return "/latihan-soal/eksponensial";
+  if (page === "practice-barisan-deret") return "/latihan-soal/barisan-deret";
   if (page === "simulation") return "/simulasi";
   if (page === "about") return "/tentang";
   if (page === "shop") return "/beli";

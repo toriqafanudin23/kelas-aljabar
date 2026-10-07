@@ -1,0 +1,149 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage[a4paper,left=2cm,right=2cm,top=3.6cm,bottom=2.3cm,headheight=1.1cm,headsep=0.6cm,footskip=1cm]{geometry}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{needspace}
+
+\definecolor{navy}{HTML}{1F3A5F}
+\definecolor{teal}{HTML}{0F8B7D}
+\definecolor{softbg}{HTML}{F4F7FA}
+\newcommand{\dis}{\displaystyle}
+% logaritma gaya Indonesia: \alog{basis}{numerus}
+\newcommand{\alog}[2]{{}^{#1}\!\log #2}
+
+\setlength{\parindent}{0pt}
+\renewcommand{\arraystretch}{1.35}
+
+% ---------- header berwarna navy ----------
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[L]{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[navy] ([yshift=-1.2cm]current page.north west) rectangle ([yshift=-3.15cm]current page.north east);
+    \fill[teal] ([yshift=-3.15cm]current page.north west) rectangle ([yshift=-3.25cm]current page.north east);
+  \end{tikzpicture}%
+  \color{white}\bfseries\large Latihan Soal Eksponen dan Logaritma}
+\fancyhead[R]{\color{white}\small Diunduh dari website \textbf{Math1729}\ \,|\,\ 4 Oktober 2026}
+\fancyfoot[L]{\small\color{navy}Math1729 --- Eksponen dan Logaritma}
+\fancyfoot[R]{\small\color{navy}Halaman \thepage\ dari \pageref{LastPage}}
+
+% ---------- komponen ----------
+\newcounter{no}
+\newcommand{\bagian}[2]{\par\Needspace{6\baselineskip}\vspace{1.0em}\noindent
+  \begin{tcolorbox}[colback=navy,colframe=navy,coltext=white,boxrule=0pt,arc=2pt,left=6pt,right=6pt,top=3pt,bottom=3pt]
+  \textbf{#1}\hfill{\small #2}\end{tcolorbox}\setcounter{no}{0}\par\vspace{-0.3em}}
+\newcommand{\tingkat}[2]{\par\Needspace{7\baselineskip}\vspace{0.6em}\noindent
+  {\color{teal}\rule{3pt}{1.1em}}\ {\color{navy}\bfseries #1}\ {\small\color{gray}--- #2}\par\vspace{0.1em}}
+\newcommand{\soal}[2]{\par\vspace{0.75em}\stepcounter{no}\noindent
+  \begin{minipage}[t]{1.8em}\textbf{\theno.}\end{minipage}%
+  \begin{minipage}[t]{\dimexpr\linewidth-1.8em\relax}#1\par\vspace{0.35em}#2\end{minipage}\par}
+\newcommand{\poin}[1]{\hfill{\small\color{navy}[#1 poin]}}
+
+\begin{document}
+\thispagestyle{fancy}
+
+\begin{center}
+  {\color{navy}\fontsize{22}{26}\selectfont\bfseries Latihan Soal Eksponen dan Logaritma\par}
+\end{center}
+\vspace{2pt}
+\begin{tcolorbox}[colback=softbg,colframe=navy!40,boxrule=0.6pt,arc=3pt,left=8pt,right=8pt,top=5pt,bottom=5pt]
+\noindent\textbf{Nama} : \rule{4.6cm}{0.4pt}\hfill\textbf{Kelas} : \rule{2.2cm}{0.4pt}\hfill\textbf{Skor} : \rule{2.2cm}{0.4pt}
+\end{tcolorbox}
+\vspace{2pt}
+\begin{tcolorbox}[colback=white,colframe=teal,boxrule=0.8pt,arc=3pt,left=8pt,right=8pt,top=4pt,bottom=4pt,title={\bfseries Petunjuk Pengerjaan},coltitle=white,fonttitle=\small]
+\small
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt,topsep=1pt]
+\item Soal terdiri atas \textbf{20 pilihan ganda}, \textbf{5 isian singkat}, dan \textbf{5 uraian (essay)}. Alokasi waktu yang disarankan: 90 menit.
+\item Skor: pilihan ganda 2 poin, isian singkat 4 poin, uraian 8 poin per soal (total 100 poin). Tidak ada pengurangan skor untuk jawaban salah.
+\item Untuk soal logaritma, perhatikan syarat basis ($>0$ dan $\neq1$) serta numerus ($>0$).
+\item Notasi $\alog{a}{b}$ dibaca ``logaritma $b$ dengan basis $a$'', dan $\log b$ berbasis $10$.
+\end{enumerate}
+\end{tcolorbox}
+
+\bagian{A. Pilihan Ganda}{20 soal $\times$ 2 poin = 40 poin. Pilih satu jawaban yang paling tepat.}
+\soal{Nilai dari $2^{3}\cdot 2^{4}\div 2^{5}$ adalah \dots.}{\begin{tabularx}{\linewidth}{@{}*{5}{X}@{}}\textbf{A.}\;$2$ & \textbf{B.}\;$4$ & \textbf{C.}\;$8$ & \textbf{D.}\;$16$ & \textbf{E.}\;$32$\end{tabularx}}
+\soal{Nilai dari $\left(\dis\frac{2}{3}\right)^{-2}+8^{\frac{2}{3}}$ adalah \dots.}{\begin{tabularx}{\linewidth}{@{}*{5}{X}@{}}\textbf{A.}\;$\dis\frac{17}{4}$ & \textbf{B.}\;$\dis\frac{40}{9}$ & \textbf{C.}\;$\dis\frac{25}{4}$ & \textbf{D.}\;$\dis\frac{148}{9}$ & \textbf{E.}\;$\dis\frac{73}{4}$\end{tabularx}}
+\soal{Nilai dari $\alog{2}{32}+\alog{3}{\dis\frac{1}{27}}$ adalah \dots.}{\begin{tabularx}{\linewidth}{@{}*{5}{X}@{}}\textbf{A.}\;$-2$ & \textbf{B.}\;$0$ & \textbf{C.}\;$1$ & \textbf{D.}\;$2$ & \textbf{E.}\;$8$\end{tabularx}}
+\soal{Nilai $x$ yang memenuhi $5^{2x-1}=125$ adalah \dots.}{\begin{tabularx}{\linewidth}{@{}*{5}{X}@{}}\textbf{A.}\;$1$ & \textbf{B.}\;$2$ & \textbf{C.}\;$3$ & \textbf{D.}\;$4$ & \textbf{E.}\;$5$\end{tabularx}}
+\soal{Nilai dari $\alog{2}{3}\cdot\alog{3}{8}$ adalah \dots.}{\begin{tabularx}{\linewidth}{@{}*{5}{X}@{}}\textbf{A.}\;$3$ & \textbf{B.}\;$4$ & \textbf{C.}\;$6$ & \textbf{D.}\;$8$ & \textbf{E.}\;$12$\end{tabularx}}
+\soal{Bentuk sederhana dari $\dis\frac{a^{5}b^{-3}}{a^{2}b^{-6}}$ adalah \dots.}{\begin{tabularx}{\linewidth}{@{}*{5}{X}@{}}\textbf{A.}\;$a^{3}b^{-9}$ & \textbf{B.}\;$a^{7}b^{-9}$ & \textbf{C.}\;$a^{7}b^{3}$ & \textbf{D.}\;$a^{3}b^{-3}$ & \textbf{E.}\;$a^{3}b^{3}$\end{tabularx}}
+\soal{Bentuk sederhana dari $\dis\frac{6}{3-\sqrt{3}}+\dis\frac{2}{\sqrt{3}+1}$ adalah \dots.}{\begin{tabularx}{\linewidth}{@{}*{5}{X}@{}}\textbf{A.}\;$2\sqrt{3}$ & \textbf{B.}\;$1+2\sqrt{3}$ & \textbf{C.}\;$2+2\sqrt{3}$ & \textbf{D.}\;$4+\sqrt{3}$ & \textbf{E.}\;$4+2\sqrt{3}$\end{tabularx}}
+\soal{Penyelesaian persamaan $\left(\dis\frac{1}{4}\right)^{x-1}=8^{x+2}$ adalah $x=$ \dots.}{\begin{tabularx}{\linewidth}{@{}*{5}{X}@{}}\textbf{A.}\;$-2$ & \textbf{B.}\;$-\dis\frac{6}{5}$ & \textbf{C.}\;$-1$ & \textbf{D.}\;$-\dis\frac{4}{5}$ & \textbf{E.}\;$\dis\frac{4}{5}$\end{tabularx}}
+\soal{Himpunan penyelesaian $\alog{2}{(x+1)}+\alog{2}{(x-1)}=3$ adalah \dots.}{\begin{tabularx}{\linewidth}{@{}*{5}{X}@{}}\textbf{A.}\;$\{3\}$ & \textbf{B.}\;$\{-3\}$ & \textbf{C.}\;$\{-3,3\}$ & \textbf{D.}\;$\{8\}$ & \textbf{E.}\;$\{-8,8\}$\end{tabularx}}
+\soal{Diketahui $\log 2=a$ dan $\log 3=b$. Nilai $\log 72$ dinyatakan dalam $a$ dan $b$ adalah \dots.}{\begin{tabularx}{\linewidth}{@{}*{5}{X}@{}}\textbf{A.}\;$2a+3b$ & \textbf{B.}\;$3a+3b$ & \textbf{C.}\;$6ab$ & \textbf{D.}\;$2a+2b$ & \textbf{E.}\;$3a+2b$\end{tabularx}}
+\soal{Himpunan penyelesaian $\left(\dis\frac{1}{2}\right)^{2x-1}\ge\dis\frac{1}{8}$ adalah \dots.}{\begin{tabularx}{\linewidth}{@{}*{5}{X}@{}}\textbf{A.}\;$x\ge2$ & \textbf{B.}\;$x\le2$ & \textbf{C.}\;$x\le\dis\frac32$ & \textbf{D.}\;$x\ge\dis\frac32$ & \textbf{E.}\;$x\le3$\end{tabularx}}
+\soal{Grafik fungsi $f(x)=3^{x-1}+2$ memotong sumbu-$y$ di titik \dots.}{\begin{tabularx}{\linewidth}{@{}*{5}{X}@{}}\textbf{A.}\;$\left(0,\dis\frac53\right)$ & \textbf{B.}\;$(0,2)$ & \textbf{C.}\;$\left(0,\dis\frac73\right)$ & \textbf{D.}\;$(0,3)$ & \textbf{E.}\;$(0,5)$\end{tabularx}}
+\soal{Himpunan penyelesaian pertidaksamaan $\alog{\frac{1}{2}}{(x^{2}-3x)}\ge-2$ adalah \dots.}{\begin{tabularx}{\linewidth}{@{}*{3}{X}@{}}\textbf{A.}\;$-1\le x\le4$ & \textbf{B.}\;$x\le-1$ atau $x\ge4$ & \textbf{C.}\;$0<x<3$\\[3pt] \textbf{D.}\;$-1\le x<0$ atau $x>3$ & \textbf{E.}\;$-1\le x<0$ atau $3<x\le4$ & \end{tabularx}}
+\soal{Jumlah semua penyelesaian persamaan $2^{x+1}+2^{2-x}=9$ adalah \dots.}{\begin{tabularx}{\linewidth}{@{}*{5}{X}@{}}\textbf{A.}\;$1$ & \textbf{B.}\;$\dis\frac32$ & \textbf{C.}\;$2$ & \textbf{D.}\;$\dis\frac92$ & \textbf{E.}\;$9$\end{tabularx}}
+\soal{Jika $\alog{2}{3}=p$, maka $\alog{6}{24}=$ \dots.}{\begin{tabularx}{\linewidth}{@{}*{5}{X}@{}}\textbf{A.}\;$\dis\frac{p+1}{p+3}$ & \textbf{B.}\;$\dis\frac{p+3}{p}$ & \textbf{C.}\;$\dis\frac{3p+1}{p+1}$ & \textbf{D.}\;$\dis\frac{p+3}{p+1}$ & \textbf{E.}\;$\dis\frac{3p}{p+1}$\end{tabularx}}
+\soal{Jika $x_{1}$ dan $x_{2}$ adalah akar-akar persamaan $(\log x)^{2}-5\log x+6=0$, maka $x_{1}\cdot x_{2}=$ \dots.}{\begin{tabularx}{\linewidth}{@{}*{5}{X}@{}}\textbf{A.}\;$6$ & \textbf{B.}\;$1.100$ & \textbf{C.}\;$10^{5}$ & \textbf{D.}\;$10^{6}$ & \textbf{E.}\;$10^{11}$\end{tabularx}}
+\soal{Nilai $x$ yang memenuhi $\alog{2}{\left(\alog{3}{\left(\alog{2}{x}\right)}\right)}=1$ adalah \dots.}{\begin{tabularx}{\linewidth}{@{}*{5}{X}@{}}\textbf{A.}\;$512$ & \textbf{B.}\;$729$ & \textbf{C.}\;$1.024$ & \textbf{D.}\;$6.561$ & \textbf{E.}\;$19.683$\end{tabularx}}
+\soal{Nilai dari $\dis\frac{1}{\alog{2}{900}}+\dis\frac{1}{\alog{3}{900}}+\dis\frac{1}{\alog{5}{900}}$ adalah \dots.}{\begin{tabularx}{\linewidth}{@{}*{5}{X}@{}}\textbf{A.}\;$\dis\frac14$ & \textbf{B.}\;$\dis\frac12$ & \textbf{C.}\;$1$ & \textbf{D.}\;$2$ & \textbf{E.}\;$4$\end{tabularx}}
+\soal{Larutan X ber-pH $3$ dicampur dengan larutan Y ber-pH $5$ dalam volume yang sama. Jika \mbox{$\mathrm{pH}=-\log[\mathrm{H}^{+}]$} dan $\log 2=0{,}3$, pH campuran mendekati \dots.}{\begin{tabularx}{\linewidth}{@{}*{5}{X}@{}}\textbf{A.}\;$2{,}7$ & \textbf{B.}\;$3{,}0$ & \textbf{C.}\;$3{,}1$ & \textbf{D.}\;$3{,}3$ & \textbf{E.}\;$4{,}0$\end{tabularx}}
+\soal{Jika $2^{a}=3^{b}=6^{c}$ dengan $a,b,c\neq0$, maka $\dis\frac{1}{a}+\dis\frac{1}{b}=$ \dots.}{\begin{tabularx}{\linewidth}{@{}*{5}{X}@{}}\textbf{A.}\;$c$ & \textbf{B.}\;$2c$ & \textbf{C.}\;$c^{2}$ & \textbf{D.}\;$\dis\frac{c}{2}$ & \textbf{E.}\;$\dis\frac{1}{c}$\end{tabularx}}
+\bagian{B. Isian Singkat}{5 soal $\times$ 4 poin = 20 poin. Tuliskan hanya jawaban akhir.}
+\soal{Zat radioaktif memiliki waktu paruh $6$ jam. Jika massa mula-mula $96$ gram, maka massa zat tersisa $1{,}5$ gram setelah \dots\ jam.}{\hfill Jawaban: \rule{4.5cm}{0.4pt}}
+\soal{Bentuk sederhana dari $\dis\frac{\left(a^{-2}b^{3}\right)^{2}\cdot a^{5}}{b^{4}}$ dengan pangkat positif adalah \dots}{\hfill Jawaban: \rule{4.5cm}{0.4pt}}
+\soal{Diketahui $\alog{2}{3}=p$ dan $\alog{3}{5}=q$. Nyatakan $\alog{4}{15}$ dalam $p$ dan $q$.}{\hfill Jawaban: \rule{4.5cm}{0.4pt}}
+\soal{Nilai $x$ yang memenuhi $\alog{x}{(3x+4)}=2$ adalah \dots}{\hfill Jawaban: \rule{4.5cm}{0.4pt}}
+\soal{Jika $2^{x}+2^{-x}=5$, maka nilai $8^{x}+8^{-x}$ adalah \dots}{\hfill Jawaban: \rule{4.5cm}{0.4pt}}
+\bagian{C. Uraian (Essay)}{5 soal $\times$ 8 poin = 40 poin. Tuliskan langkah penyelesaian dengan lengkap.}
+\soal{Tentukan himpunan penyelesaian dari \[ \dis\frac{8^{x-1}\cdot\sqrt{2^{x}}}{4^{x+1}}=\dis\frac{1}{4}. \] Tuliskan langkah menyamakan basisnya.}{\poin{8}}
+\soal{Tentukan himpunan penyelesaian $\alog{3}{(x+2)}+\alog{3}{(x-4)}=3$. Jelaskan mengapa salah satu akar yang diperoleh harus ditolak.}{\poin{8}}
+\soal{Tentukan himpunan penyelesaian pertidaksamaan \[ 2^{2x+1}-5\cdot2^{x}+2\le0. \]}{\poin{8}}
+\soal{Besar magnitudo gempa dirumuskan $M=\dis\frac{2}{3}\log\dis\frac{E}{E_{0}}$, dengan $E$ energi gempa dan $E_{0}$ konstanta.\par\smallskip\hspace*{0.3em}(a) Buktikan bahwa untuk dua gempa berlaku $M_{1}-M_{2}=\dis\frac23\log\dis\frac{E_{1}}{E_{2}}$.\par\hspace*{0.3em}(b) Gempa A bermagnitudo $8$ dan gempa B bermagnitudo $6$. Berapa kali energi gempa A dibandingkan gempa B?\par\hspace*{0.3em}(c) Energi gempa C sama dengan $100$ kali energi gempa B. Tentukan magnitudo gempa C.}{\poin{8}}
+\soal{Diketahui $a>b>0$ dan $a^{2}+b^{2}=7ab$.\par\smallskip\hspace*{0.3em}(a) Buktikan bahwa $\log\dis\frac{a+b}{3}=\dis\frac12\left(\log a+\log b\right)$.\par\hspace*{0.3em}(b) Tunjukkan bahwa $\sqrt{\dis\frac{a}{b}}-\sqrt{\dis\frac{b}{a}}=\sqrt{5}$.}{\poin{8}}
+\newpage
+\bagian{Kunci Jawaban dan Pembahasan Singkat}{Untuk guru dan pembahasan mandiri}
+\par\vspace{0.6em}{\bfseries\color{navy}Kunci Pilihan Ganda}\par\vspace{0.3em}
+\begin{tabularx}{\linewidth}{@{}*{10}{>{\centering\arraybackslash}X}@{}}\hline \textbf{1} & \textbf{2} & \textbf{3} & \textbf{4} & \textbf{5} & \textbf{6} & \textbf{7} & \textbf{8} & \textbf{9} & \textbf{10}\\ \hline B & C & D & B & A & E & C & D & A & E\\ \hline\end{tabularx}\par\vspace{0.4em}\begin{tabularx}{\linewidth}{@{}*{10}{>{\centering\arraybackslash}X}@{}}\hline \textbf{11} & \textbf{12} & \textbf{13} & \textbf{14} & \textbf{15} & \textbf{16} & \textbf{17} & \textbf{18} & \textbf{19} & \textbf{20}\\ \hline B & C & E & A & D & C & A & B & D & E\\ \hline\end{tabularx}
+\par\vspace{0.8em}{\bfseries\color{navy}Pembahasan Pilihan Ganda}\par\vspace{0.2em}
+\small\begin{enumerate}[leftmargin=2em,itemsep=2pt,topsep=2pt]
+\item[\textbf{1.}] \textbf{(B)} $2^{3+4-5}=2^{2}=4$.
+\item[\textbf{2.}] \textbf{(C)} $\left(\dis\frac23\right)^{-2}=\dis\frac94$ dan $8^{\frac23}=(2^{3})^{\frac23}=4$. Jumlahnya $\dis\frac94+4=\dis\frac{25}{4}$.
+\item[\textbf{3.}] \textbf{(D)} $\alog{2}{32}=5$ dan $\alog{3}{3^{-3}}=-3$, sehingga hasilnya $5-3=2$.
+\item[\textbf{4.}] \textbf{(B)} $5^{2x-1}=5^{3}\Rightarrow 2x-1=3\Rightarrow x=2$.
+\item[\textbf{5.}] \textbf{(A)} Dengan sifat rantai, $\alog{2}{3}\cdot\alog{3}{8}=\alog{2}{8}=3$.
+\item[\textbf{6.}] \textbf{(E)} $a^{5-2}\,b^{-3-(-6)}=a^{3}b^{3}$.
+\item[\textbf{7.}] \textbf{(C)} $\dis\frac{6}{3-\sqrt3}\cdot\dis\frac{3+\sqrt3}{3+\sqrt3}=\dis\frac{6(3+\sqrt3)}{6}=3+\sqrt3$ dan $\dis\frac{2}{\sqrt3+1}\cdot\dis\frac{\sqrt3-1}{\sqrt3-1}=\sqrt3-1$. Jumlahnya $2+2\sqrt3$.
+\item[\textbf{8.}] \textbf{(D)} $2^{-2(x-1)}=2^{3(x+2)}\Rightarrow -2x+2=3x+6\Rightarrow x=-\dis\frac45$.
+\item[\textbf{9.}] \textbf{(A)} Syarat numerus: $x>1$. Maka $(x+1)(x-1)=2^{3}\Rightarrow x^{2}=9\Rightarrow x=\pm3$. Karena $x>1$, hanya $x=3$ yang memenuhi.
+\item[\textbf{10.}] \textbf{(E)} $\log 72=\log(2^{3}\cdot3^{2})=3\log2+2\log3=3a+2b$.
+\item[\textbf{11.}] \textbf{(B)} $\left(\dis\frac12\right)^{2x-1}\ge\left(\dis\frac12\right)^{3}$. Karena basis $<1$, tanda berbalik: $2x-1\le3\Rightarrow x\le2$.
+\item[\textbf{12.}] \textbf{(C)} $f(0)=3^{-1}+2=\dis\frac13+2=\dis\frac73$.
+\item[\textbf{13.}] \textbf{(E)} Syarat numerus: $x^{2}-3x>0\Rightarrow x<0$ atau $x>3$. Karena basis $\dis\frac12<1$: $x^{2}-3x\le\left(\dis\frac12\right)^{-2}=4\Rightarrow-1\le x\le4$. Irisannya: $-1\le x<0$ atau $3<x\le4$.
+\item[\textbf{14.}] \textbf{(A)} Persamaan menjadi $2\cdot2^{x}+\dis\frac{4}{2^{x}}=9$. Misal $t=2^{x}$: $2t^{2}-9t+4=0\Rightarrow t=4$ atau $t=\dis\frac12$, sehingga $x=2$ atau $x=-1$. Jumlahnya $1$.
+\item[\textbf{15.}] \textbf{(D)} $\alog{2}{24}=\alog{2}{8}+\alog{2}{3}=3+p$ dan $\alog{2}{6}=1+p$. Maka $\alog{6}{24}=\dis\frac{\alog{2}{24}}{\alog{2}{6}}=\dis\frac{p+3}{p+1}$.
+\item[\textbf{16.}] \textbf{(C)} Misal $y=\log x$: $y^{2}-5y+6=0\Rightarrow y=2$ atau $y=3$, sehingga $x_{1}=10^{2}$ dan $x_{2}=10^{3}$. Hasil kalinya $10^{5}$ (atau: $\log x_1+\log x_2=5$).
+\item[\textbf{17.}] \textbf{(A)} $\alog{2}{(\cdot)}=1\Rightarrow\alog{3}{(\alog{2}{x})}=2\Rightarrow\alog{2}{x}=3^{2}=9\Rightarrow x=2^{9}=512$.
+\item[\textbf{18.}] \textbf{(B)} Karena $\dis\frac{1}{\alog{a}{b}}=\alog{b}{a}$, jumlahnya $\alog{900}{2}+\alog{900}{3}+\alog{900}{5}=\alog{900}{30}=\dis\frac12$, sebab $900=30^{2}$.
+\item[\textbf{19.}] \textbf{(D)} $[\mathrm{H}^+]=\dis\frac{10^{-3}+10^{-5}}{2}\approx5\times10^{-4}$. Maka $\mathrm{pH}=4-\log5=4-(1-\log2)=4-0{,}7=3{,}3$.
+\item[\textbf{20.}] \textbf{(E)} $2=6^{c/a}$ dan $3=6^{c/b}$, sehingga $6=2\cdot3=6^{\frac ca+\frac cb}\Rightarrow\dis\frac ca+\dis\frac cb=1\Rightarrow\dis\frac1a+\dis\frac1b=\dis\frac1c$.
+\end{enumerate}
+\par\Needspace{6\baselineskip}\vspace{0.6em}{\bfseries\color{navy}\normalsize Pembahasan Isian Singkat}\par\vspace{0.2em}
+\small\begin{enumerate}[leftmargin=2em,itemsep=2pt,topsep=2pt]
+\item[\textbf{1.}] \textbf{Jawaban: $36$ jam.} $1{,}5=96\left(\dis\frac12\right)^{t/6}\Rightarrow\left(\dis\frac12\right)^{t/6}=\dis\frac1{64}=\left(\dis\frac12\right)^{6}\Rightarrow t=36$ jam.
+\item[\textbf{2.}] \textbf{Jawaban: $ab^{2}$.} $(a^{-2}b^{3})^{2}=a^{-4}b^{6}$, sehingga $\dis\frac{a^{-4}b^{6}\cdot a^{5}}{b^{4}}=a^{1}b^{2}$.
+\item[\textbf{3.}] \textbf{Jawaban: $\dis\frac{p(1+q)}{2}$.} $\alog{2}{5}=\alog{2}{3}\cdot\alog{3}{5}=pq$, maka $\alog{2}{15}=p+pq$. Jadi $\alog{4}{15}=\dis\frac{\alog{2}{15}}{\alog{2}{4}}=\dis\frac{p(1+q)}{2}$.
+\item[\textbf{4.}] \textbf{Jawaban: $4$.} $x^{2}=3x+4\Rightarrow x^{2}-3x-4=0\Rightarrow x=4$ atau $x=-1$. Syarat basis $x>0,\ x\neq1$, sehingga $x=4$.
+\item[\textbf{5.}] \textbf{Jawaban: $110$.} $(2^{x}+2^{-x})^{3}=8^{x}+8^{-x}+3(2^{x}+2^{-x})\Rightarrow125=8^{x}+8^{-x}+15\Rightarrow8^{x}+8^{-x}=110$.
+\end{enumerate}
+\par\Needspace{8\baselineskip}\vspace{0.6em}{\bfseries\color{navy}\normalsize Pembahasan dan Pedoman Penskoran Uraian}\par\vspace{0.2em}
+\small\begin{enumerate}[leftmargin=2em,itemsep=3pt,topsep=2pt]
+\item[\textbf{1.}] Ubah ke basis $2$: $8^{x-1}=2^{3x-3}$, $\sqrt{2^{x}}=2^{x/2}$, $4^{x+1}=2^{2x+2}$. Ruas kiri $=2^{3x-3+\frac x2-2x-2}=2^{\frac32x-5}$, ruas kanan $=2^{-2}$. Maka $\dis\frac32x-5=-2\Rightarrow x=2$. HP $=\{2\}$. \\ \textit{Penskoran: Menyamakan basis (3 poin); eksponen sisi kiri benar (3 poin); nilai $x$ dan HP (2 poin).}
+\item[\textbf{2.}] Syarat: $x+2>0$ dan $x-4>0\Rightarrow x>4$. Persamaan menjadi $\alog{3}{(x+2)(x-4)}=3\Rightarrow x^{2}-2x-8=27\Rightarrow x^{2}-2x-35=0\Rightarrow(x-7)(x+5)=0$. Nilai $x=-5$ tidak memenuhi syarat $x>4$ (numerus negatif), sehingga HP $=\{7\}$. \\ \textit{Penskoran: Syarat numerus (2 poin); bentuk kuadrat (3 poin); akar dan penolakan (3 poin).}
+\item[\textbf{3.}] Misal $t=2^{x}>0$: $2t^{2}-5t+2\le0\Rightarrow(2t-1)(t-2)\le0\Rightarrow\dis\frac12\le t\le2$. Maka $2^{-1}\le2^{x}\le2^{1}$ dan karena basis $2>1$, $-1\le x\le1$. HP $=\{x\mid-1\le x\le1\}$. \\ \textit{Penskoran: Substitusi dan bentuk kuadrat (3 poin); penyelesaian $t$ (2 poin); kembali ke $x$ (3 poin).}
+\item[\textbf{4.}] (a) $M_{1}-M_{2}=\dis\frac23\left(\log E_{1}-\log E_{0}-\log E_{2}+\log E_{0}\right)=\dis\frac23\log\dis\frac{E_{1}}{E_{2}}$. (b) $8-6=\dis\frac23\log\dis\frac{E_A}{E_B}\Rightarrow\log\dis\frac{E_A}{E_B}=3\Rightarrow\dis\frac{E_A}{E_B}=1000$. (c) $M_{C}-M_{B}=\dis\frac23\log100=\dis\frac43\Rightarrow M_{C}=6+\dis\frac43=\dis\frac{22}{3}\approx7{,}3$. \\ \textit{Penskoran: Bagian (a) 3 poin; (b) 2 poin; (c) 3 poin.}
+\item[\textbf{5.}] (a) $a^{2}+b^{2}=7ab\Rightarrow(a+b)^{2}=9ab\Rightarrow\left(\dis\frac{a+b}{3}\right)^{2}=ab$. Dengan logaritma: $2\log\dis\frac{a+b}{3}=\log a+\log b$, lalu bagi $2$. (b) $\left(\sqrt{\dis\frac ab}-\sqrt{\dis\frac ba}\right)^{2}=\dis\frac ab+\dis\frac ba-2=\dis\frac{a^{2}+b^{2}}{ab}-2=7-2=5$. Karena $a>b$, bentuk di dalam kurung positif, sehingga nilainya $\sqrt5$. \\ \textit{Penskoran: Bagian (a) 4 poin; (b) 4 poin.}
+\end{enumerate}
+\end{document}
