@@ -54,18 +54,56 @@
 
 .tf-board-heading {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+}
+
+.tf-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tf-zoom {
+  display: inline-flex;
+  border: 1px solid #aebdc2;
+}
+
+.tf-zoom button {
+  min-width: 34px;
+  min-height: 30px;
+  padding: 0 10px;
+  border: 0;
+  border-left: 1px solid #aebdc2;
+  background: #fff;
+  color: var(--sim-ink, #18313d);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tf-zoom button:first-child {
+  border-left: 0;
+}
+
+.tf-zoom button:last-child:not(:first-child),
+.tf-zoom button:only-child {
+  font-size: 11px;
+}
+
+.tf-zoom button:hover {
+  background: #e8f3f1;
+}
+
+.tf-board-hint {
+  margin: 0;
+  text-align: center;
 }
 
 .tf-board-heading h3 {
   margin: 0;
-}
-
-.tf-board-heading > span {
-  color: var(--sim-muted, #62727d);
-  font-size: 10px;
 }
 
 .tf-board {
@@ -77,6 +115,11 @@
   overflow: hidden;
   background: #fcfdfc;
   touch-action: none;
+  cursor: grab;
+}
+
+.tf-board:active {
+  cursor: grabbing;
 }
 
 .tf-board .JXGtext {
@@ -576,10 +619,6 @@
     padding: 8px;
   }
 
-  .tf-board-heading > span {
-    display: none;
-  }
-
   .tf-playback {
     grid-template-columns: minmax(0, 1fr) auto;
     padding: 8px;
@@ -611,6 +650,61 @@
   .tf-builder-actions button,
   .tf-reset-row button {
     flex: 1 1 auto;
+  }
+}
+
+/* Layar penuh: grafik di kiri, input + info di kanan (2 : 1) */
+.transformation-simulation:fullscreen {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+  padding: 12px;
+  overflow: auto;
+  background: var(--sim-paper, #f3f7f5);
+}
+
+.transformation-simulation:fullscreen > .tf-main {
+  flex: 1 1 0;
+  min-height: 0;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+}
+
+.transformation-simulation:fullscreen .tf-board-panel {
+  height: 100%;
+  min-height: 0;
+  padding: 10px;
+  grid-template-rows: auto minmax(0, 1fr) auto auto auto auto;
+  align-content: stretch;
+}
+
+.transformation-simulation:fullscreen .tf-board {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  max-height: none;
+  aspect-ratio: auto;
+}
+
+.tf-rightcol {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.tf-rightcol > * {
+  flex: none;
+}
+
+@media (max-width: 600px) {
+  .transformation-simulation:fullscreen > .tf-main {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 2fr) minmax(0, 1fr);
   }
 }
 

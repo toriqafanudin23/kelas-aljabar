@@ -334,8 +334,26 @@ function Field({
 
 /* ---------- Komponen utama ---------- */
 
+type BoardT = ReturnType<typeof JXG.JSXGraph.initBoard>;
+const HOME_BOX: [number, number, number, number] = [-10, 10, 10, -10];
+
+/** Zoom papan dengan faktor f (<1 memperbesar) terhadap titik (ux, uy); default pusat tampilan. */
+function zoomBoard(board: BoardT, f: number, ux?: number, uy?: number) {
+  const [x1, y1, x2, y2] = board.getBoundingBox();
+  const cx = ux ?? (x1 + x2) / 2;
+  const cy = uy ?? (y1 + y2) / 2;
+  const nx1 = cx + (x1 - cx) * f;
+  const nx2 = cx + (x2 - cx) * f;
+  const ny1 = cy + (y1 - cy) * f;
+  const ny2 = cy + (y2 - cy) * f;
+  const w = nx2 - nx1;
+  if (!(w >= 2 && w <= 400)) return;
+  board.setBoundingBox([nx1, ny1, nx2, ny2], true);
+}
+
 export function TransformationSimulation() {
   const boardId = `tf-board-${useId().replace(/:/g, "")}`;
+  const rootRef = useRef<HTMLDivElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const boardRef = useRef<ReturnType<typeof JXG.JSXGraph.initBoard> | null>(
     null,
@@ -353,6 +371,7 @@ export function TransformationSimulation() {
   );
   const [progress, setProgress] = useState(0);
   const [playing, setPlaying] = useState(false);
+  const [isFull, setIsFull] = useState(false);
   const [speed, setSpeed] = useStoredSimulationState("transformation.speed", 1);
   const [snap, setSnap] = useStoredSimulationState("transformation.snap", true);
   const [draftType, setDraftType] = useStoredSimulationState<StepType>(
@@ -478,6 +497,30 @@ export function TransformationSimulation() {
     setPlaying(true);
   };
 
+  /* Tampilan: zoom, reset, layar penuh */
+  const zoomIn = () => {
+    if (boardRef.current) zoomBoard(boardRef.current, 0.8);
+  };
+  const zoomOut = () => {
+    if (boardRef.current) zoomBoard(boardRef.current, 1.25);
+  };
+  const resetView = () => {
+    boardRef.current?.setBoundingBox(HOME_BOX, true);
+  };
+  const toggleFullscreen = () => {
+    const el = rootRef.current;
+    if (!el) return;
+    if (document.fullscreenElement) void document.exitFullscreen();
+    else void el.requestFullscreen?.();
+  };
+
+  useEffect(() => {
+    const onChange = () =>
+      setIsFull(document.fullscreenElement === rootRef.current);
+    document.addEventListener("fullscreenchange", onChange);
+    return () => document.removeEventListener("fullscreenchange", onChange);
+  }, []);
+
   /* Papan JSXGraph */
   useEffect(() => {
     const count = shape;
@@ -490,7 +533,7 @@ export function TransformationSimulation() {
       showCopyright: false,
       showNavigation: false,
       keepAspectRatio: true,
-      pan: { enabled: false },
+      pan: { enabled: true, needShift: false, needTwoFingers: true },
       zoom: { wheel: false },
     });
     boardRef.current = board;
@@ -507,7 +550,7 @@ export function TransformationSimulation() {
       highlight: false,
     };
     const ticks = {
-      ticksDistance: 2,
+      insertTicks: true,
       minorTicks: 1,
       majorHeight: 7,
       drawLabels: true,
@@ -773,6 +816,23 @@ export function TransformationSimulation() {
       });
     }
 
+    /* Zoom roda mouse ke posisi kursor */
+    const wheelEl = containerRef.current;
+    const onWheel = (e: WheelEvent) => {
+      if (!wheelEl) return;
+      e.preventDefault();
+      let delta = e.deltaY || e.deltaX;
+      if (e.deltaMode === 1) delta *= 33;
+      if (e.deltaMode === 2) delta *= 400;
+      const f = Math.exp(Math.max(-120, Math.min(120, delta)) * 0.0015);
+      const r = wheelEl.getBoundingClientRect();
+      const [x1, y1, x2, y2] = board.getBoundingBox();
+      const ux = x1 + ((e.clientX - r.left) / r.width) * (x2 - x1);
+      const uy = y1 - ((e.clientY - r.top) / r.height) * (y1 - y2);
+      zoomBoard(board, f, ux, uy);
+    };
+    wheelEl?.addEventListener("wheel", onWheel, { passive: false });
+
     const observer = new ResizeObserver(() => {
       const el = containerRef.current;
       if (el && el.clientWidth > 0 && el.clientHeight > 0) {
@@ -783,6 +843,7 @@ export function TransformationSimulation() {
 
     return () => {
       observer.disconnect();
+      wheelEl?.removeEventListener("wheel", onWheel);
       JXG.JSXGraph.freeBoard(board);
       boardRef.current = null;
       pointsRef.current = [];
@@ -858,438 +919,479 @@ export function TransformationSimulation() {
       : `Langkah ${activeIndex + 1} dari ${total}: ${info.name} ${info.detail}`;
   }
 
-  return (
-    <div className="transformation-simulation">
-      <div className="tf-main">
-        <section className="tf-board-panel" aria-labelledby="tf-board-title">
-          <div className="tf-board-heading">
-            <h3 id="tf-board-title">Bidang koordinat</h3>
-            <span>Seret titik atau poligon biru</span>
+  const boardEl = (
+    <section className="tf-board-panel" aria-labelledby="tf-board-title">
+      <div className="tf-board-heading">
+        <h3 id="tf-board-title">Bidang koordinat</h3>
+        <div className="tf-toolbar">
+          <div className="tf-zoom" role="group" aria-label="Zoom tampilan">
+            <button
+              type="button"
+              onClick={zoomIn}
+              aria-label="Perbesar"
+              title="Perbesar"
+            >
+              +
+            </button>
+            <button
+              type="button"
+              onClick={zoomOut}
+              aria-label="Perkecil"
+              title="Perkecil"
+            >
+              −
+            </button>
+            <button type="button" onClick={resetView} title="Tampilan awal">
+              Reset
+            </button>
           </div>
-          <div
-            className="tf-board"
-            id={boardId}
-            ref={containerRef}
-            aria-label="Bidang koordinat interaktif. Seret titik atau poligon asal untuk mengubah posisinya; bayangan hasil transformasi berwarna oranye."
+          <div className="tf-zoom" role="group" aria-label="Alat">
+            <button
+              type="button"
+              onClick={toggleFullscreen}
+              title="Layar penuh"
+            >
+              {isFull ? "Tutup layar penuh" : "Layar penuh"}
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        className="tf-board"
+        id={boardId}
+        ref={containerRef}
+        aria-label="Bidang koordinat interaktif. Seret titik atau poligon asal untuk mengubah posisinya; bayangan hasil transformasi berwarna oranye."
+      />
+      <div className="tf-legend" aria-label="Legenda grafik">
+        <span>
+          <i className="legend-original" /> bangun asal
+        </span>
+        <span>
+          <i className="legend-image" /> bayangan
+        </span>
+        <span>
+          <i className="legend-ghost" /> hasil antara
+        </span>
+        <span>
+          <i className="legend-guide" /> cermin / pusat / vektor
+        </span>
+      </div>
+      <p className="tf-hint tf-board-hint">
+        Seret titik atau poligon biru · tahan klik kiri pada ruang kosong untuk
+        menggeser tampilan · roda mouse untuk zoom.
+      </p>
+      <div className="tf-playback">
+        <button
+          className="tf-play-button"
+          type="button"
+          onClick={togglePlay}
+          disabled={total === 0}
+        >
+          {playing ? "Jeda" : isDone ? "Putar ulang" : "Mainkan"}
+        </button>
+        <div className="tf-progress">
+          <label htmlFor="tf-progress-slider">Progres animasi</label>
+          <span className="tf-progress-value" aria-hidden="true">
+            {total === 0 ? "0%" : `${Math.round((progress / total) * 100)}%`}
+          </span>
+          <input
+            id="tf-progress-slider"
+            type="range"
+            min="0"
+            max={total}
+            step="0.01"
+            value={progress}
+            disabled={total === 0}
+            aria-valuetext={caption}
+            onChange={(event) => {
+              setPlaying(false);
+              setProgressValue(Number(event.currentTarget.value));
+            }}
           />
-          <div className="tf-legend" aria-label="Legenda grafik">
-            <span>
-              <i className="legend-original" /> bangun asal
-            </span>
-            <span>
-              <i className="legend-image" /> bayangan
-            </span>
-            <span>
-              <i className="legend-ghost" /> hasil antara
-            </span>
-            <span>
-              <i className="legend-guide" /> cermin / pusat / vektor
-            </span>
-          </div>
-          <div className="tf-playback">
+        </div>
+        <label className="tf-speed">
+          <span>Kecepatan</span>
+          <select
+            value={speed}
+            onChange={(event) => {
+              const value = Number(event.currentTarget.value);
+              speedRef.current = value;
+              setSpeed(value);
+            }}
+          >
+            <option value={0.5}>0,5×</option>
+            <option value={1}>1×</option>
+            <option value={2}>2×</option>
+          </select>
+        </label>
+      </div>
+      <p className="tf-caption" aria-live="polite">
+        {caption}
+      </p>
+    </section>
+  );
+
+  const sideEl = (
+    <section className="tf-side" aria-label="Pengaturan transformasi">
+      <div className="tf-panel">
+        <h3>Bangun asal</h3>
+        <div className="tf-segmented" role="group" aria-label="Bentuk bangun">
+          {shapeOptions.map((option) => (
             <button
-              className="tf-play-button"
+              key={option.count}
               type="button"
-              onClick={togglePlay}
-              disabled={total === 0}
+              aria-pressed={shape === option.count}
+              onClick={() => changeShape(option.count)}
             >
-              {playing ? "Jeda" : isDone ? "Putar ulang" : "Mainkan"}
+              {option.label}
             </button>
-            <div className="tf-progress">
-              <label htmlFor="tf-progress-slider">Progres animasi</label>
-              <span className="tf-progress-value" aria-hidden="true">
-                {total === 0
-                  ? "0%"
-                  : `${Math.round((progress / total) * 100)}%`}
-              </span>
-              <input
-                id="tf-progress-slider"
-                type="range"
-                min="0"
-                max={total}
-                step="0.01"
-                value={progress}
-                disabled={total === 0}
-                aria-valuetext={caption}
-                onChange={(event) => {
-                  setPlaying(false);
-                  setProgressValue(Number(event.currentTarget.value));
-                }}
-              />
-            </div>
-            <label className="tf-speed">
-              <span>Kecepatan</span>
-              <select
-                value={speed}
-                onChange={(event) => {
-                  const value = Number(event.currentTarget.value);
-                  speedRef.current = value;
-                  setSpeed(value);
-                }}
-              >
-                <option value={0.5}>0,5×</option>
-                <option value={1}>1×</option>
-                <option value={2}>2×</option>
-              </select>
-            </label>
-          </div>
-          <p className="tf-caption" aria-live="polite">
-            {caption}
-          </p>
-        </section>
-
-        <section className="tf-side" aria-label="Pengaturan transformasi">
-          <div className="tf-panel">
-            <h3>Bangun asal</h3>
-            <div
-              className="tf-segmented"
-              role="group"
-              aria-label="Bentuk bangun"
-            >
-              {shapeOptions.map((option) => (
-                <button
-                  key={option.count}
-                  type="button"
-                  aria-pressed={shape === option.count}
-                  onClick={() => changeShape(option.count)}
-                >
-                  {option.label}
-                </button>
-              ))}
-            </div>
-            <label className="tf-check">
-              <input
-                type="checkbox"
-                checked={snap}
-                onChange={(event) => setSnap(event.currentTarget.checked)}
-              />
-              Tempel ke titik bilangan bulat
-            </label>
-          </div>
-
-          <div className="tf-panel">
-            <h3>
-              Urutan transformasi{" "}
-              <small>
-                ({total}/{MAX_STEPS})
-              </small>
-            </h3>
-            {total === 0 ? (
-              <p className="tf-empty">Belum ada langkah.</p>
-            ) : (
-              <ol className="tf-steps">
-                {steps.map((step, i) => {
-                  const info = describeStep(step);
-                  return (
-                    <li
-                      key={step.id}
-                      className={i === activeIndex ? "is-active" : undefined}
-                    >
-                      <span className="tf-step-index">{i + 1}</span>
-                      <button
-                        type="button"
-                        className="tf-step-label"
-                        title="Tampilkan hasil sampai langkah ini"
-                        onClick={() => {
-                          setPlaying(false);
-                          setProgressValue(i + 1);
-                        }}
-                      >
-                        <b>{info.name}</b> {info.detail}
-                      </button>
-                      <button
-                        type="button"
-                        className="tf-step-remove"
-                        aria-label={`Hapus langkah ${i + 1}: ${info.name}`}
-                        onClick={() => removeStep(step.id)}
-                      >
-                        ×
-                      </button>
-                    </li>
-                  );
-                })}
-              </ol>
-            )}
-          </div>
-
-          <div className="tf-panel tf-builder">
-            <h3>Tambah langkah</h3>
-            <div
-              className="tf-segmented"
-              role="group"
-              aria-label="Jenis transformasi"
-            >
-              {typeOptions.map((option) => (
-                <button
-                  key={option.type}
-                  type="button"
-                  aria-pressed={draftType === option.type}
-                  onClick={() => setDraftType(option.type)}
-                >
-                  {option.label}
-                </button>
-              ))}
-            </div>
-            <div className="tf-fields">
-              {draftType === "translation" && (
-                <>
-                  <Field
-                    label="Geser x"
-                    value={draft.tx}
-                    onChange={(v) => setField("tx", v)}
-                  />
-                  <Field
-                    label="Geser y"
-                    value={draft.ty}
-                    onChange={(v) => setField("ty", v)}
-                  />
-                </>
-              )}
-              {draftType === "reflection" && (
-                <label className="tf-field tf-field-wide">
-                  <span>Cermin</span>
-                  <select
-                    value={draft.axis}
-                    onChange={(event) =>
-                      setDraft((current) => ({
-                        ...current,
-                        axis: event.currentTarget.value as ReflectionAxis,
-                      }))
-                    }
-                  >
-                    {(Object.keys(axisLabels) as ReflectionAxis[]).map(
-                      (axis) => (
-                        <option key={axis} value={axis}>
-                          {axisLabels[axis]}
-                        </option>
-                      ),
-                    )}
-                  </select>
-                </label>
-              )}
-              {draftType === "rotation" && (
-                <>
-                  <Field
-                    label="Sudut (°)"
-                    value={draft.angle}
-                    onChange={(v) => setField("angle", v)}
-                  />
-                  <Field
-                    label="Pusat x"
-                    value={draft.rcx}
-                    onChange={(v) => setField("rcx", v)}
-                  />
-                  <Field
-                    label="Pusat y"
-                    value={draft.rcy}
-                    onChange={(v) => setField("rcy", v)}
-                  />
-                </>
-              )}
-              {draftType === "dilation" && (
-                <>
-                  <Field
-                    label="Faktor k"
-                    value={draft.k}
-                    onChange={(v) => setField("k", v)}
-                  />
-                  <Field
-                    label="Pusat x"
-                    value={draft.dcx}
-                    onChange={(v) => setField("dcx", v)}
-                  />
-                  <Field
-                    label="Pusat y"
-                    value={draft.dcy}
-                    onChange={(v) => setField("dcy", v)}
-                  />
-                </>
-              )}
-            </div>
-            {draftType === "rotation" && (
-              <p className="tf-hint">
-                Sudut positif berlawanan arah jarum jam.
-              </p>
-            )}
-            <div className="tf-builder-actions">
-              <button
-                type="button"
-                className="tf-add-button"
-                onClick={addStep}
-                disabled={total >= MAX_STEPS}
-              >
-                Tambah langkah
-              </button>
-              <button
-                type="button"
-                className="tf-reset-button"
-                onClick={() => updateSteps([])}
-                disabled={total === 0}
-              >
-                Kosongkan
-              </button>
-            </div>
-            {total >= MAX_STEPS && (
-              <p className="tf-hint">Maksimal {MAX_STEPS} langkah.</p>
-            )}
-          </div>
-
-          <div className="tf-reset-row">
-            <button
-              type="button"
-              className="tf-reset-button"
-              onClick={resetPoints}
-            >
-              Posisi awal bangun
-            </button>
-            <button
-              type="button"
-              className="tf-reset-button"
-              onClick={resetAll}
-            >
-              Atur ulang semua
-            </button>
-          </div>
-        </section>
+          ))}
+        </div>
+        <label className="tf-check">
+          <input
+            type="checkbox"
+            checked={snap}
+            onChange={(event) => setSnap(event.currentTarget.checked)}
+          />
+          Tempel ke titik bilangan bulat
+        </label>
       </div>
 
-      <section className="tf-panel tf-wide" aria-labelledby="tf-coords-title">
-        <h3 id="tf-coords-title">Koordinat titik</h3>
-        <div className="tf-table-wrap">
-          <table className="tf-table">
-            <thead>
-              <tr>
-                <th scope="col">Titik</th>
-                <th scope="col">Awal</th>
-                <th scope="col">Saat ini</th>
-                <th scope="col">Hasil akhir</th>
-              </tr>
-            </thead>
-            <tbody>
-              {names.map((name, i) => {
-                const origin: Vec = vertices[i] ?? [0, 0];
-                return (
-                  <tr key={name}>
-                    <th scope="row">
-                      {name} → {name}′
-                    </th>
-                    <td className="cell-original">{formatCoord(origin)}</td>
-                    <td className="cell-current">
-                      {formatCoord(applyMat(currentMatrix, origin))}
-                    </td>
-                    <td className="cell-image">
-                      {formatCoord(applyMat(finalMatrix, origin))}
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section className="tf-panel tf-wide" aria-labelledby="tf-matrix-title">
-        <h3 id="tf-matrix-title">Matriks transformasi</h3>
-        <p className="tf-hint">
-          Dipakai matriks homogen 3 × 3 agar translasi, refleksi, rotasi, dan
-          dilatasi dapat ditulis dalam satu bentuk. Kolom ketiga menyimpan
-          pergeseran.
-        </p>
-        <div className="tf-matrix-grid">
-          {steps.map((step, i) => {
-            const info = describeStep(step);
-            return (
-              <article
-                key={step.id}
-                className={`tf-matrix-card${i === activeIndex ? " is-active" : ""}`}
-              >
-                <h4>
-                  M{subscript(i + 1)} · {info.name}
-                </h4>
-                <p>{info.detail}</p>
-                <MatrixView
-                  rows={stepMatrix(step, 1)}
-                  label={`Matriks M${i + 1}`}
-                />
-              </article>
-            );
-          })}
-          <article className="tf-matrix-card tf-composite">
-            <h4>Matriks komposisi</h4>
-            <p>
-              {compositeFormula}
-              {total > 1 && " (urutan dibaca dari kanan ke kiri)"}
-            </p>
-            <MatrixView rows={finalMatrix} label="Matriks komposisi" />
-          </article>
-        </div>
-
-        <div className="tf-sample">
-          <div className="tf-sample-head">
-            <h4>Contoh perhitungan</h4>
-            {shape > 1 && (
-              <label className="tf-speed">
-                <span>Titik</span>
-                <select
-                  value={sample}
-                  onChange={(event) =>
-                    setSampleIndex(Number(event.currentTarget.value))
-                  }
+      <div className="tf-panel">
+        <h3>
+          Urutan transformasi{" "}
+          <small>
+            ({total}/{MAX_STEPS})
+          </small>
+        </h3>
+        {total === 0 ? (
+          <p className="tf-empty">Belum ada langkah.</p>
+        ) : (
+          <ol className="tf-steps">
+            {steps.map((step, i) => {
+              const info = describeStep(step);
+              return (
+                <li
+                  key={step.id}
+                  className={i === activeIndex ? "is-active" : undefined}
                 >
-                  {names.map((name, i) => (
-                    <option key={name} value={i}>
-                      {name}
-                    </option>
-                  ))}
-                </select>
-              </label>
-            )}
-          </div>
-          <div className="tf-equation">
-            <MatrixView
-              rows={[[sampleEnd[0]], [sampleEnd[1]], [1]]}
-              label={`Koordinat ${names[sample]}′`}
-            />
-            <span className="tf-operator">=</span>
-            <MatrixView rows={finalMatrix} label="Matriks komposisi" />
-            <span className="tf-operator">×</span>
-            <MatrixView
-              rows={[[sampleStart[0]], [sampleStart[1]], [1]]}
-              label={`Koordinat ${names[sample]}`}
-            />
-          </div>
-          <p className="tf-hint">
-            {names[sample]}
-            {formatCoord(sampleStart)} → {names[sample]}′
-            {formatCoord(sampleEnd)}
-          </p>
-        </div>
-      </section>
+                  <span className="tf-step-index">{i + 1}</span>
+                  <button
+                    type="button"
+                    className="tf-step-label"
+                    title="Tampilkan hasil sampai langkah ini"
+                    onClick={() => {
+                      setPlaying(false);
+                      setProgressValue(i + 1);
+                    }}
+                  >
+                    <b>{info.name}</b> {info.detail}
+                  </button>
+                  <button
+                    type="button"
+                    className="tf-step-remove"
+                    aria-label={`Hapus langkah ${i + 1}: ${info.name}`}
+                    onClick={() => removeStep(step.id)}
+                  >
+                    ×
+                  </button>
+                </li>
+              );
+            })}
+          </ol>
+        )}
+      </div>
 
-      <ul className="tf-insights">
-        <li>
-          <strong>Translasi</strong> menggeser setiap titik sejauh vektor (a,
-          b): (x, y) → (x + a, y + b).
-        </li>
-        <li>
-          <strong>Refleksi</strong> mencerminkan titik terhadap garis cermin;
-          terhadap sumbu x: (x, y) → (x, −y), terhadap sumbu y: (x, y) → (−x,
-          y).
-        </li>
-        <li>
-          <strong>Rotasi</strong> sebesar θ berpusat di O: (x, y) → (x cos θ − y
-          sin θ, x sin θ + y cos θ).
-        </li>
-        <li>
-          <strong>Dilatasi</strong> faktor k berpusat di O: (x, y) → (kx, ky).
-          Jika |k| &gt; 1 bangun membesar, jika |k| &lt; 1 mengecil, dan jika k
-          negatif bangun berbalik.
-        </li>
-        <li>
-          <strong>Komposisi</strong> bergantung pada urutan: M = Mₙ · … · M₂ ·
-          M₁. Coba tukar urutan langkah untuk melihat hasil yang berbeda.
-        </li>
-      </ul>
+      <div className="tf-panel tf-builder">
+        <h3>Tambah langkah</h3>
+        <div
+          className="tf-segmented"
+          role="group"
+          aria-label="Jenis transformasi"
+        >
+          {typeOptions.map((option) => (
+            <button
+              key={option.type}
+              type="button"
+              aria-pressed={draftType === option.type}
+              onClick={() => setDraftType(option.type)}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
+        <div className="tf-fields">
+          {draftType === "translation" && (
+            <>
+              <Field
+                label="Geser x"
+                value={draft.tx}
+                onChange={(v) => setField("tx", v)}
+              />
+              <Field
+                label="Geser y"
+                value={draft.ty}
+                onChange={(v) => setField("ty", v)}
+              />
+            </>
+          )}
+          {draftType === "reflection" && (
+            <label className="tf-field tf-field-wide">
+              <span>Cermin</span>
+              <select
+                value={draft.axis}
+                onChange={(event) =>
+                  setDraft((current) => ({
+                    ...current,
+                    axis: event.currentTarget.value as ReflectionAxis,
+                  }))
+                }
+              >
+                {(Object.keys(axisLabels) as ReflectionAxis[]).map((axis) => (
+                  <option key={axis} value={axis}>
+                    {axisLabels[axis]}
+                  </option>
+                ))}
+              </select>
+            </label>
+          )}
+          {draftType === "rotation" && (
+            <>
+              <Field
+                label="Sudut (°)"
+                value={draft.angle}
+                onChange={(v) => setField("angle", v)}
+              />
+              <Field
+                label="Pusat x"
+                value={draft.rcx}
+                onChange={(v) => setField("rcx", v)}
+              />
+              <Field
+                label="Pusat y"
+                value={draft.rcy}
+                onChange={(v) => setField("rcy", v)}
+              />
+            </>
+          )}
+          {draftType === "dilation" && (
+            <>
+              <Field
+                label="Faktor k"
+                value={draft.k}
+                onChange={(v) => setField("k", v)}
+              />
+              <Field
+                label="Pusat x"
+                value={draft.dcx}
+                onChange={(v) => setField("dcx", v)}
+              />
+              <Field
+                label="Pusat y"
+                value={draft.dcy}
+                onChange={(v) => setField("dcy", v)}
+              />
+            </>
+          )}
+        </div>
+        {draftType === "rotation" && (
+          <p className="tf-hint">Sudut positif berlawanan arah jarum jam.</p>
+        )}
+        <div className="tf-builder-actions">
+          <button
+            type="button"
+            className="tf-add-button"
+            onClick={addStep}
+            disabled={total >= MAX_STEPS}
+          >
+            Tambah langkah
+          </button>
+          <button
+            type="button"
+            className="tf-reset-button"
+            onClick={() => updateSteps([])}
+            disabled={total === 0}
+          >
+            Kosongkan
+          </button>
+        </div>
+        {total >= MAX_STEPS && (
+          <p className="tf-hint">Maksimal {MAX_STEPS} langkah.</p>
+        )}
+      </div>
+
+      <div className="tf-reset-row">
+        <button type="button" className="tf-reset-button" onClick={resetPoints}>
+          Posisi awal bangun
+        </button>
+        <button type="button" className="tf-reset-button" onClick={resetAll}>
+          Atur ulang semua
+        </button>
+      </div>
+    </section>
+  );
+
+  const coordsEl = (
+    <section className="tf-panel tf-wide" aria-labelledby="tf-coords-title">
+      <h3 id="tf-coords-title">Koordinat titik</h3>
+      <div className="tf-table-wrap">
+        <table className="tf-table">
+          <thead>
+            <tr>
+              <th scope="col">Titik</th>
+              <th scope="col">Awal</th>
+              <th scope="col">Saat ini</th>
+              <th scope="col">Hasil akhir</th>
+            </tr>
+          </thead>
+          <tbody>
+            {names.map((name, i) => {
+              const origin: Vec = vertices[i] ?? [0, 0];
+              return (
+                <tr key={name}>
+                  <th scope="row">
+                    {name} → {name}′
+                  </th>
+                  <td className="cell-original">{formatCoord(origin)}</td>
+                  <td className="cell-current">
+                    {formatCoord(applyMat(currentMatrix, origin))}
+                  </td>
+                  <td className="cell-image">
+                    {formatCoord(applyMat(finalMatrix, origin))}
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  );
+
+  const matrixEl = (
+    <section className="tf-panel tf-wide" aria-labelledby="tf-matrix-title">
+      <h3 id="tf-matrix-title">Matriks transformasi</h3>
+      <p className="tf-hint">
+        Dipakai matriks homogen 3 × 3 agar translasi, refleksi, rotasi, dan
+        dilatasi dapat ditulis dalam satu bentuk. Kolom ketiga menyimpan
+        pergeseran.
+      </p>
+      <div className="tf-matrix-grid">
+        {steps.map((step, i) => {
+          const info = describeStep(step);
+          return (
+            <article
+              key={step.id}
+              className={`tf-matrix-card${i === activeIndex ? " is-active" : ""}`}
+            >
+              <h4>
+                M{subscript(i + 1)} · {info.name}
+              </h4>
+              <p>{info.detail}</p>
+              <MatrixView
+                rows={stepMatrix(step, 1)}
+                label={`Matriks M${i + 1}`}
+              />
+            </article>
+          );
+        })}
+        <article className="tf-matrix-card tf-composite">
+          <h4>Matriks komposisi</h4>
+          <p>
+            {compositeFormula}
+            {total > 1 && " (urutan dibaca dari kanan ke kiri)"}
+          </p>
+          <MatrixView rows={finalMatrix} label="Matriks komposisi" />
+        </article>
+      </div>
+
+      <div className="tf-sample">
+        <div className="tf-sample-head">
+          <h4>Contoh perhitungan</h4>
+          {shape > 1 && (
+            <label className="tf-speed">
+              <span>Titik</span>
+              <select
+                value={sample}
+                onChange={(event) =>
+                  setSampleIndex(Number(event.currentTarget.value))
+                }
+              >
+                {names.map((name, i) => (
+                  <option key={name} value={i}>
+                    {name}
+                  </option>
+                ))}
+              </select>
+            </label>
+          )}
+        </div>
+        <div className="tf-equation">
+          <MatrixView
+            rows={[[sampleEnd[0]], [sampleEnd[1]], [1]]}
+            label={`Koordinat ${names[sample]}′`}
+          />
+          <span className="tf-operator">=</span>
+          <MatrixView rows={finalMatrix} label="Matriks komposisi" />
+          <span className="tf-operator">×</span>
+          <MatrixView
+            rows={[[sampleStart[0]], [sampleStart[1]], [1]]}
+            label={`Koordinat ${names[sample]}`}
+          />
+        </div>
+        <p className="tf-hint">
+          {names[sample]}
+          {formatCoord(sampleStart)} → {names[sample]}′{formatCoord(sampleEnd)}
+        </p>
+      </div>
+    </section>
+  );
+
+  const insightsEl = (
+    <ul className="tf-insights">
+      <li>
+        <strong>Translasi</strong> menggeser setiap titik sejauh vektor (a, b):
+        (x, y) → (x + a, y + b).
+      </li>
+      <li>
+        <strong>Refleksi</strong> mencerminkan titik terhadap garis cermin;
+        terhadap sumbu x: (x, y) → (x, −y), terhadap sumbu y: (x, y) → (−x, y).
+      </li>
+      <li>
+        <strong>Rotasi</strong> sebesar θ berpusat di O: (x, y) → (x cos θ − y
+        sin θ, x sin θ + y cos θ).
+      </li>
+      <li>
+        <strong>Dilatasi</strong> faktor k berpusat di O: (x, y) → (kx, ky).
+        Jika |k| &gt; 1 bangun membesar, jika |k| &lt; 1 mengecil, dan jika k
+        negatif bangun berbalik.
+      </li>
+      <li>
+        <strong>Komposisi</strong> bergantung pada urutan: M = Mₙ · … · M₂ · M₁.
+        Coba tukar urutan langkah untuk melihat hasil yang berbeda.
+      </li>
+    </ul>
+  );
+
+  return (
+    <div className="transformation-simulation" ref={rootRef}>
+      <div className="tf-main">
+        {boardEl}
+        {isFull ? (
+          <div className="tf-rightcol">
+            {sideEl}
+            {coordsEl}
+            {matrixEl}
+            {insightsEl}
+          </div>
+        ) : (
+          sideEl
+        )}
+      </div>
+
+      {!isFull && coordsEl}
+      {!isFull && matrixEl}
+      {!isFull && insightsEl}
     </div>
   );
 }
