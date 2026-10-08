@@ -112,6 +112,13 @@ const simulations = [
   },
 ];
 
+const orderedSimulations = ["X", "XI", "XII"].flatMap((classLevel) =>
+  simulations.filter(
+    (simulation) =>
+      simulation.level.match(/^KELAS (XII|XI|X)(?:$|[–-])/)?.[1] === classLevel,
+  ),
+);
+
 export function SimulationPage({ navigate }: SimulationPageProps) {
   const simulationSectionRef = useRef<HTMLElement>(null);
   const [selectedSimulationId, setSelectedSimulationId] = useState(() => {
@@ -203,36 +210,28 @@ export function SimulationPage({ navigate }: SimulationPageProps) {
 
       <div className="simulation-picker">
         <div className="simulation-picker-heading">
-          <span className="simulation-picker-label">Pilih simulasi</span>
+          <label
+            className="simulation-picker-label"
+            htmlFor="simulation-select"
+          >
+            Pilih simulasi
+          </label>
           <span className="simulation-picker-count">
             {simulations.length} topik
           </span>
         </div>
-        <div
-          className="simulation-options"
-          role="group"
-          aria-label="Pilih simulasi"
+        <select
+          id="simulation-select"
+          className="simulation-select"
+          value={selectedSimulationId}
+          onChange={(event) => setSelectedSimulationId(event.target.value)}
         >
-          {simulations.map((simulation) => (
-            <button
-              key={simulation.id}
-              className={`simulation-option ${selectedSimulationId === simulation.id ? "active" : ""}`}
-              type="button"
-              aria-pressed={selectedSimulationId === simulation.id}
-              onClick={() => setSelectedSimulationId(simulation.id)}
-            >
-              <span className="simulation-option-category">
-                {simulation.category}
-              </span>
-              <span className="simulation-option-title">
-                {simulation.title}
-              </span>
-              <span className="simulation-option-level">
-                {simulation.level}
-              </span>
-            </button>
+          {orderedSimulations.map((simulation) => (
+            <option key={simulation.id} value={simulation.id}>
+              {simulation.title} ({simulation.level})
+            </option>
           ))}
-        </div>
+        </select>
       </div>
 
       <section
@@ -282,6 +281,24 @@ export function SimulationPage({ navigate }: SimulationPageProps) {
         )}
 
         <ActiveSimulation />
+      </section>
+
+      <section
+        className="simulation-available"
+        aria-labelledby="available-simulations-title"
+      >
+        <div className="simulation-available-heading">
+          <span className="section-kicker">Koleksi Simulasi</span>
+          <h2 id="available-simulations-title">Simulasi yang tersedia</h2>
+        </div>
+        <ul className="simulation-available-list">
+          {orderedSimulations.map((simulation) => (
+            <li key={simulation.id}>
+              <span>{simulation.title}</span>
+              <span>{simulation.level}</span>
+            </li>
+          ))}
+        </ul>
       </section>
     </main>
   );
