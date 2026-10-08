@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import JXG from "jsxgraph";
 import "../../../node_modules/jsxgraph/distrib/jsxgraph.css";
 import "./VectorSimulation.css";
@@ -22,6 +22,7 @@ type DataCurve = {
 const EPS = 1e-9;
 const LIMIT = 9.5;
 const ARC_STEPS = 48;
+const INITIAL_BOX: [number, number, number, number] = [-10, 10, 10, -10];
 
 const colors = {
   a: "#087f8c",
@@ -159,7 +160,10 @@ function Field({
 
 export function VectorSimulation() {
   const boardId = `vs-board-${useId().replace(/:/g, "")}`;
+  const rootRef = useRef<HTMLDivElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const nativeFullscreenRef = useRef(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
   const boardRef = useRef<ReturnType<typeof JXG.JSXGraph.initBoard> | null>(
     null,
   );
@@ -192,6 +196,61 @@ export function VectorSimulation() {
   const snapRef = useRef(snap);
 
   const refresh = () => boardRef.current?.update();
+
+  /* Tampilan: zoom, pusatkan, layar penuh */
+  const zoomIn = () => boardRef.current?.zoomIn();
+  const zoomOut = () => boardRef.current?.zoomOut();
+  const resetView = () => boardRef.current?.setBoundingBox(INITIAL_BOX, true);
+
+  const toggleFullscreen = async () => {
+    const el = rootRef.current;
+    if (!el) return;
+    if (!isFullscreen) {
+      setIsFullscreen(true);
+      if (el.requestFullscreen) {
+        try {
+          await el.requestFullscreen();
+          nativeFullscreenRef.current = true;
+        } catch {
+          // Gagal masuk fullscreen asli: tetap pakai mode layar penuh CSS.
+        }
+      }
+    } else {
+      if (document.fullscreenElement) {
+        try {
+          await document.exitFullscreen();
+        } catch {
+          /* diabaikan */
+        }
+      }
+      nativeFullscreenRef.current = false;
+      setIsFullscreen(false);
+    }
+  };
+
+  useEffect(() => {
+    const onChange = () => {
+      if (!document.fullscreenElement && nativeFullscreenRef.current) {
+        nativeFullscreenRef.current = false;
+        setIsFullscreen(false);
+      }
+    };
+    const onKey = (event: KeyboardEvent) => {
+      if (
+        event.key === "Escape" &&
+        !document.fullscreenElement &&
+        !nativeFullscreenRef.current
+      ) {
+        setIsFullscreen(false);
+      }
+    };
+    document.addEventListener("fullscreenchange", onChange);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("fullscreenchange", onChange);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, []);
 
   /** Menetapkan vektor dari luar papan (contoh, reset, kolom angka). */
   const setVectors = (a: Vec, b: Vec, syncFields: boolean) => {
@@ -249,13 +308,22 @@ export function VectorSimulation() {
   /* Papan JSXGraph */
   useEffect(() => {
     const board = JXG.JSXGraph.initBoard(boardId, {
-      boundingbox: [-10, 10, 10, -10],
+      boundingbox: INITIAL_BOX,
       axis: false,
       showCopyright: false,
       showNavigation: false,
       keepAspectRatio: true,
-      pan: { enabled: false },
-      zoom: { wheel: false },
+      // Geser dengan tahan klik kiri (atau satu jari) pada area kosong;
+      // zoom dengan roda mouse atau pinch.
+      pan: { enabled: true, needShift: false, needTwoFingers: false },
+      zoom: {
+        wheel: true,
+        needShift: false,
+        factorX: 1.15,
+        factorY: 1.15,
+        min: 0.25,
+        max: 8,
+      },
     });
     boardRef.current = board;
 
@@ -271,7 +339,8 @@ export function VectorSimulation() {
       highlight: false,
     };
     const ticks = {
-      ticksDistance: 2,
+      insertTicks: true,
+      minTicksDistance: 36,
       minorTicks: 1,
       majorHeight: 7,
       drawLabels: true,
@@ -407,9 +476,12 @@ export function VectorSimulation() {
       if (!info) return null;
       const lo = length(info.onto);
       const u: Vec = [info.onto[0] / lo, info.onto[1] / lo];
+      // Garis proyeksi dibuat cukup panjang untuk area yang terlihat.
+      const reach =
+        2 * Math.max(...board.getBoundingBox().map((v) => Math.abs(v))) + 10;
       return [
-        [-30 * u[0], -30 * u[1]],
-        [30 * u[0], 30 * u[1]],
+        [-reach * u[0], -reach * u[1]],
+        [reach * u[0], reach * u[1]],
       ];
     });
 
@@ -562,11 +634,37 @@ export function VectorSimulation() {
 
     board.update();
 
+    // Saat ukuran kontainer berubah (mis. layar penuh), pertahankan skala
+    // dan titik tengah tampilan agar grafik tidak melompat.
+    let last = {
+      w: containerRef.current?.clientWidth ?? 0,
+      h: containerRef.current?.clientHeight ?? 0,
+    };
     const observer = new ResizeObserver(() => {
       const el = containerRef.current;
-      if (el && el.clientWidth > 0 && el.clientHeight > 0) {
-        board.resizeContainer(el.clientWidth, el.clientHeight, true);
+      if (!el || el.clientWidth <= 0 || el.clientHeight <= 0) return;
+      const w = el.clientWidth;
+      const h = el.clientHeight;
+      if (w === last.w && h === last.h) return;
+
+      const bb = board.getBoundingBox();
+      const spanX = bb[2] - bb[0];
+      const spanY = bb[1] - bb[3];
+      if (last.w > 0 && last.h > 0 && spanX > 0 && spanY > 0) {
+        const ux = last.w / spanX;
+        const uy = last.h / spanY;
+        const cx = (bb[0] + bb[2]) / 2;
+        const cy = (bb[1] + bb[3]) / 2;
+        board.resizeContainer(w, h, true, true);
+        board.setBoundingBox(
+          [cx - w / 2 / ux, cy + h / 2 / uy, cx + w / 2 / ux, cy - h / 2 / uy],
+          true,
+        );
+      } else {
+        board.resizeContainer(w, h, true);
       }
+      last = { w, h };
+      board.update();
     });
     if (containerRef.current) observer.observe(containerRef.current);
 
@@ -611,18 +709,42 @@ export function VectorSimulation() {
   ];
 
   return (
-    <div className="vector-simulation">
+    <div
+      ref={rootRef}
+      className={`vector-simulation${isFullscreen ? " is-fullscreen" : ""}`}
+    >
       <div className="vs-main">
         <section className="vs-board-panel" aria-labelledby="vs-board-title">
           <div className="vs-board-heading">
             <h3 id="vs-board-title">Bidang koordinat</h3>
-            <span>Seret ujung vektor a atau b</span>
+            <span className="vs-board-hint">
+              Seret ujung vektor a atau b · tahan klik kiri pada area kosong
+              untuk menggeser · gulir untuk zoom
+            </span>
+            <div className="vs-view-tools" role="group" aria-label="Tampilan">
+              <button type="button" onClick={zoomIn} aria-label="Perbesar">
+                +
+              </button>
+              <button type="button" onClick={zoomOut} aria-label="Perkecil">
+                −
+              </button>
+              <button type="button" onClick={resetView}>
+                Pusatkan
+              </button>
+              <button
+                type="button"
+                onClick={toggleFullscreen}
+                aria-pressed={isFullscreen}
+              >
+                {isFullscreen ? "Keluar layar penuh" : "Layar penuh"}
+              </button>
+            </div>
           </div>
           <div
             className="vs-board"
             id={boardId}
             ref={containerRef}
-            aria-label="Bidang koordinat interaktif. Seret ujung vektor a (biru kehijauan) atau vektor b (oranye) untuk mengubah posisinya."
+            aria-label="Bidang koordinat interaktif. Seret ujung vektor a (biru kehijauan) atau vektor b (oranye) untuk mengubah posisinya. Tahan klik kiri pada area kosong untuk menggeser bidang, gulir untuk memperbesar atau memperkecil."
           />
           <div className="vs-legend" aria-label="Legenda grafik">
             <span>
@@ -754,112 +876,116 @@ export function VectorSimulation() {
         </section>
       </div>
 
-      <section className="vs-panel vs-wide" aria-labelledby="vs-calc-title">
-        <h3 id="vs-calc-title">Hasil perhitungan</h3>
-        <div className="vs-card-grid">
-          <article className="vs-card">
-            <h4>Penjumlahan vektor</h4>
-            <p className="vs-formula">
-              a + b = ({par(vecA[0])} + {par(vecB[0])}; {par(vecA[1])} +{" "}
-              {par(vecB[1])}) = {formatCoord(info.sum)}
-            </p>
-            <p>
-              |a + b| = {formatValue(length(info.sum))}; a − b ={" "}
-              {formatCoord(info.diff)}
-            </p>
-          </article>
-
-          <article className="vs-card vs-card-result">
-            <h4>Hasil kali titik</h4>
-            <p className="vs-formula">
-              a · b = {par(vecA[0])}·{par(vecB[0])} + {par(vecA[1])}·
-              {par(vecB[1])} = {formatValue(info.dot)}
-            </p>
-            <p>{relationText(info)}</p>
-            <p>
-              |a| = {formatValue(info.la)}; |b| = {formatValue(info.lb)}
-            </p>
-          </article>
-
-          <article className="vs-card">
-            <h4>Sudut antara a dan b</h4>
-            <p className="vs-formula">
-              cos θ = (a · b) / (|a| |b|) = {formatValue(info.cos)}
-            </p>
-            <p>
-              {info.defined
-                ? `θ = ${formatValue(info.angle)}°`
-                : "Sudut tidak terdefinisi karena ada vektor nol."}
-            </p>
-          </article>
-
-          <article
-            className={`vs-card${projection === "a" ? " is-active" : ""}`}
-          >
-            <h4>Proyeksi a pada b</h4>
-            {info.aOnB ? (
-              <>
-                <p className="vs-formula">
-                  skalar = (a · b) / |b| = {formatValue(info.aOnB.scalar)}
-                </p>
-                <p>
-                  vektor = ((a · b) / |b|²) b = {formatCoord(info.aOnB.vector)}
-                </p>
-              </>
-            ) : (
+      <div className="vs-results">
+        <section className="vs-panel vs-wide" aria-labelledby="vs-calc-title">
+          <h3 id="vs-calc-title">Hasil perhitungan</h3>
+          <div className="vs-card-grid">
+            <article className="vs-card">
+              <h4>Penjumlahan vektor</h4>
               <p className="vs-formula">
-                Tidak terdefinisi (b adalah vektor nol).
+                a + b = ({par(vecA[0])} + {par(vecB[0])}; {par(vecA[1])} +{" "}
+                {par(vecB[1])}) = {formatCoord(info.sum)}
               </p>
-            )}
-          </article>
+              <p>
+                |a + b| = {formatValue(length(info.sum))}; a − b ={" "}
+                {formatCoord(info.diff)}
+              </p>
+            </article>
 
-          <article
-            className={`vs-card${projection === "b" ? " is-active" : ""}`}
-          >
-            <h4>Proyeksi b pada a</h4>
-            {info.bOnA ? (
-              <>
-                <p className="vs-formula">
-                  skalar = (a · b) / |a| = {formatValue(info.bOnA.scalar)}
-                </p>
-                <p>
-                  vektor = ((a · b) / |a|²) a = {formatCoord(info.bOnA.vector)}
-                </p>
-              </>
-            ) : (
+            <article className="vs-card vs-card-result">
+              <h4>Hasil kali titik</h4>
               <p className="vs-formula">
-                Tidak terdefinisi (a adalah vektor nol).
+                a · b = {par(vecA[0])}·{par(vecB[0])} + {par(vecA[1])}·
+                {par(vecB[1])} = {formatValue(info.dot)}
               </p>
-            )}
-          </article>
-        </div>
-      </section>
+              <p>{relationText(info)}</p>
+              <p>
+                |a| = {formatValue(info.la)}; |b| = {formatValue(info.lb)}
+              </p>
+            </article>
 
-      <section className="vs-panel vs-wide" aria-labelledby="vs-table-title">
-        <h3 id="vs-table-title">Komponen dan panjang</h3>
-        <div className="vs-table-wrap">
-          <table className="vs-table">
-            <thead>
-              <tr>
-                <th scope="col">Vektor</th>
-                <th scope="col">Komponen</th>
-                <th scope="col">Panjang</th>
-              </tr>
-            </thead>
-            <tbody>
-              {tableRows.map((row) => (
-                <tr key={row.name}>
-                  <th scope="row">{row.name}</th>
-                  <td className="vs-cell-main">
-                    {row.vector ? formatCoord(row.vector) : "—"}
-                  </td>
-                  <td className="vs-cell-muted">{formatValue(row.size)}</td>
+            <article className="vs-card">
+              <h4>Sudut antara a dan b</h4>
+              <p className="vs-formula">
+                cos θ = (a · b) / (|a| |b|) = {formatValue(info.cos)}
+              </p>
+              <p>
+                {info.defined
+                  ? `θ = ${formatValue(info.angle)}°`
+                  : "Sudut tidak terdefinisi karena ada vektor nol."}
+              </p>
+            </article>
+
+            <article
+              className={`vs-card${projection === "a" ? " is-active" : ""}`}
+            >
+              <h4>Proyeksi a pada b</h4>
+              {info.aOnB ? (
+                <>
+                  <p className="vs-formula">
+                    skalar = (a · b) / |b| = {formatValue(info.aOnB.scalar)}
+                  </p>
+                  <p>
+                    vektor = ((a · b) / |b|²) b ={" "}
+                    {formatCoord(info.aOnB.vector)}
+                  </p>
+                </>
+              ) : (
+                <p className="vs-formula">
+                  Tidak terdefinisi (b adalah vektor nol).
+                </p>
+              )}
+            </article>
+
+            <article
+              className={`vs-card${projection === "b" ? " is-active" : ""}`}
+            >
+              <h4>Proyeksi b pada a</h4>
+              {info.bOnA ? (
+                <>
+                  <p className="vs-formula">
+                    skalar = (a · b) / |a| = {formatValue(info.bOnA.scalar)}
+                  </p>
+                  <p>
+                    vektor = ((a · b) / |a|²) a ={" "}
+                    {formatCoord(info.bOnA.vector)}
+                  </p>
+                </>
+              ) : (
+                <p className="vs-formula">
+                  Tidak terdefinisi (a adalah vektor nol).
+                </p>
+              )}
+            </article>
+          </div>
+        </section>
+
+        <section className="vs-panel vs-wide" aria-labelledby="vs-table-title">
+          <h3 id="vs-table-title">Komponen dan panjang</h3>
+          <div className="vs-table-wrap">
+            <table className="vs-table">
+              <thead>
+                <tr>
+                  <th scope="col">Vektor</th>
+                  <th scope="col">Komponen</th>
+                  <th scope="col">Panjang</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
+              </thead>
+              <tbody>
+                {tableRows.map((row) => (
+                  <tr key={row.name}>
+                    <th scope="row">{row.name}</th>
+                    <td className="vs-cell-main">
+                      {row.vector ? formatCoord(row.vector) : "—"}
+                    </td>
+                    <td className="vs-cell-muted">{formatValue(row.size)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
 
       <ul className="vs-insights">
         <li>
