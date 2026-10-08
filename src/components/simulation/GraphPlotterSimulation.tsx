@@ -194,7 +194,7 @@ function readShared(): Shared | null {
 
 export function GraphPlotterSimulation() {
   const boardId = `plot-board-${useId().replace(/:/g, "")}`;
-  const panelRef = useRef<HTMLElement | null>(null);
+  const rootRef = useRef<HTMLDivElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const boardRef = useRef<Board | null>(null);
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
@@ -456,7 +456,7 @@ export function GraphPlotterSimulation() {
   };
 
   const toggleFullscreen = () => {
-    const el = panelRef.current;
+    const el = rootRef.current;
     if (!el) return;
     if (document.fullscreenElement) void document.exitFullscreen();
     else void el.requestFullscreen?.();
@@ -1106,7 +1106,7 @@ export function GraphPlotterSimulation() {
 
   useEffect(() => {
     const onChange = () =>
-      setIsFull(document.fullscreenElement === panelRef.current);
+      setIsFull(document.fullscreenElement === rootRef.current);
     document.addEventListener("fullscreenchange", onChange);
     return () => document.removeEventListener("fullscreenchange", onChange);
   }, []);
@@ -1118,15 +1118,9 @@ export function GraphPlotterSimulation() {
   const tableAxes = results.axes.filter((axis) => drawn[axis.i]);
 
   return (
-    <div className="plotter-simulation">
+    <div className="plotter-simulation" ref={rootRef}>
       <div className="plot-boards">
-        <section
-          className="plot-board-panel"
-          aria-labelledby="plot-title"
-          ref={(node) => {
-            panelRef.current = node;
-          }}
-        >
+        <section className="plot-board-panel" aria-labelledby="plot-title">
           <div className="plot-board-heading">
             <h3 id="plot-title">Penggambar grafik</h3>
             <div className="plot-toolbar">

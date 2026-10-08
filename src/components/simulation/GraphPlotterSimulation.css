@@ -104,17 +104,84 @@
   outline-offset: 2px;
 }
 
-.plot-board-panel:fullscreen {
-  height: 100%;
-  padding: 14px;
-  background: #fff;
+/* Layar penuh: seluruh simulasi (bukan hanya papan) tampil dalam satu layar.
+   Grafik di kiri, semua masukan/hasil di kanan, rasio lebar 2 : 1 (cocok 16:9).
+   .plot-boards dilebur (display: contents) agar papan dan panel kontrol menjadi
+   anak langsung grid. Baris 1-6 untuk blok kanan, baris 7 (1fr) pengisi sisa tinggi. */
+.plotter-simulation:fullscreen {
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  grid-template-rows: repeat(6, auto) minmax(0, 1fr);
+  gap: 0 12px;
+  align-content: stretch;
+  padding: 10px 12px;
+  border-top: 0;
+  overflow-x: hidden;
+  overflow-y: auto; /* cadangan bila isi kanan lebih tinggi dari layar */
 }
 
-.plot-board-panel:fullscreen .plot-board {
+.plotter-simulation:fullscreen > .plot-boards {
+  display: contents;
+}
+
+.plotter-simulation:fullscreen .plot-board-panel {
+  grid-column: 1;
+  grid-row: 1 / -1;
+  height: 100%;
+  min-height: 0;
+  padding: 12px;
+}
+
+.plotter-simulation:fullscreen .plot-board {
   aspect-ratio: auto;
   max-height: none;
   height: 100%;
   min-height: 0;
+}
+
+.plotter-simulation:fullscreen .plot-controls,
+.plotter-simulation:fullscreen > :not(.plot-boards) {
+  grid-column: 2;
+  margin-bottom: 8px;
+}
+
+/* Rapatkan blok kanan supaya muat tanpa menggulir */
+.plotter-simulation:fullscreen .plot-controls {
+  gap: 9px;
+  padding: 10px;
+}
+
+.plotter-simulation:fullscreen .plot-input {
+  min-height: 34px;
+}
+
+.plotter-simulation:fullscreen .plot-params {
+  gap: 5px;
+  padding: 7px 10px;
+}
+
+.plotter-simulation:fullscreen .plot-readouts > div {
+  padding: 7px 10px;
+}
+
+.plotter-simulation:fullscreen .plot-axis-table th,
+.plotter-simulation:fullscreen .plot-axis-table td {
+  padding: 5px 10px;
+}
+
+.plotter-simulation:fullscreen .plot-axis-table caption {
+  padding: 6px 10px;
+}
+
+.plotter-simulation:fullscreen .plot-guide summary {
+  padding: 7px 10px;
+}
+
+.plotter-simulation:fullscreen .plot-insights {
+  gap: 4px;
+  margin-bottom: 0;
 }
 
 /* Pelacak */
