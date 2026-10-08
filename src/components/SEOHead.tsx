@@ -273,6 +273,16 @@ export function SEOHead({ page }: SEOHeadProps) {
           };
           break;
 
+        case "not-found":
+          meta = {
+            title: "Halaman Tidak Ditemukan | Math 1729",
+            description:
+              "Halaman yang Anda cari tidak tersedia. Kembali ke beranda Math 1729.",
+            keywords: "404, halaman tidak ditemukan, Math 1729",
+            ogType: "website",
+          };
+          break;
+
         case "about":
           meta = {
             title:

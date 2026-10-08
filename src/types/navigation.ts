@@ -8,6 +8,7 @@ export type Page =
   | "about"
   | "simulation"
   | "shop"
+  | "not-found"
   | "practice"
   | "practice-eksponensial"
   | "practice-barisan-deret"
@@ -25,6 +26,8 @@ export interface LessonNavItem {
 }
 
 export function getPageFromPath(path: string): Page {
+  if (path === "/" || path === "") return "home";
+  if (path === "/404" || path === "/404/") return "not-found";
   if (path === "/tentang" || path === "/tentang/") return "about";
   if (path === "/katalog" || path === "/katalog/") return "catalog";
   if (path === "/unduh" || path === "/unduh/") return "download";
@@ -61,7 +64,7 @@ export function getPageFromPath(path: string): Page {
     const slug = path.replace("/materi/", "").replace(/\/$/, "");
     if (slug) return slug;
   }
-  return "home";
+  return "not-found";
 }
 
 export function getPathFromPage(page: Page): string {
@@ -78,5 +81,6 @@ export function getPathFromPage(page: Page): string {
   if (page === "about") return "/tentang";
   if (page === "shop") return "/beli";
   if (page === "shop-preview") return "/pratinjau-produk";
+  if (page === "not-found") return "/404";
   return `/materi/${page}`;
 }

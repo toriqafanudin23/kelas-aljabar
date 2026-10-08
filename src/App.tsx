@@ -5,6 +5,7 @@ import type { Page, Navigate } from "./types/navigation";
 import { SiteHeader } from "./components/SiteHeader";
 import { SiteFooter } from "./components/SiteFooter";
 import { SEOHead } from "./components/SEOHead";
+import { getMaterialBySlug } from "./materi";
 
 const HomePage = lazy(() =>
   import("./pages/HomePage").then((m) => ({ default: m.HomePage })),
@@ -44,6 +45,9 @@ const ShopPreviewPage = lazy(() =>
 );
 const LessonPage = lazy(() =>
   import("./pages/LessonPage").then((m) => ({ default: m.LessonPage })),
+);
+const NotFoundPage = lazy(() =>
+  import("./pages/NotFoundPage").then((m) => ({ default: m.NotFoundPage })),
 );
 
 function App() {
@@ -94,11 +98,15 @@ function App() {
     page !== "simulation" &&
     page !== "shop" &&
     page !== "shop-preview" &&
+    page !== "not-found" &&
     page !== "about";
+  const material = isMaterialPage ? getMaterialBySlug(page) : undefined;
+  const isNotFoundPage = page === "not-found" || (isMaterialPage && !material);
+  const resolvedPage = isNotFoundPage ? "not-found" : page;
 
   return (
     <>
-      <SEOHead page={page} />
+      <SEOHead page={resolvedPage} />
       {isLoading && (
         <div className="page-loader" role="status" aria-live="polite">
           <div className="page-loader-mark" aria-hidden="true">
@@ -112,9 +120,9 @@ function App() {
         </div>
       )}
       <SiteHeader
-        page={page}
+        page={resolvedPage}
         navigate={navigate}
-        showTocButton={isMaterialPage}
+        showTocButton={isMaterialPage && !isNotFoundPage}
         isTocOpen={mobileTocOpen}
         onToggleToc={() => setMobileTocOpen(!mobileTocOpen)}
       />
@@ -141,8 +149,9 @@ function App() {
         {page === "simulation" && <SimulationPage navigate={navigate} />}
         {page === "shop" && <ShopPage navigate={navigate} />}
         {page === "shop-preview" && <ShopPreviewPage navigate={navigate} />}
+        {isNotFoundPage && <NotFoundPage navigate={navigate} />}
         {page === "about" && <AboutPage navigate={navigate} />}
-        {isMaterialPage && (
+        {isMaterialPage && !isNotFoundPage && (
           <LessonPage
             slug={page}
             navigate={navigate}
