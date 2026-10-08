@@ -1,4 +1,4 @@
-import { useEffect, useId, useRef } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import JXG from "jsxgraph";
 import "../../../node_modules/jsxgraph/distrib/jsxgraph.css";
 import "./FunctionTransformationSimulation.css";
@@ -36,8 +36,6 @@ type DataCurve = {
 
 /* ---------- Konstanta ---------- */
 
-const X_MIN = -10;
-const X_MAX = 10;
 const SAMPLES = 1000;
 const Y_LIMIT = 1000;
 const STRETCH_STEP = 0.25;
@@ -161,12 +159,12 @@ function probeOf(fn: BaseFunction, p: Params) {
 }
 
 /** Titik-titik kurva y = a·f(b(x − h)) + k; NaN dipakai untuk memutus garis. */
-function sampleCurve(fn: BaseFunction, p: Params) {
+function sampleCurve(fn: BaseFunction, p: Params, xMin: number, xMax: number) {
   const nodes: number[] = [];
   for (let i = 0; i <= SAMPLES; i += 1) {
-    nodes.push(X_MIN + (i / SAMPLES) * (X_MAX - X_MIN));
+    nodes.push(xMin + (i / SAMPLES) * (xMax - xMin));
   }
-  if (p.h > X_MIN && p.h < X_MAX && !nodes.includes(p.h)) {
+  if (p.h > xMin && p.h < xMax && !nodes.includes(p.h)) {
     nodes.push(p.h);
     nodes.sort((m, n) => m - n);
   }
@@ -307,14 +305,33 @@ function Slider({
 
 /* ---------- Komponen utama ---------- */
 
+type BoardT = ReturnType<typeof JXG.JSXGraph.initBoard>;
+const HOME_BOX: [number, number, number, number] = [-10, 10, 10, -10];
+
+/** Zoom papan dengan faktor f (<1 memperbesar) terhadap titik (ux, uy); default pusat tampilan. */
+function zoomBoard(board: BoardT, f: number, ux?: number, uy?: number) {
+  const [x1, y1, x2, y2] = board.getBoundingBox();
+  const cx = ux ?? (x1 + x2) / 2;
+  const cy = uy ?? (y1 + y2) / 2;
+  const nx1 = cx + (x1 - cx) * f;
+  const nx2 = cx + (x2 - cx) * f;
+  const ny1 = cy + (y1 - cy) * f;
+  const ny2 = cy + (y2 - cy) * f;
+  const w = nx2 - nx1;
+  if (!(w >= 2 && w <= 400)) return;
+  board.setBoundingBox([nx1, ny1, nx2, ny2], true);
+}
+
 export function FunctionTransformationSimulation() {
   const uid = useId();
   const boardId = `ft-board-${uid.replace(/:/g, "")}`;
+  const rootRef = useRef<HTMLDivElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const boardRef = useRef<ReturnType<typeof JXG.JSXGraph.initBoard> | null>(
     null,
   );
 
+  const [isFull, setIsFull] = useState(false);
   const [functionId, setFunctionId] = useStoredSimulationState<FunctionId>(
     "function-transformation.function",
     "square",
@@ -390,6 +407,30 @@ export function FunctionTransformationSimulation() {
     patchParams({ ...defaultParams });
   };
 
+  /* Tampilan: zoom, reset, layar penuh */
+  const zoomIn = () => {
+    if (boardRef.current) zoomBoard(boardRef.current, 0.8);
+  };
+  const zoomOut = () => {
+    if (boardRef.current) zoomBoard(boardRef.current, 1.25);
+  };
+  const resetView = () => {
+    boardRef.current?.setBoundingBox(HOME_BOX, true);
+  };
+  const toggleFullscreen = () => {
+    const el = rootRef.current;
+    if (!el) return;
+    if (document.fullscreenElement) void document.exitFullscreen();
+    else void el.requestFullscreen?.();
+  };
+
+  useEffect(() => {
+    const onChange = () =>
+      setIsFull(document.fullscreenElement === rootRef.current);
+    document.addEventListener("fullscreenchange", onChange);
+    return () => document.removeEventListener("fullscreenchange", onChange);
+  }, []);
+
   /* Papan JSXGraph */
   useEffect(() => {
     const board = JXG.JSXGraph.initBoard(boardId, {
@@ -398,7 +439,7 @@ export function FunctionTransformationSimulation() {
       showCopyright: false,
       showNavigation: false,
       keepAspectRatio: true,
-      pan: { enabled: false },
+      pan: { enabled: true, needShift: false, needTwoFingers: true },
       zoom: { wheel: false },
     });
     boardRef.current = board;
@@ -415,7 +456,7 @@ export function FunctionTransformationSimulation() {
       highlight: false,
     };
     const ticks = {
-      ticksDistance: 2,
+      insertTicks: true,
       minorTicks: 1,
       majorHeight: 7,
       drawLabels: true,
@@ -488,13 +529,21 @@ export function FunctionTransformationSimulation() {
       return curve;
     };
 
+    /* Kurva dihitung pada rentang x yang sedang terlihat (+10% margin),
+       sehingga tetap utuh saat grafik digeser atau di-zoom. */
+    const viewRange = (): [number, number] => {
+      const [x1, , x2] = board.getBoundingBox();
+      const margin = (x2 - x1) * 0.1;
+      return [x1 - margin, x2 + margin];
+    };
+
     makeCurve(colors.original, 2.5, () =>
       showOriginalRef.current
-        ? sampleCurve(functionRef.current, identityParams)
+        ? sampleCurve(functionRef.current, identityParams, ...viewRange())
         : { xs: [Number.NaN], ys: [Number.NaN] },
     );
     makeCurve(colors.image, 3, () =>
-      sampleCurve(functionRef.current, paramsRef.current),
+      sampleCurve(functionRef.current, paramsRef.current, ...viewRange()),
     );
 
     /* Titik kunci: asal dan bayangannya */
@@ -606,6 +655,23 @@ export function FunctionTransformationSimulation() {
 
     board.update();
 
+    /* Zoom roda mouse ke posisi kursor */
+    const wheelEl = containerRef.current;
+    const onWheel = (e: WheelEvent) => {
+      if (!wheelEl) return;
+      e.preventDefault();
+      let delta = e.deltaY || e.deltaX;
+      if (e.deltaMode === 1) delta *= 33;
+      if (e.deltaMode === 2) delta *= 400;
+      const f = Math.exp(Math.max(-120, Math.min(120, delta)) * 0.0015);
+      const r = wheelEl.getBoundingClientRect();
+      const [x1, y1, x2, y2] = board.getBoundingBox();
+      const ux = x1 + ((e.clientX - r.left) / r.width) * (x2 - x1);
+      const uy = y1 - ((e.clientY - r.top) / r.height) * (y1 - y2);
+      zoomBoard(board, f, ux, uy);
+    };
+    wheelEl?.addEventListener("wheel", onWheel, { passive: false });
+
     const observer = new ResizeObserver(() => {
       const el = containerRef.current;
       if (el && el.clientWidth > 0 && el.clientHeight > 0) {
@@ -616,6 +682,7 @@ export function FunctionTransformationSimulation() {
 
     return () => {
       observer.disconnect();
+      wheelEl?.removeEventListener("wheel", onWheel);
       JXG.JSXGraph.freeBoard(board);
       boardRef.current = null;
     };
@@ -642,262 +709,317 @@ export function FunctionTransformationSimulation() {
   const mappingX = `x′ = ${formatValue(h)} + x/${bText}`;
   const mappingY = `y′ = ${formatValue(a)} · y ${signed(k)}`;
 
-  return (
-    <div className="function-transformation-simulation">
-      <div className="ft-main">
-        <section className="ft-board-panel" aria-labelledby="ft-board-title">
-          <div className="ft-board-heading">
-            <h3 id="ft-board-title">Bidang koordinat</h3>
-            <span>Ubah grafik dengan slider di panel kanan</span>
+  const boardEl = (
+    <section className="ft-board-panel" aria-labelledby="ft-board-title">
+      <div className="ft-board-heading">
+        <h3 id="ft-board-title">Bidang koordinat</h3>
+        <div className="ft-toolbar">
+          <div className="ft-zoom" role="group" aria-label="Zoom tampilan">
+            <button
+              type="button"
+              onClick={zoomIn}
+              aria-label="Perbesar"
+              title="Perbesar"
+            >
+              +
+            </button>
+            <button
+              type="button"
+              onClick={zoomOut}
+              aria-label="Perkecil"
+              title="Perkecil"
+            >
+              −
+            </button>
+            <button type="button" onClick={resetView} title="Tampilan awal">
+              Reset
+            </button>
           </div>
-          <div
-            className="ft-board"
-            id={boardId}
-            ref={containerRef}
-            aria-label="Bidang koordinat. Grafik awal f(x) berwarna biru dan grafik hasil transformasi g(x) berwarna oranye."
+          <div className="ft-zoom" role="group" aria-label="Alat">
+            <button
+              type="button"
+              onClick={toggleFullscreen}
+              title="Layar penuh"
+            >
+              {isFull ? "Tutup layar penuh" : "Layar penuh"}
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        className="ft-board"
+        id={boardId}
+        ref={containerRef}
+        aria-label="Bidang koordinat. Grafik awal f(x) berwarna biru dan grafik hasil transformasi g(x) berwarna oranye."
+      />
+      <div className="ft-legend" aria-label="Legenda grafik">
+        <span>
+          <i className="legend-original" /> grafik awal f(x)
+        </span>
+        <span>
+          <i className="legend-image" /> hasil g(x)
+        </span>
+        <span>
+          <i className="legend-guide" /> garis x = h dan y = k
+        </span>
+      </div>
+      <p className="ft-hint ft-board-hint">
+        Ubah grafik dengan slider di panel kanan · tahan klik kiri pada bidang
+        untuk menggeser tampilan · roda mouse untuk zoom.
+      </p>
+      <p className="ft-caption" aria-live="polite">
+        {formula}
+      </p>
+    </section>
+  );
+
+  const sideEl = (
+    <section className="ft-side" aria-label="Pengaturan transformasi">
+      <div className="ft-panel">
+        <h3>Fungsi asal f(x)</h3>
+        <div
+          className="ft-segmented"
+          role="group"
+          aria-label="Pilih fungsi asal"
+        >
+          {baseFunctions.map((option) => (
+            <button
+              key={option.id}
+              type="button"
+              aria-pressed={functionId === option.id}
+              onClick={() => selectFunction(option.id)}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
+        <label className="ft-check">
+          <input
+            type="checkbox"
+            checked={showOriginal}
+            onChange={(event) => toggleOriginal(event.currentTarget.checked)}
           />
-          <div className="ft-legend" aria-label="Legenda grafik">
-            <span>
-              <i className="legend-original" /> grafik awal f(x)
-            </span>
-            <span>
-              <i className="legend-image" /> hasil g(x)
-            </span>
-            <span>
-              <i className="legend-guide" /> garis x = h dan y = k
-            </span>
-          </div>
-          <p className="ft-caption" aria-live="polite">
-            {formula}
-          </p>
-        </section>
-
-        <section className="ft-side" aria-label="Pengaturan transformasi">
-          <div className="ft-panel">
-            <h3>Fungsi asal f(x)</h3>
-            <div
-              className="ft-segmented"
-              role="group"
-              aria-label="Pilih fungsi asal"
-            >
-              {baseFunctions.map((option) => (
-                <button
-                  key={option.id}
-                  type="button"
-                  aria-pressed={functionId === option.id}
-                  onClick={() => selectFunction(option.id)}
-                >
-                  {option.label}
-                </button>
-              ))}
-            </div>
-            <label className="ft-check">
-              <input
-                type="checkbox"
-                checked={showOriginal}
-                onChange={(event) =>
-                  toggleOriginal(event.currentTarget.checked)
-                }
-              />
-              Tampilkan grafik awal f(x)
-            </label>
-            <label className="ft-check">
-              <input
-                type="checkbox"
-                checked={showKey}
-                onChange={(event) => toggleKey(event.currentTarget.checked)}
-              />
-              Tampilkan titik kunci
-            </label>
-          </div>
-
-          <div className="ft-panel">
-            <h3>Translasi</h3>
-            <Slider
-              id={`${uid}-h`}
-              label="Geser horizontal (h)"
-              value={h}
-              min={-8}
-              max={8}
-              step={0.5}
-              onChange={(value) => patchParams({ h: value })}
-            />
-            <Slider
-              id={`${uid}-k`}
-              label="Geser vertikal (k)"
-              value={k}
-              min={-8}
-              max={8}
-              step={0.5}
-              onChange={(value) => patchParams({ k: value })}
-            />
-          </div>
-
-          <div className="ft-panel">
-            <h3>Peregangan dan refleksi</h3>
-            <Slider
-              id={`${uid}-a`}
-              label="Regang vertikal (a)"
-              value={a}
-              min={-4}
-              max={4}
-              step={STRETCH_STEP}
-              onChange={(value) => changeStretch("a", value)}
-            />
-            <Slider
-              id={`${uid}-b`}
-              label="Regang horizontal (b)"
-              value={b}
-              min={-4}
-              max={4}
-              step={STRETCH_STEP}
-              onChange={(value) => changeStretch("b", value)}
-            />
-            <p className="ft-hint">
-              Nilai negatif menghasilkan refleksi: a &lt; 0 terhadap garis y =
-              k, b &lt; 0 terhadap garis x = h.
-            </p>
-            <div className="ft-actions">
-              <button
-                type="button"
-                className="ft-reset-button"
-                aria-pressed={a < 0}
-                onClick={() => mirror("a")}
-              >
-                Cerminkan vertikal (a → −a)
-              </button>
-              <button
-                type="button"
-                className="ft-reset-button"
-                aria-pressed={b < 0}
-                onClick={() => mirror("b")}
-              >
-                Cerminkan horizontal (b → −b)
-              </button>
-            </div>
-          </div>
-
-          <div className="ft-panel">
-            <h3>Titik uji</h3>
-            <Slider
-              id={`${uid}-x0`}
-              label="Absis titik P pada f(x)"
-              value={x0}
-              min={-8}
-              max={8}
-              step={0.25}
-              onChange={(value) => patchParams({ x0: value })}
-            />
-            <p className="ft-hint">
-              {probe
-                ? `P${formatCoord(probe.base)} → P′${formatCoord(probe.image)}`
-                : `x = ${formatValue(x0)} berada di luar daerah asal f(x).`}
-            </p>
-          </div>
-
-          <div className="ft-reset-row">
-            <button
-              type="button"
-              className="ft-reset-button"
-              onClick={clearTransformation}
-            >
-              Tanpa transformasi
-            </button>
-            <button
-              type="button"
-              className="ft-reset-button"
-              onClick={resetAll}
-            >
-              Atur ulang semua
-            </button>
-          </div>
-        </section>
+          Tampilkan grafik awal f(x)
+        </label>
+        <label className="ft-check">
+          <input
+            type="checkbox"
+            checked={showKey}
+            onChange={(event) => toggleKey(event.currentTarget.checked)}
+          />
+          Tampilkan titik kunci
+        </label>
       </div>
 
-      <section className="ft-panel ft-wide" aria-labelledby="ft-rule-title">
-        <h3 id="ft-rule-title">Persamaan grafik</h3>
-        <div className="ft-card-grid">
-          <article className="ft-card">
-            <h4>Bentuk umum</h4>
-            <p className="ft-formula">g(x) = a · f(b(x − h)) + k</p>
-            <p>
-              h dan k menggeser grafik, a meregangkan vertikal, b meregangkan
-              horizontal.
-            </p>
-          </article>
-          <article className="ft-card">
-            <h4>Grafik awal</h4>
-            <p className="ft-formula ft-formula-original">{baseFormula}</p>
-            <p>Titik (x, y) pada f menjadi titik (x′, y′) pada g.</p>
-          </article>
-          <article className="ft-card ft-card-result">
-            <h4>Hasil transformasi</h4>
-            <p className="ft-formula ft-formula-image">{formula}</p>
-            <p>
-              {mappingX}; {mappingY}
-            </p>
-          </article>
-        </div>
-        <ul className="ft-insights ft-effects">
-          {effects.map((effect) => (
-            <li key={effect.title}>
-              <strong>{effect.title}:</strong> {effect.text}
-            </li>
-          ))}
-        </ul>
-      </section>
+      <div className="ft-panel">
+        <h3>Translasi</h3>
+        <Slider
+          id={`${uid}-h`}
+          label="Geser horizontal (h)"
+          value={h}
+          min={-8}
+          max={8}
+          step={0.5}
+          onChange={(value) => patchParams({ h: value })}
+        />
+        <Slider
+          id={`${uid}-k`}
+          label="Geser vertikal (k)"
+          value={k}
+          min={-8}
+          max={8}
+          step={0.5}
+          onChange={(value) => patchParams({ k: value })}
+        />
+      </div>
 
-      <section className="ft-panel ft-wide" aria-labelledby="ft-coords-title">
-        <h3 id="ft-coords-title">Titik kunci dan titik uji</h3>
-        <div className="ft-table-wrap">
-          <table className="ft-table">
-            <thead>
-              <tr>
-                <th scope="col">Titik</th>
-                <th scope="col">Pada f(x)</th>
-                <th scope="col">Pada g(x)</th>
-              </tr>
-            </thead>
-            <tbody>
-              {rows.map((row) => (
-                <tr key={row.name}>
-                  <th scope="row">
-                    {row.name} → {row.name}′
-                  </th>
-                  <td className="ft-cell-original">{formatCoord(row.base)}</td>
-                  <td className="ft-cell-image">{formatCoord(row.image)}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+      <div className="ft-panel">
+        <h3>Peregangan dan refleksi</h3>
+        <Slider
+          id={`${uid}-a`}
+          label="Regang vertikal (a)"
+          value={a}
+          min={-4}
+          max={4}
+          step={STRETCH_STEP}
+          onChange={(value) => changeStretch("a", value)}
+        />
+        <Slider
+          id={`${uid}-b`}
+          label="Regang horizontal (b)"
+          value={b}
+          min={-4}
+          max={4}
+          step={STRETCH_STEP}
+          onChange={(value) => changeStretch("b", value)}
+        />
+        <p className="ft-hint">
+          Nilai negatif menghasilkan refleksi: a &lt; 0 terhadap garis y = k, b
+          &lt; 0 terhadap garis x = h.
+        </p>
+        <div className="ft-actions">
+          <button
+            type="button"
+            className="ft-reset-button"
+            aria-pressed={a < 0}
+            onClick={() => mirror("a")}
+          >
+            Cerminkan vertikal (a → −a)
+          </button>
+          <button
+            type="button"
+            className="ft-reset-button"
+            aria-pressed={b < 0}
+            onClick={() => mirror("b")}
+          >
+            Cerminkan horizontal (b → −b)
+          </button>
         </div>
-      </section>
+      </div>
 
-      <ul className="ft-insights">
-        <li>
-          <strong>Translasi</strong>: g(x) = f(x − h) + k menggeser grafik h
-          satuan ke kanan dan k satuan ke atas. Perubahan di dalam f memengaruhi
-          x dan arahnya tampak berlawanan.
-        </li>
-        <li>
-          <strong>Refleksi</strong>: −f(x) mencerminkan grafik terhadap sumbu x,
-          sedangkan f(−x) mencerminkannya terhadap sumbu y.
-        </li>
-        <li>
-          <strong>Peregangan vertikal</strong>: a · f(x) mengalikan setiap
-          ordinat dengan a. Jika |a| &gt; 1 grafik meregang, jika |a| &lt; 1
-          grafik memampat.
-        </li>
-        <li>
-          <strong>Peregangan horizontal</strong>: f(bx) mengalikan setiap absis
-          dengan 1/b. Jika |b| &gt; 1 grafik memampat, jika |b| &lt; 1 grafik
-          meregang.
-        </li>
-        <li>
-          <strong>Titik (h, k)</strong> berperan sebagai titik asal baru:
-          peregangan dan refleksi terjadi terhadap garis x = h dan y = k.
-        </li>
+      <div className="ft-panel">
+        <h3>Titik uji</h3>
+        <Slider
+          id={`${uid}-x0`}
+          label="Absis titik P pada f(x)"
+          value={x0}
+          min={-8}
+          max={8}
+          step={0.25}
+          onChange={(value) => patchParams({ x0: value })}
+        />
+        <p className="ft-hint">
+          {probe
+            ? `P${formatCoord(probe.base)} → P′${formatCoord(probe.image)}`
+            : `x = ${formatValue(x0)} berada di luar daerah asal f(x).`}
+        </p>
+      </div>
+
+      <div className="ft-reset-row">
+        <button
+          type="button"
+          className="ft-reset-button"
+          onClick={clearTransformation}
+        >
+          Tanpa transformasi
+        </button>
+        <button type="button" className="ft-reset-button" onClick={resetAll}>
+          Atur ulang semua
+        </button>
+      </div>
+    </section>
+  );
+
+  const ruleEl = (
+    <section className="ft-panel ft-wide" aria-labelledby="ft-rule-title">
+      <h3 id="ft-rule-title">Persamaan grafik</h3>
+      <div className="ft-card-grid">
+        <article className="ft-card">
+          <h4>Bentuk umum</h4>
+          <p className="ft-formula">g(x) = a · f(b(x − h)) + k</p>
+          <p>
+            h dan k menggeser grafik, a meregangkan vertikal, b meregangkan
+            horizontal.
+          </p>
+        </article>
+        <article className="ft-card">
+          <h4>Grafik awal</h4>
+          <p className="ft-formula ft-formula-original">{baseFormula}</p>
+          <p>Titik (x, y) pada f menjadi titik (x′, y′) pada g.</p>
+        </article>
+        <article className="ft-card ft-card-result">
+          <h4>Hasil transformasi</h4>
+          <p className="ft-formula ft-formula-image">{formula}</p>
+          <p>
+            {mappingX}; {mappingY}
+          </p>
+        </article>
+      </div>
+      <ul className="ft-insights ft-effects">
+        {effects.map((effect) => (
+          <li key={effect.title}>
+            <strong>{effect.title}:</strong> {effect.text}
+          </li>
+        ))}
       </ul>
+    </section>
+  );
+
+  const coordsEl = (
+    <section className="ft-panel ft-wide" aria-labelledby="ft-coords-title">
+      <h3 id="ft-coords-title">Titik kunci dan titik uji</h3>
+      <div className="ft-table-wrap">
+        <table className="ft-table">
+          <thead>
+            <tr>
+              <th scope="col">Titik</th>
+              <th scope="col">Pada f(x)</th>
+              <th scope="col">Pada g(x)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row) => (
+              <tr key={row.name}>
+                <th scope="row">
+                  {row.name} → {row.name}′
+                </th>
+                <td className="ft-cell-original">{formatCoord(row.base)}</td>
+                <td className="ft-cell-image">{formatCoord(row.image)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  );
+
+  const insightsEl = (
+    <ul className="ft-insights">
+      <li>
+        <strong>Translasi</strong>: g(x) = f(x − h) + k menggeser grafik h
+        satuan ke kanan dan k satuan ke atas. Perubahan di dalam f memengaruhi x
+        dan arahnya tampak berlawanan.
+      </li>
+      <li>
+        <strong>Refleksi</strong>: −f(x) mencerminkan grafik terhadap sumbu x,
+        sedangkan f(−x) mencerminkannya terhadap sumbu y.
+      </li>
+      <li>
+        <strong>Peregangan vertikal</strong>: a · f(x) mengalikan setiap ordinat
+        dengan a. Jika |a| &gt; 1 grafik meregang, jika |a| &lt; 1 grafik
+        memampat.
+      </li>
+      <li>
+        <strong>Peregangan horizontal</strong>: f(bx) mengalikan setiap absis
+        dengan 1/b. Jika |b| &gt; 1 grafik memampat, jika |b| &lt; 1 grafik
+        meregang.
+      </li>
+      <li>
+        <strong>Titik (h, k)</strong> berperan sebagai titik asal baru:
+        peregangan dan refleksi terjadi terhadap garis x = h dan y = k.
+      </li>
+    </ul>
+  );
+
+  return (
+    <div className="function-transformation-simulation" ref={rootRef}>
+      <div className="ft-main">
+        {boardEl}
+        {isFull ? (
+          <div className="ft-rightcol">
+            {sideEl}
+            {ruleEl}
+            {coordsEl}
+            {insightsEl}
+          </div>
+        ) : (
+          sideEl
+        )}
+      </div>
+
+      {!isFull && ruleEl}
+      {!isFull && coordsEl}
+      {!isFull && insightsEl}
     </div>
   );
 }

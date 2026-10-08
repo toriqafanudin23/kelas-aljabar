@@ -4,7 +4,8 @@ import { QuadraticSimulation } from "../components/simulation/QuadraticSimulatio
 import { TransformationSimulation } from "../components/simulation/TransformationSimulation";
 import { FunctionTransformationSimulation } from "../components/simulation/FunctionTransformationSimulation";
 import { VectorSimulation } from "../components/simulation/VectorSimulation";
-import { CalculusSimulation } from "../components/simulation/CalculusSimulation";
+import { DerivativeSimulation } from "../components/simulation/DerivativeSimulation";
+import { IntegralSimulation } from "../components/simulation/IntegralSimulation";
 import { GraphPlotterSimulation } from "../components/simulation/GraphPlotterSimulation";
 import { LinearSystemSimulation } from "../components/simulation/LinearSystemSimulation";
 import type { Navigate } from "../types/navigation";
@@ -75,20 +76,32 @@ const simulations = [
     component: VectorSimulation,
   },
   {
-    id: "calculus",
+    id: "derivative",
     index: "06",
-    category: "KALKULUS",
-    title: "Eksplorasi kalkulus",
+    category: "TURUNAN",
+    title: "Eksplorasi turunan",
     description:
-      "Amati hubungan garis sekan dan tangen dengan turunan, lalu dekati luas daerah di bawah kurva menggunakan jumlah Riemann.",
+      "Amati hubungan garis sekan dan garis tangen, lalu jelajahi bagaimana kemiringan garis singgung merepresentasikan turunan fungsi.",
     prompt:
-      "Dekatkan garis sekan ke garis tangen dengan mengecilkan h. Lalu tambah persegi panjang Riemann dan amati pendekatan luasnya.",
+      "Kecilkan nilai h untuk mendekatkan garis sekan ke garis tangen. Bagaimana kemiringannya berubah saat titik Q mendekati titik P?",
     level: "KELAS XI–XII",
-    component: CalculusSimulation,
+    component: DerivativeSimulation,
+  },
+  {
+    id: "integral",
+    index: "07",
+    category: "INTEGRAL",
+    title: "Eksplorasi integral",
+    description:
+      "Dekati luas daerah di bawah kurva menggunakan jumlah Riemann dan bandingkan hasilnya saat jumlah persegi panjang bertambah.",
+    prompt:
+      "Bandingkan titik sampel kiri, kanan, dan tengah. Bagaimana nilai pendekatan luas berubah saat jumlah persegi panjang bertambah?",
+    level: "KELAS XI–XII",
+    component: IntegralSimulation,
   },
   {
     id: "graph-plotter",
-    index: "07",
+    index: "08",
     category: "FUNGSI",
     title: "Penggambar grafik fungsi",
     description:
@@ -100,7 +113,7 @@ const simulations = [
   },
   {
     id: "linear-system",
-    index: "08",
+    index: "09",
     category: "SISTEM LINEAR",
     title: "Eksplorasi sistem linear",
     description:
