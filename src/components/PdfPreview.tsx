@@ -6,7 +6,7 @@ import {
   type RenderTask,
 } from "pdfjs-dist";
 import workerUrl from "pdfjs-dist/build/pdf.worker.min.mjs?url";
-import { ChevronLeft, ChevronRight, Minus, Plus } from "lucide-react";
+import { Download, ExternalLink, Minus, Plus } from "lucide-react";
 import "./PdfPreview.css";
 
 GlobalWorkerOptions.workerSrc = workerUrl;
@@ -16,14 +16,88 @@ interface PdfPreviewProps {
   title: string;
 }
 
-export function PdfPreview({ url, title }: PdfPreviewProps) {
+interface PdfPageCanvasProps {
+  documentProxy: PDFDocumentProxy;
+  pageNumber: number;
+  availableWidth: number;
+  zoom: number;
+  title: string;
+  onError: (message: string) => void;
+}
+
+function PdfPageCanvas({
+  documentProxy,
+  pageNumber,
+  availableWidth,
+  zoom,
+  title,
+  onError,
+}: PdfPageCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    let isActive = true;
+    let renderTask: RenderTask | null = null;
+
+    const renderPage = async () => {
+      try {
+        const page = await documentProxy.getPage(pageNumber);
+        if (!isActive) return;
+
+        const baseViewport = page.getViewport({ scale: 1 });
+        const scale = (availableWidth / baseViewport.width) * zoom;
+        const viewport = page.getViewport({ scale });
+        const canvas = canvasRef.current;
+        const context = canvas?.getContext("2d");
+        if (!canvas || !context) throw new Error("Canvas tidak tersedia.");
+
+        const outputScale = window.devicePixelRatio || 1;
+        canvas.width = Math.ceil(viewport.width * outputScale);
+        canvas.height = Math.ceil(viewport.height * outputScale);
+        canvas.style.width = `${viewport.width}px`;
+        canvas.style.height = `${viewport.height}px`;
+
+        renderTask = page.render({
+          canvas,
+          canvasContext: context,
+          viewport,
+          transform:
+            outputScale === 1
+              ? undefined
+              : [outputScale, 0, 0, outputScale, 0, 0],
+          background: "#ffffff",
+        });
+        await renderTask.promise;
+      } catch (renderError) {
+        const wasCancelled =
+          renderError instanceof Error &&
+          renderError.name === "RenderingCancelledException";
+        if (isActive && !wasCancelled) {
+          onError("Halaman PDF tidak dapat ditampilkan.");
+        }
+      }
+    };
+
+    void renderPage();
+    return () => {
+      isActive = false;
+      renderTask?.cancel();
+    };
+  }, [availableWidth, documentProxy, onError, pageNumber, title, zoom]);
+
+  return (
+    <div className="pdf-preview-page">
+      <canvas ref={canvasRef} aria-label={`${title}, halaman ${pageNumber}`} />
+    </div>
+  );
+}
+
+export function PdfPreview({ url, title }: PdfPreviewProps) {
   const pageViewportRef = useRef<HTMLDivElement>(null);
   const [documentProxy, setDocumentProxy] = useState<PDFDocumentProxy | null>(
     null,
   );
-  const [pageNumber, setPageNumber] = useState(1);
-  const [pageCount, setPageCount] = useState(0);
+  const [availableWidth, setAvailableWidth] = useState(0);
   const [zoom, setZoom] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState("");
@@ -32,8 +106,6 @@ export function PdfPreview({ url, title }: PdfPreviewProps) {
     let isActive = true;
     const loadingTask = getDocument({ url });
     setDocumentProxy(null);
-    setPageNumber(1);
-    setPageCount(0);
     setIsLoading(true);
     setError("");
 
@@ -43,7 +115,7 @@ export function PdfPreview({ url, title }: PdfPreviewProps) {
           return;
         }
         setDocumentProxy(document);
-        setPageCount(document.numPages);
+        setIsLoading(false);
       })
       .catch(() => {
         if (isActive) {
@@ -59,72 +131,17 @@ export function PdfPreview({ url, title }: PdfPreviewProps) {
   }, [url]);
 
   useEffect(() => {
-    const document = documentProxy;
-    const canvas = canvasRef.current;
     const viewportElement = pageViewportRef.current;
-    if (!document || !canvas || !viewportElement) return;
-
-    let isActive = true;
-    let renderTask: RenderTask | null = null;
-    let renderVersion = 0;
-
-    const renderPage = async () => {
-      const version = ++renderVersion;
-      renderTask?.cancel();
-
-      try {
-        const page = await document.getPage(pageNumber);
-        if (!isActive || version !== renderVersion) return;
-
-        const baseViewport = page.getViewport({ scale: 1 });
-        const availableWidth = Math.max(1, viewportElement.clientWidth);
-        const scale = (availableWidth / baseViewport.width) * zoom;
-        const viewport = page.getViewport({ scale });
-        const outputScale = window.devicePixelRatio || 1;
-        const context = canvas.getContext("2d");
-        if (!context) throw new Error("Canvas tidak tersedia.");
-
-        canvas.width = Math.ceil(viewport.width * outputScale);
-        canvas.height = Math.ceil(viewport.height * outputScale);
-        canvas.style.width = `${viewport.width}px`;
-        canvas.style.height = `${viewport.height}px`;
-        setIsLoading(true);
-
-        renderTask = page.render({
-          canvas,
-          canvasContext: context,
-          viewport,
-          transform:
-            outputScale === 1
-              ? undefined
-              : [outputScale, 0, 0, outputScale, 0, 0],
-          background: "#ffffff",
-        });
-        await renderTask.promise;
-        if (isActive && version === renderVersion) setIsLoading(false);
-      } catch (renderError) {
-        const wasCancelled =
-          renderError instanceof Error &&
-          renderError.name === "RenderingCancelledException";
-        if (isActive && version === renderVersion && !wasCancelled) {
-          setError("Halaman PDF tidak dapat ditampilkan.");
-          setIsLoading(false);
-        }
-      }
-    };
+    if (!viewportElement) return;
 
     const resizeObserver = new ResizeObserver(() => {
-      void renderPage();
+      setAvailableWidth(Math.max(1, viewportElement.clientWidth - 32));
     });
     resizeObserver.observe(viewportElement);
-    void renderPage();
+    setAvailableWidth(Math.max(1, viewportElement.clientWidth - 32));
 
-    return () => {
-      isActive = false;
-      resizeObserver.disconnect();
-      renderTask?.cancel();
-    };
-  }, [documentProxy, pageNumber, zoom]);
+    return () => resizeObserver.disconnect();
+  }, []);
 
   const changeZoom = (amount: number) => {
     setZoom((current) => Math.min(1.8, Math.max(0.7, current + amount)));
@@ -133,33 +150,9 @@ export function PdfPreview({ url, title }: PdfPreviewProps) {
   return (
     <div className="pdf-preview">
       <div className="pdf-preview-toolbar" aria-label="Kontrol pratinjau PDF">
-        <div className="pdf-preview-page-controls">
-          <button
-            type="button"
-            className="pdf-preview-icon-button"
-            aria-label="Halaman sebelumnya"
-            title="Halaman sebelumnya"
-            disabled={pageNumber <= 1 || isLoading}
-            onClick={() => setPageNumber((current) => Math.max(1, current - 1))}
-          >
-            <ChevronLeft size={17} aria-hidden="true" />
-          </button>
-          <span className="pdf-preview-page-count" aria-live="polite">
-            {pageCount ? `${pageNumber} / ${pageCount}` : "– / –"}
-          </span>
-          <button
-            type="button"
-            className="pdf-preview-icon-button"
-            aria-label="Halaman berikutnya"
-            title="Halaman berikutnya"
-            disabled={pageNumber >= pageCount || isLoading}
-            onClick={() =>
-              setPageNumber((current) => Math.min(pageCount, current + 1))
-            }
-          >
-            <ChevronRight size={17} aria-hidden="true" />
-          </button>
-        </div>
+        <span className="pdf-preview-page-count" aria-live="polite">
+          {documentProxy ? `${documentProxy.numPages} halaman` : "Memuat PDF"}
+        </span>
         <div className="pdf-preview-zoom-controls">
           <button
             type="button"
@@ -185,9 +178,34 @@ export function PdfPreview({ url, title }: PdfPreviewProps) {
             <Plus size={15} aria-hidden="true" />
           </button>
         </div>
+        <div className="pdf-preview-file-controls">
+          <a
+            className="pdf-preview-icon-button"
+            href={url}
+            download
+            aria-label="Unduh PDF"
+            title="Unduh PDF"
+          >
+            <Download size={15} aria-hidden="true" />
+          </a>
+          <a
+            className="pdf-preview-icon-button"
+            href={url}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Buka file PDF asli"
+            title="Buka file PDF asli"
+          >
+            <ExternalLink size={15} aria-hidden="true" />
+          </a>
+        </div>
       </div>
 
-      <div className="pdf-preview-viewport" ref={pageViewportRef}>
+      <div
+        className="pdf-preview-viewport"
+        ref={pageViewportRef}
+        aria-busy={isLoading}
+      >
         {isLoading && !error && (
           <div className="pdf-preview-status" role="status">
             Memuat pratinjau…
@@ -197,12 +215,21 @@ export function PdfPreview({ url, title }: PdfPreviewProps) {
           <div className="pdf-preview-status pdf-preview-error" role="alert">
             {error}
           </div>
-        ) : (
-          <canvas
-            ref={canvasRef}
-            aria-label={`${title}, halaman ${pageNumber}`}
-          />
-        )}
+        ) : documentProxy && availableWidth > 0 ? (
+          <div className="pdf-preview-pages">
+            {Array.from({ length: documentProxy.numPages }, (_, index) => (
+              <PdfPageCanvas
+                key={index + 1}
+                documentProxy={documentProxy}
+                pageNumber={index + 1}
+                availableWidth={availableWidth}
+                zoom={zoom}
+                title={title}
+                onError={setError}
+              />
+            ))}
+          </div>
+        ) : null}
       </div>
     </div>
   );

@@ -37,6 +37,11 @@ const SimulationPage = lazy(() =>
 const ShopPage = lazy(() =>
   import("./pages/ShopPage").then((m) => ({ default: m.ShopPage })),
 );
+const ShopPreviewPage = lazy(() =>
+  import("./pages/ShopPreviewPage").then((m) => ({
+    default: m.ShopPreviewPage,
+  })),
+);
 const LessonPage = lazy(() =>
   import("./pages/LessonPage").then((m) => ({ default: m.LessonPage })),
 );
@@ -88,6 +93,7 @@ function App() {
     page !== "practice-sppl" &&
     page !== "simulation" &&
     page !== "shop" &&
+    page !== "shop-preview" &&
     page !== "about";
 
   return (
@@ -134,6 +140,7 @@ function App() {
         )}
         {page === "simulation" && <SimulationPage navigate={navigate} />}
         {page === "shop" && <ShopPage navigate={navigate} />}
+        {page === "shop-preview" && <ShopPreviewPage navigate={navigate} />}
         {page === "about" && <AboutPage navigate={navigate} />}
         {isMaterialPage && (
           <LessonPage

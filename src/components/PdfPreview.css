@@ -16,7 +16,8 @@
 }
 
 .pdf-preview-page-controls,
-.pdf-preview-zoom-controls {
+.pdf-preview-zoom-controls,
+.pdf-preview-file-controls {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -32,6 +33,7 @@
   background: #fff;
   color: #073c64;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .pdf-preview-icon-button:hover:not(:disabled) {
@@ -62,7 +64,7 @@
 .pdf-preview-viewport {
   position: relative;
   width: 100%;
-  height: clamp(520px, 72vh, 800px);
+  height: min(90vh, 1100px);
   overflow: auto;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
@@ -75,6 +77,26 @@
   margin: 16px auto;
   background: #fff;
   box-shadow: 0 2px 12px rgba(11, 30, 49, 0.18);
+}
+
+.pdf-preview-pages {
+  display: grid;
+  justify-items: center;
+  gap: 16px;
+  padding: 16px;
+}
+
+.pdf-preview-page {
+  width: max-content;
+  max-width: 100%;
+  margin-inline: auto;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(11, 30, 49, 0.18);
+}
+
+.pdf-preview-page canvas {
+  margin: 0 auto;
+  box-shadow: none;
 }
 
 .pdf-preview-status {
@@ -94,19 +116,22 @@
 
 @media (max-width: 760px) {
   .pdf-preview-viewport {
-    height: 68vh;
-    min-height: 420px;
+    height: min(88vh, 900px);
+    height: min(88svh, 900px);
   }
 }
 
 @media (max-width: 420px) {
   .pdf-preview-toolbar {
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 6px;
     padding-inline: 6px;
   }
 
   .pdf-preview-page-controls,
-  .pdf-preview-zoom-controls {
+  .pdf-preview-zoom-controls,
+  .pdf-preview-file-controls {
     gap: 4px;
   }
 }

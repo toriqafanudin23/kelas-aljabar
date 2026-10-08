@@ -1,7 +1,5 @@
-import { useState } from "react";
-import { ArrowRight, Check, Mail } from "lucide-react";
+import { ArrowRight, Check, Eye, Mail } from "lucide-react";
 import type { Navigate } from "../types/navigation";
-import { PdfPreview } from "../components/PdfPreview";
 import {
   ACCOUNT_HOLDER,
   BAHAN_AJAR,
@@ -10,11 +8,9 @@ import {
   PACKAGES,
   PAYMENT_METHODS,
   PHONE_WA,
-  SAMPLE_PRODUCTS,
   SATUAN_ITEMS,
   SLIDE_PACKAGES,
   TKA_PACKAGES,
-  type SampleProductId,
   type SatuanItem,
   WHATSAPP_LINK,
 } from "../data/shopProducts";
@@ -38,13 +34,34 @@ function buildSatuanEmailBody(item: SatuanItem) {
   );
 }
 
-export function ShopPage({ navigate: _navigate }: ShopPageProps) {
-  const [activeSampleId, setActiveSampleId] =
-    useState<SampleProductId>("worksheet");
-  const activeSample =
-    SAMPLE_PRODUCTS.find((sample) => sample.id === activeSampleId) ??
-    SAMPLE_PRODUCTS[0];
+function ProductActions({
+  productId,
+  emailSubject,
+  emailBody,
+}: {
+  productId: string;
+  emailSubject: string;
+  emailBody: string;
+}) {
+  return (
+    <div className="shop-card-actions">
+      <a
+        href={`/pratinjau-produk?produk=${encodeURIComponent(productId)}`}
+        className="button button-secondary shop-order-btn"
+      >
+        Lihat Preview <Eye size={16} aria-hidden="true" />
+      </a>
+      <a
+        href={buildEmailLink(emailSubject, emailBody)}
+        className="button button-primary shop-order-btn"
+      >
+        Pesan via Email <Mail size={16} aria-hidden="true" />
+      </a>
+    </div>
+  );
+}
 
+export function ShopPage({ navigate: _navigate }: ShopPageProps) {
   const scrollToSection = (sectionId: string) => {
     const target = document.getElementById(sectionId);
     if (!target) return;
@@ -77,14 +94,11 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
       {/* Hero + CTA */}
       <section className="shop-hero" aria-label="Hero produk">
         <div className="shop-hero-copy">
-          <span className="section-kicker">
-            Produk Digital Pembelajaran · Dibuat dengan LaTeX
-          </span>
-          <h1>Pilih paket bahan ajar yang paling cocok untuk kelasmu</h1>
+          <span className="section-kicker">Produk Digital Pembelajaran</span>
+          <h1>Pilih produk matematika untuk kebutuhan kelasmu</h1>
           <p>
-            Dapatkan file bahan ajar berkualitas tinggi yang dikembangkan dengan
-            notasi LaTeX standar — siap cetak, siap proyeksi, dan siap
-            dimodifikasi sesuai kebutuhan pembelajaran Anda.
+            Temukan paket soal, slide presentasi, latihan TKA, dan bahan ajar
+            matematika dalam format PDF dan LaTeX untuk mendukung pembelajaran.
           </p>
           <div className="shop-hero-actions">
             <a
@@ -98,14 +112,14 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
               Pilih Paket untuk Kelasmu
             </a>
             <a
-              href="#detail-pemesanan"
+              href="#cara-memesan"
               className="button button-secondary"
               onClick={(event) => {
                 event.preventDefault();
-                scrollToSection("detail-pemesanan");
+                scrollToSection("cara-memesan");
               }}
             >
-              Pesan Sekarang
+              Cara Memesan
             </a>
             <a
               href={WHATSAPP_LINK}
@@ -174,86 +188,6 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
       </nav>
 
       <section
-        id="produk-unggulan"
-        className="shop-product-preview"
-        aria-labelledby="shop-preview-title"
-      >
-        <div className="shop-preview-heading">
-          <div>
-            <span className="section-kicker">Lihat Contoh Produk</span>
-            <h2 id="shop-preview-title">Pratinjau Produk Digital</h2>
-            <p>
-              Pilih contoh soal, slide, atau LKPD untuk melihat isi produknya.
-            </p>
-          </div>
-        </div>
-
-        <div className="shop-preview-layout">
-          <div className="shop-preview-stage">
-            <div className="shop-preview-stage-head">
-              <strong>{activeSample.title}</strong>
-            </div>
-            <PdfPreview
-              key={activeSample.id}
-              url={activeSample.url}
-              title={activeSample.title}
-            />
-          </div>
-
-          <div className="shop-preview-picker" aria-label="Pilih contoh produk">
-            <span className="shop-preview-picker-label">PILIH FILE</span>
-            <div className="shop-preview-options">
-              {SAMPLE_PRODUCTS.map((sample, index) => (
-                <button
-                  key={sample.id}
-                  type="button"
-                  className={`shop-preview-option ${activeSampleId === sample.id ? "active" : ""}`}
-                  aria-pressed={activeSampleId === sample.id}
-                  onClick={() => setActiveSampleId(sample.id)}
-                >
-                  <span className="shop-preview-option-number">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <span className="shop-preview-option-copy">
-                    <strong>{sample.title}</strong>
-                    <small>{sample.file}</small>
-                  </span>
-                </button>
-              ))}
-            </div>
-            <p className="shop-preview-description">
-              {activeSample.description}
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Rekening Info Banner */}
-      <div
-        id="detail-pemesanan"
-        className="shop-bank-info"
-        role="note"
-        aria-label="Info rekening pembayaran"
-      >
-        <span className="shop-bank-label">
-          Metode pembayaran setelah preview disetujui:
-        </span>
-        <div className="shop-bank-detail">
-          {PAYMENT_METHODS.map((method) => (
-            <span key={method.name}>
-              <strong>{method.name}</strong> · {method.account} · a.n.{" "}
-              <strong>{ACCOUNT_HOLDER}</strong>
-            </span>
-          ))}
-        </div>
-        <p className="shop-bank-note">
-          Jangan transfer sebelum menerima dan menyetujui preview. File asli
-          dikirim setelah pembayaran terkonfirmasi.
-        </p>
-      </div>
-
-      {/* ===================== SEKSI 1: Paket Soal Per Kelas ===================== */}
-      <section
         id="paket-soal"
         className="shop-section"
         aria-label="Paket Soal per Kelas"
@@ -300,12 +234,11 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
                 </div>
               </div>
               <div className="shop-card-footer">
-                <a
-                  href={buildEmailLink(pkg.emailSubject, pkg.emailBody)}
-                  className="button button-primary shop-order-btn"
-                >
-                  Minta Preview via Email <Mail size={16} aria-hidden="true" />
-                </a>
+                <ProductActions
+                  productId={pkg.id}
+                  emailSubject={pkg.emailSubject}
+                  emailBody={pkg.emailBody}
+                />
               </div>
             </article>
           ))}
@@ -360,12 +293,11 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
                 </div>
               </div>
               <div className="shop-card-footer">
-                <a
-                  href={buildEmailLink(pkg.emailSubject, pkg.emailBody)}
-                  className="button button-primary shop-order-btn"
-                >
-                  Minta Preview via Email <Mail size={16} aria-hidden="true" />
-                </a>
+                <ProductActions
+                  productId={pkg.id}
+                  emailSubject={pkg.emailSubject}
+                  emailBody={pkg.emailBody}
+                />
               </div>
             </article>
           ))}
@@ -414,12 +346,11 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
                 </ul>
               </div>
               <div className="shop-card-footer">
-                <a
-                  href={buildEmailLink(pkg.emailSubject, pkg.emailBody)}
-                  className="button button-primary shop-order-btn"
-                >
-                  Minta Preview via Email <Mail size={16} aria-hidden="true" />
-                </a>
+                <ProductActions
+                  productId={pkg.id}
+                  emailSubject={pkg.emailSubject}
+                  emailBody={pkg.emailBody}
+                />
               </div>
             </article>
           ))}
@@ -438,7 +369,8 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
             <h2>Paket Bahan Ajar per Materi</h2>
             <p>
               Pilih Bahan Ajar Matriks atau Fungsi Kuadrat. Kedua paket
-              mendapatkan benefit dan harga promo yang sama.
+              mendapatkan benefit dan harga promo yang sama. Produk ini tidak
+              memiliki preview; pemesanan langsung melalui email.
             </p>
           </div>
         </div>
@@ -486,7 +418,7 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
                   href={buildEmailLink(pkg.emailSubject, pkg.emailBody)}
                   className="button button-primary shop-order-btn"
                 >
-                  Minta Preview via Email <Mail size={16} aria-hidden="true" />
+                  Pesan via Email <Mail size={16} aria-hidden="true" />
                 </a>
               </div>
             </article>
@@ -506,7 +438,9 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
             <h2>Pembelian Per File / Custom</h2>
             <p>
               Hanya butuh satu materi saja? Anda bisa membeli per file atau
-              memesan pembuatan custom sesuai kebutuhan spesifik Anda.
+              memesan pembuatan custom sesuai kebutuhan spesifik Anda. Untuk
+              item satuan dan custom, minta preview melalui email terlebih
+              dahulu sebelum melakukan pemesanan.
             </p>
           </div>
         </div>
@@ -564,16 +498,16 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
             <div className="faq-item">
               <strong>Preview dan File Asli</strong>
               <p>
-                Preview dikirim setelah permintaan diterima. Setelah preview
-                disetujui dan pembayaran terkonfirmasi, file asli dikirim ke
-                email Anda maksimal <strong>12 jam</strong>.
+                Preview paket soal, slide, dan TKA dapat dibuka dari kartu
+                produk. Bahan ajar per materi dipesan melalui email. File asli
+                dikirim maksimal <strong>1 jam setelah pemesanan</strong>.
               </p>
             </div>
             <div className="faq-item">
               <strong>Jika File Belum Diterima</strong>
               <p>
-                Jika sudah lebih dari 12 jam sejak pembayaran terkonfirmasi dan
-                file belum terkirim, silakan hubungi via WhatsApp:{" "}
+                Jika file belum diterima dalam 1 jam, hubungi via WhatsApp. Ada
+                kemungkinan pesanan sedang padat:{" "}
                 <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer">
                   {PHONE_WA}
                 </a>
@@ -582,10 +516,9 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
             <div className="faq-item">
               <strong>Pembayaran</strong>
               <p>
-                Bayar hanya setelah Anda menyetujui preview. Pembayaran tersedia
-                melalui <strong>BNI, BRI, atau ShopeePay</strong>. Setelah
-                transfer, kirim bukti pembayaran kepada admin untuk dikonfirmasi
-                sebelum file asli dikirim.
+                Setelah preview sesuai, lakukan pemesanan melalui email dan
+                lampirkan bukti pembayaran. Pembayaran dapat dilakukan melalui{" "}
+                <strong>BNI, BRI, atau ShopeePay</strong>.
               </p>
             </div>
             <div className="faq-item">
@@ -613,7 +546,11 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
       </section>
 
       {/* Alur Pembelian */}
-      <section className="shop-flow-band" aria-label="Alur Pembelian">
+      <section
+        id="cara-memesan"
+        className="shop-flow-band"
+        aria-label="Alur Pembelian"
+      >
         <div className="shop-flow-inner">
           <span className="section-kicker">Cara Memesan</span>
           <div className="shop-flow-steps">
@@ -621,9 +558,7 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
               <span className="flow-step-num">01</span>
               <div>
                 <strong>Pilih Produk</strong>
-                <p>
-                  Pilih paket atau produk satuan yang sesuai kebutuhan Anda.
-                </p>
+                <p>Pilih produk yang ingin dipesan.</p>
               </div>
             </div>
             <span className="flow-arrow" aria-hidden="true">
@@ -632,9 +567,11 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
             <div className="shop-flow-step">
               <span className="flow-step-num">02</span>
               <div>
-                <strong>Minta Preview</strong>
+                <strong>Lihat Preview</strong>
                 <p>
-                  Klik &quot;Minta Preview via Email&quot; dan isi data pemesan.
+                  Periksa preview paket soal, slide, atau TKA. Bahan ajar per
+                  materi dipesan langsung; item satuan/custom dimulai dengan
+                  permintaan preview email.
                 </p>
               </div>
             </div>
@@ -644,10 +581,10 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
             <div className="shop-flow-step">
               <span className="flow-step-num">03</span>
               <div>
-                <strong>Tinjau Preview</strong>
+                <strong>Pesan via Email</strong>
                 <p>
-                  Admin mengirim preview agar Anda dapat memeriksa isi produk
-                  sebelum membeli.
+                  Kirim email pemesanan dengan data pemesan dan lampirkan bukti
+                  pembayaran.
                 </p>
               </div>
             </div>
@@ -657,11 +594,8 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
             <div className="shop-flow-step">
               <span className="flow-step-num">04</span>
               <div>
-                <strong>Bayar Setelah Setuju</strong>
-                <p>
-                  Jika preview sesuai, lakukan pembayaran dan kirim bukti
-                  transfer untuk konfirmasi.
-                </p>
+                <strong>File Dikirim</strong>
+                <p>File dikirim maksimal 1 jam setelah pemesanan.</p>
               </div>
             </div>
             <span className="flow-arrow" aria-hidden="true">
@@ -670,16 +604,13 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
             <div className="shop-flow-step">
               <span className="flow-step-num">05</span>
               <div>
-                <strong>Terima File Asli</strong>
-                <p>
-                  File asli dikirim maksimal <strong>12 jam</strong> setelah
-                  pembayaran terkonfirmasi.
-                </p>
+                <strong>Jika Terlambat</strong>
+                <p>Hubungi WhatsApp jika antrean pesanan sedang padat.</p>
               </div>
             </div>
           </div>
           <p className="shop-flow-note">
-            Belum menerima file setelah 12 jam dari konfirmasi pembayaran?
+            Belum menerima file dalam 1 jam? Pesanan mungkin sedang padat.
             Hubungi via WhatsApp:{" "}
             <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer">
               <strong>{PHONE_WA}</strong>
@@ -687,6 +618,30 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
           </p>
         </div>
       </section>
+
+      <div
+        id="detail-pemesanan"
+        className="shop-bank-info"
+        role="note"
+        aria-label="Info rekening pembayaran"
+      >
+        <span className="shop-bank-label">
+          Metode pembayaran setelah preview disetujui:
+        </span>
+        <div className="shop-bank-detail">
+          {PAYMENT_METHODS.map((method) => (
+            <span key={method.name}>
+              <strong>{method.name}</strong> · {method.account} · a.n.{" "}
+              <strong>{ACCOUNT_HOLDER}</strong>
+            </span>
+          ))}
+        </div>
+        <p className="shop-bank-note">
+          Setelah preview sesuai, lakukan pembayaran dan lampirkan bukti
+          transfer pada email pesanan. Jangan transfer sebelum menyetujui
+          preview.
+        </p>
+      </div>
     </main>
   );
 }

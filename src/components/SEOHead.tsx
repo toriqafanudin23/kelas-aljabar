@@ -262,6 +262,17 @@ export function SEOHead({ page }: SEOHeadProps) {
           };
           break;
 
+        case "shop-preview":
+          meta = {
+            title: "Preview Produk PDF Matematika | Math 1729",
+            description:
+              "Lihat dan navigasikan preview paket soal, slide presentasi, serta latihan TKA menggunakan PDF.js.",
+            keywords:
+              "preview paket soal matematika, preview slide matematika, PDF.js Math 1729",
+            ogType: "website",
+          };
+          break;
+
         case "about":
           meta = {
             title:

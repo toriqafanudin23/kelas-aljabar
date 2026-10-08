@@ -3979,6 +3979,21 @@ summary:focus-visible {
   padding-top: 24px;
   border-top: 3px solid var(--navy);
 }
+.shop-pdf-viewer {
+  margin-bottom: 48px;
+  border: 1px solid var(--line);
+  background: #e8edf1;
+}
+.shop-preview-not-found {
+  padding-block: 48px;
+}
+.shop-preview-not-found h1 {
+  margin-top: 0;
+  color: var(--navy-deep);
+}
+.shop-preview-not-found p {
+  color: var(--muted);
+}
 .shop-preview-heading {
   margin-bottom: 20px;
 }
@@ -4384,6 +4399,21 @@ summary:focus-visible {
   width: 100%;
   justify-content: center;
 }
+.shop-card-actions {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 8px;
+}
+.shop-card-actions .button {
+  box-sizing: border-box;
+  min-height: 42px;
+  width: 100%;
+}
+.shop-card-actions .button-secondary {
+  border: 1px solid var(--navy);
+  background: #fff;
+  color: var(--navy);
+}
 
 /* Satuan grid */
 .shop-satuan-grid {
@@ -4516,10 +4546,10 @@ summary:focus-visible {
 /* ===== Responsive ===== */
 @media (max-width: 1024px) {
   .shop-package-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .shop-package-grid--2col {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .shop-satuan-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -4530,6 +4560,10 @@ summary:focus-visible {
 }
 
 @media (max-width: 680px) {
+  .shop-package-grid,
+  .shop-package-grid--2col {
+    grid-template-columns: minmax(0, 1fr);
+  }
   .shop-flow-steps {
     flex-direction: column;
     gap: 16px;
@@ -4545,6 +4579,9 @@ summary:focus-visible {
   }
   .shop-flow-inner {
     padding: 20px 16px;
+  }
+  .shop-card-actions {
+    grid-template-columns: minmax(0, 1fr);
   }
   .shop-faq-box {
     padding: 22px 18px;
