@@ -765,226 +765,238 @@ export function VectorSimulation() {
           </p>
         </section>
 
-        <section className="vs-side" aria-label="Pengaturan vektor">
-          <div className="vs-panel">
-            <h3>Komponen vektor</h3>
-            <div className="vs-vector-row">
-              <strong className="vs-name vs-name-a">a</strong>
-              <Field
-                label="a₁ (x)"
-                value={fields.a1}
-                onChange={(v) => changeField("a1", v)}
-              />
-              <Field
-                label="a₂ (y)"
-                value={fields.a2}
-                onChange={(v) => changeField("a2", v)}
-              />
+        <div className="vs-column">
+          <section className="vs-side" aria-label="Pengaturan vektor">
+            <div className="vs-panel">
+              <h3>Komponen vektor</h3>
+              <div className="vs-vector-row">
+                <strong className="vs-name vs-name-a">a</strong>
+                <Field
+                  label="a₁ (x)"
+                  value={fields.a1}
+                  onChange={(v) => changeField("a1", v)}
+                />
+                <Field
+                  label="a₂ (y)"
+                  value={fields.a2}
+                  onChange={(v) => changeField("a2", v)}
+                />
+              </div>
+              <div className="vs-vector-row">
+                <strong className="vs-name vs-name-b">b</strong>
+                <Field
+                  label="b₁ (x)"
+                  value={fields.b1}
+                  onChange={(v) => changeField("b1", v)}
+                />
+                <Field
+                  label="b₂ (y)"
+                  value={fields.b2}
+                  onChange={(v) => changeField("b2", v)}
+                />
+              </div>
+              <label className="vs-check">
+                <input
+                  type="checkbox"
+                  checked={snap}
+                  onChange={(event) => setSnap(event.currentTarget.checked)}
+                />
+                Tempel ke titik bilangan bulat saat menyeret
+              </label>
+              <p className="vs-hint">
+                Nilai komponen dibatasi antara −{formatValue(LIMIT)} dan{" "}
+                {formatValue(LIMIT)} agar vektor tetap terlihat.
+              </p>
             </div>
-            <div className="vs-vector-row">
-              <strong className="vs-name vs-name-b">b</strong>
-              <Field
-                label="b₁ (x)"
-                value={fields.b1}
-                onChange={(v) => changeField("b1", v)}
-              />
-              <Field
-                label="b₂ (y)"
-                value={fields.b2}
-                onChange={(v) => changeField("b2", v)}
-              />
-            </div>
-            <label className="vs-check">
-              <input
-                type="checkbox"
-                checked={snap}
-                onChange={(event) => setSnap(event.currentTarget.checked)}
-              />
-              Tempel ke titik bilangan bulat saat menyeret
-            </label>
-            <p className="vs-hint">
-              Nilai komponen dibatasi antara −{formatValue(LIMIT)} dan{" "}
-              {formatValue(LIMIT)} agar vektor tetap terlihat.
-            </p>
-          </div>
 
-          <div className="vs-panel">
-            <h3>Contoh posisi</h3>
-            <div
-              className="vs-segmented"
-              role="group"
-              aria-label="Contoh posisi dua vektor"
-            >
-              {presets.map((preset) => (
-                <button
-                  key={preset.label}
-                  type="button"
-                  onClick={() => setVectors([...preset.a], [...preset.b], true)}
-                >
-                  {preset.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="vs-panel">
-            <h3>Tampilan</h3>
-            <label className="vs-check vs-check-first">
-              <input
-                type="checkbox"
-                checked={showSum}
-                onChange={(event) => toggleSum(event.currentTarget.checked)}
-              />
-              Penjumlahan a + b (jajar genjang)
-            </label>
-            <label className="vs-check">
-              <input
-                type="checkbox"
-                checked={showAngle}
-                onChange={(event) => toggleAngle(event.currentTarget.checked)}
-              />
-              Sudut θ antara a dan b
-            </label>
-            <p className="vs-subtitle">Proyeksi</p>
-            <div
-              className="vs-segmented"
-              role="group"
-              aria-label="Arah proyeksi"
-            >
-              {projectionOptions.map((option) => (
-                <button
-                  key={option.mode}
-                  type="button"
-                  aria-pressed={projection === option.mode}
-                  onClick={() => selectProjection(option.mode)}
-                >
-                  {option.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="vs-reset-row">
-            <button
-              type="button"
-              className="vs-reset-button"
-              onClick={resetAll}
-            >
-              Atur ulang semua
-            </button>
-          </div>
-        </section>
-      </div>
-
-      <div className="vs-results">
-        <section className="vs-panel vs-wide" aria-labelledby="vs-calc-title">
-          <h3 id="vs-calc-title">Hasil perhitungan</h3>
-          <div className="vs-card-grid">
-            <article className="vs-card">
-              <h4>Penjumlahan vektor</h4>
-              <p className="vs-formula">
-                a + b = ({par(vecA[0])} + {par(vecB[0])}; {par(vecA[1])} +{" "}
-                {par(vecB[1])}) = {formatCoord(info.sum)}
-              </p>
-              <p>
-                |a + b| = {formatValue(length(info.sum))}; a − b ={" "}
-                {formatCoord(info.diff)}
-              </p>
-            </article>
-
-            <article className="vs-card vs-card-result">
-              <h4>Hasil kali titik</h4>
-              <p className="vs-formula">
-                a · b = {par(vecA[0])}·{par(vecB[0])} + {par(vecA[1])}·
-                {par(vecB[1])} = {formatValue(info.dot)}
-              </p>
-              <p>{relationText(info)}</p>
-              <p>
-                |a| = {formatValue(info.la)}; |b| = {formatValue(info.lb)}
-              </p>
-            </article>
-
-            <article className="vs-card">
-              <h4>Sudut antara a dan b</h4>
-              <p className="vs-formula">
-                cos θ = (a · b) / (|a| |b|) = {formatValue(info.cos)}
-              </p>
-              <p>
-                {info.defined
-                  ? `θ = ${formatValue(info.angle)}°`
-                  : "Sudut tidak terdefinisi karena ada vektor nol."}
-              </p>
-            </article>
-
-            <article
-              className={`vs-card${projection === "a" ? " is-active" : ""}`}
-            >
-              <h4>Proyeksi a pada b</h4>
-              {info.aOnB ? (
-                <>
-                  <p className="vs-formula">
-                    skalar = (a · b) / |b| = {formatValue(info.aOnB.scalar)}
-                  </p>
-                  <p>
-                    vektor = ((a · b) / |b|²) b ={" "}
-                    {formatCoord(info.aOnB.vector)}
-                  </p>
-                </>
-              ) : (
-                <p className="vs-formula">
-                  Tidak terdefinisi (b adalah vektor nol).
-                </p>
-              )}
-            </article>
-
-            <article
-              className={`vs-card${projection === "b" ? " is-active" : ""}`}
-            >
-              <h4>Proyeksi b pada a</h4>
-              {info.bOnA ? (
-                <>
-                  <p className="vs-formula">
-                    skalar = (a · b) / |a| = {formatValue(info.bOnA.scalar)}
-                  </p>
-                  <p>
-                    vektor = ((a · b) / |a|²) a ={" "}
-                    {formatCoord(info.bOnA.vector)}
-                  </p>
-                </>
-              ) : (
-                <p className="vs-formula">
-                  Tidak terdefinisi (a adalah vektor nol).
-                </p>
-              )}
-            </article>
-          </div>
-        </section>
-
-        <section className="vs-panel vs-wide" aria-labelledby="vs-table-title">
-          <h3 id="vs-table-title">Komponen dan panjang</h3>
-          <div className="vs-table-wrap">
-            <table className="vs-table">
-              <thead>
-                <tr>
-                  <th scope="col">Vektor</th>
-                  <th scope="col">Komponen</th>
-                  <th scope="col">Panjang</th>
-                </tr>
-              </thead>
-              <tbody>
-                {tableRows.map((row) => (
-                  <tr key={row.name}>
-                    <th scope="row">{row.name}</th>
-                    <td className="vs-cell-main">
-                      {row.vector ? formatCoord(row.vector) : "—"}
-                    </td>
-                    <td className="vs-cell-muted">{formatValue(row.size)}</td>
-                  </tr>
+            <div className="vs-panel">
+              <h3>Contoh posisi</h3>
+              <div
+                className="vs-segmented"
+                role="group"
+                aria-label="Contoh posisi dua vektor"
+              >
+                {presets.map((preset) => (
+                  <button
+                    key={preset.label}
+                    type="button"
+                    onClick={() =>
+                      setVectors([...preset.a], [...preset.b], true)
+                    }
+                  >
+                    {preset.label}
+                  </button>
                 ))}
-              </tbody>
-            </table>
+              </div>
+            </div>
+
+            <div className="vs-panel">
+              <h3>Tampilan</h3>
+              <label className="vs-check vs-check-first">
+                <input
+                  type="checkbox"
+                  checked={showSum}
+                  onChange={(event) => toggleSum(event.currentTarget.checked)}
+                />
+                Penjumlahan a + b (jajar genjang)
+              </label>
+              <label className="vs-check">
+                <input
+                  type="checkbox"
+                  checked={showAngle}
+                  onChange={(event) => toggleAngle(event.currentTarget.checked)}
+                />
+                Sudut θ antara a dan b
+              </label>
+              <p className="vs-subtitle">Proyeksi</p>
+              <div
+                className="vs-segmented"
+                role="group"
+                aria-label="Arah proyeksi"
+              >
+                {projectionOptions.map((option) => (
+                  <button
+                    key={option.mode}
+                    type="button"
+                    aria-pressed={projection === option.mode}
+                    onClick={() => selectProjection(option.mode)}
+                  >
+                    {option.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="vs-reset-row">
+              <button
+                type="button"
+                className="vs-reset-button"
+                onClick={resetAll}
+              >
+                Atur ulang semua
+              </button>
+            </div>
+          </section>
+
+          <div className="vs-results">
+            <section
+              className="vs-panel vs-wide"
+              aria-labelledby="vs-calc-title"
+            >
+              <h3 id="vs-calc-title">Hasil perhitungan</h3>
+              <div className="vs-card-grid">
+                <article className="vs-card">
+                  <h4>Penjumlahan vektor</h4>
+                  <p className="vs-formula">
+                    a + b = ({par(vecA[0])} + {par(vecB[0])}; {par(vecA[1])} +{" "}
+                    {par(vecB[1])}) = {formatCoord(info.sum)}
+                  </p>
+                  <p>
+                    |a + b| = {formatValue(length(info.sum))}; a − b ={" "}
+                    {formatCoord(info.diff)}
+                  </p>
+                </article>
+
+                <article className="vs-card vs-card-result">
+                  <h4>Hasil kali titik</h4>
+                  <p className="vs-formula">
+                    a · b = {par(vecA[0])}·{par(vecB[0])} + {par(vecA[1])}·
+                    {par(vecB[1])} = {formatValue(info.dot)}
+                  </p>
+                  <p>{relationText(info)}</p>
+                  <p>
+                    |a| = {formatValue(info.la)}; |b| = {formatValue(info.lb)}
+                  </p>
+                </article>
+
+                <article className="vs-card">
+                  <h4>Sudut antara a dan b</h4>
+                  <p className="vs-formula">
+                    cos θ = (a · b) / (|a| |b|) = {formatValue(info.cos)}
+                  </p>
+                  <p>
+                    {info.defined
+                      ? `θ = ${formatValue(info.angle)}°`
+                      : "Sudut tidak terdefinisi karena ada vektor nol."}
+                  </p>
+                </article>
+
+                <article
+                  className={`vs-card${projection === "a" ? " is-active" : ""}`}
+                >
+                  <h4>Proyeksi a pada b</h4>
+                  {info.aOnB ? (
+                    <>
+                      <p className="vs-formula">
+                        skalar = (a · b) / |b| = {formatValue(info.aOnB.scalar)}
+                      </p>
+                      <p>
+                        vektor = ((a · b) / |b|²) b ={" "}
+                        {formatCoord(info.aOnB.vector)}
+                      </p>
+                    </>
+                  ) : (
+                    <p className="vs-formula">
+                      Tidak terdefinisi (b adalah vektor nol).
+                    </p>
+                  )}
+                </article>
+
+                <article
+                  className={`vs-card${projection === "b" ? " is-active" : ""}`}
+                >
+                  <h4>Proyeksi b pada a</h4>
+                  {info.bOnA ? (
+                    <>
+                      <p className="vs-formula">
+                        skalar = (a · b) / |a| = {formatValue(info.bOnA.scalar)}
+                      </p>
+                      <p>
+                        vektor = ((a · b) / |a|²) a ={" "}
+                        {formatCoord(info.bOnA.vector)}
+                      </p>
+                    </>
+                  ) : (
+                    <p className="vs-formula">
+                      Tidak terdefinisi (a adalah vektor nol).
+                    </p>
+                  )}
+                </article>
+              </div>
+            </section>
+
+            <section
+              className="vs-panel vs-wide"
+              aria-labelledby="vs-table-title"
+            >
+              <h3 id="vs-table-title">Komponen dan panjang</h3>
+              <div className="vs-table-wrap">
+                <table className="vs-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Vektor</th>
+                      <th scope="col">Komponen</th>
+                      <th scope="col">Panjang</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {tableRows.map((row) => (
+                      <tr key={row.name}>
+                        <th scope="row">{row.name}</th>
+                        <td className="vs-cell-main">
+                          {row.vector ? formatCoord(row.vector) : "—"}
+                        </td>
+                        <td className="vs-cell-muted">
+                          {formatValue(row.size)}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
           </div>
-        </section>
+        </div>
       </div>
 
       <ul className="vs-insights">

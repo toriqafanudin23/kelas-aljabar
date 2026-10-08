@@ -109,8 +109,14 @@
   background: #e8f3f1;
 }
 
+/* Pembungkus pengaturan + hasil: tidak memengaruhi tata letak biasa */
+.vs-column {
+  display: contents;
+}
+
 .vs-results {
   display: grid;
+  grid-column: 1 / -1;
   gap: 14px;
   min-width: 0;
 }
@@ -493,8 +499,9 @@
 }
 
 /* ============ Mode layar penuh (16:9) ============
-   Tiga kolom: bidang koordinat | pengaturan | hasil dan tabel.
-   Penjelasan berada di baris bawah. Semua muat tanpa scroll halaman. */
+   Dua kolom 2 : 1: bidang koordinat | satu kolom berisi pengaturan lalu
+   hasil dan tabel (menurun ke bawah, bisa di-scroll). Penjelasan berada
+   di baris bawah. Halaman tidak di-scroll. */
 .vector-simulation.is-fullscreen {
   position: fixed;
   inset: 0;
@@ -503,10 +510,8 @@
   width: 100vw;
   height: 100vh;
   height: 100dvh;
-  grid-template-columns: minmax(0, 1.35fr) minmax(250px, 0.62fr) minmax(
-      300px,
-      1fr
-    );
+  /* grafik : (input + info) = 2 : 1 */
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   grid-template-rows: minmax(0, 1fr) auto;
   gap: 8px 10px;
   padding: 10px 14px;
@@ -519,9 +524,20 @@
 }
 
 .is-fullscreen .vs-board-panel,
-.is-fullscreen .vs-side,
-.is-fullscreen .vs-results {
+.is-fullscreen .vs-column {
   min-height: 0;
+}
+
+/* Pengaturan dan hasil jadi satu kolom menurun, satu scroll */
+.is-fullscreen .vs-column {
+  display: grid;
+  gap: 8px;
+  overflow-y: auto;
+  align-content: start;
+}
+
+.is-fullscreen .vs-results {
+  grid-column: auto;
 }
 
 .is-fullscreen .vs-board-panel {
@@ -549,8 +565,6 @@
 
 .is-fullscreen .vs-side {
   gap: 8px;
-  overflow-y: auto;
-  align-content: start;
 }
 
 .is-fullscreen .vs-panel {
@@ -584,12 +598,10 @@
 
 .is-fullscreen .vs-results {
   gap: 8px;
-  overflow-y: auto;
-  align-content: start;
 }
 
 .is-fullscreen .vs-card-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 6px;
 }
 
@@ -649,8 +661,7 @@
     display: block;
   }
 
-  .is-fullscreen .vs-side,
-  .is-fullscreen .vs-results {
+  .is-fullscreen .vs-column {
     overflow: visible;
   }
 
