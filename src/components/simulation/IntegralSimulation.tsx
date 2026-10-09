@@ -2,6 +2,7 @@ import { useEffect, useId, useRef, useState } from "react";
 import JXG from "jsxgraph";
 import "../../../node_modules/jsxgraph/distrib/jsxgraph.css";
 import "./IntegralSimulation.css";
+import { GraphAppearanceControls } from "./GraphAppearanceControls";
 import { useStoredSimulationState } from "./useStoredSimulationState";
 import { FN_KEYS, FUNCS, calcColors, type FnKey } from "./calculusFunctions";
 import {
@@ -21,7 +22,7 @@ type State = {
   fn: FnKey;
   a: number; // batas bawah integral
   b: number; // batas atas integral
-  n: number; // banyak persegi panjang
+  n: number;
   method: Method;
 };
 type Style = { curveWidth: number; pointSize: number };
@@ -73,10 +74,10 @@ export function IntegralSimulation() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const boardRef = useRef<Board | null>(null);
   const curveRef = useRef<JXG.Functiongraph | null>(null);
+  const pointsRef = useRef<JXG.Point[]>([]);
   const nTimer = useRef<number | null>(null);
 
-  const { rootRef, isFullscreen, toggleFullscreen } =
-    useSimulationFullscreen();
+  const { rootRef, isFullscreen, toggleFullscreen } = useSimulationFullscreen();
 
   const [st, setSt] = useStoredSimulationState("integral.state", initialState);
   const [style, setStyle] = useStoredSimulationState(
@@ -191,11 +192,15 @@ export function IntegralSimulation() {
     };
 
     // Kurva f(x) tanpa batas domain: mengikuti area yang terlihat.
-    curveRef.current = board.create("functiongraph", [(x: number) => F().f(x)], {
-      strokeColor: calcColors.curve,
-      strokeWidth: styleRef.current.curveWidth,
-      highlight: false,
-    });
+    curveRef.current = board.create(
+      "functiongraph",
+      [(x: number) => F().f(x)],
+      {
+        strokeColor: calcColors.curve,
+        strokeWidth: styleRef.current.curveWidth,
+        highlight: false,
+      },
+    );
 
     // Batas a dan b: garis vertikal tak berhingga
     ([() => S().a, () => S().b] as const).forEach((edge) => {
@@ -219,6 +224,27 @@ export function IntegralSimulation() {
       );
     });
 
+    pointsRef.current = [S().a, S().b].map(
+      (_, index) =>
+        board.create(
+          "point",
+          [
+            () => (index === 0 ? S().a : S().b),
+            () => F().f(index === 0 ? S().a : S().b),
+          ],
+          {
+            name: "",
+            withLabel: false,
+            size: styleRef.current.pointSize,
+            fillColor: calcColors.point,
+            strokeColor: "#ffffff",
+            strokeWidth: 1.5,
+            fixed: true,
+            highlight: false,
+          },
+        ) as JXG.Point,
+    );
+
     const stopObserving = observeBoardResize(board, containerRef.current);
 
     return () => {
@@ -226,6 +252,7 @@ export function IntegralSimulation() {
       JXG.JSXGraph.freeBoard(board);
       boardRef.current = null;
       curveRef.current = null;
+      pointsRef.current = [];
     };
   }, [boardId]);
 
@@ -234,6 +261,9 @@ export function IntegralSimulation() {
     curveRef.current?.setAttribute({
       strokeWidth: clamp(style.curveWidth, CURVE_WIDTH_RANGE),
     });
+    pointsRef.current.forEach((point) =>
+      point.setAttribute({ size: clamp(style.pointSize, POINT_SIZE_RANGE) }),
+    );
     boardRef.current?.update();
   }, [style]);
 
@@ -254,7 +284,7 @@ export function IntegralSimulation() {
   return (
     <div
       ref={rootRef}
-      className={`integral-simulation${isFullscreen ? " is-fullscreen" : ""}`}
+      className={`integral-simulation simulation-fullscreen-frame${isFullscreen ? " is-fullscreen" : ""}`}
     >
       <div className="ig-boards">
         <section className="ig-board-panel" aria-labelledby="ig-title">
@@ -375,7 +405,9 @@ export function IntegralSimulation() {
                 aria-valuetext={`${label} sama dengan ${display}`}
                 onChange={(event) => {
                   if (key === "n") stopN();
-                  patch({ [key]: Number(event.currentTarget.value) } as Partial<State>);
+                  patch({
+                    [key]: Number(event.currentTarget.value),
+                  } as Partial<State>);
                 }}
               />
               <div className="ig-range-labels" aria-hidden="true">
@@ -422,28 +454,7 @@ export function IntegralSimulation() {
             </button>
           </div>
 
-          <div className="ig-style" role="group" aria-label="Gaya grafik">
-            <div className="ig-stepper">
-              <span>Ketebalan grafik</span>
-              <button
-                type="button"
-                onClick={() => changeStyle("curveWidth", -1)}
-                disabled={style.curveWidth <= CURVE_WIDTH_RANGE[0]}
-                aria-label="Kurangi ketebalan grafik"
-              >
-                −
-              </button>
-              <output aria-live="polite">{style.curveWidth}</output>
-              <button
-                type="button"
-                onClick={() => changeStyle("curveWidth", 1)}
-                disabled={style.curveWidth >= CURVE_WIDTH_RANGE[1]}
-                aria-label="Tambah ketebalan grafik"
-              >
-                +
-              </button>
-            </div>
-          </div>
+          <GraphAppearanceControls appearance={style} onStep={changeStyle} />
 
           <dl className="ig-readouts" aria-live="polite">
             <div className="readout-green">
@@ -479,14 +490,14 @@ export function IntegralSimulation() {
 
       <ul className="ig-insights">
         <li>
-          <strong style={{ color: calcColors.area }}>Jumlah Riemann:</strong>{" "}
-          Sₙ = Σ f(xᵢ*) · Δx dengan Δx = (b − a)/n. Saat n → ∞, Sₙ menuju
-          integral tentu ∫ f(x) dx = F(b) − F(a).
+          <strong style={{ color: calcColors.area }}>Jumlah Riemann:</strong> Sₙ
+          = Σ f(xᵢ*) · Δx dengan Δx = (b − a)/n. Saat n → ∞, Sₙ menuju integral
+          tentu ∫ f(x) dx = F(b) − F(a).
         </li>
         <li>
           <strong style={{ color: calcColors.point }}>Luas bertanda:</strong>{" "}
-          Bagian grafik di bawah sumbu x menyumbang luas negatif, sehingga
-          nilai integral bisa lebih kecil dari luas daerah sebenarnya.
+          Bagian grafik di bawah sumbu x menyumbang luas negatif, sehingga nilai
+          integral bisa lebih kecil dari luas daerah sebenarnya.
         </li>
       </ul>
     </div>

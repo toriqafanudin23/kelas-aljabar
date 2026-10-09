@@ -2,6 +2,8 @@ import { useEffect, useId, useRef, useState } from "react";
 import JXG from "jsxgraph";
 import "../../../node_modules/jsxgraph/distrib/jsxgraph.css";
 import "./FunctionTransformationSimulation.css";
+import { GraphAppearanceControls } from "./GraphAppearanceControls";
+import { useGraphAppearance } from "./simulationBoard";
 import { useStoredSimulationState } from "./useStoredSimulationState";
 
 /* ---------- Tipe ---------- */
@@ -330,6 +332,7 @@ export function FunctionTransformationSimulation() {
   const boardRef = useRef<ReturnType<typeof JXG.JSXGraph.initBoard> | null>(
     null,
   );
+  const { appearance, onStep } = useGraphAppearance([boardRef]);
 
   const [isFull, setIsFull] = useState(false);
   const [functionId, setFunctionId] = useStoredSimulationState<FunctionId>(
@@ -744,6 +747,7 @@ export function FunctionTransformationSimulation() {
               {isFull ? "Tutup layar penuh" : "Layar penuh"}
             </button>
           </div>
+          <GraphAppearanceControls appearance={appearance} onStep={onStep} />
         </div>
       </div>
       <div
@@ -1002,7 +1006,10 @@ export function FunctionTransformationSimulation() {
   );
 
   return (
-    <div className="function-transformation-simulation" ref={rootRef}>
+    <div
+      className={`function-transformation-simulation simulation-fullscreen-frame${isFull ? " is-fullscreen" : ""}`}
+      ref={rootRef}
+    >
       <div className="ft-main">
         {boardEl}
         {isFull ? (

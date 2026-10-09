@@ -2,6 +2,8 @@ import { useEffect, useId, useRef, useState } from "react";
 import JXG from "jsxgraph";
 import "../../../node_modules/jsxgraph/distrib/jsxgraph.css";
 import "./TransformationSimulation.css";
+import { GraphAppearanceControls } from "./GraphAppearanceControls";
+import { useGraphAppearance } from "./simulationBoard";
 import { useStoredSimulationState } from "./useStoredSimulationState";
 
 /* ---------- Tipe ---------- */
@@ -358,6 +360,7 @@ export function TransformationSimulation() {
   const boardRef = useRef<ReturnType<typeof JXG.JSXGraph.initBoard> | null>(
     null,
   );
+  const { appearance, onStep } = useGraphAppearance([boardRef]);
   const pointsRef = useRef<JXG.Point[]>([]);
 
   const [shape, setShape] = useStoredSimulationState("transformation.shape", 3);
@@ -954,6 +957,7 @@ export function TransformationSimulation() {
               {isFull ? "Tutup layar penuh" : "Layar penuh"}
             </button>
           </div>
+          <GraphAppearanceControls appearance={appearance} onStep={onStep} />
         </div>
       </div>
       <div
@@ -1374,7 +1378,10 @@ export function TransformationSimulation() {
   );
 
   return (
-    <div className="transformation-simulation" ref={rootRef}>
+    <div
+      className={`transformation-simulation simulation-fullscreen-frame${isFull ? " is-fullscreen" : ""}`}
+      ref={rootRef}
+    >
       <div className="tf-main">
         {boardEl}
         {isFull ? (

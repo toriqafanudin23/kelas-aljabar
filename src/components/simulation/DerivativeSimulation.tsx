@@ -2,6 +2,7 @@ import { useEffect, useId, useRef, useState } from "react";
 import JXG from "jsxgraph";
 import "../../../node_modules/jsxgraph/distrib/jsxgraph.css";
 import "./DerivativeSimulation.css";
+import { GraphAppearanceControls } from "./GraphAppearanceControls";
 import { useStoredSimulationState } from "./useStoredSimulationState";
 import { FN_KEYS, FUNCS, calcColors, type FnKey } from "./calculusFunctions";
 import {
@@ -43,10 +44,12 @@ export function DerivativeSimulation() {
   const pointsRef = useRef<{ el: JXG.Point; extra: number }[]>([]);
   const hRaf = useRef<number | null>(null);
 
-  const { rootRef, isFullscreen, toggleFullscreen } =
-    useSimulationFullscreen();
+  const { rootRef, isFullscreen, toggleFullscreen } = useSimulationFullscreen();
 
-  const [st, setSt] = useStoredSimulationState("derivative.state", initialState);
+  const [st, setSt] = useStoredSimulationState(
+    "derivative.state",
+    initialState,
+  );
   const [style, setStyle] = useStoredSimulationState(
     "derivative.style",
     initialStyle,
@@ -122,11 +125,15 @@ export function DerivativeSimulation() {
 
     // Kurva f(x), garis singgung, dan tali busur tidak dibatasi domain
     // sehingga selalu mengikuti area yang terlihat saat digeser/di-zoom.
-    curveRef.current = board.create("functiongraph", [(x: number) => F().f(x)], {
-      strokeColor: calcColors.curve,
-      strokeWidth: styleRef.current.curveWidth,
-      highlight: false,
-    });
+    curveRef.current = board.create(
+      "functiongraph",
+      [(x: number) => F().f(x)],
+      {
+        strokeColor: calcColors.curve,
+        strokeWidth: styleRef.current.curveWidth,
+        highlight: false,
+      },
+    );
     board.create(
       "functiongraph",
       [(x: number) => F().f(S().x0) + F().df(S().x0) * (x - S().x0)],
@@ -238,7 +245,9 @@ export function DerivativeSimulation() {
       strokeWidth: clamp(style.curveWidth, CURVE_WIDTH_RANGE),
     });
     pointsRef.current.forEach(({ el, extra }) =>
-      el.setAttribute({ size: clamp(style.pointSize, POINT_SIZE_RANGE) + extra }),
+      el.setAttribute({
+        size: clamp(style.pointSize, POINT_SIZE_RANGE) + extra,
+      }),
     );
     boardRef.current?.update();
   }, [style]);
@@ -266,7 +275,7 @@ export function DerivativeSimulation() {
   return (
     <div
       ref={rootRef}
-      className={`derivative-simulation${isFullscreen ? " is-fullscreen" : ""}`}
+      className={`derivative-simulation simulation-fullscreen-frame${isFullscreen ? " is-fullscreen" : ""}`}
     >
       <div className="dv-boards">
         <section className="dv-board-panel" aria-labelledby="dv-title">
@@ -357,7 +366,9 @@ export function DerivativeSimulation() {
               step={0.1}
               value={st.x0}
               aria-valuetext={`x₀ sama dengan ${fmt(st.x0)}`}
-              onChange={(event) => patch({ x0: Number(event.currentTarget.value) })}
+              onChange={(event) =>
+                patch({ x0: Number(event.currentTarget.value) })
+              }
             />
             <div className="dv-range-labels" aria-hidden="true">
               <span>−4</span>
@@ -407,43 +418,7 @@ export function DerivativeSimulation() {
             </button>
           </div>
 
-          <div className="dv-style" role="group" aria-label="Gaya grafik">
-            {(
-              [
-                {
-                  key: "curveWidth",
-                  label: "Ketebalan grafik",
-                  range: CURVE_WIDTH_RANGE,
-                },
-                {
-                  key: "pointSize",
-                  label: "Ukuran titik",
-                  range: POINT_SIZE_RANGE,
-                },
-              ] as const
-            ).map(({ key, label, range }) => (
-              <div className="dv-stepper" key={key}>
-                <span>{label}</span>
-                <button
-                  type="button"
-                  onClick={() => changeStyle(key, -1)}
-                  disabled={style[key] <= range[0]}
-                  aria-label={`Kurangi ${label.toLowerCase()}`}
-                >
-                  −
-                </button>
-                <output aria-live="polite">{style[key]}</output>
-                <button
-                  type="button"
-                  onClick={() => changeStyle(key, 1)}
-                  disabled={style[key] >= range[1]}
-                  aria-label={`Tambah ${label.toLowerCase()}`}
-                >
-                  +
-                </button>
-              </div>
-            ))}
-          </div>
+          <GraphAppearanceControls appearance={style} onStep={changeStyle} />
 
           <dl className="dv-readouts" aria-live="polite">
             <div className="readout-gold">
@@ -483,8 +458,8 @@ export function DerivativeSimulation() {
             <p className="dv-warning" role="status">
               Saat h = 0, titik Q berimpit dengan P sehingga kemiringan tali
               busur berbentuk 0/0 (tak terdefinisi). Itulah sebabnya turunan
-              didefinisikan sebagai limit saat h mendekati 0, bukan nilai di
-              h = 0.
+              didefinisikan sebagai limit saat h mendekati 0, bukan nilai di h =
+              0.
             </p>
           )}
 
@@ -529,9 +504,9 @@ export function DerivativeSimulation() {
           <strong style={{ color: calcColors.tangent }}>
             Limit dan turunan:
           </strong>{" "}
-          f′(x₀) = lim<sub>h→0</sub> [f(x₀+h) − f(x₀)]/h = {fmt(mTan, 4)}.
-          Limit ada karena pendekatan dari kiri dan kanan menuju nilai yang
-          sama (lihat tabel).
+          f′(x₀) = lim<sub>h→0</sub> [f(x₀+h) − f(x₀)]/h = {fmt(mTan, 4)}. Limit
+          ada karena pendekatan dari kiri dan kanan menuju nilai yang sama
+          (lihat tabel).
         </li>
       </ul>
     </div>

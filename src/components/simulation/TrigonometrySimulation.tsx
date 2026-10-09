@@ -1,11 +1,17 @@
+import { Maximize2, Minimize2 } from "lucide-react";
 import { useEffect, useId, useRef } from "react";
 import JXG from "jsxgraph";
 import "../../../node_modules/jsxgraph/distrib/jsxgraph.css";
 import "./TrigonometrySimulation.css";
+import { GraphAppearanceControls } from "./GraphAppearanceControls";
+import { useGraphAppearance, useSimulationFullscreen } from "./simulationBoard";
 import { useStoredSimulationState } from "./useStoredSimulationState";
 
 const initialAngle = 45;
 const graphLimit = Math.PI * 2;
+const specialAngles = [
+  0, 30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330,
+];
 const unitColors = {
   cosine: "#087f8c",
   sine: "#d16b36",
@@ -42,6 +48,7 @@ function formatValue(value: number) {
 export function TrigonometrySimulation() {
   const circleId = `trig-circle-${useId().replace(/:/g, "")}`;
   const graphId = `trig-graph-${useId().replace(/:/g, "")}`;
+  const { rootRef, isFullscreen, toggleFullscreen } = useSimulationFullscreen();
   const circleContainerRef = useRef<HTMLDivElement | null>(null);
   const graphContainerRef = useRef<HTMLDivElement | null>(null);
   const circleBoardRef = useRef<ReturnType<
@@ -50,6 +57,10 @@ export function TrigonometrySimulation() {
   const graphBoardRef = useRef<ReturnType<
     typeof JXG.JSXGraph.initBoard
   > | null>(null);
+  const { appearance, onStep } = useGraphAppearance([
+    circleBoardRef,
+    graphBoardRef,
+  ]);
   const anglePointRef = useRef<JXG.Point | null>(null);
   const [angleDegrees, setAngleDegrees] = useStoredSimulationState(
     "trigonometry.angle",
@@ -90,7 +101,7 @@ export function TrigonometrySimulation() {
       showCopyright: false,
       showNavigation: false,
       keepAspectRatio: false,
-      pan: { enabled: false },
+      pan: { enabled: true, needShift: false, needTwoFingers: false },
       zoom: { wheel: false },
     });
     graphBoardRef.current = graphBoard;
@@ -292,47 +303,28 @@ export function TrigonometrySimulation() {
       },
     );
 
+    graphBoard.create("functiongraph", [(x: number) => Math.sin(x)], {
+      strokeColor: unitColors.sine,
+      strokeWidth: 2.5,
+      highlight: false,
+    });
+    graphBoard.create("functiongraph", [(x: number) => Math.cos(x)], {
+      strokeColor: unitColors.cosine,
+      strokeWidth: 2.5,
+      highlight: false,
+    });
     graphBoard.create(
       "functiongraph",
-      [(x: number) => Math.sin(x), -graphLimit, graphLimit],
+      [
+        (x: number) =>
+          Math.abs(Math.cos(x)) < 0.06 ? Number.NaN : Math.tan(x),
+      ],
       {
-        strokeColor: unitColors.sine,
-        strokeWidth: 2.5,
+        strokeColor: unitColors.tangent,
+        strokeWidth: 2,
         highlight: false,
       },
     );
-    graphBoard.create(
-      "functiongraph",
-      [(x: number) => Math.cos(x), -graphLimit, graphLimit],
-      {
-        strokeColor: unitColors.cosine,
-        strokeWidth: 2.5,
-        highlight: false,
-      },
-    );
-
-    const asymptotes = [
-      -Math.PI * 1.5,
-      -Math.PI * 0.5,
-      Math.PI * 0.5,
-      Math.PI * 1.5,
-    ];
-    const boundaries = [-graphLimit, ...asymptotes, graphLimit];
-    const gap = 0.045;
-    for (let index = 0; index < boundaries.length - 1; index += 1) {
-      const start = boundaries[index] + (index === 0 ? 0 : gap);
-      const end =
-        boundaries[index + 1] - (index === boundaries.length - 2 ? 0 : gap);
-      graphBoard.create(
-        "functiongraph",
-        [(x: number) => Math.tan(x), start, end],
-        {
-          strokeColor: unitColors.tangent,
-          strokeWidth: 2,
-          highlight: false,
-        },
-      );
-    }
 
     graphBoard.create(
       "segment",
@@ -410,7 +402,31 @@ export function TrigonometrySimulation() {
   const tangent = tangentIsDefined ? Math.tan(radians) : null;
 
   return (
-    <div className="trigonometry-simulation">
+    <div
+      className={`trigonometry-simulation simulation-fullscreen-frame${isFullscreen ? " is-fullscreen" : ""}`}
+      ref={rootRef}
+    >
+      <div className="trig-toolbar">
+        <GraphAppearanceControls appearance={appearance} onStep={onStep} />
+        <button
+          className="trig-fullscreen-button"
+          type="button"
+          onClick={toggleFullscreen}
+          aria-pressed={isFullscreen}
+        >
+          {isFullscreen ? (
+            <>
+              <Minimize2 size={15} aria-hidden="true" />
+              <span>Keluar layar penuh</span>
+            </>
+          ) : (
+            <>
+              <Maximize2 size={15} aria-hidden="true" />
+              <span>Layar penuh</span>
+            </>
+          )}
+        </button>
+      </div>
       <div className="trig-boards">
         <section
           className="trig-board-panel"
@@ -437,7 +453,7 @@ export function TrigonometrySimulation() {
         >
           <div className="trig-board-heading">
             <h3 id="trig-graph-title">Grafik fungsi trigonometri</h3>
-            <span>−2π sampai 2π</span>
+            <span>Geser dengan tahan klik kiri · −2π sampai 2π</span>
           </div>
           <div
             className="trig-board trig-function-board"
@@ -491,6 +507,26 @@ export function TrigonometrySimulation() {
         >
           Atur ulang
         </button>
+        <div
+          className="trig-special-angles"
+          role="group"
+          aria-label="Sudut istimewa"
+        >
+          <span>Sudut istimewa</span>
+          <div className="trig-special-angle-buttons">
+            {specialAngles.map((angle) => (
+              <button
+                key={angle}
+                type="button"
+                className={angleDegrees === angle ? "active" : ""}
+                aria-pressed={angleDegrees === angle}
+                onClick={() => updateAngle(angle)}
+              >
+                {angle}°
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
 
       <dl className="trig-readouts" aria-live="polite">

@@ -1,0 +1,59 @@
+.sim-appearance-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.sim-appearance-stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.sim-appearance-stepper button {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--navy);
+  cursor: pointer;
+}
+
+.sim-appearance-stepper button:hover:not(:disabled) {
+  border-color: var(--navy-bright);
+  color: var(--navy-bright);
+}
+
+.sim-appearance-stepper button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.sim-appearance-stepper button:focus-visible {
+  outline: 2px solid var(--navy-bright);
+  outline-offset: 2px;
+}
+
+.sim-appearance-stepper output {
+  min-width: 18px;
+  color: var(--navy);
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 520px) {
+  .sim-appearance-controls {
+    gap: 8px 12px;
+    padding: 5px 7px;
+  }
+}

@@ -2,6 +2,8 @@ import { useEffect, useId, useRef, useState } from "react";
 import JXG from "jsxgraph";
 import "../../../node_modules/jsxgraph/distrib/jsxgraph.css";
 import "./VectorSimulation.css";
+import { GraphAppearanceControls } from "./GraphAppearanceControls";
+import { useGraphAppearance } from "./simulationBoard";
 import { useStoredSimulationState } from "./useStoredSimulationState";
 
 /* ---------- Tipe ---------- */
@@ -167,6 +169,7 @@ export function VectorSimulation() {
   const boardRef = useRef<ReturnType<typeof JXG.JSXGraph.initBoard> | null>(
     null,
   );
+  const { appearance, onStep } = useGraphAppearance([boardRef]);
   const pointsRef = useRef<JXG.Point[]>([]);
 
   const [vecA, setVecA] = useStoredSimulationState<Vec>("vector.a", defaultA);
@@ -711,7 +714,7 @@ export function VectorSimulation() {
   return (
     <div
       ref={rootRef}
-      className={`vector-simulation${isFullscreen ? " is-fullscreen" : ""}`}
+      className={`vector-simulation simulation-fullscreen-frame${isFullscreen ? " is-fullscreen" : ""}`}
     >
       <div className="vs-main">
         <section className="vs-board-panel" aria-labelledby="vs-board-title">
@@ -739,6 +742,7 @@ export function VectorSimulation() {
                 {isFullscreen ? "Keluar layar penuh" : "Layar penuh"}
               </button>
             </div>
+            <GraphAppearanceControls appearance={appearance} onStep={onStep} />
           </div>
           <div
             className="vs-board"

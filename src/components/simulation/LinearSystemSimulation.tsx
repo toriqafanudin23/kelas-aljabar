@@ -3,6 +3,8 @@ import type { KeyboardEvent as ReactKeyboardEvent } from "react";
 import JXG from "jsxgraph";
 import "../../../node_modules/jsxgraph/distrib/jsxgraph.css";
 import "./LinearSystemSimulation.css";
+import { GraphAppearanceControls } from "./GraphAppearanceControls";
+import { useGraphAppearance } from "./simulationBoard";
 import { useStoredSimulationState } from "./useStoredSimulationState";
 import {
   OP_SYMBOL,
@@ -183,6 +185,7 @@ export function LinearSystemSimulation() {
   const panelRef = useRef<HTMLElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const boardRef = useRef<Board | null>(null);
+  const { appearance, onStep } = useGraphAppearance([boardRef]);
 
   // objek papan
   const objsRef = useRef<{ line: JEl; p1: JEl; p2: JEl }[]>([]);
@@ -1172,6 +1175,7 @@ export function LinearSystemSimulation() {
               PNG
             </button>
           </div>
+          <GraphAppearanceControls appearance={appearance} onStep={onStep} />
         </div>
       </div>
 
@@ -1622,7 +1626,10 @@ export function LinearSystemSimulation() {
   );
 
   return (
-    <div className="linear-simulation" ref={rootRef}>
+    <div
+      className={`linear-simulation simulation-fullscreen-frame${isFull ? " is-fullscreen" : ""}`}
+      ref={rootRef}
+    >
       {tabsEl}
 
       <div className="lin-boards">

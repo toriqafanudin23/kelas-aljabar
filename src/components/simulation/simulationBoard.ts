@@ -3,6 +3,81 @@ import JXG from "jsxgraph";
 
 export type Board = ReturnType<typeof JXG.JSXGraph.initBoard>;
 export type BoundingBox = [number, number, number, number];
+export type GraphAppearance = { curveWidth: number; pointSize: number };
+export type BoardRef = { current: Board | null };
+
+const GRAPH_LINE_TYPES = new Set([
+  "arc",
+  "arrow",
+  "circle",
+  "curve",
+  "functiongraph",
+  "line",
+  "polygon",
+  "segment",
+]);
+const GRAPH_POINT_TYPES = new Set(["glider", "point"]);
+const originalStrokeWidths = new WeakMap<JXG.GeometryElement, number>();
+const originalPointSizes = new WeakMap<JXG.GeometryElement, number>();
+
+export function applyGraphAppearance(
+  board: Board | null,
+  appearance: GraphAppearance,
+) {
+  if (!board) return;
+
+  (Object.values(board.objects) as JXG.GeometryElement[]).forEach((element) => {
+    if (GRAPH_LINE_TYPES.has(element.elType)) {
+      let originalWidth = originalStrokeWidths.get(element);
+      if (originalWidth === undefined) {
+        originalWidth = Number(element.visProp.strokeWidth);
+        if (!Number.isFinite(originalWidth)) return;
+        originalStrokeWidths.set(element, originalWidth);
+      }
+      element.setAttribute({
+        strokeWidth: originalWidth * (appearance.curveWidth / 3),
+      });
+    }
+
+    if (GRAPH_POINT_TYPES.has(element.elType)) {
+      let originalSize = originalPointSizes.get(element);
+      if (originalSize === undefined) {
+        originalSize = Number(element.visProp.size);
+        if (!Number.isFinite(originalSize)) return;
+        originalPointSizes.set(element, originalSize);
+      }
+      element.setAttribute({
+        size: originalSize * (appearance.pointSize / 4),
+      } as unknown as JXG.GeometryElementAttributes);
+    }
+  });
+
+  board.update();
+}
+
+export function useGraphAppearance(boardRefs: BoardRef[]) {
+  const [appearance, setAppearance] = useState<GraphAppearance>({
+    curveWidth: 3,
+    pointSize: 4,
+  });
+
+  useEffect(() => {
+    boardRefs.forEach((boardRef) =>
+      applyGraphAppearance(boardRef.current, appearance),
+    );
+  }, [appearance, boardRefs]);
+
+  const onStep = (key: keyof GraphAppearance, delta: number) => {
+    const range: readonly [number, number] =
+      key === "curveWidth" ? [1, 8] : [2, 10];
+    setAppearance((current) => ({
+      ...current,
+      [key]: clamp(current[key] + delta, range),
+    }));
+  };
+
+  return { appearance, onStep };
+}
 
 export function round1(value: number) {
   return Math.round(value * 10) / 10;

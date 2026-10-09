@@ -2,6 +2,7 @@ import { useEffect, useId, useRef, useState } from "react";
 import JXG from "jsxgraph";
 import "../../../node_modules/jsxgraph/distrib/jsxgraph.css";
 import "./QuadraticSimulation.css";
+import { GraphAppearanceControls } from "./GraphAppearanceControls";
 import { useStoredSimulationState } from "./useStoredSimulationState";
 
 type Params = { a: number; b: number; c: number };
@@ -337,7 +338,9 @@ export function QuadraticSimulation() {
       strokeWidth: clamp(style.curveWidth, CURVE_WIDTH_RANGE),
     });
     pointsRef.current.forEach(({ el, extra }) =>
-      el.setAttribute({ size: clamp(style.pointSize, POINT_SIZE_RANGE) + extra }),
+      el.setAttribute({
+        size: clamp(style.pointSize, POINT_SIZE_RANGE) + extra,
+      }),
     );
     boardRef.current?.update();
   }, [style]);
@@ -372,7 +375,7 @@ export function QuadraticSimulation() {
   return (
     <div
       ref={rootRef}
-      className={`quadratic-simulation${isFullscreen ? " is-fullscreen" : ""}`}
+      className={`quadratic-simulation simulation-fullscreen-frame${isFullscreen ? " is-fullscreen" : ""}`}
     >
       <div className="quad-boards">
         <section className="quad-board-panel" aria-labelledby="quad-title">
@@ -480,43 +483,7 @@ export function QuadraticSimulation() {
             Atur ulang
           </button>
 
-          <div className="quad-style" role="group" aria-label="Gaya grafik">
-            {(
-              [
-                {
-                  key: "curveWidth",
-                  label: "Ketebalan grafik",
-                  range: CURVE_WIDTH_RANGE,
-                },
-                {
-                  key: "pointSize",
-                  label: "Ukuran titik",
-                  range: POINT_SIZE_RANGE,
-                },
-              ] as const
-            ).map(({ key, label, range }) => (
-              <div className="quad-stepper" key={key}>
-                <span>{label}</span>
-                <button
-                  type="button"
-                  onClick={() => changeStyle(key, -1)}
-                  disabled={style[key] <= range[0]}
-                  aria-label={`Kurangi ${label.toLowerCase()}`}
-                >
-                  −
-                </button>
-                <output aria-live="polite">{style[key]}</output>
-                <button
-                  type="button"
-                  onClick={() => changeStyle(key, 1)}
-                  disabled={style[key] >= range[1]}
-                  aria-label={`Tambah ${label.toLowerCase()}`}
-                >
-                  +
-                </button>
-              </div>
-            ))}
-          </div>
+          <GraphAppearanceControls appearance={style} onStep={changeStyle} />
 
           <dl className="quad-readouts" aria-live="polite">
             <div className="readout-a">
@@ -558,8 +525,8 @@ export function QuadraticSimulation() {
 
           {!isQuadratic && (
             <p className="quad-warning" role="status">
-              Saat a = 0, persamaan menjadi garis lurus (bukan fungsi
-              kuadrat). Geser a menjauhi 0 untuk melihat parabola.
+              Saat a = 0, persamaan menjadi garis lurus (bukan fungsi kuadrat).
+              Geser a menjauhi 0 untuk melihat parabola.
             </p>
           )}
         </section>

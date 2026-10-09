@@ -238,11 +238,55 @@
   font-variant-numeric: tabular-nums;
 }
 
+.trig-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.trig-fullscreen-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1px solid var(--sim-line);
+  background: #fff;
+  color: var(--sim-ink);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.trig-fullscreen-button:hover {
+  border-color: var(--sim-teal);
+  background: #e8f3f1;
+}
+
+.trigonometry-simulation:fullscreen.simulation-fullscreen-frame {
+  grid-template-rows: auto minmax(0, 1fr) auto auto auto;
+  min-height: 0;
+  gap: 8px;
+  padding: 10px 12px;
+  overflow: hidden !important;
+}
+
 .trig-boards {
   display: grid;
   grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1.3fr);
   gap: 14px;
   min-width: 0;
+}
+
+.trigonometry-simulation:fullscreen .trig-boards {
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  min-height: 0;
+  height: 100%;
+  gap: 8px;
 }
 
 .trig-board-panel {
@@ -252,6 +296,11 @@
   padding: 12px;
   border: 1px solid var(--sim-line);
   background: #fff;
+}
+
+.trigonometry-simulation:fullscreen .trig-board-panel {
+  min-height: 0;
+  padding: 8px;
 }
 
 .trig-board-heading {
@@ -285,6 +334,11 @@
     linear-gradient(90deg, rgba(72, 101, 103, 0.045) 1px, transparent 1px);
   background-size: 24px 24px;
   touch-action: none;
+  cursor: grab;
+}
+
+.trig-board:active {
+  cursor: grabbing;
 }
 
 .trig-circle-board {
@@ -296,6 +350,15 @@
 .trig-function-board {
   min-height: 300px;
   aspect-ratio: 1.55 / 1;
+}
+
+.trigonometry-simulation:fullscreen .trig-circle-board,
+.trigonometry-simulation:fullscreen .trig-function-board {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  max-height: none;
+  aspect-ratio: auto;
 }
 
 .trig-board .JXGtext {
@@ -400,6 +463,46 @@
   line-height: 1;
 }
 
+.trig-special-angles {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  color: var(--sim-muted);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.trig-special-angle-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.trig-special-angle-buttons button {
+  min-width: 36px;
+  min-height: 28px;
+  padding: 0 7px;
+  border: 1px solid var(--sim-line);
+  background: #fff;
+  color: var(--sim-ink);
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.trig-special-angle-buttons button:hover,
+.trig-special-angle-buttons button.active {
+  border-color: var(--sim-teal);
+  background: #e8f3f1;
+  color: var(--sim-teal);
+}
+
+.trig-special-angle-buttons button.active {
+  box-shadow: inset 0 -2px var(--sim-teal);
+}
+
 .trig-reset-button {
   min-height: 38px;
   padding: 0 13px;
@@ -481,6 +584,43 @@
   color: var(--sim-ink);
 }
 
+.trigonometry-simulation:fullscreen .trig-controls {
+  gap: 4px 12px;
+  padding: 7px 10px;
+}
+
+.trigonometry-simulation:fullscreen .trig-angle-control input {
+  height: 20px;
+  margin-top: 0;
+}
+
+.trigonometry-simulation:fullscreen .trig-special-angle-buttons button {
+  min-height: 25px;
+}
+
+.trigonometry-simulation:fullscreen .trig-reset-button {
+  grid-column: 2;
+  grid-row: 1;
+  min-height: 32px;
+}
+
+.trigonometry-simulation:fullscreen .trig-readouts > div {
+  padding: 6px 10px;
+}
+
+.trigonometry-simulation:fullscreen .trig-readouts dd {
+  font-size: 16px;
+}
+
+.trigonometry-simulation:fullscreen .trig-readouts .readout-tangent dd {
+  font-size: 12px;
+}
+
+.trigonometry-simulation:fullscreen .trig-explanation {
+  font-size: 10px;
+  line-height: 1.35;
+}
+
 @media (max-width: 760px) {
   .home-trig-showcase-heading {
     align-items: flex-start;
@@ -494,6 +634,10 @@
 
   .trig-boards {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .trigonometry-simulation:fullscreen .trig-boards {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
   }
 
   .trig-circle-board {

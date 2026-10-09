@@ -4370,6 +4370,39 @@ summary:focus-visible {
   line-height: 1.6;
 }
 
+/* Simulation fullscreen frame: centered 16:9 canvas with letterboxing. */
+:fullscreen.simulation-fullscreen-frame {
+  position: fixed !important;
+  inset: 0 !important;
+  width: min(100vw, 177.7778vh) !important;
+  height: min(100vh, 56.25vw) !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  max-width: 100vw !important;
+  max-height: 100vh !important;
+  aspect-ratio: 16 / 9 !important;
+  margin: auto !important;
+  overflow: auto !important;
+  background: #fff !important;
+}
+
+.simulation-fullscreen-frame.is-fullscreen:not(:fullscreen) {
+  position: fixed !important;
+  inset: 50% auto auto 50% !important;
+  width: min(100vw, 177.7778vh) !important;
+  height: min(100vh, 56.25vw) !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  max-width: 100vw !important;
+  max-height: 100vh !important;
+  aspect-ratio: 16 / 9 !important;
+  margin: 0 !important;
+  overflow: auto !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 10000 !important;
+  background: #fff !important;
+}
+
 /* Simulasi Player (Page 2) */
 .sim-player-topbar {
   display: flex;

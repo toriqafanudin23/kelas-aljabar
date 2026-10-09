@@ -1,0 +1,91 @@
+================================================================================
+REKOMENDASI STRATEGIS PENGEMBANGAN PLATFORM MATH 1729
+(Fokus: Fitur, Tujuan Platform, Arsitektur, dan Monetisasi)
+================================================================================
+
+1. TUJUAN STRATEGIS PLATFORM (STRATEGIC VISION)
+--------------------------------------------------------------------------------
+Math 1729 diposisikan sebagai platform hibrida edukasi matematika SMA/MA:
+A. Untuk Siswa:
+   - Menghilangkan stigma matematika hafalan melalui visualisasi interaktif (JSXGraph).
+   - Menyediakan lingkungan belajar mandiri (self-paced learning) dengan latihan soal
+     terstruktur dan umpan balik langsung tanpa rasa takut dihakimi.
+B. Untuk Guru:
+   - Penghemat waktu persiapan mengajar melalui bahan ajar siap pakai terstandar
+     (Modul Ajar, Slide Presentasi, Bank Soal, LKPD).
+   - Alat peraga digital interaktif yang siap diproyeksikan di kelas.
+C. Untuk Model Bisnis:
+   - Model freemium etis: materi ringkas & simulasi visual gratis sebagai magnet
+     akuisisi pengguna (top-of-funnel), sedangkan perangkat ajar komprehensif
+     (paket editable Word/PPTX) menjadi revenue driver utama.
+
+
+2. REKOMENDASI PENGEMBANGAN FITUR (FEATURE ROADMAP)
+--------------------------------------------------------------------------------
+
+A. FITUR SIMULASI & INTERAKTIVITAS VISUAL (CORE DIFFERENTIATOR)
+1. Mode Presentasi Guru (Teacher / Projector Mode):
+   - Toggle tombol satu klik untuk memperbesar font rumus KaTeX, menebalkan garis kurva
+     JSXGraph, dan menyembunyikan sidebar navigasi agar visualisasi optimal saat
+     ditayangkan di proyektor kelas.
+2. Preset Kasus Soal Nyata (Contextual Presets):
+   - Tombol pilihan preset skenario pada simulasi (contoh: "Lintasan Parabola Peluru",
+     "Keuntungan Maksimum", "Diskriminan Nol"), sehingga siswa/guru dapat langsung
+     mengamati kondisi matematis tanpa menebak posisi slider.
+3. Export Gambar Grafik (Snapshot PNG/SVG):
+   - Fitur ekspor grafik simulasi yang telah dimodifikasi parameter nilainya ke format
+     gambar siap pakai untuk disisipkan ke tugas siswa atau lembar ujian guru.
+
+B. FITUR LATIHAN SOAL INTERAKTIF (PRACTICE ENGINE)
+1. Step-by-Step Solution Hint (Petunjuk Bertahap):
+   - Alur bantuan bertingkat: "Petunjuk Konsep 1" -> "Petunjuk Langkah 2" -> "Buka Pembahasan Lengkap",
+     untuk melatih alur berpikir pemecahan masalah (problem solving).
+2. Algorithmic Question Bank (Generator Angka Acak):
+   - Soal tipe sama dengan angka parameter variabel acak (misal: menentukan akar ax^2 + bx + c = 0
+     dengan angka acak setiap kali tombol reset ditekan), mencegah siswa sekadar menghafal kunci jawaban.
+3. Progress Tracker Lokal (Privacy-First / Tanpa Login Rumit):
+   - Memanfaatkan LocalStorage / IndexedDB untuk menyimpan checklist progres modul yang sudah
+     dipelajari dan skor latihan soal yang pernah diselesaikan.
+
+C. FITUR KOMERSIALISASI & DISTRIBUSI BAHAN AJAR (SHOP & TEACHING KITS)
+1. Otomasi Pembayaran Instan via QRIS (Payment Gateway):
+   - Integrasi payment gateway (Midtrans / Xendit / Tripay) menggunakan serverless API
+     sehingga pembelian modul menghasilkan link unduh terenkripsi instan tanpa manual chat WhatsApp.
+2. Lisensi Paket Guru & MGMP (Bundle Semester / Tahunan):
+   - Penawaran bundle berbayar lengkap berisi file yang dapat diedit (Microsoft Word .docx
+     dan PowerPoint .pptx) khusus untuk guru atau sekolah.
+3. Interactive Flipbook Preview:
+   - Pratinjau beberapa halaman awal modul berkualitas tinggi ber-watermark untuk meyakinkan
+     kualitas tata letak dan konten sebelum guru memutuskan membeli.
+
+D. FITUR AKSESIBILITAS & LINGKUNGAN SEKOLAH
+1. Progressive Web App (PWA) & Offline Cache:
+   - Dukungan service worker agar website dapat diakses dan dijalankan di laboratorium sekolah
+     meski koneksi internet sedang lambat atau terputus.
+2. Print-Friendly CSS (@media print):
+   - Tata letak khusus cetak pada modul materi agar ketika pengguna menekan Ctrl+P, elemen
+     antarmuka website (header, footer, navigasi samping) otomatis disembunyikan dan menghasilkan
+     cetakan dokumen yang rapi.
+
+
+3. MATRIKS PRIORITAS EKSEKUSI
+--------------------------------------------------------------------------------
+- FASE 1 (User Experience & Pembelajaran di Kelas):
+  * Implementasi Mode Proyektor pada halaman Simulasi Play.
+  * Tambahan CSS Print-Friendly pada modul materi.
+  * Fitur Export Snapshot gambar grafik simulasi.
+
+- FASE 2 (Latihan Interaktif & Gamifikasi Ringan):
+  * Fitur hint bertingkat pada latihan soal.
+  * Local storage tracking untuk pencapaian belajar mandiri siswa.
+  * Tombol preset kasus nyata pada masing-masing topik simulasi.
+
+- FASE 3 (Otomasi Transaksi Produk Digital):
+  * Integrasi QRIS otomatis untuk checkout instan bahan ajar.
+  * Penyediaan bundle file editable (Word & PowerPoint) untuk guru.
+
+- FASE 4 (Skalabilitas & Ekosistem Sekolah):
+  * Konfigurasi PWA untuk akses offline sekolah.
+  * Kemitraan komunitas MGMP Matematika dan bank soal ujian kurikulum terbaru.
+================================================================================
+

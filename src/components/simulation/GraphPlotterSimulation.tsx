@@ -3,6 +3,8 @@ import type { KeyboardEvent as ReactKeyboardEvent } from "react";
 import JXG from "jsxgraph";
 import "../../../node_modules/jsxgraph/distrib/jsxgraph.css";
 import "./GraphPlotterSimulation.css";
+import { GraphAppearanceControls } from "./GraphAppearanceControls";
+import { useGraphAppearance } from "./simulationBoard";
 import { useStoredSimulationState } from "./useStoredSimulationState";
 import {
   PARAM_NAMES,
@@ -197,6 +199,7 @@ export function GraphPlotterSimulation() {
   const rootRef = useRef<HTMLDivElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const boardRef = useRef<Board | null>(null);
+  const { appearance, onStep } = useGraphAppearance([boardRef]);
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
   const sharedRef = useRef<Shared | null | undefined>(undefined);
@@ -1118,7 +1121,10 @@ export function GraphPlotterSimulation() {
   const tableAxes = results.axes.filter((axis) => drawn[axis.i]);
 
   return (
-    <div className="plotter-simulation" ref={rootRef}>
+    <div
+      className={`plotter-simulation simulation-fullscreen-frame${isFull ? " is-fullscreen" : ""}`}
+      ref={rootRef}
+    >
       <div className="plot-boards">
         <section className="plot-board-panel" aria-labelledby="plot-title">
           <div className="plot-board-heading">
@@ -1187,6 +1193,10 @@ export function GraphPlotterSimulation() {
                   Tautan
                 </button>
               </div>
+              <GraphAppearanceControls
+                appearance={appearance}
+                onStep={onStep}
+              />
             </div>
           </div>
           <div
@@ -1299,465 +1309,474 @@ export function GraphPlotterSimulation() {
           </p>
         </section>
 
-        <section className="plot-controls" aria-label="Masukan fungsi">
-          {slots.map((slot, i) => {
-            const result = parsed[i];
-            const inputId = `plot-src-${i}`;
-            const statusId = `plot-status-${i}`;
-            const isError = !!result && !result.ok;
-            return (
-              <div className="plot-slot" key={i}>
-                <div className="plot-slot-head">
-                  <label htmlFor={inputId}>
-                    <span
-                      className="plot-swatch"
-                      style={{ background: SLOT_COLORS[i] }}
-                    />
-                    Grafik {i + 1}: <em>y =</em>
-                  </label>
-                  <span className="plot-slot-actions">
-                    <label className="plot-toggle">
-                      <input
-                        type="checkbox"
-                        checked={slot.on}
-                        onChange={(event) =>
-                          setSlot(i, { on: event.currentTarget.checked })
-                        }
+        <aside className="plot-side" aria-label="Kontrol dan hasil grafik">
+          <section className="plot-controls" aria-label="Masukan fungsi">
+            {slots.map((slot, i) => {
+              const result = parsed[i];
+              const inputId = `plot-src-${i}`;
+              const statusId = `plot-status-${i}`;
+              const isError = !!result && !result.ok;
+              return (
+                <div className="plot-slot" key={i}>
+                  <div className="plot-slot-head">
+                    <label htmlFor={inputId}>
+                      <span
+                        className="plot-swatch"
+                        style={{ background: SLOT_COLORS[i] }}
                       />
-                      tampil
+                      Grafik {i + 1}: <em>y =</em>
                     </label>
-                    <label
-                      className="plot-toggle"
-                      title="Gambar turunan f′(x) sebagai garis putus-putus"
-                    >
+                    <span className="plot-slot-actions">
+                      <label className="plot-toggle">
+                        <input
+                          type="checkbox"
+                          checked={slot.on}
+                          onChange={(event) =>
+                            setSlot(i, { on: event.currentTarget.checked })
+                          }
+                        />
+                        tampil
+                      </label>
+                      <label
+                        className="plot-toggle"
+                        title="Gambar turunan f′(x) sebagai garis putus-putus"
+                      >
+                        <input
+                          type="checkbox"
+                          checked={slot.der}
+                          onChange={(event) =>
+                            setSlot(i, { der: event.currentTarget.checked })
+                          }
+                        />
+                        f′
+                      </label>
+                      {slots.length > 1 && (
+                        <button
+                          type="button"
+                          className="plot-icon-btn"
+                          aria-label={`Hapus grafik ${i + 1}`}
+                          title="Hapus grafik ini"
+                          onClick={() => removeSlot(i)}
+                        >
+                          ×
+                        </button>
+                      )}
+                    </span>
+                  </div>
+                  <input
+                    id={inputId}
+                    ref={(el) => {
+                      inputRefs.current[i] = el;
+                    }}
+                    className="plot-input"
+                    type="text"
+                    value={slot.src}
+                    placeholder={PLACEHOLDERS[i]}
+                    spellCheck={false}
+                    autoComplete="off"
+                    autoCapitalize="off"
+                    aria-invalid={isError}
+                    aria-describedby={statusId}
+                    style={{ borderLeftColor: SLOT_COLORS[i] }}
+                    onFocus={() => setActive(i)}
+                    onChange={(event) =>
+                      setSlot(i, { src: event.currentTarget.value })
+                    }
+                  />
+                  <p
+                    id={statusId}
+                    className={`plot-status${isError ? " is-error" : ""}`}
+                  >
+                    {!result
+                      ? "Kosong: grafik tidak digambar."
+                      : result.ok
+                        ? `Terbaca: y = ${result.text}`
+                        : result.error}
+                  </p>
+                </div>
+              );
+            })}
+
+            {slots.length < MAX_SLOTS && (
+              <button type="button" className="plot-add" onClick={addSlot}>
+                + Tambah grafik
+              </button>
+            )}
+
+            {usedParams.length > 0 && (
+              <div className="plot-params">
+                <span>Parameter: geser untuk melihat pengaruhnya</span>
+                {usedParams.map((name) => {
+                  const value = params[name] ?? 1;
+                  return (
+                    <div className="plot-param" key={name}>
+                      <label htmlFor={`plot-par-${name}`}>
+                        <em>{name}</em> =
+                      </label>
                       <input
-                        type="checkbox"
-                        checked={slot.der}
-                        onChange={(event) =>
-                          setSlot(i, { der: event.currentTarget.checked })
-                        }
+                        id={`plot-par-${name}`}
+                        type="range"
+                        min={PARAM_MIN}
+                        max={PARAM_MAX}
+                        step={0.05}
+                        value={Math.max(PARAM_MIN, Math.min(PARAM_MAX, value))}
+                        onChange={(event) => {
+                          setAnim(null);
+                          setParam(name, Number(event.currentTarget.value));
+                        }}
                       />
-                      f′
-                    </label>
-                    {slots.length > 1 && (
+                      <input
+                        className="plot-param-num"
+                        type="number"
+                        step={0.1}
+                        value={value}
+                        aria-label={`Nilai ${name}`}
+                        onChange={(event) => {
+                          const v = parseFloat(event.currentTarget.value);
+                          if (Number.isFinite(v)) {
+                            setAnim(null);
+                            setParam(name, v);
+                          }
+                        }}
+                      />
                       <button
                         type="button"
                         className="plot-icon-btn"
-                        aria-label={`Hapus grafik ${i + 1}`}
-                        title="Hapus grafik ini"
-                        onClick={() => removeSlot(i)}
+                        aria-pressed={anim === name}
+                        aria-label={
+                          anim === name
+                            ? `Hentikan animasi ${name}`
+                            : `Animasikan ${name}`
+                        }
+                        title={
+                          anim === name
+                            ? "Hentikan animasi"
+                            : "Animasikan parameter"
+                        }
+                        onClick={() => setAnim(anim === name ? null : name)}
                       >
-                        ×
+                        {anim === name ? "❚❚" : "▶"}
                       </button>
-                    )}
-                  </span>
-                </div>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+
+            <div className="plot-palette">
+              <span id="plot-palette-label">
+                Sisipkan ke Grafik {Math.min(active, slots.length - 1) + 1}
+              </span>
+              <div
+                className="plot-palette-buttons"
+                role="group"
+                aria-labelledby="plot-palette-label"
+              >
+                {SNIPPETS.map((snippet) => (
+                  <button
+                    key={snippet.label}
+                    type="button"
+                    title={snippet.title}
+                    aria-label={snippet.title}
+                    onClick={() => insertSnippet(snippet.text)}
+                  >
+                    {snippet.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="plot-options">
+              <label>
                 <input
-                  id={inputId}
-                  ref={(el) => {
-                    inputRefs.current[i] = el;
-                  }}
-                  className="plot-input"
-                  type="text"
-                  value={slot.src}
-                  placeholder={PLACEHOLDERS[i]}
-                  spellCheck={false}
-                  autoComplete="off"
-                  autoCapitalize="off"
-                  aria-invalid={isError}
-                  aria-describedby={statusId}
-                  style={{ borderLeftColor: SLOT_COLORS[i] }}
-                  onFocus={() => setActive(i)}
+                  type="checkbox"
+                  checked={showInter}
                   onChange={(event) =>
-                    setSlot(i, { src: event.currentTarget.value })
+                    setShowInter(event.currentTarget.checked)
                   }
                 />
-                <p
-                  id={statusId}
-                  className={`plot-status${isError ? " is-error" : ""}`}
-                >
-                  {!result
-                    ? "Kosong: grafik tidak digambar."
-                    : result.ok
-                      ? `Terbaca: y = ${result.text}`
-                      : result.error}
-                </p>
+                Titik potong antargrafik
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  checked={showAxis}
+                  onChange={(event) => setShowAxis(event.currentTarget.checked)}
+                />
+                Titik potong sumbu x dan y
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  checked={showExt}
+                  onChange={(event) => setShowExt(event.currentTarget.checked)}
+                />
+                Titik maksimum / minimum
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  checked={showTan}
+                  onChange={(event) => setShowTan(event.currentTarget.checked)}
+                />
+                Garis singgung di posisi kursor
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  checked={lockRatio}
+                  onChange={(event) =>
+                    setLockRatio(event.currentTarget.checked)
+                  }
+                />
+                Kunci skala sumbu x : y = 1 : 1
+              </label>
+            </div>
+
+            <div className="plot-presets">
+              <span id="plot-presets-label">Contoh cepat</span>
+              <div
+                className="plot-presets-buttons"
+                role="group"
+                aria-labelledby="plot-presets-label"
+              >
+                {PRESETS.map((preset) => (
+                  <button
+                    key={preset.label}
+                    type="button"
+                    onClick={() => applyPreset(preset)}
+                  >
+                    {preset.label}
+                  </button>
+                ))}
               </div>
-            );
-          })}
+            </div>
+          </section>
 
-          {slots.length < MAX_SLOTS && (
-            <button type="button" className="plot-add" onClick={addSlot}>
-              + Tambah grafik
-            </button>
+          {drawnCount < 2 && (
+            <p className="plot-warning" role="status">
+              Aktifkan dan isi minimal dua grafik untuk melihat titik potong
+              antargrafik.
+            </p>
           )}
 
-          {usedParams.length > 0 && (
-            <div className="plot-params">
-              <span>Parameter: geser untuk melihat pengaruhnya</span>
-              {usedParams.map((name) => {
-                const value = params[name] ?? 1;
-                return (
-                  <div className="plot-param" key={name}>
-                    <label htmlFor={`plot-par-${name}`}>
-                      <em>{name}</em> =
-                    </label>
-                    <input
-                      id={`plot-par-${name}`}
-                      type="range"
-                      min={PARAM_MIN}
-                      max={PARAM_MAX}
-                      step={0.05}
-                      value={Math.max(PARAM_MIN, Math.min(PARAM_MAX, value))}
-                      onChange={(event) => {
-                        setAnim(null);
-                        setParam(name, Number(event.currentTarget.value));
-                      }}
-                    />
-                    <input
-                      className="plot-param-num"
-                      type="number"
-                      step={0.1}
-                      value={value}
-                      aria-label={`Nilai ${name}`}
-                      onChange={(event) => {
-                        const v = parseFloat(event.currentTarget.value);
-                        if (Number.isFinite(v)) {
-                          setAnim(null);
-                          setParam(name, v);
-                        }
-                      }}
-                    />
-                    <button
-                      type="button"
-                      className="plot-icon-btn"
-                      aria-pressed={anim === name}
-                      aria-label={
-                        anim === name
-                          ? `Hentikan animasi ${name}`
-                          : `Animasikan ${name}`
-                      }
-                      title={
-                        anim === name
-                          ? "Hentikan animasi"
-                          : "Animasikan parameter"
-                      }
-                      onClick={() => setAnim(anim === name ? null : name)}
-                    >
-                      {anim === name ? "❚❚" : "▶"}
-                    </button>
-                  </div>
-                );
-              })}
-            </div>
-          )}
-
-          <div className="plot-palette">
-            <span id="plot-palette-label">
-              Sisipkan ke Grafik {Math.min(active, slots.length - 1) + 1}
-            </span>
-            <div
-              className="plot-palette-buttons"
-              role="group"
-              aria-labelledby="plot-palette-label"
-            >
-              {SNIPPETS.map((snippet) => (
-                <button
-                  key={snippet.label}
-                  type="button"
-                  title={snippet.title}
-                  aria-label={snippet.title}
-                  onClick={() => insertSnippet(snippet.text)}
-                >
-                  {snippet.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="plot-options">
-            <label>
-              <input
-                type="checkbox"
-                checked={showInter}
-                onChange={(event) => setShowInter(event.currentTarget.checked)}
-              />
-              Titik potong antargrafik
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                checked={showAxis}
-                onChange={(event) => setShowAxis(event.currentTarget.checked)}
-              />
-              Titik potong sumbu x dan y
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                checked={showExt}
-                onChange={(event) => setShowExt(event.currentTarget.checked)}
-              />
-              Titik maksimum / minimum
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                checked={showTan}
-                onChange={(event) => setShowTan(event.currentTarget.checked)}
-              />
-              Garis singgung di posisi kursor
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                checked={lockRatio}
-                onChange={(event) => setLockRatio(event.currentTarget.checked)}
-              />
-              Kunci skala sumbu x : y = 1 : 1
-            </label>
-          </div>
-
-          <div className="plot-presets">
-            <span id="plot-presets-label">Contoh cepat</span>
-            <div
-              className="plot-presets-buttons"
-              role="group"
-              aria-labelledby="plot-presets-label"
-            >
-              {PRESETS.map((preset) => (
-                <button
-                  key={preset.label}
-                  type="button"
-                  onClick={() => applyPreset(preset)}
-                >
-                  {preset.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        </section>
-      </div>
-
-      {drawnCount < 2 && (
-        <p className="plot-warning" role="status">
-          Aktifkan dan isi minimal dua grafik untuk melihat titik potong
-          antargrafik.
-        </p>
-      )}
-
-      {pairList.length > 0 && (
-        <dl className="plot-readouts" aria-live="polite">
-          {pairList.map((pair) => (
-            <div className="readout-pair" key={`${pair.i}-${pair.j}`}>
-              <dt>
-                <span
-                  className="plot-swatch"
-                  style={{ background: SLOT_COLORS[pair.i] }}
-                />
-                <span
-                  className="plot-swatch"
-                  style={{ background: SLOT_COLORS[pair.j] }}
-                />
-                Grafik {pair.i + 1} ∩ Grafik {pair.j + 1}
-              </dt>
-              {pair.coincident ? (
-                <dd className="plot-same">Berimpit</dd>
-              ) : pair.pts.length === 0 ? (
-                <dd className="plot-none">Tidak berpotongan</dd>
-              ) : (
-                <dd>
-                  {pair.pts.slice(0, 8).map((p, k) => (
-                    <span className="plot-point" key={k}>
-                      {ptText(p)}
-                    </span>
-                  ))}
-                </dd>
-              )}
-              {!pair.coincident && (
-                <small>
-                  {pair.pts.length > 8
-                    ? `${pair.pts.length} titik (8 pertama ditampilkan)`
-                    : `${pair.pts.length} titik pada tampilan`}
-                </small>
-              )}
-            </div>
-          ))}
-        </dl>
-      )}
-
-      {(showAxis || showExt) && tableAxes.length > 0 && (
-        <div className="plot-axis-table-wrap">
-          <table className="plot-axis-table">
-            <caption>Titik istimewa (pada rentang x yang terlihat)</caption>
-            <thead>
-              <tr>
-                <th scope="col">Grafik</th>
-                {showAxis && <th scope="col">Sumbu y</th>}
-                {showAxis && <th scope="col">Sumbu x</th>}
-                {showExt && <th scope="col">Maks / min</th>}
-              </tr>
-            </thead>
-            <tbody>
-              {tableAxes.map((axis) => (
-                <tr key={axis.i}>
-                  <th scope="row">
+          {pairList.length > 0 && (
+            <dl className="plot-readouts" aria-live="polite">
+              {pairList.map((pair) => (
+                <div className="readout-pair" key={`${pair.i}-${pair.j}`}>
+                  <dt>
                     <span
                       className="plot-swatch"
-                      style={{ background: SLOT_COLORS[axis.i] }}
+                      style={{ background: SLOT_COLORS[pair.i] }}
                     />
-                    {axis.i + 1}
-                  </th>
-                  {showAxis && (
-                    <td>{axis.yInt ? ptText(axis.yInt) : "tidak ada"}</td>
+                    <span
+                      className="plot-swatch"
+                      style={{ background: SLOT_COLORS[pair.j] }}
+                    />
+                    Grafik {pair.i + 1} ∩ Grafik {pair.j + 1}
+                  </dt>
+                  {pair.coincident ? (
+                    <dd className="plot-same">Berimpit</dd>
+                  ) : pair.pts.length === 0 ? (
+                    <dd className="plot-none">Tidak berpotongan</dd>
+                  ) : (
+                    <dd>
+                      {pair.pts.slice(0, 8).map((p, k) => (
+                        <span className="plot-point" key={k}>
+                          {ptText(p)}
+                        </span>
+                      ))}
+                    </dd>
                   )}
-                  {showAxis && (
-                    <td>
-                      {axis.xInts.length === 0
-                        ? "tidak ada"
-                        : axis.xInts
-                            .slice(0, 6)
-                            .map((p) => ptText(p))
-                            .join("  ")}
-                    </td>
+                  {!pair.coincident && (
+                    <small>
+                      {pair.pts.length > 8
+                        ? `${pair.pts.length} titik (8 pertama ditampilkan)`
+                        : `${pair.pts.length} titik pada tampilan`}
+                    </small>
                   )}
-                  {showExt && (
-                    <td>
-                      {axis.ext.length === 0
-                        ? "tidak ada"
-                        : axis.ext
-                            .map(
-                              (p) =>
-                                `${p.kind === "max" ? "maks" : "min"} ${ptText(p)}`,
-                            )
-                            .join("  ")}
-                    </td>
-                  )}
-                </tr>
+                </div>
               ))}
-            </tbody>
-          </table>
-        </div>
-      )}
+            </dl>
+          )}
 
-      <details className="plot-guide">
-        <summary>Panduan notasi dan cara pakai</summary>
-        <table>
-          <thead>
-            <tr>
-              <th scope="col">Yang ingin ditulis</th>
-              <th scope="col">Ketik</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Pangkat</td>
-              <td>
-                <code>x^2</code>, <code>x^{"{-3}"}</code>, <code>2^x</code>
-              </td>
-            </tr>
-            <tr>
-              <td>Pecahan</td>
-              <td>
-                <code>{"\\frac{x+1}{x-2}"}</code>
-              </td>
-            </tr>
-            <tr>
-              <td>Akar</td>
-              <td>
-                <code>{"\\sqrt{x+1}"}</code>, <code>{"\\sqrt[3]{x}"}</code>
-              </td>
-            </tr>
-            <tr>
-              <td>Bilangan euler dan π</td>
-              <td>
-                <code>{"e^{x}"}</code>, <code>{"e^{-x^2}"}</code>,{" "}
-                <code>{"\\pi"}</code>
-              </td>
-            </tr>
-            <tr>
-              <td>Trigonometri (radian)</td>
-              <td>
-                <code>{"\\sin x"}</code>, <code>{"\\sin^2 x"}</code>,{" "}
-                <code>{"\\cos(2x)"}</code>, <code>{"\\sin^{-1} x"}</code>
-              </td>
-            </tr>
-            <tr>
-              <td>Logaritma</td>
-              <td>
-                <code>{"\\ln x"}</code>, <code>{"\\log x"}</code> (basis 10),{" "}
-                <code>{"\\log_{2} x"}</code>
-              </td>
-            </tr>
-            <tr>
-              <td>Nilai mutlak</td>
-              <td>
-                <code>{"|x-3|"}</code> atau <code>{"\\left|x-3\\right|"}</code>
-              </td>
-            </tr>
-            <tr>
-              <td>Perkalian</td>
-              <td>
-                <code>2x</code>, <code>(x+1)(x-1)</code>,{" "}
-                <code>{"x\\cdot 2"}</code>
-              </td>
-            </tr>
-            <tr>
-              <td>Parameter (slider)</td>
-              <td>
-                <code>ax^2+bx+c</code>, <code>{"a\\sin(kx)"}</code>; huruf a, b,
-                c, k otomatis menjadi slider
-              </td>
-            </tr>
-            <tr>
-              <td>Mouse</td>
-              <td>
-                seret = geser, roda = zoom ke posisi kursor, klik = sematkan
-                titik. Bila skala tidak dikunci: Ctrl + roda = zoom sumbu x
-                saja, Shift + roda = sumbu y saja.
-              </td>
-            </tr>
-            <tr>
-              <td>Papan fokus</td>
-              <td>
-                panah = geser (Shift = lebih jauh), <code>+</code> /{" "}
-                <code>−</code> = zoom, <code>0</code> = reset
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <p>
-          Gunakan kurung kurawal untuk pangkat lebih dari satu karakter,
-          misalnya <code>{"x^{10}"}</code>. Variabel utama adalah x; awalan{" "}
-          <code>y =</code> atau <code>f(x) =</code> boleh ditulis. Akar ganjil
-          bilangan negatif dihitung, jadi <code>{"x^{1/3}"}</code> terdefinisi
-          untuk x negatif. Turunan dan gradien dihitung secara numerik. Tombol
-          “Tautan” menyalin alamat halaman berisi rumus, nilai parameter, dan
-          tampilan saat ini.
-        </p>
-      </details>
+          {(showAxis || showExt) && tableAxes.length > 0 && (
+            <div className="plot-axis-table-wrap">
+              <table className="plot-axis-table">
+                <caption>Titik istimewa (pada rentang x yang terlihat)</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Grafik</th>
+                    {showAxis && <th scope="col">Sumbu y</th>}
+                    {showAxis && <th scope="col">Sumbu x</th>}
+                    {showExt && <th scope="col">Maks / min</th>}
+                  </tr>
+                </thead>
+                <tbody>
+                  {tableAxes.map((axis) => (
+                    <tr key={axis.i}>
+                      <th scope="row">
+                        <span
+                          className="plot-swatch"
+                          style={{ background: SLOT_COLORS[axis.i] }}
+                        />
+                        {axis.i + 1}
+                      </th>
+                      {showAxis && (
+                        <td>{axis.yInt ? ptText(axis.yInt) : "tidak ada"}</td>
+                      )}
+                      {showAxis && (
+                        <td>
+                          {axis.xInts.length === 0
+                            ? "tidak ada"
+                            : axis.xInts
+                                .slice(0, 6)
+                                .map((p) => ptText(p))
+                                .join("  ")}
+                        </td>
+                      )}
+                      {showExt && (
+                        <td>
+                          {axis.ext.length === 0
+                            ? "tidak ada"
+                            : axis.ext
+                                .map(
+                                  (p) =>
+                                    `${p.kind === "max" ? "maks" : "min"} ${ptText(p)}`,
+                                )
+                                .join("  ")}
+                        </td>
+                      )}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
 
-      <ul className="plot-insights">
-        <li>
-          <strong style={{ color: INTER_COLOR }}>Titik potong</strong> adalah
-          nilai x yang memenuhi f₁(x) = f₂(x). Program mencarinya secara numerik
-          pada rentang x yang sedang terlihat, jadi geser atau zoom out untuk
-          menemukan titik di luar layar.
-        </li>
-        <li>
-          <strong style={{ color: SLOT_COLORS[0] }}>
-            Parameter dan turunan:
-          </strong>{" "}
-          coba y = ax² + bx + c lalu animasikan a, atau centang f′ untuk melihat
-          bagaimana tanda turunan menentukan fungsi naik atau turun, dan f′ = 0
-          di titik maksimum/minimum.
-        </li>
-        <li>
-          <strong style={{ color: SLOT_COLORS[1] }}>Asimtot dan lubang:</strong>{" "}
-          titik tidak ditandai di tempat fungsi tidak terdefinisi, misalnya x =
-          0 pada 1/x atau x = π/2 pada tan x.
-        </li>
-      </ul>
+          <details className="plot-guide">
+            <summary>Panduan notasi dan cara pakai</summary>
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Yang ingin ditulis</th>
+                  <th scope="col">Ketik</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Pangkat</td>
+                  <td>
+                    <code>x^2</code>, <code>x^{"{-3}"}</code>, <code>2^x</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Pecahan</td>
+                  <td>
+                    <code>{"\\frac{x+1}{x-2}"}</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Akar</td>
+                  <td>
+                    <code>{"\\sqrt{x+1}"}</code>, <code>{"\\sqrt[3]{x}"}</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Bilangan euler dan π</td>
+                  <td>
+                    <code>{"e^{x}"}</code>, <code>{"e^{-x^2}"}</code>,{" "}
+                    <code>{"\\pi"}</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Trigonometri (radian)</td>
+                  <td>
+                    <code>{"\\sin x"}</code>, <code>{"\\sin^2 x"}</code>,{" "}
+                    <code>{"\\cos(2x)"}</code>, <code>{"\\sin^{-1} x"}</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Logaritma</td>
+                  <td>
+                    <code>{"\\ln x"}</code>, <code>{"\\log x"}</code> (basis
+                    10), <code>{"\\log_{2} x"}</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Nilai mutlak</td>
+                  <td>
+                    <code>{"|x-3|"}</code> atau{" "}
+                    <code>{"\\left|x-3\\right|"}</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Perkalian</td>
+                  <td>
+                    <code>2x</code>, <code>(x+1)(x-1)</code>,{" "}
+                    <code>{"x\\cdot 2"}</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Parameter (slider)</td>
+                  <td>
+                    <code>ax^2+bx+c</code>, <code>{"a\\sin(kx)"}</code>; huruf
+                    a, b, c, k otomatis menjadi slider
+                  </td>
+                </tr>
+                <tr>
+                  <td>Mouse</td>
+                  <td>
+                    seret = geser, roda = zoom ke posisi kursor, klik = sematkan
+                    titik. Bila skala tidak dikunci: Ctrl + roda = zoom sumbu x
+                    saja, Shift + roda = sumbu y saja.
+                  </td>
+                </tr>
+                <tr>
+                  <td>Papan fokus</td>
+                  <td>
+                    panah = geser (Shift = lebih jauh), <code>+</code> /{" "}
+                    <code>−</code> = zoom, <code>0</code> = reset
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <p>
+              Gunakan kurung kurawal untuk pangkat lebih dari satu karakter,
+              misalnya <code>{"x^{10}"}</code>. Variabel utama adalah x; awalan{" "}
+              <code>y =</code> atau <code>f(x) =</code> boleh ditulis. Akar
+              ganjil bilangan negatif dihitung, jadi <code>{"x^{1/3}"}</code>{" "}
+              terdefinisi untuk x negatif. Turunan dan gradien dihitung secara
+              numerik. Tombol “Tautan” menyalin alamat halaman berisi rumus,
+              nilai parameter, dan tampilan saat ini.
+            </p>
+          </details>
+
+          <ul className="plot-insights">
+            <li>
+              <strong style={{ color: INTER_COLOR }}>Titik potong</strong>{" "}
+              adalah nilai x yang memenuhi f₁(x) = f₂(x). Program mencarinya
+              secara numerik pada rentang x yang sedang terlihat, jadi geser
+              atau zoom out untuk menemukan titik di luar layar.
+            </li>
+            <li>
+              <strong style={{ color: SLOT_COLORS[0] }}>
+                Parameter dan turunan:
+              </strong>{" "}
+              coba y = ax² + bx + c lalu animasikan a, atau centang f′ untuk
+              melihat bagaimana tanda turunan menentukan fungsi naik atau turun,
+              dan f′ = 0 di titik maksimum/minimum.
+            </li>
+            <li>
+              <strong style={{ color: SLOT_COLORS[1] }}>
+                Asimtot dan lubang:
+              </strong>{" "}
+              titik tidak ditandai di tempat fungsi tidak terdefinisi, misalnya
+              x = 0 pada 1/x atau x = π/2 pada tan x.
+            </li>
+          </ul>
+        </aside>
+      </div>
     </div>
   );
 }
