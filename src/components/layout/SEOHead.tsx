@@ -440,6 +440,32 @@ export function SEOHead({ page }: SEOHeadProps) {
           };
           break;
 
+        case "practice-komposisi-fungsi-dan-invers":
+          meta = {
+            title:
+              "Latihan Soal Komposisi Fungsi dan Invers Kelas X | Math 1729",
+            description:
+              "Kerjakan latihan interaktif komposisi fungsi dan invers tentang domain, range, serta invers dari komposisi. Dilengkapi skor langsung dan pembahasan.",
+            keywords:
+              "latihan soal komposisi fungsi, fungsi invers kelas 10, domain range fungsi, invers komposisi, pembahasan komposisi fungsi",
+            ogType: "article",
+            schema: {
+              "@context": "https://schema.org",
+              "@type": "LearningResource",
+              name: "Latihan Soal Komposisi Fungsi dan Invers",
+              learningResourceType: "Quiz",
+              educationalLevel: "Kelas X",
+              inLanguage: "id",
+              url: currentUrl,
+              provider: {
+                "@type": "EducationalOrganization",
+                name: "Math 1729",
+                url: BASE_URL,
+              },
+            },
+          };
+          break;
+
         case "shop":
           meta = {
             title:

@@ -106,6 +106,7 @@ function App() {
     page !== "practice-polinomial" &&
     page !== "practice-matriks" &&
     page !== "practice-lingkaran" &&
+    page !== "practice-komposisi-fungsi-dan-invers" &&
     page !== "simulation" &&
     page !== "simulation-play" &&
     page !== "shop" &&
@@ -187,6 +188,12 @@ function App() {
         )}
         {page === "practice-lingkaran" && (
           <PracticeExercisePage navigate={navigate} exercise="lingkaran" />
+        )}
+        {page === "practice-komposisi-fungsi-dan-invers" && (
+          <PracticeExercisePage
+            navigate={navigate}
+            exercise="komposisi-fungsi-dan-invers"
+          />
         )}
         {page === "simulation" && <SimulationPage navigate={navigate} />}
         {page === "simulation-play" && (

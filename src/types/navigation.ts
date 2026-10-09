@@ -23,6 +23,7 @@ export type Page =
   | "practice-polinomial"
   | "practice-matriks"
   | "practice-lingkaran"
+  | "practice-komposisi-fungsi-dan-invers"
   | string;
 export type Navigate = (
   event: MouseEvent<HTMLAnchorElement>,
@@ -106,6 +107,12 @@ export function getPageFromPath(path: string): Page {
   ) {
     return "practice-lingkaran";
   }
+  if (
+    path === "/latihan-soal/komposisi-fungsi-dan-invers" ||
+    path === "/latihan-soal/komposisi-fungsi-dan-invers/"
+  ) {
+    return "practice-komposisi-fungsi-dan-invers";
+  }
   if (path === "/simulasi" || path === "/simulasi/") return "simulation";
   if (
     path === "/simulasi-interaktif" ||
@@ -149,6 +156,9 @@ export function getPathFromPage(page: Page): string {
   if (page === "practice-polinomial") return "/latihan-soal/polinomial";
   if (page === "practice-matriks") return "/latihan-soal/matriks";
   if (page === "practice-lingkaran") return "/latihan-soal/lingkaran";
+  if (page === "practice-komposisi-fungsi-dan-invers") {
+    return "/latihan-soal/komposisi-fungsi-dan-invers";
+  }
   if (page === "simulation") return "/simulasi";
   if (page === "simulation-play") return "/simulasi-interaktif";
   if (page === "about") return "/tentang";

@@ -16,7 +16,8 @@ type PracticeExerciseId =
   | "transformasi-geometri"
   | "polinomial"
   | "matriks"
-  | "lingkaran";
+  | "lingkaran"
+  | "komposisi-fungsi-dan-invers";
 
 interface PracticeExercisePageProps {
   navigate: Navigate;
@@ -51,6 +52,10 @@ const exerciseDetails: Record<
   polinomial: { title: "Polinomial", grade: "Kelas XI · Fase F" },
   matriks: { title: "Matriks", grade: "Kelas XI · Fase F" },
   lingkaran: { title: "Lingkaran", grade: "Kelas XI · Fase F" },
+  "komposisi-fungsi-dan-invers": {
+    title: "Komposisi Fungsi dan Invers",
+    grade: "Kelas X · Fase E",
+  },
 };
 
 export function PracticeExercisePage({
@@ -88,7 +93,9 @@ export function PracticeExercisePage({
                           ? import("../latihan-soal/latihan_matriks.html?raw")
                           : exercise === "lingkaran"
                             ? import("../latihan-soal/latihan_lingkaran.html?raw")
-                            : import("../latihan-soal/eksponensial.html?raw");
+                            : exercise === "komposisi-fungsi-dan-invers"
+                              ? import("../latihan-soal/latihan_komposisi_fungsi_invers.html?raw")
+                              : import("../latihan-soal/eksponensial.html?raw");
 
     loadHtml
       .then(({ default: html }) => {

@@ -120,7 +120,8 @@ export function SiteHeader({
               page === "practice-transformasi-geometri" ||
               page === "practice-polinomial" ||
               page === "practice-matriks" ||
-              page === "practice-lingkaran"
+              page === "practice-lingkaran" ||
+              page === "practice-komposisi-fungsi-dan-invers"
                 ? "active"
                 : ""
             }
@@ -232,7 +233,7 @@ export function SiteHeader({
             </a>
 
             <a
-              className={`drawer-primary-link ${page === "practice" || page === "practice-eksponensial" || page === "practice-barisan-deret" || page === "practice-vektor" || page === "practice-sppl" || page === "practice-fungsi-kuadrat" || page === "practice-perbandingan-trigonometri" || page === "practice-peluang" || page === "practice-statistika" || page === "practice-transformasi-geometri" || page === "practice-polinomial" || page === "practice-matriks" || page === "practice-lingkaran" ? "active" : ""}`}
+              className={`drawer-primary-link ${page === "practice" || page === "practice-eksponensial" || page === "practice-barisan-deret" || page === "practice-vektor" || page === "practice-sppl" || page === "practice-fungsi-kuadrat" || page === "practice-perbandingan-trigonometri" || page === "practice-peluang" || page === "practice-statistika" || page === "practice-transformasi-geometri" || page === "practice-polinomial" || page === "practice-matriks" || page === "practice-lingkaran" || page === "practice-komposisi-fungsi-dan-invers" ? "active" : ""}`}
               href="/latihan-soal"
               onClick={(event) => handleNavigation(event, "practice")}
             >

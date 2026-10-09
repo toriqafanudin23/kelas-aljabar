@@ -159,6 +159,18 @@ const practiceModules = [
     points: 100,
     duration: 120,
   },
+  {
+    id: "13",
+    page: "practice-komposisi-fungsi-dan-invers",
+    href: "/latihan-soal/komposisi-fungsi-dan-invers",
+    title: "Komposisi Fungsi dan Invers",
+    description:
+      "Latih komposisi fungsi, domain dan range, fungsi invers, serta invers dari komposisi melalui soal interaktif dan pembahasan.",
+    topics: ["Komposisi fungsi", "Fungsi invers", "Invers komposisi"],
+    questionCount: 30,
+    points: 100,
+    duration: 120,
+  },
 ];
 
 export function PracticePage({ navigate }: PracticePageProps) {
