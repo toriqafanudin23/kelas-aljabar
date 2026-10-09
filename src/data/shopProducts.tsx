@@ -166,10 +166,38 @@ export const TKA_PACKAGES = (["SMP", "SMA"] as const).map((grade) => ({
   ),
 }));
 
+export const MODUL_AJAR_PEMBELAJARAN_MENDALAM = {
+  id: "modul-ajar-pembelajaran-mendalam",
+  title: "Modul Ajar Pembelajaran Mendalam",
+  gradeLabel: "PRODUK BARU",
+  grade: "Harga per materi",
+  previewUrl:
+    "https://tpaknparzpagspfgwigx.supabase.co/storage/v1/object/public/slide-berdasarkan-kelas/preview/preview_modul_ajar.pdf",
+  originalPrice: "Rp20.000",
+  price: "Rp5.000",
+  availableMaterials: [
+    "Eksponensial dan Logaritma",
+    "Barisan dan Deret",
+    "Vektor",
+    "Perbandingan Trigonometri",
+    "Fungsi Kuadrat",
+    "Sistem Persamaan dan Pertidaksamaan Linear",
+    "Peluang",
+    "Statistika",
+  ],
+  preorderMessage:
+    "Materi lainnya sedang dalam proses penyusunan. Bisa pre-order, dengan estimasi selesai maksimal 3 hari.",
+  emailSubject: "Pemesanan Modul Ajar Pembelajaran Mendalam — Math 1729",
+  emailBody: buildOrderEmailBody(
+    "Modul Ajar Pembelajaran Mendalam — 1 materi [ISI NAMA MATERI] — Rp5.000 (harga normal Rp20.000)",
+  ),
+};
+
 export const SHOP_PREVIEWS = [
   ...PACKAGES,
   ...SLIDE_PACKAGES,
   ...TKA_PACKAGES,
+  MODUL_AJAR_PEMBELAJARAN_MENDALAM,
 ].map(({ id, title, previewUrl }) => ({ id, title, url: previewUrl }));
 
 export const BAHAN_AJAR = [

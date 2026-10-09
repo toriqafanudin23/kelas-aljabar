@@ -4,6 +4,7 @@ import {
   ACCOUNT_HOLDER,
   BAHAN_AJAR,
   buildPreviewRequestEmailBody,
+  MODUL_AJAR_PEMBELAJARAN_MENDALAM,
   ORDER_EMAIL,
   PACKAGES,
   PAYMENT_METHODS,
@@ -376,11 +377,65 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
             <span className="section-kicker">Bahan Ajar Lengkap</span>
             <h2>Paket Bahan Ajar per Materi</h2>
             <p>
-              Pilih Bahan Ajar Matriks atau Fungsi Kuadrat. Kedua paket
-              mendapatkan benefit dan harga promo yang sama. Produk ini tidak
-              memiliki preview; pemesanan langsung melalui email.
+              Modul Ajar Pembelajaran Mendalam tersedia untuk materi pilihan;
+              materi lain dapat di-pre-order dengan estimasi penyusunan maksimal
+              3 hari. Bahan Ajar Matriks dan Fungsi Kuadrat juga tersedia.
             </p>
           </div>
+        </div>
+
+        <div className="shop-package-grid shop-package-grid--single">
+          <article className="shop-card shop-card--featured">
+            <div className="shop-card-header">
+              <span className="shop-card-grade-badge shop-card-grade-badge--green">
+                {MODUL_AJAR_PEMBELAJARAN_MENDALAM.gradeLabel}
+              </span>
+              <span className="shop-card-grade">
+                {MODUL_AJAR_PEMBELAJARAN_MENDALAM.grade}
+              </span>
+            </div>
+            <div className="shop-card-body">
+              <h3 className="shop-card-title">
+                {MODUL_AJAR_PEMBELAJARAN_MENDALAM.title}
+              </h3>
+              <div className="shop-promo-price">
+                <del>{MODUL_AJAR_PEMBELAJARAN_MENDALAM.originalPrice}</del>
+                <span className="shop-promo-current-price">
+                  {MODUL_AJAR_PEMBELAJARAN_MENDALAM.price}
+                </span>
+                <span className="shop-card-grade-badge shop-card-grade-badge--green">
+                  PROMO 75%
+                </span>
+              </div>
+              <p className="shop-card-desc">
+                <strong>Pilih satu materi</strong> untuk satu modul ajar dengan
+                harga promo Rp5.000.
+              </p>
+              <p className="shop-includes-label">Materi tersedia</p>
+              <ul className="shop-card-list shop-card-list--check">
+                {MODUL_AJAR_PEMBELAJARAN_MENDALAM.availableMaterials.map(
+                  (material) => (
+                    <li key={material}>
+                      <span className="shop-check-icon" aria-hidden="true">
+                        <Check size={15} strokeWidth={2.5} />
+                      </span>
+                      {material}
+                    </li>
+                  ),
+                )}
+              </ul>
+              <p className="shop-card-desc">
+                {MODUL_AJAR_PEMBELAJARAN_MENDALAM.preorderMessage}
+              </p>
+            </div>
+            <div className="shop-card-footer">
+              <ProductActions
+                productId={MODUL_AJAR_PEMBELAJARAN_MENDALAM.id}
+                emailSubject={MODUL_AJAR_PEMBELAJARAN_MENDALAM.emailSubject}
+                emailBody={MODUL_AJAR_PEMBELAJARAN_MENDALAM.emailBody}
+              />
+            </div>
+          </article>
         </div>
 
         <div className="shop-package-grid shop-package-grid--2col">
