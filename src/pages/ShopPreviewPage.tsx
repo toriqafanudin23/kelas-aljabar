@@ -1,5 +1,5 @@
 import { ArrowLeft } from "lucide-react";
-import { PdfPreview } from "../components/PdfPreview";
+import { PdfPreview } from "../components";
 import { SHOP_PREVIEWS } from "../data/shopProducts";
 import type { Navigate } from "../types/navigation";
 

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import {
   ArrowRight,
   BookOpen,
@@ -11,7 +11,12 @@ import {
 } from "lucide-react";
 import { materials } from "../materi";
 import type { Navigate } from "../types/navigation";
-import { HeroDerivativeSimulation } from "../components/simulation/HeroDerivativeSimulation";
+
+const HeroDerivativeSimulation = lazy(() =>
+  import("../components/simulation/HeroDerivativeSimulation").then((m) => ({
+    default: m.HeroDerivativeSimulation,
+  })),
+);
 
 interface HomePageProps {
   navigate: Navigate;
@@ -61,7 +66,26 @@ export function HomePage({ navigate }: HomePageProps) {
           </div>
 
           {/* Hero Simulation (Autonomous JSXGraph Derivative Simulation) */}
-          <HeroDerivativeSimulation navigate={navigate} />
+          <Suspense
+            fallback={
+              <div
+                className="hero-sim-card"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  minHeight: "440px",
+                  background: "#051f33",
+                  color: "#cbd5e1",
+                  fontSize: "0.875rem",
+                }}
+              >
+                <span>Memuat pratinjau simulasi...</span>
+              </div>
+            }
+          >
+            <HeroDerivativeSimulation navigate={navigate} />
+          </Suspense>
         </div>
       </section>
 

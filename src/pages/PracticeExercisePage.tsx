@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import renderMathInElement from "katex/dist/contrib/auto-render.mjs";
 import type { Navigate } from "../types/navigation";
-import "../latihan_soal/latihan-soal.css";
+import "../latihan-soal/latihan-soal.css";
 import "./PracticePage.css";
 
 type PracticeExerciseId = "eksponensial" | "barisan-deret" | "vektor" | "sppl";
@@ -38,12 +38,12 @@ export function PracticeExercisePage({
     let isActive = true;
     const loadHtml =
       exercise === "barisan-deret"
-        ? import("../latihan_soal/latihan-barisan-deret.html?raw")
+        ? import("../latihan-soal/latihan-barisan-deret.html?raw")
         : exercise === "vektor"
-          ? import("../latihan_soal/vektor.html?raw")
+          ? import("../latihan-soal/vektor.html?raw")
           : exercise === "sppl"
-            ? import("../latihan_soal/sppl.html?raw")
-            : import("../latihan_soal/eksponensial.html?raw");
+            ? import("../latihan-soal/sppl.html?raw")
+            : import("../latihan-soal/eksponensial.html?raw");
 
     loadHtml
       .then(({ default: html }) => {

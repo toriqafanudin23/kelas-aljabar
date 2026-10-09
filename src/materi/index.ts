@@ -1,25 +1,3 @@
-import eksponensialHtml from "./eksponensial.html?raw";
-import spplHtml from "./sppl.html?raw";
-import fungsiKuadratHtml from "./fungsi-kuadrat.html?raw";
-import barisanDeretHtml from "./barisan-deret.html?raw";
-import matriksHtml from "./matriks.html?raw";
-import vektorHtml from "./vektor.html?raw";
-import transformasiGeometriHtml from "./transformasi-geometri.html?raw";
-import kombinatorikaHtml from "./kombinatorika.html?raw";
-import peluangHtml from "./peluang.html?raw";
-import statistikaHtml from "./statistika.html?raw";
-import komposisiFungsiDanInversHtml from "./komposisi-fungsi-dan-invers.html?raw";
-import polinomialHtml from "./polinomial.html?raw";
-import limitHtml from "./limit.html?raw";
-import turunanHtml from "./turunan.html?raw";
-import lingkaranHtml from "./lingkaran.html?raw";
-import bilanganKompleksHtml from "./bilangan-kompleks.html?raw";
-import fungsiPemodelanHtml from "./fungsi.html?raw";
-import transformasiFungsiHtml from "./transformasi-fungsi.html?raw";
-import trigonometriHtml from "./trigonometri.html?raw";
-import irisanKerucutHtml from "./irisan-kerucut.html?raw";
-import integralHtml from "./integral.html?raw";
-import teoriBilanganHtml from "./teori-bilangan.html?raw";
 
 export interface Material {
   id: string;
@@ -32,8 +10,10 @@ export interface Material {
   prerequisite: string;
   formula: string;
   description: string;
-  htmlContent: string;
+  htmlContent?: string;
 }
+
+export { materialHtmlLoaders } from "./materialLoaders";
 
 /**
  * Nomor dan jenjang materi mengikuti susunan terbaru kurikulum matematika SMA:
@@ -74,7 +54,6 @@ export const materials: Material[] = [
     formula: "a^m a^n = a^{m+n} \\qquad \\log_a b = c \\iff a^c=b",
     description:
       "Pelajari landasan aljabar bilangan berpangkat, sifat eksponen, bentuk akar, fungsi eksponensial, serta operasi logaritma secara terstruktur.",
-    htmlContent: eksponensialHtml,
   },
   {
     id: "linear-systems",
@@ -88,7 +67,6 @@ export const materials: Material[] = [
     formula: "ax+by=c \\qquad ax+by\\le c",
     description:
       "Kuasai konsep SPLDV, SPLTV, daerah himpunan penyelesaian SPtLDV, serta pemodelan matematika untuk optimasi masalah kontekstual.",
-    htmlContent: spplHtml,
   },
   {
     id: "quadratic-functions",
@@ -102,7 +80,6 @@ export const materials: Material[] = [
     formula: "f(x)=ax^2+bx+c \\qquad x_p=-\\frac{b}{2a}",
     description:
       "Pelajari karakteristik kurva parabola, pengaruh diskriminan, penentuan titik ekstrem (maksimum/minimum), dan pertidaksamaan kuadrat.",
-    htmlContent: fungsiKuadratHtml,
   },
   {
     id: "statistics",
@@ -117,7 +94,6 @@ export const materials: Material[] = [
       "\\bar{x}=\\frac{\\sum x_i}{n} \\qquad s^2=\\frac{\\sum (x_i-\\bar{x})^2}{n-1}",
     description:
       "Pelajari pengumpulan data, penyajian data, ukuran pemusatan, ukuran penyebaran, dan interpretasi data dalam kehidupan sehari-hari.",
-    htmlContent: statistikaHtml,
   },
   {
     id: "function-composition-inverse",
@@ -131,7 +107,6 @@ export const materials: Material[] = [
     formula: "(f\\circ g)(x)=f(g(x)) \\qquad f^{-1}(f(x))=x",
     description:
       "Pelajari operasi komposisi fungsi, penentuan domain dan range, karakteristik fungsi satu-satu, serta cara menentukan dan menerapkan fungsi invers.",
-    htmlContent: komposisiFungsiDanInversHtml,
   },
   {
     id: "sequences-series",
@@ -145,7 +120,6 @@ export const materials: Material[] = [
     formula: "U_n=a+(n-1)b \\qquad U_n=ar^{n-1}",
     description:
       "Pahami barisan serta deret aritmetika dan geometri, suku ke-n, jumlah deret, sisipan, konvergensi deret geometri tak hingga, dan notasi sigma.",
-    htmlContent: barisanDeretHtml,
   },
   {
     id: "matrices",
@@ -160,7 +134,6 @@ export const materials: Material[] = [
       "\\det\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix}=ad-bc \\qquad A^{-1}=\\frac{1}{\\det(A)}\\operatorname{adj}(A)",
     description:
       "Eksplorasi susunan skalar tabel dua dimensi, operasi aljabar matriks, determinan, matriks invers, serta metode eliminasi dan aturan Cramer.",
-    htmlContent: matriksHtml,
   },
   {
     id: "vectors",
@@ -175,7 +148,6 @@ export const materials: Material[] = [
       "\\vec{a}\\cdot\\vec{b}=|\\vec{a}||\\vec{b}|\\cos\\theta \\qquad |\\vec{a}|=\\sqrt{a_1^2+a_2^2+a_3^2}",
     description:
       "Kuasai representasi geometris dan aljabar vektor pada ruang dua dan tiga dimensi, operasi penjumlahan, perkalian skalar, serta proyeksi ortogonal.",
-    htmlContent: vektorHtml,
   },
   {
     id: "geometry",
@@ -190,7 +162,6 @@ export const materials: Material[] = [
       "\\begin{bmatrix}x'\\\\y'\\end{bmatrix} = \\begin{bmatrix}\\cos\\theta&-\\sin\\theta\\\\\\sin\\theta&\\cos\\theta\\end{bmatrix} \\begin{bmatrix}x\\\\y\\end{bmatrix}",
     description:
       "Pelajari pemetaan isometri dan keserupaan: translasi, refleksi, rotasi, dan dilatasi, serta komposisinya menggunakan notasi matriks transformasi.",
-    htmlContent: transformasiGeometriHtml,
   },
   {
     id: "combinatorics",
@@ -205,7 +176,6 @@ export const materials: Material[] = [
       "{}_nP_r=\\frac{n!}{(n-r)!} \\qquad \\binom{n}{r}=\\frac{n!}{r!(n-r)!}",
     description:
       "Mempelajari kaidah dasar pencacahan (aturan penjumlahan dan perkalian), permutasi dengan elemen berbeda maupun berulang, kombinasi, dan teorema binomial.",
-    htmlContent: kombinatorikaHtml,
   },
   {
     id: "probability",
@@ -219,7 +189,6 @@ export const materials: Material[] = [
     formula: "P(A)=\\frac{n(A)}{n(S)}",
     description:
       "Pelajari ruang sampel, aksioma peluang Kolmogorov, kejadian saling lepas dan saling bebas, peluang bersyarat, hingga penerapan Teorema Bayes.",
-    htmlContent: peluangHtml,
   },
   {
     id: "polynomials",
@@ -233,7 +202,6 @@ export const materials: Material[] = [
     formula: "P(x)=\\sum_{k=0}^{n}a_kx^k \\qquad a_n\\ne0",
     description:
       "Pelajari bentuk dan derajat polinomial, operasi aljabar, pembagian, teorema sisa dan faktor, serta penentuan akar-akar polinomial.",
-    htmlContent: polinomialHtml,
   },
   {
     id: "limits",
@@ -247,7 +215,6 @@ export const materials: Material[] = [
     formula: "\\lim_{x\\to a}f(x)=L",
     description:
       "Pelajari limit satu sisi, sifat dan teknik limit aljabar, limit tak hingga dan trigonometri, kekontinuan, serta pengantar aturan L'Hôpital.",
-    htmlContent: limitHtml,
   },
   {
     id: "derivatives",
@@ -261,7 +228,6 @@ export const materials: Material[] = [
     formula: "f'(x)=\\lim_{h\\to 0}\\frac{f(x+h)-f(x)}{h}",
     description:
       "Pelajari definisi turunan melalui limit, aturan-aturan diferensiasi, turunan fungsi aljabar dan trigonometri, serta penerapannya pada garis singgung dan masalah optimasi.",
-    htmlContent: turunanHtml,
   },
   {
     id: "circle-arcs-sectors",
@@ -275,7 +241,6 @@ export const materials: Material[] = [
     formula: "K=2\\pi r \\qquad L=\\pi r^2",
     description:
       "Pelajari keliling dan luas, unsur-unsur lingkaran, busur, juring, tali busur, garis singgung, serta penerapan dan latihan soal.",
-    htmlContent: lingkaranHtml,
   },
   {
     id: "complex-numbers",
@@ -289,7 +254,6 @@ export const materials: Material[] = [
     formula: "z=a+bi \\qquad i^2=-1",
     description:
       "Pelajari bentuk dan representasi bilangan kompleks, operasi hitung, invers, konjugat, modulus, serta argumen pada bidang kompleks.",
-    htmlContent: bilanganKompleksHtml,
   },
   {
     id: "functions-modeling",
@@ -303,7 +267,6 @@ export const materials: Material[] = [
     formula: "f:A\\to B \\qquad y=f(x)",
     description:
       "Pelajari konsep dan sifat fungsi, domain dan range, operasi serta komposisi dan invers, transformasi grafik, dan pemodelan menggunakan fungsi.",
-    htmlContent: fungsiPemodelanHtml,
   },
   {
     id: "function-transformations",
@@ -317,7 +280,6 @@ export const materials: Material[] = [
     formula: "y=f(x-h)+k \\qquad y=af(bx)",
     description:
       "Pelajari translasi, refleksi, dilatasi, rotasi, dan komposisi transformasi pada grafik fungsi serta pengaruhnya terhadap sifat grafik.",
-    htmlContent: transformasiFungsiHtml,
   },
   {
     id: "trigonometry",
@@ -332,7 +294,6 @@ export const materials: Material[] = [
       "\\sin\\theta=\\frac{\\text{sisi depan}}{\\text{hipotenusa}} \\qquad \\cos\\theta=\\frac{\\text{sisi samping}}{\\text{hipotenusa}}",
     description:
       "Pelajari perbandingan trigonometri, sudut istimewa, lingkaran satuan, identitas, persamaan trigonometri, aturan sinus dan cosinus, serta penerapannya.",
-    htmlContent: trigonometriHtml,
   },
   {
     id: "conic-sections",
@@ -346,7 +307,6 @@ export const materials: Material[] = [
     formula: "e=\\frac{c}{a}",
     description:
       "Pelajari lingkaran, garis singgung, elips, parabola, dan hiperbola melalui persamaan serta sifat geometri analitiknya.",
-    htmlContent: irisanKerucutHtml,
   },
   {
     id: "integrals",
@@ -360,7 +320,6 @@ export const materials: Material[] = [
     formula: "\\int f(x)\\,dx=F(x)+C",
     description:
       "Pelajari integral tak tentu dan tentu, substitusi, integral parsial, luas daerah, volume benda putar, serta penerapan integral pada gerak.",
-    htmlContent: integralHtml,
   },
   {
     id: "number-theory",
@@ -374,7 +333,6 @@ export const materials: Material[] = [
     formula: "a\\equiv b\\pmod m",
     description:
       "Materi olimpiade tentang keterbagian, FPB dan KPK, aritmetika modulo, teorema utama teori bilangan, serta persamaan Diophantine.",
-    htmlContent: teoriBilanganHtml,
   },
 ];
 

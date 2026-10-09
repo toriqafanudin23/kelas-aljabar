@@ -1,8 +1,8 @@
 import { useState } from "react";
 import type { MouseEvent } from "react";
-import { materials } from "../materi";
-import { getPathFromPage } from "../types/navigation";
-import type { Page, Navigate } from "../types/navigation";
+import { materials } from "../../materi";
+import { getPathFromPage } from "../../types/navigation";
+import type { Page, Navigate } from "../../types/navigation";
 
 interface SiteHeaderProps {
   page: Page;

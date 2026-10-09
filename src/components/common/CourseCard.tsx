@@ -1,7 +1,7 @@
-import type { Material } from "../materi";
-import type { Navigate } from "../types/navigation";
-import { getPathFromPage } from "../types/navigation";
-import { Formula } from "./Formula";
+import type { Material } from "../../materi";
+import type { Navigate } from "../../types/navigation";
+import { getPathFromPage } from "../../types/navigation";
+import { Formula } from "../math/Formula";
 
 interface CourseCardProps {
   material: Material;

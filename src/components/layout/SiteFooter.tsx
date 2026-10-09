@@ -1,4 +1,4 @@
-import type { Navigate } from "../types/navigation";
+import type { Navigate } from "../../types/navigation";
 
 interface SiteFooterProps {
   navigate: Navigate;

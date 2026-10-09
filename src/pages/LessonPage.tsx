@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import type { MouseEvent } from "react";
-import { materials, getMaterialBySlug } from "../materi";
+import { materials, getMaterialBySlug, materialHtmlLoaders } from "../materi";
 import type { Material } from "../materi";
 import type { LessonNavItem, Navigate } from "../types/navigation";
 import { getPathFromPage } from "../types/navigation";
-import { LessonHtml } from "../components/LessonHtml";
+import { LessonHtml } from "../components";
 
 interface LessonPageProps {
   slug: string;
@@ -21,8 +21,37 @@ export function LessonPage({
 }: LessonPageProps) {
   const [sections, setSections] = useState<LessonNavItem[]>([]);
   const [activeSectionId, setActiveSectionId] = useState<string>("");
+  const [loadedContent, setLoadedContent] = useState<{
+    slug: string;
+    html: string;
+  }>({ slug: "", html: "" });
 
   const material: Material | undefined = getMaterialBySlug(slug);
+  const isContentLoading = loadedContent.slug !== slug;
+  const htmlContent = loadedContent.slug === slug ? loadedContent.html : "";
+
+  useEffect(() => {
+    let isCancelled = false;
+
+    const loader = materialHtmlLoaders[slug];
+    if (!loader) return;
+
+    loader()
+      .then((mod) => {
+        if (!isCancelled) {
+          setLoadedContent({ slug, html: mod.default });
+        }
+      })
+      .catch(() => {
+        if (!isCancelled) {
+          setLoadedContent({ slug, html: "" });
+        }
+      });
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [slug]);
   const [currentDate] = useState(() =>
     new Intl.DateTimeFormat("id-ID", {
       day: "numeric",
@@ -276,10 +305,26 @@ export function LessonPage({
               <p className="lesson-lead">{material.description}</p>
             )}
 
-            <LessonHtml
-              html={material.htmlContent}
-              onSectionsChange={setSections}
-            />
+            {isContentLoading ? (
+              <div
+                style={{
+                  minHeight: "300px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  color: "#64748b",
+                  fontSize: "0.875rem",
+                  padding: "2rem",
+                }}
+              >
+                Memuat materi pembelajaran...
+              </div>
+            ) : (
+              <LessonHtml
+                html={htmlContent}
+                onSectionsChange={setSections}
+              />
+            )}
 
             {/* Navigasi Prasyarat Antar Modul (Sebelumnya / Selanjutnya) */}
             <div className="lesson-pager">

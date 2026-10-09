@@ -1,7 +1,58 @@
-import { useEffect, useState } from "react";
-import { ArrowLeft, BookOpen, Compass } from "lucide-react";
+import { lazy, Suspense, useEffect, useState } from "react";
+import type { ComponentType } from "react";
+import { ArrowLeft, BookOpen, Compass, Loader2 } from "lucide-react";
 import type { Navigate } from "../types/navigation";
 import { SIMULATIONS } from "../data/simulationsData";
+
+const SIMULATION_COMPONENTS: Record<string, React.LazyExoticComponent<ComponentType<unknown>>> = {
+  trigonometry: lazy(() =>
+    import("../components/simulation/TrigonometrySimulation").then((m) => ({
+      default: m.TrigonometrySimulation,
+    })),
+  ),
+  quadratic: lazy(() =>
+    import("../components/simulation/QuadraticSimulation").then((m) => ({
+      default: m.QuadraticSimulation,
+    })),
+  ),
+  transformation: lazy(() =>
+    import("../components/simulation/TransformationSimulation").then((m) => ({
+      default: m.TransformationSimulation,
+    })),
+  ),
+  "function-transformation": lazy(() =>
+    import(
+      "../components/simulation/FunctionTransformationSimulation"
+    ).then((m) => ({
+      default: m.FunctionTransformationSimulation,
+    })),
+  ),
+  vector: lazy(() =>
+    import("../components/simulation/VectorSimulation").then((m) => ({
+      default: m.VectorSimulation,
+    })),
+  ),
+  derivative: lazy(() =>
+    import("../components/simulation/DerivativeSimulation").then((m) => ({
+      default: m.DerivativeSimulation,
+    })),
+  ),
+  integral: lazy(() =>
+    import("../components/simulation/IntegralSimulation").then((m) => ({
+      default: m.IntegralSimulation,
+    })),
+  ),
+  "graph-plotter": lazy(() =>
+    import("../components/simulation/GraphPlotterSimulation").then((m) => ({
+      default: m.GraphPlotterSimulation,
+    })),
+  ),
+  "linear-system": lazy(() =>
+    import("../components/simulation/LinearSystemSimulation").then((m) => ({
+      default: m.LinearSystemSimulation,
+    })),
+  ),
+};
 
 interface SimulationPlayPageProps {
   navigate?: Navigate;
@@ -34,7 +85,9 @@ export function SimulationPlayPage({ navigate }: SimulationPlayPageProps) {
 
   const activeSimulation =
     SIMULATIONS.find((s) => s.id === selectedSimulationId) ?? SIMULATIONS[0];
-  const ActiveComponent = activeSimulation.component;
+  const ActiveComponent =
+    SIMULATION_COMPONENTS[activeSimulation.id] ??
+    SIMULATION_COMPONENTS[SIMULATIONS[0].id];
 
   // Sinkronisasi ke sessionStorage dan URL query parameter
   useEffect(() => {
@@ -178,7 +231,28 @@ export function SimulationPlayPage({ navigate }: SimulationPlayPageProps) {
 
         {/* Kanvas Interaktif JSXGraph */}
         <div className="sim-player-canvas-container">
-          <ActiveComponent />
+          <Suspense
+            fallback={
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  minHeight: "420px",
+                  background: "#051f33",
+                  color: "#cbd5e1",
+                  gap: "0.75rem",
+                  fontSize: "0.875rem",
+                }}
+              >
+                <Loader2 className="animate-spin" size={28} color="#facc15" />
+                <span>Memuat modul interaktif {activeSimulation.title}...</span>
+              </div>
+            }
+          >
+            <ActiveComponent />
+          </Suspense>
         </div>
       </section>
 

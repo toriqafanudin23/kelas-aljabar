@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import JXG from "jsxgraph";
-import "../../node_modules/jsxgraph/distrib/jsxgraph.css";
+import "../../../node_modules/jsxgraph/distrib/jsxgraph.css";
 import "./QuadraticExplorer.css";
 
 interface Coefficients {

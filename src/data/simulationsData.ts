@@ -1,14 +1,3 @@
-import type { ComponentType } from "react";
-import { TrigonometrySimulation } from "../components/simulation/TrigonometrySimulation";
-import { QuadraticSimulation } from "../components/simulation/QuadraticSimulation";
-import { TransformationSimulation } from "../components/simulation/TransformationSimulation";
-import { FunctionTransformationSimulation } from "../components/simulation/FunctionTransformationSimulation";
-import { VectorSimulation } from "../components/simulation/VectorSimulation";
-import { DerivativeSimulation } from "../components/simulation/DerivativeSimulation";
-import { IntegralSimulation } from "../components/simulation/IntegralSimulation";
-import { GraphPlotterSimulation } from "../components/simulation/GraphPlotterSimulation";
-import { LinearSystemSimulation } from "../components/simulation/LinearSystemSimulation";
-
 export interface SimulationItem {
   id: string;
   index: string;
@@ -21,7 +10,6 @@ export interface SimulationItem {
   relatedMaterialSlug: string;
   relatedMaterialTitle: string;
   concepts: string[];
-  component: ComponentType;
 }
 
 export const SIMULATIONS: SimulationItem[] = [
@@ -39,7 +27,6 @@ export const SIMULATIONS: SimulationItem[] = [
     relatedMaterialSlug: "trigonometri",
     relatedMaterialTitle: "Perbandingan Trigonometri",
     concepts: ["Lingkaran Satuan", "Sinus", "Kosinus", "Tangen", "Kuadran I–IV"],
-    component: TrigonometrySimulation,
   },
   {
     id: "quadratic",
@@ -55,7 +42,6 @@ export const SIMULATIONS: SimulationItem[] = [
     relatedMaterialSlug: "fungsi-kuadrat",
     relatedMaterialTitle: "Fungsi Kuadrat",
     concepts: ["Parabola", "Diskriminan (D)", "Titik Puncak", "Akar Persamaan"],
-    component: QuadraticSimulation,
   },
   {
     id: "transformation",
@@ -71,7 +57,6 @@ export const SIMULATIONS: SimulationItem[] = [
     relatedMaterialSlug: "transformasi-geometri",
     relatedMaterialTitle: "Transformasi Geometri",
     concepts: ["Translasi", "Refleksi", "Rotasi", "Dilatasi", "Matriks Transformasi"],
-    component: TransformationSimulation,
   },
   {
     id: "function-transformation",
@@ -87,7 +72,6 @@ export const SIMULATIONS: SimulationItem[] = [
     relatedMaterialSlug: "transformasi-fungsi",
     relatedMaterialTitle: "Transformasi Fungsi",
     concepts: ["Translasi Grafik", "Refleksi", "Kompresi & Peregangan", "Fungsi Dasar"],
-    component: FunctionTransformationSimulation,
   },
   {
     id: "vector",
@@ -103,7 +87,6 @@ export const SIMULATIONS: SimulationItem[] = [
     relatedMaterialSlug: "vektor",
     relatedMaterialTitle: "Vektor Dimensi 2 & 3",
     concepts: ["Besar & Arah", "Resultan Vektor", "Dot Product", "Proyeksi Ortogonal"],
-    component: VectorSimulation,
   },
   {
     id: "derivative",
@@ -119,7 +102,6 @@ export const SIMULATIONS: SimulationItem[] = [
     relatedMaterialSlug: "turunan",
     relatedMaterialTitle: "Turunan Fungsi & Optimasi",
     concepts: ["Garis Sekan", "Garis Tangen", "Limit Δx → 0", "Gradien f'(x)"],
-    component: DerivativeSimulation,
   },
   {
     id: "integral",
@@ -135,7 +117,6 @@ export const SIMULATIONS: SimulationItem[] = [
     relatedMaterialSlug: "integral",
     relatedMaterialTitle: "Integral Tak Tentu & Luas Daerah",
     concepts: ["Jumlah Riemann", "Partisi (Δx)", "Integral Tentu", "Luas di Bawah Kurva"],
-    component: IntegralSimulation,
   },
   {
     id: "graph-plotter",
@@ -151,7 +132,6 @@ export const SIMULATIONS: SimulationItem[] = [
     relatedMaterialSlug: "fungsi-pemodelan",
     relatedMaterialTitle: "Fungsi dan Pemodelan",
     concepts: ["Plotting Grafik", "Titik Potong", "Sumbu Simetri", "Perilaku Asimtot"],
-    component: GraphPlotterSimulation,
   },
   {
     id: "linear-system",
@@ -167,7 +147,6 @@ export const SIMULATIONS: SimulationItem[] = [
     relatedMaterialSlug: "sppl",
     relatedMaterialTitle: "Sistem Persamaan & Pertidaksamaan Linear",
     concepts: ["Garis Sejajar & Berpotongan", "Daerah Layak", "Titik Pojok", "Program Linear"],
-    component: LinearSystemSimulation,
   },
 ];
 

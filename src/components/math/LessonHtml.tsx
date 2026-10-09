@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { createRoot } from "react-dom/client";
 import type { Root } from "react-dom/client";
 import renderMathInElement from "katex/dist/contrib/auto-render.mjs";
-import type { LessonNavItem } from "../types/navigation";
+import type { LessonNavItem } from "../../types/navigation";
 
 interface LessonHtmlProps {
   html: string;

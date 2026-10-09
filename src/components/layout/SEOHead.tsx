@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import type { Page } from "../types/navigation";
-import { getPathFromPage } from "../types/navigation";
-import { getMaterialBySlug } from "../materi";
+import type { Page } from "../../types/navigation";
+import { getPathFromPage } from "../../types/navigation";
+import { getMaterialBySlug } from "../../materi";
 
 interface SEOHeadProps {
   page: Page;

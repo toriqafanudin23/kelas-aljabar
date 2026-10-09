@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { materials } from "../materi";
 import type { Navigate } from "../types/navigation";
-import { CourseCard } from "../components/CourseCard";
+import { CourseCard } from "../components";
 
 interface CatalogPageProps {
   navigate: Navigate;

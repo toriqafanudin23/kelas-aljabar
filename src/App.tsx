@@ -2,9 +2,7 @@ import { lazy, Suspense, useEffect, useState } from "react";
 import "katex/dist/katex.min.css";
 import { getPageFromPath, getPathFromPage } from "./types/navigation";
 import type { Page, Navigate } from "./types/navigation";
-import { SiteHeader } from "./components/SiteHeader";
-import { SiteFooter } from "./components/SiteFooter";
-import { SEOHead } from "./components/SEOHead";
+import { SiteHeader, SiteFooter, SEOHead } from "./components";
 import { getMaterialBySlug } from "./materi";
 
 const HomePage = lazy(() =>
