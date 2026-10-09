@@ -1,92 +1,50 @@
 import { useState } from "react";
+import {
+  ArrowRight,
+  BookOpen,
+  CheckCircle2,
+  ClipboardList,
+  FileText,
+  Layers,
+  Presentation,
+  Sliders,
+} from "lucide-react";
 import { materials } from "../materi";
 import type { Navigate } from "../types/navigation";
-import { getPathFromPage } from "../types/navigation";
-import { Formula } from "../components/Formula";
-import { TrigonometrySimulation } from "../components/simulation/TrigonometrySimulation";
+import { HeroDerivativeSimulation } from "../components/simulation/HeroDerivativeSimulation";
 
 interface HomePageProps {
   navigate: Navigate;
 }
 
-type HeroTabKey = "ramanujan" | "euler" | "calculus";
 type PathwayFilterKey = "all" | "fase-e" | "fase-f" | "fase-f-lanjut";
 
-const HERO_PROOFS: Record<
-  HeroTabKey,
-  {
-    tabLabel: string;
-    title: string;
-    formula: string;
-    description: string;
-    moduleSlug: string;
-    moduleTag: string;
-  }
-> = {
-  ramanujan: {
-    tabLabel: "1729 Ramanujan",
-    title: "Bilangan Taksi Hardy-Ramanujan",
-    formula: "1729 = 1^3 + 12^3 = 9^3 + 10^3",
-    description:
-      "Bilangan bulat positif terkecil yang dapat dinyatakan sebagai penjumlahan dua kubus positif dalam dua cara berbeda. Bukti dedikasi terhadap eksplorasi murni teori bilangan.",
-    moduleSlug: "teori-bilangan",
-    moduleTag: "Eksplorasi · Teori Bilangan",
-  },
-  euler: {
-    tabLabel: "Identitas Euler",
-    title: "Harmoni 5 Konstanta Fundamental",
-    formula: "e^{i\\pi} + 1 = 0",
-    description:
-      "Menghubungkan analisis riil, geometri trigonometri, dan aljabar kompleks dalam satu persamaan paling elegan dalam sejarah matematika manusia.",
-    moduleSlug: "bilangan-kompleks",
-    moduleTag: "Fase F · Bilangan Kompleks",
-  },
-  calculus: {
-    tabLabel: "Teorema Kalkulus",
-    title: "Teorema Dasar Kalkulus (FTC I)",
-    formula: "\\frac{d}{dx} \\left[ \\int_a^x f(t)\\,dt \\right] = f(x)",
-    description:
-      "Jembatan analitis yang membuktikan bahwa diferensiasi dan integrasi adalah dua operasi yang saling invers, menjadi fondasi sains dan rekayasa modern.",
-    moduleSlug: "integral",
-    moduleTag: "Fase F Lanjut · Integral",
-  },
-};
-
 export function HomePage({ navigate }: HomePageProps) {
-  const [activeHeroTab, setActiveHeroTab] = useState<HeroTabKey>("ramanujan");
   const [activePathwayFilter, setActivePathwayFilter] =
     useState<PathwayFilterKey>("all");
 
-  const currentProof = HERO_PROOFS[activeHeroTab];
-
   return (
     <>
-      {/* Hero Section */}
+      {/* 1. Hero Section */}
       <section className="hero-band">
         <div className="site-width hero-layout">
           <div className="hero-copy">
             <span className="eyebrow">
               <span className="eyebrow-dot" />
-              Math 1729 · Belajar, Berlatih, dan Bersiap
+              Math 1729 · Portal Pembelajaran &amp; Bahan Ajar Matematika
             </span>
             <h1>
-              Produk Digital dan <em>Simulasi Matematika</em>
+              Platform Terpadu <em>Pembelajaran &amp; Perangkat Ajar</em> Matematika
             </h1>
             <p>
-              Pelajari matematika gratis melalui materi berbasis web, eksplorasi
-              konsep dengan simulasi interaktif, dan persiapkan diri untuk UTBK.
-              Temukan juga produk digital untuk mendukung kegiatan belajar.
+              Membantu proses belajar-mengajar matematika berjalan lebih efektif,
+              presisi, dan terstruktur. Tersedia materi kurikulum lengkap, latihan
+              soal interaktif, simulasi konsep visual, serta bahan ajar siap pakai
+              (modul ajar, slide presentasi, bank soal, dan LKPD) untuk guru dan siswa.
             </p>
             <div className="hero-actions">
               <a
                 className="button button-primary"
-                href="/beli"
-                onClick={(event) => navigate(event, "shop")}
-              >
-                Beli Produk Digital <span aria-hidden="true">→</span>
-              </a>
-              <a
-                className="button button-quiet"
                 href="/simulasi"
                 onClick={(event) => navigate(event, "simulation")}
               >
@@ -94,164 +52,309 @@ export function HomePage({ navigate }: HomePageProps) {
               </a>
               <a
                 className="button button-quiet"
-                href="/katalog"
-                onClick={(event) => navigate(event, "catalog")}
+                href="/beli"
+                onClick={(event) => navigate(event, "shop")}
               >
-                Materi Gratis <span aria-hidden="true">→</span>
+                Beli Produk Digital <span aria-hidden="true">→</span>
               </a>
-            </div>
-            <a
-              className="hero-new-resource"
-              href="/beli"
-              aria-label="Ada yang baru: Paket Soal TKA SMP"
-              onClick={(event) => navigate(event, "shop")}
-            >
-              <span className="hero-new-tag">Ada yang Baru</span>
-              <span>Paket Soal TKA SMP →</span>
-            </a>
-            <div className="hero-new-resource" aria-label="Segera hadir">
-              <span className="hero-new-tag">Segera Hadir</span>
-              <span>Generate Soal Otomatis</span>
             </div>
           </div>
 
-          {/* Hero Rigor / Proof Engine Card */}
-          <aside
-            className="proof-engine-card"
-            aria-label="Ramanujan Rigor Engine"
-          >
-            <div className="proof-engine-header">
-              <span className="proof-engine-title">
-                <span className="proof-pulse-dot" />
-                Math 1729 / Rigor Engine
-              </span>
-              <span className="proof-engine-badge">Standar Notasi KaTeX</span>
-            </div>
-
-            <div className="proof-engine-tabs" role="tablist">
-              {(Object.keys(HERO_PROOFS) as HeroTabKey[]).map((key) => (
-                <button
-                  key={key}
-                  type="button"
-                  role="tab"
-                  aria-selected={activeHeroTab === key}
-                  className={`proof-tab-btn ${activeHeroTab === key ? "active" : ""}`}
-                  onClick={() => setActiveHeroTab(key)}
-                >
-                  {HERO_PROOFS[key].tabLabel}
-                </button>
-              ))}
-            </div>
-
-            <div className="proof-display-body">
-              <div className="proof-formula-screen">
-                <Formula math={currentProof.formula} />
-              </div>
-              <h3 className="proof-explanation-title">{currentProof.title}</h3>
-              <p className="proof-explanation-desc">
-                {currentProof.description}
-              </p>
-            </div>
-
-            <div className="proof-engine-footer">
-              <span className="proof-module-tag">{currentProof.moduleTag}</span>
-              <a
-                href={getPathFromPage(currentProof.moduleSlug)}
-                className="proof-action-link"
-                onClick={(e) => navigate(e, currentProof.moduleSlug)}
-              >
-                Pelajari Pembuktian Modul <span aria-hidden="true">→</span>
-              </a>
-            </div>
-          </aside>
+          {/* Hero Simulation (Autonomous JSXGraph Derivative Simulation) */}
+          <HeroDerivativeSimulation navigate={navigate} />
         </div>
       </section>
 
+      {/* 3. Empat Pilar Platform */}
+      <section className="pillars-section" aria-label="Pilar Platform Pembelajaran">
+        <div className="site-width">
+          <div className="section-heading">
+            <div>
+              <span className="section-kicker">Ekosistem Pembelajaran Terintegrasi</span>
+              <h2>4 Pilar Pembelajaran Math 1729</h2>
+              <p>
+                Dirancang secara sistematis untuk menjawab kebutuhan pemahaman konsep
+                siswa sekaligus mempermudah persiapan mengajar guru di kelas.
+              </p>
+            </div>
+          </div>
+
+          <div className="pillars-grid">
+            {/* Pilar 1 */}
+            <div className="pillar-card">
+              <div className="pillar-badge-num">01 · MATERI LENGKAP</div>
+              <div className="pillar-icon-box" aria-hidden="true">
+                <BookOpen size={18} />
+              </div>
+              <h3>Materi Berjenjang SMA</h3>
+              <p>
+                22 modul pembelajaran komprehensif mulai dari fondasi aljabar,
+                trigonometri, geometri analitik, hingga kalkulus diferensial dan
+                integral dengan notasi presisi KaTeX.
+              </p>
+              <a
+                href="/katalog"
+                className="pillar-action-link"
+                onClick={(e) => navigate(e, "catalog")}
+              >
+                Buka Katalog Materi <ArrowRight size={13} aria-hidden="true" />
+              </a>
+            </div>
+
+            {/* Pilar 2 */}
+            <div className="pillar-card">
+              <div className="pillar-badge-num">02 · UJI MANDIRI</div>
+              <div className="pillar-icon-box" aria-hidden="true">
+                <CheckCircle2 size={18} />
+              </div>
+              <h3>Latihan Soal Interaktif</h3>
+              <p>
+                Uji pemahaman topik secara terukur melalui soal interaktif dengan
+                kunci jawaban, analisis skor, dan pembahasan langkah demi langkah
+                untuk persiapan ulangan hingga UTBK-SNBT.
+              </p>
+              <a
+                href="/latihan-soal"
+                className="pillar-action-link"
+                onClick={(e) => navigate(e, "practice")}
+              >
+                Mulai Latihan Soal <ArrowRight size={13} aria-hidden="true" />
+              </a>
+            </div>
+
+            {/* Pilar 3 */}
+            <div className="pillar-card">
+              <div className="pillar-badge-num">03 · EKSPLORASI VISUAL</div>
+              <div className="pillar-icon-box" aria-hidden="true">
+                <Sliders size={18} />
+              </div>
+              <h3>Simulasi Visual Dinamis</h3>
+              <p>
+                Eksplorasi konsep abstrak seperti lingkaran satuan, transformasi
+                geometri, fungsi kuadrat, dan limit secara visual dan dinamis
+                agar terbangun intuisi matematis yang kokoh.
+              </p>
+              <a
+                href="/simulasi"
+                className="pillar-action-link"
+                onClick={(e) => navigate(e, "simulation")}
+              >
+                Jelajahi Simulasi <ArrowRight size={13} aria-hidden="true" />
+              </a>
+            </div>
+
+            {/* Pilar 4 */}
+            <div className="pillar-card">
+              <div className="pillar-badge-num">04 · PERANGKAT AJAR</div>
+              <div className="pillar-icon-box" aria-hidden="true">
+                <Layers size={18} />
+              </div>
+              <h3>Bahan Ajar Siap Pakai</h3>
+              <p>
+                Perangkat pembelajaran siap pakai untuk guru: modul ajar terstruktur,
+                slide presentasi kelas, bank soal latihan, dan LKPD Discovery
+                Learning dalam format PDF dan LaTeX editable.
+              </p>
+              <a
+                href="/beli"
+                className="pillar-action-link"
+                onClick={(e) => navigate(e, "shop")}
+              >
+                Pilih Bahan Ajar <ArrowRight size={13} aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Etalase Bahan Ajar Siap Pakai untuk Guru & Kelas */}
       <section
-        className="home-trig-showcase simulation-page"
-        aria-labelledby="home-trig-title"
+        className="teaching-resources-section"
+        aria-label="Bahan Ajar Siap Pakai Guru"
       >
         <div className="site-width">
-          <div className="home-trig-showcase-heading">
+          <div className="section-heading">
             <div>
-              <span className="home-trig-showcase-kicker">
-                Simulasi Interaktif · Trigonometri
-              </span>
-              <h2 id="home-trig-title">Lihat trigonometri bergerak</h2>
+              <span className="section-kicker">Solusi Pendidik &amp; Manajemen Kelas</span>
+              <h2>Bahan Ajar Siap Pakai untuk Guru &amp; Kelas</h2>
               <p>
-                Geser titik pada lingkaran satuan dan amati bagaimana sudut
-                mengubah nilai sinus, kosinus, dan tangen.
+                Tingkatkan efektivitas mengajar dengan dokumen berkualitas tinggi
+                berstandar kurikulum nasional. Tersedia dalam format PDF siap cetak
+                dan berkas LaTeX (.tex) yang dapat diedit bebas.
               </p>
             </div>
             <a
               className="button button-primary"
-              href="/simulasi"
-              onClick={(event) => navigate(event, "simulation")}
+              href="/beli"
+              onClick={(event) => navigate(event, "shop")}
             >
-              Jelajahi semua simulasi <span aria-hidden="true">→</span>
+              Katalog Bahan Ajar Lengkap <span aria-hidden="true">→</span>
             </a>
           </div>
-          <TrigonometrySimulation />
-        </div>
-      </section>
 
-      {/* Trust & Proof Metrics Strip */}
-      <section
-        className="trust-metrics-strip"
-        aria-label="Statistik dan Bukti Kredibilitas"
-      >
-        <div className="site-width">
-          <div className="trust-metrics-grid">
-            <div className="trust-metric-item">
-              <span className="trust-metric-val">
-                22<em>+</em>
-              </span>
-              <strong className="trust-metric-title">
-                Modul Akademis Lengkap
-              </strong>
-              <span className="trust-metric-desc">
-                Mencakup kurikulum matematika SMA dari Fase E hingga Fase F
-                Lanjut.
-              </span>
+          <div className="teaching-materials-grid">
+            {/* Card 1: Modul Ajar */}
+            <div className="teaching-card">
+              <span className="teaching-card-badge">Kurikulum Merdeka</span>
+              <div className="teaching-card-icon" aria-hidden="true">
+                <FileText size={20} />
+              </div>
+              <h3>Modul Ajar Terstruktur</h3>
+              <p>
+                Rancangan alur pembelajaran komprehensif, dilengkapi tujuan
+                pembelajaran, materi esensial, contoh soal bertingkat, dan panduan asesmen.
+              </p>
+              <div className="teaching-features-list">
+                <div className="teaching-feature-item">
+                  <CheckCircle2 size={13} aria-hidden="true" />
+                  <span>Format .pdf &amp; .tex editable</span>
+                </div>
+                <div className="teaching-feature-item">
+                  <CheckCircle2 size={13} aria-hidden="true" />
+                  <span>Cakupan Fase E, F, &amp; F Lanjut</span>
+                </div>
+                <div className="teaching-feature-item">
+                  <CheckCircle2 size={13} aria-hidden="true" />
+                  <span>Runtut &amp; siap diimplementasikan</span>
+                </div>
+              </div>
+              <a
+                href="/beli"
+                className="teaching-card-action"
+                onClick={(e) => navigate(e, "shop")}
+              >
+                <span>Lihat Detail Modul</span>
+                <ArrowRight size={14} aria-hidden="true" />
+              </a>
             </div>
-            <div className="trust-metric-item">
-              <span className="trust-metric-val">
-                100<em>%</em>
-              </span>
-              <strong className="trust-metric-title">
-                Notasi Presisi KaTeX
-              </strong>
-              <span className="trust-metric-desc">
-                Simbol dan formula matematis berstandar jurnal ilmiah
-                internasional.
-              </span>
+
+            {/* Card 2: Slide Presentasi */}
+            <div className="teaching-card">
+              <span className="teaching-card-badge">Media Visual Kelas</span>
+              <div className="teaching-card-icon" aria-hidden="true">
+                <Presentation size={20} />
+              </div>
+              <h3>Slide Presentasi Pengajaran</h3>
+              <p>
+                Bahan tayang proyektor dengan tipografi jernih, bagan alir konsep,
+                dan grafik tajam untuk menarik perhatian serta mempermudah penjelasan di kelas.
+              </p>
+              <div className="teaching-features-list">
+                <div className="teaching-feature-item">
+                  <CheckCircle2 size={13} aria-hidden="true" />
+                  <span>Format .pdf siap tayang</span>
+                </div>
+                <div className="teaching-feature-item">
+                  <CheckCircle2 size={13} aria-hidden="true" />
+                  <span>Mencakup seluruh topik materi SMA</span>
+                </div>
+                <div className="teaching-feature-item">
+                  <CheckCircle2 size={13} aria-hidden="true" />
+                  <span>Desain profesional &amp; bebas distraksi</span>
+                </div>
+              </div>
+              <a
+                href="/beli"
+                className="teaching-card-action"
+                onClick={(e) => navigate(e, "shop")}
+              >
+                <span>Lihat Paket Slide</span>
+                <ArrowRight size={14} aria-hidden="true" />
+              </a>
             </div>
-            <div className="trust-metric-item">
-              <span className="trust-metric-val">
-                3<em> Tahap</em>
-              </span>
-              <strong className="trust-metric-title">
-                Alur Prasyarat Runtut
-              </strong>
-              <span className="trust-metric-desc">
-                Dirancang dari penguasaan konsep dasar hingga aplikasi pemodelan
-                rumit.
-              </span>
+
+            {/* Card 3: Bank Soal */}
+            <div className="teaching-card">
+              <span className="teaching-card-badge">Evaluasi &amp; Ujian</span>
+              <div className="teaching-card-icon" aria-hidden="true">
+                <Layers size={20} />
+              </div>
+              <h3>Bank Soal &amp; Kunci Pembahasan</h3>
+              <p>
+                Kumpulan paket latihan soal ulangan harian, ujian semester, serta
+                persiapan TKA SMP/SMA lengkap dengan kunci jawaban dan pembahasan analitis.
+              </p>
+              <div className="teaching-features-list">
+                <div className="teaching-feature-item">
+                  <CheckCircle2 size={13} aria-hidden="true" />
+                  <span>Pilihan ganda &amp; soal uraian</span>
+                </div>
+                <div className="teaching-feature-item">
+                  <CheckCircle2 size={13} aria-hidden="true" />
+                  <span>Kunci jawaban &amp; pembahasan tuntas</span>
+                </div>
+                <div className="teaching-feature-item">
+                  <CheckCircle2 size={13} aria-hidden="true" />
+                  <span>Tersedia paket TKA SMP &amp; SMA</span>
+                </div>
+              </div>
+              <a
+                href="/beli"
+                className="teaching-card-action"
+                onClick={(e) => navigate(e, "shop")}
+              >
+                <span>Lihat Bank Soal</span>
+                <ArrowRight size={14} aria-hidden="true" />
+              </a>
             </div>
-            <div className="trust-metric-item">
-              <span className="trust-metric-val">UTBK-SNBT</span>
-              <strong className="trust-metric-title">
-                Penalaran Matematika
-              </strong>
-              <span className="trust-metric-desc">
-                Menguatkan penalaran kuantitatif untuk persiapan UTBK-SNBT.
-              </span>
+
+            {/* Card 4: LKPD */}
+            <div className="teaching-card">
+              <span className="teaching-card-badge">Student-Centered</span>
+              <div className="teaching-card-icon" aria-hidden="true">
+                <ClipboardList size={20} />
+              </div>
+              <h3>LKPD Discovery &amp; PBL</h3>
+              <p>
+                Lembar Kerja Peserta Didik terstruktur yang memandu siswa menemukan
+                konsep matematika secara mandiri melalui pendekatan penemuan terbimbing.
+              </p>
+              <div className="teaching-features-list">
+                <div className="teaching-feature-item">
+                  <CheckCircle2 size={13} aria-hidden="true" />
+                  <span>Model penemuan (Discovery/PBL)</span>
+                </div>
+                <div className="teaching-feature-item">
+                  <CheckCircle2 size={13} aria-hidden="true" />
+                  <span>Melatih daya nalar kritis siswa</span>
+                </div>
+                <div className="teaching-feature-item">
+                  <CheckCircle2 size={13} aria-hidden="true" />
+                  <span>Format siap cetak dan dibagikan</span>
+                </div>
+              </div>
+              <a
+                href="/beli"
+                className="teaching-card-action"
+                onClick={(e) => navigate(e, "shop")}
+              >
+                <span>Lihat LKPD</span>
+                <ArrowRight size={14} aria-hidden="true" />
+              </a>
             </div>
+          </div>
+
+          {/* Banner Callout Kustomisasi */}
+          <div className="teaching-callout-banner">
+            <div className="teaching-callout-text">
+              <h4>Memerlukan Paket Hemat atau Materi Spesifik?</h4>
+              <p>
+                Tersedia paket hemat per jenjang kelas (Kelas X, XI, XII) serta
+                pemesanan custom sesuai indikator capaian kurikulum di sekolah Anda.
+              </p>
+            </div>
+            <a
+              href="/beli"
+              className="teaching-callout-btn"
+              onClick={(e) => navigate(e, "shop")}
+            >
+              Buka Halaman Beli Produk <ArrowRight size={14} aria-hidden="true" />
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Alur Prasyarat Belajar Interaktif */}
+      {/* 5. Alur Prasyarat Belajar Interaktif */}
       <section id="pathway" className="site-width learning-pathway-section">
         <div className="section-heading">
           <div>
@@ -495,67 +598,7 @@ export function HomePage({ navigate }: HomePageProps) {
         </div>
       </section>
 
-      {/* Credibility & Founder Section */}
-      <section
-        className="credibility-section"
-        aria-label="Filosofi dan Pengembang"
-      >
-        <div className="site-width credibility-grid">
-          <div className="ramanujan-story">
-            <span className="section-kicker">Filosofi Nama 1729</span>
-            <h2>Dedikasi pada Keindahan &amp; Kejujuran Matematika</h2>
-            <p>
-              Nama portal ini terinspirasi dari percakapan legendaris antara
-              G.H. Hardy dan matematikawan jenius Srinivasa Ramanujan mengenai
-              nomor taksi <strong>1729</strong>. Ketika Hardy menganggap angka
-              itu biasa saja, Ramanujan seketika menyadari bahwa 1729 adalah
-              bilangan bulat terkecil yang dapat dinyatakan sebagai penjumlahan
-              dua bilangan kubik dengan dua cara berbeda:
-            </p>
-            <div className="formula-quote-box">
-              <Formula math="1729 = 1^3 + 12^3 = 9^3 + 10^3" />
-              <strong>Prinsip Ketelitian Penuh</strong>
-              <span>
-                Semangat inilah yang menjadi jiwa platform: setiap konsep
-                matematika menyimpan keindahan tersembunyi yang dapat dipahami
-                siapapun jika diajarkan dengan ketelitian dan kejernihan logika
-                yang tepat.
-              </span>
-            </div>
-          </div>
-
-          <div className="founder-profile-card">
-            <div className="founder-badge-row">
-              <div className="founder-avatar" aria-hidden="true">
-                TA
-              </div>
-              <div className="founder-info">
-                <h3>Toriq Afanudin</h3>
-                <p>Pengajar Matematika · Wonosobo, Jawa Tengah</p>
-              </div>
-            </div>
-            <p className="founder-mission">
-              &ldquo;Misi saya adalah memastikan setiap pelajar di Indonesia
-              memiliki akses ke pembelajaran matematika yang presisi, mendalam,
-              dan terhormat secara akademis—membangun daya nalar kritis generasi
-              penerus bangsa.&rdquo;
-            </p>
-            <div className="founder-connect">
-              <a href="/tentang" onClick={(event) => navigate(event, "about")}>
-                Profil Selengkapnya <span aria-hidden="true">→</span>
-              </a>
-              <a
-                href="mailto:pesan.math1729@gmail.com"
-                aria-label="Kirim surel ke Toriq Afanudin"
-              >
-                Hubungi Pengajar ↗
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* High-Impact Closing CTA Banner */}
+      {/* 6. High-Impact Closing CTA Banner */}
       <section className="cta-banner-section" aria-label="Mulai Belajar">
         <div className="site-width cta-banner-content">
           <span
@@ -566,12 +609,13 @@ export function HomePage({ navigate }: HomePageProps) {
               color: "var(--gold-light)",
             }}
           >
-            Langkah Pertama Menuju Keunggulan
+            Langkah Menuju Pemahaman Mendalam
           </span>
-          <h2>Kuasai Matematika Secara Mendalam Hari Ini.</h2>
+          <h2>Kuasai Matematika Lebih Mendalam. Mengajar Lebih Efektif.</h2>
           <p>
-            Tinggalkan cara menghafal tanpa pemahaman. Mulai bangun intuisi dan
-            ketajaman analitis Anda melalui silabus terstruktur Math 1729.
+            Tinggalkan cara menghafal tanpa pemahaman. Mulai bangun intuisi analitis
+            melalui kurikulum terstruktur Math 1729, atau lengkapi perangkat kelas
+            Anda dengan bahan ajar siap pakai.
           </p>
           <div className="cta-banner-actions">
             <a
@@ -588,6 +632,13 @@ export function HomePage({ navigate }: HomePageProps) {
               onClick={(event) => navigate(event, "catalog")}
             >
               Buka Katalog Lengkap ({materials.length} Modul)
+            </a>
+            <a
+              className="button button-quiet"
+              href="/beli"
+              onClick={(event) => navigate(event, "shop")}
+            >
+              Pesan Bahan Ajar Siap Pakai <span aria-hidden="true">→</span>
             </a>
           </div>
         </div>

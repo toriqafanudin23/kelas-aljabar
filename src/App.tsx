@@ -35,6 +35,11 @@ const PracticeExercisePage = lazy(() =>
 const SimulationPage = lazy(() =>
   import("./pages/SimulationPage").then((m) => ({ default: m.SimulationPage })),
 );
+const SimulationPlayPage = lazy(() =>
+  import("./pages/SimulationPlayPage").then((m) => ({
+    default: m.SimulationPlayPage,
+  })),
+);
 const ShopPage = lazy(() =>
   import("./pages/ShopPage").then((m) => ({ default: m.ShopPage })),
 );
@@ -96,6 +101,7 @@ function App() {
     page !== "practice-vektor" &&
     page !== "practice-sppl" &&
     page !== "simulation" &&
+    page !== "simulation-play" &&
     page !== "shop" &&
     page !== "shop-preview" &&
     page !== "not-found" &&
@@ -147,6 +153,9 @@ function App() {
           <PracticeExercisePage navigate={navigate} exercise="sppl" />
         )}
         {page === "simulation" && <SimulationPage navigate={navigate} />}
+        {page === "simulation-play" && (
+          <SimulationPlayPage navigate={navigate} />
+        )}
         {page === "shop" && <ShopPage navigate={navigate} />}
         {page === "shop-preview" && <ShopPreviewPage navigate={navigate} />}
         {isNotFoundPage && <NotFoundPage navigate={navigate} />}

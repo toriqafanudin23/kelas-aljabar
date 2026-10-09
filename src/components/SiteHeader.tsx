@@ -1,13 +1,5 @@
 import { useState } from "react";
 import type { MouseEvent } from "react";
-import {
-  BookOpenText,
-  ClipboardList,
-  Home,
-  Info,
-  Play,
-  ShoppingCart,
-} from "lucide-react";
 import { materials } from "../materi";
 import { getPathFromPage } from "../types/navigation";
 import type { Page, Navigate } from "../types/navigation";
@@ -82,21 +74,19 @@ export function SiteHeader({
 
         <nav className="desktop-nav" aria-label="Navigasi utama">
           <a
-            className={`nav-item-with-icon ${page === "home" ? "active" : ""}`}
+            className={page === "home" ? "active" : ""}
             href="/"
             onClick={(event) => handleNavigation(event, "home")}
           >
-            <Home size={15} strokeWidth={2.15} aria-hidden="true" />
             <span>Beranda</span>
           </a>
 
           <div className="catalog-menu">
             <a
-              className={`nav-item-with-icon ${page === "catalog" ? "active" : ""}`}
+              className={page === "catalog" ? "active" : ""}
               href="/katalog"
               onClick={(event) => handleNavigation(event, "catalog")}
             >
-              <BookOpenText size={15} strokeWidth={2.15} aria-hidden="true" />
               <span>Katalog Materi</span>
             </a>
             <div className="catalog-dropdown" aria-label="Daftar materi">
@@ -117,38 +107,46 @@ export function SiteHeader({
           </div>
 
           <a
-            className={`nav-item-with-icon ${page === "practice" || page === "practice-eksponensial" || page === "practice-barisan-deret" || page === "practice-vektor" || page === "practice-sppl" ? "active" : ""}`}
+            className={
+              page === "practice" ||
+              page === "practice-eksponensial" ||
+              page === "practice-barisan-deret" ||
+              page === "practice-vektor" ||
+              page === "practice-sppl"
+                ? "active"
+                : ""
+            }
             href="/latihan-soal"
             onClick={(event) => handleNavigation(event, "practice")}
           >
-            <ClipboardList size={15} strokeWidth={2.15} aria-hidden="true" />
             <span>Latihan Soal</span>
           </a>
 
           <a
-            className={`nav-item-with-icon ${page === "simulation" ? "active" : ""}`}
+            className={
+              page === "simulation" || page === "simulation-play"
+                ? "active"
+                : ""
+            }
             href="/simulasi"
             onClick={(event) => handleNavigation(event, "simulation")}
           >
-            <Play size={15} strokeWidth={2.15} aria-hidden="true" />
             <span>Simulasi</span>
           </a>
 
           <a
-            className={`nav-item-with-icon ${page === "shop" ? "active" : ""}`}
+            className={page === "shop" ? "active" : ""}
             href="/beli"
             onClick={(event) => handleNavigation(event, "shop")}
           >
-            <ShoppingCart size={15} strokeWidth={2.15} aria-hidden="true" />
             <span>Beli Produk</span>
           </a>
 
           <a
-            className={`nav-item-with-icon ${page === "about" ? "active" : ""}`}
+            className={page === "about" ? "active" : ""}
             href="/tentang"
             onClick={(event) => handleNavigation(event, "about")}
           >
-            <Info size={15} strokeWidth={2.15} aria-hidden="true" />
             <span>Tentang</span>
           </a>
         </nav>
@@ -210,47 +208,42 @@ export function SiteHeader({
         <div className="mobile-drawer">
           <div className="site-width drawer-links">
             <a
-              className={`drawer-primary-link nav-item-with-icon ${page === "home" ? "active" : ""}`}
+              className={`drawer-primary-link ${page === "home" ? "active" : ""}`}
               href="/"
               onClick={(event) => handleNavigation(event, "home")}
             >
-              <Home size={16} strokeWidth={2.15} aria-hidden="true" />
               <span>Beranda</span>
             </a>
 
             <a
-              className={`drawer-primary-link nav-item-with-icon ${page === "catalog" ? "active" : ""}`}
+              className={`drawer-primary-link ${page === "catalog" ? "active" : ""}`}
               href="/katalog"
               onClick={(event) => handleNavigation(event, "catalog")}
             >
-              <BookOpenText size={16} strokeWidth={2.15} aria-hidden="true" />
               <span>Katalog Materi</span>
             </a>
 
             <a
-              className={`drawer-primary-link nav-item-with-icon ${page === "practice" || page === "practice-eksponensial" || page === "practice-barisan-deret" || page === "practice-vektor" || page === "practice-sppl" ? "active" : ""}`}
+              className={`drawer-primary-link ${page === "practice" || page === "practice-eksponensial" || page === "practice-barisan-deret" || page === "practice-vektor" || page === "practice-sppl" ? "active" : ""}`}
               href="/latihan-soal"
               onClick={(event) => handleNavigation(event, "practice")}
             >
-              <ClipboardList size={16} strokeWidth={2.15} aria-hidden="true" />
               <span>Latihan Soal</span>
             </a>
 
             <a
-              className={`drawer-primary-link nav-item-with-icon ${page === "simulation" ? "active" : ""}`}
+              className={`drawer-primary-link ${page === "simulation" ? "active" : ""}`}
               href="/simulasi"
               onClick={(event) => handleNavigation(event, "simulation")}
             >
-              <Play size={16} strokeWidth={2.15} aria-hidden="true" />
               <span>Simulasi</span>
             </a>
 
             <a
-              className={`drawer-primary-link nav-item-with-icon ${page === "shop" ? "active" : ""}`}
+              className={`drawer-primary-link ${page === "shop" ? "active" : ""}`}
               href="/beli"
               onClick={(event) => handleNavigation(event, "shop")}
             >
-              <ShoppingCart size={16} strokeWidth={2.15} aria-hidden="true" />
               <span>Beli Produk</span>
             </a>
 
@@ -318,11 +311,10 @@ export function SiteHeader({
             </div>
 
             <a
-              className={`drawer-primary-link nav-item-with-icon ${page === "about" ? "active" : ""}`}
+              className={`drawer-primary-link ${page === "about" ? "active" : ""}`}
               href="/tentang"
               onClick={(event) => handleNavigation(event, "about")}
             >
-              <Info size={16} strokeWidth={2.15} aria-hidden="true" />
               <span>Tentang</span>
             </a>
           </div>

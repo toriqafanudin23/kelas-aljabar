@@ -228,12 +228,6 @@
   outline-offset: 3px;
 }
 
-.simulation-fullscreen-error {
-  margin: -6px 0 12px;
-  color: #9b2c2c;
-  font-size: 12px;
-}
-
 .trigonometry-simulation {
   display: grid;
   gap: 14px;

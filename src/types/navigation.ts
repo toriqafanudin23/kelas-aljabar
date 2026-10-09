@@ -7,6 +7,7 @@ export type Page =
   | "bank-download"
   | "about"
   | "simulation"
+  | "simulation-play"
   | "shop"
   | "not-found"
   | "practice"
@@ -56,6 +57,13 @@ export function getPageFromPath(path: string): Page {
     return "practice-sppl";
   }
   if (path === "/simulasi" || path === "/simulasi/") return "simulation";
+  if (
+    path === "/simulasi-interaktif" ||
+    path === "/simulasi-interaktif/" ||
+    path.startsWith("/simulasi-interaktif")
+  ) {
+    return "simulation-play";
+  }
   if (path === "/beli" || path === "/beli/") return "shop";
   if (path === "/pratinjau-produk" || path === "/pratinjau-produk/") {
     return "shop-preview";
@@ -78,6 +86,7 @@ export function getPathFromPage(page: Page): string {
   if (page === "practice-vektor") return "/latihan-soal/vektor";
   if (page === "practice-sppl") return "/latihan-soal/sppl";
   if (page === "simulation") return "/simulasi";
+  if (page === "simulation-play") return "/simulasi-interaktif";
   if (page === "about") return "/tentang";
   if (page === "shop") return "/beli";
   if (page === "shop-preview") return "/pratinjau-produk";
