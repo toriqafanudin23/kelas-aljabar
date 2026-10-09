@@ -16,6 +16,26 @@ export const PAYMENT_METHODS = [
   { name: "ShopeePay", account: SHOPEEPAY_NUMBER },
 ];
 
+export function buildWhatsAppOrderLink(
+  productName: string,
+  price: string,
+  isPreviewOnly = false,
+) {
+  const text = isPreviewOnly
+    ? `Halo Admin Math 1729, saya ingin meminta preview dokumen berikut:
+- Produk: ${productName}
+- Estimasi Harga: ${price}
+
+Mohon bantuan pratinjaunya sebelum saya melakukan pemesanan. Terima kasih!`
+    : `Halo Admin Math 1729, saya ingin memesan produk berikut:
+- Produk: ${productName}
+- Harga: ${price}
+
+Mohon informasi rekening pembayaran dan konfirmasi pemesanan. Terima kasih!`;
+
+  return `https://wa.me/62${PHONE_WA.replace(/^0/, "")}?text=${encodeURIComponent(text)}`;
+}
+
 export function buildPreviewRequestEmailBody(
   productName: string,
   additionalDetails: string[] = [],

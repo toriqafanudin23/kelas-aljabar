@@ -1,0 +1,1349 @@
+/* ==========================================================================
+   SHOP PAGE — Modern, Profesional, Terpercaya & Sederhana
+   Math 1729 Digital Products Catalog
+   ========================================================================== */
+
+.shop-page {
+  padding-bottom: 96px;
+}
+
+/* --- Breadcrumb ----------------------------------------------------------- */
+.shop-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 14px;
+  margin-bottom: 18px;
+}
+
+.shop-breadcrumb a {
+  color: var(--navy);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.shop-breadcrumb a:hover {
+  color: var(--navy-deep);
+  text-decoration: underline;
+}
+
+.shop-breadcrumb-sep {
+  color: #94a3b8;
+  user-select: none;
+}
+
+/* ==========================================================================
+   1. HERO SECTION
+   ========================================================================== */
+.shop-hero {
+  position: relative;
+  background: linear-gradient(135deg, #052e4c 0%, #073c64 65%, #0b4e7e 100%);
+  border: 1px solid var(--navy-deep);
+  border-top: 4px solid var(--gold);
+  color: #fff;
+  padding: 44px 40px 38px;
+  margin-bottom: 24px;
+}
+
+.shop-hero-top {
+  max-width: 860px;
+}
+
+.shop-kicker-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--gold-light);
+  background: rgba(250, 204, 21, 0.14);
+  border: 1px solid rgba(250, 204, 21, 0.35);
+  padding: 5px 11px;
+  margin-bottom: 16px;
+}
+
+.shop-hero h1 {
+  font-size: clamp(26px, 3.8vw, 38px);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin: 0 0 14px;
+}
+
+.shop-hero-desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #d1dfed;
+  max-width: 720px;
+  margin: 0 0 24px;
+}
+
+.shop-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.shop-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 22px;
+  background: var(--gold);
+  color: var(--navy-deep);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid var(--gold);
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.shop-btn-primary:hover {
+  background: #fde047;
+  border-color: #fde047;
+}
+
+.shop-btn-wa-hero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 20px;
+  background: #25d366;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid #22c55e;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.shop-btn-wa-hero:hover {
+  opacity: 0.92;
+}
+
+.shop-btn-outline-hero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 18px;
+  background: transparent;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+}
+
+.shop-btn-outline-hero:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #ffffff;
+}
+
+/* Metric / Highlight Row */
+.shop-hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 36px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.shop-metric-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.shop-metric-item strong {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--gold-light);
+  line-height: 1.2;
+}
+
+.shop-metric-item span {
+  font-size: 12px;
+  color: #bad0e4;
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   2. TRUST & GUARANTEE STRIP
+   ========================================================================== */
+.shop-trust-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.shop-trust-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px 18px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--navy);
+}
+
+.shop-trust-icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  background: #f0f5fa;
+  color: var(--navy);
+  flex-shrink: 0;
+}
+
+.shop-trust-content h3 {
+  margin: 0 0 3px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--navy-deep);
+}
+
+.shop-trust-content p {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* ==========================================================================
+   3. PROMO SPOTLIGHT BANNER (Modul Ajar Pembelajaran Mendalam)
+   ========================================================================== */
+.shop-spotlight {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-top: 3px solid #16a34a;
+  margin-bottom: 36px;
+  padding: 26px 30px;
+}
+
+.shop-spotlight-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.8fr);
+  gap: 28px;
+  align-items: center;
+}
+
+.shop-spotlight-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.badge-tag {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 3px 8px;
+}
+
+.badge-tag--green {
+  background: #15803d;
+  color: #f0fdf4;
+}
+
+.badge-tag--navy {
+  background: var(--navy);
+  color: #fff;
+}
+
+.shop-spotlight-title {
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy-deep);
+}
+
+.shop-spotlight-price {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.shop-spotlight-price del {
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.shop-spotlight-price .current {
+  font-size: 24px;
+  font-weight: 800;
+  color: #16a34a;
+  line-height: 1;
+}
+
+.shop-spotlight-price .note {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.shop-spotlight-desc {
+  margin: 0 0 14px;
+  font-size: 13px;
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.shop-spotlight-topics-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--navy);
+  margin: 0 0 8px;
+}
+
+.shop-spotlight-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.shop-topic-chip {
+  font-size: 11.5px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+  padding: 4px 9px;
+  line-height: 1.3;
+}
+
+.shop-spotlight-preorder {
+  margin: 0;
+  font-size: 12px;
+  color: #64748b;
+  font-style: italic;
+}
+
+.shop-spotlight-side {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 20px;
+  border-left: 1px solid var(--line);
+}
+
+/* ==========================================================================
+   4. FILTER & SEARCH TOOLBAR
+   ========================================================================== */
+.shop-toolbar-wrapper {
+  margin-bottom: 24px;
+}
+
+.shop-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 14px 16px;
+  background: #f8fafc;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--navy);
+}
+
+.shop-search-box {
+  position: relative;
+  width: 100%;
+}
+
+.shop-search-input {
+  width: 100%;
+  min-height: 42px;
+  padding: 10px 38px 10px 38px;
+  font-size: 13px;
+  border: 1px solid var(--line);
+  background: #ffffff;
+  color: var(--ink);
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.shop-search-input:focus {
+  border-color: var(--navy);
+  box-shadow: 0 0 0 1px var(--navy);
+}
+
+.shop-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+.shop-search-clear {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 4px;
+  display: grid;
+  place-items: center;
+}
+
+.shop-search-clear:hover {
+  color: var(--navy-deep);
+}
+
+/* Horizontal swipeable filter pills on mobile */
+.shop-filter-tabs {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 8px;
+  padding-bottom: 4px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.shop-filter-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.shop-filter-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 38px;
+  padding: 8px 13px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--navy);
+  background: #ffffff;
+  border: 1px solid var(--line);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.shop-filter-tab:hover {
+  border-color: var(--navy);
+  background: #f1f5f9;
+}
+
+.shop-filter-tab.active {
+  background: var(--navy);
+  color: #ffffff;
+  border-color: var(--navy);
+}
+
+.shop-filter-tab-count {
+  font-size: 10px;
+  font-weight: 800;
+  padding: 1px 5px;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.shop-filter-tab.active .shop-filter-tab-count {
+  background: rgba(255, 255, 255, 0.22);
+  color: var(--gold-light);
+}
+
+.shop-results-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 4px 0;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.shop-btn-reset-filter {
+  background: none;
+  border: none;
+  color: var(--navy-bright);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 2px 4px;
+  text-decoration: underline;
+}
+
+.shop-btn-reset-filter:hover {
+  color: var(--navy-deep);
+}
+
+/* Desktop layout enhancement (> 860px) */
+@media (min-width: 861px) {
+  .shop-toolbar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 20px;
+  }
+
+  .shop-search-box {
+    flex: 0 0 320px;
+    order: 2;
+  }
+
+  .shop-filter-tabs {
+    flex: 1;
+    order: 1;
+    flex-wrap: wrap;
+    overflow-x: visible;
+    padding-bottom: 0;
+  }
+}
+
+/* ==========================================================================
+   5. PRODUCT CARDS GRID
+   ========================================================================== */
+.shop-catalog-section {
+  margin-bottom: 48px;
+}
+
+.shop-products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.shop-product-card {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  position: relative;
+}
+
+.shop-product-card:hover {
+  border-color: var(--navy);
+  box-shadow: 0 10px 24px rgba(7, 60, 100, 0.08);
+}
+
+.shop-card-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 18px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.shop-badge-grade {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--navy-deep);
+}
+
+.shop-badge-promo {
+  font-size: 9px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 2px 7px;
+  background: #dcfce7;
+  color: #15803d;
+  border: 1px solid #bbf7d0;
+}
+
+.shop-card-body {
+  padding: 20px 18px 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 12px;
+}
+
+.shop-card-title {
+  margin: 0;
+  font-size: 16.5px;
+  font-weight: 700;
+  color: var(--navy-deep);
+  line-height: 1.35;
+}
+
+.shop-card-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.shop-card-price-row del {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.shop-card-price-row .price-val {
+  font-size: 22px;
+  font-weight: 800;
+  color: #16a34a;
+  line-height: 1;
+}
+
+.shop-card-desc {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #475569;
+}
+
+/* Materials / Topics block */
+.shop-card-topics-box {
+  margin-top: 4px;
+  padding-top: 12px;
+  border-top: 1px dashed #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.shop-card-topics-header {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.shop-card-topics-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.shop-card-topics-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--ink);
+  line-height: 1.45;
+}
+
+.shop-topic-num {
+  font-family: monospace;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--navy);
+  background: #f1f5f9;
+  padding: 1px 5px;
+  flex-shrink: 0;
+}
+
+.shop-check-svg {
+  color: #16a34a;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.shop-btn-expand-topics {
+  background: none;
+  border: none;
+  color: var(--navy-bright);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 4px 0 0;
+  text-align: left;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.shop-btn-expand-topics:hover {
+  text-decoration: underline;
+  color: var(--navy-deep);
+}
+
+/* Format badges */
+.shop-card-format-row {
+  display: flex;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+.shop-format-pill {
+  font-size: 10px;
+  font-weight: 700;
+  font-family: monospace;
+  background: #f1f5f9;
+  color: var(--navy-deep);
+  border: 1px solid #e2e8f0;
+  padding: 2px 7px;
+}
+
+/* Actions in Card Footer */
+.shop-card-footer {
+  padding: 14px 18px;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.shop-btn-action-primary {
+  width: 100%;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  background: #25d366;
+  color: #ffffff;
+  font-size: 12.5px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid #22c55e;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.shop-btn-action-primary:hover {
+  opacity: 0.92;
+}
+
+.shop-btn-action-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+}
+
+.shop-btn-action-secondary {
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: #ffffff;
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid var(--navy);
+  cursor: pointer;
+  padding: 0 12px;
+}
+
+.shop-btn-action-secondary:hover {
+  background: #f1f5f9;
+}
+
+.shop-btn-action-mail {
+  min-height: 38px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: #ffffff;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--line);
+  cursor: pointer;
+}
+
+.shop-btn-action-mail:hover {
+  color: var(--navy);
+  border-color: var(--navy);
+}
+
+/* ==========================================================================
+   6. SATUAN & CUSTOM ORDER SECTION
+   ========================================================================== */
+.shop-satuan-section {
+  margin-bottom: 48px;
+  padding: 36px 32px;
+  background: #f8fafc;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--navy);
+}
+
+.shop-satuan-heading {
+  max-width: 720px;
+  margin-bottom: 24px;
+}
+
+.shop-satuan-heading h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy-deep);
+  margin: 6px 0;
+}
+
+.shop-satuan-heading p {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.shop-satuan-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.shop-satuan-card {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 18px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.shop-satuan-card:hover {
+  border-color: var(--navy);
+  box-shadow: 0 8px 18px rgba(7, 60, 100, 0.06);
+}
+
+.shop-satuan-icon {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  background: #f0f5fa;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.shop-satuan-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy-deep);
+  margin: 0 0 4px;
+}
+
+.shop-satuan-price {
+  font-size: 17px;
+  font-weight: 800;
+  color: #16a34a;
+  margin-bottom: 8px;
+}
+
+.shop-satuan-desc {
+  font-size: 12px;
+  color: #475569;
+  line-height: 1.55;
+  margin: 0 0 16px;
+  flex: 1;
+}
+
+.shop-satuan-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.shop-satuan-btn-wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 12px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #ffffff;
+  background: #25d366;
+  border: 1px solid #22c55e;
+  text-decoration: none;
+}
+
+.shop-satuan-btn-wa:hover {
+  opacity: 0.92;
+}
+
+.shop-satuan-btn-mail {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 7px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  background: #ffffff;
+  border: 1px solid var(--line);
+  text-decoration: none;
+}
+
+.shop-satuan-btn-mail:hover {
+  color: var(--navy);
+  border-color: var(--navy);
+}
+
+/* ==========================================================================
+   7. HOW TO ORDER (3-STEP TIMELINE)
+   ========================================================================== */
+.shop-flow-section {
+  margin-bottom: 48px;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--navy);
+  background: #ffffff;
+  padding: 36px 36px 32px;
+}
+
+.shop-flow-header {
+  margin-bottom: 28px;
+}
+
+.shop-flow-header h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy-deep);
+  margin: 6px 0;
+}
+
+.shop-flow-header p {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--muted);
+}
+
+.shop-flow-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  position: relative;
+}
+
+.shop-flow-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 22px 20px;
+  background: #f8fafc;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--navy);
+}
+
+.shop-flow-step-num {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--gold-light);
+  background: var(--navy-deep);
+  padding: 3px 8px;
+  align-self: flex-start;
+  letter-spacing: 0.5px;
+}
+
+.shop-flow-card strong {
+  font-size: 14.5px;
+  color: var(--navy-deep);
+  margin-top: 4px;
+}
+
+.shop-flow-card p {
+  margin: 0;
+  font-size: 12.5px;
+  color: #475569;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   8. TRUSTWORTHY PAYMENT SECTION (ONE-CLICK COPY)
+   ========================================================================== */
+.shop-payment-section {
+  margin-bottom: 48px;
+  background: #052e4c;
+  border: 1px solid #031e33;
+  border-top: 4px solid var(--gold);
+  color: #ffffff;
+  padding: 32px 36px;
+}
+
+.shop-payment-header {
+  margin-bottom: 22px;
+}
+
+.shop-payment-header h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 6px;
+}
+
+.shop-payment-header p {
+  margin: 0;
+  font-size: 13px;
+  color: #c0d3e5;
+}
+
+.shop-bank-accounts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.shop-bank-account-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.shop-bank-badge {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--gold);
+  letter-spacing: 0.5px;
+}
+
+.shop-bank-number-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.shop-bank-number {
+  font-family: monospace;
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.shop-btn-copy-acc {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.15s ease;
+}
+
+.shop-btn-copy-acc:hover {
+  background: var(--gold);
+  color: var(--navy-deep);
+  border-color: var(--gold);
+}
+
+.shop-bank-holder {
+  font-size: 11.5px;
+  color: #cbd5e1;
+}
+
+.shop-bank-holder strong {
+  color: #ffffff;
+}
+
+.shop-payment-note-box {
+  background: rgba(250, 204, 21, 0.1);
+  border: 1px solid rgba(250, 204, 21, 0.28);
+  padding: 12px 18px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: #fef9c3;
+}
+
+/* ==========================================================================
+   9. FAQ SECTION & SUPPORT
+   ========================================================================== */
+.shop-faq-section {
+  margin-bottom: 48px;
+  padding: 36px 36px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--navy);
+}
+
+.shop-faq-header {
+  margin-bottom: 24px;
+}
+
+.shop-faq-header h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy-deep);
+  margin: 6px 0;
+}
+
+.shop-faq-header p {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--muted);
+}
+
+.shop-faq-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 24px;
+}
+
+.shop-faq-item {
+  border: 1px solid var(--line);
+  background: #f8fafc;
+  padding: 16px 20px;
+}
+
+.shop-faq-item strong {
+  display: block;
+  font-size: 13.5px;
+  color: var(--navy-deep);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.shop-faq-item p {
+  margin: 0;
+  font-size: 12.5px;
+  color: #475569;
+  line-height: 1.65;
+}
+
+.shop-faq-item code {
+  background: #e2e8f0;
+  padding: 1px 5px;
+  font-family: monospace;
+  font-size: 11px;
+}
+
+.shop-faq-item a {
+  color: var(--navy-bright);
+  font-weight: 600;
+}
+
+.shop-faq-item a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   10. SUPPORT CALLOUT
+   ========================================================================== */
+.shop-support-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 28px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-left: 4px solid #16a34a;
+}
+
+.shop-support-badge-icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  background: #dcfce7;
+  color: #15803d;
+  flex-shrink: 0;
+}
+
+.shop-support-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.shop-support-info h3 {
+  margin: 0 0 4px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #14532d;
+  line-height: 1.35;
+}
+
+.shop-support-info p {
+  margin: 0;
+  font-size: 13px;
+  color: #166534;
+  line-height: 1.6;
+}
+
+.shop-support-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.shop-support-wa-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 0 22px;
+  background: #25d366;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid #22c55e;
+  box-sizing: border-box;
+  transition: opacity 0.15s ease, background-color 0.15s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(37, 211, 102, 0.2);
+}
+
+.shop-support-wa-btn:hover {
+  background: #20ba59;
+  border-color: #20ba59;
+  opacity: 1;
+}
+
+.shop-support-wa-hint {
+  font-size: 11.5px;
+  font-family: monospace;
+  color: #166534;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   11. EMPTY SEARCH STATE
+   ========================================================================== */
+.shop-empty-state {
+  text-align: center;
+  padding: 48px 24px;
+  background: #f8fafc;
+  border: 1px dashed var(--line);
+}
+
+.shop-empty-state h3 {
+  margin: 0 0 8px;
+  font-size: 17px;
+  color: var(--navy-deep);
+}
+
+.shop-empty-state p {
+  margin: 0 0 16px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 1080px) {
+  .shop-products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .shop-trust-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .shop-satuan-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .shop-bank-accounts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .shop-hero {
+    padding: 28px 20px;
+  }
+  .shop-hero-metrics {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+  .shop-spotlight-inner {
+    grid-template-columns: 1fr;
+  }
+  .shop-spotlight-side {
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid var(--line);
+    padding-top: 18px;
+  }
+  .shop-toolbar {
+    padding: 12px;
+    gap: 10px;
+  }
+  .shop-search-box {
+    width: 100%;
+    min-width: 0;
+  }
+  .shop-products-grid {
+    grid-template-columns: 1fr;
+  }
+  .shop-trust-strip {
+    grid-template-columns: 1fr;
+  }
+  .shop-flow-steps-grid {
+    grid-template-columns: 1fr;
+  }
+  .shop-satuan-grid {
+    grid-template-columns: 1fr;
+  }
+  .shop-faq-list {
+    grid-template-columns: 1fr;
+  }
+  .shop-support-card {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 20px 18px;
+    gap: 16px;
+  }
+  .shop-support-badge-icon {
+    display: none;
+  }
+  .shop-support-actions {
+    width: 100%;
+    align-items: stretch;
+  }
+  .shop-support-wa-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .shop-support-wa-hint {
+    text-align: center;
+  }
+}
+
