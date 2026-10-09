@@ -213,7 +213,15 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
               </div>
               <div className="shop-card-body">
                 <h3 className="shop-card-title">{pkg.title}</h3>
-                <div className="shop-card-price">{pkg.price}</div>
+                <div className="shop-promo-price">
+                  <del>{pkg.originalPrice}</del>
+                  <span className="shop-promo-current-price">
+                    {pkg.promoPrice}
+                  </span>
+                  <span className="shop-card-grade-badge shop-card-grade-badge--green">
+                    PROMO
+                  </span>
+                </div>
                 <p className="shop-card-desc">{pkg.desc}</p>
                 <ul className="shop-card-list">
                   {pkg.items.map((item, i) => (
@@ -323,7 +331,7 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
             <article key={pkg.grade} className="shop-card shop-card--featured">
               <div className="shop-card-header">
                 <span className="shop-card-grade-badge shop-card-grade-badge--green">
-                  DISKON 25%
+                  DISKON 75%
                 </span>
                 <span className="shop-card-grade">{pkg.grade}</span>
               </div>
@@ -390,7 +398,7 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
                   <del>{pkg.originalPrice}</del>
                   <span className="shop-promo-current-price">{pkg.price}</span>
                   <span className="shop-card-grade-badge shop-card-grade-badge--green">
-                    DISKON 25%
+                    DISKON 75%
                   </span>
                 </div>
                 <p className="shop-card-desc">{pkg.desc}</p>

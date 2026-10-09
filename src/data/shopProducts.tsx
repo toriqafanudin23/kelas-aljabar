@@ -62,6 +62,8 @@ export const PACKAGES = [
     title: "Paket Soal Kelas 10",
     previewUrl: `${PREVIEW_BASE_URL}/preview_soal_kelas_10.pdf`,
     price: "Rp20.000",
+    originalPrice: "Rp20.000",
+    promoPrice: "Rp5.000",
     desc: "Paket latihan soal beserta kunci jawaban & pembahasan lengkap untuk 8 materi Kelas X.",
     items: [
       "Eksponensial dan Logaritma",
@@ -75,7 +77,9 @@ export const PACKAGES = [
     ],
     formats: [".pdf", ".tex"],
     emailSubject: "Pemesanan Paket Soal Kelas 10 — Math 1729",
-    emailBody: buildOrderEmailBody("Paket Soal Kelas 10 — Rp20.000"),
+    emailBody: buildOrderEmailBody(
+      "Paket Soal Kelas 10 — Rp5.000 (harga normal Rp20.000)",
+    ),
   },
   {
     id: "paket-kelas-11",
@@ -84,6 +88,8 @@ export const PACKAGES = [
     title: "Paket Soal Kelas 11",
     previewUrl: `${PREVIEW_BASE_URL}/preview_soal_kelas_11.pdf`,
     price: "Rp15.000",
+    originalPrice: "Rp15.000",
+    promoPrice: "Rp5.000",
     desc: "Paket latihan soal beserta kunci jawaban & pembahasan lengkap untuk 6 materi Kelas XI.",
     items: [
       "Matriks",
@@ -95,7 +101,9 @@ export const PACKAGES = [
     ],
     formats: [".pdf", ".tex"],
     emailSubject: "Pemesanan Paket Soal Kelas 11 — Math 1729",
-    emailBody: buildOrderEmailBody("Paket Soal Kelas 11 — Rp15.000"),
+    emailBody: buildOrderEmailBody(
+      "Paket Soal Kelas 11 — Rp5.000 (harga normal Rp15.000)",
+    ),
   },
   {
     id: "paket-kelas-12",
@@ -104,6 +112,8 @@ export const PACKAGES = [
     title: "Paket Soal Kelas 12",
     previewUrl: `${PREVIEW_BASE_URL}/preview_soal_kelas_12.pdf`,
     price: "Rp20.000",
+    originalPrice: "Rp20.000",
+    promoPrice: "Rp5.000",
     desc: "Paket latihan soal beserta kunci jawaban & pembahasan lengkap untuk 8 materi Kelas XII.",
     items: [
       "Fungsi dan Pemodelan",
@@ -117,7 +127,9 @@ export const PACKAGES = [
     ],
     formats: [".pdf", ".tex"],
     emailSubject: "Pemesanan Paket Soal Kelas 12 — Math 1729",
-    emailBody: buildOrderEmailBody("Paket Soal Kelas 12 — Rp20.000"),
+    emailBody: buildOrderEmailBody(
+      "Paket Soal Kelas 12 — Rp5.000 (harga normal Rp20.000)",
+    ),
   },
 ];
 
@@ -145,12 +157,12 @@ export const TKA_PACKAGES = (["SMP", "SMA"] as const).map((grade) => ({
   title: `Paket Latihan TKA ${grade}`,
   previewUrl: `${PREVIEW_BASE_URL}/preview_soal_TKA_${grade}.pdf`,
   originalPrice: "Rp20.000",
-  price: "Rp15.000",
+  price: "Rp5.000",
   desc: `Empat paket latihan TKA untuk membantu persiapan siswa ${grade}.`,
   benefits: TKA_BENEFITS,
   emailSubject: `Pemesanan Paket Latihan TKA ${grade} — Math 1729`,
   emailBody: buildOrderEmailBody(
-    `Paket Latihan TKA ${grade} — Rp15.000 (harga normal Rp20.000, diskon 25%)`,
+    `Paket Latihan TKA ${grade} — Rp5.000 (harga normal Rp20.000, diskon 75%)`,
   ),
 }));
 
@@ -168,7 +180,7 @@ export const BAHAN_AJAR = [
   grade,
   gradeLabel: "TERSEDIA",
   originalPrice: "Rp20.000",
-  price: "Rp15.000",
+  price: "Rp5.000",
   desc: `Paket bahan ajar ${title} untuk mendukung pembelajaran di kelas.`,
   includes: [
     "Slide Presentasi",
@@ -179,7 +191,7 @@ export const BAHAN_AJAR = [
   formats: [".pdf", ".tex"],
   emailSubject: `Pemesanan Bahan Ajar ${title} — Math 1729`,
   emailBody: buildOrderEmailBody(
-    `Bahan Ajar ${title} — Rp15.000 (harga normal Rp20.000, diskon 25%)`,
+    `Bahan Ajar ${title} — Rp5.000 (harga normal Rp20.000, diskon 75%)`,
   ),
 }));
 
