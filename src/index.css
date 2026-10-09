@@ -605,9 +605,9 @@ summary:focus-visible {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(290px, 0.75fr);
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
   align-items: center;
-  gap: 72px;
+  gap: 48px;
   padding-block: 64px 70px;
 }
 .hero-copy {
@@ -3220,120 +3220,26 @@ summary:focus-visible {
 
 /* Hero Derivative Simulation Card (Autonomous JSXGraph) */
 .hero-sim-card {
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-top: 3px solid var(--gold);
-  background: rgba(5, 46, 76, 0.95);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+  width: 100%;
+  min-width: 0;
   animation: rise-in 0.65s 0.12s ease both;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
 }
-.hero-sim-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(0, 0, 0, 0.2);
-}
-.hero-sim-title {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.8px;
-  color: var(--gold-light);
-  text-transform: uppercase;
-}
-.hero-sim-pulse-dot {
-  width: 7px;
-  height: 7px;
-  background: #22c55e;
-  box-shadow: 0 0 8px #22c55e;
-  display: inline-block;
-}
-.hero-sim-badge {
-  font-size: 10px;
-  font-weight: 700;
-  color: var(--gold);
-  background: rgba(250, 204, 21, 0.12);
-  border: 1px solid rgba(250, 204, 21, 0.3);
-  padding: 2px 7px;
-  letter-spacing: 0.5px;
+.hero-sim-loading {
+  min-height: clamp(320px, 38vw, 460px);
+  background: #031c30;
 }
 .hero-sim-canvas-wrap {
   position: relative;
   width: 100%;
-  height: 250px;
+  height: clamp(320px, 38vw, 460px);
   background: #031c30;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   overflow: hidden;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.28);
 }
 .hero-sim-canvas {
   width: 100%;
   height: 100%;
-}
-.hero-sim-stats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-.hero-sim-stat-box {
-  background: rgba(5, 46, 76, 0.95);
-  padding: 8px 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-.hero-sim-stat-label {
-  font-size: 9.5px;
-  font-weight: 700;
-  color: #94a3b8;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-.hero-sim-stat-val {
-  font-size: 12px;
-  font-weight: 700;
-  color: #fff;
-  font-family: monospace;
-}
-.hero-sim-stat-val.highlight {
-  color: var(--gold);
-}
-.hero-sim-footer {
-  padding: 10px 16px;
-  background: rgba(0, 0, 0, 0.25);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  font-size: 11px;
-}
-.hero-sim-func-label {
-  color: #cbd5e1;
-  font-size: 11px;
-}
-.hero-sim-func-label strong {
-  color: var(--gold-light);
-}
-.hero-sim-link {
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--gold);
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  cursor: pointer;
-  transition: color 0.18s ease;
-}
-.hero-sim-link:hover {
-  color: #fef08a;
 }
 
 /* Hero Rigor & Proof Engine Card */

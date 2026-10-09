@@ -1,11 +1,6 @@
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useRef } from "react";
 import JXG from "jsxgraph";
 import "../../../node_modules/jsxgraph/distrib/jsxgraph.css";
-import type { Navigate } from "../../types/navigation";
-
-interface HeroDerivativeSimulationProps {
-  navigate?: Navigate;
-}
 
 // Fungsi matematis: f(x) = 0.25x^3 - 1.2x (kurva kubik elegan dengan titik balik)
 function funcF(x: number) {
@@ -17,21 +12,11 @@ function funcDerivative(x: number) {
   return 0.75 * Math.pow(x, 2) - 1.2;
 }
 
-export function HeroDerivativeSimulation({
-  navigate,
-}: HeroDerivativeSimulationProps) {
+export function HeroDerivativeSimulation() {
   const boardId = `hero-deriv-${useId().replace(/:/g, "")}`;
   const containerRef = useRef<HTMLDivElement | null>(null);
   const xPosRef = useRef(0);
   const rafIdRef = useRef<number | null>(null);
-  const lastStateUpdateRef = useRef<number>(0);
-
-  const [readout, setReadout] = useState({
-    x: "0.00",
-    fx: "0.00",
-    dfx: "-1.20",
-    status: "Fungsi Turun (m < 0)",
-  });
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -52,6 +37,7 @@ export function HeroDerivativeSimulation({
           ticks: {
             strokeColor: "#334155",
             label: { strokeColor: "#94a3b8", fontSize: 9 },
+            drawLabels: false,
             majorHeight: 5,
             insertTicks: true,
             minTicksDistance: 38,
@@ -63,6 +49,7 @@ export function HeroDerivativeSimulation({
           ticks: {
             strokeColor: "#334155",
             label: { strokeColor: "#94a3b8", fontSize: 9 },
+            drawLabels: false,
             majorHeight: 5,
             insertTicks: true,
             minTicksDistance: 38,
@@ -133,19 +120,12 @@ export function HeroDerivativeSimulation({
       "point",
       [() => xPosRef.current, () => funcF(xPosRef.current)],
       {
-        name: "P",
         size: 4,
         fillColor: "#facc15",
         strokeColor: "#ffffff",
         strokeWidth: 2,
         fixed: true,
-        withLabel: true,
-        label: {
-          offset: [8, 8],
-          color: "#facc15",
-          fontSize: 12,
-          fontWeight: "bold",
-        },
+        withLabel: false,
         highlight: false,
       },
     );
@@ -159,27 +139,6 @@ export function HeroDerivativeSimulation({
       xPosRef.current = xVal;
 
       board.update();
-
-      // Perbarui angka meteran setiap 75ms agar hemat render React
-      if (timestamp - lastStateUpdateRef.current > 75) {
-        lastStateUpdateRef.current = timestamp;
-        const fxVal = funcF(xVal);
-        const dfxVal = funcDerivative(xVal);
-
-        let statusText = "Fungsi Naik (m > 0)";
-        if (Math.abs(dfxVal) < 0.12) {
-          statusText = "Titik Stasioner (m ≈ 0)";
-        } else if (dfxVal < 0) {
-          statusText = "Fungsi Turun (m < 0)";
-        }
-
-        setReadout({
-          x: (xVal >= 0 ? "+" : "") + xVal.toFixed(2),
-          fx: (fxVal >= 0 ? "+" : "") + fxVal.toFixed(2),
-          dfx: (dfxVal >= 0 ? "+" : "") + dfxVal.toFixed(2),
-          status: statusText,
-        });
-      }
 
       rafIdRef.current = requestAnimationFrame(animate);
     };
@@ -207,50 +166,11 @@ export function HeroDerivativeSimulation({
   return (
     <aside
       className="hero-sim-card"
-      aria-label="Simulasi Turunan Real-Time Berjalan Sendiri"
+      aria-label="Grafik animasi fungsi dan garis singgung"
     >
-      <div className="hero-sim-header">
-        <span className="hero-sim-title">
-          <span className="hero-sim-pulse-dot" />
-          Kalkulus · Simulasi Turunan Dinamis
-        </span>
-        <span className="hero-sim-badge">Auto-Play</span>
-      </div>
-
       <div className="hero-sim-canvas-wrap" ref={containerRef}>
         <div id={boardId} className="hero-sim-canvas" />
-      </div>
-
-      <div className="hero-sim-stats-grid">
-        <div className="hero-sim-stat-box">
-          <span className="hero-sim-stat-label">Titik Absis (x)</span>
-          <span className="hero-sim-stat-val">{readout.x}</span>
-        </div>
-        <div className="hero-sim-stat-box">
-          <span className="hero-sim-stat-label">Nilai f(x)</span>
-          <span className="hero-sim-stat-val">{readout.fx}</span>
-        </div>
-        <div className="hero-sim-stat-box">
-          <span className="hero-sim-stat-label">Gradien f&apos;(x)</span>
-          <span className="hero-sim-stat-val highlight">{readout.dfx}</span>
-        </div>
-      </div>
-
-      <div className="hero-sim-footer">
-        <span className="hero-sim-func-label">
-          Status: <strong>{readout.status}</strong>
-        </span>
-        <a
-          href="/simulasi"
-          className="hero-sim-link"
-          onClick={(e) => {
-            if (navigate) navigate(e, "simulation");
-          }}
-        >
-          Semua Simulasi <span aria-hidden="true">→</span>
-        </a>
       </div>
     </aside>
   );
 }
-

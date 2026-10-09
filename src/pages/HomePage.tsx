@@ -71,22 +71,12 @@ export function HomePage({ navigate }: HomePageProps) {
           <Suspense
             fallback={
               <div
-                className="hero-sim-card"
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  minHeight: "440px",
-                  background: "#051f33",
-                  color: "#cbd5e1",
-                  fontSize: "0.875rem",
-                }}
-              >
-                <span>Memuat pratinjau simulasi...</span>
-              </div>
+                className="hero-sim-card hero-sim-loading"
+                aria-hidden="true"
+              />
             }
           >
-            <HeroDerivativeSimulation navigate={navigate} />
+            <HeroDerivativeSimulation />
           </Suspense>
         </div>
       </section>
