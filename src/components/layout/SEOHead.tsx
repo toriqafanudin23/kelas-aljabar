@@ -340,6 +340,106 @@ export function SEOHead({ page }: SEOHeadProps) {
           };
           break;
 
+        case "practice-transformasi-geometri":
+          meta = {
+            title: "Latihan Soal Transformasi Geometri Kelas XI | Math 1729",
+            description:
+              "Kerjakan latihan interaktif transformasi geometri tentang translasi, refleksi, rotasi, dilatasi, komposisi transformasi, dan matriks. Dilengkapi skor langsung dan pembahasan.",
+            keywords:
+              "latihan soal transformasi geometri, translasi refleksi rotasi dilatasi, komposisi transformasi, matriks transformasi, pembahasan matematika kelas 11",
+            ogType: "article",
+            schema: {
+              "@context": "https://schema.org",
+              "@type": "LearningResource",
+              name: "Latihan Soal Transformasi Geometri",
+              learningResourceType: "Quiz",
+              educationalLevel: "Kelas XI",
+              inLanguage: "id",
+              url: currentUrl,
+              provider: {
+                "@type": "EducationalOrganization",
+                name: "Math 1729",
+                url: BASE_URL,
+              },
+            },
+          };
+          break;
+
+        case "practice-polinomial":
+          meta = {
+            title: "Latihan Soal Polinomial Kelas XI | Math 1729",
+            description:
+              "Kerjakan latihan interaktif polinomial tentang nilai dan kesamaan polinomial, pembagian, teorema sisa dan faktor, serta akar-akar. Dilengkapi skor langsung dan pembahasan.",
+            keywords:
+              "latihan soal polinomial kelas 11, suku banyak, teorema sisa, teorema faktor, akar polinomial, pembahasan polinomial",
+            ogType: "article",
+            schema: {
+              "@context": "https://schema.org",
+              "@type": "LearningResource",
+              name: "Latihan Soal Polinomial",
+              learningResourceType: "Quiz",
+              educationalLevel: "Kelas XI",
+              inLanguage: "id",
+              url: currentUrl,
+              provider: {
+                "@type": "EducationalOrganization",
+                name: "Math 1729",
+                url: BASE_URL,
+              },
+            },
+          };
+          break;
+
+        case "practice-matriks":
+          meta = {
+            title: "Latihan Soal Matriks Kelas XI | Math 1729",
+            description:
+              "Kerjakan latihan interaktif matriks tentang operasi, determinan, invers, sistem persamaan linear, dan transformasi geometri. Dilengkapi skor langsung dan pembahasan.",
+            keywords:
+              "latihan soal matriks kelas 11, operasi matriks, determinan invers matriks, sistem persamaan linear matriks, pembahasan matriks",
+            ogType: "article",
+            schema: {
+              "@context": "https://schema.org",
+              "@type": "LearningResource",
+              name: "Latihan Soal Matriks",
+              learningResourceType: "Quiz",
+              educationalLevel: "Kelas XI",
+              inLanguage: "id",
+              url: currentUrl,
+              provider: {
+                "@type": "EducationalOrganization",
+                name: "Math 1729",
+                url: BASE_URL,
+              },
+            },
+          };
+          break;
+
+        case "practice-lingkaran":
+          meta = {
+            title: "Latihan Soal Lingkaran Kelas XI | Math 1729",
+            description:
+              "Kerjakan latihan interaktif lingkaran tentang keliling, luas, busur, juring, sudut pusat dan keliling, garis singgung, serta persamaan lingkaran. Dilengkapi skor dan pembahasan.",
+            keywords:
+              "latihan soal lingkaran kelas 11, keliling luas lingkaran, busur juring, sudut pusat sudut keliling, garis singgung, persamaan lingkaran",
+            ogType: "article",
+            schema: {
+              "@context": "https://schema.org",
+              "@type": "LearningResource",
+              name: "Latihan Soal Lingkaran",
+              learningResourceType: "Quiz",
+              educationalLevel: "Kelas XI",
+              inLanguage: "id",
+              url: currentUrl,
+              provider: {
+                "@type": "EducationalOrganization",
+                name: "Math 1729",
+                url: BASE_URL,
+              },
+            },
+          };
+          break;
+
         case "shop":
           meta = {
             title:

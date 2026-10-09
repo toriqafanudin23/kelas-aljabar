@@ -19,6 +19,10 @@ export type Page =
   | "practice-perbandingan-trigonometri"
   | "practice-peluang"
   | "practice-statistika"
+  | "practice-transformasi-geometri"
+  | "practice-polinomial"
+  | "practice-matriks"
+  | "practice-lingkaran"
   | string;
 export type Navigate = (
   event: MouseEvent<HTMLAnchorElement>,
@@ -81,6 +85,27 @@ export function getPageFromPath(path: string): Page {
   ) {
     return "practice-statistika";
   }
+  if (
+    path === "/latihan-soal/transformasi-geometri" ||
+    path === "/latihan-soal/transformasi-geometri/"
+  ) {
+    return "practice-transformasi-geometri";
+  }
+  if (
+    path === "/latihan-soal/polinomial" ||
+    path === "/latihan-soal/polinomial/"
+  ) {
+    return "practice-polinomial";
+  }
+  if (path === "/latihan-soal/matriks" || path === "/latihan-soal/matriks/") {
+    return "practice-matriks";
+  }
+  if (
+    path === "/latihan-soal/lingkaran" ||
+    path === "/latihan-soal/lingkaran/"
+  ) {
+    return "practice-lingkaran";
+  }
   if (path === "/simulasi" || path === "/simulasi/") return "simulation";
   if (
     path === "/simulasi-interaktif" ||
@@ -118,6 +143,12 @@ export function getPathFromPage(page: Page): string {
   }
   if (page === "practice-peluang") return "/latihan-soal/peluang";
   if (page === "practice-statistika") return "/latihan-soal/statistika";
+  if (page === "practice-transformasi-geometri") {
+    return "/latihan-soal/transformasi-geometri";
+  }
+  if (page === "practice-polinomial") return "/latihan-soal/polinomial";
+  if (page === "practice-matriks") return "/latihan-soal/matriks";
+  if (page === "practice-lingkaran") return "/latihan-soal/lingkaran";
   if (page === "simulation") return "/simulasi";
   if (page === "simulation-play") return "/simulasi-interaktif";
   if (page === "about") return "/tentang";

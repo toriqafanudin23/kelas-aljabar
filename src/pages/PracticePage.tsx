@@ -103,6 +103,62 @@ const practiceModules = [
     points: 100,
     duration: 120,
   },
+  {
+    id: "09",
+    page: "practice-transformasi-geometri",
+    href: "/latihan-soal/transformasi-geometri",
+    title: "Transformasi Geometri",
+    description:
+      "Latih translasi, refleksi, rotasi, dilatasi, komposisi transformasi, dan matriks melalui soal interaktif serta pembahasan.",
+    topics: ["Translasi dan refleksi", "Rotasi dan dilatasi", "Komposisi"],
+    questionCount: 30,
+    points: 100,
+    duration: 120,
+  },
+  {
+    id: "10",
+    page: "practice-polinomial",
+    href: "/latihan-soal/polinomial",
+    title: "Polinomial",
+    description:
+      "Latih nilai dan kesamaan polinomial, pembagian, teorema sisa dan faktor, serta akar-akar polinomial.",
+    topics: [
+      "Operasi polinomial",
+      "Teorema sisa dan faktor",
+      "Akar polinomial",
+    ],
+    questionCount: 30,
+    points: 100,
+    duration: 120,
+  },
+  {
+    id: "11",
+    page: "practice-matriks",
+    href: "/latihan-soal/matriks",
+    title: "Matriks",
+    description:
+      "Latih operasi matriks, determinan, invers, sistem persamaan linear, dan transformasi geometri menggunakan matriks.",
+    topics: [
+      "Operasi matriks",
+      "Determinan dan invers",
+      "Sistem persamaan linear",
+    ],
+    questionCount: 30,
+    points: 100,
+    duration: 120,
+  },
+  {
+    id: "12",
+    page: "practice-lingkaran",
+    href: "/latihan-soal/lingkaran",
+    title: "Lingkaran",
+    description:
+      "Latih keliling, luas, busur, juring, sudut pusat dan keliling, garis singgung, serta persamaan lingkaran.",
+    topics: ["Keliling dan luas", "Busur dan juring", "Garis singgung"],
+    questionCount: 30,
+    points: 100,
+    duration: 120,
+  },
 ];
 
 export function PracticePage({ navigate }: PracticePageProps) {

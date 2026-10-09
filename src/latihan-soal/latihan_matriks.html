@@ -1,0 +1,5195 @@
+<section
+  id="latihan-matriks"
+  data-title="Latihan Soal Matriks"
+  class="latihan-eks"
+>
+  <style>
+    #latihan-matriks .tabel-kategori {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.6rem 0;
+    }
+    #latihan-matriks .tabel-kategori th,
+    #latihan-matriks .tabel-kategori td {
+      border: 1px solid rgba(128, 128, 128, 0.4);
+      padding: 0.45rem 0.6rem;
+      text-align: left;
+      vertical-align: middle;
+    }
+    #latihan-matriks .tabel-kategori .c {
+      text-align: center;
+      width: 4.5rem;
+    }
+    #latihan-matriks .tabel-kategori input {
+      position: static;
+      opacity: 1;
+      accent-color: #2563eb;
+      width: 1.1em;
+      height: 1.1em;
+      margin: 0 0.5rem 0 0;
+      flex: none;
+    }
+    #latihan-matriks .tabel-data {
+      margin: 0.8rem auto;
+      border-collapse: collapse;
+      text-align: center;
+    }
+    #latihan-matriks .tabel-data th,
+    #latihan-matriks .tabel-data td {
+      border: 1px solid rgba(128, 128, 128, 0.4);
+      padding: 0.3rem 0.55rem;
+    }
+    #latihan-matriks .tabel-sandi th,
+    #latihan-matriks .tabel-sandi td {
+      padding: 0.2rem 0.3rem;
+      font-size: 0.9em;
+    }
+    #latihan-matriks .tabel-sandi {
+      display: block;
+      overflow-x: auto;
+      max-width: 100%;
+    }
+    #latihan-matriks .catatan-bentuk {
+      font-size: 0.92em;
+      opacity: 0.85;
+    }
+  </style>
+  <h2>Latihan Soal Matriks</h2>
+
+  <p>
+    Soal terdiri atas <strong>20 pilihan ganda</strong> (5 mudah, 5 sedang, 5
+    sulit, 5 HOTS), <strong>5 isian singkat</strong> (2 sedang, 3 sulit), dan
+    <strong>5 uraian (essay)</strong> (2 sedang, 2 sulit, 1 HOTS). Cakupan
+    materinya operasi matriks, determinan, invers, sistem persamaan linear, dan
+    transformasi geometri dengan matriks. Alokasi waktu yang disarankan adalah
+    120 menit. Klik salah satu pilihan jawaban untuk langsung melihat hasilnya,
+    dan buka <strong>Lihat pembahasan</strong> di bawah setiap soal jika ingin
+    memeriksa langkah penyelesaiannya.
+  </p>
+
+  <ul>
+    <li>
+      Soal disusun berjenjang dan memakai bentuk yang sejalan dengan UTBK-SNBT
+      2026: pilihan ganda lima opsi, pernyataan majemuk (soal 14 dan 18),
+      kecukupan data (soal 17), serta soal berkonteks dan bergambar.
+    </li>
+    <li>
+      Skor: pilihan ganda 2 poin, isian singkat 4 poin, uraian 8 poin per soal
+      (total 100 poin). Tidak ada pengurangan skor untuk jawaban salah.
+    </li>
+    <li>
+      Notasi: \(A^T\) transpose; \(A^{-1}\) invers; \(\det(A)\) atau \(|A|\)
+      determinan; \(\operatorname{adj}(A)\) adjoin; \(I\) matriks identitas;
+      \(O\) matriks nol.
+    </li>
+    <li>
+      Gambar tidak selalu digambar sesuai skala. Kalkulator tidak diperkenankan.
+      Pada isian singkat, tuliskan hanya jawaban akhir.
+    </li>
+  </ul>
+
+  <div class="skor-bar" role="status" aria-live="polite">
+    <span
+      >Pilihan ganda: <strong data-skor-pg>0</strong> benar dari
+      <strong data-jawab-pg>0</strong> dijawab (total 20)</span
+    >
+    <span>Isian singkat: <strong data-skor-is>0</strong> benar dari 5</span>
+    <button type="button" class="btn-ulang">Ulangi semua</button>
+  </div>
+
+  <h3>A. Pilihan Ganda</h3>
+  <p>20 soal \(\times\) 2 poin = 40 poin. Pilih jawaban yang paling tepat.</p>
+  <p class="tingkat">
+    <strong>Tingkat Mudah</strong> <em>(soal 1 sampai 5)</em>
+  </p>
+  <!-- Soal PG 1 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 1</h4>
+
+    <p>
+      Matriks \(P\) berordo \(3\times4\) dengan elemen \(p_{ij}=2i-j\). Nilai
+      \(p_{23}+p_{34}\) adalah ....
+    </p>
+    <div class="opsi-grup">
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-1" value="A" /><span class="huruf"
+          >A</span
+        ><span class="isi">\(1\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-1" value="B" /><span class="huruf"
+          >B</span
+        ><span class="isi">\(2\)</span></label
+      >
+      <label class="opsi k"
+        ><input type="radio" name="mx-pg-1" value="C" /><span class="huruf"
+          >C</span
+        ><span class="isi">\(3\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-1" value="D" /><span class="huruf"
+          >D</span
+        ><span class="isi">\(4\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-1" value="E" /><span class="huruf"
+          >E</span
+        ><span class="isi">\(5\)</span></label
+      >
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah C.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah C.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>
+        \(p_{23}=2(2)-3=1\) dan \(p_{34}=2(3)-4=2\), sehingga jumlahnya \(3\).
+      </p>
+      <p>Jebakan: tertukar urutan \(i\) dan \(j\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal PG 2 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 2</h4>
+
+    <p>
+      Diketahui \(A=\begin{bmatrix}x+2y&amp;5\\3&amp;2x-y\end{bmatrix}\) dan
+      \(B=\begin{bmatrix}8&amp;5\\3&amp;1\end{bmatrix}\). Jika \(A=B\), nilai
+      \(xy\) adalah ....
+    </p>
+    <div class="opsi-grup">
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-2" value="A" /><span class="huruf"
+          >A</span
+        ><span class="isi">\(5\)</span></label
+      >
+      <label class="opsi k"
+        ><input type="radio" name="mx-pg-2" value="B" /><span class="huruf"
+          >B</span
+        ><span class="isi">\(6\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-2" value="C" /><span class="huruf"
+          >C</span
+        ><span class="isi">\(8\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-2" value="D" /><span class="huruf"
+          >D</span
+        ><span class="isi">\(10\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-2" value="E" /><span class="huruf"
+          >E</span
+        ><span class="isi">\(13\)</span></label
+      >
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah B.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah B.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>
+        Kesamaan matriks memberi \(x+2y=8\) dan \(2x-y=1\). Dari persamaan kedua
+        \(y=2x-1\), sehingga \(x+4x-2=8\Rightarrow x=2\) dan \(y=3\).
+      </p>
+      <div class="math-display">\[ xy=2\cdot3=6 \]</div>
+      <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal PG 3 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 3</h4>
+
+    <p>
+      Diketahui \(A=\begin{bmatrix}1&amp;-2\\3&amp;4\end{bmatrix}\) dan
+      \(B=\begin{bmatrix}0&amp;1\\-1&amp;2\end{bmatrix}\). Hasil \(2A-B^T\)
+      adalah ....
+    </p>
+    <div class="opsi-grup">
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-3" value="A" /><span class="huruf"
+          >A</span
+        ><span class="isi"
+          >\(\left[\begin{smallmatrix}2&amp;-5\\7&amp;6\end{smallmatrix}\right]\)</span
+        ></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-3" value="B" /><span class="huruf"
+          >B</span
+        ><span class="isi"
+          >\(\left[\begin{smallmatrix}2&amp;-5\\7&amp;10\end{smallmatrix}\right]\)</span
+        ></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-3" value="C" /><span class="huruf"
+          >C</span
+        ><span class="isi"
+          >\(\left[\begin{smallmatrix}2&amp;-3\\5&amp;10\end{smallmatrix}\right]\)</span
+        ></label
+      >
+      <label class="opsi k"
+        ><input type="radio" name="mx-pg-3" value="D" /><span class="huruf"
+          >D</span
+        ><span class="isi"
+          >\(\left[\begin{smallmatrix}2&amp;-3\\5&amp;6\end{smallmatrix}\right]\)</span
+        ></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-3" value="E" /><span class="huruf"
+          >E</span
+        ><span class="isi"
+          >\(\left[\begin{smallmatrix}-2&amp;3\\-5&amp;-6\end{smallmatrix}\right]\)</span
+        ></label
+      >
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah D.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah D.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>
+        \(B^T=\left[\begin{smallmatrix}0&amp;-1\\1&amp;2\end{smallmatrix}\right]\)
+        dan
+        \(2A=\left[\begin{smallmatrix}2&amp;-4\\6&amp;8\end{smallmatrix}\right]\),
+        sehingga:
+      </p>
+      <div class="math-display">
+        \[
+        2A-B^T=\left[\begin{smallmatrix}2&amp;-3\\5&amp;6\end{smallmatrix}\right]
+        \]
+      </div>
+      <p>
+        Jebakan A: lupa men-transpose \(B\); jebakan B: menjumlah, bukan
+        mengurangi.
+      </p>
+      <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal PG 4 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 4</h4>
+
+    <p>
+      Invers matriks \(\begin{bmatrix}5&amp;2\\7&amp;3\end{bmatrix}\) adalah
+      ....
+    </p>
+    <div class="opsi-grup">
+      <label class="opsi k"
+        ><input type="radio" name="mx-pg-4" value="A" /><span class="huruf"
+          >A</span
+        ><span class="isi"
+          >\(\left[\begin{smallmatrix}3&amp;-2\\-7&amp;5\end{smallmatrix}\right]\)</span
+        ></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-4" value="B" /><span class="huruf"
+          >B</span
+        ><span class="isi"
+          >\(\left[\begin{smallmatrix}3&amp;2\\7&amp;5\end{smallmatrix}\right]\)</span
+        ></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-4" value="C" /><span class="huruf"
+          >C</span
+        ><span class="isi"
+          >\(\left[\begin{smallmatrix}5&amp;-2\\-7&amp;3\end{smallmatrix}\right]\)</span
+        ></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-4" value="D" /><span class="huruf"
+          >D</span
+        ><span class="isi"
+          >\(\left[\begin{smallmatrix}-3&amp;2\\7&amp;-5\end{smallmatrix}\right]\)</span
+        ></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-4" value="E" /><span class="huruf"
+          >E</span
+        ><span class="isi"
+          >\(\left[\begin{smallmatrix}3&amp;-7\\-2&amp;5\end{smallmatrix}\right]\)</span
+        ></label
+      >
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah A.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah A.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>
+        \(\det=5\cdot3-2\cdot7=1\). Tukar \(a\) dan \(d\), ubah tanda \(b\) dan
+        \(c\):
+      </p>
+      <div class="math-display">
+        \[
+        A^{-1}=\frac11\left[\begin{smallmatrix}3&amp;-2\\-7&amp;5\end{smallmatrix}\right]
+        \]
+      </div>
+      <p>Jebakan E: men-transpose, bukan menukar tanda.</p>
+      <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal PG 5 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 5</h4>
+
+    <p>
+      Segitiga \(PQR\) pada gambar dicerminkan terhadap sumbu-\(y\) dengan
+      matriks \(\begin{bmatrix}-1&amp;0\\0&amp;1\end{bmatrix}\). Koordinat
+      bayangan titik \(R\) adalah ....
+    </p>
+    <figure style="margin: 1rem auto; text-align: center">
+      <svg
+        viewBox="0 0 292 172"
+        role="img"
+        aria-label="Segitiga PQR dengan P(1,2), Q(4,2), R(4,4)"
+        style="width: 100%; max-width: 292px; height: auto"
+        font-size="12"
+        font-family="inherit"
+      >
+        <line
+          x1="26.0"
+          y1="146.0"
+          x2="26.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="50.0"
+          y1="146.0"
+          x2="50.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="74.0"
+          y1="146.0"
+          x2="74.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="98.0"
+          y1="146.0"
+          x2="98.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="122.0"
+          y1="146.0"
+          x2="122.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="146.0"
+          y1="146.0"
+          x2="146.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="170.0"
+          y1="146.0"
+          x2="170.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="194.0"
+          y1="146.0"
+          x2="194.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="218.0"
+          y1="146.0"
+          x2="218.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="242.0"
+          y1="146.0"
+          x2="242.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="266.0"
+          y1="146.0"
+          x2="266.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="146.0"
+          x2="266.0"
+          y2="146.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="122.0"
+          x2="266.0"
+          y2="122.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="98.0"
+          x2="266.0"
+          y2="98.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="74.0"
+          x2="266.0"
+          y2="74.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="50.0"
+          x2="266.0"
+          y2="50.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="26.0"
+          x2="266.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="146.0"
+          x2="274.0"
+          y2="146.0"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <line
+          x1="146.0"
+          y1="146.0"
+          x2="146.0"
+          y2="18.0"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <polygon
+          points="274.0,146.0 267.0,142.5 267.0,149.5"
+          fill="currentColor"
+        />
+        <polygon
+          points="146.0,18.0 142.5,25.0 149.5,25.0"
+          fill="currentColor"
+        />
+        <text
+          x="277.0"
+          y="150.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          x
+        </text>
+        <text
+          x="153.0"
+          y="20.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          y
+        </text>
+        <text
+          x="26.0"
+          y="159.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          -5
+        </text>
+        <text
+          x="50.0"
+          y="159.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          -4
+        </text>
+        <text
+          x="74.0"
+          y="159.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          -3
+        </text>
+        <text
+          x="98.0"
+          y="159.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          -2
+        </text>
+        <text
+          x="122.0"
+          y="159.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          -1
+        </text>
+        <text
+          x="170.0"
+          y="159.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          1
+        </text>
+        <text
+          x="194.0"
+          y="159.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          2
+        </text>
+        <text
+          x="218.0"
+          y="159.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          3
+        </text>
+        <text
+          x="242.0"
+          y="159.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          4
+        </text>
+        <text
+          x="266.0"
+          y="159.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          5
+        </text>
+        <text
+          x="141.0"
+          y="125.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          1
+        </text>
+        <text
+          x="141.0"
+          y="101.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          2
+        </text>
+        <text
+          x="141.0"
+          y="77.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          3
+        </text>
+        <text
+          x="141.0"
+          y="53.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          4
+        </text>
+        <text
+          x="141.0"
+          y="29.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          5
+        </text>
+        <polygon
+          points="170.0,98.0 242.0,98.0 242.0,50.0"
+          fill="#2563eb"
+          fill-opacity="0.18"
+          stroke="#2563eb"
+          stroke-width="2.2"
+          stroke-linejoin="round"
+        />
+        <circle cx="170.0" cy="98.0" r="3.2" fill="#dc2626" />
+        <text
+          x="160.0"
+          y="92.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          P
+        </text>
+        <circle cx="242.0" cy="98.0" r="3.2" fill="#dc2626" />
+        <text
+          x="248.0"
+          y="112.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          Q
+        </text>
+        <circle cx="242.0" cy="50.0" r="3.2" fill="#dc2626" />
+        <text
+          x="248.0"
+          y="46.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          R
+        </text>
+      </svg>
+    </figure>
+    <div class="opsi-grup">
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-5" value="A" /><span class="huruf"
+          >A</span
+        ><span class="isi">\((4,-4)\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-5" value="B" /><span class="huruf"
+          >B</span
+        ><span class="isi">\((-4,-4)\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-5" value="C" /><span class="huruf"
+          >C</span
+        ><span class="isi">\((4,4)\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-5" value="D" /><span class="huruf"
+          >D</span
+        ><span class="isi">\((-2,4)\)</span></label
+      >
+      <label class="opsi k"
+        ><input type="radio" name="mx-pg-5" value="E" /><span class="huruf"
+          >E</span
+        ><span class="isi">\((-4,4)\)</span></label
+      >
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah E.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah E.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>
+        Bayangan titik \((x,y)\) adalah \((-x,y)\), sehingga \(R(4,4)\mapsto
+        R'(-4,4)\).
+      </p>
+      <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+    </details>
+  </div>
+  <p class="tingkat">
+    <strong>Tingkat Sedang</strong> <em>(soal 6 sampai 10)</em>
+  </p>
+  <!-- Soal PG 6 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 6</h4>
+
+    <p>
+      Diketahui \(A=\begin{bmatrix}2&amp;-1\\1&amp;3\end{bmatrix}\). Jika
+      \(A^2-pA+qI=O\), nilai \(p+q\) adalah ....
+    </p>
+    <div class="opsi-grup">
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-6" value="A" /><span class="huruf"
+          >A</span
+        ><span class="isi">\(2\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-6" value="B" /><span class="huruf"
+          >B</span
+        ><span class="isi">\(7\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-6" value="C" /><span class="huruf"
+          >C</span
+        ><span class="isi">\(10\)</span></label
+      >
+      <label class="opsi k"
+        ><input type="radio" name="mx-pg-6" value="D" /><span class="huruf"
+          >D</span
+        ><span class="isi">\(12\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-6" value="E" /><span class="huruf"
+          >E</span
+        ><span class="isi">\(35\)</span></label
+      >
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah D.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah D.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>
+        Menurut teorema Cayley&ndash;Hamilton, \(p=\operatorname{tr}(A)=5\) dan
+        \(q=\det(A)=7\).
+      </p>
+      <p>
+        Pemeriksaan:
+        \(A^2=\left[\begin{smallmatrix}3&amp;-5\\5&amp;8\end{smallmatrix}\right]\)
+        dan \(A^2-5A+7I=O\).
+      </p>
+      <p>Jebakan E: menghitung \(pq=35\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal PG 7 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 7</h4>
+
+    <p>
+      Dua cabang toko alat tulis menyimpan stok pena, buku, dan map seperti pada
+      tabel. Harga satuan (dalam ribuan rupiah) adalah \(8\), \(5\), dan \(12\).
+      Jika semua harga naik \(20\%\), selisih nilai persediaan Toko 2 dan Toko 1
+      adalah ....
+    </p>
+    <table class="tabel-data">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Pena</th>
+          <th>Buku</th>
+          <th>Map</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Stok Toko 1</th>
+          <td>10</td>
+          <td>20</td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <th>Stok Toko 2</th>
+          <td>15</td>
+          <td>10</td>
+          <td>10</td>
+        </tr>
+        <tr>
+          <th>Harga (ribuan rupiah)</th>
+          <td>8</td>
+          <td>5</td>
+          <td>12</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="opsi-grup">
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-7" value="A" /><span class="huruf"
+          >A</span
+        ><span class="isi">Rp50.000</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-7" value="B" /><span class="huruf"
+          >B</span
+        ><span class="isi">Rp55.000</span></label
+      >
+      <label class="opsi k"
+        ><input type="radio" name="mx-pg-7" value="C" /><span class="huruf"
+          >C</span
+        ><span class="isi">Rp60.000</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-7" value="D" /><span class="huruf"
+          >D</span
+        ><span class="isi">Rp65.000</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-7" value="E" /><span class="huruf"
+          >E</span
+        ><span class="isi">Rp72.000</span></label
+      >
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah C.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah C.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Nilai persediaan \(=S\cdot h\):</p>
+      <div class="math-display">
+        \[
+        \begin{bmatrix}10&amp;20&amp;5\\15&amp;10&amp;10\end{bmatrix}\begin{bmatrix}8\\5\\12\end{bmatrix}=\begin{bmatrix}240\\290\end{bmatrix}
+        \]
+      </div>
+      <p>
+        Selisih \(290-240=50\) (ribuan rupiah). Setelah harga naik \(20\%\),
+        selisihnya \(1{,}2\times50=60\) ribu, yaitu Rp60.000.
+      </p>
+      <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal PG 8 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 8</h4>
+
+    <p>
+      Matriks \(A\) berordo \(3\times3\) dengan \(\det(A)=3\). Nilai
+      \(\det\!\big(2A^{2}(A^{T})^{-1}\big)\) adalah ....
+    </p>
+    <div class="opsi-grup">
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-8" value="A" /><span class="huruf"
+          >A</span
+        ><span class="isi">\(6\)</span></label
+      >
+      <label class="opsi k"
+        ><input type="radio" name="mx-pg-8" value="B" /><span class="huruf"
+          >B</span
+        ><span class="isi">\(24\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-8" value="C" /><span class="huruf"
+          >C</span
+        ><span class="isi">\(12\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-8" value="D" /><span class="huruf"
+          >D</span
+        ><span class="isi">\(48\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-8" value="E" /><span class="huruf"
+          >E</span
+        ><span class="isi">\(72\)</span></label
+      >
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah B.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah B.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Untuk matriks \(3\times3\), \(\det(kM)=k^3\det M\). Maka:</p>
+      <div class="math-display">
+        \[ \det\big(2A^2(A^T)^{-1}\big)=2^3\cdot(\det A)^2\cdot\frac1{\det
+        A}=8\cdot9\cdot\frac13=24 \]
+      </div>
+      <p>Jebakan A: memakai faktor \(2\), bukan \(2^3\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal PG 9 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 9</h4>
+
+    <p>
+      Gambar menunjukkan grafik garis \(g\) dan garis \(h\). Sistem persamaan
+      linear dari kedua garis ditulis \(ax+by=e\) (garis \(g\) lebih dulu, lalu
+      \(h\)). Dengan aturan Cramer, nilai \(D_x+D_y\) adalah ....
+    </p>
+    <figure style="margin: 1rem auto; text-align: center">
+      <svg
+        viewBox="0 0 260 312"
+        role="img"
+        aria-label="Garis g melalui (6,0) dan (0,4); garis h melalui (2,0) dan (0,-4)"
+        style="width: 100%; max-width: 260px; height: auto"
+        font-size="12"
+        font-family="inherit"
+      >
+        <line
+          x1="26.0"
+          y1="286.0"
+          x2="26.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="52.0"
+          y1="286.0"
+          x2="52.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="78.0"
+          y1="286.0"
+          x2="78.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="104.0"
+          y1="286.0"
+          x2="104.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="130.0"
+          y1="286.0"
+          x2="130.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="156.0"
+          y1="286.0"
+          x2="156.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="182.0"
+          y1="286.0"
+          x2="182.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="208.0"
+          y1="286.0"
+          x2="208.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="234.0"
+          y1="286.0"
+          x2="234.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="286.0"
+          x2="234.0"
+          y2="286.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="260.0"
+          x2="234.0"
+          y2="260.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="234.0"
+          x2="234.0"
+          y2="234.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="208.0"
+          x2="234.0"
+          y2="208.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="182.0"
+          x2="234.0"
+          y2="182.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="156.0"
+          x2="234.0"
+          y2="156.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="130.0"
+          x2="234.0"
+          y2="130.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="104.0"
+          x2="234.0"
+          y2="104.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="78.0"
+          x2="234.0"
+          y2="78.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="52.0"
+          x2="234.0"
+          y2="52.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="26.0"
+          x2="234.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <clipPath id="mx-c9">
+          <rect x="26.0" y="26.0" width="208" height="260" />
+        </clipPath>
+        <line
+          x1="26.0"
+          y1="156.0"
+          x2="242.0"
+          y2="156.0"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <line
+          x1="52.0"
+          y1="286.0"
+          x2="52.0"
+          y2="18.0"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <polygon
+          points="242.0,156.0 235.0,152.5 235.0,159.5"
+          fill="currentColor"
+        />
+        <polygon points="52.0,18.0 48.5,25.0 55.5,25.0" fill="currentColor" />
+        <text
+          x="245.0"
+          y="160.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          x
+        </text>
+        <text
+          x="59.0"
+          y="20.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          y
+        </text>
+        <text
+          x="26.0"
+          y="169.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          -1
+        </text>
+        <text
+          x="78.0"
+          y="169.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          1
+        </text>
+        <text
+          x="104.0"
+          y="169.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          2
+        </text>
+        <text
+          x="130.0"
+          y="169.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          3
+        </text>
+        <text
+          x="156.0"
+          y="169.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          4
+        </text>
+        <text
+          x="182.0"
+          y="169.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          5
+        </text>
+        <text
+          x="208.0"
+          y="169.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          6
+        </text>
+        <text
+          x="234.0"
+          y="169.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          7
+        </text>
+        <text
+          x="47.0"
+          y="289.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          -5
+        </text>
+        <text
+          x="47.0"
+          y="263.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          -4
+        </text>
+        <text
+          x="47.0"
+          y="237.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          -3
+        </text>
+        <text
+          x="47.0"
+          y="211.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          -2
+        </text>
+        <text
+          x="47.0"
+          y="185.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          -1
+        </text>
+        <text
+          x="47.0"
+          y="133.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          1
+        </text>
+        <text
+          x="47.0"
+          y="107.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          2
+        </text>
+        <text
+          x="47.0"
+          y="81.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          3
+        </text>
+        <text
+          x="47.0"
+          y="55.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          4
+        </text>
+        <text
+          x="47.0"
+          y="29.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          5
+        </text>
+        <line
+          x1="26.0"
+          y1="34.7"
+          x2="234.0"
+          y2="173.3"
+          stroke="#2563eb"
+          stroke-width="2"
+          clip-path="url(#mx-c9)"
+        />
+        <line
+          x1="39.0"
+          y1="286.0"
+          x2="143.0"
+          y2="78.0"
+          stroke="#ea580c"
+          stroke-width="2"
+          clip-path="url(#mx-c9)"
+        />
+        <circle cx="208.0" cy="156.0" r="3.2" fill="#dc2626" />
+        <text
+          x="213.0"
+          y="149.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          (6,0)
+        </text>
+        <circle cx="52.0" cy="52.0" r="3.2" fill="#dc2626" />
+        <text
+          x="59.0"
+          y="56.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          (0,4)
+        </text>
+        <circle cx="104.0" cy="156.0" r="3.2" fill="#dc2626" />
+        <text
+          x="98.0"
+          y="149.0"
+          text-anchor="end"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          (2,0)
+        </text>
+        <circle cx="52.0" cy="260.0" r="3.2" fill="#dc2626" />
+        <text
+          x="59.0"
+          y="264.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          (0,-4)
+        </text>
+        <text
+          x="71.5"
+          y="39.0"
+          text-anchor="middle"
+          font-size="12"
+          font-style="italic"
+          fill="#2563eb"
+        >
+          g
+        </text>
+        <text
+          x="153.4"
+          y="72.8"
+          text-anchor="middle"
+          font-size="12"
+          font-style="italic"
+          fill="#ea580c"
+        >
+          h
+        </text>
+      </svg>
+    </figure>
+    <div class="opsi-grup">
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-9" value="A" /><span class="huruf"
+          >A</span
+        ><span class="isi">\(-48\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-9" value="B" /><span class="huruf"
+          >B</span
+        ><span class="isi">\(-24\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-9" value="C" /><span class="huruf"
+          >C</span
+        ><span class="isi">\(-8\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-9" value="D" /><span class="huruf"
+          >D</span
+        ><span class="isi">\(40\)</span></label
+      >
+      <label class="opsi k"
+        ><input type="radio" name="mx-pg-9" value="E" /><span class="huruf"
+          >E</span
+        ><span class="isi">\(-40\)</span></label
+      >
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah E.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah E.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>
+        Garis \(g\) melalui \((6,0)\) dan \((0,4)\): \(2x+3y=12\). Garis \(h\)
+        melalui \((2,0)\) dan \((0,-4)\): \(2x-y=4\).
+      </p>
+      <div class="math-display">
+        \[ D=\begin{vmatrix}2&amp;3\\2&amp;-1\end{vmatrix}=-8,\quad
+        D_x=\begin{vmatrix}12&amp;3\\4&amp;-1\end{vmatrix}=-24,\quad
+        D_y=\begin{vmatrix}2&amp;12\\2&amp;4\end{vmatrix}=-16 \]
+      </div>
+      <p>
+        Jadi \(D_x+D_y=-40\). Pemeriksaan: \(x=\frac{-24}{-8}=3\) dan
+        \(y=\frac{-16}{-8}=2\).
+      </p>
+      <p>Jebakan A: ikut menjumlahkan \(D\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal PG 10 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 10</h4>
+
+    <p>
+      Gambar menunjukkan persegi satuan \(OABC\) dan bayangannya \(OA'B'C'\)
+      oleh transformasi linear \(T\). Bayangan titik \((2,3)\) oleh \(T\) adalah
+      ....
+    </p>
+    <figure style="margin: 1rem auto; text-align: center">
+      <svg
+        viewBox="0 0 246 208"
+        role="img"
+        aria-label="Persegi satuan OABC (biru) dan bayangannya OA'B'C' (jingga putus-putus)"
+        style="width: 100%; max-width: 246px; height: auto"
+        font-size="12"
+        font-family="inherit"
+      >
+        <line
+          x1="28.0"
+          y1="180.0"
+          x2="28.0"
+          y2="28.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="66.0"
+          y1="180.0"
+          x2="66.0"
+          y2="28.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="104.0"
+          y1="180.0"
+          x2="104.0"
+          y2="28.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="142.0"
+          y1="180.0"
+          x2="142.0"
+          y2="28.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="180.0"
+          y1="180.0"
+          x2="180.0"
+          y2="28.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="218.0"
+          y1="180.0"
+          x2="218.0"
+          y2="28.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="28.0"
+          y1="180.0"
+          x2="218.0"
+          y2="180.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="28.0"
+          y1="142.0"
+          x2="218.0"
+          y2="142.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="28.0"
+          y1="104.0"
+          x2="218.0"
+          y2="104.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="28.0"
+          y1="66.0"
+          x2="218.0"
+          y2="66.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="28.0"
+          y1="28.0"
+          x2="218.0"
+          y2="28.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="28.0"
+          y1="142.0"
+          x2="226.0"
+          y2="142.0"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <line
+          x1="104.0"
+          y1="180.0"
+          x2="104.0"
+          y2="20.0"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <polygon
+          points="226.0,142.0 219.0,138.5 219.0,145.5"
+          fill="currentColor"
+        />
+        <polygon
+          points="104.0,20.0 100.5,27.0 107.5,27.0"
+          fill="currentColor"
+        />
+        <text
+          x="229.0"
+          y="146.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          x
+        </text>
+        <text
+          x="111.0"
+          y="22.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          y
+        </text>
+        <text
+          x="28.0"
+          y="155.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          -2
+        </text>
+        <text
+          x="66.0"
+          y="155.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          -1
+        </text>
+        <text
+          x="142.0"
+          y="155.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          1
+        </text>
+        <text
+          x="180.0"
+          y="155.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          2
+        </text>
+        <text
+          x="218.0"
+          y="155.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          3
+        </text>
+        <text
+          x="99.0"
+          y="183.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          -1
+        </text>
+        <text
+          x="99.0"
+          y="107.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          1
+        </text>
+        <text
+          x="99.0"
+          y="69.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          2
+        </text>
+        <text
+          x="99.0"
+          y="31.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          3
+        </text>
+        <polygon
+          points="104.0,142.0 180.0,104.0 142.0,66.0 66.0,104.0"
+          fill="#ea580c"
+          fill-opacity="0.12"
+          stroke="#ea580c"
+          stroke-width="2.2"
+          stroke-linejoin="round"
+          stroke-dasharray="6 4"
+        />
+        <polygon
+          points="104.0,142.0 142.0,142.0 142.0,104.0 104.0,104.0"
+          fill="#2563eb"
+          fill-opacity="0.25"
+          stroke="#2563eb"
+          stroke-width="2.2"
+          stroke-linejoin="round"
+        />
+        <text
+          x="142.0"
+          y="166.0"
+          text-anchor="middle"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          A
+        </text>
+        <text
+          x="149.0"
+          y="99.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          B
+        </text>
+        <text
+          x="111.0"
+          y="99.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          C
+        </text>
+        <circle cx="180.0" cy="104.0" r="3.2" fill="#dc2626" />
+        <text
+          x="185.0"
+          y="108.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          A'(2,1)
+        </text>
+        <circle cx="142.0" cy="66.0" r="3.2" fill="#dc2626" />
+        <text
+          x="147.0"
+          y="61.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          B'(1,2)
+        </text>
+        <circle cx="66.0" cy="104.0" r="3.2" fill="#dc2626" />
+        <text
+          x="61.0"
+          y="98.0"
+          text-anchor="end"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          C'(-1,1)
+        </text>
+      </svg>
+    </figure>
+    <div class="opsi-grup">
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-10" value="A" /><span class="huruf"
+          >A</span
+        ><span class="isi">\((5,1)\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-10" value="B" /><span class="huruf"
+          >B</span
+        ><span class="isi">\((-1,5)\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-10" value="C" /><span class="huruf"
+          >C</span
+        ><span class="isi">\((7,1)\)</span></label
+      >
+      <label class="opsi k"
+        ><input type="radio" name="mx-pg-10" value="D" /><span class="huruf"
+          >D</span
+        ><span class="isi">\((1,5)\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-10" value="E" /><span class="huruf"
+          >E</span
+        ><span class="isi">\((4,2)\)</span></label
+      >
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah D.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah D.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>
+        Kolom matriks \(T\) adalah bayangan vektor basis: kolom pertama bayangan
+        \(A(1,0)\) dan kolom kedua bayangan \(C(0,1)\). Jadi
+        \(T=\left[\begin{smallmatrix}2&amp;-1\\1&amp;1\end{smallmatrix}\right]\).
+      </p>
+      <div class="math-display">
+        \[
+        T\begin{bmatrix}2\\3\end{bmatrix}=\begin{bmatrix}4-3\\2+3\end{bmatrix}=\begin{bmatrix}1\\5\end{bmatrix}
+        \]
+      </div>
+      <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+    </details>
+  </div>
+  <p class="tingkat">
+    <strong>Tingkat Sulit</strong> <em>(soal 11 sampai 15, setara UTBK)</em>
+  </p>
+  <!-- Soal PG 11 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 11</h4>
+
+    <p>
+      Diketahui \(A=\begin{bmatrix}3&amp;1\\5&amp;2\end{bmatrix}\) dan
+      \(B=\begin{bmatrix}1&amp;2\\3&amp;4\end{bmatrix}\). Jika matriks \(X\)
+      memenuhi \(XA=B\), elemen baris kedua kolom pertama matriks \(X\) adalah
+      ....
+    </p>
+    <div class="opsi-grup">
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-11" value="A" /><span class="huruf"
+          >A</span
+        ><span class="isi">\(-8\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-11" value="B" /><span class="huruf"
+          >B</span
+        ><span class="isi">\(4\)</span></label
+      >
+      <label class="opsi k"
+        ><input type="radio" name="mx-pg-11" value="C" /><span class="huruf"
+          >C</span
+        ><span class="isi">\(-14\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-11" value="D" /><span class="huruf"
+          >D</span
+        ><span class="isi">\(5\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-11" value="E" /><span class="huruf"
+          >E</span
+        ><span class="isi">\(9\)</span></label
+      >
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah C.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah C.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>
+        \(XA=B\Rightarrow X=BA^{-1}\) (invers dikalikan dari kanan).
+        \(A^{-1}=\left[\begin{smallmatrix}2&amp;-1\\-5&amp;3\end{smallmatrix}\right]\),
+        sehingga:
+      </p>
+      <div class="math-display">
+        \[
+        X=\left[\begin{smallmatrix}1&amp;2\\3&amp;4\end{smallmatrix}\right]\left[\begin{smallmatrix}2&amp;-1\\-5&amp;3\end{smallmatrix}\right]=\left[\begin{smallmatrix}-8&amp;5\\-14&amp;9\end{smallmatrix}\right]
+        \]
+      </div>
+      <p>
+        Jadi \(x_{21}=-14\). Jebakan B: memakai \(A^{-1}B\), yang memberi
+        \(x_{21}=4\).
+      </p>
+      <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal PG 12 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 12</h4>
+
+    <p>
+      Sistem persamaan linear \(\begin{cases}x+y+z=6\\ x-y+2z=5\\
+      4x+2y+az=b\end{cases}\) memiliki tak hingga banyak solusi. Nilai \(a+b\)
+      adalah ....
+    </p>
+    <div class="opsi-grup">
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-12" value="A" /><span class="huruf"
+          >A</span
+        ><span class="isi">\(5\)</span></label
+      >
+      <label class="opsi k"
+        ><input type="radio" name="mx-pg-12" value="B" /><span class="huruf"
+          >B</span
+        ><span class="isi">\(28\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-12" value="C" /><span class="huruf"
+          >C</span
+        ><span class="isi">\(23\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-12" value="D" /><span class="huruf"
+          >D</span
+        ><span class="isi">\(18\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-12" value="E" /><span class="huruf"
+          >E</span
+        ><span class="isi">\(33\)</span></label
+      >
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah B.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah B.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>
+        Kombinasi baris: \(3R_1+R_2=4x+2y+5z=23\). Agar baris ketiga bergantung
+        pada dua baris lain (tak hingga solusi), haruslah \(a=5\) dan \(b=23\).
+      </p>
+      <p>
+        Pemeriksaan:
+        \(\det\left[\begin{smallmatrix}1&amp;1&amp;1\\1&amp;-1&amp;2\\4&amp;2&amp;5\end{smallmatrix}\right]=0\).
+        Jika \(a=5\) tetapi \(b\neq23\), sistem tidak punya solusi.
+      </p>
+      <p>Jadi \(a+b=28\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal PG 13 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 13</h4>
+
+    <p>
+      Segitiga \(ABC\) pada gambar dipetakan oleh
+      \(T=\begin{bmatrix}2&amp;k\\1&amp;3\end{bmatrix}\) menjadi segitiga
+      berluas \(42\) satuan luas. Jumlah semua nilai \(k\) yang mungkin adalah
+      ....
+    </p>
+    <figure style="margin: 1rem auto; text-align: center">
+      <svg
+        viewBox="0 0 220 220"
+        role="img"
+        aria-label="Segitiga ABC dengan A(1,1), B(4,1), C(2,5)"
+        style="width: 100%; max-width: 220px; height: auto"
+        font-size="12"
+        font-family="inherit"
+      >
+        <line
+          x1="26.0"
+          y1="194.0"
+          x2="26.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="54.0"
+          y1="194.0"
+          x2="54.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="82.0"
+          y1="194.0"
+          x2="82.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="110.0"
+          y1="194.0"
+          x2="110.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="138.0"
+          y1="194.0"
+          x2="138.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="166.0"
+          y1="194.0"
+          x2="166.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="194.0"
+          y1="194.0"
+          x2="194.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="194.0"
+          x2="194.0"
+          y2="194.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="166.0"
+          x2="194.0"
+          y2="166.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="138.0"
+          x2="194.0"
+          y2="138.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="110.0"
+          x2="194.0"
+          y2="110.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="82.0"
+          x2="194.0"
+          y2="82.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="54.0"
+          x2="194.0"
+          y2="54.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="26.0"
+          x2="194.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="194.0"
+          x2="202.0"
+          y2="194.0"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <line
+          x1="26.0"
+          y1="194.0"
+          x2="26.0"
+          y2="18.0"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <polygon
+          points="202.0,194.0 195.0,190.5 195.0,197.5"
+          fill="currentColor"
+        />
+        <polygon points="26.0,18.0 22.5,25.0 29.5,25.0" fill="currentColor" />
+        <text
+          x="205.0"
+          y="198.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          x
+        </text>
+        <text
+          x="33.0"
+          y="20.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          y
+        </text>
+        <text
+          x="54.0"
+          y="207.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          1
+        </text>
+        <text
+          x="82.0"
+          y="207.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          2
+        </text>
+        <text
+          x="110.0"
+          y="207.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          3
+        </text>
+        <text
+          x="138.0"
+          y="207.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          4
+        </text>
+        <text
+          x="166.0"
+          y="207.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          5
+        </text>
+        <text
+          x="194.0"
+          y="207.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          6
+        </text>
+        <text
+          x="21.0"
+          y="169.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          1
+        </text>
+        <text
+          x="21.0"
+          y="141.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          2
+        </text>
+        <text
+          x="21.0"
+          y="113.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          3
+        </text>
+        <text
+          x="21.0"
+          y="85.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          4
+        </text>
+        <text
+          x="21.0"
+          y="57.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          5
+        </text>
+        <text
+          x="21.0"
+          y="29.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          6
+        </text>
+        <polygon
+          points="54.0,166.0 138.0,166.0 82.0,54.0"
+          fill="#2563eb"
+          fill-opacity="0.18"
+          stroke="#2563eb"
+          stroke-width="2.2"
+          stroke-linejoin="round"
+        />
+        <circle cx="54.0" cy="166.0" r="3.2" fill="#dc2626" />
+        <text
+          x="48.0"
+          y="182.0"
+          text-anchor="end"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          A(1,1)
+        </text>
+        <circle cx="138.0" cy="166.0" r="3.2" fill="#dc2626" />
+        <text
+          x="144.0"
+          y="182.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          B(4,1)
+        </text>
+        <circle cx="82.0" cy="54.0" r="3.2" fill="#dc2626" />
+        <text
+          x="88.0"
+          y="49.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          C(2,5)
+        </text>
+      </svg>
+    </figure>
+    <div class="opsi-grup">
+      <label class="opsi k"
+        ><input type="radio" name="mx-pg-13" value="A" /><span class="huruf"
+          >A</span
+        ><span class="isi">\(12\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-13" value="B" /><span class="huruf"
+          >B</span
+        ><span class="isi">\(13\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-13" value="C" /><span class="huruf"
+          >C</span
+        ><span class="isi">\(-13\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-13" value="D" /><span class="huruf"
+          >D</span
+        ><span class="isi">\(6\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-13" value="E" /><span class="huruf"
+          >E</span
+        ><span class="isi">\(14\)</span></label
+      >
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah A.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah A.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>
+        Luas \(ABC=\frac12\cdot3\cdot4=6\). Karena \(\det T=6-k\), luas bayangan
+        \(=|6-k|\cdot6=42\Rightarrow|6-k|=7\).
+      </p>
+      <p>Maka \(k=-1\) atau \(k=13\), dan jumlahnya \(12\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal PG 14 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 14</h4>
+
+    <p>
+      Diketahui \(A=\begin{bmatrix}1&amp;2\\0&amp;1\end{bmatrix}\) dan
+      \(B=\begin{bmatrix}1&amp;0\\3&amp;1\end{bmatrix}\). Perhatikan pernyataan
+      berikut.
+    </p>
+    <ol>
+      <li>\(AB=BA\).</li>
+      <li>\(\det(AB)=\det(BA)\).</li>
+      <li>\((AB)^T=A^TB^T\).</li>
+      <li>\(AB-BA=\begin{bmatrix}6&amp;0\\0&amp;-6\end{bmatrix}\).</li>
+    </ol>
+    <p>Pernyataan yang benar adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-14" value="A" /><span class="huruf"
+          >A</span
+        ><span class="isi">(1) dan (2) saja</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-14" value="B" /><span class="huruf"
+          >B</span
+        ><span class="isi">(1) dan (3) saja</span></label
+      >
+      <label class="opsi k"
+        ><input type="radio" name="mx-pg-14" value="C" /><span class="huruf"
+          >C</span
+        ><span class="isi">(2) dan (4) saja</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-14" value="D" /><span class="huruf"
+          >D</span
+        ><span class="isi">(1), (3), dan (4) saja</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-14" value="E" /><span class="huruf"
+          >E</span
+        ><span class="isi">(2), (3), dan (4) saja</span></label
+      >
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah C.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah C.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>
+        \(AB=\left[\begin{smallmatrix}7&amp;2\\3&amp;1\end{smallmatrix}\right]\)
+        dan
+        \(BA=\left[\begin{smallmatrix}1&amp;2\\3&amp;7\end{smallmatrix}\right]\),
+        sehingga (1) salah dan (4) benar karena
+        \(AB-BA=\left[\begin{smallmatrix}6&amp;0\\0&amp;-6\end{smallmatrix}\right]\).
+      </p>
+      <p>(2) benar karena \(\det(AB)=\det A\det B=\det(BA)=1\).</p>
+      <p>
+        (3) salah:
+        \((AB)^T=\left[\begin{smallmatrix}7&amp;3\\2&amp;1\end{smallmatrix}\right]=B^TA^T\),
+        sedangkan
+        \(A^TB^T=\left[\begin{smallmatrix}1&amp;3\\2&amp;7\end{smallmatrix}\right]\).
+      </p>
+      <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal PG 15 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 15</h4>
+
+    <p>
+      Diketahui
+      \(A=\begin{bmatrix}1&amp;2&amp;0\\3&amp;1&amp;2\\0&amp;1&amp;1\end{bmatrix}\).
+      Elemen baris kedua kolom ketiga pada \(A^{-1}\) adalah ....
+    </p>
+    <div class="opsi-grup">
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-15" value="A" /><span class="huruf"
+          >A</span
+        ><span class="isi">\(\frac17\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-15" value="B" /><span class="huruf"
+          >B</span
+        ><span class="isi">\(-\frac27\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-15" value="C" /><span class="huruf"
+          >C</span
+        ><span class="isi">\(-\frac17\)</span></label
+      >
+      <label class="opsi k"
+        ><input type="radio" name="mx-pg-15" value="D" /><span class="huruf"
+          >D</span
+        ><span class="isi">\(\frac27\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-15" value="E" /><span class="huruf"
+          >E</span
+        ><span class="isi">\(\frac37\)</span></label
+      >
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah D.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah D.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>
+        \(\det A=1(1-2)-2(3-0)=-7\). Adjoin adalah transpose kofaktor, sehingga
+        \((A^{-1})_{23}=\dfrac{C_{32}}{\det A}\).
+      </p>
+      <div class="math-display">
+        \[
+        C_{32}=-\begin{vmatrix}1&amp;0\\3&amp;2\end{vmatrix}=-2\quad\Rightarrow\quad
+        (A^{-1})_{23}=\frac{-2}{-7}=\frac27 \]
+      </div>
+      <p>Jebakan A: memakai \(C_{23}=-1\) tanpa transpose.</p>
+      <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+    </details>
+  </div>
+  <p class="tingkat">
+    <strong>Tingkat HOTS</strong>
+    <em>(soal 16 sampai 20, penalaran tingkat tinggi gaya UTBK)</em>
+  </p>
+  <!-- Soal PG 16 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 16</h4>
+
+    <p>
+      Diagram menunjukkan jalur satu arah antara empat kota \(P\), \(Q\), \(R\),
+      dan \(S\). Banyak rute berbeda dengan tepat tiga ruas jalan yang berawal
+      dan berakhir di kota yang sama (kota awalnya boleh \(P\), \(Q\), \(R\),
+      atau \(S\)) adalah ....
+    </p>
+    <p class="catatan-bentuk">
+      <em
+        >Petunjuk: susun matriks ketetanggaan, yaitu elemen baris \(i\) kolom
+        \(j\) bernilai \(1\) jika ada jalur langsung dari kota \(i\) ke kota
+        \(j\).</em
+      >
+    </p>
+    <figure style="margin: 1rem auto; text-align: center">
+      <svg
+        viewBox="0 0 210 170"
+        role="img"
+        aria-label="Graf berarah: P ke Q, Q ke R, R ke S, S ke P, P ke R, Q ke S"
+        style="width: 100%; max-width: 210px; height: auto"
+        font-size="12"
+        font-family="inherit"
+      >
+        <defs>
+          <marker
+            id="mx-a16"
+            viewBox="0 0 10 10"
+            refX="9"
+            refY="5"
+            markerUnits="userSpaceOnUse"
+            markerWidth="10"
+            markerHeight="10"
+            orient="auto"
+          >
+            <path d="M0,0 L10,5 L0,10 z" fill="currentColor" />
+          </marker>
+        </defs>
+        <line
+          x1="52.0"
+          y1="40.0"
+          x2="158.0"
+          y2="40.0"
+          stroke="currentColor"
+          stroke-width="1.8"
+          marker-end="url(#mx-a16)"
+        />
+        <line
+          x1="170.0"
+          y1="52.0"
+          x2="170.0"
+          y2="118.0"
+          stroke="currentColor"
+          stroke-width="1.8"
+          marker-end="url(#mx-a16)"
+        />
+        <line
+          x1="158.0"
+          y1="130.0"
+          x2="52.0"
+          y2="130.0"
+          stroke="currentColor"
+          stroke-width="1.8"
+          marker-end="url(#mx-a16)"
+        />
+        <line
+          x1="40.0"
+          y1="118.0"
+          x2="40.0"
+          y2="52.0"
+          stroke="currentColor"
+          stroke-width="1.8"
+          marker-end="url(#mx-a16)"
+        />
+        <line
+          x1="49.9"
+          y1="46.8"
+          x2="160.1"
+          y2="123.2"
+          stroke="currentColor"
+          stroke-width="1.8"
+          marker-end="url(#mx-a16)"
+        />
+        <path
+          d="M158.7,43.9 Q92.5,66.9 47.7,120.8"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          marker-end="url(#mx-a16)"
+        />
+        <circle
+          cx="40"
+          cy="40"
+          r="12"
+          fill="#2563eb"
+          fill-opacity=".12"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <text
+          x="40.0"
+          y="44.0"
+          text-anchor="middle"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          P
+        </text>
+        <circle
+          cx="170"
+          cy="40"
+          r="12"
+          fill="#2563eb"
+          fill-opacity=".12"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <text
+          x="170.0"
+          y="44.0"
+          text-anchor="middle"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          Q
+        </text>
+        <circle
+          cx="170"
+          cy="130"
+          r="12"
+          fill="#2563eb"
+          fill-opacity=".12"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <text
+          x="170.0"
+          y="134.0"
+          text-anchor="middle"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          R
+        </text>
+        <circle
+          cx="40"
+          cy="130"
+          r="12"
+          fill="#2563eb"
+          fill-opacity=".12"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <text
+          x="40.0"
+          y="134.0"
+          text-anchor="middle"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          S
+        </text>
+      </svg>
+    </figure>
+    <div class="opsi-grup">
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-16" value="A" /><span class="huruf"
+          >A</span
+        ><span class="isi">\(0\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-16" value="B" /><span class="huruf"
+          >B</span
+        ><span class="isi">\(4\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-16" value="C" /><span class="huruf"
+          >C</span
+        ><span class="isi">\(5\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-16" value="D" /><span class="huruf"
+          >D</span
+        ><span class="isi">\(11\)</span></label
+      >
+      <label class="opsi k"
+        ><input type="radio" name="mx-pg-16" value="E" /><span class="huruf"
+          >E</span
+        ><span class="isi">\(6\)</span></label
+      >
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah E.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah E.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>
+        Dengan urutan \(P,Q,R,S\):
+        \(A=\left[\begin{smallmatrix}0&amp;1&amp;1&amp;0\\0&amp;0&amp;1&amp;1\\0&amp;0&amp;0&amp;1\\1&amp;0&amp;0&amp;0\end{smallmatrix}\right]\).
+        Elemen diagonal \(A^3\) menghitung rute tertutup tiga ruas.
+      </p>
+      <p>
+        \(P\): PQSP dan PRSP (2); \(Q\): QSPQ (1); \(R\): RSPR (1); \(S\): SPQS
+        dan SPRS (2).
+      </p>
+      <p>
+        Total \(\operatorname{tr}(A^3)=2+1+1+2=6\). Jebakan \(11\): menjumlahkan
+        semua elemen \(A^3\).
+      </p>
+      <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal PG 17 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 17</h4>
+
+    <p>
+      Apakah matriks
+      \(B=\begin{bmatrix}1&amp;2&amp;3\\4&amp;5&amp;6\\7&amp;8&amp;k\end{bmatrix}\)
+      mempunyai invers?
+    </p>
+    <ol>
+      <li>\(k=9\).</li>
+      <li>Jumlah elemen pada diagonal utama \(B\) adalah \(15\).</li>
+    </ol>
+    <div class="opsi-grup">
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-17" value="A" /><span class="huruf"
+          >A</span
+        ><span class="isi"
+          >Pernyataan (1) SAJA cukup untuk menjawab pertanyaan, tetapi
+          pernyataan (2) SAJA tidak cukup.</span
+        ></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-17" value="B" /><span class="huruf"
+          >B</span
+        ><span class="isi"
+          >Pernyataan (2) SAJA cukup untuk menjawab pertanyaan, tetapi
+          pernyataan (1) SAJA tidak cukup.</span
+        ></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-17" value="C" /><span class="huruf"
+          >C</span
+        ><span class="isi"
+          >DUA pernyataan BERSAMA-SAMA cukup untuk menjawab pertanyaan, tetapi
+          SATU pernyataan SAJA tidak cukup.</span
+        ></label
+      >
+      <label class="opsi k"
+        ><input type="radio" name="mx-pg-17" value="D" /><span class="huruf"
+          >D</span
+        ><span class="isi"
+          >Pernyataan (1) SAJA cukup dan pernyataan (2) SAJA cukup untuk
+          menjawab pertanyaan.</span
+        ></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-17" value="E" /><span class="huruf"
+          >E</span
+        ><span class="isi"
+          >Pernyataan (1) dan pernyataan (2) tidak cukup untuk menjawab
+          pertanyaan.</span
+        ></label
+      >
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah D.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah D.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>
+        \(\det B=1(5k-48)-2(4k-42)+3(32-35)=27-3k=3(9-k)\). Jadi \(B\) punya
+        invers jika dan hanya jika \(k\neq9\).
+      </p>
+      <p>
+        Pernyataan (1): \(k=9\), \(\det B=0\), jawabannya <em>tidak</em>.
+        Pernyataan (2): \(1+5+k=15\Rightarrow k=9\), jawabannya juga
+        <em>tidak</em>. Masing-masing pernyataan sudah cukup.
+      </p>
+      <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal PG 18 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 18</h4>
+
+    <p>
+      Titik \(P_k=M^k\begin{bmatrix}1\\0\end{bmatrix}\) untuk \(k=0,1,\dots,5\)
+      dengan
+      \(M=\begin{bmatrix}\cos60^\circ&amp;-\sin60^\circ\\\sin60^\circ&amp;\cos60^\circ\end{bmatrix}\)
+      membentuk segienam beraturan pada gambar. Tentukan nilai kebenaran tiga
+      pernyataan berikut (B = benar, S = salah), berurutan dari (i) sampai
+      (iii).
+    </p>
+    <ol type="i">
+      <li>\(M^6=I\).</li>
+      <li>\(M^2-M+I=O\).</li>
+      <li>\(M^3=I\).</li>
+    </ol>
+    <figure style="margin: 1rem auto; text-align: center">
+      <svg
+        viewBox="0 0 220 200"
+        role="img"
+        aria-label="Titik P0 sampai P5 membentuk segienam beraturan pada lingkaran"
+        style="width: 100%; max-width: 220px; height: auto"
+        font-size="12"
+        font-family="inherit"
+      >
+        <defs>
+          <marker
+            id="mx-a18"
+            viewBox="0 0 10 10"
+            refX="9"
+            refY="5"
+            markerUnits="userSpaceOnUse"
+            markerWidth="10"
+            markerHeight="10"
+            orient="auto"
+          >
+            <path d="M0,0 L10,5 L0,10 z" fill="currentColor" />
+          </marker>
+        </defs>
+        <circle
+          cx="110"
+          cy="100"
+          r="70"
+          fill="none"
+          stroke="currentColor"
+          stroke-opacity=".35"
+        />
+        <polygon
+          points="180.0,100.0 145.0,39.4 75.0,39.4 40.0,100.0 75.0,160.6 145.0,160.6"
+          fill="#2563eb"
+          fill-opacity=".12"
+          stroke="#2563eb"
+          stroke-width="2.2"
+          stroke-linejoin="round"
+        />
+        <circle cx="180.0" cy="100.0" r="3.2" fill="#dc2626" />
+        <text
+          x="188.0"
+          y="96.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          P
+          <tspan font-size="9" dy="3">0</tspan>
+        </text>
+        <circle cx="145.0" cy="39.4" r="3.2" fill="#dc2626" />
+        <text
+          x="149.0"
+          y="31.4"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          P
+          <tspan font-size="9" dy="3">1</tspan>
+        </text>
+        <circle cx="75.0" cy="39.4" r="3.2" fill="#dc2626" />
+        <text
+          x="71.0"
+          y="31.4"
+          text-anchor="end"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          P
+          <tspan font-size="9" dy="3">2</tspan>
+        </text>
+        <circle cx="40.0" cy="100.0" r="3.2" fill="#dc2626" />
+        <text
+          x="32.0"
+          y="96.0"
+          text-anchor="end"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          P
+          <tspan font-size="9" dy="3">3</tspan>
+        </text>
+        <circle cx="75.0" cy="160.6" r="3.2" fill="#dc2626" />
+        <text
+          x="71.0"
+          y="174.6"
+          text-anchor="end"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          P
+          <tspan font-size="9" dy="3">4</tspan>
+        </text>
+        <circle cx="145.0" cy="160.6" r="3.2" fill="#dc2626" />
+        <text
+          x="149.0"
+          y="174.6"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          P
+          <tspan font-size="9" dy="3">5</tspan>
+        </text>
+        <circle cx="110" cy="100" r="2.4" fill="currentColor" />
+        <path
+          d="M134,91 A26,26 0 0 0 123,77"
+          fill="none"
+          stroke="#ea580c"
+          stroke-width="2"
+          marker-end="url(#mx-a18)"
+        />
+        <text
+          x="140.0"
+          y="78.0"
+          text-anchor="start"
+          font-size="10"
+          fill="#ea580c"
+        >
+          60&deg;
+        </text>
+      </svg>
+    </figure>
+    <div class="opsi-grup">
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-18" value="A" /><span class="huruf"
+          >A</span
+        ><span class="isi">B, B, B</span></label
+      >
+      <label class="opsi k"
+        ><input type="radio" name="mx-pg-18" value="B" /><span class="huruf"
+          >B</span
+        ><span class="isi">B, B, S</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-18" value="C" /><span class="huruf"
+          >C</span
+        ><span class="isi">B, S, B</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-18" value="D" /><span class="huruf"
+          >D</span
+        ><span class="isi">S, B, B</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-18" value="E" /><span class="huruf"
+          >E</span
+        ><span class="isi">S, S, B</span></label
+      >
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah B.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah B.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>
+        \(M\) adalah rotasi \(60^\circ\), sehingga \(M^k\) adalah rotasi
+        \(60k^\circ\).
+      </p>
+      <p>
+        <strong>(i) Benar.</strong> \(M^6\) adalah rotasi \(360^\circ\), yaitu
+        \(I\).
+      </p>
+      <p>
+        <strong>(ii) Benar.</strong> \(\operatorname{tr}(M)=1\) dan \(\det
+        M=1\), sehingga menurut Cayley&ndash;Hamilton \(M^2-M+I=O\).
+      </p>
+      <p>
+        <strong>(iii) Salah.</strong> \(M^3\) adalah rotasi \(180^\circ\), yaitu
+        \(-I\neq I\).
+      </p>
+      <p>Urutannya: B, B, S.</p>
+      <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal PG 19 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 19</h4>
+
+    <p>
+      Matriks \(A=\begin{bmatrix}a&amp;b\\c&amp;d\end{bmatrix}\) memenuhi
+      \(A^2=I\), \(A\neq I\), dan \(A\neq-I\). Nilai \(a+d\) dan \(ad-bc\)
+      berturut-turut adalah ....
+    </p>
+    <div class="opsi-grup">
+      <label class="opsi k"
+        ><input type="radio" name="mx-pg-19" value="A" /><span class="huruf"
+          >A</span
+        ><span class="isi">\(0\text{ dan }-1\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-19" value="B" /><span class="huruf"
+          >B</span
+        ><span class="isi">\(0\text{ dan }1\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-19" value="C" /><span class="huruf"
+          >C</span
+        ><span class="isi">\(1\text{ dan }-1\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-19" value="D" /><span class="huruf"
+          >D</span
+        ><span class="isi">\(-1\text{ dan }0\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-19" value="E" /><span class="huruf"
+          >E</span
+        ><span class="isi">\(2\text{ dan }1\)</span></label
+      >
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah A.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah A.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>
+        Cayley&ndash;Hamilton: \(A^2-(a+d)A+(ad-bc)I=O\). Dengan \(A^2=I\)
+        diperoleh \((a+d)A=(1+ad-bc)I\).
+      </p>
+      <p>
+        Karena \(A\) bukan matriks skalar (\(A\neq\pm I\)), haruslah \(a+d=0\)
+        dan \(1+ad-bc=0\), yaitu \(ad-bc=-1\).
+      </p>
+      <p>
+        Contoh:
+        \(A=\left[\begin{smallmatrix}1&amp;0\\0&amp;-1\end{smallmatrix}\right]\).
+      </p>
+      <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal PG 20 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 20</h4>
+
+    <p>
+      Penduduk kota \(A\) dan \(B\) berpindah mengikuti diagram: tiap tahun
+      \(20\%\) penduduk \(A\) pindah ke \(B\) dan \(30\%\) penduduk \(B\) pindah
+      ke \(A\), sedangkan sisanya menetap. Jumlah penduduk kedua kota selalu
+      \(1000\) jiwa. Pada keadaan setimbang (banyak penduduk tiap kota tidak
+      berubah dari tahun ke tahun), penduduk kota \(A\) berjumlah .... jiwa.
+    </p>
+    <figure style="margin: 1rem auto; text-align: center">
+      <svg
+        viewBox="0 0 260 160"
+        role="img"
+        aria-label="Diagram perpindahan penduduk antara kota A dan B"
+        style="width: 100%; max-width: 260px; height: auto"
+        font-size="12"
+        font-family="inherit"
+      >
+        <defs>
+          <marker
+            id="mx-a20"
+            viewBox="0 0 10 10"
+            refX="9"
+            refY="5"
+            markerUnits="userSpaceOnUse"
+            markerWidth="10"
+            markerHeight="10"
+            orient="auto"
+          >
+            <path d="M0,0 L10,5 L0,10 z" fill="currentColor" />
+          </marker>
+        </defs>
+        <path
+          d="M72.6,86.1 Q130.0,114.0 187.4,86.1"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          marker-end="url(#mx-a20)"
+        />
+        <path
+          d="M187.4,73.9 Q130.0,46.0 72.6,73.9"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          marker-end="url(#mx-a20)"
+        />
+        <path
+          d="M51,68 C10,35 10,125 51,92"
+          fill="none"
+          stroke="#2563eb"
+          stroke-width="1.8"
+          marker-end="url(#mx-a20)"
+        />
+        <path
+          d="M209,68 C250,35 250,125 209,92"
+          fill="none"
+          stroke="#2563eb"
+          stroke-width="1.8"
+          marker-end="url(#mx-a20)"
+        />
+        <circle
+          cx="60"
+          cy="80"
+          r="14"
+          fill="#2563eb"
+          fill-opacity=".12"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <text
+          x="60.0"
+          y="84.0"
+          text-anchor="middle"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          A
+        </text>
+        <circle
+          cx="200"
+          cy="80"
+          r="14"
+          fill="#2563eb"
+          fill-opacity=".12"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <text
+          x="200.0"
+          y="84.0"
+          text-anchor="middle"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          B
+        </text>
+        <text
+          x="130.0"
+          y="46.0"
+          text-anchor="middle"
+          font-size="11"
+          fill="currentColor"
+        >
+          20%
+        </text>
+        <text
+          x="130.0"
+          y="124.0"
+          text-anchor="middle"
+          font-size="11"
+          fill="currentColor"
+        >
+          30%
+        </text>
+        <text
+          x="14.0"
+          y="84.0"
+          text-anchor="middle"
+          font-size="11"
+          fill="currentColor"
+        >
+          80%
+        </text>
+        <text
+          x="246.0"
+          y="84.0"
+          text-anchor="middle"
+          font-size="11"
+          fill="currentColor"
+        >
+          70%
+        </text>
+      </svg>
+    </figure>
+    <div class="opsi-grup">
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-20" value="A" /><span class="huruf"
+          >A</span
+        ><span class="isi">\(500\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-20" value="B" /><span class="huruf"
+          >B</span
+        ><span class="isi">\(625\)</span></label
+      >
+      <label class="opsi k"
+        ><input type="radio" name="mx-pg-20" value="C" /><span class="huruf"
+          >C</span
+        ><span class="isi">\(600\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-20" value="D" /><span class="huruf"
+          >D</span
+        ><span class="isi">\(650\)</span></label
+      >
+      <label class="opsi"
+        ><input type="radio" name="mx-pg-20" value="E" /><span class="huruf"
+          >E</span
+        ><span class="isi">\(700\)</span></label
+      >
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah C.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah C.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>
+        Keadaan setimbang memenuhi \(TX=X\) dengan
+        \(T=\left[\begin{smallmatrix}0{,}8&amp;0{,}3\\0{,}2&amp;0{,}7\end{smallmatrix}\right]\),
+        yaitu \(-0{,}2a+0{,}3b=0\Rightarrow b=\frac23a\).
+      </p>
+      <p>
+        Dengan \(a+b=1000\): \(a+\frac23a=1000\Rightarrow a=600\) dan \(b=400\).
+        Pemeriksaan: \(0{,}8(600)+0{,}3(400)=600\).
+      </p>
+      <p>Jebakan: \(625\) adalah keadaan tahun ke-2 dari \((700,300)\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+    </details>
+  </div>
+  <h3>B. Isian Singkat</h3>
+  <p>
+    5 soal \(\times\) 4 poin = 20 poin. Ketik hanya jawaban akhir, lalu tekan
+    <strong>Periksa</strong> atau Enter.
+  </p>
+  <p class="tingkat"><strong>Tingkat Sedang</strong> <em>(soal 1 dan 2)</em></p>
+  <!-- Soal Isian 1 -->
+  <div class="lesson-example soal-isian" data-kunci="-4">
+    <h4>Soal 1</h4>
+
+    <p>
+      Diketahui \(A=\begin{bmatrix}2&amp;1\\-1&amp;3\end{bmatrix}\) dan
+      \(B=\begin{bmatrix}1&amp;0\\2&amp;-1\end{bmatrix}\). Nilai \(\det(AB-BA)\)
+      adalah ....
+    </p>
+
+    <div class="isian-baris">
+      <input
+        type="text"
+        class="isian-input"
+        placeholder="Tulis jawaban akhirnya saja"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="Jawaban soal isian 1"
+      />
+      <button type="button" class="btn-cek">Periksa</button>
+    </div>
+    <p class="isian-umpan" hidden></p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>
+        \(AB=\left[\begin{smallmatrix}4&amp;-1\\5&amp;-3\end{smallmatrix}\right]\)
+        dan
+        \(BA=\left[\begin{smallmatrix}2&amp;1\\5&amp;-1\end{smallmatrix}\right]\),
+        sehingga
+        \(AB-BA=\left[\begin{smallmatrix}2&amp;-2\\0&amp;-2\end{smallmatrix}\right]\).
+      </p>
+      <p>Determinannya \(-4-0=\) <strong>\(-4\)</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal Isian 2 -->
+  <div class="lesson-example soal-isian" data-kunci="(3,-6)|3,-6">
+    <h4>Soal 2</h4>
+
+    <p>
+      Titik \(P(2,-1)\) dirotasikan \(90^\circ\) berlawanan arah jarum jam
+      terhadap titik asal, kemudian didilatasi dengan faktor \(3\) terhadap
+      titik asal, lalu dicerminkan terhadap sumbu-\(x\). Koordinat bayangan
+      akhir titik \(P\) adalah ....
+    </p>
+
+    <div class="isian-baris">
+      <input
+        type="text"
+        class="isian-input"
+        placeholder="Tulis jawaban akhirnya saja"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="Jawaban soal isian 2"
+      />
+      <button type="button" class="btn-cek">Periksa</button>
+    </div>
+    <p class="isian-umpan" hidden></p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>
+        Rotasi \(90^\circ\): \((x,y)\mapsto(-y,x)\), sehingga
+        \((2,-1)\mapsto(1,2)\). Dilatasi \(3\): \((3,6)\). Cermin sumbu-\(x\):
+        \((3,-6)\).
+      </p>
+      <div class="math-display">
+        \[
+        M=\left[\begin{smallmatrix}1&amp;0\\0&amp;-1\end{smallmatrix}\right]\left[\begin{smallmatrix}3&amp;0\\0&amp;3\end{smallmatrix}\right]\left[\begin{smallmatrix}0&amp;-1\\1&amp;0\end{smallmatrix}\right]=\left[\begin{smallmatrix}0&amp;-3\\-3&amp;0\end{smallmatrix}\right]
+        \]
+      </div>
+      <p>Jadi bayangan akhirnya <strong>\((3,-6)\)</strong>.</p>
+    </details>
+  </div>
+  <p class="tingkat">
+    <strong>Tingkat Sulit</strong> <em>(soal 3 sampai 5)</em>
+  </p>
+  <!-- Soal Isian 3 -->
+  <div class="lesson-example soal-isian" data-kunci="320">
+    <h4>Soal 3</h4>
+
+    <p>
+      Diketahui \(A=\begin{bmatrix}2&amp;1\\0&amp;2\end{bmatrix}\). Jumlah semua
+      elemen matriks \(A^{6}\) adalah ....
+    </p>
+
+    <div class="isian-baris">
+      <input
+        type="text"
+        class="isian-input"
+        placeholder="Tulis jawaban akhirnya saja"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="Jawaban soal isian 3"
+      />
+      <button type="button" class="btn-cek">Periksa</button>
+    </div>
+    <p class="isian-umpan" hidden></p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>
+        Tulis \(A=2I+N\) dengan
+        \(N=\left[\begin{smallmatrix}0&amp;1\\0&amp;0\end{smallmatrix}\right]\)
+        dan \(N^2=O\). Maka \(A^n=2^nI+n2^{n-1}N\), sehingga
+        \(A^6=\left[\begin{smallmatrix}64&amp;192\\0&amp;64\end{smallmatrix}\right]\).
+      </p>
+      <p>Jumlah elemen \(64+192+0+64=\) <strong>320</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal Isian 4 -->
+  <div class="lesson-example soal-isian" data-kunci="-360|−360">
+    <h4>Soal 4</h4>
+
+    <p>
+      Matriks \(M\) berordo \(3\times3\) adalah persegi ajaib: jumlah elemen
+      setiap baris, setiap kolom, dan kedua diagonal utamanya sama. Tiga
+      elemennya sudah diketahui (lihat gambar), sedangkan elemen lain belum
+      diketahui dan tidak harus bilangan bulat positif. Nilai \(\det(M)\) adalah
+      ....
+    </p>
+    <figure style="margin: 1rem auto; text-align: center">
+      <svg
+        viewBox="0 0 142 142"
+        role="img"
+        aria-label="Persegi ajaib 3 kali 3 dengan elemen 8, 1, dan 5 diketahui"
+        style="width: 100%; max-width: 142px; height: auto"
+        font-size="12"
+        font-family="inherit"
+      >
+        <rect
+          x="14"
+          y="14"
+          width="36"
+          height="36"
+          fill="#2563eb"
+          fill-opacity=".1"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <text
+          x="32.0"
+          y="38.0"
+          text-anchor="middle"
+          font-size="15"
+          fill="currentColor"
+        >
+          8
+        </text>
+        <rect
+          x="52"
+          y="14"
+          width="36"
+          height="36"
+          fill="#2563eb"
+          fill-opacity=".1"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <text
+          x="70.0"
+          y="38.0"
+          text-anchor="middle"
+          font-size="15"
+          fill="currentColor"
+        >
+          1
+        </text>
+        <rect
+          x="90"
+          y="14"
+          width="36"
+          height="36"
+          fill="#2563eb"
+          fill-opacity=".1"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <text
+          x="108.0"
+          y="38.0"
+          text-anchor="middle"
+          font-size="15"
+          fill="currentColor"
+        >
+          ?
+        </text>
+        <rect
+          x="14"
+          y="52"
+          width="36"
+          height="36"
+          fill="#2563eb"
+          fill-opacity=".1"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <text
+          x="32.0"
+          y="76.0"
+          text-anchor="middle"
+          font-size="15"
+          fill="currentColor"
+        >
+          ?
+        </text>
+        <rect
+          x="52"
+          y="52"
+          width="36"
+          height="36"
+          fill="#2563eb"
+          fill-opacity=".1"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <text
+          x="70.0"
+          y="76.0"
+          text-anchor="middle"
+          font-size="15"
+          fill="currentColor"
+        >
+          5
+        </text>
+        <rect
+          x="90"
+          y="52"
+          width="36"
+          height="36"
+          fill="#2563eb"
+          fill-opacity=".1"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <text
+          x="108.0"
+          y="76.0"
+          text-anchor="middle"
+          font-size="15"
+          fill="currentColor"
+        >
+          ?
+        </text>
+        <rect
+          x="14"
+          y="90"
+          width="36"
+          height="36"
+          fill="#2563eb"
+          fill-opacity=".1"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <text
+          x="32.0"
+          y="114.0"
+          text-anchor="middle"
+          font-size="15"
+          fill="currentColor"
+        >
+          ?
+        </text>
+        <rect
+          x="52"
+          y="90"
+          width="36"
+          height="36"
+          fill="#2563eb"
+          fill-opacity=".1"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <text
+          x="70.0"
+          y="114.0"
+          text-anchor="middle"
+          font-size="15"
+          fill="currentColor"
+        >
+          ?
+        </text>
+        <rect
+          x="90"
+          y="90"
+          width="36"
+          height="36"
+          fill="#2563eb"
+          fill-opacity=".1"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <text
+          x="108.0"
+          y="114.0"
+          text-anchor="middle"
+          font-size="15"
+          fill="currentColor"
+        >
+          ?
+        </text>
+      </svg>
+    </figure>
+
+    <div class="isian-baris">
+      <input
+        type="text"
+        class="isian-input"
+        placeholder="Tulis jawaban akhirnya saja"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="Jawaban soal isian 4"
+      />
+      <button type="button" class="btn-cek">Periksa</button>
+    </div>
+    <p class="isian-umpan" hidden></p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>
+        Persegi ajaib \(3\times3\) berbentuk
+        \(\left[\begin{smallmatrix}c+x&amp;c-x-y&amp;c+y\\c-x+y&amp;c&amp;c+x-y\\c-y&amp;c+x+y&amp;c-x\end{smallmatrix}\right]\).
+        Dari \(c=5\), \(c+x=8\), dan \(c-x-y=1\) diperoleh \(x=3\) dan \(y=1\),
+        sehingga
+        \(M=\left[\begin{smallmatrix}8&amp;1&amp;6\\3&amp;5&amp;7\\4&amp;9&amp;2\end{smallmatrix}\right]\).
+      </p>
+      <p>
+        Dengan Sarrus: \(\det M=(80+28+162)-(120+504+6)=270-630=\)
+        <strong>\(-360\)</strong>.
+      </p>
+    </details>
+  </div>
+  <!-- Soal Isian 5 -->
+  <div class="lesson-example soal-isian" data-kunci="12">
+    <h4>Soal 5</h4>
+
+    <p>
+      Graf tak berarah dengan lima titik pada gambar mempunyai matriks
+      ketetanggaan \(A\) (elemen \(a_{ij}=1\) jika titik \(i\) dan \(j\)
+      terhubung langsung, selain itu \(0\)). Nilai \(\operatorname{tr}(A^3)\),
+      yaitu jumlah elemen diagonal utama \(A^3\), adalah ....
+    </p>
+    <figure style="margin: 1rem auto; text-align: center">
+      <svg
+        viewBox="0 0 255 140"
+        role="img"
+        aria-label="Graf tak berarah lima titik dengan sisi 1-2, 1-3, 2-3, 2-4, 3-4, 4-5"
+        style="width: 100%; max-width: 255px; height: auto"
+        font-size="12"
+        font-family="inherit"
+      >
+        <line
+          x1="39.6"
+          y1="62.8"
+          x2="80.4"
+          y2="32.2"
+          stroke="currentColor"
+          stroke-width="1.8"
+        />
+        <line
+          x1="39.6"
+          y1="77.2"
+          x2="80.4"
+          y2="107.8"
+          stroke="currentColor"
+          stroke-width="1.8"
+        />
+        <line
+          x1="90.0"
+          y1="37.0"
+          x2="90.0"
+          y2="103.0"
+          stroke="currentColor"
+          stroke-width="1.8"
+        />
+        <line
+          x1="100.1"
+          y1="31.5"
+          x2="149.9"
+          y2="63.5"
+          stroke="currentColor"
+          stroke-width="1.8"
+        />
+        <line
+          x1="100.1"
+          y1="108.5"
+          x2="149.9"
+          y2="76.5"
+          stroke="currentColor"
+          stroke-width="1.8"
+        />
+        <line
+          x1="172.0"
+          y1="70.0"
+          x2="213.0"
+          y2="70.0"
+          stroke="currentColor"
+          stroke-width="1.8"
+        />
+        <circle
+          cx="30"
+          cy="70"
+          r="12"
+          fill="#2563eb"
+          fill-opacity=".12"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <text
+          x="30.0"
+          y="74.0"
+          text-anchor="middle"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          1
+        </text>
+        <circle
+          cx="90"
+          cy="25"
+          r="12"
+          fill="#2563eb"
+          fill-opacity=".12"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <text
+          x="90.0"
+          y="29.0"
+          text-anchor="middle"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          2
+        </text>
+        <circle
+          cx="90"
+          cy="115"
+          r="12"
+          fill="#2563eb"
+          fill-opacity=".12"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <text
+          x="90.0"
+          y="119.0"
+          text-anchor="middle"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          3
+        </text>
+        <circle
+          cx="160"
+          cy="70"
+          r="12"
+          fill="#2563eb"
+          fill-opacity=".12"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <text
+          x="160.0"
+          y="74.0"
+          text-anchor="middle"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          4
+        </text>
+        <circle
+          cx="225"
+          cy="70"
+          r="12"
+          fill="#2563eb"
+          fill-opacity=".12"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <text
+          x="225.0"
+          y="74.0"
+          text-anchor="middle"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          5
+        </text>
+      </svg>
+    </figure>
+
+    <div class="isian-baris">
+      <input
+        type="text"
+        class="isian-input"
+        placeholder="Tulis jawaban akhirnya saja"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="Jawaban soal isian 5"
+      />
+      <button type="button" class="btn-cek">Periksa</button>
+    </div>
+    <p class="isian-umpan" hidden></p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>
+        Elemen diagonal \((A^3)_{ii}\) menghitung jalan tertutup tiga langkah
+        dari titik \(i\), yaitu segitiga yang memuat \(i\) (dihitung dua arah).
+      </p>
+      <p>
+        Graf memiliki \(2\) segitiga (1-2-3 dan 2-3-4), tiap segitiga memberi
+        \(6\) (3 titik awal \(\times\) 2 arah). Maka
+        \(\operatorname{tr}(A^3)=6\times2=\) <strong>12</strong>.
+      </p>
+      <p>Pemeriksaan langsung: diagonal \(A^3\) adalah \(2,4,4,2,0\).</p>
+    </details>
+  </div>
+  <h3>C. Uraian (Essay)</h3>
+  <p>
+    5 soal \(\times\) 8 poin = 40 poin. Tuliskan langkah penyelesaian dengan
+    lengkap di buku atau kertas, lalu bandingkan dengan pembahasan dan pedoman
+    penskoran.
+  </p>
+  <p class="tingkat"><strong>Tingkat Sedang</strong> <em>(soal 1 dan 2)</em></p>
+  <!-- Soal Uraian 1 -->
+  <div class="lesson-example soal-uraian">
+    <h4>Soal 1 <span class="poin">[8 poin]</span></h4>
+
+    <p>
+      Segitiga \(ABC\) dengan \(A(1,1)\), \(B(4,1)\), dan \(C(1,3)\)
+      pertama-tama dirotasikan \(90^\circ\) berlawanan arah jarum jam terhadap
+      titik asal (matriks \(R\)), kemudian didilatasi dengan faktor \(2\)
+      terhadap titik asal (matriks \(D\)).
+    </p>
+    <figure style="margin: 1rem auto; text-align: center">
+      <svg
+        viewBox="0 0 316 250"
+        role="img"
+        aria-label="Segitiga ABC dan bayangannya A'B'C' setelah rotasi dan dilatasi"
+        style="width: 100%; max-width: 316px; height: auto"
+        font-size="12"
+        font-family="inherit"
+      >
+        <line
+          x1="26.0"
+          y1="224.0"
+          x2="26.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="48.0"
+          y1="224.0"
+          x2="48.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="70.0"
+          y1="224.0"
+          x2="70.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="92.0"
+          y1="224.0"
+          x2="92.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="114.0"
+          y1="224.0"
+          x2="114.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="136.0"
+          y1="224.0"
+          x2="136.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="158.0"
+          y1="224.0"
+          x2="158.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="180.0"
+          y1="224.0"
+          x2="180.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="202.0"
+          y1="224.0"
+          x2="202.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="224.0"
+          y1="224.0"
+          x2="224.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="246.0"
+          y1="224.0"
+          x2="246.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="268.0"
+          y1="224.0"
+          x2="268.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="290.0"
+          y1="224.0"
+          x2="290.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="224.0"
+          x2="290.0"
+          y2="224.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="202.0"
+          x2="290.0"
+          y2="202.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="180.0"
+          x2="290.0"
+          y2="180.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="158.0"
+          x2="290.0"
+          y2="158.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="136.0"
+          x2="290.0"
+          y2="136.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="114.0"
+          x2="290.0"
+          y2="114.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="92.0"
+          x2="290.0"
+          y2="92.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="70.0"
+          x2="290.0"
+          y2="70.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="48.0"
+          x2="290.0"
+          y2="48.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="26.0"
+          x2="290.0"
+          y2="26.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="26.0"
+          y1="224.0"
+          x2="298.0"
+          y2="224.0"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <line
+          x1="180.0"
+          y1="224.0"
+          x2="180.0"
+          y2="18.0"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <polygon
+          points="298.0,224.0 291.0,220.5 291.0,227.5"
+          fill="currentColor"
+        />
+        <polygon
+          points="180.0,18.0 176.5,25.0 183.5,25.0"
+          fill="currentColor"
+        />
+        <text
+          x="301.0"
+          y="228.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          x
+        </text>
+        <text
+          x="187.0"
+          y="20.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          y
+        </text>
+        <text
+          x="26.0"
+          y="237.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          -7
+        </text>
+        <text
+          x="48.0"
+          y="237.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          -6
+        </text>
+        <text
+          x="70.0"
+          y="237.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          -5
+        </text>
+        <text
+          x="92.0"
+          y="237.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          -4
+        </text>
+        <text
+          x="114.0"
+          y="237.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          -3
+        </text>
+        <text
+          x="136.0"
+          y="237.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          -2
+        </text>
+        <text
+          x="158.0"
+          y="237.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          -1
+        </text>
+        <text
+          x="202.0"
+          y="237.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          1
+        </text>
+        <text
+          x="224.0"
+          y="237.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          2
+        </text>
+        <text
+          x="246.0"
+          y="237.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          3
+        </text>
+        <text
+          x="268.0"
+          y="237.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          4
+        </text>
+        <text
+          x="290.0"
+          y="237.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          5
+        </text>
+        <text
+          x="175.0"
+          y="205.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          1
+        </text>
+        <text
+          x="175.0"
+          y="183.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          2
+        </text>
+        <text
+          x="175.0"
+          y="161.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          3
+        </text>
+        <text
+          x="175.0"
+          y="139.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          4
+        </text>
+        <text
+          x="175.0"
+          y="117.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          5
+        </text>
+        <text
+          x="175.0"
+          y="95.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          6
+        </text>
+        <text
+          x="175.0"
+          y="73.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          7
+        </text>
+        <text
+          x="175.0"
+          y="51.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          8
+        </text>
+        <text
+          x="175.0"
+          y="29.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          9
+        </text>
+        <polygon
+          points="202.0,202.0 268.0,202.0 202.0,158.0"
+          fill="#2563eb"
+          fill-opacity="0.18"
+          stroke="#2563eb"
+          stroke-width="2.2"
+          stroke-linejoin="round"
+        />
+        <polygon
+          points="136.0,180.0 136.0,48.0 48.0,180.0"
+          fill="#ea580c"
+          fill-opacity="0.12"
+          stroke="#ea580c"
+          stroke-width="2.2"
+          stroke-linejoin="round"
+          stroke-dasharray="6 4"
+        />
+        <circle cx="202.0" cy="202.0" r="3.2" fill="#dc2626" />
+        <text
+          x="193.0"
+          y="216.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          A
+        </text>
+        <circle cx="268.0" cy="202.0" r="3.2" fill="#dc2626" />
+        <text
+          x="274.0"
+          y="216.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          B
+        </text>
+        <circle cx="202.0" cy="158.0" r="3.2" fill="#dc2626" />
+        <text
+          x="208.0"
+          y="154.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          C
+        </text>
+        <circle cx="136.0" cy="180.0" r="3.2" fill="#dc2626" />
+        <text
+          x="142.0"
+          y="194.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          A'
+        </text>
+        <circle cx="136.0" cy="48.0" r="3.2" fill="#dc2626" />
+        <text
+          x="142.0"
+          y="44.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          B'
+        </text>
+        <circle cx="48.0" cy="180.0" r="3.2" fill="#dc2626" />
+        <text
+          x="38.0"
+          y="194.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          C'
+        </text>
+      </svg>
+    </figure>
+    <ol type="a">
+      <li>
+        Tentukan matriks \(R\), matriks \(D\), dan matriks komposisi \(M\) yang
+        memetakan \(ABC\) langsung ke bayangan akhirnya.
+      </li>
+      <li>Tentukan koordinat \(A'\), \(B'\), dan \(C'\).</li>
+      <li>
+        Hitung luas \(A'B'C'\) dengan dua cara: dari koordinat dan dari \(|\det
+        M|\).
+      </li>
+      <li>
+        Bayangan \(A'B'C'\) lalu dicerminkan terhadap sumbu-\(x\). Tentukan
+        matriks komposisi barunya. Apakah luas berubah? Apa arti tanda
+        determinan yang negatif?
+      </li>
+    </ol>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>
+        <strong>(a)</strong>
+        \(R=\left[\begin{smallmatrix}0&amp;-1\\1&amp;0\end{smallmatrix}\right]\),
+        \(D=\left[\begin{smallmatrix}2&amp;0\\0&amp;2\end{smallmatrix}\right]\),
+        dan
+        \(M=DR=\left[\begin{smallmatrix}0&amp;-2\\2&amp;0\end{smallmatrix}\right]\)
+        (rotasi lebih dulu sehingga \(R\) berada di kanan).
+      </p>
+      <p>
+        <strong>(b)</strong>
+        \(A'=M\left[\begin{smallmatrix}1\\1\end{smallmatrix}\right]=(-2,2)\),
+        \(B'=M\left[\begin{smallmatrix}4\\1\end{smallmatrix}\right]=(-2,8)\),
+        \(C'=M\left[\begin{smallmatrix}1\\3\end{smallmatrix}\right]=(-6,2)\).
+      </p>
+      <p>
+        <strong>(c)</strong> Luas \(ABC=\frac12\cdot3\cdot2=3\). Dari koordinat:
+        alas \(A'B'=6\) (vertikal) dan tinggi \(4\) (jarak horizontal \(C'\) ke
+        garis \(x=-2\)), sehingga luas \(\frac12\cdot6\cdot4=12\). Dari
+        determinan: \(\det M=0\cdot0-(-2)(2)=4\) dan \(4\times3=12\). Keduanya
+        sama.
+      </p>
+      <p>
+        <strong>(d)</strong>
+        \(M_2=\left[\begin{smallmatrix}1&amp;0\\0&amp;-1\end{smallmatrix}\right]M=\left[\begin{smallmatrix}0&amp;-2\\-2&amp;0\end{smallmatrix}\right]\)
+        dengan \(\det M_2=-4\). Luas tetap \(|-4|\times3=12\). Tanda negatif
+        berarti orientasi bangun terbalik (urutan titik \(A,B,C\) berubah dari
+        berlawanan arah jarum jam menjadi searah), sedangkan besar luas
+        ditentukan oleh \(|\det|\).
+      </p>
+      <p class="penskoran"><em>Penskoran: tiap bagian 2 poin.</em></p>
+    </details>
+  </div>
+  <!-- Soal Uraian 2 -->
+  <div class="lesson-example soal-uraian">
+    <h4>Soal 2 <span class="poin">[8 poin]</span></h4>
+
+    <p>
+      Seorang petani mencampur tiga jenis pupuk. Kandungan tiap kilogram pupuk
+      (dalam gram) adalah: pupuk \(X\) mengandung N \(30\), P \(10\), K \(20\);
+      pupuk \(Y\) mengandung N \(10\), P \(20\), K \(10\); pupuk \(Z\)
+      mengandung N \(20\), P \(10\), K \(30\). Tanaman membutuhkan tepat N
+      \(280\) gram, P \(210\) gram, dan K \(290\) gram. Misalkan banyak pupuk
+      \(X\), \(Y\), dan \(Z\) (dalam kg) berturut-turut \(x\), \(y\), dan \(z\).
+    </p>
+    <ol type="a">
+      <li>
+        Susun sistem persamaan linear yang paling sederhana dan tuliskan dalam
+        bentuk \(AX=B\).
+      </li>
+      <li>
+        Hitung \(\det(A)\) dan jelaskan arti nilainya terhadap banyaknya solusi.
+      </li>
+      <li>
+        Tentukan \(x\), \(y\), dan \(z\) dengan operasi baris elementer pada
+        matriks augmented.
+      </li>
+      <li>
+        Harga pupuk \(X\), \(Y\), dan \(Z\) berturut-turut Rp12.000, Rp9.000,
+        dan Rp15.000 per kg. Hitung biaya total campuran tersebut dengan
+        perkalian matriks.
+      </li>
+    </ol>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>
+        <strong>(a)</strong> \(3x+y+2z=28\); \(x+2y+z=21\); \(2x+y+3z=29\).
+        Bentuk \(AX=B\):
+        \(\left[\begin{smallmatrix}3&amp;1&amp;2\\1&amp;2&amp;1\\2&amp;1&amp;3\end{smallmatrix}\right]\left[\begin{smallmatrix}x\\y\\z\end{smallmatrix}\right]=\left[\begin{smallmatrix}28\\21\\29\end{smallmatrix}\right]\).
+      </p>
+      <p>
+        <strong>(b)</strong> \(\det A=3(6-1)-1(3-2)+2(1-4)=15-1-6=8\neq0\),
+        sehingga \(A\) punya invers dan sistem memiliki
+        <em>tepat satu</em> solusi.
+      </p>
+      <p>
+        <strong>(c)</strong> Dengan baris disusun ulang agar elemen pertama
+        \(R_1\) bernilai \(1\): \(R_2\to R_2-3R_1\) memberi \([0\ \,-5\
+        \,-1\,|\,-35]\) dan \(R_3\to R_3-2R_1\) memberi \([0\ \,-3\ \
+        1\,|\,-13]\). Dari \(R_3\): \(z=3y-13\). Substitusi ke \(R_2\):
+        \(-5y-(3y-13)=-35\Rightarrow y=6\), sehingga \(z=5\) dan
+        \(x=21-12-5=4\). Jadi \(x=4\) kg, \(y=6\) kg, \(z=5\) kg.
+      </p>
+      <p>
+        <strong>(d)</strong> Biaya
+        \(=\begin{bmatrix}4&amp;6&amp;5\end{bmatrix}\begin{bmatrix}12.000\\9.000\\15.000\end{bmatrix}=48.000+54.000+75.000=\)
+        <strong>Rp177.000</strong>.
+      </p>
+      <p class="penskoran">
+        <em>Penskoran: (a) 2 poin; (b) 2 poin; (c) 3 poin; (d) 1 poin.</em>
+      </p>
+    </details>
+  </div>
+  <p class="tingkat"><strong>Tingkat Sulit</strong> <em>(soal 3 dan 4)</em></p>
+  <!-- Soal Uraian 3 -->
+  <div class="lesson-example soal-uraian">
+    <h4>Soal 3 <span class="poin">[8 poin]</span></h4>
+
+    <p>Diketahui \(A=\begin{bmatrix}2&amp;1\\1&amp;2\end{bmatrix}\).</p>
+    <ol type="a">
+      <li>Tunjukkan bahwa \(A^2-4A+3I=O\).</li>
+      <li>
+        Dari persamaan pada (a) saja (tanpa rumus invers \(2\times2\)), nyatakan
+        \(A^{-1}\) dalam \(A\) dan \(I\), lalu hitung \(A^{-1}\).
+      </li>
+      <li>Buktikan \(A^3=13A-12I\), lalu hitung \(A^3\).</li>
+      <li>
+        Tunjukkan bahwa \(A^n=\dfrac{3^n-1}{2}A-\dfrac{3^n-3}{2}I\) berlaku
+        untuk \(n=2\) dan \(n=3\), lalu gunakan rumus itu untuk menghitung
+        \(A^5\).
+      </li>
+    </ol>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>
+        <strong>(a)</strong>
+        \(A^2=\left[\begin{smallmatrix}5&amp;4\\4&amp;5\end{smallmatrix}\right]\),
+        sehingga
+        \(A^2-4A+3I=\left[\begin{smallmatrix}5-8+3&amp;4-4\\4-4&amp;5-8+3\end{smallmatrix}\right]=O\).
+      </p>
+      <p>
+        <strong>(b)</strong> Dari (a): \(A^2-4A=-3I\Rightarrow
+        A(A-4I)=-3I\Rightarrow A\cdot\dfrac{4I-A}{3}=I\). Jadi
+        \(A^{-1}=\dfrac13(4I-A)=\dfrac13\left[\begin{smallmatrix}2&amp;-1\\-1&amp;2\end{smallmatrix}\right]=\left[\begin{smallmatrix}\frac23&amp;-\frac13\\-\frac13&amp;\frac23\end{smallmatrix}\right]\).
+      </p>
+      <p>
+        <strong>(c)</strong> \(A^2=4A-3I\), sehingga \(A^3=A\cdot
+        A^2=4A^2-3A=4(4A-3I)-3A=13A-12I\). Hasil:
+        \(\left[\begin{smallmatrix}26-12&amp;13\\13&amp;26-12\end{smallmatrix}\right]=\left[\begin{smallmatrix}14&amp;13\\13&amp;14\end{smallmatrix}\right]\)
+        (cocok dengan \(A\cdot A^2\) secara langsung).
+      </p>
+      <p>
+        <strong>(d)</strong> \(n=2\): \(\frac{9-1}2A-\frac{9-3}2I=4A-3I\) (sama
+        dengan (b)). \(n=3\): \(\frac{27-1}2A-\frac{27-3}2I=13A-12I\) (sama
+        dengan (c)). Untuk \(n=5\):
+        \(\frac{243-1}2A-\frac{243-3}2I=121A-120I=\left[\begin{smallmatrix}122&amp;121\\121&amp;122\end{smallmatrix}\right]\).
+      </p>
+      <p class="penskoran">
+        <em>Penskoran: (a) 1 poin; (b) 3 poin; (c) 2 poin; (d) 2 poin.</em>
+      </p>
+    </details>
+  </div>
+  <!-- Soal Uraian 4 -->
+  <div class="lesson-example soal-uraian">
+    <h4>Soal 4 <span class="poin">[8 poin]</span></h4>
+
+    <p>
+      Dua vektor \(\vec u=\begin{bmatrix}4\\1\end{bmatrix}\) dan \(\vec
+      v=\begin{bmatrix}1\\3\end{bmatrix}\) membentuk jajargenjang \(OUWV\)
+      (lihat gambar). Matriks \(T\) memetakan persegi satuan menjadi
+      jajargenjang tersebut: \(\begin{bmatrix}1\\0\end{bmatrix}\mapsto\vec u\)
+      dan \(\begin{bmatrix}0\\1\end{bmatrix}\mapsto\vec v\).
+    </p>
+    <figure style="margin: 1rem auto; text-align: center">
+      <svg
+        viewBox="0 0 296 256"
+        role="img"
+        aria-label="Jajargenjang OUWV dengan U(4,1), V(1,3), dan titik P(5/2, 2)"
+        style="width: 100%; max-width: 296px; height: auto"
+        font-size="12"
+        font-family="inherit"
+      >
+        <line
+          x1="28.0"
+          y1="228.0"
+          x2="28.0"
+          y2="28.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="68.0"
+          y1="228.0"
+          x2="68.0"
+          y2="28.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="108.0"
+          y1="228.0"
+          x2="108.0"
+          y2="28.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="148.0"
+          y1="228.0"
+          x2="148.0"
+          y2="28.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="188.0"
+          y1="228.0"
+          x2="188.0"
+          y2="28.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="228.0"
+          y1="228.0"
+          x2="228.0"
+          y2="28.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="268.0"
+          y1="228.0"
+          x2="268.0"
+          y2="28.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="28.0"
+          y1="228.0"
+          x2="268.0"
+          y2="228.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="28.0"
+          y1="188.0"
+          x2="268.0"
+          y2="188.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="28.0"
+          y1="148.0"
+          x2="268.0"
+          y2="148.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="28.0"
+          y1="108.0"
+          x2="268.0"
+          y2="108.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="28.0"
+          y1="68.0"
+          x2="268.0"
+          y2="68.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="28.0"
+          y1="28.0"
+          x2="268.0"
+          y2="28.0"
+          stroke="currentColor"
+          stroke-opacity=".13"
+        />
+        <line
+          x1="28.0"
+          y1="228.0"
+          x2="276.0"
+          y2="228.0"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <line
+          x1="28.0"
+          y1="228.0"
+          x2="28.0"
+          y2="20.0"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <polygon
+          points="276.0,228.0 269.0,224.5 269.0,231.5"
+          fill="currentColor"
+        />
+        <polygon points="28.0,20.0 24.5,27.0 31.5,27.0" fill="currentColor" />
+        <text
+          x="279.0"
+          y="232.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          x
+        </text>
+        <text
+          x="35.0"
+          y="22.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          y
+        </text>
+        <text
+          x="68.0"
+          y="241.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          1
+        </text>
+        <text
+          x="108.0"
+          y="241.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          2
+        </text>
+        <text
+          x="148.0"
+          y="241.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          3
+        </text>
+        <text
+          x="188.0"
+          y="241.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          4
+        </text>
+        <text
+          x="228.0"
+          y="241.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          5
+        </text>
+        <text
+          x="268.0"
+          y="241.0"
+          text-anchor="middle"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          6
+        </text>
+        <text
+          x="23.0"
+          y="191.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          1
+        </text>
+        <text
+          x="23.0"
+          y="151.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          2
+        </text>
+        <text
+          x="23.0"
+          y="111.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          3
+        </text>
+        <text
+          x="23.0"
+          y="71.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          4
+        </text>
+        <text
+          x="23.0"
+          y="31.5"
+          text-anchor="end"
+          font-size="9.5"
+          fill="currentColor"
+          fill-opacity=".7"
+        >
+          5
+        </text>
+        <polygon
+          points="28.0,228.0 188.0,188.0 228.0,68.0 68.0,108.0"
+          fill="#2563eb"
+          fill-opacity="0.14"
+          stroke="#2563eb"
+          stroke-width="2.2"
+          stroke-linejoin="round"
+        />
+        <line
+          x1="28.0"
+          y1="228.0"
+          x2="188.0"
+          y2="188.0"
+          stroke="#ea580c"
+          stroke-width="2.4"
+        />
+        <line
+          x1="28.0"
+          y1="228.0"
+          x2="68.0"
+          y2="108.0"
+          stroke="#ea580c"
+          stroke-width="2.4"
+        />
+        <circle cx="188.0" cy="188.0" r="3.2" fill="#dc2626" />
+        <text
+          x="194.0"
+          y="202.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          U(4,1)
+        </text>
+        <circle cx="68.0" cy="108.0" r="3.2" fill="#dc2626" />
+        <text
+          x="62.0"
+          y="102.0"
+          text-anchor="end"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          V(1,3)
+        </text>
+        <circle cx="228.0" cy="68.0" r="3.2" fill="#dc2626" />
+        <text
+          x="234.0"
+          y="63.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          W
+        </text>
+        <circle cx="128.0" cy="148.0" r="3.2" fill="#2563eb" />
+        <text
+          x="134.0"
+          y="164.0"
+          text-anchor="start"
+          font-size="12"
+          font-style="italic"
+          fill="currentColor"
+        >
+          P
+        </text>
+      </svg>
+    </figure>
+    <ol type="a">
+      <li>Tentukan \(T\) dan luas jajargenjang \(OUWV\).</li>
+      <li>Tentukan \(T^{-1}\).</li>
+      <li>
+        Titik \(P\left(\frac52,2\right)\) dapat ditulis
+        \(\overrightarrow{OP}=s\vec u+t\vec v\). Tentukan \((s,t)\) dengan
+        \(T^{-1}\) dan jelaskan letak \(P\) pada jajargenjang.
+      </li>
+      <li>
+        Sebuah daerah \(F\) di dalam jajargenjang berluas \(3{,}3\) satuan luas.
+        Berapa luas daerah asalnya di dalam persegi satuan? Jelaskan.
+      </li>
+    </ol>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>
+        <strong>(a)</strong>
+        \(T=\left[\begin{smallmatrix}4&amp;1\\1&amp;3\end{smallmatrix}\right]\)
+        dan luas \(=|\det T|=12-1=11\) satuan luas.
+      </p>
+      <p>
+        <strong>(b)</strong>
+        \(T^{-1}=\dfrac1{11}\left[\begin{smallmatrix}3&amp;-1\\-1&amp;4\end{smallmatrix}\right]\).
+      </p>
+      <p>
+        <strong>(c)</strong>
+        \(\left[\begin{smallmatrix}s\\t\end{smallmatrix}\right]=T^{-1}\left[\begin{smallmatrix}5/2\\2\end{smallmatrix}\right]=\dfrac1{11}\left[\begin{smallmatrix}15/2-2\\-5/2+8\end{smallmatrix}\right]=\left[\begin{smallmatrix}1/2\\1/2\end{smallmatrix}\right]\).
+        Karena \(s=t=\frac12\), \(P=\frac12(\vec u+\vec v)\) adalah titik tengah
+        diagonal \(OW\), yaitu pusat jajargenjang (titik potong kedua diagonal).
+      </p>
+      <p>
+        <strong>(d)</strong> \(T\) mengalikan luas dengan \(|\det T|=11\). Luas
+        daerah asal \(=\dfrac{3{,}3}{11}=0{,}3\) satuan luas, karena \(T^{-1}\)
+        memperkecil luas dengan faktor \(\frac1{11}\).
+      </p>
+      <p class="penskoran"><em>Penskoran: tiap bagian 2 poin.</em></p>
+    </details>
+  </div>
+  <p class="tingkat"><strong>Tingkat HOTS</strong> <em>(soal 5)</em></p>
+  <!-- Soal Uraian 5 -->
+  <div class="lesson-example soal-uraian">
+    <h4>Soal 5 <span class="poin">[8 poin]</span></h4>
+
+    <p>
+      Sandi Hill mengubah huruf menjadi angka (lihat tabel), lalu mengenkripsi
+      pasangan huruf dengan matriks kunci \(K\): pasangan
+      \(\left[\begin{smallmatrix}p_1\\p_2\end{smallmatrix}\right]\) menjadi
+      \(\left[\begin{smallmatrix}c_1\\c_2\end{smallmatrix}\right]\equiv
+      K\left[\begin{smallmatrix}p_1\\p_2\end{smallmatrix}\right]\pmod{26}\).
+      Notasi \(a\bmod 26\) berarti sisa pembagian \(a\) oleh \(26\) (misalnya
+      \(33\bmod26=7\)). Pada soal ini
+      \(K=\begin{bmatrix}3&amp;3\\2&amp;5\end{bmatrix}\). Untuk mendekripsi
+      dipakai \(K^{-1}\) yang memenuhi \(KK^{-1}\equiv I\pmod{26}\).
+    </p>
+    <table class="tabel-data tabel-sandi">
+      <tbody>
+        <tr>
+          <th>A</th>
+          <th>B</th>
+          <th>C</th>
+          <th>D</th>
+          <th>E</th>
+          <th>F</th>
+          <th>G</th>
+          <th>H</th>
+          <th>I</th>
+          <th>J</th>
+          <th>K</th>
+          <th>L</th>
+          <th>M</th>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>1</td>
+          <td>2</td>
+          <td>3</td>
+          <td>4</td>
+          <td>5</td>
+          <td>6</td>
+          <td>7</td>
+          <td>8</td>
+          <td>9</td>
+          <td>10</td>
+          <td>11</td>
+          <td>12</td>
+        </tr>
+        <tr>
+          <th>N</th>
+          <th>O</th>
+          <th>P</th>
+          <th>Q</th>
+          <th>R</th>
+          <th>S</th>
+          <th>T</th>
+          <th>U</th>
+          <th>V</th>
+          <th>W</th>
+          <th>X</th>
+          <th>Y</th>
+          <th>Z</th>
+        </tr>
+        <tr>
+          <td>13</td>
+          <td>14</td>
+          <td>15</td>
+          <td>16</td>
+          <td>17</td>
+          <td>18</td>
+          <td>19</td>
+          <td>20</td>
+          <td>21</td>
+          <td>22</td>
+          <td>23</td>
+          <td>24</td>
+          <td>25</td>
+        </tr>
+      </tbody>
+    </table>
+    <ol type="a">
+      <li>Enkripsikan kata <strong>HELP</strong>.</li>
+      <li>
+        Tunjukkan \(K\) dapat didekripsi: hitung \(\det(K)\), cari \(u\) dengan
+        \(9u\equiv1\pmod{26}\), lalu tentukan \(K^{-1}\) modulo \(26\) dengan
+        \(K^{-1}\equiv u\cdot\operatorname{adj}(K)\).
+      </li>
+      <li>Dekripsikan pesan <strong>LDXKBU</strong>.</li>
+      <li>
+        Kunci \(K'=\begin{bmatrix}4&amp;1\\2&amp;3\end{bmatrix}\) memiliki
+        \(\det(K')\neq0\), tetapi tidak dapat dipakai. Tunjukkan dua pasangan
+        huruf berbeda yang menghasilkan sandi sama, lalu simpulkan syarat
+        \(\det(K)\) agar kunci layak dipakai.
+      </li>
+    </ol>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>
+        <strong>(a)</strong> H=7, E=4, L=11, P=15. Pasangan \((7,4)\):
+        \(K\left[\begin{smallmatrix}7\\4\end{smallmatrix}\right]=\left[\begin{smallmatrix}21+12\\14+20\end{smallmatrix}\right]=\left[\begin{smallmatrix}33\\34\end{smallmatrix}\right]\equiv\left[\begin{smallmatrix}7\\8\end{smallmatrix}\right]\),
+        yaitu <strong>HI</strong>. Pasangan \((11,15)\):
+        \(\left[\begin{smallmatrix}33+45\\22+75\end{smallmatrix}\right]=\left[\begin{smallmatrix}78\\97\end{smallmatrix}\right]\equiv\left[\begin{smallmatrix}0\\19\end{smallmatrix}\right]\),
+        yaitu <strong>AT</strong>. Jadi HELP \(\to\) <strong>HIAT</strong>.
+      </p>
+      <p>
+        <strong>(b)</strong> \(\det K=15-6=9\). Karena
+        \(9\cdot3=27\equiv1\pmod{26}\), \(u=3\).
+        \(\operatorname{adj}(K)=\left[\begin{smallmatrix}5&amp;-3\\-2&amp;3\end{smallmatrix}\right]\),
+        sehingga
+        \(K^{-1}\equiv3\left[\begin{smallmatrix}5&amp;-3\\-2&amp;3\end{smallmatrix}\right]=\left[\begin{smallmatrix}15&amp;-9\\-6&amp;9\end{smallmatrix}\right]\equiv\left[\begin{smallmatrix}15&amp;17\\20&amp;9\end{smallmatrix}\right]\pmod{26}\).
+        Verifikasi: \(K\cdot
+        K^{-1}=\left[\begin{smallmatrix}105&amp;78\\130&amp;79\end{smallmatrix}\right]\equiv\left[\begin{smallmatrix}1&amp;0\\0&amp;1\end{smallmatrix}\right]\).
+      </p>
+      <p>
+        <strong>(c)</strong> LD \(=(11,3)\):
+        \(\left[\begin{smallmatrix}15\cdot11+17\cdot3\\20\cdot11+9\cdot3\end{smallmatrix}\right]=\left[\begin{smallmatrix}216\\247\end{smallmatrix}\right]\equiv\left[\begin{smallmatrix}8\\13\end{smallmatrix}\right]\),
+        yaitu <strong>IN</strong>. XK \(=(23,10)\):
+        \(\left[\begin{smallmatrix}515\\550\end{smallmatrix}\right]\equiv\left[\begin{smallmatrix}21\\4\end{smallmatrix}\right]\),
+        yaitu <strong>VE</strong>. BU \(=(1,20)\):
+        \(\left[\begin{smallmatrix}355\\200\end{smallmatrix}\right]\equiv\left[\begin{smallmatrix}17\\18\end{smallmatrix}\right]\),
+        yaitu <strong>RS</strong>. Pesan: <strong>INVERS</strong>.
+      </p>
+      <p>
+        <strong>(d)</strong> \(\det K'=12-2=10\). Pasangan
+        <strong>AA</strong> \((0,0)\) dan <strong>NA</strong> \((13,0)\):
+        \(K'\left[\begin{smallmatrix}13\\0\end{smallmatrix}\right]=\left[\begin{smallmatrix}52\\26\end{smallmatrix}\right]\equiv\left[\begin{smallmatrix}0\\0\end{smallmatrix}\right]\),
+        sehingga keduanya menghasilkan sandi <strong>AA</strong> dan pesan tidak
+        dapat didekripsi secara tunggal. Penyebabnya \(\gcd(10,26)=2\neq1\),
+        sehingga \(10\) tidak punya invers modulo \(26\). Syarat kunci layak:
+        \(\gcd(\det K,26)=1\), yaitu \(\det K\) bukan kelipatan \(2\) dan bukan
+        kelipatan \(13\).
+      </p>
+      <p class="penskoran">
+        <em
+          >Penskoran: (a) 2 poin; (b) 2 poin; (c) 2 poin; (d) 2 poin (contoh 1,
+          kesimpulan syarat 1).</em
+        >
+      </p>
+    </details>
+  </div>
+
+  <script>
+    (function () {
+      function init() {
+        var root = document.getElementById("latihan-matriks");
+        if (!root || root.getAttribute("data-init")) return;
+        root.setAttribute("data-init", "1");
+
+        var pg = root.querySelectorAll(".soal-pg");
+        var is = root.querySelectorAll(".soal-isian");
+        var elSkorPg = root.querySelector("[data-skor-pg]");
+        var elJawabPg = root.querySelector("[data-jawab-pg]");
+        var elSkorIs = root.querySelector("[data-skor-is]");
+
+        function norm(s) {
+          return s
+            .toLowerCase()
+            .replace(/\s+/g, "")
+            .replace(/[*\u00b7\u00d7{}]/g, "")
+            .replace(/\u2212/g, "-")
+            .replace(/\u00b2/g, "^2")
+            .replace(/,/g, ".");
+        }
+        function has(el, c) {
+          return el.className && String(el.className).indexOf(c) > -1;
+        }
+
+        function hitung() {
+          var benar = 0,
+            jawab = 0,
+            benarIs = 0,
+            i;
+          for (i = 0; i < pg.length; i++) {
+            if (has(pg[i], "soal-kompleks") || has(pg[i], "soal-kategori")) {
+              var st = pg[i].getAttribute("data-status");
+              if (st) {
+                jawab++;
+                if (st === "benar") benar++;
+              }
+            } else {
+              var c = pg[i].querySelector("input:checked");
+              if (c) {
+                jawab++;
+                if (c.parentNode.className.indexOf(" k") > -1) benar++;
+              }
+            }
+          }
+          for (i = 0; i < is.length; i++) {
+            if (is[i].getAttribute("data-status") === "benar") benarIs++;
+          }
+          elSkorPg.textContent = benar;
+          elJawabPg.textContent = jawab;
+          elSkorIs.textContent = benarIs;
+        }
+
+        function periksa(q) {
+          var inp = q.querySelector(".isian-input");
+          var um = q.querySelector(".isian-umpan");
+          var v = norm(inp.value);
+          if (!v) {
+            inp.focus();
+            return;
+          }
+          var kunci = q.getAttribute("data-kunci").split("|");
+          var ok = false;
+          for (var i = 0; i < kunci.length; i++) {
+            if (norm(kunci[i]) === v) {
+              ok = true;
+              break;
+            }
+          }
+          q.setAttribute("data-status", ok ? "benar" : "salah");
+          um.hidden = false;
+          um.textContent = ok
+            ? "Benar!"
+            : "Belum sesuai. Coba lagi, atau buka pembahasan (bentuk jawaban yang setara juga dapat benar).";
+          hitung();
+        }
+
+        function periksaK(q) {
+          var um = q.querySelector(".isian-umpan");
+          var kunci = q.getAttribute("data-kunci").split(",");
+          var ok, jawaban, i;
+          if (has(q, "soal-kompleks")) {
+            var cb = q.querySelectorAll("input:checked");
+            if (!cb.length) {
+              um.hidden = false;
+              um.textContent = "Centang minimal satu pilihan terlebih dahulu.";
+              return;
+            }
+            jawaban = [];
+            for (i = 0; i < cb.length; i++) jawaban.push(cb[i].value);
+            ok = jawaban.sort().join(",") === kunci.slice().sort().join(",");
+            q.setAttribute("data-status", ok ? "benar" : "salah");
+            um.hidden = false;
+            um.textContent = ok
+              ? "Benar! Jawaban yang tepat adalah " + kunci.join(", ") + "."
+              : "Belum tepat. Jawaban yang benar adalah " +
+                kunci.join(", ") +
+                ".";
+          } else {
+            var n = kunci.length;
+            ok = true;
+            for (i = 0; i < n; i++) {
+              var r = q.querySelector(
+                'input[name$="-' + (i + 1) + '"]:checked',
+              );
+              if (!r) {
+                um.hidden = false;
+                um.textContent =
+                  "Pilih Benar atau Salah untuk setiap pernyataan.";
+                return;
+              }
+              if (r.value !== kunci[i]) ok = false;
+            }
+            var kt = [];
+            for (i = 0; i < n; i++)
+              kt.push(kunci[i] === "B" ? "Benar" : "Salah");
+            q.setAttribute("data-status", ok ? "benar" : "salah");
+            um.hidden = false;
+            um.textContent = ok
+              ? "Benar! Semua pernyataan sudah tepat."
+              : "Belum tepat. Kunci: " + kt.join(", ") + ".";
+          }
+          var inputs = q.querySelectorAll("input");
+          for (i = 0; i < inputs.length; i++) inputs[i].disabled = true;
+          hitung();
+        }
+
+        function ulangi() {
+          var i, j;
+          for (i = 0; i < pg.length; i++) {
+            var r = pg[i].querySelectorAll("input");
+            for (j = 0; j < r.length; j++) {
+              r[j].checked = false;
+              r[j].disabled = false;
+            }
+            pg[i].removeAttribute("data-status");
+            var u = pg[i].querySelector(".isian-umpan");
+            if (u) {
+              u.hidden = true;
+              u.textContent = "";
+            }
+          }
+          for (i = 0; i < is.length; i++) {
+            is[i].removeAttribute("data-status");
+            is[i].querySelector(".isian-input").value = "";
+            var um = is[i].querySelector(".isian-umpan");
+            um.hidden = true;
+            um.textContent = "";
+          }
+          var d = root.querySelectorAll("details");
+          for (i = 0; i < d.length; i++) d[i].removeAttribute("open");
+          hitung();
+        }
+
+        root.addEventListener("change", function (e) {
+          var t = e.target;
+          if (
+            t &&
+            t.type === "radio" &&
+            t.name.indexOf("mx-pg-") === 0 &&
+            !t.closest(".soal-kategori")
+          ) {
+            var grup = root.querySelectorAll('input[name="' + t.name + '"]');
+            for (var i = 0; i < grup.length; i++) grup[i].disabled = true;
+            hitung();
+          }
+        });
+
+        root.addEventListener("click", function (e) {
+          var el = e.target;
+          while (el && el !== root) {
+            if (el.className && typeof el.className === "string") {
+              if (el.className.indexOf("btn-cek-k") > -1) {
+                periksaK(el.parentNode.parentNode);
+                return;
+              }
+              if (el.className.indexOf("btn-cek") > -1) {
+                periksa(el.parentNode.parentNode);
+                return;
+              }
+              if (el.className.indexOf("btn-ulang") > -1) {
+                ulangi();
+                return;
+              }
+            }
+            el = el.parentNode;
+          }
+        });
+
+        root.addEventListener("keydown", function (e) {
+          if (
+            e.key === "Enter" &&
+            e.target.className &&
+            String(e.target.className).indexOf("isian-input") > -1
+          ) {
+            e.preventDefault();
+            periksa(e.target.parentNode.parentNode);
+          }
+        });
+      }
+      if (document.readyState === "loading")
+        document.addEventListener("DOMContentLoaded", init);
+      else init();
+    })();
+  </script>
+</section>

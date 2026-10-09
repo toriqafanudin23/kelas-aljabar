@@ -12,7 +12,11 @@ type PracticeExerciseId =
   | "fungsi-kuadrat"
   | "perbandingan-trigonometri"
   | "peluang"
-  | "statistika";
+  | "statistika"
+  | "transformasi-geometri"
+  | "polinomial"
+  | "matriks"
+  | "lingkaran";
 
 interface PracticeExercisePageProps {
   navigate: Navigate;
@@ -40,6 +44,13 @@ const exerciseDetails: Record<
   },
   peluang: { title: "Peluang", grade: "Kelas X · Fase E" },
   statistika: { title: "Statistika", grade: "Kelas X · Fase E" },
+  "transformasi-geometri": {
+    title: "Transformasi Geometri",
+    grade: "Kelas XI · Fase F",
+  },
+  polinomial: { title: "Polinomial", grade: "Kelas XI · Fase F" },
+  matriks: { title: "Matriks", grade: "Kelas XI · Fase F" },
+  lingkaran: { title: "Lingkaran", grade: "Kelas XI · Fase F" },
 };
 
 export function PracticeExercisePage({
@@ -69,7 +80,15 @@ export function PracticeExercisePage({
                   ? import("../latihan-soal/latihan_peluang.html?raw")
                   : exercise === "statistika"
                     ? import("../latihan-soal/latihan_statistika.html?raw")
-                    : import("../latihan-soal/eksponensial.html?raw");
+                    : exercise === "transformasi-geometri"
+                      ? import("../latihan-soal/latihan_transformasi_geometri.html?raw")
+                      : exercise === "polinomial"
+                        ? import("../latihan-soal/latihan_polinomial.html?raw")
+                        : exercise === "matriks"
+                          ? import("../latihan-soal/latihan_matriks.html?raw")
+                          : exercise === "lingkaran"
+                            ? import("../latihan-soal/latihan_lingkaran.html?raw")
+                            : import("../latihan-soal/eksponensial.html?raw");
 
     loadHtml
       .then(({ default: html }) => {

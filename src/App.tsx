@@ -102,6 +102,10 @@ function App() {
     page !== "practice-perbandingan-trigonometri" &&
     page !== "practice-peluang" &&
     page !== "practice-statistika" &&
+    page !== "practice-transformasi-geometri" &&
+    page !== "practice-polinomial" &&
+    page !== "practice-matriks" &&
+    page !== "practice-lingkaran" &&
     page !== "simulation" &&
     page !== "simulation-play" &&
     page !== "shop" &&
@@ -168,6 +172,21 @@ function App() {
         )}
         {page === "practice-statistika" && (
           <PracticeExercisePage navigate={navigate} exercise="statistika" />
+        )}
+        {page === "practice-transformasi-geometri" && (
+          <PracticeExercisePage
+            navigate={navigate}
+            exercise="transformasi-geometri"
+          />
+        )}
+        {page === "practice-polinomial" && (
+          <PracticeExercisePage navigate={navigate} exercise="polinomial" />
+        )}
+        {page === "practice-matriks" && (
+          <PracticeExercisePage navigate={navigate} exercise="matriks" />
+        )}
+        {page === "practice-lingkaran" && (
+          <PracticeExercisePage navigate={navigate} exercise="lingkaran" />
         )}
         {page === "simulation" && <SimulationPage navigate={navigate} />}
         {page === "simulation-play" && (

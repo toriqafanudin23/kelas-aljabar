@@ -1,0 +1,2023 @@
+<section
+  id="latihan-transformasi-geometri"
+  data-title="Latihan Soal Transformasi Geometri"
+  class="latihan-eks"
+>
+  <style>
+    #latihan-transformasi-geometri .tabel-kategori { width: 100%; border-collapse: collapse; margin: 0.6rem 0; }
+    #latihan-transformasi-geometri .tabel-kategori th,
+    #latihan-transformasi-geometri .tabel-kategori td { border: 1px solid rgba(128, 128, 128, 0.4); padding: 0.45rem 0.6rem; text-align: left; vertical-align: middle; }
+    #latihan-transformasi-geometri .tabel-kategori .c { text-align: center; width: 4.5rem; }
+    #latihan-transformasi-geometri .tabel-kategori input,
+    #latihan-transformasi-geometri .soal-kompleks .opsi input { position: static; opacity: 1; accent-color: #2563eb; width: 1.1em; height: 1.1em; margin: 0 0.5rem 0 0; flex: none; }
+    #latihan-transformasi-geometri .tabel-kategori .c input { margin: 0; }
+    #latihan-transformasi-geometri .catatan-bentuk { font-size: 0.92em; opacity: 0.85; }
+  </style>
+  <h2>Latihan Soal Transformasi Geometri</h2>
+
+  <p>
+    Soal terdiri atas <strong>20 pilihan ganda</strong> (5 mudah, 5 sedang, 5
+    sulit, 5 HOTS), <strong>5 isian singkat</strong> (2 sedang, 3 sulit), dan
+    <strong>5 uraian (essay)</strong> (2 sedang, 2 sulit, 1 HOTS). Cakupan
+    materinya translasi, refleksi, rotasi, dilatasi, komposisi transformasi,
+    bayangan garis, dan matriks transformasi. Alokasi waktu yang disarankan
+    adalah 120 menit. Klik salah satu pilihan jawaban untuk langsung melihat
+    hasilnya, dan buka <strong>Lihat pembahasan</strong> di bawah setiap soal
+    jika ingin memeriksa langkah penyelesaiannya.
+  </p>
+
+  <ul>
+    <li>
+      Bentuk soal mengikuti pola asesmen terbaru (TKA dan UTBK-SNBT 2026):
+      pilihan ganda biasa; <strong>pilihan ganda kompleks</strong> (soal 5 dan
+      14: pilih <em>semua</em> jawaban yang benar); <strong>pilihan ganda
+      kategori</strong> (soal 10 dan 20: tentukan benar atau salah setiap
+      pernyataan); serta soal berstimulus (soal 19 dan 20).
+    </li>
+    <li>
+      Skor: pilihan ganda 2 poin, isian singkat 4 poin, uraian 8 poin per soal
+      (total 100 poin). Soal pilihan ganda kompleks dan kategori bernilai penuh
+      hanya jika <em>semua</em> bagian benar. Tidak ada pengurangan skor untuk
+      jawaban salah.
+    </li>
+    <li>
+      Notasi: \(P'\) bayangan titik \(P\); \(T\) translasi; \(R\) rotasi
+      (sudut positif berlawanan arah jarum jam); \(L\) luas. Pada komposisi
+      \(B\circ A\), transformasi \(A\) dikerjakan lebih dahulu.
+    </li>
+    <li>Gambar tidak selalu digambar sesuai skala. Kalkulator tidak diperkenankan. Jawaban bentuk akar dan pecahan tidak perlu didesimalkan.</li>
+  </ul>
+
+  <div class="skor-bar" role="status" aria-live="polite">
+    <span
+      >Pilihan ganda: <strong data-skor-pg>0</strong> benar dari
+      <strong data-jawab-pg>0</strong> dijawab (total 20)</span
+    >
+    <span>Isian singkat: <strong data-skor-is>0</strong> benar dari 5</span>
+    <button type="button" class="btn-ulang">Ulangi semua</button>
+  </div>
+
+  <h3>A. Pilihan Ganda</h3>
+  <p>
+    20 soal \(\times\) 2 poin = 40 poin. Pilih jawaban yang paling tepat sesuai bentuk soal.
+  </p>
+
+  <p class="tingkat"><strong>Tingkat Mudah</strong> <em>(soal 1 sampai 5)</em></p>
+
+  <!-- Soal PG 1 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 1</h4>
+
+    <p>Pada peta kota, menara pemancar di titik \(A(-2,6)\) dipindahkan ke \(A'(5,1)\) oleh suatu translasi \(T\). Kantor pos di titik \(B(3,-4)\) ikut dipindahkan oleh translasi \(T\) yang sama. Koordinat bayangan kantor pos adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="tg-pg-1" value="A" /><span class="huruf">A</span><span class="isi">\((-4,1)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-1" value="B" /><span class="huruf">B</span><span class="isi">\((10,1)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-1" value="C" /><span class="huruf">C</span><span class="isi">\((6,-9)\)</span></label>
+      <label class="opsi k"><input type="radio" name="tg-pg-1" value="D" /><span class="huruf">D</span><span class="isi">\((10,-9)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-1" value="E" /><span class="huruf">E</span><span class="isi">\((-4,-9)\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah D.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah D.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Vektor translasi \(T=A'-A=(5-(-2),\,1-6)=(7,-5)\). Maka:</p>
+      <div class="math-display">\[ B'=(3+7,\,-4-5)=(10,-9) \]</div>
+      <p>Jebakan pilihan A: memakai \(A-A'\), sehingga arah translasi terbalik.</p>
+      <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 2 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 2</h4>
+
+    <p>Segitiga \(ABC\) dengan \(A(-3,3)\), \(B(1,3)\), dan \(C(-1,6)\) dicerminkan terhadap garis \(y=2\) (garis putus-putus pada gambar). Koordinat bayangan titik \(C\) adalah ....</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 288 284" role="img" aria-label="Segitiga ABC dengan A(-3,3), B(1,3), C(-1,6) dan garis putus-putus y = 2" style="width: 100%; max-width: 288px; height: auto" font-size="12" font-family="inherit">
+<clipPath id="c1"><rect x="24.0" y="22.0" width="240.0" height="240.0"/></clipPath>
+<line x1="24.0" y1="262.0" x2="24.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="48.0" y1="262.0" x2="48.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="72.0" y1="262.0" x2="72.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="96.0" y1="262.0" x2="96.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="120.0" y1="262.0" x2="120.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="144.0" y1="262.0" x2="144.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="168.0" y1="262.0" x2="168.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="192.0" y1="262.0" x2="192.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="216.0" y1="262.0" x2="216.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="240.0" y1="262.0" x2="240.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="264.0" y1="262.0" x2="264.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="262.0" x2="264.0" y2="262.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="238.0" x2="264.0" y2="238.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="214.0" x2="264.0" y2="214.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="190.0" x2="264.0" y2="190.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="166.0" x2="264.0" y2="166.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="142.0" x2="264.0" y2="142.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="118.0" x2="264.0" y2="118.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="94.0" x2="264.0" y2="94.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="70.0" x2="264.0" y2="70.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="46.0" x2="264.0" y2="46.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="22.0" x2="264.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="190.0" x2="272.0" y2="190.0" stroke="currentColor" stroke-width="1.6"/>
+<line x1="144.0" y1="262.0" x2="144.0" y2="14.0" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="272.0,190.0 265.0,186.5 265.0,193.5" fill="currentColor"/>
+<polygon points="144.0,14.0 140.5,21.0 147.5,21.0" fill="currentColor"/>
+<text x="275.0" y="194.0" font-style="italic" fill="currentColor">x</text>
+<text x="151.0" y="16.0" font-style="italic" fill="currentColor">y</text>
+<text x="24.0" y="203.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">-5</text>
+<text x="48.0" y="203.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">-4</text>
+<text x="72.0" y="203.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">-3</text>
+<text x="96.0" y="203.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">-2</text>
+<text x="120.0" y="203.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">-1</text>
+<text x="168.0" y="203.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="192.0" y="203.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="216.0" y="203.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="240.0" y="203.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="264.0" y="203.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="139.0" y="265.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">-3</text>
+<text x="139.0" y="241.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">-2</text>
+<text x="139.0" y="217.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">-1</text>
+<text x="139.0" y="169.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="139.0" y="145.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="139.0" y="121.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="139.0" y="97.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="139.0" y="73.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="139.0" y="49.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">6</text>
+<text x="139.0" y="25.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">7</text>
+<text x="139.0" y="203.0" text-anchor="end" font-size="9.5" fill="currentColor">O</text>
+<g clip-path="url(#c1)"><line x1="24.0" y1="142.0" x2="264.0" y2="142.0" stroke="#7c2d12" stroke-width="2" stroke-linecap="round" stroke-dasharray="6 4"/></g>
+<polygon points="72.0,118.0 168.0,118.0 120.0,46.0" fill="#2563eb" fill-opacity="0.18" stroke="#2563eb" stroke-width="2.2" stroke-linejoin="round"/>
+<text x="258.0" y="136.0" text-anchor="end" fill="#7c2d12">y = 2</text>
+<circle cx="72.0" cy="118.0" r="3" fill="#dc2626"/>
+<text x="66.0" y="112.0" text-anchor="end" fill="currentColor">A</text>
+<circle cx="168.0" cy="118.0" r="3" fill="#dc2626"/>
+<text x="174.0" y="112.0" text-anchor="start" fill="currentColor">B</text>
+<circle cx="120.0" cy="46.0" r="3" fill="#dc2626"/>
+<text x="120.0" y="38.0" text-anchor="middle" fill="currentColor">C</text>
+</svg>
+</figure>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="tg-pg-2" value="A" /><span class="huruf">A</span><span class="isi">\((-1,-6)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-2" value="B" /><span class="huruf">B</span><span class="isi">\((-1,-4)\)</span></label>
+      <label class="opsi k"><input type="radio" name="tg-pg-2" value="C" /><span class="huruf">C</span><span class="isi">\((-1,-2)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-2" value="D" /><span class="huruf">D</span><span class="isi">\((-1,10)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-2" value="E" /><span class="huruf">E</span><span class="isi">\((5,6)\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah C.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah C.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Pada refleksi terhadap \(y=k\) berlaku \((x,y)\mapsto(x,\,2k-y)\). Untuk \(C(-1,6)\) dan \(k=2\):</p>
+      <div class="math-display">\[ C'=(-1,\,4-6)=(-1,-2) \]</div>
+      <p>Jebakan: memakai sumbu-\(x\) (pilihan A), atau memakai \(k-y\) tanpa dikali \(2\) (pilihan B).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 3 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 3</h4>
+
+    <p>Titik \(Q(-3,5)\) pada layar sebuah permainan diputar sejauh \(270^\circ\) berlawanan arah jarum jam dengan pusat \(O(0,0)\). Koordinat bayangan \(Q\) adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="tg-pg-3" value="A" /><span class="huruf">A</span><span class="isi">\((-5,-3)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-3" value="B" /><span class="huruf">B</span><span class="isi">\((3,-5)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-3" value="C" /><span class="huruf">C</span><span class="isi">\((5,-3)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-3" value="D" /><span class="huruf">D</span><span class="isi">\((-3,-5)\)</span></label>
+      <label class="opsi k"><input type="radio" name="tg-pg-3" value="E" /><span class="huruf">E</span><span class="isi">\((5,3)\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah E.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah E.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Rotasi \(270^\circ\) berlawanan arah jarum jam sama dengan rotasi \(90^\circ\) searah jarum jam, yaitu \((x,y)\mapsto(y,-x)\):</p>
+      <div class="math-display">\[ Q'=(5,\,3) \]</div>
+      <p>Jebakan: memakai rotasi \(90^\circ\) berlawanan arah jarum jam (pilihan A) atau rotasi \(180^\circ\) (pilihan B).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 4 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 4</h4>
+
+    <p>Dilatasi berpusat di \(O(0,0)\) memetakan titik \(A(3,-2)\) ke \(A'(-12,8)\). Bayangan titik \(B(-1,5)\) oleh dilatasi yang sama adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi k"><input type="radio" name="tg-pg-4" value="A" /><span class="huruf">A</span><span class="isi">\((4,-20)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-4" value="B" /><span class="huruf">B</span><span class="isi">\((-4,20)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-4" value="C" /><span class="huruf">C</span><span class="isi">\((4,20)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-4" value="D" /><span class="huruf">D</span><span class="isi">\((-20,4)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-4" value="E" /><span class="huruf">E</span><span class="isi">\((20,-4)\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah A.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah A.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Faktor dilatasi \(k=\dfrac{-12}{3}=\dfrac{8}{-2}=-4\). Maka:</p>
+      <div class="math-display">\[ B'=(-4)(-1,5)=(4,-20) \]</div>
+      <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 5 -->
+  <div class="lesson-example soal-pg soal-kompleks" data-kunci="A,B,D,E">
+    <h4>Soal 5</h4>
+
+    <p>Pilih <em>semua</em> transformasi berikut yang selalu mempertahankan luas bangun yang ditransformasikan.</p>
+    <p class="catatan-bentuk"><em>Pilihan ganda kompleks: centang semua jawaban yang benar, lalu tekan Periksa.</em></p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="checkbox" name="tg-pg-5" value="A" /><span class="huruf">A</span><span class="isi">Refleksi terhadap garis \(y=-x\).</span></label>
+      <label class="opsi"><input type="checkbox" name="tg-pg-5" value="B" /><span class="huruf">B</span><span class="isi">Rotasi sebesar \(135^\circ\) dengan pusat \((2,3)\).</span></label>
+      <label class="opsi"><input type="checkbox" name="tg-pg-5" value="C" /><span class="huruf">C</span><span class="isi">Dilatasi berpusat di \(O\) dengan faktor \(2\).</span></label>
+      <label class="opsi"><input type="checkbox" name="tg-pg-5" value="D" /><span class="huruf">D</span><span class="isi">Translasi oleh \(\left[\begin{smallmatrix}-5\\8\end{smallmatrix}\right]\).</span></label>
+      <label class="opsi"><input type="checkbox" name="tg-pg-5" value="E" /><span class="huruf">E</span><span class="isi">Dilatasi berpusat di \((1,1)\) dengan faktor \(-1\).</span></label>
+    </div>
+
+    <div class="isian-baris"><button type="button" class="btn-cek btn-cek-k">Periksa</button></div>
+    <p class="isian-umpan" hidden></p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Translasi, rotasi, dan refleksi adalah isometri (jarak dan luas tetap), sehingga A, B, dan D benar.</p>
+      <p>Dilatasi dengan faktor \(k\) mengalikan luas dengan \(k^{2}\). Untuk \(k=-1\) berlaku \(k^{2}=1\), sehingga luas tetap (E benar). Pilihan C salah karena luasnya menjadi \(4\) kali.</p>
+      <p>Jadi, jawaban yang benar adalah <strong>A, B, D, E</strong>.</p>
+    </details>
+  </div>
+
+  <p class="tingkat"><strong>Tingkat Sedang</strong> <em>(soal 6 sampai 10)</em></p>
+
+  <!-- Soal PG 6 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 6</h4>
+
+    <p>Matriks \(M=\begin{bmatrix}3&amp;-2\\1&amp;4\end{bmatrix}\) memetakan titik \(P\) ke \(P'(0,14)\). Jika titik asal \(P\) dicerminkan terhadap garis \(y=-x\), koordinat bayangannya adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="tg-pg-6" value="A" /><span class="huruf">A</span><span class="isi">\((3,2)\)</span></label>
+      <label class="opsi k"><input type="radio" name="tg-pg-6" value="B" /><span class="huruf">B</span><span class="isi">\((-3,-2)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-6" value="C" /><span class="huruf">C</span><span class="isi">\((-2,-3)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-6" value="D" /><span class="huruf">D</span><span class="isi">\((2,-3)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-6" value="E" /><span class="huruf">E</span><span class="isi">\((-3,2)\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah B.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah B.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Misalkan \(P(a,b)\). Maka \(3a-2b=0\) dan \(a+4b=14\), sehingga \(a=2\) dan \(b=3\).</p>
+      <p>Refleksi terhadap \(y=-x\): \((x,y)\mapsto(-y,-x)\), jadi \(P\mapsto(-3,-2)\).</p>
+      <p>Jebakan pilihan A: refleksi terhadap \(y=x\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 7 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 7</h4>
+
+    <p>Persegi \(ABCD\) pada gambar diputar \(90^\circ\) searah jarum jam dengan pusat titik \(C(5,4)\). Koordinat bayangan titik \(A\) adalah ....</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 308 278" role="img" aria-label="Persegi ABCD dengan A(2,1), B(5,1), C(5,4), D(2,4)" style="width: 100%; max-width: 308px; height: auto" font-size="12" font-family="inherit">
+<clipPath id="c2"><rect x="24.0" y="22.0" width="260.0" height="234.0"/></clipPath>
+<line x1="24.0" y1="256.0" x2="24.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="50.0" y1="256.0" x2="50.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="76.0" y1="256.0" x2="76.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="102.0" y1="256.0" x2="102.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="128.0" y1="256.0" x2="128.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="154.0" y1="256.0" x2="154.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="180.0" y1="256.0" x2="180.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="206.0" y1="256.0" x2="206.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="232.0" y1="256.0" x2="232.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="258.0" y1="256.0" x2="258.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="284.0" y1="256.0" x2="284.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="256.0" x2="284.0" y2="256.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="230.0" x2="284.0" y2="230.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="204.0" x2="284.0" y2="204.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="178.0" x2="284.0" y2="178.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="152.0" x2="284.0" y2="152.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="126.0" x2="284.0" y2="126.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="100.0" x2="284.0" y2="100.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="74.0" x2="284.0" y2="74.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="48.0" x2="284.0" y2="48.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="22.0" x2="284.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="230.0" x2="292.0" y2="230.0" stroke="currentColor" stroke-width="1.6"/>
+<line x1="50.0" y1="256.0" x2="50.0" y2="14.0" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="292.0,230.0 285.0,226.5 285.0,233.5" fill="currentColor"/>
+<polygon points="50.0,14.0 46.5,21.0 53.5,21.0" fill="currentColor"/>
+<text x="295.0" y="234.0" font-style="italic" fill="currentColor">x</text>
+<text x="57.0" y="16.0" font-style="italic" fill="currentColor">y</text>
+<text x="24.0" y="243.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">-1</text>
+<text x="76.0" y="243.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="102.0" y="243.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="128.0" y="243.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="154.0" y="243.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="180.0" y="243.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="206.0" y="243.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">6</text>
+<text x="232.0" y="243.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">7</text>
+<text x="258.0" y="243.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">8</text>
+<text x="284.0" y="243.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">9</text>
+<text x="45.0" y="259.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">-1</text>
+<text x="45.0" y="207.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="45.0" y="181.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="45.0" y="155.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="45.0" y="129.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="45.0" y="103.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="45.0" y="77.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">6</text>
+<text x="45.0" y="51.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">7</text>
+<text x="45.0" y="25.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">8</text>
+<text x="45.0" y="243.0" text-anchor="end" font-size="9.5" fill="currentColor">O</text>
+<g clip-path="url(#c2)"></g>
+<polygon points="102.0,204.0 180.0,204.0 180.0,126.0 102.0,126.0" fill="#2563eb" fill-opacity="0.18" stroke="#2563eb" stroke-width="2.2" stroke-linejoin="round"/>
+<circle cx="102.0" cy="204.0" r="3.6" fill="#dc2626"/>
+<text x="96.0" y="219.0" text-anchor="end" fill="currentColor">A(2, 1)</text>
+<circle cx="180.0" cy="204.0" r="3" fill="#dc2626"/>
+<text x="186.0" y="219.0" text-anchor="start" fill="currentColor">B</text>
+<circle cx="102.0" cy="126.0" r="3" fill="#dc2626"/>
+<text x="96.0" y="120.0" text-anchor="end" fill="currentColor">D</text>
+<circle cx="180.0" cy="126.0" r="3.6" fill="#dc2626"/>
+<text x="186.0" y="120.0" text-anchor="start" fill="currentColor">C(5, 4)</text>
+</svg>
+</figure>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="tg-pg-7" value="A" /><span class="huruf">A</span><span class="isi">\((8,1)\)</span></label>
+      <label class="opsi k"><input type="radio" name="tg-pg-7" value="B" /><span class="huruf">B</span><span class="isi">\((2,7)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-7" value="C" /><span class="huruf">C</span><span class="isi">\((8,7)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-7" value="D" /><span class="huruf">D</span><span class="isi">\((-1,7)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-7" value="E" /><span class="huruf">E</span><span class="isi">\((5,-2)\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah B.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah B.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>\(A-C=(-3,-3)\). Rotasi \(90^\circ\) searah jarum jam: \((x,y)\mapsto(y,-x)\) memberi \((-3,3)\). Maka:</p>
+      <div class="math-display">\[ A'=C+(-3,3)=(2,7) \]</div>
+      <p>Jebakan pilihan A: rotasi berlawanan arah jarum jam memberi \((8,1)\). Perhatikan pula bahwa \(B'=(2,4)=D\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 8 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 8</h4>
+
+    <p>Garis \(2x+3y=6\) (lihat gambar) diputar \(90^\circ\) berlawanan arah jarum jam dengan pusat \(O\). Bayangan garis tersebut memotong sumbu-\(x\) di titik ....</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 308 304" role="img" aria-label="Garis 2x + 3y = 6 melalui (3,0) dan (0,2)" style="width: 100%; max-width: 308px; height: auto" font-size="12" font-family="inherit">
+<clipPath id="c3"><rect x="24.0" y="22.0" width="260.0" height="260.0"/></clipPath>
+<line x1="24.0" y1="282.0" x2="24.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="50.0" y1="282.0" x2="50.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="76.0" y1="282.0" x2="76.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="102.0" y1="282.0" x2="102.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="128.0" y1="282.0" x2="128.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="154.0" y1="282.0" x2="154.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="180.0" y1="282.0" x2="180.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="206.0" y1="282.0" x2="206.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="232.0" y1="282.0" x2="232.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="258.0" y1="282.0" x2="258.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="284.0" y1="282.0" x2="284.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="282.0" x2="284.0" y2="282.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="256.0" x2="284.0" y2="256.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="230.0" x2="284.0" y2="230.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="204.0" x2="284.0" y2="204.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="178.0" x2="284.0" y2="178.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="152.0" x2="284.0" y2="152.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="126.0" x2="284.0" y2="126.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="100.0" x2="284.0" y2="100.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="74.0" x2="284.0" y2="74.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="48.0" x2="284.0" y2="48.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="22.0" x2="284.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="178.0" x2="292.0" y2="178.0" stroke="currentColor" stroke-width="1.6"/>
+<line x1="128.0" y1="282.0" x2="128.0" y2="14.0" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="292.0,178.0 285.0,174.5 285.0,181.5" fill="currentColor"/>
+<polygon points="128.0,14.0 124.5,21.0 131.5,21.0" fill="currentColor"/>
+<text x="295.0" y="182.0" font-style="italic" fill="currentColor">x</text>
+<text x="135.0" y="16.0" font-style="italic" fill="currentColor">y</text>
+<text x="24.0" y="191.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">-4</text>
+<text x="50.0" y="191.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">-3</text>
+<text x="76.0" y="191.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">-2</text>
+<text x="102.0" y="191.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">-1</text>
+<text x="154.0" y="191.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="180.0" y="191.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="206.0" y="191.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="232.0" y="191.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="258.0" y="191.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="284.0" y="191.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">6</text>
+<text x="123.0" y="285.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">-4</text>
+<text x="123.0" y="259.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">-3</text>
+<text x="123.0" y="233.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">-2</text>
+<text x="123.0" y="207.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">-1</text>
+<text x="123.0" y="155.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="123.0" y="129.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="123.0" y="103.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="123.0" y="77.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="123.0" y="51.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="123.0" y="25.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">6</text>
+<text x="123.0" y="191.0" text-anchor="end" font-size="9.5" fill="currentColor">O</text>
+<g clip-path="url(#c3)"><line x1="50.0" y1="74.0" x2="284.0" y2="230.0" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/></g>
+<text x="56.0" y="68.0" text-anchor="start" fill="#2563eb">2x + 3y = 6</text>
+<circle cx="206.0" cy="178.0" r="3.6" fill="#dc2626"/>
+<text x="212.0" y="172.0" text-anchor="start" fill="currentColor">(3, 0)</text>
+<circle cx="128.0" cy="126.0" r="3.6" fill="#dc2626"/>
+<text x="134.0" y="120.0" text-anchor="start" fill="currentColor">(0, 2)</text>
+</svg>
+</figure>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="tg-pg-8" value="A" /><span class="huruf">A</span><span class="isi">\((3,0)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-8" value="B" /><span class="huruf">B</span><span class="isi">\((2,0)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-8" value="C" /><span class="huruf">C</span><span class="isi">\((-3,0)\)</span></label>
+      <label class="opsi k"><input type="radio" name="tg-pg-8" value="D" /><span class="huruf">D</span><span class="isi">\((-2,0)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-8" value="E" /><span class="huruf">E</span><span class="isi">\((-6,0)\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah D.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah D.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Rotasi \(90^\circ\) berlawanan arah jarum jam: \(x'=-y\) dan \(y'=x\), sehingga \(x=y'\) dan \(y=-x'\). Substitusi ke persamaan garis:</p>
+      <div class="math-display">\[ 2y'-3x'=6 \]</div>
+      <p>Memotong sumbu-\(x\) saat \(y'=0\): \(-3x'=6\Rightarrow x'=-2\). Titik \((-2,0)\) adalah bayangan dari titik \((0,2)\).</p>
+      <p>Jebakan pilihan B: rotasi searah jarum jam.</p>
+      <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 9 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 9</h4>
+
+    <p>Segitiga \(ABC\) pada gambar ditransformasikan oleh matriks \(\begin{bmatrix}3&amp;1\\-2&amp;4\end{bmatrix}\), kemudian hasilnya didilatasi berpusat di \(O\) dengan faktor \(\frac12\). Luas bayangan akhir adalah .... satuan luas.</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 288 254" role="img" aria-label="Segitiga ABC dengan A(-2,1), B(4,1), C(1,5)" style="width: 100%; max-width: 288px; height: auto" font-size="12" font-family="inherit">
+<clipPath id="c4"><rect x="24.0" y="22.0" width="240.0" height="210.0"/></clipPath>
+<line x1="24.0" y1="232.0" x2="24.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="54.0" y1="232.0" x2="54.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="84.0" y1="232.0" x2="84.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="114.0" y1="232.0" x2="114.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="144.0" y1="232.0" x2="144.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="174.0" y1="232.0" x2="174.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="204.0" y1="232.0" x2="204.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="234.0" y1="232.0" x2="234.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="264.0" y1="232.0" x2="264.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="232.0" x2="264.0" y2="232.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="202.0" x2="264.0" y2="202.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="172.0" x2="264.0" y2="172.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="142.0" x2="264.0" y2="142.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="112.0" x2="264.0" y2="112.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="82.0" x2="264.0" y2="82.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="52.0" x2="264.0" y2="52.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="22.0" x2="264.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="202.0" x2="272.0" y2="202.0" stroke="currentColor" stroke-width="1.6"/>
+<line x1="114.0" y1="232.0" x2="114.0" y2="14.0" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="272.0,202.0 265.0,198.5 265.0,205.5" fill="currentColor"/>
+<polygon points="114.0,14.0 110.5,21.0 117.5,21.0" fill="currentColor"/>
+<text x="275.0" y="206.0" font-style="italic" fill="currentColor">x</text>
+<text x="121.0" y="16.0" font-style="italic" fill="currentColor">y</text>
+<text x="24.0" y="215.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">-3</text>
+<text x="54.0" y="215.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">-2</text>
+<text x="84.0" y="215.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">-1</text>
+<text x="144.0" y="215.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="174.0" y="215.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="204.0" y="215.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="234.0" y="215.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="264.0" y="215.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="109.0" y="235.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">-1</text>
+<text x="109.0" y="175.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="109.0" y="145.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="109.0" y="115.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="109.0" y="85.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="109.0" y="55.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="109.0" y="25.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">6</text>
+<text x="109.0" y="215.0" text-anchor="end" font-size="9.5" fill="currentColor">O</text>
+<g clip-path="url(#c4)"></g>
+<polygon points="54.0,172.0 234.0,172.0 144.0,52.0" fill="#2563eb" fill-opacity="0.18" stroke="#2563eb" stroke-width="2.2" stroke-linejoin="round"/>
+<circle cx="54.0" cy="172.0" r="3.6" fill="#dc2626"/>
+<text x="48.0" y="187.0" text-anchor="end" fill="currentColor">A(-2, 1)</text>
+<circle cx="234.0" cy="172.0" r="3.6" fill="#dc2626"/>
+<text x="240.0" y="187.0" text-anchor="start" fill="currentColor">B(4, 1)</text>
+<circle cx="144.0" cy="52.0" r="3.6" fill="#dc2626"/>
+<text x="150.0" y="46.0" text-anchor="start" fill="currentColor">C(1, 5)</text>
+</svg>
+</figure>
+    <div class="opsi-grup">
+      <label class="opsi k"><input type="radio" name="tg-pg-9" value="A" /><span class="huruf">A</span><span class="isi">\(42\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-9" value="B" /><span class="huruf">B</span><span class="isi">\(84\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-9" value="C" /><span class="huruf">C</span><span class="isi">\(168\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-9" value="D" /><span class="huruf">D</span><span class="isi">\(21\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-9" value="E" /><span class="huruf">E</span><span class="isi">\(6\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah A.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah A.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Luas \(\triangle ABC=\frac12\cdot6\cdot4=12\) dan \(\det=3\cdot4-1\cdot(-2)=14\), sehingga luas setelah matriks \(=14\cdot12=168\).</p>
+      <p>Dilatasi faktor \(\frac12\) mengalikan luas dengan \(\left(\frac12\right)^{2}=\frac14\):</p>
+      <div class="math-display">\[ 168\cdot\frac14=42 \]</div>
+      <p>Jebakan pilihan B: faktor \(\frac12\) tidak dikuadratkan.</p>
+      <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 10 -->
+  <div class="lesson-example soal-pg soal-kategori" data-kunci="B,S,B,B">
+    <h4>Soal 10</h4>
+
+    <p>Misalkan \(T_1\) adalah refleksi terhadap sumbu-\(x\) dan \(T_2\) adalah rotasi \(90^\circ\) berlawanan arah jarum jam berpusat di \(O\). Tentukan benar atau salah setiap pernyataan berikut.</p>
+    <p class="catatan-bentuk"><em>Pilihan ganda kategori: pilih Benar atau Salah untuk setiap pernyataan, lalu tekan Periksa.</em></p>
+    <table class="tabel-kategori">
+      <thead><tr><th>No</th><th>Pernyataan</th><th class="c">Benar</th><th class="c">Salah</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>\((T_2\circ T_1)(3,2)=(2,3)\).</td><td class="c"><input type="radio" name="tg-pg-10-1" value="B" aria-label="Pernyataan 1 benar" /></td><td class="c"><input type="radio" name="tg-pg-10-1" value="S" aria-label="Pernyataan 1 salah" /></td></tr>
+        <tr><td>2</td><td>\((T_1\circ T_2)(3,2)=(2,3)\).</td><td class="c"><input type="radio" name="tg-pg-10-2" value="B" aria-label="Pernyataan 2 benar" /></td><td class="c"><input type="radio" name="tg-pg-10-2" value="S" aria-label="Pernyataan 2 salah" /></td></tr>
+        <tr><td>3</td><td>\(T_2\circ T_1\) ekuivalen dengan refleksi terhadap garis \(y=x\).</td><td class="c"><input type="radio" name="tg-pg-10-3" value="B" aria-label="Pernyataan 3 benar" /></td><td class="c"><input type="radio" name="tg-pg-10-3" value="S" aria-label="Pernyataan 3 salah" /></td></tr>
+        <tr><td>4</td><td>\(T_1\circ T_2\) ekuivalen dengan refleksi terhadap garis \(y=-x\).</td><td class="c"><input type="radio" name="tg-pg-10-4" value="B" aria-label="Pernyataan 4 benar" /></td><td class="c"><input type="radio" name="tg-pg-10-4" value="S" aria-label="Pernyataan 4 salah" /></td></tr>
+      </tbody>
+    </table>
+
+    <div class="isian-baris"><button type="button" class="btn-cek btn-cek-k">Periksa</button></div>
+    <p class="isian-umpan" hidden></p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p><strong>(1) Benar.</strong> \(T_1(3,2)=(3,-2)\), lalu \(T_2(3,-2)=(2,3)\).</p>
+      <p><strong>(2) Salah.</strong> \(T_2(3,2)=(-2,3)\), lalu \(T_1(-2,3)=(-2,-3)\neq(2,3)\).</p>
+      <p><strong>(3) Benar.</strong> \((x,y)\to(x,-y)\to(y,x)\), yaitu refleksi terhadap \(y=x\).</p>
+      <p><strong>(4) Benar.</strong> \((x,y)\to(-y,x)\to(-y,-x)\), yaitu refleksi terhadap \(y=-x\).</p>
+      <p>Jadi \(T_1\circ T_2\neq T_2\circ T_1\).</p>
+      <p>Jadi, jawabannya: <strong>Benar, Salah, Benar, Benar</strong>.</p>
+    </details>
+  </div>
+
+  <p class="tingkat"><strong>Tingkat Sulit</strong> <em>(soal 11 sampai 15, setara UTBK)</em></p>
+
+  <!-- Soal PG 11 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 11</h4>
+
+    <p>Pada layar kendali sebuah drone, posisi drone ditandai titik \(P(1,5)\). Posisi tersebut dicerminkan terhadap garis \(y=x+2\), kemudian bayangannya didilatasi berpusat di \(C(2,-1)\) dengan faktor \(-2\). Posisi akhir pada layar adalah ....</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 308 330" role="img" aria-label="Titik P(1,5), titik C(2,-1), dan garis putus-putus y = x + 2" style="width: 100%; max-width: 308px; height: auto" font-size="12" font-family="inherit">
+<clipPath id="c5"><rect x="24.0" y="22.0" width="260.0" height="286.0"/></clipPath>
+<line x1="24.0" y1="308.0" x2="24.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="50.0" y1="308.0" x2="50.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="76.0" y1="308.0" x2="76.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="102.0" y1="308.0" x2="102.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="128.0" y1="308.0" x2="128.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="154.0" y1="308.0" x2="154.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="180.0" y1="308.0" x2="180.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="206.0" y1="308.0" x2="206.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="232.0" y1="308.0" x2="232.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="258.0" y1="308.0" x2="258.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="284.0" y1="308.0" x2="284.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="308.0" x2="284.0" y2="308.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="282.0" x2="284.0" y2="282.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="256.0" x2="284.0" y2="256.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="230.0" x2="284.0" y2="230.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="204.0" x2="284.0" y2="204.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="178.0" x2="284.0" y2="178.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="152.0" x2="284.0" y2="152.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="126.0" x2="284.0" y2="126.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="100.0" x2="284.0" y2="100.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="74.0" x2="284.0" y2="74.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="48.0" x2="284.0" y2="48.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="22.0" x2="284.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="230.0" x2="292.0" y2="230.0" stroke="currentColor" stroke-width="1.6"/>
+<line x1="102.0" y1="308.0" x2="102.0" y2="14.0" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="292.0,230.0 285.0,226.5 285.0,233.5" fill="currentColor"/>
+<polygon points="102.0,14.0 98.5,21.0 105.5,21.0" fill="currentColor"/>
+<text x="295.0" y="234.0" font-style="italic" fill="currentColor">x</text>
+<text x="109.0" y="16.0" font-style="italic" fill="currentColor">y</text>
+<text x="24.0" y="243.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">-3</text>
+<text x="50.0" y="243.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">-2</text>
+<text x="76.0" y="243.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">-1</text>
+<text x="128.0" y="243.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="154.0" y="243.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="180.0" y="243.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="206.0" y="243.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="232.0" y="243.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="258.0" y="243.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">6</text>
+<text x="284.0" y="243.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">7</text>
+<text x="97.0" y="311.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">-3</text>
+<text x="97.0" y="285.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">-2</text>
+<text x="97.0" y="259.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">-1</text>
+<text x="97.0" y="207.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="97.0" y="181.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="97.0" y="155.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="97.0" y="129.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="97.0" y="103.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="97.0" y="77.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">6</text>
+<text x="97.0" y="51.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">7</text>
+<text x="97.0" y="25.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">8</text>
+<text x="97.0" y="243.0" text-anchor="end" font-size="9.5" fill="currentColor">O</text>
+<g clip-path="url(#c5)"><line x1="-2.0" y1="282.0" x2="284.0" y2="-4.0" stroke="#7c2d12" stroke-width="2" stroke-linecap="round" stroke-dasharray="6 4"/></g>
+<text x="217.2" y="78.6" text-anchor="start" fill="#7c2d12">y = x + 2</text>
+<circle cx="128.0" cy="100.0" r="3.6" fill="#dc2626"/>
+<text x="122.0" y="94.0" text-anchor="end" fill="currentColor">P(1, 5)</text>
+<circle cx="154.0" cy="256.0" r="3.6" fill="#dc2626"/>
+<text x="160.0" y="271.0" text-anchor="start" fill="currentColor">C(2, -1)</text>
+</svg>
+</figure>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="tg-pg-11" value="A" /><span class="huruf">A</span><span class="isi">\((-8,-1)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-11" value="B" /><span class="huruf">B</span><span class="isi">\((-6,-6)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-11" value="C" /><span class="huruf">C</span><span class="isi">\((-4,-5)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-11" value="D" /><span class="huruf">D</span><span class="isi">\((4,7)\)</span></label>
+      <label class="opsi k"><input type="radio" name="tg-pg-11" value="E" /><span class="huruf">E</span><span class="isi">\((0,-9)\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah E.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah E.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Refleksi terhadap \(y=x+2\): geser garis ke \(y=x\) (turun \(2\)), tukar koordinat, lalu geser naik \(2\), sehingga \((x,y)\mapsto(y-2,\,x+2)\). Maka \(P(1,5)\mapsto(3,3)\).</p>
+      <p>Dilatasi \([C(2,-1),-2]\):</p>
+      <div class="math-display">\[ C+(-2)\big((3,3)-C\big)=(2,-1)+(-2)(1,4)=(0,-9) \]</div>
+      <p>Jebakan pilihan C: menganggap cermin adalah \(y=x\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 12 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 12</h4>
+
+    <p>Parabola \(y=x^{2}-4x+5\) pada gambar diputar \(90^\circ\) berlawanan arah jarum jam dengan pusat \(O\). Persamaan bayangannya adalah ....</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 282 304" role="img" aria-label="Parabola y = x kuadrat dikurang 4x ditambah 5 dengan titik puncak (2,1)" style="width: 100%; max-width: 282px; height: auto" font-size="12" font-family="inherit">
+<clipPath id="c6"><rect x="24.0" y="22.0" width="234.0" height="260.0"/></clipPath>
+<line x1="24.0" y1="282.0" x2="24.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="50.0" y1="282.0" x2="50.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="76.0" y1="282.0" x2="76.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="102.0" y1="282.0" x2="102.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="128.0" y1="282.0" x2="128.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="154.0" y1="282.0" x2="154.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="180.0" y1="282.0" x2="180.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="206.0" y1="282.0" x2="206.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="232.0" y1="282.0" x2="232.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="258.0" y1="282.0" x2="258.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="282.0" x2="258.0" y2="282.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="256.0" x2="258.0" y2="256.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="230.0" x2="258.0" y2="230.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="204.0" x2="258.0" y2="204.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="178.0" x2="258.0" y2="178.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="152.0" x2="258.0" y2="152.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="126.0" x2="258.0" y2="126.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="100.0" x2="258.0" y2="100.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="74.0" x2="258.0" y2="74.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="48.0" x2="258.0" y2="48.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="22.0" x2="258.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="204.0" x2="266.0" y2="204.0" stroke="currentColor" stroke-width="1.6"/>
+<line x1="102.0" y1="282.0" x2="102.0" y2="14.0" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="266.0,204.0 259.0,200.5 259.0,207.5" fill="currentColor"/>
+<polygon points="102.0,14.0 98.5,21.0 105.5,21.0" fill="currentColor"/>
+<text x="269.0" y="208.0" font-style="italic" fill="currentColor">x</text>
+<text x="109.0" y="16.0" font-style="italic" fill="currentColor">y</text>
+<text x="24.0" y="217.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">-3</text>
+<text x="50.0" y="217.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">-2</text>
+<text x="76.0" y="217.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">-1</text>
+<text x="128.0" y="217.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="154.0" y="217.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="180.0" y="217.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="206.0" y="217.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="232.0" y="217.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="258.0" y="217.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">6</text>
+<text x="97.0" y="285.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">-3</text>
+<text x="97.0" y="259.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">-2</text>
+<text x="97.0" y="233.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">-1</text>
+<text x="97.0" y="181.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="97.0" y="155.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="97.0" y="129.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="97.0" y="103.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="97.0" y="77.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="97.0" y="51.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">6</text>
+<text x="97.0" y="25.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">7</text>
+<text x="97.0" y="217.0" text-anchor="end" font-size="9.5" fill="currentColor">O</text>
+<g clip-path="url(#c6)"><polyline points="83.8,-11.5 85.6,-2.2 87.3,6.9 89.1,15.8 90.8,24.5 92.6,32.9 94.3,41.1 96.1,49.0 97.8,56.7 99.6,64.2 101.4,71.4 103.1,78.4 104.9,85.1 106.6,91.6 108.4,97.9 110.1,104.0 111.9,109.8 113.6,115.3 115.4,120.7 117.1,125.8 118.9,130.6 120.7,135.2 122.4,139.6 124.2,143.8 125.9,147.7 127.7,151.3 129.4,154.8 131.2,158.0 132.9,160.9 134.7,163.7 136.4,166.2 138.2,168.4 140.0,170.4 141.7,172.2 143.5,173.7 145.2,175.0 147.0,176.1 148.7,176.9 150.5,177.5 152.2,177.9 154.0,178.0 155.8,177.9 157.5,177.5 159.3,176.9 161.0,176.1 162.8,175.0 164.5,173.7 166.3,172.2 168.0,170.4 169.8,168.4 171.5,166.2 173.3,163.7 175.1,160.9 176.8,158.0 178.6,154.8 180.3,151.3 182.1,147.7 183.8,143.8 185.6,139.6 187.3,135.2 189.1,130.6 190.9,125.8 192.6,120.7 194.4,115.3 196.1,109.8 197.9,104.0 199.6,97.9 201.4,91.6 203.1,85.1 204.9,78.4 206.6,71.4 208.4,64.2 210.2,56.7 211.9,49.0 213.7,41.1 215.4,32.9 217.2,24.5 218.9,15.8 220.7,6.9 222.4,-2.2 224.2,-11.5" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-linecap="round"/></g>
+<circle cx="154.0" cy="178.0" r="3.6" fill="#dc2626"/>
+<text x="160.0" y="193.0" text-anchor="start" fill="currentColor">(2, 1)</text>
+</svg>
+</figure>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="tg-pg-12" value="A" /><span class="huruf">A</span><span class="isi">\(x=y^{2}-4y+5\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-12" value="B" /><span class="huruf">B</span><span class="isi">\(x=y^{2}+4y+5\)</span></label>
+      <label class="opsi k"><input type="radio" name="tg-pg-12" value="C" /><span class="huruf">C</span><span class="isi">\(x=-y^{2}+4y-5\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-12" value="D" /><span class="huruf">D</span><span class="isi">\(y=-x^{2}+4x-5\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-12" value="E" /><span class="huruf">E</span><span class="isi">\(x=-y^{2}-4y-5\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah C.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah C.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Rotasi \(90^\circ\) berlawanan arah jarum jam: \(x'=-y\) dan \(y'=x\), sehingga \(x=y'\) dan \(y=-x'\). Substitusi ke \(y=x^{2}-4x+5\):</p>
+      <div class="math-display">\[ -x'=y'^{2}-4y'+5\ \Rightarrow\ x=-y^{2}+4y-5 \]</div>
+      <p>Pemeriksaan: puncak \((2,1)\) menjadi \((-1,2)\), cocok dengan \(x=-(2)^{2}+4(2)-5=-1\). Pilihan B adalah hasil rotasi searah jarum jam, dan pilihan A adalah refleksi terhadap \(y=x\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 13 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 13</h4>
+
+    <p>Suatu dilatasi dengan faktor \(3\) memetakan \(A(2,1)\) ke \(A'(-2,-5)\). Titik pusat dilatasi tidak diketahui. Bayangan titik \(B(0,-1)\) oleh dilatasi yang sama adalah ....</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 300 352" role="img" aria-label="Titik A(2,1), A aksen (-2,-5), dan B(0,-1)" style="width: 100%; max-width: 300px; height: auto" font-size="12" font-family="inherit">
+<clipPath id="c7"><rect x="24.0" y="22.0" width="252.0" height="308.0"/></clipPath>
+<line x1="24.0" y1="330.0" x2="24.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="52.0" y1="330.0" x2="52.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="80.0" y1="330.0" x2="80.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="108.0" y1="330.0" x2="108.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="136.0" y1="330.0" x2="136.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="164.0" y1="330.0" x2="164.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="192.0" y1="330.0" x2="192.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="220.0" y1="330.0" x2="220.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="248.0" y1="330.0" x2="248.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="276.0" y1="330.0" x2="276.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="330.0" x2="276.0" y2="330.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="302.0" x2="276.0" y2="302.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="274.0" x2="276.0" y2="274.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="246.0" x2="276.0" y2="246.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="218.0" x2="276.0" y2="218.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="190.0" x2="276.0" y2="190.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="162.0" x2="276.0" y2="162.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="134.0" x2="276.0" y2="134.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="106.0" x2="276.0" y2="106.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="78.0" x2="276.0" y2="78.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="50.0" x2="276.0" y2="50.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="22.0" x2="276.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="162.0" x2="284.0" y2="162.0" stroke="currentColor" stroke-width="1.6"/>
+<line x1="136.0" y1="330.0" x2="136.0" y2="14.0" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="284.0,162.0 277.0,158.5 277.0,165.5" fill="currentColor"/>
+<polygon points="136.0,14.0 132.5,21.0 139.5,21.0" fill="currentColor"/>
+<text x="287.0" y="166.0" font-style="italic" fill="currentColor">x</text>
+<text x="143.0" y="16.0" font-style="italic" fill="currentColor">y</text>
+<text x="24.0" y="175.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">-4</text>
+<text x="52.0" y="175.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">-3</text>
+<text x="80.0" y="175.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">-2</text>
+<text x="108.0" y="175.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">-1</text>
+<text x="164.0" y="175.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="192.0" y="175.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="220.0" y="175.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="248.0" y="175.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="276.0" y="175.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="131.0" y="333.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">-6</text>
+<text x="131.0" y="305.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">-5</text>
+<text x="131.0" y="277.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">-4</text>
+<text x="131.0" y="249.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">-3</text>
+<text x="131.0" y="221.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">-2</text>
+<text x="131.0" y="193.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">-1</text>
+<text x="131.0" y="137.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="131.0" y="109.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="131.0" y="81.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="131.0" y="53.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="131.0" y="25.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="131.0" y="175.0" text-anchor="end" font-size="9.5" fill="currentColor">O</text>
+<g clip-path="url(#c7)"><line x1="35.2" y1="369.2" x2="262.0" y2="29.0" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="5 4"/></g>
+<circle cx="192.0" cy="134.0" r="3.6" fill="#dc2626"/>
+<text x="199.0" y="138.0" text-anchor="start" fill="currentColor">A(2, 1)</text>
+<circle cx="80.0" cy="302.0" r="3.6" fill="#dc2626"/>
+<text x="73.0" y="306.0" text-anchor="end" fill="currentColor">A'(-2, -5)</text>
+<circle cx="136.0" cy="190.0" r="3.6" fill="#dc2626"/>
+<text x="142.0" y="205.0" text-anchor="start" fill="currentColor">B(0, -1)</text>
+</svg>
+</figure>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="tg-pg-13" value="A" /><span class="huruf">A</span><span class="isi">\((0,-3)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-13" value="B" /><span class="huruf">B</span><span class="isi">\((0,1)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-13" value="C" /><span class="huruf">C</span><span class="isi">\((8,5)\)</span></label>
+      <label class="opsi k"><input type="radio" name="tg-pg-13" value="D" /><span class="huruf">D</span><span class="isi">\((-8,-11)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-13" value="E" /><span class="huruf">E</span><span class="isi">\((-4,-7)\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah D.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah D.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Pusat \(C\) memenuhi \(A'=C+3(A-C)=3A-2C\), sehingga:</p>
+      <div class="math-display">\[ C=\frac{3A-A'}{2}=\frac{(6+2,\;3+5)}{2}=(4,4) \]</div>
+      <p>Maka \(B'=3B-2C=(0-8,\,-3-8)=(-8,-11)\). Jebakan pilihan A: menganggap pusat di \(O\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 14 -->
+  <div class="lesson-example soal-pg soal-kompleks" data-kunci="A,B,D">
+    <h4>Soal 14</h4>
+
+    <p>Segitiga \(ABC\) dengan \(A(0,0)\), \(B(3,0)\), \(C(0,2)\) dipetakan ke segitiga \(A'B'C'\) dengan \(A'(4,2)\), \(B'(1,2)\), \(C'(4,0)\) (lihat gambar). Pilih <em>semua</em> transformasi berikut yang memetakan \(\triangle ABC\) tepat ke \(\triangle A'B'C'\) dengan \(A\to A'\), \(B\to B'\), \(C\to C'\).</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 288 244" role="img" aria-label="Segitiga ABC dan segitiga A aksen B aksen C aksen" style="width: 100%; max-width: 288px; height: auto" font-size="12" font-family="inherit">
+<clipPath id="c8"><rect x="24.0" y="22.0" width="240.0" height="200.0"/></clipPath>
+<line x1="24.0" y1="222.0" x2="24.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="64.0" y1="222.0" x2="64.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="104.0" y1="222.0" x2="104.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="144.0" y1="222.0" x2="144.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="184.0" y1="222.0" x2="184.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="224.0" y1="222.0" x2="224.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="264.0" y1="222.0" x2="264.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="222.0" x2="264.0" y2="222.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="182.0" x2="264.0" y2="182.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="142.0" x2="264.0" y2="142.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="102.0" x2="264.0" y2="102.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="62.0" x2="264.0" y2="62.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="22.0" x2="264.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="182.0" x2="272.0" y2="182.0" stroke="currentColor" stroke-width="1.6"/>
+<line x1="64.0" y1="222.0" x2="64.0" y2="14.0" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="272.0,182.0 265.0,178.5 265.0,185.5" fill="currentColor"/>
+<polygon points="64.0,14.0 60.5,21.0 67.5,21.0" fill="currentColor"/>
+<text x="275.0" y="186.0" font-style="italic" fill="currentColor">x</text>
+<text x="71.0" y="16.0" font-style="italic" fill="currentColor">y</text>
+<text x="24.0" y="195.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">-1</text>
+<text x="104.0" y="195.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="144.0" y="195.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="184.0" y="195.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="224.0" y="195.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="264.0" y="195.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="59.0" y="225.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">-1</text>
+<text x="59.0" y="145.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="59.0" y="105.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="59.0" y="65.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="59.0" y="25.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="59.0" y="195.0" text-anchor="end" font-size="9.5" fill="currentColor">O</text>
+<g clip-path="url(#c8)"></g>
+<polygon points="64.0,182.0 184.0,182.0 64.0,102.0" fill="#2563eb" fill-opacity="0.18" stroke="#2563eb" stroke-width="2.2" stroke-linejoin="round"/>
+<polygon points="224.0,102.0 104.0,102.0 224.0,182.0" fill="#dc2626" fill-opacity="0.18" stroke="#dc2626" stroke-width="2.2" stroke-linejoin="round"/>
+<text x="70.0" y="197.0" text-anchor="start" fill="currentColor">A</text>
+<text x="190.0" y="176.0" text-anchor="start" fill="currentColor">B</text>
+<text x="58.0" y="96.0" text-anchor="end" fill="currentColor">C</text>
+<text x="230.0" y="96.0" text-anchor="start" fill="#dc2626">A'</text>
+<text x="104.0" y="94.0" text-anchor="middle" fill="#dc2626">B'</text>
+<text x="230.0" y="197.0" text-anchor="start" fill="#dc2626">C'</text>
+</svg>
+</figure>
+    <p class="catatan-bentuk"><em>Pilihan ganda kompleks: centang semua jawaban yang benar, lalu tekan Periksa.</em></p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="checkbox" name="tg-pg-14" value="A" /><span class="huruf">A</span><span class="isi">Rotasi \(180^\circ\) berpusat di \((2,1)\).</span></label>
+      <label class="opsi"><input type="checkbox" name="tg-pg-14" value="B" /><span class="huruf">B</span><span class="isi">Dilatasi berpusat di \((2,1)\) dengan faktor \(-1\).</span></label>
+      <label class="opsi"><input type="checkbox" name="tg-pg-14" value="C" /><span class="huruf">C</span><span class="isi">Refleksi terhadap garis \(y=1\).</span></label>
+      <label class="opsi"><input type="checkbox" name="tg-pg-14" value="D" /><span class="huruf">D</span><span class="isi">Refleksi terhadap garis \(y=1\) dilanjutkan refleksi terhadap garis \(x=2\).</span></label>
+      <label class="opsi"><input type="checkbox" name="tg-pg-14" value="E" /><span class="huruf">E</span><span class="isi">Translasi oleh \(\left[\begin{smallmatrix}4\\2\end{smallmatrix}\right]\).</span></label>
+    </div>
+
+    <div class="isian-baris"><button type="button" class="btn-cek btn-cek-k">Periksa</button></div>
+    <p class="isian-umpan" hidden></p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Pusat \((2,1)\) adalah titik tengah \(AA'\), \(BB'\), dan \(CC'\), jadi rotasi \(180^\circ\) di \((2,1)\) memetakan \(A\to A'\), \(B\to B'\), \(C\to C'\) (A benar). Dilatasi faktor \(-1\) dengan pusat yang sama adalah transformasi yang sama (B benar).</p>
+      <p>Refleksi \(y=1\) saja memberi \(A\mapsto(0,2)\), salah (C). Refleksi terhadap \(y=1\) lalu \(x=2\) memberi \((x,y)\mapsto(4-x,\,2-y)\), yaitu rotasi \(180^\circ\) di \((2,1)\) (D benar).</p>
+      <p>Translasi \(\left[\begin{smallmatrix}4\\2\end{smallmatrix}\right]\) memetakan \(B\) ke \((7,2)\neq B'\) (E salah).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>A, B, D</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 15 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 15</h4>
+
+    <p>Persegi dengan panjang sisi \(6\) cm diputar \(45^\circ\) terhadap titik pusat persegi tersebut. Luas daerah irisan persegi semula dan bayangannya (daerah arsiran pada gambar) adalah .... cm\(^{2}\).</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 306 302" role="img" aria-label="Persegi sisi 6 cm dan bayangannya setelah diputar 45 derajat, irisannya diarsir" style="width: 100%; max-width: 306px; height: auto" font-size="12" font-family="inherit">
+<clipPath id="c9"><rect x="24.0" y="22.0" width="257.6" height="257.6"/></clipPath>
+
+<g clip-path="url(#c9)"></g>
+<polygon points="236.8,116.0 187.6,66.8 118.0,66.8 68.8,116.0 68.8,185.6 118.0,234.8 187.6,234.8 236.8,185.6" fill="#2563eb" fill-opacity="0.4" stroke="#2563eb" stroke-width="0" stroke-linejoin="round"/>
+<polygon points="68.8,234.8 236.8,234.8 236.8,66.8 68.8,66.8" fill="none" fill-opacity="0" stroke="#2563eb" stroke-width="2.2" stroke-linejoin="round"/>
+<polygon points="271.6,150.8 152.8,32.0 34.0,150.8 152.8,269.6" fill="none" fill-opacity="0" stroke="#dc2626" stroke-width="2.2" stroke-linejoin="round"/>
+<circle cx="152.8" cy="150.8" r="3" fill="#dc2626"/>
+<text x="158.8" y="165.8" text-anchor="start" fill="currentColor">O</text>
+<text x="194.8" y="250.8" text-anchor="middle" fill="currentColor">sisi 6 cm</text>
+</svg>
+</figure>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="tg-pg-15" value="A" /><span class="huruf">A</span><span class="isi">\(36(\sqrt2-1)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-15" value="B" /><span class="huruf">B</span><span class="isi">\(72(2-\sqrt2)\)</span></label>
+      <label class="opsi k"><input type="radio" name="tg-pg-15" value="C" /><span class="huruf">C</span><span class="isi">\(72(\sqrt2-1)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-15" value="D" /><span class="huruf">D</span><span class="isi">\(36\sqrt2\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-15" value="E" /><span class="huruf">E</span><span class="isi">\(72\sqrt2\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah C.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah C.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Irisan kedua persegi adalah segidelapan beraturan dengan apotema \(3\) cm (setengah sisi persegi). Luasnya:</p>
+      <div class="math-display">\[ 8\cdot3^{2}\cdot\tan22{,}5^\circ=72(\sqrt2-1)\ \text{cm}^{2}\ (\text{sekitar }29{,}8) \]</div>
+      <p>Jebakan pilihan B: \(72(2-\sqrt2)\) adalah luas <em>gabungan</em>.</p>
+      <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+    </details>
+  </div>
+
+  <p class="tingkat"><strong>Tingkat HOTS</strong> <em>(soal 16 sampai 20, penalaran tingkat tinggi gaya TKA dan UTBK)</em></p>
+
+  <!-- Soal PG 16 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 16</h4>
+
+    <p>Sebuah sungai lurus memiliki tepi atas pada garis \(y=4\) dan tepi bawah pada garis \(y=2\) (satuan km). Desa \(A(1,10)\) berada di sebelah atas sungai dan desa \(B(7,0)\) di sebelah bawah sungai. Pemerintah membangun satu jembatan lurus yang tegak lurus tepi sungai. Jalan dari \(A\) ke jembatan dan dari jembatan ke \(B\) berupa garis lurus. Panjang lintasan terpendek dari \(A\) ke \(B\) melalui jembatan adalah .... km.</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 272 284" role="img" aria-label="Sungai di antara garis y=2 dan y=4, desa A(1,10) di atas dan desa B(7,0) di bawah" style="width: 100%; max-width: 272px; height: auto" font-size="12" font-family="inherit">
+<clipPath id="c10"><rect x="24.0" y="22.0" width="224.0" height="240.0"/></clipPath>
+<line x1="24.0" y1="262.0" x2="24.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="52.0" y1="262.0" x2="52.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="80.0" y1="262.0" x2="80.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="108.0" y1="262.0" x2="108.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="136.0" y1="262.0" x2="136.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="164.0" y1="262.0" x2="164.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="192.0" y1="262.0" x2="192.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="220.0" y1="262.0" x2="220.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="248.0" y1="262.0" x2="248.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="262.0" x2="248.0" y2="262.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="242.0" x2="248.0" y2="242.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="222.0" x2="248.0" y2="222.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="202.0" x2="248.0" y2="202.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="182.0" x2="248.0" y2="182.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="162.0" x2="248.0" y2="162.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="142.0" x2="248.0" y2="142.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="122.0" x2="248.0" y2="122.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="102.0" x2="248.0" y2="102.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="82.0" x2="248.0" y2="82.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="62.0" x2="248.0" y2="62.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="42.0" x2="248.0" y2="42.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="22.0" x2="248.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="242.0" x2="256.0" y2="242.0" stroke="currentColor" stroke-width="1.6"/>
+<line x1="24.0" y1="262.0" x2="24.0" y2="14.0" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="256.0,242.0 249.0,238.5 249.0,245.5" fill="currentColor"/>
+<polygon points="24.0,14.0 20.5,21.0 27.5,21.0" fill="currentColor"/>
+<text x="259.0" y="246.0" font-style="italic" fill="currentColor">x</text>
+<text x="31.0" y="16.0" font-style="italic" fill="currentColor">y</text>
+<text x="52.0" y="255.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="80.0" y="255.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="108.0" y="255.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="136.0" y="255.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="164.0" y="255.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="192.0" y="255.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">6</text>
+<text x="220.0" y="255.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">7</text>
+<text x="248.0" y="255.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">8</text>
+<text x="19.0" y="265.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">-1</text>
+<text x="19.0" y="225.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="19.0" y="205.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="19.0" y="185.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="19.0" y="165.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="19.0" y="145.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="19.0" y="125.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">6</text>
+<text x="19.0" y="105.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">7</text>
+<text x="19.0" y="85.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">8</text>
+<text x="19.0" y="65.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">9</text>
+<text x="19.0" y="45.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">10</text>
+<text x="19.0" y="25.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">11</text>
+<text x="19.0" y="255.0" text-anchor="end" font-size="9.5" fill="currentColor">O</text>
+<g clip-path="url(#c10)"><line x1="24.0" y1="202.0" x2="248.0" y2="202.0" stroke="#7c2d12" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="6 4"/>
+<line x1="24.0" y1="162.0" x2="248.0" y2="162.0" stroke="#7c2d12" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="6 4"/></g>
+<rect x="24.0" y="162.0" width="224.0" height="40.0" fill="#2563eb" fill-opacity="0.15"/>
+<text x="176.6" y="185.0" text-anchor="start" fill="#7c2d12">sungai</text>
+<circle cx="52.0" cy="42.0" r="3.6" fill="#dc2626"/>
+<text x="59.0" y="46.0" text-anchor="start" fill="currentColor">A(1, 10)</text>
+<circle cx="220.0" cy="242.0" r="3.6" fill="#dc2626"/>
+<text x="220.0" y="234.0" text-anchor="middle" fill="currentColor">B(7, 0)</text>
+</svg>
+</figure>
+    <div class="opsi-grup">
+      <label class="opsi k"><input type="radio" name="tg-pg-16" value="A" /><span class="huruf">A</span><span class="isi">\(12\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-16" value="B" /><span class="huruf">B</span><span class="isi">\(10\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-16" value="C" /><span class="huruf">C</span><span class="isi">\(11\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-16" value="D" /><span class="huruf">D</span><span class="isi">\(14\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-16" value="E" /><span class="huruf">E</span><span class="isi">\(2\sqrt{34}\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah A.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah A.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Geser \(B\) ke atas sejauh lebar sungai (dua satuan) menjadi \(B^{*}(7,2)\). Untuk jembatan \(PQ\) yang tegak lurus tepi sungai, \(QB=PB^{*}\), sehingga lintasan jalan memenuhi:</p>
+      <div class="math-display">\[ AP+PB^{*}\ge AB^{*}=\sqrt{6^{2}+8^{2}}=10 \]</div>
+      <p>Tambahkan panjang jembatan \(2\): total \(12\) km. Jembatan berada di \(x=5{,}5\), dengan \(AP=7{,}5\) dan \(QB=2{,}5\).</p>
+      <p>Jebakan pilihan E: \(AB=2\sqrt{34}\approx11{,}7\) tidak dapat dicapai karena jembatan harus tegak lurus tepi sungai.</p>
+      <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 17 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 17</h4>
+
+    <p>Suatu refleksi memetakan titik \(A(0,5)\) ke \(A'(4,3)\). Bayangan titik \(B(5,5)\) oleh refleksi yang sama adalah ....</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 328 324" role="img" aria-label="Titik A(0,5), A aksen (4,3), dan B(5,5)" style="width: 100%; max-width: 328px; height: auto" font-size="12" font-family="inherit">
+<clipPath id="c11"><rect x="24.0" y="22.0" width="280.0" height="280.0"/></clipPath>
+<line x1="24.0" y1="302.0" x2="24.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="52.0" y1="302.0" x2="52.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="80.0" y1="302.0" x2="80.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="108.0" y1="302.0" x2="108.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="136.0" y1="302.0" x2="136.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="164.0" y1="302.0" x2="164.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="192.0" y1="302.0" x2="192.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="220.0" y1="302.0" x2="220.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="248.0" y1="302.0" x2="248.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="276.0" y1="302.0" x2="276.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="304.0" y1="302.0" x2="304.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="302.0" x2="304.0" y2="302.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="274.0" x2="304.0" y2="274.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="246.0" x2="304.0" y2="246.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="218.0" x2="304.0" y2="218.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="190.0" x2="304.0" y2="190.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="162.0" x2="304.0" y2="162.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="134.0" x2="304.0" y2="134.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="106.0" x2="304.0" y2="106.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="78.0" x2="304.0" y2="78.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="50.0" x2="304.0" y2="50.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="22.0" x2="304.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="246.0" x2="312.0" y2="246.0" stroke="currentColor" stroke-width="1.6"/>
+<line x1="80.0" y1="302.0" x2="80.0" y2="14.0" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="312.0,246.0 305.0,242.5 305.0,249.5" fill="currentColor"/>
+<polygon points="80.0,14.0 76.5,21.0 83.5,21.0" fill="currentColor"/>
+<text x="315.0" y="250.0" font-style="italic" fill="currentColor">x</text>
+<text x="87.0" y="16.0" font-style="italic" fill="currentColor">y</text>
+<text x="24.0" y="259.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">-2</text>
+<text x="52.0" y="259.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">-1</text>
+<text x="108.0" y="259.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="136.0" y="259.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="164.0" y="259.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="192.0" y="259.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="220.0" y="259.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="248.0" y="259.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">6</text>
+<text x="276.0" y="259.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">7</text>
+<text x="304.0" y="259.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">8</text>
+<text x="75.0" y="305.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">-2</text>
+<text x="75.0" y="277.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">-1</text>
+<text x="75.0" y="221.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="75.0" y="193.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="75.0" y="165.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="75.0" y="137.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="75.0" y="109.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="75.0" y="81.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">6</text>
+<text x="75.0" y="53.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">7</text>
+<text x="75.0" y="25.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">8</text>
+<text x="75.0" y="259.0" text-anchor="end" font-size="9.5" fill="currentColor">O</text>
+<g clip-path="url(#c11)"><line x1="80.0" y1="106.0" x2="192.0" y2="162.0" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="5 4"/></g>
+<circle cx="80.0" cy="106.0" r="3.6" fill="#dc2626"/>
+<text x="74.0" y="100.0" text-anchor="end" fill="currentColor">A(0, 5)</text>
+<circle cx="192.0" cy="162.0" r="3.6" fill="#dc2626"/>
+<text x="198.0" y="177.0" text-anchor="start" fill="currentColor">A'(4, 3)</text>
+<circle cx="220.0" cy="106.0" r="3.6" fill="#dc2626"/>
+<text x="226.0" y="100.0" text-anchor="start" fill="currentColor">B(5, 5)</text>
+</svg>
+</figure>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="tg-pg-17" value="A" /><span class="huruf">A</span><span class="isi">\((3,6)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-17" value="B" /><span class="huruf">B</span><span class="isi">\((7,1)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-17" value="C" /><span class="huruf">C</span><span class="isi">\((5,-5)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-17" value="D" /><span class="huruf">D</span><span class="isi">\((-1,7)\)</span></label>
+      <label class="opsi k"><input type="radio" name="tg-pg-17" value="E" /><span class="huruf">E</span><span class="isi">\((1,7)\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah E.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah E.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Cermin adalah sumbu ruas \(AA'\): titik tengah \((2,4)\) dan gradien \(AA'=-\frac12\), sehingga gradien cermin \(=2\) dan persamaannya \(y=2x\).</p>
+      <p>Kaki tegak lurus dari \(B(5,5)\) ke cermin adalah \((3,6)\). Maka:</p>
+      <div class="math-display">\[ B'=2(3,6)-(5,5)=(1,7) \]</div>
+      <p>Jebakan pilihan A: kaki tegak lurus; pilihan B: refleksi terhadap \(y=x\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 18 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 18</h4>
+
+    <p>Dilatasi \(D_1\) berpusat di \(P(1,2)\) dengan faktor \(2\) dilanjutkan dilatasi \(D_2\) berpusat di \(Q(4,-1)\) dengan faktor \(-1\). Komposisi \(D_2\circ D_1\) ekuivalen dengan sebuah dilatasi tunggal. Pusat dilatasi tunggal tersebut adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="tg-pg-18" value="A" /><span class="huruf">A</span><span class="isi">\((2,1)\)</span></label>
+      <label class="opsi k"><input type="radio" name="tg-pg-18" value="B" /><span class="huruf">B</span><span class="isi">\((3,0)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-18" value="C" /><span class="huruf">C</span><span class="isi">\(\left(\dfrac52,\dfrac12\right)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-18" value="D" /><span class="huruf">D</span><span class="isi">\((9,0)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-18" value="E" /><span class="huruf">E</span><span class="isi">\((-3,0)\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah B.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah B.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>\(D_1(X)=P+2(X-P)=2X-P\) dan \(D_2(Y)=Q-(Y-Q)=2Q-Y\). Komposisinya:</p>
+      <div class="math-display">\[ D_2(D_1(X))=-2X+P+2Q \]</div>
+      <p>yaitu dilatasi dengan faktor \(-2\). Titik tetapnya memenuhi \(X=-2X+P+2Q\):</p>
+      <div class="math-display">\[ X=\frac{P+2Q}{3}=\frac{(1+8,\;2-2)}{3}=(3,0) \]</div>
+      <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Stimulus soal 19 dan 20 -->
+  <div class="lesson-example">
+    <h4>Stimulus untuk soal 19 dan 20</h4>
+    <p>Sebuah aplikasi desain memiliki tiga tombol untuk mentransformasikan objek: tombol <strong>R</strong> memutar objek \(90^\circ\) berlawanan arah jarum jam berpusat di \(O\); tombol <strong>F</strong> mencerminkan objek terhadap garis \(x=2\); tombol <strong>G</strong> menggeser objek oleh \(\left[\begin{smallmatrix}3\\-1\end{smallmatrix}\right]\). Satu <em>urutan</em> berarti menekan tombol R, F, G secara berturut-turut. Sebuah logo berbentuk segitiga \(ABC\) dengan \(A(1,1)\), \(B(3,1)\), dan \(C(1,2)\) (lihat gambar) diubah memakai urutan tersebut.</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 342 254" role="img" aria-label="Segitiga ABC dengan A(1,1), B(3,1), C(1,2) dan garis putus-putus x = 2" style="width: 100%; max-width: 342px; height: auto" font-size="12" font-family="inherit">
+<clipPath id="c12"><rect x="24.0" y="22.0" width="294.0" height="210.0"/></clipPath>
+<line x1="24.0" y1="232.0" x2="24.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="66.0" y1="232.0" x2="66.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="108.0" y1="232.0" x2="108.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="150.0" y1="232.0" x2="150.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="192.0" y1="232.0" x2="192.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="234.0" y1="232.0" x2="234.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="276.0" y1="232.0" x2="276.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="318.0" y1="232.0" x2="318.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="232.0" x2="318.0" y2="232.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="190.0" x2="318.0" y2="190.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="148.0" x2="318.0" y2="148.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="106.0" x2="318.0" y2="106.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="64.0" x2="318.0" y2="64.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="22.0" x2="318.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="190.0" x2="326.0" y2="190.0" stroke="currentColor" stroke-width="1.6"/>
+<line x1="66.0" y1="232.0" x2="66.0" y2="14.0" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="326.0,190.0 319.0,186.5 319.0,193.5" fill="currentColor"/>
+<polygon points="66.0,14.0 62.5,21.0 69.5,21.0" fill="currentColor"/>
+<text x="329.0" y="194.0" font-style="italic" fill="currentColor">x</text>
+<text x="73.0" y="16.0" font-style="italic" fill="currentColor">y</text>
+<text x="24.0" y="203.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">-1</text>
+<text x="108.0" y="203.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="150.0" y="203.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="192.0" y="203.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="234.0" y="203.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="276.0" y="203.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="318.0" y="203.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">6</text>
+<text x="61.0" y="235.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">-1</text>
+<text x="61.0" y="151.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="61.0" y="109.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="61.0" y="67.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="61.0" y="25.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="61.0" y="203.0" text-anchor="end" font-size="9.5" fill="currentColor">O</text>
+<g clip-path="url(#c12)"><line x1="150.0" y1="232.0" x2="150.0" y2="22.0" stroke="#7c2d12" stroke-width="2" stroke-linecap="round" stroke-dasharray="6 4"/></g>
+<polygon points="108.0,148.0 192.0,148.0 108.0,106.0" fill="#2563eb" fill-opacity="0.18" stroke="#2563eb" stroke-width="2.2" stroke-linejoin="round"/>
+<text x="156.0" y="16.0" text-anchor="start" fill="#7c2d12">x = 2</text>
+<text x="102.0" y="163.0" text-anchor="end" fill="currentColor">A</text>
+<text x="198.0" y="163.0" text-anchor="start" fill="currentColor">B</text>
+<text x="102.0" y="100.0" text-anchor="end" fill="currentColor">C</text>
+</svg>
+</figure>
+  </div>
+
+  <!-- Soal PG 19 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 19</h4>
+
+    <p>Jika urutan R, F, G ditekan dua kali berturut-turut (enam tombol), koordinat bayangan akhir titik \(B\) adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="tg-pg-19" value="A" /><span class="huruf">A</span><span class="isi">\((8,2)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-19" value="B" /><span class="huruf">B</span><span class="isi">\((7,9)\)</span></label>
+      <label class="opsi k"><input type="radio" name="tg-pg-19" value="C" /><span class="huruf">C</span><span class="isi">\((9,7)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-19" value="D" /><span class="huruf">D</span><span class="isi">\((10,8)\)</span></label>
+      <label class="opsi"><input type="radio" name="tg-pg-19" value="E" /><span class="huruf">E</span><span class="isi">\((12,0)\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah C.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah C.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Satu urutan: \(R:(x,y)\mapsto(-y,x)\), \(F:(x,y)\mapsto(4-x,y)\), dan \(G:(x,y)\mapsto(x+3,y-1)\). Gabungannya:</p>
+      <div class="math-display">\[ T(x,y)=(y+7,\,x-1) \]</div>
+      <p>Maka \(T(3,1)=(8,2)\) dan \(T(8,2)=(9,7)\). Pemeriksaan: \(T^{2}(x,y)=(x+6,\,y+6)\), sehingga \(B(3,1)\mapsto(9,7)\).</p>
+      <p>Jebakan pilihan A: hanya satu kali urutan.</p>
+      <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 20 -->
+  <div class="lesson-example soal-pg soal-kategori" data-kunci="B,B,S,B">
+    <h4>Soal 20</h4>
+
+    <p>Tentukan benar atau salah setiap pernyataan berikut (berdasarkan stimulus di atas).</p>
+    <p class="catatan-bentuk"><em>Pilihan ganda kategori: pilih Benar atau Salah untuk setiap pernyataan, lalu tekan Periksa.</em></p>
+    <table class="tabel-kategori">
+      <thead><tr><th>No</th><th>Pernyataan</th><th class="c">Benar</th><th class="c">Salah</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Luas bayangan segitiga \(ABC\) setelah <em>satu kali</em> urutan sama dengan luas semula.</td><td class="c"><input type="radio" name="tg-pg-20-1" value="B" aria-label="Pernyataan 1 benar" /></td><td class="c"><input type="radio" name="tg-pg-20-1" value="S" aria-label="Pernyataan 1 salah" /></td></tr>
+        <tr><td>2</td><td>Urutan titik \(A'\to B'\to C'\) pada bayangan (satu kali urutan) memiliki arah putaran yang berlawanan dengan arah \(A\to B\to C\) semula.</td><td class="c"><input type="radio" name="tg-pg-20-2" value="B" aria-label="Pernyataan 2 benar" /></td><td class="c"><input type="radio" name="tg-pg-20-2" value="S" aria-label="Pernyataan 2 salah" /></td></tr>
+        <tr><td>3</td><td>Terdapat sebuah titik yang posisinya tidak berubah setelah satu kali urutan.</td><td class="c"><input type="radio" name="tg-pg-20-3" value="B" aria-label="Pernyataan 3 benar" /></td><td class="c"><input type="radio" name="tg-pg-20-3" value="S" aria-label="Pernyataan 3 salah" /></td></tr>
+        <tr><td>4</td><td>Setelah urutan ditekan dua kali berturut-turut, setiap titik pada logo tergeser oleh vektor yang sama, yaitu \(\left[\begin{smallmatrix}6\\6\end{smallmatrix}\right]\).</td><td class="c"><input type="radio" name="tg-pg-20-4" value="B" aria-label="Pernyataan 4 benar" /></td><td class="c"><input type="radio" name="tg-pg-20-4" value="S" aria-label="Pernyataan 4 salah" /></td></tr>
+      </tbody>
+    </table>
+
+    <div class="isian-baris"><button type="button" class="btn-cek btn-cek-k">Periksa</button></div>
+    <p class="isian-umpan" hidden></p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p><strong>(1) Benar.</strong> \(T\) adalah isometri, sehingga luas tetap.</p>
+      <p><strong>(2) Benar.</strong> \(A'(8,0)\), \(B'(8,2)\), \(C'(9,0)\) berputar searah jarum jam, sedangkan \(A,B,C\) berlawanan arah jarum jam. Bagian linear \(T\) adalah \(\left[\begin{smallmatrix}0&amp;1\\1&amp;0\end{smallmatrix}\right]\) dengan determinan \(-1\).</p>
+      <p><strong>(3) Salah.</strong> Titik tetap memerlukan \(x=y+7\) dan \(y=x-1\), yang memberi \(0=6\) (tidak ada solusi).</p>
+      <p><strong>(4) Benar.</strong> \(T^{2}(x,y)=(x+6,\,y+6)\). Jadi \(T\) berupa refleksi geser (<em>glide reflection</em>).</p>
+      <p>Jadi, jawabannya: <strong>Benar, Benar, Salah, Benar</strong>.</p>
+    </details>
+  </div>
+
+  <h3>B. Isian Singkat</h3>
+  <p>
+    5 soal \(\times\) 4 poin = 20 poin. Ketik hanya jawaban akhir, lalu tekan
+    <strong>Periksa</strong> atau Enter.
+  </p>
+
+  <p class="tingkat"><strong>Tingkat Sedang</strong> <em>(soal 1 dan 2)</em></p>
+
+  <!-- Soal Isian 1 -->
+  <div class="lesson-example soal-isian" data-kunci="-7|−7">
+    <h4>Soal 1</h4>
+
+    <p>Titik \(P(a,b)\) dicerminkan terhadap garis \(y=-x\), kemudian bayangannya diputar \(90^\circ\) berlawanan arah jarum jam dengan pusat \((1,1)\) sehingga menjadi titik \((-2,3)\). Nilai \(a+b\) adalah ....</p>
+
+    <div class="isian-baris">
+      <input
+        type="text"
+        class="isian-input"
+        placeholder="Tulis angkanya saja"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="Jawaban soal isian 1"
+      />
+      <button type="button" class="btn-cek">Periksa</button>
+    </div>
+    <p class="isian-umpan" hidden></p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Refleksi terhadap \(y=-x\): \((a,b)\mapsto(-b,-a)\). Rotasi \(90^\circ\) berlawanan arah jarum jam berpusat \((1,1)\): \((x,y)\mapsto(2-y,\,x)\), sehingga:</p>
+      <div class="math-display">\[ (-b,-a)\mapsto(2+a,\,-b)=(-2,3) \]</div>
+      <p>Jadi \(a=-4\) dan \(b=-3\). Jawabannya \(a+b=\) <strong>\(-7\)</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal Isian 2 -->
+  <div class="lesson-example soal-isian" data-kunci="200">
+    <h4>Soal 2</h4>
+
+    <p>Persegi \(ABCD\) dengan \(A(1,1)\), \(B(4,5)\), \(C(8,2)\), dan \(D(5,-2)\) didilatasi dengan pusat \(P(0,5)\) dan faktor \(-3\). Selisih luas bayangan dan luas persegi semula adalah .... satuan luas.</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 348 344" role="img" aria-label="Persegi ABCD dengan A(1,1), B(4,5), C(8,2), D(5,-2) dan titik P(0,5)" style="width: 100%; max-width: 348px; height: auto" font-size="12" font-family="inherit">
+<clipPath id="c13"><rect x="24.0" y="22.0" width="300.0" height="300.0"/></clipPath>
+<line x1="24.0" y1="322.0" x2="24.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="54.0" y1="322.0" x2="54.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="84.0" y1="322.0" x2="84.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="114.0" y1="322.0" x2="114.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="144.0" y1="322.0" x2="144.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="174.0" y1="322.0" x2="174.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="204.0" y1="322.0" x2="204.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="234.0" y1="322.0" x2="234.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="264.0" y1="322.0" x2="264.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="294.0" y1="322.0" x2="294.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="324.0" y1="322.0" x2="324.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="322.0" x2="324.0" y2="322.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="292.0" x2="324.0" y2="292.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="262.0" x2="324.0" y2="262.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="232.0" x2="324.0" y2="232.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="202.0" x2="324.0" y2="202.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="172.0" x2="324.0" y2="172.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="142.0" x2="324.0" y2="142.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="112.0" x2="324.0" y2="112.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="82.0" x2="324.0" y2="82.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="52.0" x2="324.0" y2="52.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="22.0" x2="324.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="232.0" x2="332.0" y2="232.0" stroke="currentColor" stroke-width="1.6"/>
+<line x1="54.0" y1="322.0" x2="54.0" y2="14.0" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="332.0,232.0 325.0,228.5 325.0,235.5" fill="currentColor"/>
+<polygon points="54.0,14.0 50.5,21.0 57.5,21.0" fill="currentColor"/>
+<text x="335.0" y="236.0" font-style="italic" fill="currentColor">x</text>
+<text x="61.0" y="16.0" font-style="italic" fill="currentColor">y</text>
+<text x="24.0" y="245.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">-1</text>
+<text x="84.0" y="245.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="114.0" y="245.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="144.0" y="245.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="174.0" y="245.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="204.0" y="245.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="234.0" y="245.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">6</text>
+<text x="264.0" y="245.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">7</text>
+<text x="294.0" y="245.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">8</text>
+<text x="324.0" y="245.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">9</text>
+<text x="49.0" y="325.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">-3</text>
+<text x="49.0" y="295.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">-2</text>
+<text x="49.0" y="265.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">-1</text>
+<text x="49.0" y="205.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="49.0" y="175.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="49.0" y="145.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="49.0" y="115.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="49.0" y="85.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="49.0" y="55.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">6</text>
+<text x="49.0" y="25.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">7</text>
+<text x="49.0" y="245.0" text-anchor="end" font-size="9.5" fill="currentColor">O</text>
+<g clip-path="url(#c13)"></g>
+<polygon points="84.0,202.0 174.0,82.0 294.0,172.0 204.0,292.0" fill="#2563eb" fill-opacity="0.18" stroke="#2563eb" stroke-width="2.2" stroke-linejoin="round"/>
+<text x="77.0" y="206.0" text-anchor="end" fill="currentColor">A</text>
+<text x="174.0" y="74.0" text-anchor="middle" fill="currentColor">B</text>
+<text x="301.0" y="176.0" text-anchor="start" fill="currentColor">C</text>
+<text x="204.0" y="308.0" text-anchor="middle" fill="currentColor">D</text>
+<circle cx="54.0" cy="82.0" r="3.6" fill="#dc2626"/>
+<text x="60.0" y="76.0" text-anchor="start" fill="currentColor">P</text>
+</svg>
+</figure>
+
+    <div class="isian-baris">
+      <input
+        type="text"
+        class="isian-input"
+        placeholder="Tulis angkanya saja"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="Jawaban soal isian 2"
+      />
+      <button type="button" class="btn-cek">Periksa</button>
+    </div>
+    <p class="isian-umpan" hidden></p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Sisi \(AB=\sqrt{3^{2}+4^{2}}=5\), sehingga luas semula \(25\). Dilatasi faktor \(-3\) mengalikan luas dengan \((-3)^{2}=9\), yaitu \(225\).</p>
+      <p>Jadi selisihnya \(225-25=\) <strong>200</strong>.</p>
+    </details>
+  </div>
+
+  <p class="tingkat"><strong>Tingkat Sulit</strong> <em>(soal 3 sampai 5)</em></p>
+
+  <!-- Soal Isian 3 -->
+  <div class="lesson-example soal-isian" data-kunci="(1,3)|1,3">
+    <h4>Soal 3</h4>
+
+    <p>Titik yang posisinya tidak berubah oleh transformasi &ldquo;rotasi \(90^\circ\) berlawanan arah jarum jam berpusat di \(O\) dilanjutkan translasi \(\left[\begin{smallmatrix}4\\2\end{smallmatrix}\right]\)&rdquo; adalah ....</p>
+
+    <div class="isian-baris">
+      <input
+        type="text"
+        class="isian-input"
+        placeholder="Tulis dalam bentuk (x,y)"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="Jawaban soal isian 3"
+      />
+      <button type="button" class="btn-cek">Periksa</button>
+    </div>
+    <p class="isian-umpan" hidden></p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Transformasinya \((x,y)\mapsto(-y+4,\;x+2)\). Titik tetap memenuhi \(x=-y+4\) dan \(y=x+2\), sehingga \(x=-x-2+4\Rightarrow x=1\) dan \(y=3\).</p>
+      <p>Pemeriksaan: \((1,3)\to(-3,1)\to(1,3)\). Jawabannya <strong>\((1,3)\)</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal Isian 4 -->
+  <div class="lesson-example soal-isian" data-kunci="1">
+    <h4>Soal 4</h4>
+
+    <p>Persegi satuan dengan titik sudut \(O(0,0)\), \(P(1,0)\), \(Q(1,1)\), dan \(R(0,1)\) ditransformasikan oleh matriks \(M=\begin{bmatrix}k&amp;3\\2&amp;k\end{bmatrix}\) sehingga menjadi sebuah jajargenjang berluas \(5\) satuan luas. Pada bayangannya, urutan titik sudut \(O\to P\to Q\to R\) yang semula berlawanan arah jarum jam berubah menjadi searah jarum jam. Nilai \(k^{2}\) adalah ....</p>
+
+    <div class="isian-baris">
+      <input
+        type="text"
+        class="isian-input"
+        placeholder="Tulis angkanya saja"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="Jawaban soal isian 4"
+      />
+      <button type="button" class="btn-cek">Periksa</button>
+    </div>
+    <p class="isian-umpan" hidden></p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Luas bayangan \(=|\det M|\cdot1=|k^{2}-6|=5\), sehingga \(k^{2}=11\) atau \(k^{2}=1\).</p>
+      <p>Orientasi berbalik berarti \(\det M&lt;0\), yaitu \(k^{2}&lt;6\). Jadi \(k^{2}=\) <strong>1</strong> (dan \(\det M=-5\)).</p>
+    </details>
+  </div>
+
+  <!-- Soal Isian 5 -->
+  <div class="lesson-example soal-isian" data-kunci="(-3,-4)|-3,-4">
+    <h4>Soal 5</h4>
+
+    <p>Titik \(P(5,2)\) diputar \(90^\circ\) berlawanan arah jarum jam dengan pusat \(C(1,-1)\). Bayangannya diputar lagi dengan pusat dan arah yang sama, begitu seterusnya sampai terjadi \(2026\) kali rotasi. Koordinat posisi akhir titik \(P\) adalah ....</p>
+
+    <div class="isian-baris">
+      <input
+        type="text"
+        class="isian-input"
+        placeholder="Tulis dalam bentuk (x,y)"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="Jawaban soal isian 5"
+      />
+      <button type="button" class="btn-cek">Periksa</button>
+    </div>
+    <p class="isian-umpan" hidden></p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Empat rotasi \(90^\circ\) sama dengan satu putaran penuh, dan \(2026=4\cdot506+2\). Jadi hasilnya sama dengan dua rotasi, yaitu rotasi \(180^\circ\):</p>
+      <div class="math-display">\[ P'=2C-P=(2-5,\,-2-2)=(-3,-4) \]</div>
+    </details>
+  </div>
+
+  <h3>C. Uraian (Essay)</h3>
+  <p>
+    5 soal \(\times\) 8 poin = 40 poin. Tuliskan langkah penyelesaian dengan
+    lengkap di buku atau kertas, lalu bandingkan dengan pembahasan dan pedoman
+    penskoran.
+  </p>
+
+  <p class="tingkat"><strong>Tingkat Sedang</strong> <em>(soal 1 dan 2)</em></p>
+
+  <!-- Soal Uraian 1 -->
+  <div class="lesson-example soal-uraian">
+    <h4>Soal 1 <span class="poin">[8 poin]</span></h4>
+
+    <p>Pada permainan blok susun, setiap kotak papan ditandai dengan koordinat pusatnya \((x,y)\). Sebuah blok berbentuk L menempati kotak \((2,6)\), \((3,6)\), \((4,6)\), dan \((4,7)\), dengan kotak \((3,6)\) sebagai poros (lihat gambar). Pemain memberi tiga perintah berurutan: <strong>R</strong>: blok diputar \(90^\circ\) searah jarum jam berpusat di poros \((3,6)\); <strong>C</strong>: blok dicerminkan terhadap garis \(x=5\); <strong>J</strong>: blok digeser oleh \(\left[\begin{smallmatrix}0\\-4\end{smallmatrix}\right]\).</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 354 316" role="img" aria-label="Papan permainan 8 kolom dan 7 baris, blok L biru, lubang putus-putus, dan garis x = 5" style="width: 100%; max-width: 354px; height: auto" font-size="12" font-family="inherit">
+<clipPath id="c14"><rect x="24.0" y="22.0" width="306.0" height="272.0"/></clipPath>
+
+<g clip-path="url(#c14)"><line x1="41.0" y1="277.0" x2="41.0" y2="39.0" stroke="#9ca3af" stroke-width="0.8" stroke-linecap="round"/>
+<line x1="75.0" y1="277.0" x2="75.0" y2="39.0" stroke="#9ca3af" stroke-width="0.8" stroke-linecap="round"/>
+<line x1="109.0" y1="277.0" x2="109.0" y2="39.0" stroke="#9ca3af" stroke-width="0.8" stroke-linecap="round"/>
+<line x1="143.0" y1="277.0" x2="143.0" y2="39.0" stroke="#9ca3af" stroke-width="0.8" stroke-linecap="round"/>
+<line x1="177.0" y1="277.0" x2="177.0" y2="39.0" stroke="#9ca3af" stroke-width="0.8" stroke-linecap="round"/>
+<line x1="211.0" y1="277.0" x2="211.0" y2="39.0" stroke="#9ca3af" stroke-width="0.8" stroke-linecap="round"/>
+<line x1="245.0" y1="277.0" x2="245.0" y2="39.0" stroke="#9ca3af" stroke-width="0.8" stroke-linecap="round"/>
+<line x1="279.0" y1="277.0" x2="279.0" y2="39.0" stroke="#9ca3af" stroke-width="0.8" stroke-linecap="round"/>
+<line x1="313.0" y1="277.0" x2="313.0" y2="39.0" stroke="#9ca3af" stroke-width="0.8" stroke-linecap="round"/>
+<line x1="41.0" y1="277.0" x2="313.0" y2="277.0" stroke="#9ca3af" stroke-width="0.8" stroke-linecap="round"/>
+<line x1="41.0" y1="243.0" x2="313.0" y2="243.0" stroke="#9ca3af" stroke-width="0.8" stroke-linecap="round"/>
+<line x1="41.0" y1="209.0" x2="313.0" y2="209.0" stroke="#9ca3af" stroke-width="0.8" stroke-linecap="round"/>
+<line x1="41.0" y1="175.0" x2="313.0" y2="175.0" stroke="#9ca3af" stroke-width="0.8" stroke-linecap="round"/>
+<line x1="41.0" y1="141.0" x2="313.0" y2="141.0" stroke="#9ca3af" stroke-width="0.8" stroke-linecap="round"/>
+<line x1="41.0" y1="107.0" x2="313.0" y2="107.0" stroke="#9ca3af" stroke-width="0.8" stroke-linecap="round"/>
+<line x1="41.0" y1="73.0" x2="313.0" y2="73.0" stroke="#9ca3af" stroke-width="0.8" stroke-linecap="round"/>
+<line x1="41.0" y1="39.0" x2="313.0" y2="39.0" stroke="#9ca3af" stroke-width="0.8" stroke-linecap="round"/>
+<line x1="194.0" y1="277.0" x2="194.0" y2="39.0" stroke="#7c2d12" stroke-width="2" stroke-linecap="round" stroke-dasharray="6 4"/></g>
+<rect x="41.0" y="243.0" width="34.0" height="34.0" fill="#6b7280" fill-opacity="0.35"/>
+<rect x="41.0" y="209.0" width="34.0" height="34.0" fill="#6b7280" fill-opacity="0.35"/>
+<rect x="41.0" y="175.0" width="34.0" height="34.0" fill="#6b7280" fill-opacity="0.35"/>
+<rect x="75.0" y="243.0" width="34.0" height="34.0" fill="#6b7280" fill-opacity="0.35"/>
+<rect x="75.0" y="209.0" width="34.0" height="34.0" fill="#6b7280" fill-opacity="0.35"/>
+<rect x="75.0" y="175.0" width="34.0" height="34.0" fill="#6b7280" fill-opacity="0.35"/>
+<rect x="109.0" y="243.0" width="34.0" height="34.0" fill="#6b7280" fill-opacity="0.35"/>
+<rect x="109.0" y="209.0" width="34.0" height="34.0" fill="#6b7280" fill-opacity="0.35"/>
+<rect x="109.0" y="175.0" width="34.0" height="34.0" fill="#6b7280" fill-opacity="0.35"/>
+<rect x="143.0" y="243.0" width="34.0" height="34.0" fill="#6b7280" fill-opacity="0.35"/>
+<rect x="143.0" y="209.0" width="34.0" height="34.0" fill="#6b7280" fill-opacity="0.35"/>
+<rect x="143.0" y="175.0" width="34.0" height="34.0" fill="#6b7280" fill-opacity="0.35"/>
+<rect x="177.0" y="243.0" width="34.0" height="34.0" fill="#6b7280" fill-opacity="0.35"/>
+<rect x="177.0" y="209.0" width="34.0" height="34.0" fill="#6b7280" fill-opacity="0.35"/>
+<rect x="177.0" y="175.0" width="34.0" height="34.0" fill="#6b7280" fill-opacity="0.35"/>
+<rect x="211.0" y="209.0" width="34.0" height="34.0" fill="#6b7280" fill-opacity="0.35"/>
+<rect x="211.0" y="175.0" width="34.0" height="34.0" fill="#6b7280" fill-opacity="0.35"/>
+<rect x="279.0" y="243.0" width="34.0" height="34.0" fill="#6b7280" fill-opacity="0.35"/>
+<rect x="279.0" y="209.0" width="34.0" height="34.0" fill="#6b7280" fill-opacity="0.35"/>
+<rect x="279.0" y="175.0" width="34.0" height="34.0" fill="#6b7280" fill-opacity="0.35"/>
+<rect x="41.0" y="39.0" width="272.0" height="238.0" fill="none" fill-opacity="0" stroke="#dc2626" stroke-width="2"/>
+<polygon points="211.0,277.0 279.0,277.0 279.0,175.0 245.0,175.0 245.0,243.0 211.0,243.0" fill="#7c2d12" fill-opacity="0.12" stroke="#7c2d12" stroke-width="2" stroke-linejoin="round" stroke-dasharray="5 3"/>
+<rect x="75.0" y="73.0" width="34.0" height="34.0" fill="#2563eb" fill-opacity="0.45" stroke="#2563eb" stroke-width="2"/>
+<rect x="109.0" y="73.0" width="34.0" height="34.0" fill="#2563eb" fill-opacity="0.45" stroke="#2563eb" stroke-width="2"/>
+<rect x="143.0" y="73.0" width="34.0" height="34.0" fill="#2563eb" fill-opacity="0.45" stroke="#2563eb" stroke-width="2"/>
+<rect x="143.0" y="39.0" width="34.0" height="34.0" fill="#2563eb" fill-opacity="0.45" stroke="#2563eb" stroke-width="2"/>
+<circle cx="126.0" cy="90.0" r="3.5" fill="#dc2626"/>
+<text x="194.0" y="31.0" text-anchor="middle" fill="#7c2d12">x = 5</text>
+<text x="58.0" y="293.0" text-anchor="middle" fill="currentColor">1</text>
+<text x="92.0" y="293.0" text-anchor="middle" fill="currentColor">2</text>
+<text x="126.0" y="293.0" text-anchor="middle" fill="currentColor">3</text>
+<text x="160.0" y="293.0" text-anchor="middle" fill="currentColor">4</text>
+<text x="194.0" y="293.0" text-anchor="middle" fill="currentColor">5</text>
+<text x="228.0" y="293.0" text-anchor="middle" fill="currentColor">6</text>
+<text x="262.0" y="293.0" text-anchor="middle" fill="currentColor">7</text>
+<text x="296.0" y="293.0" text-anchor="middle" fill="currentColor">8</text>
+<text x="34.0" y="264.0" text-anchor="end" fill="currentColor">1</text>
+<text x="34.0" y="230.0" text-anchor="end" fill="currentColor">2</text>
+<text x="34.0" y="196.0" text-anchor="end" fill="currentColor">3</text>
+<text x="34.0" y="162.0" text-anchor="end" fill="currentColor">4</text>
+<text x="34.0" y="128.0" text-anchor="end" fill="currentColor">5</text>
+<text x="34.0" y="94.0" text-anchor="end" fill="currentColor">6</text>
+<text x="34.0" y="60.0" text-anchor="end" fill="currentColor">7</text>
+</svg>
+</figure>
+    <ol type="a">
+      <li>Tentukan koordinat keempat kotak blok setelah perintah R.</li>
+      <li>Tentukan koordinat keempat kotak setelah perintah C.</li>
+      <li>Tentukan koordinat keempat kotak setelah perintah J, lalu periksa apakah blok tepat mengisi lubang berarsir putus-putus, yaitu kotak \((6,1)\), \((7,1)\), \((7,2)\), dan \((7,3)\).</li>
+      <li>Jika pemain menjalankan J sebelum C (urutan R, J, C), apakah posisi akhir berubah? Jelaskan dengan rumus transformasinya.</li>
+    </ol>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p><strong>(a)</strong> \(R:(x,y)\mapsto(3+(y-6),\;6-(x-3))=(y-3,\;9-x)\). Kotak menjadi \((3,7)\), \((3,6)\), \((3,5)\), \((4,5)\).</p>
+      <p><strong>(b)</strong> \(C:(x,y)\mapsto(10-x,\,y)\). Kotak menjadi \((7,7)\), \((7,6)\), \((7,5)\), \((6,5)\).</p>
+      <p><strong>(c)</strong> \(J:(x,y)\mapsto(x,\,y-4)\). Kotak menjadi \((7,3)\), \((7,2)\), \((7,1)\), \((6,1)\). Keempatnya sama dengan kotak lubang, jadi blok tepat mengisi lubang.</p>
+      <p><strong>(d)</strong> Urutan R, J, C: \((x,y)\to(x,\,y-4)\to(10-x,\,y-4)\). Urutan R, C, J: \((x,y)\to(10-x,\,y)\to(10-x,\,y-4)\). Hasilnya sama, karena refleksi terhadap garis tegak hanya mengubah absis, sedangkan translasi vertikal hanya mengubah ordinat.</p>
+      <p class="penskoran"><em>Penskoran: (a) 2 poin; (b) 2 poin; (c) 2 poin (koordinat 1, kesimpulan 1); (d) 2 poin.</em></p>
+    </details>
+  </div>
+
+  <!-- Soal Uraian 2 -->
+  <div class="lesson-example soal-uraian">
+    <h4>Soal 2 <span class="poin">[8 poin]</span></h4>
+
+    <p>Sebuah proyektor yang lampunya berada di titik \(P(1,2)\) memproyeksikan gambar segitiga \(ABC\) dengan \(A(2,3)\), \(B(4,3)\), dan \(C(3,5)\) ke layar. Proses ini dimodelkan sebagai dilatasi berpusat di \(P\) dengan faktor \(k=3\), dan bayangan segitiga ditulis \(A'B'C'\).</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 368 300" role="img" aria-label="Segitiga ABC, titik P(1,2), dan garis layar x = 8" style="width: 100%; max-width: 368px; height: auto" font-size="12" font-family="inherit">
+<clipPath id="c15"><rect x="24.0" y="22.0" width="320.0" height="256.0"/></clipPath>
+<line x1="24.0" y1="278.0" x2="24.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="56.0" y1="278.0" x2="56.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="88.0" y1="278.0" x2="88.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="120.0" y1="278.0" x2="120.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="152.0" y1="278.0" x2="152.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="184.0" y1="278.0" x2="184.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="216.0" y1="278.0" x2="216.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="248.0" y1="278.0" x2="248.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="280.0" y1="278.0" x2="280.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="312.0" y1="278.0" x2="312.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="344.0" y1="278.0" x2="344.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="278.0" x2="344.0" y2="278.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="246.0" x2="344.0" y2="246.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="214.0" x2="344.0" y2="214.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="182.0" x2="344.0" y2="182.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="150.0" x2="344.0" y2="150.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="118.0" x2="344.0" y2="118.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="86.0" x2="344.0" y2="86.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="54.0" x2="344.0" y2="54.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="22.0" x2="344.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="246.0" x2="352.0" y2="246.0" stroke="currentColor" stroke-width="1.6"/>
+<line x1="56.0" y1="278.0" x2="56.0" y2="14.0" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="352.0,246.0 345.0,242.5 345.0,249.5" fill="currentColor"/>
+<polygon points="56.0,14.0 52.5,21.0 59.5,21.0" fill="currentColor"/>
+<text x="355.0" y="250.0" font-style="italic" fill="currentColor">x</text>
+<text x="63.0" y="16.0" font-style="italic" fill="currentColor">y</text>
+<text x="24.0" y="259.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">-1</text>
+<text x="88.0" y="259.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="120.0" y="259.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="152.0" y="259.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="184.0" y="259.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="216.0" y="259.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="248.0" y="259.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">6</text>
+<text x="280.0" y="259.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">7</text>
+<text x="312.0" y="259.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">8</text>
+<text x="344.0" y="259.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">9</text>
+<text x="51.0" y="281.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">-1</text>
+<text x="51.0" y="217.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="51.0" y="185.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="51.0" y="153.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="51.0" y="121.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="51.0" y="89.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="51.0" y="57.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">6</text>
+<text x="51.0" y="25.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">7</text>
+<text x="51.0" y="259.0" text-anchor="end" font-size="9.5" fill="currentColor">O</text>
+<g clip-path="url(#c15)"><line x1="312.0" y1="278.0" x2="312.0" y2="22.0" stroke="#7c2d12" stroke-width="2" stroke-linecap="round" stroke-dasharray="6 4"/></g>
+<polygon points="120.0,150.0 184.0,150.0 152.0,86.0" fill="#2563eb" fill-opacity="0.18" stroke="#2563eb" stroke-width="2.2" stroke-linejoin="round"/>
+<text x="318.0" y="16.0" text-anchor="start" fill="#7c2d12">layar</text>
+<text x="113.0" y="154.0" text-anchor="end" fill="currentColor">A</text>
+<text x="191.0" y="154.0" text-anchor="start" fill="currentColor">B</text>
+<text x="152.0" y="78.0" text-anchor="middle" fill="currentColor">C</text>
+<circle cx="88.0" cy="182.0" r="3.6" fill="#dc2626"/>
+<text x="82.0" y="197.0" text-anchor="end" fill="currentColor">P</text>
+</svg>
+</figure>
+    <ol type="a">
+      <li>Tentukan koordinat \(A'\), \(B'\), dan \(C'\).</li>
+      <li>Hitung luas dan keliling \(\triangle A'B'C'\), lalu bandingkan dengan luas dan keliling \(\triangle ABC\).</li>
+      <li>Tentukan persamaan garis \(AC\) dan garis \(A'C'\). Apa hubungan kedua garis tersebut?</li>
+      <li>Layar hanya dapat menampung titik dengan absis \(x\le 8\) (garis putus-putus pada gambar). Jika pusat \(P\) tetap, tentukan faktor skala \(k&gt;0\) terbesar agar seluruh bayangan tetap tampak pada layar.</li>
+    </ol>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p><strong>(a)</strong> Dengan \(X'=P+3(X-P)\): \(A'=(1,2)+3(1,1)=(4,5)\); \(B'=(1,2)+3(3,1)=(10,5)\); \(C'=(1,2)+3(2,3)=(7,11)\).</p>
+      <p><strong>(b)</strong> \(L_{ABC}=\frac12\cdot2\cdot2=2\) dan \(L_{A'B'C'}=\frac12\cdot6\cdot6=18\), yaitu \(9=3^{2}\) kali. Keliling \(ABC=2+2\sqrt5\) dan keliling \(A'B'C'=6+6\sqrt5\), yaitu \(3\) kali.</p>
+      <p><strong>(c)</strong> Gradien \(AC=\frac{5-3}{3-2}=2\): \(y=2x-1\). Gradien \(A'C'=\frac{11-5}{7-4}=2\): \(y=2x-3\). Kedua garis sejajar (dilatasi memetakan garis ke garis yang sejajar).</p>
+      <p><strong>(d)</strong> Absis bayangan: \(x'=1+k(x-1)\). Absis terbesar ada pada \(B\): \(1+3k\le8\Rightarrow k\le\frac73\). Jadi \(k_{\max}=\frac73\).</p>
+      <p class="penskoran"><em>Penskoran: (a) 2 poin; (b) 2 poin (luas 1, keliling 1); (c) 2 poin; (d) 2 poin.</em></p>
+    </details>
+  </div>
+
+  <p class="tingkat"><strong>Tingkat Sulit</strong> <em>(soal 3 dan 4)</em></p>
+
+  <!-- Soal Uraian 3 -->
+  <div class="lesson-example soal-uraian">
+    <h4>Soal 3 <span class="poin">[8 poin]</span></h4>
+
+    <p>Ruas garis \(AB\) dengan \(A(1,1)\) dan \(B(5,1)\) dipetakan oleh sebuah rotasi menjadi ruas \(A'B'\) dengan \(A'(4,0)\) dan \(B'(4,4)\) (lihat gambar). Pusat rotasi \(C\) tidak diketahui.</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 342 296" role="img" aria-label="Ruas AB dari A(1,1) ke B(5,1) dan ruas A aksen B aksen dari (4,0) ke (4,4)" style="width: 100%; max-width: 342px; height: auto" font-size="12" font-family="inherit">
+<clipPath id="c16"><rect x="24.0" y="22.0" width="294.0" height="252.0"/></clipPath>
+<line x1="24.0" y1="274.0" x2="24.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="66.0" y1="274.0" x2="66.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="108.0" y1="274.0" x2="108.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="150.0" y1="274.0" x2="150.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="192.0" y1="274.0" x2="192.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="234.0" y1="274.0" x2="234.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="276.0" y1="274.0" x2="276.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="318.0" y1="274.0" x2="318.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="274.0" x2="318.0" y2="274.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="232.0" x2="318.0" y2="232.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="190.0" x2="318.0" y2="190.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="148.0" x2="318.0" y2="148.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="106.0" x2="318.0" y2="106.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="64.0" x2="318.0" y2="64.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="22.0" x2="318.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="232.0" x2="326.0" y2="232.0" stroke="currentColor" stroke-width="1.6"/>
+<line x1="66.0" y1="274.0" x2="66.0" y2="14.0" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="326.0,232.0 319.0,228.5 319.0,235.5" fill="currentColor"/>
+<polygon points="66.0,14.0 62.5,21.0 69.5,21.0" fill="currentColor"/>
+<text x="329.0" y="236.0" font-style="italic" fill="currentColor">x</text>
+<text x="73.0" y="16.0" font-style="italic" fill="currentColor">y</text>
+<text x="24.0" y="245.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">-1</text>
+<text x="108.0" y="245.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="150.0" y="245.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="192.0" y="245.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="234.0" y="245.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="276.0" y="245.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="318.0" y="245.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">6</text>
+<text x="61.0" y="277.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">-1</text>
+<text x="61.0" y="193.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="61.0" y="151.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="61.0" y="109.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="61.0" y="67.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="61.0" y="25.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="61.0" y="245.0" text-anchor="end" font-size="9.5" fill="currentColor">O</text>
+<g clip-path="url(#c16)"><line x1="108.0" y1="190.0" x2="276.0" y2="190.0" stroke="#2563eb" stroke-width="3.5" stroke-linecap="round"/>
+<line x1="234.0" y1="232.0" x2="234.0" y2="64.0" stroke="#dc2626" stroke-width="3.5" stroke-linecap="round"/></g>
+<circle cx="108.0" cy="190.0" r="3.6" fill="#dc2626"/>
+<text x="101.0" y="194.0" text-anchor="end" fill="currentColor">A</text>
+<circle cx="276.0" cy="190.0" r="3.6" fill="#dc2626"/>
+<text x="283.0" y="194.0" text-anchor="start" fill="currentColor">B</text>
+<circle cx="234.0" cy="232.0" r="3.6" fill="#dc2626"/>
+<text x="240.0" y="247.0" text-anchor="start" fill="currentColor">A'</text>
+<circle cx="234.0" cy="64.0" r="3.6" fill="#dc2626"/>
+<text x="234.0" y="56.0" text-anchor="middle" fill="currentColor">B'</text>
+</svg>
+</figure>
+    <ol type="a">
+      <li>Tunjukkan bahwa \(AB=A'B'\), lalu jelaskan mengapa pusat rotasi harus berjarak sama dari \(A\) dan \(A'\), serta dari \(B\) dan \(B'\).</li>
+      <li>Tentukan persamaan sumbu ruas \(AA'\) dan sumbu ruas \(BB'\), lalu tentukan koordinat pusat rotasi \(C\).</li>
+      <li>Tunjukkan bahwa \(\angle ACA'=90^\circ\), lalu tentukan arah rotasinya (searah atau berlawanan arah jarum jam).</li>
+      <li>Tentukan bayangan titik \(D(1,5)\) oleh rotasi tersebut.</li>
+    </ol>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p><strong>(a)</strong> \(AB=4\) dan \(A'B'=4\). Rotasi mempertahankan jarak ke pusatnya, sehingga \(CA=CA'\) dan \(CB=CB'\); titik \(C\) berada pada sumbu ruas \(AA'\) dan sumbu ruas \(BB'\).</p>
+      <p><strong>(b)</strong> \(AA'\): titik tengah \(\left(\frac52,\frac12\right)\), gradien \(-\frac13\), sehingga sumbunya \(y=3x-7\). \(BB'\): titik tengah \(\left(\frac92,\frac52\right)\), gradien \(-3\), sehingga sumbunya \(x=3y-3\). Substitusi: \(x=3(3x-7)-3\Rightarrow x=3\), sehingga \(y=2\). Pusat \(C(3,2)\).</p>
+      <p><strong>(c)</strong> \(\overrightarrow{CA}=(-2,-1)\) dan \(\overrightarrow{CA'}=(1,-2)\). Hasil kali titik \(=-2+2=0\), jadi \(\angle ACA'=90^\circ\). Hasil kali silang \((-2)(-2)-(-1)(1)=5&gt;0\), jadi putaran dari \(CA\) ke \(CA'\) berlawanan arah jarum jam.</p>
+      <p><strong>(d)</strong> \(D-C=(-2,3)\mapsto(-3,-2)\), sehingga \(D'=(3,2)+(-3,-2)=(0,0)\).</p>
+      <p class="penskoran"><em>Penskoran: (a) 2 poin; (b) 2 poin (sumbu 1, titik \(C\) 1); (c) 2 poin (sudut 1, arah 1); (d) 2 poin.</em></p>
+    </details>
+  </div>
+
+  <!-- Soal Uraian 4 -->
+  <div class="lesson-example soal-uraian">
+    <h4>Soal 4 <span class="poin">[8 poin]</span></h4>
+
+    <p>Transformasi \(T\) dengan matriks \(M=\begin{bmatrix}a&amp;b\\c&amp;d\end{bmatrix}\) memetakan titik \(P(1,1)\) ke \(P'(2,3)\) dan titik \(Q(2,-1)\) ke \(Q'(7,0)\) (lihat gambar: segitiga \(OPQ\) dan bayangannya \(OP'Q'\)).</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 372 260" role="img" aria-label="Segitiga OPQ dan bayangannya segitiga O P aksen Q aksen" style="width: 100%; max-width: 372px; height: auto" font-size="12" font-family="inherit">
+<clipPath id="c17"><rect x="24.0" y="22.0" width="324.0" height="216.0"/></clipPath>
+<line x1="24.0" y1="238.0" x2="24.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="60.0" y1="238.0" x2="60.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="96.0" y1="238.0" x2="96.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="132.0" y1="238.0" x2="132.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="168.0" y1="238.0" x2="168.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="204.0" y1="238.0" x2="204.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="240.0" y1="238.0" x2="240.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="276.0" y1="238.0" x2="276.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="312.0" y1="238.0" x2="312.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="348.0" y1="238.0" x2="348.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="238.0" x2="348.0" y2="238.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="202.0" x2="348.0" y2="202.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="166.0" x2="348.0" y2="166.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="130.0" x2="348.0" y2="130.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="94.0" x2="348.0" y2="94.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="58.0" x2="348.0" y2="58.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="22.0" x2="348.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="166.0" x2="356.0" y2="166.0" stroke="currentColor" stroke-width="1.6"/>
+<line x1="60.0" y1="238.0" x2="60.0" y2="14.0" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="356.0,166.0 349.0,162.5 349.0,169.5" fill="currentColor"/>
+<polygon points="60.0,14.0 56.5,21.0 63.5,21.0" fill="currentColor"/>
+<text x="359.0" y="170.0" font-style="italic" fill="currentColor">x</text>
+<text x="67.0" y="16.0" font-style="italic" fill="currentColor">y</text>
+<text x="24.0" y="179.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">-1</text>
+<text x="96.0" y="179.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="132.0" y="179.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="168.0" y="179.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="204.0" y="179.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="240.0" y="179.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="276.0" y="179.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">6</text>
+<text x="312.0" y="179.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">7</text>
+<text x="348.0" y="179.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">8</text>
+<text x="55.0" y="241.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">-2</text>
+<text x="55.0" y="205.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">-1</text>
+<text x="55.0" y="133.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="55.0" y="97.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="55.0" y="61.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="55.0" y="25.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="55.0" y="179.0" text-anchor="end" font-size="9.5" fill="currentColor">O</text>
+<g clip-path="url(#c17)"></g>
+<polygon points="60.0,166.0 96.0,130.0 132.0,202.0" fill="#2563eb" fill-opacity="0.18" stroke="#2563eb" stroke-width="2.2" stroke-linejoin="round"/>
+<polygon points="60.0,166.0 132.0,58.0 312.0,166.0" fill="#dc2626" fill-opacity="0.18" stroke="#dc2626" stroke-width="2.2" stroke-linejoin="round"/>
+<text x="90.0" y="124.0" text-anchor="end" fill="currentColor">P</text>
+<text x="132.0" y="218.0" text-anchor="middle" fill="currentColor">Q</text>
+<text x="132.0" y="50.0" text-anchor="middle" fill="#dc2626">P'</text>
+<text x="318.0" y="160.0" text-anchor="start" fill="#dc2626">Q'</text>
+</svg>
+</figure>
+    <ol type="a">
+      <li>Tentukan matriks \(M\).</li>
+      <li>Hitung \(\det M\), kemudian tentukan luas \(\triangle OP'Q'\) dengan dua cara: memakai faktor \(|\det M|\) dan memakai koordinat titik sudutnya.</li>
+      <li>Tentukan titik \(R\) yang bayangannya adalah \(R'(7,14)\).</li>
+      <li>Tentukan persamaan bayangan garis \(x+2y=7\) oleh \(T\). Apa yang dapat disimpulkan tentang arah garis bayangan tersebut?</li>
+    </ol>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p><strong>(a)</strong> Dari \(a+b=2\) dan \(2a-b=7\): \(a=3\), \(b=-1\). Dari \(c+d=3\) dan \(2c-d=0\): \(c=1\), \(d=2\). Jadi \(M=\begin{bmatrix}3&amp;-1\\1&amp;2\end{bmatrix}\).</p>
+      <p><strong>(b)</strong> \(\det M=6+1=7\). Luas \(\triangle OPQ=\frac12|1\cdot(-1)-1\cdot2|=\frac32\). Cara 1: \(L'=7\cdot\frac32=\frac{21}{2}\). Cara 2: \(\triangle OP'Q'\) dengan \(O(0,0)\), \(P'(2,3)\), \(Q'(7,0)\) memiliki luas \(\frac12|2\cdot0-3\cdot7|=\frac{21}{2}\). Keduanya sama.</p>
+      <p><strong>(c)</strong> \(M^{-1}=\frac17\begin{bmatrix}2&amp;1\\-1&amp;3\end{bmatrix}\), sehingga \(R=\frac17(14+14,\;-7+42)=(4,5)\). Pemeriksaan: \(M(4,5)=(12-5,\,4+10)=(7,14)\).</p>
+      <p><strong>(d)</strong> \(x=\frac{2x'+y'}{7}\) dan \(y=\frac{-x'+3y'}{7}\). Maka \(x+2y=\frac{2x'+y'-2x'+6y'}{7}=y'\), sehingga bayangannya \(y=7\). Garis bayangan mendatar (sejajar sumbu-\(x\)), meskipun garis semula miring.</p>
+      <p class="penskoran"><em>Penskoran: (a) 2 poin; (b) 2 poin (determinan 0,5, dua cara masing-masing 0,75); (c) 2 poin; (d) 2 poin (persamaan 1,5, kesimpulan 0,5).</em></p>
+    </details>
+  </div>
+
+  <p class="tingkat"><strong>Tingkat HOTS</strong> <em>(soal 5)</em></p>
+
+  <!-- Soal Uraian 5 -->
+  <div class="lesson-example soal-uraian">
+    <h4>Soal 5 <span class="poin">[8 poin]</span></h4>
+
+    <p>Meja biliar berbentuk persegi panjang dengan sudut-sudut \((0,0)\), \((8,0)\), \((8,4)\), dan \((0,4)\) (satuan dm). Bola putih berada di \(A(2,1)\) dan bola sasaran di \(B(6,1)\). Pemain memukul bola putih sehingga bola memantul lebih dahulu pada dinding atas (\(y=4\)) di titik \(P\), kemudian memantul pada dinding kanan (\(x=8\)) di titik \(Q\), lalu mengenai bola sasaran \(B\). Pada setiap dinding, sudut datang sama dengan sudut pantul.</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 408 204" role="img" aria-label="Meja biliar 8 kali 4 dengan bola putih A(2,1) dan bola sasaran B(6,1)" style="width: 100%; max-width: 408px; height: auto" font-size="12" font-family="inherit">
+<clipPath id="c18"><rect x="44.0" y="22.0" width="320.0" height="160.0"/></clipPath>
+<line x1="44.0" y1="182.0" x2="44.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="84.0" y1="182.0" x2="84.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="124.0" y1="182.0" x2="124.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="164.0" y1="182.0" x2="164.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="204.0" y1="182.0" x2="204.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="244.0" y1="182.0" x2="244.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="284.0" y1="182.0" x2="284.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="324.0" y1="182.0" x2="324.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="364.0" y1="182.0" x2="364.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="44.0" y1="182.0" x2="364.0" y2="182.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="44.0" y1="142.0" x2="364.0" y2="142.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="44.0" y1="102.0" x2="364.0" y2="102.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="44.0" y1="62.0" x2="364.0" y2="62.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="44.0" y1="22.0" x2="364.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<g clip-path="url(#c18)"></g>
+<rect x="44.0" y="22.0" width="320.0" height="160.0" fill="#16a34a" fill-opacity="0.08" stroke="#dc2626" stroke-width="2.5"/>
+<text x="38.0" y="197.0" text-anchor="end" fill="currentColor">(0, 0)</text>
+<text x="370.0" y="197.0" text-anchor="start" fill="currentColor">(8, 0)</text>
+<text x="370.0" y="16.0" text-anchor="start" fill="currentColor">(8, 4)</text>
+<text x="38.0" y="16.0" text-anchor="end" fill="currentColor">(0, 4)</text>
+<text x="204.0" y="14.0" text-anchor="middle" fill="#7c2d12">dinding atas</text>
+<text x="357.0" y="106.0" text-anchor="end" fill="#7c2d12">dinding kanan</text>
+<circle cx="124.0" cy="142.0" r="3.6" fill="#dc2626"/>
+<text x="124.0" y="158.0" text-anchor="middle" fill="currentColor">A(2, 1)</text>
+<circle cx="284.0" cy="142.0" r="3.6" fill="#be185d"/>
+<text x="284.0" y="158.0" text-anchor="middle" fill="currentColor">B(6, 1)</text>
+</svg>
+</figure>
+    <ol type="a">
+      <li>Cerminkan \(B\) terhadap dinding kanan menjadi \(B_1\), lalu cerminkan \(B_1\) terhadap dinding atas menjadi \(B_2\). Tentukan koordinat \(B_1\) dan \(B_2\).</li>
+      <li>Jelaskan mengapa panjang lintasan \(A\to P\to Q\to B\) sama dengan \(AB_2\), lalu hitung panjang lintasan tersebut.</li>
+      <li>Tentukan koordinat \(P\) dan \(Q\), dan periksa bahwa keduanya benar-benar berada pada dinding meja.</li>
+      <li>Titik \(B_2\) juga dapat diperoleh dari \(B\) oleh satu rotasi \(180^\circ\). Tentukan pusat rotasinya dan jelaskan alasannya. Kemudian hitung panjang lintasan jika bola hanya memantul satu kali pada dinding atas, dan bandingkan dengan hasil (b).</li>
+    </ol>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p><strong>(a)</strong> \(B_1=(16-6,\,1)=(10,1)\) dan \(B_2=(10,\,8-1)=(10,7)\).</p>
+      <p><strong>(b)</strong> \(QB=QB_1\) karena \(Q\) pada dinding kanan, dan \(PB_1=PB_2\) karena \(P\) pada dinding atas. Pantulan sama dengan meneruskan lintasan lurus ke bayangan sasaran, sehingga lintasan setelah diluruskan adalah ruas \(AB_2\). Panjangnya \(\sqrt{(10-2)^{2}+(7-1)^{2}}=10\) dm.</p>
+      <p><strong>(c)</strong> Garis \(AB_2\): \(y-1=\frac34(x-2)\). Pada \(y=4\): \(x=6\), jadi \(P(6,4)\) (benar pada dinding atas, \(0&lt;6&lt;8\)). Pada \(x=8\): \(y=\frac{11}{2}\), yang merupakan bayangan \(Q\) terhadap \(y=4\), sehingga \(Q=\left(8,\,8-\frac{11}{2}\right)=\left(8,\frac52\right)\) (benar pada dinding kanan, \(0&lt;\frac52&lt;4\)). Pemeriksaan: \(AP=5\), \(PQ=\frac52\), \(QB=\frac52\), total \(10\).</p>
+      <p><strong>(d)</strong> Dinding atas dan dinding kanan tegak lurus dan berpotongan di \((8,4)\). Komposisi dua refleksi terhadap garis yang saling tegak lurus adalah rotasi \(180^\circ\) di titik potong: \(B\mapsto(16-6,\;8-1)=(10,7)=B_2\). Jika hanya memantul pada dinding atas: \(B^{*}=(6,7)\), panjang lintasan \(AB^{*}=\sqrt{4^{2}+6^{2}}=2\sqrt{13}\approx7{,}2\) dm, lebih pendek sekitar \(2{,}8\) dm daripada \(10\) dm karena tidak ada pantulan tambahan.</p>
+      <p class="penskoran"><em>Penskoran: (a) 2 poin; (b) 2 poin (alasan 1, panjang 1); (c) 2 poin (\(P\) 0,75, \(Q\) 0,75, pemeriksaan 0,5); (d) 2 poin (pusat dan alasan 1, perbandingan 1).</em></p>
+    </details>
+  </div>
+
+  <script>
+    (function () {
+      function init() {
+        var root = document.getElementById("latihan-transformasi-geometri");
+        if (!root || root.getAttribute("data-init")) return;
+        root.setAttribute("data-init", "1");
+
+        var pg = root.querySelectorAll(".soal-pg");
+        var is = root.querySelectorAll(".soal-isian");
+        var elSkorPg = root.querySelector("[data-skor-pg]");
+        var elJawabPg = root.querySelector("[data-jawab-pg]");
+        var elSkorIs = root.querySelector("[data-skor-is]");
+
+        function norm(s) {
+          return s
+            .toLowerCase()
+            .replace(/\s+/g, "")
+            .replace(/[*\u00b7\u00d7{}]/g, "")
+            .replace(/\u2212/g, "-")
+            .replace(/\u00b2/g, "^2")
+            .replace(/,/g, ".");
+        }
+        function has(el, c) {
+          return el.className && String(el.className).indexOf(c) > -1;
+        }
+
+        function hitung() {
+          var benar = 0,
+            jawab = 0,
+            benarIs = 0,
+            i;
+          for (i = 0; i < pg.length; i++) {
+            if (has(pg[i], "soal-kompleks") || has(pg[i], "soal-kategori")) {
+              var st = pg[i].getAttribute("data-status");
+              if (st) {
+                jawab++;
+                if (st === "benar") benar++;
+              }
+            } else {
+              var c = pg[i].querySelector("input:checked");
+              if (c) {
+                jawab++;
+                if (c.parentNode.className.indexOf(" k") > -1) benar++;
+              }
+            }
+          }
+          for (i = 0; i < is.length; i++) {
+            if (is[i].getAttribute("data-status") === "benar") benarIs++;
+          }
+          elSkorPg.textContent = benar;
+          elJawabPg.textContent = jawab;
+          elSkorIs.textContent = benarIs;
+        }
+
+        function periksa(q) {
+          var inp = q.querySelector(".isian-input");
+          var um = q.querySelector(".isian-umpan");
+          var v = norm(inp.value);
+          if (!v) {
+            inp.focus();
+            return;
+          }
+          var kunci = q.getAttribute("data-kunci").split("|");
+          var ok = false;
+          for (var i = 0; i < kunci.length; i++) {
+            if (norm(kunci[i]) === v) {
+              ok = true;
+              break;
+            }
+          }
+          q.setAttribute("data-status", ok ? "benar" : "salah");
+          um.hidden = false;
+          um.textContent = ok
+            ? "Benar!"
+            : "Belum sesuai. Coba lagi, atau buka pembahasan (bentuk jawaban yang setara juga dapat benar).";
+          hitung();
+        }
+
+        function periksaK(q) {
+          var um = q.querySelector(".isian-umpan");
+          var kunci = q.getAttribute("data-kunci").split(",");
+          var ok, jawaban, i;
+          if (has(q, "soal-kompleks")) {
+            var cb = q.querySelectorAll("input:checked");
+            if (!cb.length) {
+              um.hidden = false;
+              um.textContent = "Centang minimal satu pilihan terlebih dahulu.";
+              return;
+            }
+            jawaban = [];
+            for (i = 0; i < cb.length; i++) jawaban.push(cb[i].value);
+            ok = jawaban.sort().join(",") === kunci.slice().sort().join(",");
+            q.setAttribute("data-status", ok ? "benar" : "salah");
+            um.hidden = false;
+            um.textContent = ok
+              ? "Benar! Jawaban yang tepat adalah " + kunci.join(", ") + "."
+              : "Belum tepat. Jawaban yang benar adalah " + kunci.join(", ") + ".";
+          } else {
+            var n = kunci.length;
+            ok = true;
+            for (i = 0; i < n; i++) {
+              var r = q.querySelector('input[name$="-' + (i + 1) + '"]:checked');
+              if (!r) {
+                um.hidden = false;
+                um.textContent = "Pilih Benar atau Salah untuk setiap pernyataan.";
+                return;
+              }
+              if (r.value !== kunci[i]) ok = false;
+            }
+            var kt = [];
+            for (i = 0; i < n; i++) kt.push(kunci[i] === "B" ? "Benar" : "Salah");
+            q.setAttribute("data-status", ok ? "benar" : "salah");
+            um.hidden = false;
+            um.textContent = ok
+              ? "Benar! Semua pernyataan sudah tepat."
+              : "Belum tepat. Kunci: " + kt.join(", ") + ".";
+          }
+          var inputs = q.querySelectorAll("input");
+          for (i = 0; i < inputs.length; i++) inputs[i].disabled = true;
+          hitung();
+        }
+
+        function ulangi() {
+          var i, j;
+          for (i = 0; i < pg.length; i++) {
+            var r = pg[i].querySelectorAll("input");
+            for (j = 0; j < r.length; j++) {
+              r[j].checked = false;
+              r[j].disabled = false;
+            }
+            pg[i].removeAttribute("data-status");
+            var u = pg[i].querySelector(".isian-umpan");
+            if (u) {
+              u.hidden = true;
+              u.textContent = "";
+            }
+          }
+          for (i = 0; i < is.length; i++) {
+            is[i].removeAttribute("data-status");
+            is[i].querySelector(".isian-input").value = "";
+            var um = is[i].querySelector(".isian-umpan");
+            um.hidden = true;
+            um.textContent = "";
+          }
+          var d = root.querySelectorAll("details");
+          for (i = 0; i < d.length; i++) d[i].removeAttribute("open");
+          hitung();
+        }
+
+        root.addEventListener("change", function (e) {
+          var t = e.target;
+          if (
+            t &&
+            t.type === "radio" &&
+            t.name.indexOf("tg-pg-") === 0 &&
+            !t.closest(".soal-kategori")
+          ) {
+            var grup = root.querySelectorAll('input[name="' + t.name + '"]');
+            for (var i = 0; i < grup.length; i++) grup[i].disabled = true;
+            hitung();
+          }
+        });
+
+        root.addEventListener("click", function (e) {
+          var el = e.target;
+          while (el && el !== root) {
+            if (el.className && typeof el.className === "string") {
+              if (el.className.indexOf("btn-cek-k") > -1) {
+                periksaK(el.parentNode.parentNode);
+                return;
+              }
+              if (el.className.indexOf("btn-cek") > -1) {
+                periksa(el.parentNode.parentNode);
+                return;
+              }
+              if (el.className.indexOf("btn-ulang") > -1) {
+                ulangi();
+                return;
+              }
+            }
+            el = el.parentNode;
+          }
+        });
+
+        root.addEventListener("keydown", function (e) {
+          if (
+            e.key === "Enter" &&
+            e.target.className &&
+            String(e.target.className).indexOf("isian-input") > -1
+          ) {
+            e.preventDefault();
+            periksa(e.target.parentNode.parentNode);
+          }
+        });
+      }
+      if (document.readyState === "loading")
+        document.addEventListener("DOMContentLoaded", init);
+      else init();
+    })();
+  </script>
+</section>
