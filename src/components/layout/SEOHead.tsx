@@ -240,6 +240,106 @@ export function SEOHead({ page }: SEOHeadProps) {
           };
           break;
 
+        case "practice-fungsi-kuadrat":
+          meta = {
+            title: "Latihan Soal Fungsi Kuadrat Kelas X | Math 1729",
+            description:
+              "Kerjakan latihan interaktif fungsi kuadrat tentang grafik parabola, diskriminan, akar, dan titik puncak. Dilengkapi skor langsung dan pembahasan.",
+            keywords:
+              "latihan soal fungsi kuadrat, soal fungsi kuadrat kelas 10, diskriminan, grafik parabola, pembahasan fungsi kuadrat",
+            ogType: "article",
+            schema: {
+              "@context": "https://schema.org",
+              "@type": "LearningResource",
+              name: "Latihan Soal Fungsi Kuadrat",
+              learningResourceType: "Quiz",
+              educationalLevel: "Kelas X",
+              inLanguage: "id",
+              url: currentUrl,
+              provider: {
+                "@type": "EducationalOrganization",
+                name: "Math 1729",
+                url: BASE_URL,
+              },
+            },
+          };
+          break;
+
+        case "practice-perbandingan-trigonometri":
+          meta = {
+            title: "Latihan Soal Perbandingan Trigonometri Kelas X | Math 1729",
+            description:
+              "Kerjakan latihan interaktif perbandingan trigonometri tentang sinus, cosinus, tangen, sudut istimewa, serta elevasi dan depresi. Dilengkapi pembahasan.",
+            keywords:
+              "latihan soal perbandingan trigonometri, sinus cosinus tangen kelas 10, sudut istimewa, sudut elevasi depresi, pembahasan trigonometri",
+            ogType: "article",
+            schema: {
+              "@context": "https://schema.org",
+              "@type": "LearningResource",
+              name: "Latihan Soal Perbandingan Trigonometri",
+              learningResourceType: "Quiz",
+              educationalLevel: "Kelas X",
+              inLanguage: "id",
+              url: currentUrl,
+              provider: {
+                "@type": "EducationalOrganization",
+                name: "Math 1729",
+                url: BASE_URL,
+              },
+            },
+          };
+          break;
+
+        case "practice-peluang":
+          meta = {
+            title: "Latihan Soal Peluang Kelas X | Math 1729",
+            description:
+              "Kerjakan latihan interaktif peluang kejadian, peluang bersyarat, kombinasi, dan frekuensi harapan. Dilengkapi pilihan ganda, isian singkat, uraian, dan pembahasan.",
+            keywords:
+              "latihan soal peluang kelas 10, peluang kejadian, peluang bersyarat, kombinasi, frekuensi harapan, pembahasan soal peluang",
+            ogType: "article",
+            schema: {
+              "@context": "https://schema.org",
+              "@type": "LearningResource",
+              name: "Latihan Soal Peluang",
+              learningResourceType: "Quiz",
+              educationalLevel: "Kelas X",
+              inLanguage: "id",
+              url: currentUrl,
+              provider: {
+                "@type": "EducationalOrganization",
+                name: "Math 1729",
+                url: BASE_URL,
+              },
+            },
+          };
+          break;
+
+        case "practice-statistika":
+          meta = {
+            title: "Latihan Soal Statistika Kelas X | Math 1729",
+            description:
+              "Kerjakan latihan interaktif statistika tentang mean, median, modus, dan data berkelompok. Dilengkapi pilihan ganda, isian singkat, soal uraian, skor langsung, dan pembahasan.",
+            keywords:
+              "latihan soal statistika kelas 10, mean median modus, data berkelompok, ukuran pemusatan data, pembahasan statistika",
+            ogType: "article",
+            schema: {
+              "@context": "https://schema.org",
+              "@type": "LearningResource",
+              name: "Latihan Soal Statistika",
+              learningResourceType: "Quiz",
+              educationalLevel: "Kelas X",
+              inLanguage: "id",
+              url: currentUrl,
+              provider: {
+                "@type": "EducationalOrganization",
+                name: "Math 1729",
+                url: BASE_URL,
+              },
+            },
+          };
+          break;
+
         case "shop":
           meta = {
             title:

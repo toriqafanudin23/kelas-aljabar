@@ -15,6 +15,10 @@ export type Page =
   | "practice-barisan-deret"
   | "practice-vektor"
   | "practice-sppl"
+  | "practice-fungsi-kuadrat"
+  | "practice-perbandingan-trigonometri"
+  | "practice-peluang"
+  | "practice-statistika"
   | string;
 export type Navigate = (
   event: MouseEvent<HTMLAnchorElement>,
@@ -56,6 +60,27 @@ export function getPageFromPath(path: string): Page {
   if (path === "/latihan-soal/sppl" || path === "/latihan-soal/sppl/") {
     return "practice-sppl";
   }
+  if (
+    path === "/latihan-soal/fungsi-kuadrat" ||
+    path === "/latihan-soal/fungsi-kuadrat/"
+  ) {
+    return "practice-fungsi-kuadrat";
+  }
+  if (
+    path === "/latihan-soal/perbandingan-trigonometri" ||
+    path === "/latihan-soal/perbandingan-trigonometri/"
+  ) {
+    return "practice-perbandingan-trigonometri";
+  }
+  if (path === "/latihan-soal/peluang" || path === "/latihan-soal/peluang/") {
+    return "practice-peluang";
+  }
+  if (
+    path === "/latihan-soal/statistika" ||
+    path === "/latihan-soal/statistika/"
+  ) {
+    return "practice-statistika";
+  }
   if (path === "/simulasi" || path === "/simulasi/") return "simulation";
   if (
     path === "/simulasi-interaktif" ||
@@ -85,6 +110,14 @@ export function getPathFromPage(page: Page): string {
   if (page === "practice-barisan-deret") return "/latihan-soal/barisan-deret";
   if (page === "practice-vektor") return "/latihan-soal/vektor";
   if (page === "practice-sppl") return "/latihan-soal/sppl";
+  if (page === "practice-fungsi-kuadrat") {
+    return "/latihan-soal/fungsi-kuadrat";
+  }
+  if (page === "practice-perbandingan-trigonometri") {
+    return "/latihan-soal/perbandingan-trigonometri";
+  }
+  if (page === "practice-peluang") return "/latihan-soal/peluang";
+  if (page === "practice-statistika") return "/latihan-soal/statistika";
   if (page === "simulation") return "/simulasi";
   if (page === "simulation-play") return "/simulasi-interaktif";
   if (page === "about") return "/tentang";

@@ -4,7 +4,15 @@ import type { Navigate } from "../types/navigation";
 import "../latihan-soal/latihan-soal.css";
 import "./PracticePage.css";
 
-type PracticeExerciseId = "eksponensial" | "barisan-deret" | "vektor" | "sppl";
+type PracticeExerciseId =
+  | "eksponensial"
+  | "barisan-deret"
+  | "vektor"
+  | "sppl"
+  | "fungsi-kuadrat"
+  | "perbandingan-trigonometri"
+  | "peluang"
+  | "statistika";
 
 interface PracticeExercisePageProps {
   navigate: Navigate;
@@ -22,6 +30,16 @@ const exerciseDetails: Record<
     title: "Sistem Persamaan dan Pertidaksamaan Linear",
     grade: "Kelas X · Fase E",
   },
+  "fungsi-kuadrat": {
+    title: "Fungsi Kuadrat",
+    grade: "Kelas X · Fase E",
+  },
+  "perbandingan-trigonometri": {
+    title: "Perbandingan Trigonometri",
+    grade: "Kelas X · Fase E",
+  },
+  peluang: { title: "Peluang", grade: "Kelas X · Fase E" },
+  statistika: { title: "Statistika", grade: "Kelas X · Fase E" },
 };
 
 export function PracticeExercisePage({
@@ -43,7 +61,15 @@ export function PracticeExercisePage({
           ? import("../latihan-soal/vektor.html?raw")
           : exercise === "sppl"
             ? import("../latihan-soal/sppl.html?raw")
-            : import("../latihan-soal/eksponensial.html?raw");
+            : exercise === "fungsi-kuadrat"
+              ? import("../latihan-soal/latihan_fungsi_kuadrat.html?raw")
+              : exercise === "perbandingan-trigonometri"
+                ? import("../latihan-soal/latihan_perbandingan_trigonometri.html?raw")
+                : exercise === "peluang"
+                  ? import("../latihan-soal/latihan_peluang.html?raw")
+                  : exercise === "statistika"
+                    ? import("../latihan-soal/latihan_statistika.html?raw")
+                    : import("../latihan-soal/eksponensial.html?raw");
 
     loadHtml
       .then(({ default: html }) => {

@@ -55,6 +55,54 @@ const practiceModules = [
     points: 100,
     duration: 90,
   },
+  {
+    id: "05",
+    page: "practice-fungsi-kuadrat",
+    href: "/latihan-soal/fungsi-kuadrat",
+    title: "Fungsi Kuadrat",
+    description:
+      "Latih persamaan dan grafik fungsi kuadrat, diskriminan, akar, serta titik puncak melalui soal interaktif dan pembahasan.",
+    topics: ["Grafik parabola", "Diskriminan", "Akar dan titik puncak"],
+    questionCount: 30,
+    points: 100,
+    duration: 120,
+  },
+  {
+    id: "06",
+    page: "practice-perbandingan-trigonometri",
+    href: "/latihan-soal/perbandingan-trigonometri",
+    title: "Perbandingan Trigonometri",
+    description:
+      "Latih sinus, cosinus, tangen, sudut istimewa, serta sudut elevasi dan depresi melalui soal interaktif dan pembahasan.",
+    topics: ["Sinus, cosinus, tangen", "Sudut istimewa", "Elevasi dan depresi"],
+    questionCount: 23,
+    points: 100,
+    duration: 90,
+  },
+  {
+    id: "07",
+    page: "practice-peluang",
+    href: "/latihan-soal/peluang",
+    title: "Peluang",
+    description:
+      "Latih peluang kejadian, peluang bersyarat, kombinasi, dan frekuensi harapan melalui soal interaktif dan pembahasan.",
+    topics: ["Peluang kejadian", "Peluang bersyarat", "Frekuensi harapan"],
+    questionCount: 23,
+    points: 100,
+    duration: 90,
+  },
+  {
+    id: "08",
+    page: "practice-statistika",
+    href: "/latihan-soal/statistika",
+    title: "Statistika",
+    description:
+      "Latih mean, median, modus, dan penyajian data, termasuk pengolahan data berkelompok melalui soal interaktif dan pembahasan.",
+    topics: ["Mean, median, modus", "Data berkelompok", "Penyajian data"],
+    questionCount: 30,
+    points: 100,
+    duration: 120,
+  },
 ];
 
 export function PracticePage({ navigate }: PracticePageProps) {

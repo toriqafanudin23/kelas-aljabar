@@ -98,6 +98,10 @@ function App() {
     page !== "practice-barisan-deret" &&
     page !== "practice-vektor" &&
     page !== "practice-sppl" &&
+    page !== "practice-fungsi-kuadrat" &&
+    page !== "practice-perbandingan-trigonometri" &&
+    page !== "practice-peluang" &&
+    page !== "practice-statistika" &&
     page !== "simulation" &&
     page !== "simulation-play" &&
     page !== "shop" &&
@@ -149,6 +153,21 @@ function App() {
         )}
         {page === "practice-sppl" && (
           <PracticeExercisePage navigate={navigate} exercise="sppl" />
+        )}
+        {page === "practice-fungsi-kuadrat" && (
+          <PracticeExercisePage navigate={navigate} exercise="fungsi-kuadrat" />
+        )}
+        {page === "practice-perbandingan-trigonometri" && (
+          <PracticeExercisePage
+            navigate={navigate}
+            exercise="perbandingan-trigonometri"
+          />
+        )}
+        {page === "practice-peluang" && (
+          <PracticeExercisePage navigate={navigate} exercise="peluang" />
+        )}
+        {page === "practice-statistika" && (
+          <PracticeExercisePage navigate={navigate} exercise="statistika" />
         )}
         {page === "simulation" && <SimulationPage navigate={navigate} />}
         {page === "simulation-play" && (
