@@ -62,6 +62,66 @@ function ProductActions({
   );
 }
 
+function ModuleAjarPromoSection() {
+  return (
+    <section className="shop-section" aria-label="Produk Baru Modul Ajar">
+      <div className="shop-package-grid shop-package-grid--single">
+        <article className="shop-card shop-card--featured shop-card--module-promo">
+          <div className="shop-card-header">
+            <span className="shop-card-grade-badge shop-card-grade-badge--green">
+              {MODUL_AJAR_PEMBELAJARAN_MENDALAM.gradeLabel}
+            </span>
+            <span className="shop-card-grade">
+              {MODUL_AJAR_PEMBELAJARAN_MENDALAM.grade}
+            </span>
+          </div>
+          <div className="shop-card-body">
+            <h2 className="shop-card-title">
+              {MODUL_AJAR_PEMBELAJARAN_MENDALAM.title}
+            </h2>
+            <div className="shop-promo-price">
+              <del>{MODUL_AJAR_PEMBELAJARAN_MENDALAM.originalPrice}</del>
+              <span className="shop-promo-current-price">
+                {MODUL_AJAR_PEMBELAJARAN_MENDALAM.price}
+              </span>
+              <span className="shop-card-grade-badge shop-card-grade-badge--green">
+                PROMO 75%
+              </span>
+            </div>
+            <p className="shop-card-desc">
+              <strong>Pilih satu materi</strong> untuk satu modul ajar dengan
+              harga promo Rp5.000.
+            </p>
+            <p className="shop-includes-label">Materi tersedia</p>
+            <ul className="shop-card-list shop-card-list--check">
+              {MODUL_AJAR_PEMBELAJARAN_MENDALAM.availableMaterials.map(
+                (material) => (
+                  <li key={material}>
+                    <span className="shop-check-icon" aria-hidden="true">
+                      <Check size={15} strokeWidth={2.5} />
+                    </span>
+                    {material}
+                  </li>
+                ),
+              )}
+            </ul>
+            <p className="shop-card-desc">
+              {MODUL_AJAR_PEMBELAJARAN_MENDALAM.preorderMessage}
+            </p>
+          </div>
+          <div className="shop-card-footer">
+            <ProductActions
+              productId={MODUL_AJAR_PEMBELAJARAN_MENDALAM.id}
+              emailSubject={MODUL_AJAR_PEMBELAJARAN_MENDALAM.emailSubject}
+              emailBody={MODUL_AJAR_PEMBELAJARAN_MENDALAM.emailBody}
+            />
+          </div>
+        </article>
+      </div>
+    </section>
+  );
+}
+
 export function ShopPage({ navigate: _navigate }: ShopPageProps) {
   const scrollToSection = (sectionId: string) => {
     const target = document.getElementById(sectionId);
@@ -187,6 +247,8 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
           Custom Order
         </a>
       </nav>
+
+      <ModuleAjarPromoSection />
 
       <section
         id="paket-soal"
@@ -377,65 +439,10 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
             <span className="section-kicker">Bahan Ajar Lengkap</span>
             <h2>Paket Bahan Ajar per Materi</h2>
             <p>
-              Modul Ajar Pembelajaran Mendalam tersedia untuk materi pilihan;
-              materi lain dapat di-pre-order dengan estimasi penyusunan maksimal
-              3 hari. Bahan Ajar Matriks dan Fungsi Kuadrat juga tersedia.
+              Paket Bahan Ajar Matriks dan Fungsi Kuadrat tersedia untuk
+              mendukung pembelajaran per materi.
             </p>
           </div>
-        </div>
-
-        <div className="shop-package-grid shop-package-grid--single">
-          <article className="shop-card shop-card--featured">
-            <div className="shop-card-header">
-              <span className="shop-card-grade-badge shop-card-grade-badge--green">
-                {MODUL_AJAR_PEMBELAJARAN_MENDALAM.gradeLabel}
-              </span>
-              <span className="shop-card-grade">
-                {MODUL_AJAR_PEMBELAJARAN_MENDALAM.grade}
-              </span>
-            </div>
-            <div className="shop-card-body">
-              <h3 className="shop-card-title">
-                {MODUL_AJAR_PEMBELAJARAN_MENDALAM.title}
-              </h3>
-              <div className="shop-promo-price">
-                <del>{MODUL_AJAR_PEMBELAJARAN_MENDALAM.originalPrice}</del>
-                <span className="shop-promo-current-price">
-                  {MODUL_AJAR_PEMBELAJARAN_MENDALAM.price}
-                </span>
-                <span className="shop-card-grade-badge shop-card-grade-badge--green">
-                  PROMO 75%
-                </span>
-              </div>
-              <p className="shop-card-desc">
-                <strong>Pilih satu materi</strong> untuk satu modul ajar dengan
-                harga promo Rp5.000.
-              </p>
-              <p className="shop-includes-label">Materi tersedia</p>
-              <ul className="shop-card-list shop-card-list--check">
-                {MODUL_AJAR_PEMBELAJARAN_MENDALAM.availableMaterials.map(
-                  (material) => (
-                    <li key={material}>
-                      <span className="shop-check-icon" aria-hidden="true">
-                        <Check size={15} strokeWidth={2.5} />
-                      </span>
-                      {material}
-                    </li>
-                  ),
-                )}
-              </ul>
-              <p className="shop-card-desc">
-                {MODUL_AJAR_PEMBELAJARAN_MENDALAM.preorderMessage}
-              </p>
-            </div>
-            <div className="shop-card-footer">
-              <ProductActions
-                productId={MODUL_AJAR_PEMBELAJARAN_MENDALAM.id}
-                emailSubject={MODUL_AJAR_PEMBELAJARAN_MENDALAM.emailSubject}
-                emailBody={MODUL_AJAR_PEMBELAJARAN_MENDALAM.emailBody}
-              />
-            </div>
-          </article>
         </div>
 
         <div className="shop-package-grid shop-package-grid--2col">

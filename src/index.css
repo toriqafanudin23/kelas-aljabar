@@ -4922,6 +4922,43 @@ summary:focus-visible {
 .shop-card--featured {
   border-top: 3px solid var(--gold);
 }
+.shop-card--module-promo {
+  border-color: var(--navy-deep);
+  border-top: 3px solid var(--gold);
+  background: var(--navy-deep);
+}
+.shop-card--module-promo:hover {
+  border-color: var(--gold);
+}
+.shop-card--module-promo .shop-card-header {
+  background: var(--navy);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+.shop-card--module-promo .shop-card-grade,
+.shop-card--module-promo .shop-card-title,
+.shop-card--module-promo .shop-includes-label {
+  color: var(--gold-light);
+}
+.shop-card--module-promo .shop-card-desc,
+.shop-card--module-promo .shop-card-list li {
+  color: #e2eaf2;
+}
+.shop-card--module-promo .shop-promo-price del {
+  color: #bac9d8;
+}
+.shop-card--module-promo .shop-promo-current-price {
+  color: var(--gold-light);
+}
+.shop-card--module-promo .shop-card-list {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.shop-card--module-promo .shop-check-icon {
+  color: #86efac;
+}
+.shop-card--module-promo .shop-card-footer {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: #031f35;
+}
 .shop-card--coming {
   border-style: dashed;
   background: #fafafa;
