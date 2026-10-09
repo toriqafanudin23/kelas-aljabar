@@ -39,13 +39,15 @@ export function HomePage({ navigate }: HomePageProps) {
               Math 1729 · Portal Pembelajaran &amp; Bahan Ajar Matematika
             </span>
             <h1>
-              Platform Terpadu <em>Pembelajaran &amp; Perangkat Ajar</em> Matematika
+              Platform Terpadu <em>Pembelajaran &amp; Perangkat Ajar</em>{" "}
+              Matematika
             </h1>
             <p>
-              Membantu proses belajar-mengajar matematika berjalan lebih efektif,
-              presisi, dan terstruktur. Tersedia materi kurikulum lengkap, latihan
-              soal interaktif, simulasi konsep visual, serta bahan ajar siap pakai
-              (modul ajar, slide presentasi, bank soal, dan LKPD) untuk guru dan siswa.
+              Membantu proses belajar-mengajar matematika berjalan lebih
+              efektif, presisi, dan terstruktur. Tersedia materi kurikulum
+              lengkap, latihan soal interaktif, simulasi konsep visual, serta
+              bahan ajar siap pakai (modul ajar, slide presentasi, bank soal,
+              dan LKPD) untuk guru dan siswa.
             </p>
             <div className="hero-actions">
               <a
@@ -53,7 +55,7 @@ export function HomePage({ navigate }: HomePageProps) {
                 href="/simulasi"
                 onClick={(event) => navigate(event, "simulation")}
               >
-                Simulasi Matematika <span aria-hidden="true">→</span>
+                Simulasi Matematika Gratis<span aria-hidden="true">→</span>
               </a>
               <a
                 className="button button-quiet"
@@ -90,15 +92,21 @@ export function HomePage({ navigate }: HomePageProps) {
       </section>
 
       {/* 3. Empat Pilar Platform */}
-      <section className="pillars-section" aria-label="Pilar Platform Pembelajaran">
+      <section
+        className="pillars-section"
+        aria-label="Pilar Platform Pembelajaran"
+      >
         <div className="site-width">
           <div className="section-heading">
             <div>
-              <span className="section-kicker">Ekosistem Pembelajaran Terintegrasi</span>
+              <span className="section-kicker">
+                Ekosistem Pembelajaran Terintegrasi
+              </span>
               <h2>4 Pilar Pembelajaran Math 1729</h2>
               <p>
-                Dirancang secara sistematis untuk menjawab kebutuhan pemahaman konsep
-                siswa sekaligus mempermudah persiapan mengajar guru di kelas.
+                Dirancang secara sistematis untuk menjawab kebutuhan pemahaman
+                konsep siswa sekaligus mempermudah persiapan mengajar guru di
+                kelas.
               </p>
             </div>
           </div>
@@ -133,9 +141,9 @@ export function HomePage({ navigate }: HomePageProps) {
               </div>
               <h3>Latihan Soal Interaktif</h3>
               <p>
-                Uji pemahaman topik secara terukur melalui soal interaktif dengan
-                kunci jawaban, analisis skor, dan pembahasan langkah demi langkah
-                untuk persiapan ulangan hingga UTBK-SNBT.
+                Uji pemahaman topik secara terukur melalui soal interaktif
+                dengan kunci jawaban, analisis skor, dan pembahasan langkah demi
+                langkah untuk persiapan ulangan hingga UTBK-SNBT.
               </p>
               <a
                 href="/latihan-soal"
@@ -175,9 +183,9 @@ export function HomePage({ navigate }: HomePageProps) {
               </div>
               <h3>Bahan Ajar Siap Pakai</h3>
               <p>
-                Perangkat pembelajaran siap pakai untuk guru: modul ajar terstruktur,
-                slide presentasi kelas, bank soal latihan, dan LKPD Discovery
-                Learning dalam format PDF dan LaTeX editable.
+                Perangkat pembelajaran siap pakai untuk guru: modul ajar
+                terstruktur, slide presentasi kelas, bank soal latihan, dan LKPD
+                Discovery Learning dalam format PDF dan LaTeX editable.
               </p>
               <a
                 href="/beli"
@@ -199,12 +207,14 @@ export function HomePage({ navigate }: HomePageProps) {
         <div className="site-width">
           <div className="section-heading">
             <div>
-              <span className="section-kicker">Solusi Pendidik &amp; Manajemen Kelas</span>
+              <span className="section-kicker">
+                Solusi Pendidik &amp; Manajemen Kelas
+              </span>
               <h2>Bahan Ajar Siap Pakai untuk Guru &amp; Kelas</h2>
               <p>
-                Tingkatkan efektivitas mengajar dengan dokumen berkualitas tinggi
-                berstandar kurikulum nasional. Tersedia dalam format PDF siap cetak
-                dan berkas LaTeX (.tex) yang dapat diedit bebas.
+                Tingkatkan efektivitas mengajar dengan dokumen berkualitas
+                tinggi berstandar kurikulum nasional. Tersedia dalam format PDF
+                siap cetak dan berkas LaTeX (.tex) yang dapat diedit bebas.
               </p>
             </div>
             <a
@@ -226,7 +236,8 @@ export function HomePage({ navigate }: HomePageProps) {
               <h3>Modul Ajar Terstruktur</h3>
               <p>
                 Rancangan alur pembelajaran komprehensif, dilengkapi tujuan
-                pembelajaran, materi esensial, contoh soal bertingkat, dan panduan asesmen.
+                pembelajaran, materi esensial, contoh soal bertingkat, dan
+                panduan asesmen.
               </p>
               <div className="teaching-features-list">
                 <div className="teaching-feature-item">
@@ -260,8 +271,9 @@ export function HomePage({ navigate }: HomePageProps) {
               </div>
               <h3>Slide Presentasi Pengajaran</h3>
               <p>
-                Bahan tayang proyektor dengan tipografi jernih, bagan alir konsep,
-                dan grafik tajam untuk menarik perhatian serta mempermudah penjelasan di kelas.
+                Bahan tayang proyektor dengan tipografi jernih, bagan alir
+                konsep, dan grafik tajam untuk menarik perhatian serta
+                mempermudah penjelasan di kelas.
               </p>
               <div className="teaching-features-list">
                 <div className="teaching-feature-item">
@@ -295,8 +307,9 @@ export function HomePage({ navigate }: HomePageProps) {
               </div>
               <h3>Bank Soal &amp; Kunci Pembahasan</h3>
               <p>
-                Kumpulan paket latihan soal ulangan harian, ujian semester, serta
-                persiapan TKA SMP/SMA lengkap dengan kunci jawaban dan pembahasan analitis.
+                Kumpulan paket latihan soal ulangan harian, ujian semester,
+                serta persiapan TKA SMP/SMA lengkap dengan kunci jawaban dan
+                pembahasan analitis.
               </p>
               <div className="teaching-features-list">
                 <div className="teaching-feature-item">
@@ -330,8 +343,9 @@ export function HomePage({ navigate }: HomePageProps) {
               </div>
               <h3>LKPD Discovery &amp; PBL</h3>
               <p>
-                Lembar Kerja Peserta Didik terstruktur yang memandu siswa menemukan
-                konsep matematika secara mandiri melalui pendekatan penemuan terbimbing.
+                Lembar Kerja Peserta Didik terstruktur yang memandu siswa
+                menemukan konsep matematika secara mandiri melalui pendekatan
+                penemuan terbimbing.
               </p>
               <div className="teaching-features-list">
                 <div className="teaching-feature-item">
@@ -364,7 +378,8 @@ export function HomePage({ navigate }: HomePageProps) {
               <h4>Memerlukan Paket Hemat atau Materi Spesifik?</h4>
               <p>
                 Tersedia paket hemat per jenjang kelas (Kelas X, XI, XII) serta
-                pemesanan custom sesuai indikator capaian kurikulum di sekolah Anda.
+                pemesanan custom sesuai indikator capaian kurikulum di sekolah
+                Anda.
               </p>
             </div>
             <a
@@ -372,7 +387,8 @@ export function HomePage({ navigate }: HomePageProps) {
               className="teaching-callout-btn"
               onClick={(e) => navigate(e, "shop")}
             >
-              Buka Halaman Beli Produk <ArrowRight size={14} aria-hidden="true" />
+              Buka Halaman Beli Produk{" "}
+              <ArrowRight size={14} aria-hidden="true" />
             </a>
           </div>
         </div>
@@ -637,9 +653,9 @@ export function HomePage({ navigate }: HomePageProps) {
           </span>
           <h2>Kuasai Matematika Lebih Mendalam. Mengajar Lebih Efektif.</h2>
           <p>
-            Tinggalkan cara menghafal tanpa pemahaman. Mulai bangun intuisi analitis
-            melalui kurikulum terstruktur Math 1729, atau lengkapi perangkat kelas
-            Anda dengan bahan ajar siap pakai.
+            Tinggalkan cara menghafal tanpa pemahaman. Mulai bangun intuisi
+            analitis melalui kurikulum terstruktur Math 1729, atau lengkapi
+            perangkat kelas Anda dengan bahan ajar siap pakai.
           </p>
           <div className="cta-banner-actions">
             <a
