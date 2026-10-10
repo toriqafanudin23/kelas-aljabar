@@ -128,7 +128,9 @@ export function SiteHeader({
               page === "practice-kombinatorika" ||
               page === "practice-irisan-kerucut" ||
               page === "practice-integral" ||
-              page === "practice-analisis-data-peluang"
+              page === "practice-analisis-data-peluang" ||
+              page === "practice-limit" ||
+              page === "practice-bilangan-kompleks"
                 ? "active"
                 : ""
             }
@@ -240,7 +242,7 @@ export function SiteHeader({
             </a>
 
             <a
-              className={`drawer-primary-link ${page === "practice" || page === "practice-eksponensial" || page === "practice-barisan-deret" || page === "practice-vektor" || page === "practice-sppl" || page === "practice-fungsi-kuadrat" || page === "practice-perbandingan-trigonometri" || page === "practice-peluang" || page === "practice-statistika" || page === "practice-transformasi-geometri" || page === "practice-polinomial" || page === "practice-matriks" || page === "practice-lingkaran" || page === "practice-komposisi-fungsi-dan-invers" || page === "practice-turunan" || page === "practice-fungsi-pemodelan" || page === "practice-transformasi-fungsi" || page === "practice-kombinatorika" || page === "practice-irisan-kerucut" || page === "practice-integral" || page === "practice-analisis-data-peluang" ? "active" : ""}`}
+              className={`drawer-primary-link ${page === "practice" || page === "practice-eksponensial" || page === "practice-barisan-deret" || page === "practice-vektor" || page === "practice-sppl" || page === "practice-fungsi-kuadrat" || page === "practice-perbandingan-trigonometri" || page === "practice-peluang" || page === "practice-statistika" || page === "practice-transformasi-geometri" || page === "practice-polinomial" || page === "practice-matriks" || page === "practice-lingkaran" || page === "practice-komposisi-fungsi-dan-invers" || page === "practice-turunan" || page === "practice-fungsi-pemodelan" || page === "practice-transformasi-fungsi" || page === "practice-kombinatorika" || page === "practice-irisan-kerucut" || page === "practice-integral" || page === "practice-analisis-data-peluang" || page === "practice-limit" || page === "practice-bilangan-kompleks" ? "active" : ""}`}
               href="/latihan-soal"
               onClick={(event) => handleNavigation(event, "practice")}
             >

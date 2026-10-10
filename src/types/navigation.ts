@@ -31,6 +31,8 @@ export type Page =
   | "practice-irisan-kerucut"
   | "practice-integral"
   | "practice-analisis-data-peluang"
+  | "practice-limit"
+  | "practice-bilangan-kompleks"
   | string;
 export type Navigate = (
   event: MouseEvent<HTMLAnchorElement>,
@@ -158,6 +160,15 @@ export function getPageFromPath(path: string): Page {
   ) {
     return "practice-analisis-data-peluang";
   }
+  if (path === "/latihan-soal/limit" || path === "/latihan-soal/limit/") {
+    return "practice-limit";
+  }
+  if (
+    path === "/latihan-soal/bilangan-kompleks" ||
+    path === "/latihan-soal/bilangan-kompleks/"
+  ) {
+    return "practice-bilangan-kompleks";
+  }
   if (path === "/simulasi" || path === "/simulasi/") return "simulation";
   if (
     path === "/simulasi-interaktif" ||
@@ -220,6 +231,10 @@ export function getPathFromPage(page: Page): string {
   if (page === "practice-integral") return "/latihan-soal/integral";
   if (page === "practice-analisis-data-peluang") {
     return "/latihan-soal/analisis-data-peluang";
+  }
+  if (page === "practice-limit") return "/latihan-soal/limit";
+  if (page === "practice-bilangan-kompleks") {
+    return "/latihan-soal/bilangan-kompleks";
   }
   if (page === "simulation") return "/simulasi";
   if (page === "simulation-play") return "/simulasi-interaktif";

@@ -114,6 +114,8 @@ function App() {
     page !== "practice-irisan-kerucut" &&
     page !== "practice-integral" &&
     page !== "practice-analisis-data-peluang" &&
+    page !== "practice-limit" &&
+    page !== "practice-bilangan-kompleks" &&
     page !== "simulation" &&
     page !== "simulation-play" &&
     page !== "shop" &&
@@ -230,6 +232,15 @@ function App() {
           <PracticeExercisePage
             navigate={navigate}
             exercise="analisis-data-peluang"
+          />
+        )}
+        {page === "practice-limit" && (
+          <PracticeExercisePage navigate={navigate} exercise="limit" />
+        )}
+        {page === "practice-bilangan-kompleks" && (
+          <PracticeExercisePage
+            navigate={navigate}
+            exercise="bilangan-kompleks"
           />
         )}
         {page === "simulation" && <SimulationPage navigate={navigate} />}

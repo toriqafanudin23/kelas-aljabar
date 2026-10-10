@@ -1,0 +1,1300 @@
+<section
+  id="latihan-bilangan-kompleks"
+  data-title="Latihan Soal Bilangan Kompleks"
+  class="latihan-eks"
+>
+  <style>
+    #latihan-bilangan-kompleks .tabel-data { margin: 0.8rem auto; border-collapse: collapse; text-align: center; }
+    #latihan-bilangan-kompleks .tabel-data th,
+    #latihan-bilangan-kompleks .tabel-data td { border: 1px solid rgba(128, 128, 128, 0.4); padding: 0.3rem 0.55rem; }
+    #latihan-bilangan-kompleks .catatan-bentuk { font-size: 0.92em; opacity: 0.85; }
+  </style>
+  <h2>Latihan Soal Bilangan Kompleks</h2>
+
+  <p>
+    Soal terdiri atas <strong>20 pilihan ganda</strong> (5 mudah, 5 sedang, 5
+    sulit, 5 HOTS), <strong>5 isian singkat</strong> (2 sedang, 3 sulit), dan
+    <strong>5 uraian (essay)</strong> (2 sedang, 2 sulit, 1 HOTS). Cakupan
+    materinya bentuk \(a+bi\), operasi, konjugat, modulus, argumen, tafsiran
+    geometri, dan persamaan kuadrat. Alokasi waktu yang disarankan adalah 120
+    menit. Klik salah satu pilihan jawaban untuk langsung melihat hasilnya, dan
+    buka <strong>Lihat pembahasan</strong> di bawah setiap soal jika ingin
+    memeriksa langkah penyelesaiannya.
+  </p>
+
+  <ul>
+    <li>Soal disusun berjenjang dari mudah sampai HOTS dan sebagian bergaya UTBK: pernyataan benar&ndash;salah (soal 16), kecukupan data (soal 13), perbandingan kuantitas \(P\) dan \(Q\) (soal 14), serta soal berkonteks dan bergambar.</li>
+    <li>Skor: pilihan ganda 2 poin, isian singkat 4 poin, uraian 8 poin per soal (total 100 poin). Tidak ada pengurangan skor untuk jawaban salah.</li>
+    <li>Notasi: \(i^2=-1\); untuk \(z=a+bi\) dengan \(a,b\) real berlaku \(\operatorname{Re}(z)=a\), \(\operatorname{Im}(z)=b\), \(\bar z=a-bi\), dan \(|z|=\sqrt{a^2+b^2}\). Argumen utama \(\arg(z)\) berada pada \(-\pi&lt;\arg(z)\le\pi\). Pada diagram Argand, sumbu mendatar adalah sumbu real (Re) dan sumbu tegak adalah sumbu imajiner (Im).</li>
+    <li>Gambar tidak selalu digambar sesuai skala. Jawaban isian singkat berupa bilangan atau bilangan kompleks \(a+bi\) dalam bentuk paling sederhana (pecahan ditulis dengan garis miring, huruf &pi; dapat ditulis pi). Kalkulator tidak diperkenankan.</li>
+  </ul>
+
+  <div class="skor-bar" role="status" aria-live="polite">
+    <span
+      >Pilihan ganda: <strong data-skor-pg>0</strong> benar dari
+      <strong data-jawab-pg>0</strong> dijawab (total 20)</span
+    >
+    <span>Isian singkat: <strong data-skor-is>0</strong> benar dari 5</span>
+    <button type="button" class="btn-ulang">Ulangi semua</button>
+  </div>
+
+  <h3>A. Pilihan Ganda</h3>
+  <p>
+    20 soal \(\times\) 2 poin = 40 poin. Pilih jawaban yang paling tepat.
+  </p>
+  <p class="tingkat"><strong>Tingkat Mudah</strong> <em>(soal 1 sampai 5)</em></p>
+  <!-- Soal PG 1 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 1</h4>
+
+    <p>Nilai dari \(i+i^2+i^3+\cdots+i^{2026}\) adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="mx-pg-bk-1" value="A" /><span class="huruf">A</span><span class="isi">\(0\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-1" value="B" /><span class="huruf">B</span><span class="isi">\(-1\)</span></label>
+      <label class="opsi k"><input type="radio" name="mx-pg-bk-1" value="C" /><span class="huruf">C</span><span class="isi">\(-1+i\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-1" value="D" /><span class="huruf">D</span><span class="isi">\(1+i\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-1" value="E" /><span class="huruf">E</span><span class="isi">\(i\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah C.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah C.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Empat suku berurutan berjumlah nol: \(i+i^2+i^3+i^4=i-1-i+1=0\). Dari \(i^1\) sampai \(i^{2024}\) ada \(506\) kelompok yang masing-masing bernilai \(0\).</p>
+      <p>Sisanya \(i^{2025}+i^{2026}=i+(-1)=-1+i\).</p>
+      <p>Jebakan: \(0\) jika mengira semua suku habis dikelompokkan; \(-1\) jika lupa \(i^{2025}\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 2 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 2</h4>
+
+    <p>Pada diagram Argand, titik \(P\) mewakili bilangan kompleks \(z\) dan titik \(Q\) mewakili bilangan kompleks \(w\). Nilai \(z+\bar w\) adalah ....</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 300 244" role="img" aria-label="Diagram Argand dengan titik P(3,2) mewakili z dan titik Q(-1,3) mewakili w" style="width: 100%; max-width: 300px; height: auto" font-size="12" font-family="inherit">
+<line x1="30.0" y1="216.0" x2="30.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="68.0" y1="216.0" x2="68.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="106.0" y1="216.0" x2="106.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="144.0" y1="216.0" x2="144.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="182.0" y1="216.0" x2="182.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="220.0" y1="216.0" x2="220.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="258.0" y1="216.0" x2="258.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="216.0" x2="258.0" y2="216.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="178.0" x2="258.0" y2="178.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="140.0" x2="258.0" y2="140.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="102.0" x2="258.0" y2="102.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="64.0" x2="258.0" y2="64.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="26.0" x2="258.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="178.0" x2="267.0" y2="178.0" stroke="currentColor" stroke-width="1.6"/>
+<line x1="106.0" y1="216.0" x2="106.0" y2="17.0" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="267.0,178.0 260.0,174.5 260.0,181.5" fill="currentColor"/>
+<polygon points="106.0,17.0 102.5,24.0 109.5,24.0" fill="currentColor"/>
+<text x="270.0" y="182.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">Re</text>
+<text x="113.0" y="21.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">Im</text>
+<text x="30.0" y="191.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">−2</text>
+<text x="68.0" y="191.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">−1</text>
+<text x="144.0" y="191.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="182.0" y="191.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="220.0" y="191.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="258.0" y="191.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="101.0" y="219.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">−1</text>
+<text x="101.0" y="143.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="101.0" y="105.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="101.0" y="67.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="101.0" y="29.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<circle cx="220.0" cy="102.0" r="3.4" fill="#7a1c2c"/>
+<circle cx="68.0" cy="64.0" r="3.4" fill="#e0457b"/>
+<text x="226.0" y="95.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">P</text>
+<text x="62.0" y="57.0" text-anchor="end" font-size="12" font-style="italic" fill="currentColor">Q</text>
+</svg>
+</figure>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="mx-pg-bk-2" value="A" /><span class="huruf">A</span><span class="isi">\(2+5i\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-2" value="B" /><span class="huruf">B</span><span class="isi">\(4-i\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-2" value="C" /><span class="huruf">C</span><span class="isi">\(2+i\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-2" value="D" /><span class="huruf">D</span><span class="isi">\(4+5i\)</span></label>
+      <label class="opsi k"><input type="radio" name="mx-pg-bk-2" value="E" /><span class="huruf">E</span><span class="isi">\(2-i\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah E.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah E.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Dari diagram, \(z=3+2i\) dan \(w=-1+3i\), sehingga \(\bar w=-1-3i\). Maka \(z+\bar w=(3-1)+(2-3)i=2-i\).</p>
+      <p>Jebakan: A adalah \(z+w\), B adalah \(z-w\), C adalah \(\bar z+w\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 3 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 3</h4>
+
+    <p>Bilangan kompleks \(z=(x^2-4)+(x+2)i\) dengan \(x\) real merupakan bilangan imajiner murni. Nilai \(x\) adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi k"><input type="radio" name="mx-pg-bk-3" value="A" /><span class="huruf">A</span><span class="isi">\(2\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-3" value="B" /><span class="huruf">B</span><span class="isi">\(-2\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-3" value="C" /><span class="huruf">C</span><span class="isi">\(0\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-3" value="D" /><span class="huruf">D</span><span class="isi">\(-2\text{ atau }2\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-3" value="E" /><span class="huruf">E</span><span class="isi">\(4\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah A.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah A.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Imajiner murni berarti bagian real \(=0\) dan bagian imajiner \(\ne0\). Dari \(x^2-4=0\) diperoleh \(x=\pm2\).</p>
+      <p>Untuk \(x=-2\) bagian imajiner \(x+2=0\), sehingga \(z=0\) yang bukan imajiner murni. Jadi \(x=2\) dan \(z=4i\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 4 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 4</h4>
+
+    <p>Jika \(z=1-2i\), maka \(\dfrac1z+\dfrac1{\bar z}=\) ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="mx-pg-bk-4" value="A" /><span class="huruf">A</span><span class="isi">\(\frac15\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-4" value="B" /><span class="huruf">B</span><span class="isi">\(\frac{2}{\sqrt5}\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-4" value="C" /><span class="huruf">C</span><span class="isi">\(\frac45\)</span></label>
+      <label class="opsi k"><input type="radio" name="mx-pg-bk-4" value="D" /><span class="huruf">D</span><span class="isi">\(\frac25\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-4" value="E" /><span class="huruf">E</span><span class="isi">\(2\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah D.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah D.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>\(\dfrac1z+\dfrac1{\bar z}=\dfrac{z+\bar z}{z\bar z}=\dfrac{2\operatorname{Re}(z)}{|z|^2}=\dfrac{2\cdot1}{5}=\dfrac25\).</p>
+      <p>Cek langsung: \(\dfrac1z=\dfrac{1+2i}{5}\) dan \(\dfrac1{\bar z}=\dfrac{1-2i}{5}\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 5 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 5</h4>
+
+    <p>Argumen utama dari bilangan kompleks \(z=-\sqrt3+i\) adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="mx-pg-bk-5" value="A" /><span class="huruf">A</span><span class="isi">\(\frac\pi6\)</span></label>
+      <label class="opsi k"><input type="radio" name="mx-pg-bk-5" value="B" /><span class="huruf">B</span><span class="isi">\(\frac{5\pi}6\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-5" value="C" /><span class="huruf">C</span><span class="isi">\(-\frac\pi6\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-5" value="D" /><span class="huruf">D</span><span class="isi">\(-\frac{5\pi}6\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-5" value="E" /><span class="huruf">E</span><span class="isi">\(\frac{2\pi}3\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah B.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah B.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Titik \((-\sqrt3,1)\) berada di kuadran II dengan sudut acuan \(\alpha=\arctan\dfrac{1}{\sqrt3}=\dfrac\pi6\). Maka \(\arg(z)=\pi-\dfrac\pi6=\dfrac{5\pi}6\).</p>
+      <p>Jebakan: A mengabaikan kuadran; C dan D salah kuadran.</p>
+      <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+    </details>
+  </div>
+
+  <p class="tingkat"><strong>Tingkat Sedang</strong> <em>(soal 6 sampai 10)</em></p>
+  <!-- Soal PG 6 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 6</h4>
+
+    <p>Bilangan kompleks \(z\) memenuhi \(2z-i\bar z=5-i\). Nilai \(z^2\) adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="mx-pg-bk-6" value="A" /><span class="huruf">A</span><span class="isi">\(10\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-6" value="B" /><span class="huruf">B</span><span class="isi">\(8-6i\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-6" value="C" /><span class="huruf">C</span><span class="isi">\(10+6i\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-6" value="D" /><span class="huruf">D</span><span class="isi">\(6+8i\)</span></label>
+      <label class="opsi k"><input type="radio" name="mx-pg-bk-6" value="E" /><span class="huruf">E</span><span class="isi">\(8+6i\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah E.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah E.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Misalkan \(z=x+yi\). Maka \(2z-i\bar z=2x+2yi-i(x-yi)=(2x-y)+(2y-x)i\).</p>
+      <p>Dari \(2x-y=5\) dan \(2y-x=-1\) diperoleh \(y=1\) dan \(x=3\), jadi \(z=3+i\) dan \(z^2=9+6i-1=8+6i\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 7 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 7</h4>
+
+    <p>Persamaan \(x^2-6x+25=0\) mempunyai akar-akar kompleks \(z_1\) dan \(z_2\). Pada diagram Argand, titik asal \(O\) dan titik-titik yang mewakili \(z_1\) dan \(z_2\) membentuk sebuah segitiga (daerah arsiran). Luas segitiga tersebut adalah .... satuan luas.</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 240 334" role="img" aria-label="Segitiga dengan titik sudut O, z1 = 3+4i, dan z2 = 3-4i pada diagram Argand" style="width: 100%; max-width: 240px; height: auto" font-size="12" font-family="inherit">
+<line x1="30.0" y1="166.0" x2="207.0" y2="166.0" stroke="currentColor" stroke-width="1.6"/>
+<line x1="58.0" y1="306.0" x2="58.0" y2="17.0" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="207.0,166.0 200.0,162.5 200.0,169.5" fill="currentColor"/>
+<polygon points="58.0,17.0 54.5,24.0 61.5,24.0" fill="currentColor"/>
+<text x="210.0" y="170.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">Re</text>
+<text x="65.0" y="21.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">Im</text>
+<polygon points="58.0,166.0 142.0,54.0 142.0,278.0" fill="#e0457b" fill-opacity="0.3" stroke="#be123c" stroke-width="2.2" stroke-linejoin="round"/>
+<circle cx="58.0" cy="166.0" r="3" fill="currentColor"/>
+<circle cx="142.0" cy="54.0" r="3" fill="currentColor"/>
+<circle cx="142.0" cy="278.0" r="3" fill="currentColor"/>
+<text x="52.0" y="180.0" text-anchor="end" font-size="12" font-style="italic" fill="currentColor">O</text>
+<text x="148.0" y="48.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">z<tspan font-size="9" dy="3">1</tspan></text>
+<text x="148.0" y="292.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">z<tspan font-size="9" dy="3">2</tspan></text>
+</svg>
+</figure>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="mx-pg-bk-7" value="A" /><span class="huruf">A</span><span class="isi">\(6\)</span></label>
+      <label class="opsi k"><input type="radio" name="mx-pg-bk-7" value="B" /><span class="huruf">B</span><span class="isi">\(12\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-7" value="C" /><span class="huruf">C</span><span class="isi">\(18\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-7" value="D" /><span class="huruf">D</span><span class="isi">\(24\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-7" value="E" /><span class="huruf">E</span><span class="isi">\(25\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah B.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah B.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Akar-akarnya \(x=\dfrac{6\pm\sqrt{36-100}}{2}=3\pm4i\). Titik-titiknya \(O(0,0)\), \((3,4)\), dan \((3,-4)\).</p>
+      <p>Alas segitiga adalah ruas yang menghubungkan \((3,4)\) dan \((3,-4)\) sepanjang \(8\), dan tinggi \(=3\) (jarak \(O\) ke garis \(\operatorname{Re}(z)=3\)). Luas \(=\frac12\cdot8\cdot3=12\).</p>
+      <p>Jebakan D: lupa faktor \(\frac12\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 8 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 8</h4>
+
+    <p>Titik \(A\) mewakili bilangan kompleks \(z=4+i\). Titik \(A\) diputar \(90^\circ\) berlawanan arah jarum jam terhadap titik asal, kemudian digeser \(2\) satuan ke kiri dan \(3\) satuan ke atas sehingga menjadi titik \(A'\). Bilangan kompleks yang diwakili \(A'\) adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="mx-pg-bk-8" value="A" /><span class="huruf">A</span><span class="isi">\(-4+2i\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-8" value="B" /><span class="huruf">B</span><span class="isi">\(-1-i\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-8" value="C" /><span class="huruf">C</span><span class="isi">\(1+7i\)</span></label>
+      <label class="opsi k"><input type="radio" name="mx-pg-bk-8" value="D" /><span class="huruf">D</span><span class="isi">\(-3+7i\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-8" value="E" /><span class="huruf">E</span><span class="isi">\(1+i\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah D.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah D.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Putar: \(i(4+i)=-1+4i\). Geser \(-2+3i\): \((-1+4i)+(-2+3i)=-3+7i\).</p>
+      <p>Jebakan: A (geser dahulu baru putar) \(i\big((4+i)+(-2+3i)\big)=-4+2i\); B (putar searah jarum jam) \(-i(4+i)+(-2+3i)=-1-i\); C (salah arah geser horizontal) \(1+7i\); E (salah arah geser vertikal) \(1+i\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 9 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 9</h4>
+
+    <p>Jika \(z=2-i\), maka nilai \(z^3-4z^2+7z+2\) adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi k"><input type="radio" name="mx-pg-bk-9" value="A" /><span class="huruf">A</span><span class="isi">\(6-2i\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-9" value="B" /><span class="huruf">B</span><span class="isi">\(6+2i\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-9" value="C" /><span class="huruf">C</span><span class="isi">\(2-11i\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-9" value="D" /><span class="huruf">D</span><span class="isi">\(4-2i\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-9" value="E" /><span class="huruf">E</span><span class="isi">\(0\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah A.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah A.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Karena \(z=2-i\) adalah akar \(x^2-4x+5=0\), berlaku \(z^2-4z+5=0\). Maka \(z^3-4z^2+7z+2=z(z^2-4z+5)+2z+2=2z+2=6-2i\).</p>
+      <p>Cek langsung: \(z^2=3-4i\) dan \(z^3=2-11i\), sehingga \((2-11i)-4(3-4i)+7(2-i)+2=6-2i\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 10 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 10</h4>
+
+    <p>Bilangan kompleks \(z\) bergerak pada lingkaran berpusat di titik yang mewakili \(3+4i\) dan berjari-jari \(2\) (lihat gambar). Nilai minimum \(|z|\) adalah ....</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 327 343" role="img" aria-label="Lingkaran berpusat di 3+4i dengan jari-jari 2 pada diagram Argand" style="width: 100%; max-width: 327px; height: auto" font-size="12" font-family="inherit">
+<line x1="30.0" y1="315.0" x2="30.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="64.0" y1="315.0" x2="64.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="98.0" y1="315.0" x2="98.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="132.0" y1="315.0" x2="132.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="166.0" y1="315.0" x2="166.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="200.0" y1="315.0" x2="200.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="234.0" y1="315.0" x2="234.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="268.0" y1="315.0" x2="268.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="315.0" x2="285.0" y2="315.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="281.0" x2="285.0" y2="281.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="247.0" x2="285.0" y2="247.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="213.0" x2="285.0" y2="213.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="179.0" x2="285.0" y2="179.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="145.0" x2="285.0" y2="145.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="111.0" x2="285.0" y2="111.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="77.0" x2="285.0" y2="77.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="43.0" x2="285.0" y2="43.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="281.0" x2="294.0" y2="281.0" stroke="currentColor" stroke-width="1.6"/>
+<line x1="64.0" y1="315.0" x2="64.0" y2="17.0" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="294.0,281.0 287.0,277.5 287.0,284.5" fill="currentColor"/>
+<polygon points="64.0,17.0 60.5,24.0 67.5,24.0" fill="currentColor"/>
+<text x="297.0" y="285.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">Re</text>
+<text x="71.0" y="21.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">Im</text>
+<text x="98.0" y="294.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="132.0" y="294.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="166.0" y="294.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="200.0" y="294.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="234.0" y="294.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="268.0" y="294.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">6</text>
+<text x="59.0" y="250.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="59.0" y="216.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="59.0" y="182.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="59.0" y="148.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="59.0" y="114.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="59.0" y="80.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">6</text>
+<text x="59.0" y="46.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">7</text>
+<circle cx="166.0" cy="145.0" r="68.0" fill="#e0457b" fill-opacity="0.15" stroke="#e0457b" stroke-width="2.4"/>
+<circle cx="166.0" cy="145.0" r="3.2" fill="#7a1c2c"/>
+<line x1="166.0" y1="145.0" x2="234.0" y2="145.0" stroke="#7a1c2c" stroke-width="1.2"/>
+<text x="200.0" y="158.0" text-anchor="middle" font-size="10" fill="currentColor">2</text>
+<text x="160.0" y="137.0" text-anchor="end" font-size="11" fill="currentColor">3+4i</text>
+<text x="58.0" y="295.0" text-anchor="end" font-size="11" font-style="italic" fill="currentColor">O</text>
+</svg>
+</figure>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="mx-pg-bk-10" value="A" /><span class="huruf">A</span><span class="isi">\(1\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-10" value="B" /><span class="huruf">B</span><span class="isi">\(2\)</span></label>
+      <label class="opsi k"><input type="radio" name="mx-pg-bk-10" value="C" /><span class="huruf">C</span><span class="isi">\(3\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-10" value="D" /><span class="huruf">D</span><span class="isi">\(5\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-10" value="E" /><span class="huruf">E</span><span class="isi">\(7\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah C.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah C.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Jarak pusat \(3+4i\) ke titik asal adalah \(5\). Dengan ketaksamaan segitiga, \(|z|\ge|3+4i|-|z-(3+4i)|=5-2=3\), dan kesamaan tercapai di titik lingkaran yang terletak pada ruas \(O\) ke pusat.</p>
+      <p>Nilai maksimumnya \(5+2=7\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+    </details>
+  </div>
+
+  <p class="tingkat"><strong>Tingkat Sulit</strong> <em>(soal 11 sampai 15, setara UTBK)</em></p>
+  <!-- Soal PG 11 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 11</h4>
+
+    <p>Banyaknya bilangan kompleks \(z\) yang memenuhi \(z^2=\bar z\) adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="mx-pg-bk-11" value="A" /><span class="huruf">A</span><span class="isi">\(1\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-11" value="B" /><span class="huruf">B</span><span class="isi">\(2\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-11" value="C" /><span class="huruf">C</span><span class="isi">\(3\)</span></label>
+      <label class="opsi k"><input type="radio" name="mx-pg-bk-11" value="D" /><span class="huruf">D</span><span class="isi">\(4\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-11" value="E" /><span class="huruf">E</span><span class="isi">\(5\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah D.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah D.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Misalkan \(z=x+yi\). Dari \(z^2=\bar z\): \(x^2-y^2=x\) dan \(2xy=-y\). Persamaan kedua memberi \(y=0\) atau \(x=-\frac12\).</p>
+      <p>Jika \(y=0\): \(x^2=x\), sehingga \(z=0\) atau \(z=1\). Jika \(x=-\frac12\): \(\frac14-y^2=-\frac12\), sehingga \(y=\pm\frac{\sqrt3}{2}\), yaitu dua bilangan. Total \(4\).</p>
+      <p>Jebakan: lupa \(z=0\) atau lupa kasus \(y=0\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 12 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 12</h4>
+
+    <p>Pada diagram Argand, titik \(A\) mewakili \(1+2i\) dan titik \(B\) mewakili \(4+3i\). Titik \(C\) dan \(D\) ditentukan sehingga \(ABCD\) adalah persegi dengan urutan titik berlawanan arah jarum jam. Bilangan kompleks yang mewakili titik pusat persegi \(ABCD\) adalah ....</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 336 296" role="img" aria-label="Titik A(1,2) dan B(4,3) dihubungkan oleh ruas garis pada diagram Argand" style="width: 100%; max-width: 336px; height: auto" font-size="12" font-family="inherit">
+<line x1="30.0" y1="268.0" x2="30.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="74.0" y1="268.0" x2="74.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="118.0" y1="268.0" x2="118.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="162.0" y1="268.0" x2="162.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="206.0" y1="268.0" x2="206.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="250.0" y1="268.0" x2="250.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="294.0" y1="268.0" x2="294.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="268.0" x2="294.0" y2="268.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="224.0" x2="294.0" y2="224.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="180.0" x2="294.0" y2="180.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="136.0" x2="294.0" y2="136.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="92.0" x2="294.0" y2="92.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="48.0" x2="294.0" y2="48.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="224.0" x2="303.0" y2="224.0" stroke="currentColor" stroke-width="1.6"/>
+<line x1="74.0" y1="268.0" x2="74.0" y2="17.0" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="303.0,224.0 296.0,220.5 296.0,227.5" fill="currentColor"/>
+<polygon points="74.0,17.0 70.5,24.0 77.5,24.0" fill="currentColor"/>
+<text x="306.0" y="228.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">Re</text>
+<text x="81.0" y="21.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">Im</text>
+<text x="118.0" y="237.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="162.0" y="237.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="206.0" y="237.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="250.0" y="237.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="294.0" y="237.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="69.0" y="183.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="69.0" y="139.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="69.0" y="95.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="69.0" y="51.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<line x1="118.0" y1="136.0" x2="250.0" y2="92.0" stroke="#e0457b" stroke-width="3.2"/>
+<circle cx="118.0" cy="136.0" r="3.4" fill="#7a1c2c"/>
+<circle cx="250.0" cy="92.0" r="3.4" fill="#7a1c2c"/>
+<text x="111.0" y="140.0" text-anchor="end" font-size="12" font-style="italic" fill="currentColor">A</text>
+<text x="256.0" y="85.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">B</text>
+</svg>
+</figure>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="mx-pg-bk-12" value="A" /><span class="huruf">A</span><span class="isi">\(\frac52+\frac52i\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-12" value="B" /><span class="huruf">B</span><span class="isi">\(3+3i\)</span></label>
+      <label class="opsi k"><input type="radio" name="mx-pg-bk-12" value="C" /><span class="huruf">C</span><span class="isi">\(2+4i\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-12" value="D" /><span class="huruf">D</span><span class="isi">\(3+5i\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-12" value="E" /><span class="huruf">E</span><span class="isi">\(4+4i\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah C.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah C.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>\(\overrightarrow{AB}=b-a=3+i\). Memutar \(\overrightarrow{AB}\) sebesar \(90^\circ\) berlawanan arah jarum jam memberi \(\overrightarrow{AD}=i(3+i)=-1+3i\), sehingga \(d=a+\overrightarrow{AD}=5i\) dan \(c=b+\overrightarrow{AD}=3+6i\).</p>
+      <p>Pusat persegi adalah titik tengah diagonal \(AC\): \(\dfrac{(1+2i)+(3+6i)}{2}=2+4i\). Cek dengan diagonal \(BD\): \(\dfrac{(4+3i)+5i}{2}=2+4i\).</p>
+      <p>Jebakan A: titik tengah sisi \(AB\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 13 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 13</h4>
+
+    <p>Berapakah nilai \(|z|\), jika \(z\) adalah bilangan kompleks?</p>
+    <ol>
+      <li>\(\operatorname{Re}(z)=3\).</li>
+      <li>\(z^2=-7+24i\).</li>
+    </ol>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="mx-pg-bk-13" value="A" /><span class="huruf">A</span><span class="isi">Pernyataan (1) SAJA cukup untuk menjawab pertanyaan, tetapi pernyataan (2) SAJA tidak cukup.</span></label>
+      <label class="opsi k"><input type="radio" name="mx-pg-bk-13" value="B" /><span class="huruf">B</span><span class="isi">Pernyataan (2) SAJA cukup untuk menjawab pertanyaan, tetapi pernyataan (1) SAJA tidak cukup.</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-13" value="C" /><span class="huruf">C</span><span class="isi">DUA pernyataan BERSAMA-SAMA cukup untuk menjawab pertanyaan, tetapi SATU pernyataan SAJA tidak cukup.</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-13" value="D" /><span class="huruf">D</span><span class="isi">Pernyataan (1) SAJA cukup dan pernyataan (2) SAJA cukup untuk menjawab pertanyaan.</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-13" value="E" /><span class="huruf">E</span><span class="isi">Pernyataan (1) dan pernyataan (2) tidak cukup untuk menjawab pertanyaan.</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah B.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah B.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Pernyataan (1) saja: hanya diketahui bagian real, sedangkan bagian imajiner bebas, sehingga \(|z|\) tidak tertentu.</p>
+      <p>Pernyataan (2) saja: \(|z|^2=|z^2|=|-7+24i|=25\), sehingga \(|z|=5\) (cukup, tanpa perlu mencari \(z\)). Jadi hanya (2) yang cukup.</p>
+      <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 14 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 14</h4>
+
+    <p>Diketahui \(z\) bilangan kompleks yang tidak real. Perhatikan dua kuantitas berikut.</p><div class="math-display">\[ P=|z|^2\qquad\qquad Q=\operatorname{Re}(z^2) \]</div><p>Hubungan antara kuantitas \(P\) dan \(Q\) adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi k"><input type="radio" name="mx-pg-bk-14" value="A" /><span class="huruf">A</span><span class="isi">\(P&gt;Q\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-14" value="B" /><span class="huruf">B</span><span class="isi">\(P&lt;Q\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-14" value="C" /><span class="huruf">C</span><span class="isi">\(P=Q\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-14" value="D" /><span class="huruf">D</span><span class="isi">Hubungan \(P\) dan \(Q\) tidak dapat ditentukan.</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-14" value="E" /><span class="huruf">E</span><span class="isi">\(P\) dan \(Q\) tidak dapat dibandingkan karena \(Q\) bukan bilangan real.</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah A.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah A.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Misalkan \(z=x+yi\) dengan \(y\ne0\). Maka \(P=x^2+y^2\) dan \(Q=\operatorname{Re}(z^2)=x^2-y^2\), sehingga \(P-Q=2y^2&gt;0\) dan \(P&gt;Q\).</p>
+      <p>Jebakan C dan D: kasus \(z\) real memberi \(P=Q\), tetapi soal menyatakan \(z\) tidak real. Jebakan E: \(Q\) adalah bagian real, jadi tetap bilangan real.</p>
+      <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 15 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 15</h4>
+
+    <p>Persamaan suku banyak \(z^3-5z^2+17z-13=0\) berkoefisien real dan salah satu akarnya adalah \(2+3i\). Jumlah kuadrat semua akarnya adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="mx-pg-bk-15" value="A" /><span class="huruf">A</span><span class="isi">\(13\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-15" value="B" /><span class="huruf">B</span><span class="isi">\(25\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-15" value="C" /><span class="huruf">C</span><span class="isi">\(-5\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-15" value="D" /><span class="huruf">D</span><span class="isi">\(9\)</span></label>
+      <label class="opsi k"><input type="radio" name="mx-pg-bk-15" value="E" /><span class="huruf">E</span><span class="isi">\(-9\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah E.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah E.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Koefisien real, sehingga konjugat \(2-3i\) juga akar. Jumlah ketiga akar adalah \(5\), sehingga akar ketiga \(=5-4=1\).</p>
+      <p>Jumlah kuadrat: \(1^2+(2+3i)^2+(2-3i)^2=1+(-5+12i)+(-5-12i)=-9\).</p>
+      <p>Cek dengan Vieta: \((\sum z)^2-2\sum z_jz_k=25-2\cdot17=-9\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+    </details>
+  </div>
+
+  <p class="tingkat"><strong>Tingkat HOTS</strong> <em>(soal 16 sampai 20, penalaran tingkat tinggi gaya UTBK dan TKA)</em></p>
+  <!-- Soal PG 16 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 16</h4>
+
+    <p>Diketahui \(z\) bilangan kompleks dengan \(|z|=1\). Tentukan setiap pernyataan berikut benar (B) atau salah (S).</p>
+    <ol>
+      <li>\(\bar z=\dfrac1z\).</li>
+      <li>\(z-\dfrac1z\) selalu bilangan real.</li>
+      <li>\(z+\dfrac1z\) selalu bilangan real.</li>
+      <li>\(|z-1|\ge1\).</li>
+    </ol>
+    <p>Urutan jawaban untuk pernyataan (1), (2), (3), (4) yang tepat adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="mx-pg-bk-16" value="A" /><span class="huruf">A</span><span class="isi">B, B, B, S</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-16" value="B" /><span class="huruf">B</span><span class="isi">B, S, S, S</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-16" value="C" /><span class="huruf">C</span><span class="isi">S, S, B, S</span></label>
+      <label class="opsi k"><input type="radio" name="mx-pg-bk-16" value="D" /><span class="huruf">D</span><span class="isi">B, S, B, S</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-16" value="E" /><span class="huruf">E</span><span class="isi">B, S, B, B</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah D.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah D.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p><strong>(1) Benar.</strong> \(z\bar z=|z|^2=1\), sehingga \(\bar z=\frac1z\).</p>
+      <p><strong>(2) Salah.</strong> \(z-\frac1z=z-\bar z=2\operatorname{Im}(z)\,i\) adalah imajiner murni; contoh \(z=i\) memberi \(i-\frac1i=2i\).</p>
+      <p><strong>(3) Benar.</strong> \(z+\frac1z=z+\bar z=2\operatorname{Re}(z)\) bilangan real.</p>
+      <p><strong>(4) Salah.</strong> Untuk \(z=\frac{\sqrt3}{2}+\frac12i\), \(|z-1|=\sqrt{\left(1-\frac{\sqrt3}2\right)^2+\frac14}=\sqrt{2-\sqrt3}\approx0{,}52&lt;1\).</p>
+      <p>Urutan: B, S, B, S.</p>
+      <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 17 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 17</h4>
+
+    <p>Banyak bilangan asli \(n\le100\) sehingga \((1+i)^n\) merupakan bilangan real adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="mx-pg-bk-17" value="A" /><span class="huruf">A</span><span class="isi">\(12\)</span></label>
+      <label class="opsi k"><input type="radio" name="mx-pg-bk-17" value="B" /><span class="huruf">B</span><span class="isi">\(25\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-17" value="C" /><span class="huruf">C</span><span class="isi">\(33\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-17" value="D" /><span class="huruf">D</span><span class="isi">\(50\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-17" value="E" /><span class="huruf">E</span><span class="isi">\(100\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah B.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah B.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>\((1+i)^2=2i\). Untuk \(n=2k\): \((1+i)^n=2^ki^k\), real jika dan hanya jika \(k\) genap, yaitu \(n\) kelipatan \(4\).</p>
+      <p>Untuk \(n\) ganjil: \((1+i)^n=2^ki^k(1+i)\) dan \(i^k(1+i)\in\{1+i,\,-1+i,\,-1-i,\,1-i\}\), tidak pernah real. Kelipatan \(4\) dari \(1\) sampai \(100\) ada \(25\).</p>
+      <p>Jebakan D: menghitung semua \(n\) genap.</p>
+      <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 18 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 18</h4>
+
+    <p>Jika \(\dfrac{z-1}{z+1}\) adalah bilangan imajiner murni, maka nilai \(|z-1|^2+|z+1|^2\) adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="mx-pg-bk-18" value="A" /><span class="huruf">A</span><span class="isi">\(1\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-18" value="B" /><span class="huruf">B</span><span class="isi">\(2\)</span></label>
+      <label class="opsi k"><input type="radio" name="mx-pg-bk-18" value="C" /><span class="huruf">C</span><span class="isi">\(4\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-18" value="D" /><span class="huruf">D</span><span class="isi">\(8\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-18" value="E" /><span class="huruf">E</span><span class="isi">\(16\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah C.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah C.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>\(\dfrac{z-1}{z+1}=\dfrac{(z-1)(\bar z+1)}{|z+1|^2}=\dfrac{(|z|^2-1)+2\operatorname{Im}(z)\,i}{|z+1|^2}\). Imajiner murni berarti \(|z|^2-1=0\), jadi \(|z|=1\).</p>
+      <p>Maka \(|z-1|^2+|z+1|^2=(z-1)(\bar z-1)+(z+1)(\bar z+1)=2|z|^2+2=4\).</p>
+      <p>Tafsiran geometri: \(z\) pada lingkaran berdiameter dari \(-1\) sampai \(1\), sehingga segitiga siku-siku di \(z\) dan \(|z-1|^2+|z+1|^2=2^2\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 19 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 19</h4>
+
+    <p>Transformasi \(T\) pada bidang kompleks didefinisikan oleh \(T(z)=iz+3+i\). Titik \(z_0=5+2i\) ditransformasikan berulang kali: \(z_1=T(z_0)\), \(z_2=T(z_1)\), dan seterusnya. Nilai \(z_{2026}\) adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="mx-pg-bk-19" value="A" /><span class="huruf">A</span><span class="isi">\(5+2i\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-19" value="B" /><span class="huruf">B</span><span class="isi">\(1+6i\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-19" value="C" /><span class="huruf">C</span><span class="isi">\(1-2i\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-19" value="D" /><span class="huruf">D</span><span class="isi">\(1+2i\)</span></label>
+      <label class="opsi k"><input type="radio" name="mx-pg-bk-19" value="E" /><span class="huruf">E</span><span class="isi">\(-3+2i\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah E.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah E.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Titik tetap \(c\) memenuhi \(c=ic+3+i\), sehingga \(c=\dfrac{3+i}{1-i}=\dfrac{(3+i)(1+i)}{2}=1+2i\).</p>
+      <p>Karena \(T(z)-c=i(z-c)\), \(T\) adalah rotasi \(90^\circ\) berlawanan arah jarum jam terhadap \(c=1+2i\). Maka \(z_n=c+i^n(z_0-c)=1+2i+4i^n\).</p>
+      <p>Karena \(2026=4\cdot506+2\), \(i^{2026}=-1\) dan \(z_{2026}=1+2i-4=-3+2i\). (Pilihan lain adalah \(z_0\), \(z_1\), \(z_3\), dan pusat rotasi.)</p>
+      <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 20 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 20</h4>
+
+    <p>Himpunan semua bilangan kompleks \(z\) yang memenuhi \(|z-1|+|z+1|=2\) pada bidang kompleks berupa ....</p>
+    <div class="opsi-grup">
+      <label class="opsi k"><input type="radio" name="mx-pg-bk-20" value="A" /><span class="huruf">A</span><span class="isi">ruas garis yang menghubungkan titik \(-1\) dan titik \(1\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-20" value="B" /><span class="huruf">B</span><span class="isi">lingkaran berpusat di titik asal dengan jari-jari \(1\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-20" value="C" /><span class="huruf">C</span><span class="isi">elips dengan fokus di titik \(-1\) dan titik \(1\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-20" value="D" /><span class="huruf">D</span><span class="isi">seluruh sumbu real</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-bk-20" value="E" /><span class="huruf">E</span><span class="isi">himpunan kosong</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah A.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah A.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>\(|z-1|\) dan \(|z+1|\) adalah jarak \(z\) ke titik \(1\) dan \(-1\), yang terpisah sejauh \(2\).</p>
+      <p>Menurut ketaksamaan segitiga, \(|z-1|+|z+1|\ge|(z+1)-(z-1)|=2\), dengan kesamaan jika dan hanya jika \(z\) terletak pada ruas yang menghubungkan \(-1\) dan \(1\). Elips baru terbentuk jika jumlah jarak lebih dari \(2\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+    </details>
+  </div>
+
+  <h3>B. Isian Singkat</h3>
+  <p>
+    5 soal \(\times\) 4 poin = 20 poin. Ketik hanya jawaban akhir, lalu tekan
+    <strong>Periksa</strong> atau Enter.
+  </p>
+  <p class="tingkat"><strong>Tingkat Sedang</strong> <em>(soal 1 dan 2)</em></p>
+  <!-- Soal Isian 1 -->
+  <div class="lesson-example soal-isian" data-kunci="-4+3i|3i-4">
+    <h4>Soal 1</h4>
+
+    <p>Bilangan kompleks \(z\) memenuhi \(z\bar z=25\) dan \(z-\bar z=6i\). Jika \(\operatorname{Re}(z)&lt;0\), maka \(z=\) .... (tuliskan dalam bentuk a+bi, misalnya 2+5i).</p>
+    <div class="isian-baris">
+      <input
+        type="text"
+        class="isian-input"
+        placeholder="Tulis jawaban akhirnya saja"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="Jawaban soal isian 1"
+      />
+      <button type="button" class="btn-cek">Periksa</button>
+    </div>
+    <p class="isian-umpan" hidden></p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Misalkan \(z=x+yi\). Dari \(z-\bar z=2yi=6i\) diperoleh \(y=3\). Dari \(z\bar z=x^2+9=25\) diperoleh \(x=\pm4\).</p>
+      <p>Karena \(\operatorname{Re}(z)&lt;0\), \(x=-4\), sehingga \(z=\) <strong>\(-4+3i\)</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal Isian 2 -->
+  <div class="lesson-example soal-isian" data-kunci="20">
+    <h4>Soal 2</h4>
+
+    <p>Banyak bilangan kompleks \(z=a+bi\) dengan \(a\) dan \(b\) bilangan bulat yang memenuhi \(2\le|z|\le3\) adalah ....</p>
+    <div class="isian-baris">
+      <input
+        type="text"
+        class="isian-input"
+        placeholder="Tulis jawaban akhirnya saja"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="Jawaban soal isian 2"
+      />
+      <button type="button" class="btn-cek">Periksa</button>
+    </div>
+    <p class="isian-umpan" hidden></p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Syarat: \(4\le a^2+b^2\le9\). Nilai \(a^2+b^2=4\): \((\pm2,0),(0,\pm2)\) ada \(4\). Nilai \(5\): \((\pm1,\pm2),(\pm2,\pm1)\) ada \(8\). Nilai \(8\): \((\pm2,\pm2)\) ada \(4\). Nilai \(9\): \((\pm3,0),(0,\pm3)\) ada \(4\). Nilai \(6\) dan \(7\) tidak mungkin.</p>
+      <p>Total \(4+8+4+4=\) <strong>\(20\)</strong>.</p>
+    </details>
+  </div>
+
+  <p class="tingkat"><strong>Tingkat Sulit</strong> <em>(soal 3 sampai 5)</em></p>
+  <!-- Soal Isian 3 -->
+  <div class="lesson-example soal-isian" data-kunci="1012+1013i|1013i+1012">
+    <h4>Soal 3</h4>
+
+    <p>Nilai dari \(\displaystyle\sum_{k=0}^{2025}k\,i^{k}\) adalah .... (tuliskan dalam bentuk a+bi).</p>
+    <div class="isian-baris">
+      <input
+        type="text"
+        class="isian-input"
+        placeholder="Tulis jawaban akhirnya saja"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="Jawaban soal isian 3"
+      />
+      <button type="button" class="btn-cek">Periksa</button>
+    </div>
+    <p class="isian-umpan" hidden></p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Untuk setiap empat suku: \(4m\cdot1+(4m+1)i-(4m+2)-(4m+3)i=-2-2i\). Suku \(k=0\) sampai \(2023\) membentuk \(506\) kelompok, jumlahnya \(506(-2-2i)=-1012-1012i\).</p>
+      <p>Sisanya \(k=2024\): \(2024\,i^{2024}=2024\) dan \(k=2025\): \(2025\,i\). Jumlah \(=(2024-1012)+(2025-1012)i=\) <strong>\(1012+1013i\)</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal Isian 4 -->
+  <div class="lesson-example soal-isian" data-kunci="9π/2-9|9pi/2-9|4.5pi-9|4.5π-9|(9pi)/2-9|(9π)/2-9|\frac{9\pi}{2}-9|-9+9pi/2">
+    <h4>Soal 4</h4>
+
+    <p>Pada diagram Argand, dua lingkaran masing-masing memiliki persamaan \(|z-3|=3\) dan \(|z-3i|=3\). Luas daerah irisan kedua lingkaran (daerah arsiran) adalah .... satuan luas (tuliskan dalam bentuk \(\pi\), misalnya 3pi/2-1).</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 319 301" role="img" aria-label="Dua lingkaran berjari-jari 3 berpusat di 3 dan di 3i dengan daerah irisan diarsir" style="width: 100%; max-width: 319px; height: auto" font-size="12" font-family="inherit">
+<line x1="30.0" y1="273.0" x2="30.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="56.0" y1="273.0" x2="56.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="82.0" y1="273.0" x2="82.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="108.0" y1="273.0" x2="108.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="134.0" y1="273.0" x2="134.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="160.0" y1="273.0" x2="160.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="186.0" y1="273.0" x2="186.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="212.0" y1="273.0" x2="212.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="238.0" y1="273.0" x2="238.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="264.0" y1="273.0" x2="264.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="273.0" x2="277.0" y2="273.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="247.0" x2="277.0" y2="247.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="221.0" x2="277.0" y2="221.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="195.0" x2="277.0" y2="195.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="169.0" x2="277.0" y2="169.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="143.0" x2="277.0" y2="143.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="117.0" x2="277.0" y2="117.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="91.0" x2="277.0" y2="91.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="65.0" x2="277.0" y2="65.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="39.0" x2="277.0" y2="39.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="195.0" x2="286.0" y2="195.0" stroke="currentColor" stroke-width="1.6"/>
+<line x1="108.0" y1="273.0" x2="108.0" y2="17.0" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="286.0,195.0 279.0,191.5 279.0,198.5" fill="currentColor"/>
+<polygon points="108.0,17.0 104.5,24.0 111.5,24.0" fill="currentColor"/>
+<text x="289.0" y="199.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">Re</text>
+<text x="115.0" y="21.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">Im</text>
+<text x="186.0" y="208.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="264.0" y="208.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">6</text>
+<text x="103.0" y="120.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">3i</text>
+<text x="103.0" y="42.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">6i</text>
+<defs><clipPath id="bk-cl"><circle cx="186.0" cy="195.0" r="78"/></clipPath></defs>
+<circle cx="108.0" cy="117.0" r="78.0" fill="#e0457b" fill-opacity="0.35" stroke="#e0457b" stroke-width="0" clip-path="url(#bk-cl)"/>
+<circle cx="186.0" cy="195.0" r="78.0" fill="none" fill-opacity="0" stroke="#be123c" stroke-width="2.2"/>
+<circle cx="108.0" cy="117.0" r="78.0" fill="none" fill-opacity="0" stroke="#e0457b" stroke-width="2.2"/>
+<text x="102.0" y="209.0" text-anchor="end" font-size="11" font-style="italic" fill="currentColor">O</text>
+</svg>
+</figure>
+    <div class="isian-baris">
+      <input
+        type="text"
+        class="isian-input"
+        placeholder="Tulis jawaban akhirnya saja"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="Jawaban soal isian 4"
+      />
+      <button type="button" class="btn-cek">Periksa</button>
+    </div>
+    <p class="isian-umpan" hidden></p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Pusat lingkaran \(3\) dan \(3i\), masing-masing berjari-jari \(3\), dan keduanya berpotongan di \(0\) dan \(3+3i\). Tali busur persekutuan \(=3\sqrt2\) dan \(2\cdot3\sin\frac\theta2=3\sqrt2\) memberi \(\theta=90^\circ\).</p>
+      <p>Satu tembereng \(=\frac14\pi\cdot3^2-\frac12\cdot3\cdot3=\frac{9\pi}4-\frac92\). Irisan terdiri atas dua tembereng kongruen: \(2\left(\frac{9\pi}4-\frac92\right)=\) <strong>\(\dfrac{9\pi}2-9\)</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal Isian 5 -->
+  <div class="lesson-example soal-isian" data-kunci="2+√3|2+sqrt3|2+\sqrt3|2+sqrt(3)|2+√(3)|√3+2|sqrt3+2|sqrt(3)+2|\sqrt{3}+2|2+\sqrt{3}">
+    <h4>Soal 5</h4>
+
+    <p>Jika \(\theta\) adalah argumen utama dari \(z=(1+i)(\sqrt3+i)\), maka \(\tan\theta=\) .... (tanda akar dapat ditulis sqrt, misalnya 1+sqrt(2)).</p>
+    <div class="isian-baris">
+      <input
+        type="text"
+        class="isian-input"
+        placeholder="Tulis jawaban akhirnya saja"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="Jawaban soal isian 5"
+      />
+      <button type="button" class="btn-cek">Periksa</button>
+    </div>
+    <p class="isian-umpan" hidden></p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>\(z=(1+i)(\sqrt3+i)=(\sqrt3-1)+(\sqrt3+1)i\), di kuadran I.</p>
+      <p>\(\tan\theta=\dfrac{\sqrt3+1}{\sqrt3-1}=\dfrac{(\sqrt3+1)^2}{2}=\dfrac{4+2\sqrt3}{2}=\) <strong>\(2+\sqrt3\)</strong> (yaitu \(\theta=75^\circ\)).</p>
+    </details>
+  </div>
+
+  <h3>C. Uraian (Essay)</h3>
+  <p>
+    5 soal \(\times\) 8 poin = 40 poin. Tuliskan langkah penyelesaian dengan
+    lengkap di buku atau kertas, lalu bandingkan dengan pembahasan dan pedoman
+    penskoran.
+  </p>
+  <p class="tingkat"><strong>Tingkat Sedang</strong> <em>(soal 1 dan 2)</em></p>
+  <!-- Soal Uraian 1 -->
+  <div class="lesson-example soal-uraian">
+    <h4>Soal 1 <span class="poin">[8 poin]</span></h4>
+
+    <p>Sebuah peta bajak laut berbunyi: &ldquo;Mulai dari tiang gantungan \(G\). Berjalan lurus ke pohon beringin \(B\), belok <em>kanan</em> \(90^\circ\), lalu berjalan sejauh jarak yang sama dan pasang tanda \(M_1\). Kembali ke \(G\), berjalan lurus ke pohon pinus \(P\), belok <em>kiri</em> \(90^\circ\), berjalan sejauh jarak yang sama dan pasang tanda \(M_2\). Harta karun terkubur di tengah-tengah \(M_1\) dan \(M_2\).&rdquo; Pada bidang kompleks (satuan meter), \(B=8+2i\) dan \(P=2+6i\). Gunakan fakta bahwa mengalikan dengan \(i\) memutar \(90^\circ\) berlawanan arah jarum jam, dan mengalikan dengan \(-i\) memutar \(90^\circ\) searah jarum jam.</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 360 294" role="img" aria-label="Peta harta karun: G di titik asal, pohon beringin B(8,2), pohon pinus P(2,6), dengan belokan kanan di B dan kiri di P" style="width: 100%; max-width: 360px; height: auto" font-size="12" font-family="inherit">
+<line x1="30.0" y1="266.0" x2="30.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="54.0" y1="266.0" x2="54.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="78.0" y1="266.0" x2="78.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="102.0" y1="266.0" x2="102.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="126.0" y1="266.0" x2="126.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="150.0" y1="266.0" x2="150.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="174.0" y1="266.0" x2="174.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="198.0" y1="266.0" x2="198.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="222.0" y1="266.0" x2="222.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="246.0" y1="266.0" x2="246.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="270.0" y1="266.0" x2="270.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="294.0" y1="266.0" x2="294.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="318.0" y1="266.0" x2="318.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="266.0" x2="318.0" y2="266.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="242.0" x2="318.0" y2="242.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="218.0" x2="318.0" y2="218.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="194.0" x2="318.0" y2="194.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="170.0" x2="318.0" y2="170.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="146.0" x2="318.0" y2="146.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="122.0" x2="318.0" y2="122.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="98.0" x2="318.0" y2="98.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="74.0" x2="318.0" y2="74.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="50.0" x2="318.0" y2="50.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="26.0" x2="318.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="218.0" x2="327.0" y2="218.0" stroke="currentColor" stroke-width="1.6"/>
+<line x1="78.0" y1="266.0" x2="78.0" y2="17.0" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="327.0,218.0 320.0,214.5 320.0,221.5" fill="currentColor"/>
+<polygon points="78.0,17.0 74.5,24.0 81.5,24.0" fill="currentColor"/>
+<text x="330.0" y="222.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">Re</text>
+<text x="85.0" y="21.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">Im</text>
+<text x="126.0" y="231.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="174.0" y="231.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="222.0" y="231.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">6</text>
+<text x="270.0" y="231.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">8</text>
+<text x="318.0" y="231.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">10</text>
+<text x="73.0" y="173.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="73.0" y="125.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="73.0" y="77.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">6</text>
+<text x="73.0" y="29.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">8</text>
+<defs><marker id="bk-u1" viewBox="0 0 10 10" refX="9" refY="5" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#be123c"/></marker></defs>
+<line x1="78.0" y1="218.0" x2="270.0" y2="170.0" stroke="currentColor" stroke-width="1.3" stroke-dasharray="5 4" stroke-opacity=".6"/>
+<line x1="78.0" y1="218.0" x2="126.0" y2="74.0" stroke="currentColor" stroke-width="1.3" stroke-dasharray="5 4" stroke-opacity=".6"/>
+<line x1="270.0" y1="170.0" x2="281.6" y2="216.6" stroke="#be123c" stroke-width="2.2" marker-end="url(#bk-u1)"/>
+<line x1="126.0" y1="74.0" x2="80.5" y2="58.8" stroke="#be123c" stroke-width="2.2" marker-end="url(#bk-u1)"/>
+<circle cx="78.0" cy="218.0" r="3.2" fill="#7a1c2c"/>
+<circle cx="270.0" cy="170.0" r="3.2" fill="#7a1c2c"/>
+<circle cx="126.0" cy="74.0" r="3.2" fill="#7a1c2c"/>
+<text x="72.0" y="232.0" text-anchor="end" font-size="12" font-style="italic" fill="currentColor">G</text>
+<text x="275.0" y="163.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">B</text>
+<text x="132.0" y="68.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">P</text>
+<text x="284.4" y="206.0" text-anchor="start" font-size="10" fill="#be123c">kanan</text>
+<text x="87.6" y="42.8" text-anchor="start" font-size="10" fill="#be123c">kiri</text>
+</svg>
+</figure>
+    <ol type="a">
+      <li>Jika \(G\) berada di titik asal, tentukan bilangan kompleks yang mewakili \(M_1\) dan \(M_2\).</li>
+      <li>Tentukan letak harta karun.</li>
+      <li>Tiang gantungan ternyata telah pindah ke \(G'=-3+5i\). Tentukan letak harta karun dengan prosedur yang sama, lalu bandingkan dengan hasil (b).</li>
+      <li>Misalkan tiang gantungan berada di titik sembarang \(g\). Buktikan bahwa letak harta karun tidak bergantung pada \(g\), lalu nyatakan letaknya dalam \(b\) dan \(p\).</li>
+    </ol>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p><strong>(a)</strong> Dengan \(g=0\): \(M_1=B+(-i)(B-0)=(1-i)B=(1-i)(8+2i)=10-6i\) dan \(M_2=P+i(P-0)=(1+i)P=(1+i)(2+6i)=-4+8i\).</p>
+      <p><strong>(b)</strong> Harta karun di titik tengah: \(\dfrac{(10-6i)+(-4+8i)}{2}=3+i\), yaitu \(3\) m ke kanan dan \(1\) m ke atas dari titik asal.</p>
+      <p><strong>(c)</strong> \(M_1=B-i(B-G')=8+2i-i(11-3i)=5-9i\) dan \(M_2=P+i(P-G')=2+6i+i(5+i)=1+11i\). Titik tengahnya \(\dfrac{6+2i}{2}=3+i\), sama dengan (b).</p>
+      <p><strong>(d)</strong> \(M_1=b-i(b-g)\) dan \(M_2=p+i(p-g)\). Jumlahnya \(M_1+M_2=b+p+i(p-b)+(ig-ig)=b+p+i(p-b)\), suku \(g\) saling meniadakan.</p>
+      <p>Jadi harta karun di \(T=\dfrac{b+p+i(p-b)}{2}=\dfrac{(1-i)b+(1+i)p}{2}\) yang tidak memuat \(g\). Cek: \(\dfrac{(1-i)(8+2i)+(1+i)(2+6i)}{2}=3+i\).</p>
+      <p class="penskoran"><em>Penskoran: tiap bagian 2 poin.</em></p>
+    </details>
+  </div>
+
+  <!-- Soal Uraian 2 -->
+  <div class="lesson-example soal-uraian">
+    <h4>Soal 2 <span class="poin">[8 poin]</span></h4>
+
+    <p>Perhatikan persamaan kuadrat berkoefisien kompleks \(z^2-3z+(3+i)=0\).</p>
+    <ol type="a">
+      <li>Tentukan semua bilangan kompleks \(w\) yang memenuhi \(w^2=-3-4i\).</li>
+      <li>Hitung diskriminan \(D=b^2-4ac\) persamaan tersebut, lalu gunakan hasil (a) untuk menentukan kedua akarnya, \(z_1\) dan \(z_2\).</li>
+      <li>Periksa jawaban Anda dengan rumus jumlah dan hasil kali akar-akar.</li>
+      <li>Pada persamaan kuadrat berkoefisien real, akar-akar yang tidak real selalu saling konjugat. Apakah \(z_2=\bar z_1\) di sini? Jelaskan alasannya, lalu tentukan persamaan kuadrat yang akar-akarnya \(\bar z_1\) dan \(\bar z_2\).</li>
+    </ol>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p><strong>(a)</strong> Misalkan \(w=x+yi\). Dari \(w^2=-3-4i\): \(x^2-y^2=-3\) dan \(2xy=-4\). Substitusi \(y=-\frac2x\): \(x^4+3x^2-4=0\Rightarrow(x^2+4)(x^2-1)=0\Rightarrow x=\pm1\). Jadi \(w=1-2i\) atau \(w=-1+2i\), yaitu \(w=\pm(1-2i)\).</p>
+      <p><strong>(b)</strong> \(D=(-3)^2-4(3+i)=-3-4i\), sehingga \(\sqrt D=\pm(1-2i)\). Akar-akarnya \(z=\dfrac{3\pm(1-2i)}{2}\), yaitu \(z_1=2-i\) dan \(z_2=1+i\).</p>
+      <p><strong>(c)</strong> \(z_1+z_2=3\) dan \(z_1z_2=(2-i)(1+i)=2+2i-i-i^2=3+i\), sesuai dengan \(-\frac ba=3\) dan \(\frac ca=3+i\).</p>
+      <p><strong>(d)</strong> \(\bar z_1=2+i\ne z_2=1+i\), jadi \(z_2\ne\bar z_1\). Sifat akar-akar konjugat hanya berlaku bila koefisien real; di sini koefisien \(3+i\) tidak real.</p>
+      <p>Akar-akar \(\bar z_1=2+i\) dan \(\bar z_2=1-i\) memiliki jumlah \(3\) dan hasil kali \((2+i)(1-i)=3-i\), sehingga persamaannya \(z^2-3z+(3-i)=0\) (koefisiennya dikonjugatkan).</p>
+      <p class="penskoran"><em>Penskoran: tiap bagian 2 poin.</em></p>
+    </details>
+  </div>
+
+  <p class="tingkat"><strong>Tingkat Sulit</strong> <em>(soal 3 dan 4)</em></p>
+  <!-- Soal Uraian 3 -->
+  <div class="lesson-example soal-uraian">
+    <h4>Soal 3 <span class="poin">[8 poin]</span></h4>
+
+    <p>Dua menara pemancar berada di titik asal \(O\) dan di titik \(A\) yang mewakili \(3i\) pada bidang kompleks (satuan km). Sinyal menara \(O\) dianggap lebih kuat daripada menara \(A\) di titik \(z\) jika jarak \(z\) ke \(A\) paling sedikit dua kali jarak \(z\) ke \(O\), yaitu \(|z-3i|\ge2|z|\).</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 330 345" role="img" aria-label="Menara O di titik asal, menara A di 3i, dan titik z dengan jarak |z| ke O serta |z-3i| ke A" style="width: 100%; max-width: 330px; height: auto" font-size="12" font-family="inherit">
+<line x1="30.0" y1="261.2" x2="296.6" y2="261.2" stroke="currentColor" stroke-width="1.6"/>
+<line x1="86.0" y1="317.2" x2="86.0" y2="17.0" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="296.6,261.2 289.6,257.7 289.6,264.7" fill="currentColor"/>
+<polygon points="86.0,17.0 82.5,24.0 89.5,24.0" fill="currentColor"/>
+<text x="299.6" y="265.2" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">Re</text>
+<text x="93.0" y="21.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">Im</text>
+<line x1="86.0" y1="261.2" x2="214.8" y2="177.2" stroke="#be123c" stroke-width="2.2"/>
+<line x1="86.0" y1="93.2" x2="214.8" y2="177.2" stroke="#e0457b" stroke-width="2.2"/>
+<circle cx="86.0" cy="261.2" r="3.2" fill="#7a1c2c"/>
+<circle cx="86.0" cy="93.2" r="3.2" fill="#7a1c2c"/>
+<circle cx="214.8" cy="177.2" r="3.2" fill="#7a1c2c"/>
+<text x="156.4" y="233.2" text-anchor="start" font-size="10.5" fill="currentColor">|z|</text>
+<text x="158.4" y="129.2" text-anchor="start" font-size="10.5" fill="currentColor">|z − 3i|</text>
+<text x="80.0" y="275.2" text-anchor="end" font-size="12" font-style="italic" fill="currentColor">O</text>
+<text x="79.0" y="97.2" text-anchor="end" font-size="11" fill="currentColor">A (3i)</text>
+<text x="221.8" y="181.2" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">z</text>
+</svg>
+</figure>
+    <ol type="a">
+      <li>Tunjukkan bahwa titik-titik \(z\) dengan \(|z-3i|=2|z|\) membentuk sebuah lingkaran, lalu tentukan pusat dan jari-jarinya.</li>
+      <li>Ujilah titik \(O\) untuk menentukan daerah yang memenuhi \(|z-3i|\ge2|z|\), lalu hitung luas daerah tersebut.</li>
+      <li>Tentukan jarak terdekat dan terjauh dari \(O\) ke batas daerah, beserta bilangan kompleks pada batas yang bersesuaian.</li>
+      <li>Tentukan semua bilangan kompleks \(z\) pada batas daerah yang bagian realnya \(\sqrt3\).</li>
+    </ol>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p><strong>(a)</strong> Misalkan \(z=x+yi\). \(|z-3i|^2=4|z|^2\Rightarrow x^2+(y-3)^2=4x^2+4y^2\Rightarrow3x^2+3y^2+6y-9=0\Rightarrow x^2+(y+1)^2=4\). Lingkaran berpusat di \(-i\) dengan jari-jari \(2\).</p>
+      <p><strong>(b)</strong> Uji \(O\): \(|0-3i|=3\ge2\cdot0\) benar, jadi \(O\) termasuk daerah. \(O\) berada di dalam lingkaran (jarak ke pusat \(1&lt;2\)), sehingga daerahnya adalah cakram beserta batasnya dengan luas \(\pi\cdot2^2=4\pi\) km\(^2\).</p>
+      <p><strong>(c)</strong> Jarak \(O\) ke pusat \(-i\) adalah \(1\). Jarak terdekat \(2-1=1\) km di titik \(i\) (cek: \(|i-3i|=2=2|i|\)). Jarak terjauh \(2+1=3\) km di titik \(-3i\) (cek: \(|-6i|=6=2|-3i|\)).</p>
+      <p><strong>(d)</strong> Untuk \(x=\sqrt3\): \(3+(y+1)^2=4\Rightarrow y+1=\pm1\Rightarrow y=0\) atau \(y=-2\). Jadi \(z=\sqrt3\) dan \(z=\sqrt3-2i\).</p>
+      <p class="penskoran"><em>Penskoran: tiap bagian 2 poin.</em></p>
+    </details>
+  </div>
+
+  <!-- Soal Uraian 4 -->
+  <div class="lesson-example soal-uraian">
+    <h4>Soal 4 <span class="poin">[8 poin]</span></h4>
+
+    <p>Diketahui bilangan kompleks \(z\ne0\).</p>
+    <ol type="a">
+      <li>Buktikan bahwa \(z+\dfrac1z\) bilangan real jika dan hanya jika \(z\) real atau \(|z|=1\). (Petunjuk: tulis \(z=x+yi\) dan hitung bagian imajiner \(z+\frac1z\).)</li>
+      <li>Selesaikan \(z+\dfrac1z=\dfrac52\).</li>
+      <li>Selesaikan \(z+\dfrac1z=\dfrac32\), lalu hitung \(|z|\) untuk setiap akar.</li>
+      <li>Misalkan \(k\) real. Dengan memakai (a), tunjukkan bahwa jika \(|k|&lt;2\) maka setiap akar persamaan \(z+\frac1z=k\) memenuhi \(|z|=1\), sedangkan jika \(|k|\ge2\) maka semua akarnya real.</li>
+    </ol>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p><strong>(a)</strong> Dengan \(z=x+yi\) dan \(\dfrac1z=\dfrac{x-yi}{x^2+y^2}\): \(\operatorname{Im}\!\left(z+\dfrac1z\right)=y-\dfrac{y}{x^2+y^2}=y\left(1-\dfrac1{x^2+y^2}\right)\). Bilangan itu real jika dan hanya jika bagian imajinernya nol, yaitu \(y=0\) (\(z\) real) atau \(x^2+y^2=1\) (\(|z|=1\)).</p>
+      <p><strong>(b)</strong> \(2z^2-5z+2=0\Rightarrow(2z-1)(z-2)=0\), jadi \(z=\frac12\) atau \(z=2\) (keduanya real).</p>
+      <p><strong>(c)</strong> \(2z^2-3z+2=0\) dengan \(D=9-16=-7\), sehingga \(z=\dfrac{3\pm i\sqrt7}{4}\) dan \(|z|^2=\dfrac{9+7}{16}=1\), jadi \(|z|=1\) untuk kedua akar.</p>
+      <p><strong>(d)</strong> \(z+\frac1z=k\) ekuivalen dengan \(z^2-kz+1=0\) dengan \(D=k^2-4\). Jika \(|k|&lt;2\), \(D&lt;0\) sehingga tidak ada akar real; karena \(z+\frac1z=k\) real, (a) memaksa \(|z|=1\). Jika \(|k|\ge2\), \(D\ge0\) sehingga kedua akar real (untuk \(|k|=2\): \(z=\pm1\)).</p>
+      <p class="penskoran"><em>Penskoran: (a) 3 poin; (b) 1 poin; (c) 2 poin; (d) 2 poin.</em></p>
+    </details>
+  </div>
+
+  <p class="tingkat"><strong>Tingkat HOTS</strong> <em>(soal 5)</em></p>
+  <!-- Soal Uraian 5 -->
+  <div class="lesson-example soal-uraian">
+    <h4>Soal 5 <span class="poin">[8 poin]</span></h4>
+
+    <p>Dalam grafika komputer, bilangan kompleks \(c\) diuji dengan barisan \(z_0=0\) dan \(z_{n+1}=z_n^2+c\). Titik \(c\) disebut <em>terikat</em> jika barisan tersebut tidak tumbuh tanpa batas. Dua fakta yang boleh dipakai: (i) jika suatu suku memenuhi \(|z_n|&gt;2\), barisan pasti tidak terikat; (ii) jika barisan mulai berulang secara periodik, \(c\) terikat. Gambar memperlihatkan lingkaran \(|z|=2\) dan empat bilangan \(c\) yang akan diuji.</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 306 288" role="img" aria-label="Lingkaran |z| = 2 dan empat bilangan c yang diuji: -1, i, 1, dan 1+i" style="width: 100%; max-width: 306px; height: auto" font-size="12" font-family="inherit">
+<line x1="30.0" y1="260.0" x2="30.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="82.0" y1="260.0" x2="82.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="134.0" y1="260.0" x2="134.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="186.0" y1="260.0" x2="186.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="238.0" y1="260.0" x2="238.0" y2="26.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="260.0" x2="264.0" y2="260.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="208.0" x2="264.0" y2="208.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="156.0" x2="264.0" y2="156.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="104.0" x2="264.0" y2="104.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="52.0" x2="264.0" y2="52.0" stroke="currentColor" stroke-width="1" stroke-opacity=".13"/>
+<line x1="30.0" y1="156.0" x2="273.0" y2="156.0" stroke="currentColor" stroke-width="1.6"/>
+<line x1="134.0" y1="260.0" x2="134.0" y2="17.0" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="273.0,156.0 266.0,152.5 266.0,159.5" fill="currentColor"/>
+<polygon points="134.0,17.0 130.5,24.0 137.5,24.0" fill="currentColor"/>
+<text x="276.0" y="160.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">Re</text>
+<text x="141.0" y="21.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">Im</text>
+<text x="30.0" y="169.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">−2</text>
+<text x="82.0" y="169.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">−1</text>
+<text x="186.0" y="169.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="238.0" y="169.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="129.0" y="263.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">−2</text>
+<text x="129.0" y="211.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">−1</text>
+<text x="129.0" y="107.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="129.0" y="55.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<circle cx="134.0" cy="156.0" r="104.0" fill="none" fill-opacity="0" stroke="#e0457b" stroke-width="1.8" stroke-dasharray="6 4"/>
+<text x="212.0" y="72.8" text-anchor="start" font-size="10" fill="#e0457b">|z| = 2</text>
+<circle cx="82.0" cy="156.0" r="3.4" fill="#7a1c2c"/>
+<circle cx="134.0" cy="104.0" r="3.4" fill="#7a1c2c"/>
+<circle cx="186.0" cy="156.0" r="3.4" fill="#7a1c2c"/>
+<circle cx="186.0" cy="104.0" r="3.4" fill="#7a1c2c"/>
+<text x="77.0" y="149.0" text-anchor="end" font-size="10.5" fill="currentColor">c = −1</text>
+<text x="128.0" y="97.0" text-anchor="end" font-size="10.5" fill="currentColor">c = i</text>
+<text x="192.0" y="171.0" text-anchor="start" font-size="10.5" fill="currentColor">c = 1</text>
+<text x="192.0" y="97.0" text-anchor="start" font-size="10.5" fill="currentColor">c = 1+i</text>
+</svg>
+</figure>
+    <ol type="a">
+      <li>Untuk \(c=-1\), hitung \(z_1,z_2,z_3,z_4\). Apakah \(c\) terikat?</li>
+      <li>Untuk \(c=i\), hitung \(z_1,z_2,\dots,z_5\). Apakah \(c\) terikat? Jelaskan.</li>
+      <li>Untuk \(c=1\) dan \(c=1+i\), tentukan \(n\) terkecil sehingga \(|z_n|&gt;2\).</li>
+      <li>Misalkan \(c\) real dan \(c&gt;\frac14\). Buktikan \(z_n\ge n\left(c-\frac14\right)\) untuk semua \(n\ge0\), sehingga \(c\) tidak terikat. (Petunjuk: lengkapkan kuadrat untuk menunjukkan \(z_{n+1}-z_n\ge c-\frac14\).)</li>
+    </ol>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p><strong>(a)</strong> \(z_1=-1\), \(z_2=(-1)^2-1=0\), \(z_3=-1\), \(z_4=0\). Barisan berulang \(-1,0,-1,0,\dots\), jadi \(c=-1\) terikat.</p>
+      <p><strong>(b)</strong> \(z_1=i\), \(z_2=i^2+i=-1+i\), \(z_3=(-1+i)^2+i=-2i+i=-i\), \(z_4=(-i)^2+i=-1+i\), \(z_5=-i\). Mulai \(z_2\) barisan berulang \(-1+i,\,-i,\,-1+i,\,-i,\dots\) (periode \(2\)), jadi \(c=i\) terikat.</p>
+      <p><strong>(c)</strong> \(c=1\): \(z_1=1\), \(z_2=2\), \(z_3=5\), sehingga \(n=3\) (pada \(z_2\) nilainya tepat \(2\), belum lebih dari \(2\)). \(c=1+i\): \(z_1=1+i\) dengan \(|z_1|=\sqrt2&lt;2\), lalu \(z_2=(1+i)^2+1+i=1+3i\) dengan \(|z_2|=\sqrt{10}&gt;2\), sehingga \(n=2\).</p>
+      <p><strong>(d)</strong> \(z_{n+1}-z_n=z_n^2-z_n+c=\left(z_n-\frac12\right)^2+c-\frac14\ge c-\frac14&gt;0\). Jumlahkan dari \(k=0\) sampai \(n-1\): \(z_n=z_0+\displaystyle\sum_{k=0}^{n-1}(z_{k+1}-z_k)\ge n\left(c-\frac14\right)\). Karena \(c-\frac14&gt;0\), \(z_n\to\infty\), sehingga \(c\) tidak terikat.</p>
+      <p class="penskoran"><em>Penskoran: tiap bagian 2 poin (bagian (d): selisih suku 1, penjumlahan dan kesimpulan 1).</em></p>
+    </details>
+  </div>
+
+<script>
+    (function () {
+      function init() {
+        var root = document.getElementById("latihan-bilangan-kompleks");
+        if (!root || root.getAttribute("data-init")) return;
+        root.setAttribute("data-init", "1");
+
+        var pg = root.querySelectorAll(".soal-pg");
+        var is = root.querySelectorAll(".soal-isian");
+        var elSkorPg = root.querySelector("[data-skor-pg]");
+        var elJawabPg = root.querySelector("[data-jawab-pg]");
+        var elSkorIs = root.querySelector("[data-skor-is]");
+
+        function norm(s) {
+          return s
+            .toLowerCase()
+            .replace(/\s+/g, "")
+            .replace(/[*\u00b7\u00d7{}]/g, "")
+            .replace(/\u2212/g, "-")
+            .replace(/\u00b2/g, "^2")
+            .replace(/,/g, ".");
+        }
+        function has(el, c) {
+          return el.className && String(el.className).indexOf(c) > -1;
+        }
+
+        function hitung() {
+          var benar = 0,
+            jawab = 0,
+            benarIs = 0,
+            i;
+          for (i = 0; i < pg.length; i++) {
+            if (has(pg[i], "soal-kompleks") || has(pg[i], "soal-kategori")) {
+              var st = pg[i].getAttribute("data-status");
+              if (st) {
+                jawab++;
+                if (st === "benar") benar++;
+              }
+            } else {
+              var c = pg[i].querySelector("input:checked");
+              if (c) {
+                jawab++;
+                if (c.parentNode.className.indexOf(" k") > -1) benar++;
+              }
+            }
+          }
+          for (i = 0; i < is.length; i++) {
+            if (is[i].getAttribute("data-status") === "benar") benarIs++;
+          }
+          elSkorPg.textContent = benar;
+          elJawabPg.textContent = jawab;
+          elSkorIs.textContent = benarIs;
+        }
+
+        function periksa(q) {
+          var inp = q.querySelector(".isian-input");
+          var um = q.querySelector(".isian-umpan");
+          var v = norm(inp.value);
+          if (!v) {
+            inp.focus();
+            return;
+          }
+          var kunci = q.getAttribute("data-kunci").split("|");
+          var ok = false;
+          for (var i = 0; i < kunci.length; i++) {
+            if (norm(kunci[i]) === v) {
+              ok = true;
+              break;
+            }
+          }
+          q.setAttribute("data-status", ok ? "benar" : "salah");
+          um.hidden = false;
+          um.textContent = ok
+            ? "Benar!"
+            : "Belum sesuai. Coba lagi, atau buka pembahasan (bentuk jawaban yang setara juga dapat benar).";
+          hitung();
+        }
+
+        function periksaK(q) {
+          var um = q.querySelector(".isian-umpan");
+          var kunci = q.getAttribute("data-kunci").split(",");
+          var ok, jawaban, i;
+          if (has(q, "soal-kompleks")) {
+            var cb = q.querySelectorAll("input:checked");
+            if (!cb.length) {
+              um.hidden = false;
+              um.textContent = "Centang minimal satu pilihan terlebih dahulu.";
+              return;
+            }
+            jawaban = [];
+            for (i = 0; i < cb.length; i++) jawaban.push(cb[i].value);
+            ok = jawaban.sort().join(",") === kunci.slice().sort().join(",");
+            q.setAttribute("data-status", ok ? "benar" : "salah");
+            um.hidden = false;
+            um.textContent = ok
+              ? "Benar! Jawaban yang tepat adalah " + kunci.join(", ") + "."
+              : "Belum tepat. Jawaban yang benar adalah " + kunci.join(", ") + ".";
+          } else {
+            var n = kunci.length;
+            ok = true;
+            for (i = 0; i < n; i++) {
+              var r = q.querySelector('input[name$="-' + (i + 1) + '"]:checked');
+              if (!r) {
+                um.hidden = false;
+                um.textContent = "Pilih Benar atau Salah untuk setiap pernyataan.";
+                return;
+              }
+              if (r.value !== kunci[i]) ok = false;
+            }
+            var kt = [];
+            for (i = 0; i < n; i++) kt.push(kunci[i] === "B" ? "Benar" : "Salah");
+            q.setAttribute("data-status", ok ? "benar" : "salah");
+            um.hidden = false;
+            um.textContent = ok
+              ? "Benar! Semua pernyataan sudah tepat."
+              : "Belum tepat. Kunci: " + kt.join(", ") + ".";
+          }
+          var inputs = q.querySelectorAll("input");
+          for (i = 0; i < inputs.length; i++) inputs[i].disabled = true;
+          hitung();
+        }
+
+        function ulangi() {
+          var i, j;
+          for (i = 0; i < pg.length; i++) {
+            var r = pg[i].querySelectorAll("input");
+            for (j = 0; j < r.length; j++) {
+              r[j].checked = false;
+              r[j].disabled = false;
+            }
+            pg[i].removeAttribute("data-status");
+            var u = pg[i].querySelector(".isian-umpan");
+            if (u) {
+              u.hidden = true;
+              u.textContent = "";
+            }
+          }
+          for (i = 0; i < is.length; i++) {
+            is[i].removeAttribute("data-status");
+            is[i].querySelector(".isian-input").value = "";
+            var um = is[i].querySelector(".isian-umpan");
+            um.hidden = true;
+            um.textContent = "";
+          }
+          var d = root.querySelectorAll("details");
+          for (i = 0; i < d.length; i++) d[i].removeAttribute("open");
+          hitung();
+        }
+
+        root.addEventListener("change", function (e) {
+          var t = e.target;
+          if (
+            t &&
+            t.type === "radio" &&
+            t.name.indexOf("mx-pg-") === 0 &&
+            !t.closest(".soal-kategori")
+          ) {
+            var grup = root.querySelectorAll('input[name="' + t.name + '"]');
+            for (var i = 0; i < grup.length; i++) grup[i].disabled = true;
+            hitung();
+          }
+        });
+
+        root.addEventListener("click", function (e) {
+          var el = e.target;
+          while (el && el !== root) {
+            if (el.className && typeof el.className === "string") {
+              if (el.className.indexOf("btn-cek-k") > -1) {
+                periksaK(el.parentNode.parentNode);
+                return;
+              }
+              if (el.className.indexOf("btn-cek") > -1) {
+                periksa(el.parentNode.parentNode);
+                return;
+              }
+              if (el.className.indexOf("btn-ulang") > -1) {
+                ulangi();
+                return;
+              }
+            }
+            el = el.parentNode;
+          }
+        });
+
+        root.addEventListener("keydown", function (e) {
+          if (
+            e.key === "Enter" &&
+            e.target.className &&
+            String(e.target.className).indexOf("isian-input") > -1
+          ) {
+            e.preventDefault();
+            periksa(e.target.parentNode.parentNode);
+          }
+        });
+      }
+      if (document.readyState === "loading")
+        document.addEventListener("DOMContentLoaded", init);
+      else init();
+    })();
+  </script>
+</section>

@@ -24,7 +24,9 @@ type PracticeExerciseId =
   | "kombinatorika"
   | "irisan-kerucut"
   | "integral"
-  | "analisis-data-peluang";
+  | "analisis-data-peluang"
+  | "limit"
+  | "bilangan-kompleks";
 
 interface PracticeExercisePageProps {
   navigate: Navigate;
@@ -88,6 +90,14 @@ const exerciseDetails: Record<
     title: "Analisis Data dan Peluang",
     grade: "Kelas XII · Fase F Lanjut",
   },
+  limit: {
+    title: "Limit Fungsi",
+    grade: "Kelas XII · Fase F Lanjut",
+  },
+  "bilangan-kompleks": {
+    title: "Bilangan Kompleks",
+    grade: "Kelas XI · Fase F",
+  },
 };
 
 export function PracticeExercisePage({
@@ -141,7 +151,11 @@ export function PracticeExercisePage({
                                           ? import("../latihan-soal/latihan_integral.html?raw")
                                           : exercise === "analisis-data-peluang"
                                             ? import("../latihan-soal/latihan_analisis_data_peluang.html?raw")
-                                            : import("../latihan-soal/eksponensial.html?raw");
+                                            : exercise === "limit"
+                                              ? import("../latihan-soal/latihan_limit.html?raw")
+                                              : exercise === "bilangan-kompleks"
+                                                ? import("../latihan-soal/latihan_bilangan_kompleks.html?raw")
+                                                : import("../latihan-soal/eksponensial.html?raw");
 
     loadHtml
       .then(({ default: html }) => {

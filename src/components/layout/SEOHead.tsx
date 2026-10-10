@@ -642,6 +642,56 @@ export function SEOHead({ page }: SEOHeadProps) {
           };
           break;
 
+        case "practice-limit":
+          meta = {
+            title: "Latihan Soal Limit Fungsi Kelas XII | Math 1729",
+            description:
+              "Kerjakan latihan interaktif limit fungsi tentang nilai pendekatan, sifat-sifat limit, limit aljabar, dan limit trigonometri. Dilengkapi pembahasan dan skor.",
+            keywords:
+              "latihan soal limit fungsi kelas 12, limit aljabar, limit trigonometri, sifat limit, nilai pendekatan fungsi, pembahasan limit",
+            ogType: "article",
+            schema: {
+              "@context": "https://schema.org",
+              "@type": "LearningResource",
+              name: "Latihan Soal Limit Fungsi",
+              learningResourceType: "Quiz",
+              educationalLevel: "Kelas XII",
+              inLanguage: "id",
+              url: currentUrl,
+              provider: {
+                "@type": "EducationalOrganization",
+                name: "Math 1729",
+                url: BASE_URL,
+              },
+            },
+          };
+          break;
+
+        case "practice-bilangan-kompleks":
+          meta = {
+            title: "Latihan Soal Bilangan Kompleks Kelas XI | Math 1729",
+            description:
+              "Kerjakan latihan interaktif bilangan kompleks tentang operasi aljabar, konjugat, modulus, argumen, dan representasi pada bidang kompleks. Dilengkapi pembahasan dan skor.",
+            keywords:
+              "latihan soal bilangan kompleks kelas 11, operasi bilangan kompleks, modulus argumen, konjugat, bidang kompleks, soal bilangan kompleks",
+            ogType: "article",
+            schema: {
+              "@context": "https://schema.org",
+              "@type": "LearningResource",
+              name: "Latihan Soal Bilangan Kompleks",
+              learningResourceType: "Quiz",
+              educationalLevel: "Kelas XI",
+              inLanguage: "id",
+              url: currentUrl,
+              provider: {
+                "@type": "EducationalOrganization",
+                name: "Math 1729",
+                url: BASE_URL,
+              },
+            },
+          };
+          break;
+
         case "shop":
           meta = {
             title:

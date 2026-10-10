@@ -256,6 +256,30 @@ const practiceModules = [
     points: 100,
     duration: 120,
   },
+  {
+    id: "21",
+    page: "practice-limit",
+    href: "/latihan-soal/limit",
+    title: "Limit Fungsi",
+    description:
+      "Latih konsep limit, pendekatan nilai fungsi, sifat limit, dan limit fungsi trigonometri serta aplikasinya dengan soal interaktif dan pembahasan.",
+    topics: ["Pendekatan limit", "Sifat limit", "Limit trigonometri"],
+    questionCount: 30,
+    points: 100,
+    duration: 120,
+  },
+  {
+    id: "22",
+    page: "practice-bilangan-kompleks",
+    href: "/latihan-soal/bilangan-kompleks",
+    title: "Bilangan Kompleks",
+    description:
+      "Latih bentuk umum bilangan kompleks, operasi aljabar, konjugat, modulus, argumen, dan representasi pada bidang kompleks dengan soal interaktif dan pembahasan.",
+    topics: ["Operasi kompleks", "Modulus dan argumen", "Bidang kompleks"],
+    questionCount: 30,
+    points: 100,
+    duration: 120,
+  },
 ];
 
 export function PracticePage({ navigate }: PracticePageProps) {
