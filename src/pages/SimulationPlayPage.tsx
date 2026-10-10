@@ -4,7 +4,10 @@ import { ArrowLeft, BookOpen, Compass, Loader2 } from "lucide-react";
 import type { Navigate } from "../types/navigation";
 import { SIMULATIONS } from "../data/simulationsData";
 
-const SIMULATION_COMPONENTS: Record<string, React.LazyExoticComponent<ComponentType<unknown>>> = {
+const SIMULATION_COMPONENTS: Record<
+  string,
+  React.LazyExoticComponent<ComponentType<unknown>>
+> = {
   trigonometry: lazy(() =>
     import("../components/simulation/TrigonometrySimulation").then((m) => ({
       default: m.TrigonometrySimulation,
@@ -21,11 +24,11 @@ const SIMULATION_COMPONENTS: Record<string, React.LazyExoticComponent<ComponentT
     })),
   ),
   "function-transformation": lazy(() =>
-    import(
-      "../components/simulation/FunctionTransformationSimulation"
-    ).then((m) => ({
-      default: m.FunctionTransformationSimulation,
-    })),
+    import("../components/simulation/FunctionTransformationSimulation").then(
+      (m) => ({
+        default: m.FunctionTransformationSimulation,
+      }),
+    ),
   ),
   vector: lazy(() =>
     import("../components/simulation/VectorSimulation").then((m) => ({
@@ -50,6 +53,11 @@ const SIMULATION_COMPONENTS: Record<string, React.LazyExoticComponent<ComponentT
   "linear-system": lazy(() =>
     import("../components/simulation/LinearSystemSimulation").then((m) => ({
       default: m.LinearSystemSimulation,
+    })),
+  ),
+  "conic-sections": lazy(() =>
+    import("../components/simulation/ConicSectionsSimulation").then((m) => ({
+      default: m.ConicSectionsSimulation,
     })),
   ),
 };

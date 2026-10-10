@@ -834,8 +834,8 @@ export function GraphPlotterSimulation() {
       showCopyright: false,
       showNavigation: false,
       keepAspectRatio: lockRef.current,
-      // geser dengan klik kiri atau satu jari (papan memakai touch-action: none)
-      pan: { enabled: true, needShift: false, needTwoFingers: false },
+      // Pan ditangani sendiri dan dibatasi satu update per frame.
+      pan: { enabled: false },
       // zoom roda mouse ditangani sendiri di bawah (zoom ke posisi kursor)
       zoom: { wheel: false, factorX: 1.25, factorY: 1.25 },
     });
@@ -1079,22 +1079,59 @@ export function GraphPlotterSimulation() {
       });
     };
 
-    let down: { x: number; y: number } | null = null;
+    let down: { x: number; y: number; view: View } | null = null;
+    let pendingPan: View | null = null;
+    let panRaf: number | null = null;
+    const flushPan = () => {
+      if (panRaf !== null) cancelAnimationFrame(panRaf);
+      panRaf = null;
+      if (!pendingPan) return;
+      board.setBoundingBox(pendingPan, lockRef.current);
+      pendingPan = null;
+    };
     const onDown = (e: PointerEvent) => {
       if (e.pointerType === "mouse" && e.button !== 0) return;
-      down = { x: e.clientX, y: e.clientY };
+      down = {
+        x: e.clientX,
+        y: e.clientY,
+        view: board.getBoundingBox() as View,
+      };
       panningRef.current = true;
+      el.setPointerCapture(e.pointerId);
     };
     // Lepas tombol / jari (di mana pun): akhiri geser lalu hitung ulang sekali.
     const endPan = () => {
       if (!panningRef.current) return;
+      flushPan();
       panningRef.current = false;
       scheduleRecompute();
     };
     const onMove = (e: PointerEvent) => {
-      if (e.pointerType === "touch") return;
+      if (down && (e.buttons !== 0 || e.pointerType !== "mouse")) {
+        const rect = el.getBoundingClientRect();
+        const dx =
+          ((e.clientX - down.x) / rect.width) * (down.view[2] - down.view[0]);
+        const dy =
+          ((e.clientY - down.y) / rect.height) * (down.view[1] - down.view[3]);
+        pendingPan = [
+          down.view[0] - dx,
+          down.view[1] + dy,
+          down.view[2] - dx,
+          down.view[3] + dy,
+        ];
+        if (panRaf === null) {
+          panRaf = requestAnimationFrame(() => {
+            panRaf = null;
+            if (!pendingPan) return;
+            board.setBoundingBox(pendingPan, lockRef.current);
+            pendingPan = null;
+          });
+        }
+        if (!Number.isNaN(traceXRef.current)) queueTrace(null);
+        return;
+      }
       if (e.buttons !== 0) {
-        if (!Number.isNaN(traceXRef.current)) queueTrace(null); // sembunyikan saat menggeser
+        if (!Number.isNaN(traceXRef.current)) queueTrace(null);
         return;
       }
       // Kursor hanya menampilkan titik/nilai bila pengguna mengaktifkan
@@ -1109,8 +1146,13 @@ export function GraphPlotterSimulation() {
       if (!down) return;
       const moved = Math.hypot(e.clientX - down.x, e.clientY - down.y);
       down = null;
+      endPan();
       if (moved >= 5) return;
       handleClick(e);
+    };
+    const onCancel = () => {
+      down = null;
+      endPan();
     };
 
     const handleClick = (e: PointerEvent) => {
@@ -1202,10 +1244,11 @@ export function GraphPlotterSimulation() {
       if (!Number.isNaN(traceXRef.current)) queueTrace(toUsr(e).x);
     };
 
-    el.addEventListener("pointerdown", onDown);
-    el.addEventListener("pointermove", onMove);
+    el.addEventListener("pointerdown", onDown, true);
+    el.addEventListener("pointermove", onMove, true);
     el.addEventListener("pointerleave", onLeave);
-    el.addEventListener("pointerup", onUp);
+    el.addEventListener("pointerup", onUp, true);
+    el.addEventListener("pointercancel", onCancel, true);
     window.addEventListener("pointerup", endPan);
     window.addEventListener("pointercancel", endPan);
     el.addEventListener("wheel", onWheel, { passive: false });
@@ -1244,12 +1287,14 @@ export function GraphPlotterSimulation() {
 
     return () => {
       observer.disconnect();
-      el.removeEventListener("pointerdown", onDown);
-      el.removeEventListener("pointermove", onMove);
+      el.removeEventListener("pointerdown", onDown, true);
+      el.removeEventListener("pointermove", onMove, true);
       el.removeEventListener("pointerleave", onLeave);
-      el.removeEventListener("pointerup", onUp);
+      el.removeEventListener("pointerup", onUp, true);
+      el.removeEventListener("pointercancel", onCancel, true);
       window.removeEventListener("pointerup", endPan);
       window.removeEventListener("pointercancel", endPan);
+      if (panRaf !== null) cancelAnimationFrame(panRaf);
       panningRef.current = false;
       el.removeEventListener("wheel", onWheel);
       if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);

@@ -26,7 +26,13 @@ export const SIMULATIONS: SimulationItem[] = [
     gradeKey: "fase-e",
     relatedMaterialSlug: "trigonometri",
     relatedMaterialTitle: "Perbandingan Trigonometri",
-    concepts: ["Lingkaran Satuan", "Sinus", "Kosinus", "Tangen", "Kuadran I–IV"],
+    concepts: [
+      "Lingkaran Satuan",
+      "Sinus",
+      "Kosinus",
+      "Tangen",
+      "Kuadran I–IV",
+    ],
   },
   {
     id: "quadratic",
@@ -56,7 +62,13 @@ export const SIMULATIONS: SimulationItem[] = [
     gradeKey: "fase-f",
     relatedMaterialSlug: "transformasi-geometri",
     relatedMaterialTitle: "Transformasi Geometri",
-    concepts: ["Translasi", "Refleksi", "Rotasi", "Dilatasi", "Matriks Transformasi"],
+    concepts: [
+      "Translasi",
+      "Refleksi",
+      "Rotasi",
+      "Dilatasi",
+      "Matriks Transformasi",
+    ],
   },
   {
     id: "function-transformation",
@@ -71,7 +83,12 @@ export const SIMULATIONS: SimulationItem[] = [
     gradeKey: "fase-f-lanjut",
     relatedMaterialSlug: "transformasi-fungsi",
     relatedMaterialTitle: "Transformasi Fungsi",
-    concepts: ["Translasi Grafik", "Refleksi", "Kompresi & Peregangan", "Fungsi Dasar"],
+    concepts: [
+      "Translasi Grafik",
+      "Refleksi",
+      "Kompresi & Peregangan",
+      "Fungsi Dasar",
+    ],
   },
   {
     id: "vector",
@@ -86,7 +103,12 @@ export const SIMULATIONS: SimulationItem[] = [
     gradeKey: "fase-e",
     relatedMaterialSlug: "vektor",
     relatedMaterialTitle: "Vektor Dimensi 2 & 3",
-    concepts: ["Besar & Arah", "Resultan Vektor", "Dot Product", "Proyeksi Ortogonal"],
+    concepts: [
+      "Besar & Arah",
+      "Resultan Vektor",
+      "Dot Product",
+      "Proyeksi Ortogonal",
+    ],
   },
   {
     id: "derivative",
@@ -116,7 +138,12 @@ export const SIMULATIONS: SimulationItem[] = [
     gradeKey: "fase-f-lanjut",
     relatedMaterialSlug: "integral",
     relatedMaterialTitle: "Integral Tak Tentu & Luas Daerah",
-    concepts: ["Jumlah Riemann", "Partisi (Δx)", "Integral Tentu", "Luas di Bawah Kurva"],
+    concepts: [
+      "Jumlah Riemann",
+      "Partisi (Δx)",
+      "Integral Tentu",
+      "Luas di Bawah Kurva",
+    ],
   },
   {
     id: "graph-plotter",
@@ -131,7 +158,12 @@ export const SIMULATIONS: SimulationItem[] = [
     gradeKey: "fase-e",
     relatedMaterialSlug: "fungsi-pemodelan",
     relatedMaterialTitle: "Fungsi dan Pemodelan",
-    concepts: ["Plotting Grafik", "Titik Potong", "Sumbu Simetri", "Perilaku Asimtot"],
+    concepts: [
+      "Plotting Grafik",
+      "Titik Potong",
+      "Sumbu Simetri",
+      "Perilaku Asimtot",
+    ],
   },
   {
     id: "linear-system",
@@ -146,7 +178,32 @@ export const SIMULATIONS: SimulationItem[] = [
     gradeKey: "fase-e",
     relatedMaterialSlug: "sppl",
     relatedMaterialTitle: "Sistem Persamaan & Pertidaksamaan Linear",
-    concepts: ["Garis Sejajar & Berpotongan", "Daerah Layak", "Titik Pojok", "Program Linear"],
+    concepts: [
+      "Garis Sejajar & Berpotongan",
+      "Daerah Layak",
+      "Titik Pojok",
+      "Program Linear",
+    ],
+  },
+  {
+    id: "conic-sections",
+    index: "10",
+    category: "IRISAN KERUCUT",
+    title: "Eksplorasi Irisan Kerucut & Eksentrisitas",
+    description:
+      "Ubah eksentrisitas dan parameter kurva untuk membandingkan lingkaran, elips, parabola, dan hiperbola. Amati fokus, direktriks, titik pada kurva, serta garis singgungnya.",
+    prompt:
+      "Geser eksentrisitas melewati 1. Bagaimana bentuk kurva berubah dari elips menjadi parabola lalu hiperbola, dan bagaimana hubungan jarak titik ke fokus dengan jaraknya ke direktriks?",
+    level: "Kelas XII · Fase F Lanjut",
+    gradeKey: "fase-f-lanjut",
+    relatedMaterialSlug: "irisan-kerucut",
+    relatedMaterialTitle: "Irisan Kerucut",
+    concepts: [
+      "Eksentrisitas",
+      "Fokus & Direktriks",
+      "Elips",
+      "Parabola",
+      "Hiperbola",
+    ],
   },
 ];
-

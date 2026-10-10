@@ -1455,6 +1455,28 @@
   overflow: hidden;
 }
 
+.plotter-simulation:fullscreen.simulation-fullscreen-frame {
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100dvh !important;
+  max-width: none !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  overflow: hidden !important;
+}
+
+.plotter-simulation.simulation-fullscreen-frame.is-fullscreen:not(:fullscreen) {
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100dvh !important;
+  max-width: none !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  transform: none !important;
+}
+
 .plotter-simulation.is-fullscreen .plot-orientation-hint {
   display: none;
 }

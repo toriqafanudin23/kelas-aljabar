@@ -1,0 +1,12 @@
+diff --git a/node_modules/jsxgraph/src/tsconfig.json b/node_modules/jsxgraph/src/tsconfig.json
+--- a/node_modules/jsxgraph/src/tsconfig.json
++++ b/node_modules/jsxgraph/src/tsconfig.json
+@@ -1,7 +1,8 @@
+ {
+     "compilerOptions": {
+         "module": "amd",
++        "ignoreDeprecations": "6.0",
+         "target": "es5",
+         "noImplicitAny": false,
+         "sourceMap": false
+     },
