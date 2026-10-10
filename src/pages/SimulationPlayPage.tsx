@@ -70,6 +70,11 @@ const SIMULATION_COMPONENTS: Record<
       default: m.TwoCircleTangentSimulation,
     })),
   ),
+  "matrix-transform": lazy(() =>
+    import("../components/simulation/MatrixTransformSimulation").then((m) => ({
+      default: m.MatrixTransformSimulation,
+    })),
+  ),
 };
 
 interface SimulationPlayPageProps {

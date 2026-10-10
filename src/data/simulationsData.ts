@@ -247,4 +247,25 @@ export const SIMULATIONS: SimulationItem[] = [
       "Panjang Ruas Singgung",
     ],
   },
+  {
+    id: "matrix-transform",
+    index: "13",
+    category: "MATRIKS",
+    title: "Eksplorasi Transformasi Matriks",
+    description:
+      "Ubah elemen matriks 2 × 2 dan amati pengaruhnya pada kisi, vektor basis, serta luas dan orientasi bangun hasil transformasi.",
+    prompt:
+      "Amati determinan matriks. Kapan luas berubah, orientasi berbalik, atau bidang runtuh menjadi garis?",
+    level: "Kelas XI · Fase F",
+    gradeKey: "fase-f",
+    relatedMaterialSlug: "matriks",
+    relatedMaterialTitle: "Matriks",
+    concepts: [
+      "Transformasi Linear",
+      "Matriks 2 × 2",
+      "Vektor Basis",
+      "Determinan",
+      "Luas & Orientasi",
+    ],
+  },
 ];

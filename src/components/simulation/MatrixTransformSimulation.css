@@ -1,0 +1,1407 @@
+/* Simulasi transformasi matriks 2 × 2 (kisi, vektor basis, determinan dan luas).
+   Urutan: (1) ponsel lanskap = dasar (kelas .is-tabbed, panel bertab),
+   (2) potret, (3) desktop (tanpa .is-tabbed), (4) layar penuh.
+   Wilayah grafik : wilayah input = 2fr : 1fr.
+   Kelas .is-tabbed dipasang oleh komponen saat layar kecil/pendek atau
+   saat layar penuh. Token --mt-* sengaja tidak memakai nama --line/--paper
+   agar GraphAppearanceControls tetap memakai variabel situsnya sendiri. */
+
+.matrix-simulation,
+.matrix-simulation *,
+.matrix-simulation *::before,
+.matrix-simulation *::after {
+  box-sizing: border-box;
+}
+
+.matrix-simulation {
+  --mt-accent: #087f8c;
+  --mt-ink: var(--sim-ink, #18313d);
+  --mt-muted: var(--sim-muted, #62727d);
+  --mt-line: var(--sim-line, #d5e0e4);
+  --mt-paper: var(--sim-paper, #f3f7f5);
+
+  /* slider tipis, bulatan kecil */
+  --track: 3px;
+  --thumb: 13px;
+
+  display: grid;
+  gap: 6px;
+  padding: 6px;
+  background: var(--mt-paper);
+  color: var(--mt-ink);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.matrix-simulation button {
+  font-family: inherit;
+  touch-action: manipulation;
+}
+
+.matrix-simulation button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.matrix-simulation button:focus-visible,
+.matrix-simulation input:focus-visible {
+  outline: 2px solid var(--mt-accent);
+  outline-offset: 2px;
+}
+
+.mt-orientation-hint {
+  display: none;
+}
+
+/* ───────── Tata letak utama (dasar = bertab, ponsel lanskap) ───────── */
+
+.matrix-simulation.is-tabbed {
+  grid-template-rows: minmax(0, 1fr);
+  height: min(100dvh, 460px);
+}
+
+.mt-boards {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 6px;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+}
+
+.mt-column {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 5px;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* ───────── Grafik ───────── */
+
+.mt-board-panel {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr);
+  grid-auto-rows: auto;
+  min-width: 0;
+  min-height: 0;
+  border: 1px solid var(--mt-line);
+  background: #fff;
+}
+
+.mt-stage {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+}
+
+.mt-board {
+  /* !important: JSXGraph menulis position: relative pada elemen papan
+     (gaya inline) sehingga bisa membatalkan position: absolute dari CSS. */
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #fcfdfc;
+  touch-action: none;
+  cursor: grab;
+}
+
+.mt-board:active {
+  cursor: grabbing;
+}
+
+.mt-board:focus-visible {
+  outline: 2px solid var(--mt-accent);
+  outline-offset: -2px;
+}
+
+.mt-board .JXGtext {
+  font-family: "Cambria Math", Georgia, serif;
+  font-weight: 700;
+}
+
+/* Jenis kurva dan e: melayang di kiri atas */
+.mt-chip {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  z-index: 2;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  max-width: calc(100% - 50px);
+  margin: 0;
+  padding: 2px 8px;
+  border-left: 3px solid var(--mt-accent);
+  background: rgba(255, 255, 255, 0.92);
+  font-size: 12px;
+  pointer-events: none;
+}
+
+.mt-chip b {
+  font-size: 14px;
+}
+
+.mt-chip span {
+  font-family: "Cambria Math", Georgia, serif;
+  font-weight: 700;
+}
+
+/* Titik P dan jaraknya: melayang di kiri bawah */
+.mt-pinfo {
+  position: absolute;
+  left: 6px;
+  bottom: 6px;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px 10px;
+  max-width: calc(100% - 50px);
+  padding: 3px 8px;
+  border-left: 3px solid #183e54;
+  background: rgba(255, 255, 255, 0.92);
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  pointer-events: none;
+}
+
+/* Alat tampilan melayang di kanan atas */
+.mt-tools {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 2;
+  display: grid;
+  gap: 3px;
+}
+
+.mt-tools button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid #aebdc2;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--mt-ink);
+  cursor: pointer;
+}
+
+.mt-tools button:hover {
+  border-color: var(--mt-accent);
+  background: #e8f3f1;
+}
+
+.mt-legend {
+  display: flex;
+  gap: 4px 12px;
+  padding: 3px 8px;
+  border-top: 1px solid var(--mt-line);
+  color: var(--mt-muted);
+  font-size: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.mt-legend::-webkit-scrollbar {
+  display: none;
+}
+
+.mt-legend span {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.mt-legend i {
+  width: 14px;
+  height: 0;
+  border: 0 solid #183e54;
+  border-top-width: 3px;
+}
+
+.mt-legend i.line-dir {
+  border-color: #8a6d00;
+  border-top-style: dashed;
+  border-top-width: 2px;
+}
+
+.mt-legend i.line-tan {
+  border-color: #2f6bd0;
+  border-top-width: 2px;
+}
+
+.mt-legend b {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.mt-legend .dot-focus {
+  background: #183e54;
+}
+
+.mt-legend .legend-ghost {
+  opacity: 0.85;
+}
+
+/* Petunjuk panjang hanya di desktop */
+.mt-hint {
+  display: none;
+}
+
+/* ───────── Tab panel kanan ───────── */
+
+.mt-tabs {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.mt-tabs button {
+  height: 28px;
+  padding: 0 2px;
+  margin-left: -1px;
+  border: 1px solid #aebdc2;
+  background: #fff;
+  color: var(--mt-ink);
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.mt-tabs button:first-child {
+  margin-left: 0;
+}
+
+.mt-tabs button[aria-pressed="true"] {
+  position: relative;
+  border-color: var(--mt-accent);
+  background: var(--mt-accent);
+  color: #fff;
+}
+
+/* Isi panel: satu kartu putih yang bisa digulir */
+.matrix-simulation.is-tabbed .mt-controls,
+.matrix-simulation.is-tabbed .mt-results {
+  min-width: 0;
+  min-height: 0;
+  padding: 8px;
+  border: 1px solid var(--mt-line);
+  background: #fff;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+
+.mt-pane {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  min-width: 0;
+}
+
+/* Hanya panel pada tab aktif yang tampil */
+.matrix-simulation.is-tabbed .mt-column[data-tab="par"] .mt-results,
+.matrix-simulation.is-tabbed .mt-column[data-tab="opt"] .mt-results,
+.matrix-simulation.is-tabbed .mt-column[data-tab="proc"] .mt-controls,
+.matrix-simulation.is-tabbed .mt-column[data-tab="res"] .mt-controls,
+.matrix-simulation.is-tabbed .mt-column[data-tab="info"] .mt-controls,
+.matrix-simulation.is-tabbed
+  .mt-column[data-tab="par"]
+  [data-pane]:not([data-pane="par"]),
+.matrix-simulation.is-tabbed
+  .mt-column[data-tab="opt"]
+  [data-pane]:not([data-pane="opt"]),
+.matrix-simulation.is-tabbed
+  .mt-column[data-tab="proc"]
+  [data-pane]:not([data-pane="proc"]),
+.matrix-simulation.is-tabbed
+  .mt-column[data-tab="res"]
+  [data-pane]:not([data-pane="res"]),
+.matrix-simulation.is-tabbed
+  .mt-column[data-tab="info"]
+  [data-pane]:not([data-pane="info"]) {
+  display: none;
+}
+
+/* ───────── Jenis dan parameter ───────── */
+
+.mt-kinds {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 3px;
+}
+
+.mt-kinds button {
+  min-width: 0;
+  height: 28px;
+  padding: 0 1px;
+  border: 1px solid #aebdc2;
+  border-bottom: 3px solid var(--kc);
+  background: #fff;
+  color: var(--mt-ink);
+  font-size: 9.5px;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.mt-kinds button:hover {
+  background: #f1f6f5;
+}
+
+.mt-kinds button[aria-pressed="true"] {
+  border-color: var(--kc);
+  background: var(--kc);
+  color: #fff;
+}
+
+.mt-params {
+  display: grid;
+  gap: 0;
+}
+
+/* Satu baris: e  −  ──●──  +  [0,6]  ▶ */
+.mt-param {
+  --tone: var(--mt-accent);
+  display: grid;
+  grid-template-columns: 16px 20px minmax(0, 1fr) 20px 46px 22px;
+  align-items: center;
+  column-gap: 4px;
+  min-width: 0;
+}
+
+.mt-param label {
+  color: var(--tone);
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 800;
+  text-align: center;
+}
+
+.mt-nudge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 1px solid #aebdc2;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--mt-ink);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.mt-nudge:hover {
+  border-color: var(--tone);
+  background: #f1f6f5;
+}
+
+.mt-nudge:active {
+  background: #e0ecea;
+}
+
+.mt-num {
+  width: 100%;
+  min-width: 0;
+  height: 24px;
+  padding: 0 2px;
+  border: 1px solid #aebdc2;
+  border-radius: 0;
+  background: #fff;
+  color: var(--tone);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  text-align: center;
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.mt-num::-webkit-outer-spin-button,
+.mt-num::-webkit-inner-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+.mt-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--mt-muted);
+  cursor: pointer;
+}
+
+.mt-icon-btn:hover {
+  border-color: #aebdc2;
+  background: var(--mt-paper);
+}
+
+.mt-icon-btn[aria-pressed="true"] {
+  border-color: var(--tone);
+  color: var(--tone);
+}
+
+/* Area sentuh 28px, tampilan visual hanya 3px. */
+.mt-range {
+  --lo: 0%;
+  --hi: 50%;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 28px;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+  touch-action: pan-y;
+}
+
+.mt-range::-webkit-slider-runnable-track {
+  height: var(--track);
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    var(--mt-line) 0,
+    var(--mt-line) var(--lo),
+    var(--tone) var(--lo),
+    var(--tone) var(--hi),
+    var(--mt-line) var(--hi),
+    var(--mt-line) 100%
+  );
+}
+
+.mt-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+  width: var(--thumb);
+  height: var(--thumb);
+  margin-top: calc((var(--track) - var(--thumb)) / 2);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: var(--tone);
+  box-shadow: 0 0 0 1px rgba(24, 49, 61, 0.28);
+}
+
+.mt-range::-moz-range-track {
+  height: var(--track);
+  border-radius: 999px;
+  background: var(--mt-line);
+}
+
+.mt-range::-moz-range-progress {
+  height: var(--track);
+  border-radius: 999px;
+  background: transparent;
+}
+
+.mt-range::-moz-range-thumb {
+  box-sizing: border-box;
+  width: var(--thumb);
+  height: var(--thumb);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: var(--tone);
+  box-shadow: 0 0 0 1px rgba(24, 49, 61, 0.28);
+}
+
+.mt-range:focus-visible {
+  outline: none;
+}
+
+.mt-range:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 2px var(--tone);
+}
+
+.mt-range:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 2px var(--tone);
+}
+
+@media (pointer: coarse) {
+  /* 16px mencegah iOS memperbesar halaman saat kolom difokuskan */
+  .mt-num {
+    height: 28px;
+    font-size: 16px;
+  }
+
+  .mt-param {
+    grid-template-columns: 16px 22px minmax(0, 1fr) 22px 50px 22px;
+  }
+
+  .mt-nudge {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+.mt-check,
+.mt-options label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 26px;
+  color: var(--mt-ink);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.3;
+  cursor: pointer;
+}
+
+.mt-check input,
+.mt-options input {
+  flex: 0 0 auto;
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  accent-color: var(--mt-accent);
+}
+
+.mt-options {
+  display: grid;
+  gap: 2px;
+}
+
+.mt-reset {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  justify-self: start;
+  height: 28px;
+  padding: 0 10px;
+  border: 1px solid #aebdc2;
+  background: #fff;
+  color: var(--mt-ink);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.mt-reset:hover {
+  border-color: var(--mt-accent);
+  background: #e8f3f1;
+}
+
+/* ───────── Hasil ───────── */
+
+.mt-card {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+  padding: 6px 8px;
+  border: 1px solid var(--mt-line);
+  background: var(--mt-paper);
+}
+
+.mt-card h3 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.mt-card h4 {
+  margin: 0 0 2px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.mt-card p {
+  margin: 0;
+  color: var(--mt-muted);
+  font-size: 11px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.mt-card .mt-eq {
+  color: #183e54;
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.mt-card .mt-eq-note {
+  margin-bottom: 4px;
+  font-size: 10px;
+}
+
+.mt-kvs {
+  display: grid;
+  gap: 1px;
+}
+
+.mt-kv {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: baseline;
+  gap: 8px;
+  padding: 2px 0;
+  border-top: 1px solid var(--mt-line);
+}
+
+.mt-kv:first-child {
+  border-top: 0;
+}
+
+.mt-kv span {
+  color: var(--mt-muted);
+  font-size: 10px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.mt-kv b {
+  color: #183e54;
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 12px;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+/* ───────── Info ───────── */
+
+.mt-info-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 10.5px;
+}
+
+.mt-info-table th,
+.mt-info-table td {
+  padding: 4px 6px;
+  border-top: 1px solid var(--mt-line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.mt-info-table thead th {
+  border-top: 0;
+  color: var(--mt-muted);
+  font-weight: 700;
+}
+
+.mt-info-table td:first-child {
+  font-family: "Cambria Math", Georgia, serif;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.mt-insights {
+  display: grid;
+  gap: 5px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--mt-muted);
+  font-size: 10.5px;
+  line-height: 1.45;
+}
+
+.mt-insights li {
+  padding-left: 8px;
+  border-left: 3px solid var(--mt-line);
+}
+
+/* Ponsel lanskap sangat pendek */
+@media (orientation: landscape) and (max-height: 360px) {
+  .matrix-simulation.is-tabbed {
+    gap: 4px;
+    padding: 4px;
+  }
+
+  .matrix-simulation.is-tabbed .mt-boards {
+    gap: 4px;
+  }
+
+  .matrix-simulation.is-tabbed .mt-controls,
+  .matrix-simulation.is-tabbed .mt-results {
+    padding: 6px;
+  }
+
+  .mt-range {
+    height: 24px;
+  }
+}
+
+/* ───────── Potret (cadangan): grafik atas, panel bertab di bawah ───────── */
+
+@media (orientation: portrait) and (max-width: 899px) {
+  .matrix-simulation.is-tabbed:not(.is-fullscreen) {
+    grid-template-rows: auto auto;
+    height: auto;
+    padding: 8px;
+  }
+
+  .matrix-simulation.is-tabbed:not(.is-fullscreen) .mt-orientation-hint {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 0;
+    padding: 6px 9px;
+    border-left: 3px solid var(--mt-accent);
+    background: #e8f3f1;
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .mt-orientation-hint svg {
+    flex: 0 0 auto;
+    color: var(--mt-accent);
+  }
+
+  .matrix-simulation.is-tabbed:not(.is-fullscreen) .mt-boards {
+    grid-template-columns: minmax(0, 1fr);
+    height: auto;
+  }
+
+  .matrix-simulation.is-tabbed:not(.is-fullscreen) .mt-board-panel {
+    height: clamp(260px, 48dvh, 440px);
+  }
+
+  .matrix-simulation.is-tabbed:not(.is-fullscreen) .mt-controls,
+  .matrix-simulation.is-tabbed:not(.is-fullscreen) .mt-results {
+    overflow: visible;
+  }
+}
+
+/* ───────── Desktop & tablet lanskap (tanpa .is-tabbed) ───────── */
+
+.matrix-simulation:not(.is-tabbed) {
+  --track: 4px;
+  --thumb: 16px;
+  gap: 12px;
+  padding: 14px;
+  font-size: 13px;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-boards {
+  grid-template-rows: clamp(520px, 76vh, 760px) auto;
+  gap: 12px;
+  height: auto;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-column {
+  display: contents;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-tabs {
+  display: none;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-board-panel {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-controls {
+  grid-column: 2;
+  grid-row: 1;
+  display: grid;
+  align-content: start;
+  gap: 16px;
+  min-width: 0;
+  min-height: 0;
+  padding: 14px;
+  border: 1px solid var(--mt-line);
+  background: #fff;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+/* Hasil di bawah: lagi-lagi 2 : 1 (hasil | info) */
+.matrix-simulation:not(.is-tabbed) .mt-results {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+  min-width: 0;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-pane {
+  gap: 12px;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-pane[data-pane="proc"] {
+  grid-column: 1 / -1;
+  order: -1;
+  padding: 12px 14px;
+  border: 1px solid var(--mt-line);
+  background: #fff;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-pane[data-pane="res"] {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  align-items: start;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-chip {
+  top: 10px;
+  left: 10px;
+  padding: 4px 12px;
+  border-left-width: 4px;
+  font-size: 13px;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-chip b {
+  font-size: 18px;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-pinfo {
+  left: 10px;
+  bottom: 10px;
+  padding: 5px 12px;
+  font-size: 14px;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-tools {
+  top: 10px;
+  right: 10px;
+  gap: 4px;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-tools button {
+  width: 34px;
+  height: 34px;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-legend {
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 7px 10px;
+  font-size: 11px;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-hint {
+  display: block;
+  margin: 0;
+  padding: 0 14px 8px;
+  color: var(--mt-muted);
+  font-size: 10px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-kinds {
+  gap: 5px;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-kinds button {
+  height: 36px;
+  font-size: 12px;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-params {
+  gap: 6px;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-param {
+  grid-template-columns: 22px 24px minmax(0, 1fr) 24px 58px 26px;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-param label {
+  font-size: 19px;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-nudge {
+  width: 24px;
+  height: 24px;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-num {
+  height: 30px;
+  font-size: 13px;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-range {
+  height: 30px;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-check,
+.matrix-simulation:not(.is-tabbed) .mt-options label {
+  min-height: 30px;
+  font-size: 12px;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-reset {
+  height: 32px;
+  padding: 0 14px;
+  font-size: 12px;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-card {
+  gap: 5px;
+  padding: 12px 14px;
+  background: #fff;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-card h3 {
+  font-size: 20px;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-card h4 {
+  font-size: 12px;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-card p {
+  font-size: 12px;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-card .mt-eq {
+  font-size: 15px;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-card .mt-eq-note {
+  font-size: 10px;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-kv {
+  padding: 4px 0;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-kv span {
+  font-size: 11px;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-kv b {
+  font-size: 14px;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-info-table {
+  font-size: 12px;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-info-table th,
+.matrix-simulation:not(.is-tabbed) .mt-info-table td {
+  padding: 6px 8px;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-insights {
+  gap: 6px;
+  font-size: 11.5px;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-insights li {
+  padding-left: 10px;
+}
+
+/* ───────── Layar penuh (selalu bertab, tanpa gulir halaman) ───────── */
+
+.matrix-simulation.is-fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  grid-template-rows: minmax(0, 1fr);
+  width: auto;
+  height: auto;
+  padding: max(6px, env(safe-area-inset-top, 0px))
+    max(8px, env(safe-area-inset-right, 0px))
+    max(6px, env(safe-area-inset-bottom, 0px))
+    max(8px, env(safe-area-inset-left, 0px));
+  overflow: hidden;
+}
+
+.matrix-simulation.is-fullscreen .mt-orientation-hint {
+  display: none;
+}
+
+/* Layar penuh di monitor besar: ukuran sedikit lebih lega */
+@media (min-width: 900px) and (min-height: 541px) {
+  .matrix-simulation.is-fullscreen {
+    --track: 4px;
+    --thumb: 15px;
+    font-size: 13px;
+  }
+
+  .matrix-simulation.is-fullscreen .mt-tabs button {
+    height: 34px;
+    font-size: 12px;
+  }
+
+  .matrix-simulation.is-fullscreen .mt-kinds button {
+    height: 32px;
+    font-size: 11px;
+  }
+
+  .matrix-simulation.is-fullscreen .mt-pinfo {
+    font-size: 14px;
+  }
+}
+
+/* Layar penuh + potret: tetap 2 : 1, grafik atas, input bawah */
+@media (orientation: portrait) and (max-width: 899px) {
+  .matrix-simulation.is-fullscreen .mt-boards {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 2fr) minmax(0, 1fr);
+  }
+
+  .matrix-simulation.is-fullscreen .mt-board-panel {
+    height: auto;
+  }
+}
+
+/* Layar penuh: grafik 100%, panel input (tab + isi) tersembunyi dan muncul
+   mengambang di atas grafik lewat tombol toolbar di bawah tombol pusatkan
+   tampilan. Ditaruh setelah aturan potret agar menimpanya. */
+.matrix-simulation.is-fullscreen .mt-boards {
+  position: relative;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+}
+
+.matrix-simulation.is-fullscreen .mt-board-panel {
+  height: 100%;
+}
+
+.matrix-simulation.is-fullscreen .mt-stage {
+  height: 100%;
+}
+
+.matrix-simulation.is-fullscreen .mt-column.is-floating {
+  position: absolute;
+  top: 6px;
+  right: 42px;
+  bottom: 6px;
+  z-index: 3;
+  display: none;
+  width: min(360px, calc(100% - 52px));
+  padding: 6px;
+  border: 1px solid #aebdc2;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 6px 20px rgba(24, 49, 61, 0.22);
+}
+
+.matrix-simulation.is-fullscreen .mt-column.is-floating.is-open {
+  display: grid;
+}
+
+.mt-tools .mt-toolbar-toggle[aria-pressed="true"] {
+  border-color: var(--mt-accent);
+  background: #d6ebe8;
+  color: var(--mt-accent);
+}
+
+/* Netralkan gaya bawaan .simulation-fullscreen-frame (mis. aspect-ratio atau
+   batas ukuran) agar elemen benar-benar memenuhi layar, baik pada layar
+   penuh asli maupun layar penuh CSS. */
+.matrix-simulation:fullscreen.simulation-fullscreen-frame {
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  overflow: hidden !important;
+}
+
+.matrix-simulation.simulation-fullscreen-frame.is-fullscreen:not(:fullscreen) {
+  inset: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  transform: none !important;
+}
+
+@media (min-width: 900px) and (min-height: 541px) {
+  .matrix-simulation.is-fullscreen .mt-column.is-floating {
+    top: 10px;
+    right: 54px;
+    bottom: 10px;
+    width: min(400px, calc(100% - 70px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .matrix-simulation * {
+    transition: none !important;
+  }
+}
+
+/* ───────── Tambahan untuk simulasi dua lingkaran ───────── */
+
+.mt-group {
+  margin: 8px 0 2px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.mt-group:first-child {
+  margin-top: 0;
+}
+
+
+/* ───────── Alat bantu belajar: fokus garis, tanda siku-siku, mode proses ───────── */
+
+
+/* Bar langkah di bawah grafik */
+.mt-stepbar {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) 28px 24px;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 6px;
+  border-top: 1px solid var(--mt-line);
+  background: #fbf3e4;
+}
+
+.mt-stepbar p {
+  display: grid;
+  gap: 1px;
+  min-width: 0;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.mt-stepbar b {
+  color: #8a5200;
+  font-size: 11px;
+}
+
+.mt-stepbar span {
+  color: var(--mt-ink);
+  font-size: 10.5px;
+}
+
+.mt-stepbar button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid #d8b878;
+  background: #fff;
+  color: var(--mt-ink);
+  cursor: pointer;
+}
+
+.mt-stepbar button:last-child {
+  width: 24px;
+  height: 24px;
+  border-color: transparent;
+  background: transparent;
+  color: var(--mt-muted);
+}
+
+.mt-stepbar button:hover:not(:disabled) {
+  border-color: #c77700;
+  background: #fff6e2;
+}
+
+/* Isi tab Proses */
+.mt-primary {
+  justify-self: start;
+  height: 30px;
+  padding: 0 12px;
+  border: 1px solid #c77700;
+  background: #c77700;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.mt-primary:hover:not(:disabled) {
+  background: #a96400;
+}
+
+.mt-proc-target {
+  margin: 0;
+  color: var(--mt-muted);
+  font-size: 11px;
+}
+
+.mt-proc-target b {
+  color: var(--mt-ink);
+}
+
+.mt-steps {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mt-steps li {
+  display: grid;
+  gap: 4px;
+  padding: 0;
+  border-left: 3px solid var(--mt-line);
+}
+
+.mt-steps li[data-state="now"] {
+  border-left-color: #c77700;
+  background: #fbf3e4;
+}
+
+.mt-steps li[data-state="done"] {
+  border-left-color: #087f8c;
+}
+
+.mt-steps li button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 28px;
+  padding: 2px 8px;
+  border: 0;
+  background: transparent;
+  color: var(--mt-ink);
+  font-size: 11px;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+
+.mt-steps li[data-state="todo"] button {
+  color: var(--mt-muted);
+  font-weight: 600;
+}
+
+.mt-steps li button span {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--mt-line);
+  color: var(--mt-ink);
+  font-size: 10px;
+}
+
+.mt-steps li[data-state="now"] button span {
+  background: #c77700;
+  color: #fff;
+}
+
+.mt-steps li[data-state="done"] button span {
+  background: #087f8c;
+  color: #fff;
+}
+
+.mt-steps li > p {
+  margin: 0;
+  padding: 0 8px 8px 34px;
+  color: var(--mt-ink);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.mt-stepnav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.mt-stepnav button {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  height: 28px;
+  padding: 0 9px;
+  border: 1px solid #aebdc2;
+  background: #fff;
+  color: var(--mt-ink);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.mt-stepnav button:hover:not(:disabled) {
+  border-color: #c77700;
+  background: #fff6e2;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-steps li > p,
+.matrix-simulation:not(.is-tabbed) .mt-steps li button,
+.matrix-simulation:not(.is-tabbed) .mt-proc-target {
+  font-size: 12.5px;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-stepbar {
+  padding: 5px 10px;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-stepbar b {
+  font-size: 13px;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-stepbar span {
+  font-size: 12.5px;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-primary,
+.matrix-simulation:not(.is-tabbed) .mt-stepnav button {
+  height: 32px;
+  font-size: 12px;
+}
+
+.mt-legend i.line-eig {
+  border-color: #3a7d44;
+  border-top-style: dashed;
+  border-top-width: 2px;
+}
+
+.mt-legend .dot-area {
+  width: 10px;
+  height: 10px;
+  border-radius: 1px;
+}
+
+/* Preset: 8 tombol dalam 2 baris */
+.mt-kinds button {
+  font-size: 9px;
+}
+
+/* Matriks 2 × 2 dengan kurung siku */
+.mt-matrix {
+  display: inline-grid;
+  grid-template-columns: repeat(2, minmax(2.6em, auto));
+  gap: 2px 14px;
+  justify-self: start;
+  padding: 3px 12px;
+  border-right: 2px solid var(--mt-ink);
+  border-left: 2px solid var(--mt-ink);
+  border-radius: 6px;
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.matrix-simulation:not(.is-tabbed) .mt-matrix {
+  font-size: 18px;
+}
+
+@media (max-width: 380px) {
+  .mt-kinds button {
+    font-size: 8.5px;
+  }
+}
