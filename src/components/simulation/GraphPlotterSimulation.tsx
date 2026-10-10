@@ -10,6 +10,7 @@ import {
   Play,
   Plus,
   Smartphone,
+  SlidersHorizontal,
   X,
 } from "lucide-react";
 import { useEffect, useId, useMemo, useRef, useState } from "react";
@@ -392,6 +393,8 @@ export function GraphPlotterSimulation() {
   const lastKeyRef = useRef("");
   // true saat papan sedang digeser: hitung ulang ditunda sampai tombol dilepas
   const panningRef = useRef(false);
+  // Menyamakan ukuran papan JSXGraph dengan kontainernya (diisi oleh efek papan)
+  const syncSizeRef = useRef<((force?: boolean) => void) | null>(null);
 
   const [slots, setSlots] = useStoredSimulationState<Slot[]>(
     "graph-plotter.slots",
@@ -439,6 +442,8 @@ export function GraphPlotterSimulation() {
   const [results, setResults] = useState<Results>({ pairs: [], axes: [] });
   const [message, setMessage] = useState("");
   const [isFull, setIsFull] = useState(false);
+  // Panel input hanya dipakai di layar penuh: tersembunyi, muncul mengambang.
+  const [panelOpen, setPanelOpen] = useState(false);
   const [tab, setTab] = useState<PanelTab>("fn");
   const nativeFsRef = useRef(false);
   const smallScreen = useMediaQuery(TABBED_QUERY);
@@ -640,6 +645,7 @@ export function GraphPlotterSimulation() {
     const el = rootRef.current;
     if (!el) return;
     if (!isFull) {
+      setPanelOpen(false);
       setIsFull(true);
       if (el.requestFullscreen) {
         try {
@@ -1256,10 +1262,10 @@ export function GraphPlotterSimulation() {
     // Saat ukuran papan berubah (putar layar, layar penuh, ganti mode),
     // pertahankan skala dan titik tengah bila rasio 1:1 dikunci.
     let last = { w: el.clientWidth, h: el.clientHeight };
-    const observer = new ResizeObserver(() => {
+    const sync = (force = false) => {
       const w = el.clientWidth;
       const h = el.clientHeight;
-      if (w <= 0 || h <= 0 || (w === last.w && h === last.h)) return;
+      if (w <= 0 || h <= 0 || (!force && w === last.w && h === last.h)) return;
       const bb = board.getBoundingBox();
       const spanX = bb[2] - bb[0];
       const spanY = bb[1] - bb[3];
@@ -1282,10 +1288,13 @@ export function GraphPlotterSimulation() {
       }
       last = { w, h };
       scheduleRecompute();
-    });
+    };
+    syncSizeRef.current = sync;
+    const observer = new ResizeObserver(() => sync());
     observer.observe(el);
 
     return () => {
+      syncSizeRef.current = null;
       observer.disconnect();
       el.removeEventListener("pointerdown", onDown, true);
       el.removeEventListener("pointermove", onMove, true);
@@ -1444,6 +1453,25 @@ export function GraphPlotterSimulation() {
     };
   }, [isFull]);
 
+  // Masuk/keluar layar penuh mengubah ukuran kontainer dua kali (tata letak
+  // CSS lalu layar penuh asli). Sinkronkan ulang ukuran papan setelah
+  // transisi selesai agar grafik langsung terisi penuh.
+  useEffect(() => {
+    const run = () => syncSizeRef.current?.(true);
+    const raf = requestAnimationFrame(() => requestAnimationFrame(run));
+    const t1 = window.setTimeout(run, 150);
+    const t2 = window.setTimeout(run, 450);
+    document.addEventListener("fullscreenchange", run);
+    window.addEventListener("resize", run);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.clearTimeout(t1);
+      window.clearTimeout(t2);
+      document.removeEventListener("fullscreenchange", run);
+      window.removeEventListener("resize", run);
+    };
+  }, [isFull, tabbed]);
+
   const pairList = results.pairs.filter(
     (pair) => drawn[pair.i] && drawn[pair.j],
   );
@@ -1567,6 +1595,23 @@ export function GraphPlotterSimulation() {
               >
                 <ArrowUpDown size={15} aria-hidden="true" />
               </button>
+              {isFull && (
+                <button
+                  type="button"
+                  className="plot-toolbar-toggle"
+                  onClick={() => setPanelOpen((open) => !open)}
+                  aria-pressed={panelOpen}
+                  aria-controls="plot-column-panel"
+                  aria-label={
+                    panelOpen ? "Sembunyikan toolbar" : "Tampilkan toolbar"
+                  }
+                  title={
+                    panelOpen ? "Sembunyikan toolbar" : "Tampilkan toolbar"
+                  }
+                >
+                  <SlidersHorizontal size={15} aria-hidden="true" />
+                </button>
+              )}
             </div>
           </div>
 
@@ -1611,7 +1656,13 @@ export function GraphPlotterSimulation() {
         </section>
 
         {/* ───── Wilayah input (1 bagian) ───── */}
-        <div className="plot-column" data-tab={tab}>
+        <div
+          id="plot-column-panel"
+          className={`plot-column${isFull ? " is-floating" : ""}${
+            isFull && panelOpen ? " is-open" : ""
+          }`}
+          data-tab={tab}
+        >
           <div className="plot-tabs" role="group" aria-label="Bagian panel">
             {panelTabs.map((item) => (
               <button

@@ -807,6 +807,53 @@
   }
 }
 
+/* Layar penuh: grafik 100%, panel input tersembunyi dan muncul mengambang
+   di atas grafik lewat tombol toolbar (di bawah tombol pusatkan tampilan).
+   Ditaruh setelah aturan potret agar menimpanya. */
+.qs2.is-fs .qs2-layout {
+  position: relative;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+}
+
+.qs2.is-fs .qs2-graph {
+  height: 100%;
+}
+
+.qs2.is-fs .qs2-inputs.is-floating {
+  position: absolute;
+  top: 6px;
+  right: 42px;
+  z-index: 3;
+  display: none;
+  width: min(320px, calc(100% - 52px));
+  height: auto;
+  max-height: calc(100% - 12px);
+  overflow-y: auto;
+  border-color: #aebdc2;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 6px 20px rgba(24, 49, 61, 0.22);
+}
+
+.qs2.is-fs .qs2-inputs.is-floating.is-open {
+  display: flex;
+}
+
+.qs2-tools .qs2-toolbar-toggle[aria-pressed="true"] {
+  border-color: var(--a);
+  background: #d6ebe8;
+  color: var(--a);
+}
+
+@media (min-width: 900px) and (min-height: 541px) {
+  .qs2.is-fs .qs2-inputs.is-floating {
+    top: 10px;
+    right: 54px;
+    width: min(360px, calc(100% - 70px));
+    max-height: calc(100% - 20px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .qs2 * {
     transition: none !important;

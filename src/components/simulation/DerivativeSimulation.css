@@ -1046,6 +1046,52 @@
   }
 }
 
+/* Layar penuh: grafik 100%, panel input (tab + isi) tersembunyi dan muncul
+   mengambang di atas grafik lewat tombol toolbar di bawah tombol pusatkan
+   tampilan. Ditaruh setelah aturan potret agar menimpanya. */
+.derivative-simulation.is-fullscreen .dv-main {
+  position: relative;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+}
+
+.derivative-simulation.is-fullscreen .dv-board-panel {
+  height: 100%;
+}
+
+.derivative-simulation.is-fullscreen .dv-column.is-floating {
+  position: absolute;
+  top: 6px;
+  right: 42px;
+  bottom: 6px;
+  z-index: 3;
+  display: none;
+  width: min(360px, calc(100% - 52px));
+  padding: 6px;
+  border: 1px solid #aebdc2;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 6px 20px rgba(24, 49, 61, 0.22);
+}
+
+.derivative-simulation.is-fullscreen .dv-column.is-floating.is-open {
+  display: grid;
+}
+
+.dv-view-tools .dv-toolbar-toggle[aria-pressed="true"] {
+  border-color: var(--k-teal);
+  background: #d6ebe8;
+  color: var(--k-teal);
+}
+
+@media (min-width: 900px) and (min-height: 541px) {
+  .derivative-simulation.is-fullscreen .dv-column.is-floating {
+    top: 10px;
+    right: 54px;
+    bottom: 10px;
+    width: min(400px, calc(100% - 70px));
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .derivative-simulation * {
     transition: none !important;

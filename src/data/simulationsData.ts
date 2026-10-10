@@ -206,4 +206,25 @@ export const SIMULATIONS: SimulationItem[] = [
       "Hiperbola",
     ],
   },
+  {
+    id: "circle-sector",
+    index: "11",
+    category: "LINGKARAN",
+    title: "Eksplorasi Busur, Juring & Garis Singgung",
+    description:
+      "Atur jari-jari dan sudut pusat untuk mengamati panjang busur, luas juring, tali busur, apotema, tembereng, serta garis singgung lingkaran.",
+    prompt:
+      "Ubah sudut pusat dan jari-jari. Bagaimana perubahan keduanya memengaruhi panjang busur, luas juring, dan panjang tali busur?",
+    level: "Kelas XI · Fase F",
+    gradeKey: "fase-f",
+    relatedMaterialSlug: "busur-dan-juring-lingkaran",
+    relatedMaterialTitle: "Lingkaran",
+    concepts: [
+      "Sudut Pusat",
+      "Panjang Busur",
+      "Luas Juring",
+      "Tali Busur",
+      "Garis Singgung",
+    ],
+  },
 ];

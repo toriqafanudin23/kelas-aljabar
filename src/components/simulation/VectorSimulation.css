@@ -986,6 +986,52 @@
   }
 }
 
+/* Layar penuh: grafik 100%, panel input (tab + isi) tersembunyi dan muncul
+   mengambang di atas grafik lewat tombol toolbar di bawah tombol pusatkan
+   tampilan. Ditaruh setelah aturan potret agar menimpanya. */
+.vector-simulation.is-fullscreen .vs-main {
+  position: relative;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+}
+
+.vector-simulation.is-fullscreen .vs-board-panel {
+  height: 100%;
+}
+
+.vector-simulation.is-fullscreen .vs-column.is-floating {
+  position: absolute;
+  top: 6px;
+  right: 42px;
+  bottom: 6px;
+  z-index: 3;
+  display: none;
+  width: min(340px, calc(100% - 52px));
+  padding: 6px;
+  border: 1px solid #aebdc2;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 6px 20px rgba(24, 49, 61, 0.22);
+}
+
+.vector-simulation.is-fullscreen .vs-column.is-floating.is-open {
+  display: grid;
+}
+
+.vs-view-tools .vs-toolbar-toggle[aria-pressed="true"] {
+  border-color: var(--vs-a);
+  background: #d6ebe8;
+  color: var(--vs-a);
+}
+
+@media (min-width: 900px) and (min-height: 541px) {
+  .vector-simulation.is-fullscreen .vs-column.is-floating {
+    top: 10px;
+    right: 54px;
+    bottom: 10px;
+    width: min(380px, calc(100% - 70px));
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .vector-simulation * {
     transition: none !important;

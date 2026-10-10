@@ -7,8 +7,7 @@ PALING COCOK
 
 
 
-5. Irisan Kerucut
-   Ubah parameter atau eksentrisitas untuk membandingkan lingkaran, elips, parabola, dan hiperbola. Tampilkan fokus, direktriks, serta garis singgung.
+
 
 
 7. Lingkaran

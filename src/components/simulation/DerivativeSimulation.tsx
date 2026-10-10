@@ -6,6 +6,7 @@ import {
   Plus,
   RotateCcw,
   Smartphone,
+  SlidersHorizontal,
 } from "lucide-react";
 import {
   useEffect,
@@ -212,6 +213,8 @@ export function DerivativeSimulation() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const nativeFullscreenRef = useRef(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  // Panel input hanya dipakai di layar penuh: tersembunyi, muncul mengambang.
+  const [panelOpen, setPanelOpen] = useState(false);
   const smallScreen = useMediaQuery(TABBED_QUERY);
   const tabbed = smallScreen || isFullscreen;
 
@@ -221,6 +224,8 @@ export function DerivativeSimulation() {
   const curveRef = useRef<JXG.Functiongraph | null>(null);
   const pointsRef = useRef<{ el: JXG.Point; extra: number }[]>([]);
   const hRaf = useRef<number | null>(null);
+  // Menyamakan ukuran papan JSXGraph dengan kontainernya (diisi oleh efek papan)
+  const syncSizeRef = useRef<((force?: boolean) => void) | null>(null);
 
   const [st, setSt] = useStoredSimulationState(
     "derivative.state",
@@ -310,6 +315,7 @@ export function DerivativeSimulation() {
     const el = rootRef.current;
     if (!el) return;
     if (!isFullscreen) {
+      setPanelOpen(false);
       setIsFullscreen(true);
       if (el.requestFullscreen) {
         try {
@@ -554,12 +560,12 @@ export function DerivativeSimulation() {
       w: containerRef.current?.clientWidth ?? 0,
       h: containerRef.current?.clientHeight ?? 0,
     };
-    const observer = new ResizeObserver(() => {
+    const sync = (force = false) => {
       const el = containerRef.current;
       if (!el || el.clientWidth <= 0 || el.clientHeight <= 0) return;
       const w = el.clientWidth;
       const h = el.clientHeight;
-      if (w === last.w && h === last.h) return;
+      if (!force && w === last.w && h === last.h) return;
 
       const bb = board.getBoundingBox();
       const spanX = bb[2] - bb[0];
@@ -577,10 +583,13 @@ export function DerivativeSimulation() {
       }
       last = { w, h };
       board.update();
-    });
+    };
+    syncSizeRef.current = sync;
+    const observer = new ResizeObserver(() => sync());
     if (containerRef.current) observer.observe(containerRef.current);
 
     return () => {
+      syncSizeRef.current = null;
       observer.disconnect();
       JXG.JSXGraph.freeBoard(board);
       boardRef.current = null;
@@ -609,6 +618,25 @@ export function DerivativeSimulation() {
     },
     [],
   );
+
+  // Masuk/keluar layar penuh mengubah ukuran kontainer dua kali (tata letak
+  // CSS lalu layar penuh asli). Sinkronkan ulang ukuran papan setelah
+  // transisi selesai agar grafik langsung terisi penuh.
+  useEffect(() => {
+    const run = () => syncSizeRef.current?.(true);
+    const raf = requestAnimationFrame(() => requestAnimationFrame(run));
+    const t1 = window.setTimeout(run, 150);
+    const t2 = window.setTimeout(run, 450);
+    document.addEventListener("fullscreenchange", run);
+    window.addEventListener("resize", run);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.clearTimeout(t1);
+      window.clearTimeout(t2);
+      document.removeEventListener("fullscreenchange", run);
+      window.removeEventListener("resize", run);
+    };
+  }, [isFullscreen, tabbed]);
 
   /* ---------- Turunan untuk tampilan ---------- */
 
@@ -691,6 +719,23 @@ export function DerivativeSimulation() {
               >
                 <Crosshair size={15} aria-hidden="true" />
               </button>
+              {isFullscreen && (
+                <button
+                  type="button"
+                  className="dv-toolbar-toggle"
+                  onClick={() => setPanelOpen((open) => !open)}
+                  aria-pressed={panelOpen}
+                  aria-controls={`dv-column-${baseId}`}
+                  aria-label={
+                    panelOpen ? "Sembunyikan toolbar" : "Tampilkan toolbar"
+                  }
+                  title={
+                    panelOpen ? "Sembunyikan toolbar" : "Tampilkan toolbar"
+                  }
+                >
+                  <SlidersHorizontal size={15} aria-hidden="true" />
+                </button>
+              )}
             </div>
           </div>
           <div className="dv-legend" aria-label="Legenda grafik">
@@ -713,7 +758,13 @@ export function DerivativeSimulation() {
         </section>
 
         {/* ───── Wilayah input (1 bagian) ───── */}
-        <div className="dv-column" data-tab={tab}>
+        <div
+          id={`dv-column-${baseId}`}
+          className={`dv-column${isFullscreen ? " is-floating" : ""}${
+            isFullscreen && panelOpen ? " is-open" : ""
+          }`}
+          data-tab={tab}
+        >
           <div className="dv-tabs" role="group" aria-label="Bagian panel">
             {panelTabs.map((item) => (
               <button

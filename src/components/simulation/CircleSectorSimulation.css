@@ -1,24 +1,24 @@
-/* Simulasi irisan kerucut.
+/* Simulasi busur, juring, tali busur, dan garis singgung lingkaran.
    Urutan: (1) ponsel lanskap = dasar (kelas .is-tabbed, panel bertab),
    (2) potret, (3) desktop (tanpa .is-tabbed), (4) layar penuh.
    Wilayah grafik : wilayah input = 2fr : 1fr.
    Kelas .is-tabbed dipasang oleh komponen saat layar kecil/pendek atau
-   saat layar penuh. Token --cs-* sengaja tidak memakai nama --line/--paper
+   saat layar penuh. Token --sc-* sengaja tidak memakai nama --line/--paper
    agar GraphAppearanceControls tetap memakai variabel situsnya sendiri. */
 
-.conic-simulation,
-.conic-simulation *,
-.conic-simulation *::before,
-.conic-simulation *::after {
+.sector-simulation,
+.sector-simulation *,
+.sector-simulation *::before,
+.sector-simulation *::after {
   box-sizing: border-box;
 }
 
-.conic-simulation {
-  --cs-accent: #087f8c;
-  --cs-ink: var(--sim-ink, #18313d);
-  --cs-muted: var(--sim-muted, #62727d);
-  --cs-line: var(--sim-line, #d5e0e4);
-  --cs-paper: var(--sim-paper, #f3f7f5);
+.sector-simulation {
+  --sc-accent: #087f8c;
+  --sc-ink: var(--sim-ink, #18313d);
+  --sc-muted: var(--sim-muted, #62727d);
+  --sc-line: var(--sim-line, #d5e0e4);
+  --sc-paper: var(--sim-paper, #f3f7f5);
 
   /* slider tipis, bulatan kecil */
   --track: 3px;
@@ -27,41 +27,41 @@
   display: grid;
   gap: 6px;
   padding: 6px;
-  background: var(--cs-paper);
-  color: var(--cs-ink);
+  background: var(--sc-paper);
+  color: var(--sc-ink);
   font-size: 12px;
   font-variant-numeric: tabular-nums;
   -webkit-tap-highlight-color: transparent;
 }
 
-.conic-simulation button {
+.sector-simulation button {
   font-family: inherit;
   touch-action: manipulation;
 }
 
-.conic-simulation button:disabled {
+.sector-simulation button:disabled {
   opacity: 0.45;
   cursor: not-allowed;
 }
 
-.conic-simulation button:focus-visible,
-.conic-simulation input:focus-visible {
-  outline: 2px solid var(--cs-accent);
+.sector-simulation button:focus-visible,
+.sector-simulation input:focus-visible {
+  outline: 2px solid var(--sc-accent);
   outline-offset: 2px;
 }
 
-.cs-orientation-hint {
+.sc-orientation-hint {
   display: none;
 }
 
 /* ───────── Tata letak utama (dasar = bertab, ponsel lanskap) ───────── */
 
-.conic-simulation.is-tabbed {
+.sector-simulation.is-tabbed {
   grid-template-rows: minmax(0, 1fr);
   height: min(100dvh, 460px);
 }
 
-.cs-boards {
+.sc-boards {
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   gap: 6px;
@@ -70,7 +70,7 @@
   height: 100%;
 }
 
-.cs-column {
+.sc-column {
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);
   gap: 5px;
@@ -80,22 +80,22 @@
 
 /* ───────── Grafik ───────── */
 
-.cs-board-panel {
+.sc-board-panel {
   display: grid;
   grid-template-rows: minmax(0, 1fr) auto;
   min-width: 0;
   min-height: 0;
-  border: 1px solid var(--cs-line);
+  border: 1px solid var(--sc-line);
   background: #fff;
 }
 
-.cs-stage {
+.sc-stage {
   position: relative;
   min-width: 0;
   min-height: 0;
 }
 
-.cs-board {
+.sc-board {
   /* !important: JSXGraph menulis position: relative pada elemen papan
      (gaya inline) sehingga bisa membatalkan position: absolute dari CSS. */
   position: absolute !important;
@@ -108,22 +108,22 @@
   cursor: grab;
 }
 
-.cs-board:active {
+.sc-board:active {
   cursor: grabbing;
 }
 
-.cs-board:focus-visible {
-  outline: 2px solid var(--cs-accent);
+.sc-board:focus-visible {
+  outline: 2px solid var(--sc-accent);
   outline-offset: -2px;
 }
 
-.cs-board .JXGtext {
+.sc-board .JXGtext {
   font-family: "Cambria Math", Georgia, serif;
   font-weight: 700;
 }
 
 /* Jenis kurva dan e: melayang di kiri atas */
-.cs-chip {
+.sc-chip {
   position: absolute;
   top: 6px;
   left: 6px;
@@ -134,23 +134,23 @@
   max-width: calc(100% - 50px);
   margin: 0;
   padding: 2px 8px;
-  border-left: 3px solid var(--cs-accent);
+  border-left: 3px solid var(--sc-accent);
   background: rgba(255, 255, 255, 0.92);
   font-size: 12px;
   pointer-events: none;
 }
 
-.cs-chip b {
+.sc-chip b {
   font-size: 14px;
 }
 
-.cs-chip span {
+.sc-chip span {
   font-family: "Cambria Math", Georgia, serif;
   font-weight: 700;
 }
 
 /* Titik P dan jaraknya: melayang di kiri bawah */
-.cs-pinfo {
+.sc-pinfo {
   position: absolute;
   left: 6px;
   bottom: 6px;
@@ -169,7 +169,7 @@
 }
 
 /* Alat tampilan melayang di kanan atas */
-.cs-tools {
+.sc-tools {
   position: absolute;
   top: 6px;
   right: 6px;
@@ -178,7 +178,7 @@
   gap: 3px;
 }
 
-.cs-tools button {
+.sc-tools button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -187,31 +187,31 @@
   padding: 0;
   border: 1px solid #aebdc2;
   background: rgba(255, 255, 255, 0.94);
-  color: var(--cs-ink);
+  color: var(--sc-ink);
   cursor: pointer;
 }
 
-.cs-tools button:hover {
-  border-color: var(--cs-accent);
+.sc-tools button:hover {
+  border-color: var(--sc-accent);
   background: #e8f3f1;
 }
 
-.cs-legend {
+.sc-legend {
   display: flex;
   gap: 4px 12px;
   padding: 3px 8px;
-  border-top: 1px solid var(--cs-line);
-  color: var(--cs-muted);
+  border-top: 1px solid var(--sc-line);
+  color: var(--sc-muted);
   font-size: 10px;
   overflow-x: auto;
   scrollbar-width: none;
 }
 
-.cs-legend::-webkit-scrollbar {
+.sc-legend::-webkit-scrollbar {
   display: none;
 }
 
-.cs-legend span {
+.sc-legend span {
   display: inline-flex;
   flex: 0 0 auto;
   align-items: center;
@@ -219,87 +219,87 @@
   white-space: nowrap;
 }
 
-.cs-legend i {
+.sc-legend i {
   width: 14px;
   height: 0;
   border: 0 solid #183e54;
   border-top-width: 3px;
 }
 
-.cs-legend i.line-dir {
+.sc-legend i.line-dir {
   border-color: #8a6d00;
   border-top-style: dashed;
   border-top-width: 2px;
 }
 
-.cs-legend i.line-tan {
+.sc-legend i.line-tan {
   border-color: #2f6bd0;
   border-top-width: 2px;
 }
 
-.cs-legend b {
+.sc-legend b {
   width: 8px;
   height: 8px;
   border-radius: 50%;
 }
 
-.cs-legend .dot-focus {
+.sc-legend .dot-focus {
   background: #183e54;
 }
 
-.cs-legend .legend-ghost {
+.sc-legend .legend-ghost {
   opacity: 0.85;
 }
 
 /* Petunjuk panjang hanya di desktop */
-.cs-hint {
+.sc-hint {
   display: none;
 }
 
 /* ───────── Tab panel kanan ───────── */
 
-.cs-tabs {
+.sc-tabs {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.cs-tabs button {
+.sc-tabs button {
   height: 28px;
   padding: 0 2px;
   margin-left: -1px;
   border: 1px solid #aebdc2;
   background: #fff;
-  color: var(--cs-ink);
+  color: var(--sc-ink);
   font-size: 10.5px;
   font-weight: 700;
   cursor: pointer;
 }
 
-.cs-tabs button:first-child {
+.sc-tabs button:first-child {
   margin-left: 0;
 }
 
-.cs-tabs button[aria-pressed="true"] {
+.sc-tabs button[aria-pressed="true"] {
   position: relative;
-  border-color: var(--cs-accent);
-  background: var(--cs-accent);
+  border-color: var(--sc-accent);
+  background: var(--sc-accent);
   color: #fff;
 }
 
 /* Isi panel: satu kartu putih yang bisa digulir */
-.conic-simulation.is-tabbed .cs-controls,
-.conic-simulation.is-tabbed .cs-results {
+.sector-simulation.is-tabbed .sc-controls,
+.sector-simulation.is-tabbed .sc-results {
   min-width: 0;
   min-height: 0;
   padding: 8px;
-  border: 1px solid var(--cs-line);
+  border: 1px solid var(--sc-line);
   background: #fff;
   overflow-y: auto;
   overscroll-behavior: contain;
   scrollbar-width: thin;
 }
 
-.cs-pane {
+.sc-pane {
   display: grid;
   align-content: start;
   gap: 8px;
@@ -307,41 +307,41 @@
 }
 
 /* Hanya panel pada tab aktif yang tampil */
-.conic-simulation.is-tabbed .cs-column[data-tab="par"] .cs-results,
-.conic-simulation.is-tabbed .cs-column[data-tab="opt"] .cs-results,
-.conic-simulation.is-tabbed .cs-column[data-tab="res"] .cs-controls,
-.conic-simulation.is-tabbed .cs-column[data-tab="info"] .cs-controls,
-.conic-simulation.is-tabbed
-  .cs-column[data-tab="par"]
+.sector-simulation.is-tabbed .sc-column[data-tab="par"] .sc-results,
+.sector-simulation.is-tabbed .sc-column[data-tab="opt"] .sc-results,
+.sector-simulation.is-tabbed .sc-column[data-tab="res"] .sc-controls,
+.sector-simulation.is-tabbed .sc-column[data-tab="info"] .sc-controls,
+.sector-simulation.is-tabbed
+  .sc-column[data-tab="par"]
   [data-pane]:not([data-pane="par"]),
-.conic-simulation.is-tabbed
-  .cs-column[data-tab="opt"]
+.sector-simulation.is-tabbed
+  .sc-column[data-tab="opt"]
   [data-pane]:not([data-pane="opt"]),
-.conic-simulation.is-tabbed
-  .cs-column[data-tab="res"]
+.sector-simulation.is-tabbed
+  .sc-column[data-tab="res"]
   [data-pane]:not([data-pane="res"]),
-.conic-simulation.is-tabbed
-  .cs-column[data-tab="info"]
+.sector-simulation.is-tabbed
+  .sc-column[data-tab="info"]
   [data-pane]:not([data-pane="info"]) {
   display: none;
 }
 
 /* ───────── Jenis dan parameter ───────── */
 
-.cs-kinds {
+.sc-kinds {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 3px;
 }
 
-.cs-kinds button {
+.sc-kinds button {
   min-width: 0;
   height: 28px;
   padding: 0 1px;
   border: 1px solid #aebdc2;
   border-bottom: 3px solid var(--kc);
   background: #fff;
-  color: var(--cs-ink);
+  color: var(--sc-ink);
   font-size: 9.5px;
   font-weight: 700;
   overflow: hidden;
@@ -350,24 +350,24 @@
   cursor: pointer;
 }
 
-.cs-kinds button:hover {
+.sc-kinds button:hover {
   background: #f1f6f5;
 }
 
-.cs-kinds button[aria-pressed="true"] {
+.sc-kinds button[aria-pressed="true"] {
   border-color: var(--kc);
   background: var(--kc);
   color: #fff;
 }
 
-.cs-params {
+.sc-params {
   display: grid;
   gap: 0;
 }
 
 /* Satu baris: e  −  ──●──  +  [0,6]  ▶ */
-.cs-param {
-  --tone: var(--cs-accent);
+.sc-param {
+  --tone: var(--sc-accent);
   display: grid;
   grid-template-columns: 16px 20px minmax(0, 1fr) 20px 46px 22px;
   align-items: center;
@@ -375,7 +375,7 @@
   min-width: 0;
 }
 
-.cs-param label {
+.sc-param label {
   color: var(--tone);
   font-family: "Cambria Math", Georgia, serif;
   font-size: 15px;
@@ -384,7 +384,7 @@
   text-align: center;
 }
 
-.cs-nudge {
+.sc-nudge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -394,23 +394,23 @@
   border: 1px solid #aebdc2;
   border-radius: 50%;
   background: #fff;
-  color: var(--cs-ink);
+  color: var(--sc-ink);
   cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
   -webkit-touch-callout: none;
 }
 
-.cs-nudge:hover {
+.sc-nudge:hover {
   border-color: var(--tone);
   background: #f1f6f5;
 }
 
-.cs-nudge:active {
+.sc-nudge:active {
   background: #e0ecea;
 }
 
-.cs-num {
+.sc-num {
   width: 100%;
   min-width: 0;
   height: 24px;
@@ -427,13 +427,13 @@
   -moz-appearance: textfield;
 }
 
-.cs-num::-webkit-outer-spin-button,
-.cs-num::-webkit-inner-spin-button {
+.sc-num::-webkit-outer-spin-button,
+.sc-num::-webkit-inner-spin-button {
   margin: 0;
   -webkit-appearance: none;
 }
 
-.cs-icon-btn {
+.sc-icon-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -442,22 +442,22 @@
   padding: 0;
   border: 1px solid transparent;
   background: transparent;
-  color: var(--cs-muted);
+  color: var(--sc-muted);
   cursor: pointer;
 }
 
-.cs-icon-btn:hover {
+.sc-icon-btn:hover {
   border-color: #aebdc2;
-  background: var(--cs-paper);
+  background: var(--sc-paper);
 }
 
-.cs-icon-btn[aria-pressed="true"] {
+.sc-icon-btn[aria-pressed="true"] {
   border-color: var(--tone);
   color: var(--tone);
 }
 
 /* Area sentuh 28px, tampilan visual hanya 3px. */
-.cs-range {
+.sc-range {
   --lo: 0%;
   --hi: 50%;
   -webkit-appearance: none;
@@ -470,21 +470,21 @@
   touch-action: pan-y;
 }
 
-.cs-range::-webkit-slider-runnable-track {
+.sc-range::-webkit-slider-runnable-track {
   height: var(--track);
   border-radius: 999px;
   background: linear-gradient(
     to right,
-    var(--cs-line) 0,
-    var(--cs-line) var(--lo),
+    var(--sc-line) 0,
+    var(--sc-line) var(--lo),
     var(--tone) var(--lo),
     var(--tone) var(--hi),
-    var(--cs-line) var(--hi),
-    var(--cs-line) 100%
+    var(--sc-line) var(--hi),
+    var(--sc-line) 100%
   );
 }
 
-.cs-range::-webkit-slider-thumb {
+.sc-range::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   box-sizing: border-box;
@@ -497,19 +497,19 @@
   box-shadow: 0 0 0 1px rgba(24, 49, 61, 0.28);
 }
 
-.cs-range::-moz-range-track {
+.sc-range::-moz-range-track {
   height: var(--track);
   border-radius: 999px;
-  background: var(--cs-line);
+  background: var(--sc-line);
 }
 
-.cs-range::-moz-range-progress {
+.sc-range::-moz-range-progress {
   height: var(--track);
   border-radius: 999px;
   background: transparent;
 }
 
-.cs-range::-moz-range-thumb {
+.sc-range::-moz-range-thumb {
   box-sizing: border-box;
   width: var(--thumb);
   height: var(--thumb);
@@ -519,63 +519,63 @@
   box-shadow: 0 0 0 1px rgba(24, 49, 61, 0.28);
 }
 
-.cs-range:focus-visible {
+.sc-range:focus-visible {
   outline: none;
 }
 
-.cs-range:focus-visible::-webkit-slider-thumb {
+.sc-range:focus-visible::-webkit-slider-thumb {
   box-shadow: 0 0 0 2px var(--tone);
 }
 
-.cs-range:focus-visible::-moz-range-thumb {
+.sc-range:focus-visible::-moz-range-thumb {
   box-shadow: 0 0 0 2px var(--tone);
 }
 
 @media (pointer: coarse) {
   /* 16px mencegah iOS memperbesar halaman saat kolom difokuskan */
-  .cs-num {
+  .sc-num {
     height: 28px;
     font-size: 16px;
   }
 
-  .cs-param {
+  .sc-param {
     grid-template-columns: 16px 22px minmax(0, 1fr) 22px 50px 22px;
   }
 
-  .cs-nudge {
+  .sc-nudge {
     width: 22px;
     height: 22px;
   }
 }
 
-.cs-check,
-.cs-options label {
+.sc-check,
+.sc-options label {
   display: flex;
   align-items: center;
   gap: 8px;
   min-height: 26px;
-  color: var(--cs-ink);
+  color: var(--sc-ink);
   font-size: 11px;
   font-weight: 600;
   line-height: 1.3;
   cursor: pointer;
 }
 
-.cs-check input,
-.cs-options input {
+.sc-check input,
+.sc-options input {
   flex: 0 0 auto;
   width: 15px;
   height: 15px;
   margin: 0;
-  accent-color: var(--cs-accent);
+  accent-color: var(--sc-accent);
 }
 
-.cs-options {
+.sc-options {
   display: grid;
   gap: 2px;
 }
 
-.cs-reset {
+.sc-reset {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -584,86 +584,86 @@
   padding: 0 10px;
   border: 1px solid #aebdc2;
   background: #fff;
-  color: var(--cs-ink);
+  color: var(--sc-ink);
   font-size: 11px;
   font-weight: 700;
   cursor: pointer;
 }
 
-.cs-reset:hover {
-  border-color: var(--cs-accent);
+.sc-reset:hover {
+  border-color: var(--sc-accent);
   background: #e8f3f1;
 }
 
 /* ───────── Hasil ───────── */
 
-.cs-card {
+.sc-card {
   display: grid;
   gap: 3px;
   min-width: 0;
   padding: 6px 8px;
-  border: 1px solid var(--cs-line);
-  background: var(--cs-paper);
+  border: 1px solid var(--sc-line);
+  background: var(--sc-paper);
 }
 
-.cs-card h3 {
+.sc-card h3 {
   margin: 0;
   font-size: 15px;
   font-weight: 800;
 }
 
-.cs-card h4 {
+.sc-card h4 {
   margin: 0 0 2px;
   font-size: 11px;
   font-weight: 800;
 }
 
-.cs-card p {
+.sc-card p {
   margin: 0;
-  color: var(--cs-muted);
+  color: var(--sc-muted);
   font-size: 11px;
   line-height: 1.35;
   overflow-wrap: anywhere;
 }
 
-.cs-card .cs-eq {
+.sc-card .sc-eq {
   color: #183e54;
   font-family: "Cambria Math", Georgia, serif;
   font-size: 13px;
   font-weight: 700;
 }
 
-.cs-card .cs-eq-note {
+.sc-card .sc-eq-note {
   margin-bottom: 4px;
   font-size: 10px;
 }
 
-.cs-kvs {
+.sc-kvs {
   display: grid;
   gap: 1px;
 }
 
-.cs-kv {
+.sc-kv {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   align-items: baseline;
   gap: 8px;
   padding: 2px 0;
-  border-top: 1px solid var(--cs-line);
+  border-top: 1px solid var(--sc-line);
 }
 
-.cs-kv:first-child {
+.sc-kv:first-child {
   border-top: 0;
 }
 
-.cs-kv span {
-  color: var(--cs-muted);
+.sc-kv span {
+  color: var(--sc-muted);
   font-size: 10px;
   font-weight: 600;
   overflow-wrap: anywhere;
 }
 
-.cs-kv b {
+.sc-kv b {
   color: #183e54;
   font-family: "Cambria Math", Georgia, serif;
   font-size: 12px;
@@ -673,65 +673,65 @@
 
 /* ───────── Info ───────── */
 
-.cs-info-table {
+.sc-info-table {
   width: 100%;
   border-collapse: collapse;
   font-size: 10.5px;
 }
 
-.cs-info-table th,
-.cs-info-table td {
+.sc-info-table th,
+.sc-info-table td {
   padding: 4px 6px;
-  border-top: 1px solid var(--cs-line);
+  border-top: 1px solid var(--sc-line);
   text-align: left;
   vertical-align: top;
 }
 
-.cs-info-table thead th {
+.sc-info-table thead th {
   border-top: 0;
-  color: var(--cs-muted);
+  color: var(--sc-muted);
   font-weight: 700;
 }
 
-.cs-info-table td:first-child {
+.sc-info-table td:first-child {
   font-family: "Cambria Math", Georgia, serif;
   font-weight: 700;
   white-space: nowrap;
 }
 
-.cs-insights {
+.sc-insights {
   display: grid;
   gap: 5px;
   margin: 0;
   padding: 0;
   list-style: none;
-  color: var(--cs-muted);
+  color: var(--sc-muted);
   font-size: 10.5px;
   line-height: 1.45;
 }
 
-.cs-insights li {
+.sc-insights li {
   padding-left: 8px;
-  border-left: 3px solid var(--cs-line);
+  border-left: 3px solid var(--sc-line);
 }
 
 /* Ponsel lanskap sangat pendek */
 @media (orientation: landscape) and (max-height: 360px) {
-  .conic-simulation.is-tabbed {
+  .sector-simulation.is-tabbed {
     gap: 4px;
     padding: 4px;
   }
 
-  .conic-simulation.is-tabbed .cs-boards {
+  .sector-simulation.is-tabbed .sc-boards {
     gap: 4px;
   }
 
-  .conic-simulation.is-tabbed .cs-controls,
-  .conic-simulation.is-tabbed .cs-results {
+  .sector-simulation.is-tabbed .sc-controls,
+  .sector-simulation.is-tabbed .sc-results {
     padding: 6px;
   }
 
-  .cs-range {
+  .sc-range {
     height: 24px;
   }
 }
@@ -739,47 +739,47 @@
 /* ───────── Potret (cadangan): grafik atas, panel bertab di bawah ───────── */
 
 @media (orientation: portrait) and (max-width: 899px) {
-  .conic-simulation.is-tabbed:not(.is-fullscreen) {
+  .sector-simulation.is-tabbed:not(.is-fullscreen) {
     grid-template-rows: auto auto;
     height: auto;
     padding: 8px;
   }
 
-  .conic-simulation.is-tabbed:not(.is-fullscreen) .cs-orientation-hint {
+  .sector-simulation.is-tabbed:not(.is-fullscreen) .sc-orientation-hint {
     display: flex;
     align-items: center;
     gap: 7px;
     margin: 0;
     padding: 6px 9px;
-    border-left: 3px solid var(--cs-accent);
+    border-left: 3px solid var(--sc-accent);
     background: #e8f3f1;
     font-size: 11px;
     line-height: 1.4;
   }
 
-  .cs-orientation-hint svg {
+  .sc-orientation-hint svg {
     flex: 0 0 auto;
-    color: var(--cs-accent);
+    color: var(--sc-accent);
   }
 
-  .conic-simulation.is-tabbed:not(.is-fullscreen) .cs-boards {
+  .sector-simulation.is-tabbed:not(.is-fullscreen) .sc-boards {
     grid-template-columns: minmax(0, 1fr);
     height: auto;
   }
 
-  .conic-simulation.is-tabbed:not(.is-fullscreen) .cs-board-panel {
+  .sector-simulation.is-tabbed:not(.is-fullscreen) .sc-board-panel {
     height: clamp(260px, 48dvh, 440px);
   }
 
-  .conic-simulation.is-tabbed:not(.is-fullscreen) .cs-controls,
-  .conic-simulation.is-tabbed:not(.is-fullscreen) .cs-results {
+  .sector-simulation.is-tabbed:not(.is-fullscreen) .sc-controls,
+  .sector-simulation.is-tabbed:not(.is-fullscreen) .sc-results {
     overflow: visible;
   }
 }
 
 /* ───────── Desktop & tablet lanskap (tanpa .is-tabbed) ───────── */
 
-.conic-simulation:not(.is-tabbed) {
+.sector-simulation:not(.is-tabbed) {
   --track: 4px;
   --thumb: 16px;
   gap: 12px;
@@ -787,26 +787,26 @@
   font-size: 13px;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-boards {
+.sector-simulation:not(.is-tabbed) .sc-boards {
   grid-template-rows: clamp(520px, 76vh, 760px) auto;
   gap: 12px;
   height: auto;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-column {
+.sector-simulation:not(.is-tabbed) .sc-column {
   display: contents;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-tabs {
+.sector-simulation:not(.is-tabbed) .sc-tabs {
   display: none;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-board-panel {
+.sector-simulation:not(.is-tabbed) .sc-board-panel {
   grid-column: 1;
   grid-row: 1;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-controls {
+.sector-simulation:not(.is-tabbed) .sc-controls {
   grid-column: 2;
   grid-row: 1;
   display: grid;
@@ -815,14 +815,14 @@
   min-width: 0;
   min-height: 0;
   padding: 14px;
-  border: 1px solid var(--cs-line);
+  border: 1px solid var(--sc-line);
   background: #fff;
   overflow-y: auto;
   scrollbar-width: thin;
 }
 
 /* Hasil di bawah: lagi-lagi 2 : 1 (hasil | info) */
-.conic-simulation:not(.is-tabbed) .cs-results {
+.sector-simulation:not(.is-tabbed) .sc-results {
   grid-column: 1 / -1;
   grid-row: 2;
   display: grid;
@@ -832,16 +832,16 @@
   min-width: 0;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-pane {
+.sector-simulation:not(.is-tabbed) .sc-pane {
   gap: 12px;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-pane[data-pane="res"] {
+.sector-simulation:not(.is-tabbed) .sc-pane[data-pane="res"] {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   align-items: start;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-chip {
+.sector-simulation:not(.is-tabbed) .sc-chip {
   top: 10px;
   left: 10px;
   padding: 4px 12px;
@@ -849,151 +849,151 @@
   font-size: 13px;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-chip b {
+.sector-simulation:not(.is-tabbed) .sc-chip b {
   font-size: 18px;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-pinfo {
+.sector-simulation:not(.is-tabbed) .sc-pinfo {
   left: 10px;
   bottom: 10px;
   padding: 5px 12px;
   font-size: 14px;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-tools {
+.sector-simulation:not(.is-tabbed) .sc-tools {
   top: 10px;
   right: 10px;
   gap: 4px;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-tools button {
+.sector-simulation:not(.is-tabbed) .sc-tools button {
   width: 34px;
   height: 34px;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-legend {
+.sector-simulation:not(.is-tabbed) .sc-legend {
   justify-content: center;
   flex-wrap: wrap;
   padding: 7px 10px;
   font-size: 11px;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-hint {
+.sector-simulation:not(.is-tabbed) .sc-hint {
   display: block;
   margin: 0;
   padding: 0 14px 8px;
-  color: var(--cs-muted);
+  color: var(--sc-muted);
   font-size: 10px;
   line-height: 1.4;
   text-align: center;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-kinds {
+.sector-simulation:not(.is-tabbed) .sc-kinds {
   gap: 5px;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-kinds button {
+.sector-simulation:not(.is-tabbed) .sc-kinds button {
   height: 36px;
   font-size: 12px;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-params {
+.sector-simulation:not(.is-tabbed) .sc-params {
   gap: 6px;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-param {
+.sector-simulation:not(.is-tabbed) .sc-param {
   grid-template-columns: 22px 24px minmax(0, 1fr) 24px 58px 26px;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-param label {
+.sector-simulation:not(.is-tabbed) .sc-param label {
   font-size: 19px;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-nudge {
+.sector-simulation:not(.is-tabbed) .sc-nudge {
   width: 24px;
   height: 24px;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-num {
+.sector-simulation:not(.is-tabbed) .sc-num {
   height: 30px;
   font-size: 13px;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-range {
+.sector-simulation:not(.is-tabbed) .sc-range {
   height: 30px;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-check,
-.conic-simulation:not(.is-tabbed) .cs-options label {
+.sector-simulation:not(.is-tabbed) .sc-check,
+.sector-simulation:not(.is-tabbed) .sc-options label {
   min-height: 30px;
   font-size: 12px;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-reset {
+.sector-simulation:not(.is-tabbed) .sc-reset {
   height: 32px;
   padding: 0 14px;
   font-size: 12px;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-card {
+.sector-simulation:not(.is-tabbed) .sc-card {
   gap: 5px;
   padding: 12px 14px;
   background: #fff;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-card h3 {
+.sector-simulation:not(.is-tabbed) .sc-card h3 {
   font-size: 20px;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-card h4 {
+.sector-simulation:not(.is-tabbed) .sc-card h4 {
   font-size: 12px;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-card p {
+.sector-simulation:not(.is-tabbed) .sc-card p {
   font-size: 12px;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-card .cs-eq {
+.sector-simulation:not(.is-tabbed) .sc-card .sc-eq {
   font-size: 15px;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-card .cs-eq-note {
+.sector-simulation:not(.is-tabbed) .sc-card .sc-eq-note {
   font-size: 10px;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-kv {
+.sector-simulation:not(.is-tabbed) .sc-kv {
   padding: 4px 0;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-kv span {
+.sector-simulation:not(.is-tabbed) .sc-kv span {
   font-size: 11px;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-kv b {
+.sector-simulation:not(.is-tabbed) .sc-kv b {
   font-size: 14px;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-info-table {
+.sector-simulation:not(.is-tabbed) .sc-info-table {
   font-size: 12px;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-info-table th,
-.conic-simulation:not(.is-tabbed) .cs-info-table td {
+.sector-simulation:not(.is-tabbed) .sc-info-table th,
+.sector-simulation:not(.is-tabbed) .sc-info-table td {
   padding: 6px 8px;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-insights {
+.sector-simulation:not(.is-tabbed) .sc-insights {
   gap: 6px;
   font-size: 11.5px;
 }
 
-.conic-simulation:not(.is-tabbed) .cs-insights li {
+.sector-simulation:not(.is-tabbed) .sc-insights li {
   padding-left: 10px;
 }
 
 /* ───────── Layar penuh (selalu bertab, tanpa gulir halaman) ───────── */
 
-.conic-simulation.is-fullscreen {
+.sector-simulation.is-fullscreen {
   position: fixed;
   inset: 0;
   z-index: 1000;
@@ -1007,41 +1007,41 @@
   overflow: hidden;
 }
 
-.conic-simulation.is-fullscreen .cs-orientation-hint {
+.sector-simulation.is-fullscreen .sc-orientation-hint {
   display: none;
 }
 
 /* Layar penuh di monitor besar: ukuran sedikit lebih lega */
 @media (min-width: 900px) and (min-height: 541px) {
-  .conic-simulation.is-fullscreen {
+  .sector-simulation.is-fullscreen {
     --track: 4px;
     --thumb: 15px;
     font-size: 13px;
   }
 
-  .conic-simulation.is-fullscreen .cs-tabs button {
+  .sector-simulation.is-fullscreen .sc-tabs button {
     height: 34px;
     font-size: 12px;
   }
 
-  .conic-simulation.is-fullscreen .cs-kinds button {
+  .sector-simulation.is-fullscreen .sc-kinds button {
     height: 32px;
     font-size: 11px;
   }
 
-  .conic-simulation.is-fullscreen .cs-pinfo {
+  .sector-simulation.is-fullscreen .sc-pinfo {
     font-size: 14px;
   }
 }
 
 /* Layar penuh + potret: tetap 2 : 1, grafik atas, input bawah */
 @media (orientation: portrait) and (max-width: 899px) {
-  .conic-simulation.is-fullscreen .cs-boards {
+  .sector-simulation.is-fullscreen .sc-boards {
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: minmax(0, 2fr) minmax(0, 1fr);
   }
 
-  .conic-simulation.is-fullscreen .cs-board-panel {
+  .sector-simulation.is-fullscreen .sc-board-panel {
     height: auto;
   }
 }
@@ -1049,21 +1049,21 @@
 /* Layar penuh: grafik 100%, panel input (tab + isi) tersembunyi dan muncul
    mengambang di atas grafik lewat tombol toolbar di bawah tombol pusatkan
    tampilan. Ditaruh setelah aturan potret agar menimpanya. */
-.conic-simulation.is-fullscreen .cs-boards {
+.sector-simulation.is-fullscreen .sc-boards {
   position: relative;
   grid-template-columns: minmax(0, 1fr);
   grid-template-rows: minmax(0, 1fr);
 }
 
-.conic-simulation.is-fullscreen .cs-board-panel {
+.sector-simulation.is-fullscreen .sc-board-panel {
   height: 100%;
 }
 
-.conic-simulation.is-fullscreen .cs-stage {
+.sector-simulation.is-fullscreen .sc-stage {
   height: 100%;
 }
 
-.conic-simulation.is-fullscreen .cs-column.is-floating {
+.sector-simulation.is-fullscreen .sc-column.is-floating {
   position: absolute;
   top: 6px;
   right: 42px;
@@ -1077,20 +1077,20 @@
   box-shadow: 0 6px 20px rgba(24, 49, 61, 0.22);
 }
 
-.conic-simulation.is-fullscreen .cs-column.is-floating.is-open {
+.sector-simulation.is-fullscreen .sc-column.is-floating.is-open {
   display: grid;
 }
 
-.cs-tools .cs-toolbar-toggle[aria-pressed="true"] {
-  border-color: var(--cs-accent);
+.sc-tools .sc-toolbar-toggle[aria-pressed="true"] {
+  border-color: var(--sc-accent);
   background: #d6ebe8;
-  color: var(--cs-accent);
+  color: var(--sc-accent);
 }
 
 /* Netralkan gaya bawaan .simulation-fullscreen-frame (mis. aspect-ratio atau
    batas ukuran) agar elemen benar-benar memenuhi layar, baik pada layar
    penuh asli maupun layar penuh CSS. */
-.conic-simulation:fullscreen.simulation-fullscreen-frame {
+.sector-simulation:fullscreen.simulation-fullscreen-frame {
   inset: 0 !important;
   width: 100% !important;
   height: 100% !important;
@@ -1100,7 +1100,7 @@
   overflow: hidden !important;
 }
 
-.conic-simulation.simulation-fullscreen-frame.is-fullscreen:not(:fullscreen) {
+.sector-simulation.simulation-fullscreen-frame.is-fullscreen:not(:fullscreen) {
   inset: 0 !important;
   width: auto !important;
   height: auto !important;
@@ -1113,7 +1113,7 @@
 }
 
 @media (min-width: 900px) and (min-height: 541px) {
-  .conic-simulation.is-fullscreen .cs-column.is-floating {
+  .sector-simulation.is-fullscreen .sc-column.is-floating {
     top: 10px;
     right: 54px;
     bottom: 10px;
@@ -1122,7 +1122,47 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .conic-simulation * {
+  .sector-simulation * {
     transition: none !important;
   }
+}
+
+/* ───────── Tambahan legenda untuk simulasi lingkaran ───────── */
+
+.sc-legend i.line-chord {
+  border-color: #b23a48;
+  border-top-width: 2px;
+}
+
+.sc-legend i.line-apo {
+  border-color: #63727d;
+  border-top-style: dashed;
+  border-top-width: 2px;
+}
+
+.sc-legend i.line-radius {
+  border-color: #183e54;
+  border-top-width: 2px;
+}
+
+.sc-legend i.line-circle {
+  border-color: #9fb3ba;
+  border-top-width: 2px;
+}
+
+.sc-legend .sw-sector,
+.sc-legend .sw-segment {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+.sc-legend .sw-sector {
+  background: rgba(8, 127, 140, 0.28);
+  border: 1px solid #087f8c;
+}
+
+.sc-legend .sw-segment {
+  background: rgba(209, 107, 54, 0.3);
+  border: 1px solid #d16b36;
 }

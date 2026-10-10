@@ -6,6 +6,7 @@ import {
   Plus,
   RotateCcw,
   Smartphone,
+  SlidersHorizontal,
 } from "lucide-react";
 import {
   useEffect,
@@ -100,6 +101,8 @@ export function QuadraticSimulation() {
     initialStyle,
   );
   const [isFullscreen, setIsFullscreen] = useState(false);
+  // Panel input hanya dipakai di layar penuh: tersembunyi, muncul mengambang.
+  const [panelOpen, setPanelOpen] = useState(false);
 
   const paramsRef = useRef<Params>(params);
   const styleRef = useRef<Style>(style);
@@ -169,6 +172,7 @@ export function QuadraticSimulation() {
     const el = rootRef.current;
     if (!el) return;
     if (!isFullscreen) {
+      setPanelOpen(false);
       setIsFullscreen(true);
       if (el.requestFullscreen) {
         try {
@@ -527,6 +531,23 @@ export function QuadraticSimulation() {
               >
                 <Crosshair size={15} aria-hidden="true" />
               </button>
+              {isFullscreen && (
+                <button
+                  type="button"
+                  className="qs2-toolbar-toggle"
+                  onClick={() => setPanelOpen((open) => !open)}
+                  aria-pressed={panelOpen}
+                  aria-controls={`qs2-inputs-${baseId}`}
+                  aria-label={
+                    panelOpen ? "Sembunyikan toolbar" : "Tampilkan toolbar"
+                  }
+                  title={
+                    panelOpen ? "Sembunyikan toolbar" : "Tampilkan toolbar"
+                  }
+                >
+                  <SlidersHorizontal size={15} aria-hidden="true" />
+                </button>
+              )}
             </div>
           </div>
           <div className="qs2-legend" aria-label="Legenda grafik">
@@ -552,7 +573,13 @@ export function QuadraticSimulation() {
         </section>
 
         {/* ───── Wilayah input (1 bagian) ───── */}
-        <section className="qs2-inputs" aria-label="Pengatur koefisien">
+        <section
+          id={`qs2-inputs-${baseId}`}
+          className={`qs2-inputs${isFullscreen ? " is-floating" : ""}${
+            isFullscreen && panelOpen ? " is-open" : ""
+          }`}
+          aria-label="Pengatur koefisien"
+        >
           <div className="qs2-sliders">
             {sliderConfig.map(({ key, min, max, hint }) => {
               const value = params[key];

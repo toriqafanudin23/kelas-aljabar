@@ -60,6 +60,11 @@ const SIMULATION_COMPONENTS: Record<
       default: m.ConicSectionsSimulation,
     })),
   ),
+  "circle-sector": lazy(() =>
+    import("../components/simulation/CircleSectorSimulation").then((m) => ({
+      default: m.CircleSectorSimulation,
+    })),
+  ),
 };
 
 interface SimulationPlayPageProps {

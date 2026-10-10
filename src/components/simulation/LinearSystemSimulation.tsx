@@ -7,6 +7,7 @@ import {
   Plus,
   RotateCcw,
   Smartphone,
+  SlidersHorizontal,
 } from "lucide-react";
 import {
   useEffect,
@@ -339,6 +340,8 @@ export function LinearSystemSimulation() {
   const { appearance, onStep } = useGraphAppearance([boardRef]);
   const [tab, setTab] = useState<PanelTab>("lines");
   const [isFullscreen, setIsFullscreen] = useState(false);
+  // Panel input hanya dipakai di layar penuh: tersembunyi, muncul mengambang.
+  const [panelOpen, setPanelOpen] = useState(false);
   const smallScreen = useMediaQuery(TABBED_QUERY);
   const tabbed = smallScreen || isFullscreen;
 
@@ -365,6 +368,8 @@ export function LinearSystemSimulation() {
   const analysisRef = useRef<Analysis | null>(null);
   const rafRef = useRef<number | null>(null);
   const lastKeyRef = useRef("");
+  // Menyamakan ukuran papan JSXGraph dengan kontainernya (diisi oleh efek papan)
+  const syncSizeRef = useRef<((force?: boolean) => void) | null>(null);
 
   const [mode, setMode] = useStoredSimulationState<Mode>(
     "linear-system.mode",
@@ -584,6 +589,7 @@ export function LinearSystemSimulation() {
     const el = rootRef.current;
     if (!el) return;
     if (!isFullscreen) {
+      setPanelOpen(false);
       setIsFullscreen(true);
       if (el.requestFullscreen) {
         try {
@@ -1107,11 +1113,11 @@ export function LinearSystemSimulation() {
     // Saat ukuran kontainer berubah (putar layar, layar penuh, ganti mode),
     // pertahankan skala dan titik tengah tampilan agar grafik tidak melompat.
     let last = { w: el.clientWidth, h: el.clientHeight };
-    const observer = new ResizeObserver(() => {
+    const sync = (force = false) => {
       if (el.clientWidth <= 0 || el.clientHeight <= 0) return;
       const w = el.clientWidth;
       const h = el.clientHeight;
-      if (w === last.w && h === last.h) return;
+      if (!force && w === last.w && h === last.h) return;
 
       const bb = board.getBoundingBox();
       const spanX = bb[2] - bb[0];
@@ -1130,10 +1136,13 @@ export function LinearSystemSimulation() {
       last = { w, h };
       board.update();
       scheduleRecompute();
-    });
+    };
+    syncSizeRef.current = sync;
+    const observer = new ResizeObserver(() => sync());
     observer.observe(el);
 
     return () => {
+      syncSizeRef.current = null;
       observer.disconnect();
       if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
       rafRef.current = null;
@@ -1247,6 +1256,25 @@ export function LinearSystemSimulation() {
     const timer = window.setTimeout(() => setMessage(""), 2400);
     return () => window.clearTimeout(timer);
   }, [message]);
+
+  // Masuk/keluar layar penuh mengubah ukuran kontainer dua kali (tata letak
+  // CSS lalu layar penuh asli). Sinkronkan ulang ukuran papan setelah
+  // transisi selesai agar grafik langsung terisi penuh.
+  useEffect(() => {
+    const run = () => syncSizeRef.current?.(true);
+    const raf = requestAnimationFrame(() => requestAnimationFrame(run));
+    const t1 = window.setTimeout(run, 150);
+    const t2 = window.setTimeout(run, 450);
+    document.addEventListener("fullscreenchange", run);
+    window.addEventListener("resize", run);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.clearTimeout(t1);
+      window.clearTimeout(t2);
+      document.removeEventListener("fullscreenchange", run);
+      window.removeEventListener("resize", run);
+    };
+  }, [isFullscreen, tabbed]);
 
   // ───────────── turunan tampilan ─────────────
   const sol = analysis?.sol ?? null;
@@ -1747,6 +1775,23 @@ export function LinearSystemSimulation() {
     </details>
   );
 
+  // Pilihan mode: di atas grafik, atau di dalam panel mengambang saat layar penuh.
+  const modesEl = (
+    <div className="lin-modes" role="tablist" aria-label="Jenis simulasi">
+      {MODES.map((m) => (
+        <button
+          key={m.id}
+          type="button"
+          role="tab"
+          aria-selected={mode === m.id}
+          onClick={() => changeMode(m.id)}
+        >
+          {m.label}
+        </button>
+      ))}
+    </div>
+  );
+
   return (
     <div
       ref={rootRef}
@@ -1762,19 +1807,7 @@ export function LinearSystemSimulation() {
         </span>
       </p>
 
-      <div className="lin-modes" role="tablist" aria-label="Jenis simulasi">
-        {MODES.map((m) => (
-          <button
-            key={m.id}
-            type="button"
-            role="tab"
-            aria-selected={mode === m.id}
-            onClick={() => changeMode(m.id)}
-          >
-            {m.label}
-          </button>
-        ))}
-      </div>
+      {!isFullscreen && modesEl}
 
       <div className="lin-main">
         {/* ───── Wilayah grafik (2 bagian) ───── */}
@@ -1829,6 +1862,23 @@ export function LinearSystemSimulation() {
               >
                 <Crosshair size={15} aria-hidden="true" />
               </button>
+              {isFullscreen && (
+                <button
+                  type="button"
+                  className="lin-toolbar-toggle"
+                  onClick={() => setPanelOpen((open) => !open)}
+                  aria-pressed={panelOpen}
+                  aria-controls="lin-column-panel"
+                  aria-label={
+                    panelOpen ? "Sembunyikan toolbar" : "Tampilkan toolbar"
+                  }
+                  title={
+                    panelOpen ? "Sembunyikan toolbar" : "Tampilkan toolbar"
+                  }
+                >
+                  <SlidersHorizontal size={15} aria-hidden="true" />
+                </button>
+              )}
               <button
                 type="button"
                 onClick={exportPng}
@@ -1874,7 +1924,14 @@ export function LinearSystemSimulation() {
         </section>
 
         {/* ───── Wilayah input (1 bagian) ───── */}
-        <div className="lin-column" data-tab={activeTab}>
+        <div
+          id="lin-column-panel"
+          className={`lin-column${isFullscreen ? " is-floating" : ""}${
+            isFullscreen && panelOpen ? " is-open" : ""
+          }`}
+          data-tab={activeTab}
+        >
+          {isFullscreen && modesEl}
           <div className="lin-tabs" role="group" aria-label="Bagian panel">
             {panelTabs.map((item) => (
               <button
