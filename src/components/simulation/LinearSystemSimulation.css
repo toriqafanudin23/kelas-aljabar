@@ -1,131 +1,171 @@
-/* Memakai variabel --sim-*, --gold dari TrigonometrySimulation.css (sama seperti GraphPlotterSimulation.css). */
+/* Simulasi sistem linear (disusun ulang mengikuti VectorSimulation).
+   Urutan: (1) ponsel lanskap = dasar (kelas .is-tabbed, panel bertab),
+   (2) potret, (3) desktop (tanpa .is-tabbed), (4) layar penuh.
+   Wilayah grafik : wilayah input = 2fr : 1fr.
+   Kelas .is-tabbed dipasang oleh komponen saat layar kecil/pendek atau
+   saat layar penuh. Memakai variabel --sim-*, --gold dari TrigonometrySimulation.css. */
+
+.linear-simulation,
+.linear-simulation *,
+.linear-simulation *::before,
+.linear-simulation *::after {
+  box-sizing: border-box;
+}
 
 .linear-simulation {
   --lin-accent: #087f8c;
   --lin-bad: #b23a48;
   --lin-ok: #2c7a3f;
   --lin-opt: #e0a100;
+  --ink: var(--sim-ink, #18313d);
+  --muted: var(--sim-muted, #62727d);
+  --line: var(--sim-line, #d5e0e4);
+  --paper: var(--sim-paper, #f3f7f5);
+
+  /* slider tipis, bulatan kecil */
+  --track: 2px;
+  --thumb: 12px;
+  --step: 22px;
+
   display: grid;
-  gap: 14px;
-  padding: 16px;
-  border-top: 3px solid var(--gold);
-  background: var(--sim-paper, #f3f7f5);
-  color: var(--sim-ink, #18313d);
-  font-variant-numeric: tabular-nums;
-}
-
-/* Tab mode */
-.lin-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0;
-  border: 1px solid #aebdc2;
-  background: #fff;
-}
-
-.lin-tabs button {
-  flex: 1 1 160px;
-  min-height: 40px;
-  padding: 0 14px;
-  border: 0;
-  border-left: 1px solid #aebdc2;
-  background: #fff;
-  color: var(--sim-ink, #18313d);
-  font-size: 13px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.lin-tabs button:first-child {
-  border-left: 0;
-}
-
-.lin-tabs button:hover {
-  background: #e8f3f1;
-}
-
-.lin-tabs button.is-active {
-  background: var(--lin-accent);
-  color: #fff;
-}
-
-.lin-boards {
-  display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
-  gap: 14px;
-  min-width: 0;
-}
-
-.lin-board-panel {
-  display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
-  grid-auto-rows: auto;
-  min-width: 0;
-  padding: 12px;
-  border: 1px solid var(--sim-line, #d5e0e4);
-  background: #fff;
-}
-
-.lin-board-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 6px 10px;
-  min-height: 32px;
-  margin-bottom: 4px;
-}
-
-.lin-board-heading h3 {
-  margin: 0;
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.lin-toolbar {
-  display: flex;
-  flex-wrap: wrap;
   gap: 6px;
+  padding: 6px;
+  border-top: 3px solid var(--gold);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.lin-zoom {
-  display: inline-flex;
+.linear-simulation h3 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.linear-simulation h4 {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.linear-simulation button,
+.linear-simulation select {
+  font-family: inherit;
+  touch-action: manipulation;
+}
+
+.linear-simulation button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.linear-simulation button:focus-visible,
+.linear-simulation input:focus-visible,
+.linear-simulation select:focus-visible,
+.linear-simulation summary:focus-visible {
+  outline: 2px solid var(--lin-accent);
+  outline-offset: 2px;
+}
+
+.lin-orientation-hint {
+  display: none;
+}
+
+/* ───────── Pilihan mode ───────── */
+
+.lin-modes {
+  display: flex;
+  overflow-x: auto;
   border: 1px solid #aebdc2;
+  background: #fff;
+  scrollbar-width: none;
 }
 
-.lin-zoom button {
-  min-width: 34px;
-  min-height: 30px;
+.lin-modes::-webkit-scrollbar {
+  display: none;
+}
+
+.lin-modes button {
+  flex: 1 1 0;
+  min-width: max-content;
+  height: 28px;
   padding: 0 10px;
   border: 0;
   border-left: 1px solid #aebdc2;
   background: #fff;
-  color: var(--sim-ink, #18313d);
-  font-size: 13px;
+  color: var(--ink);
+  font-size: 11px;
   font-weight: 700;
+  white-space: nowrap;
   cursor: pointer;
 }
 
-.lin-zoom button:first-child {
+.lin-modes button:first-child {
   border-left: 0;
 }
 
-.lin-zoom button:last-child {
-  font-size: 11px;
-}
-
-.lin-zoom button:hover {
+.lin-modes button:hover {
   background: #e8f3f1;
 }
 
-.lin-board {
-  width: 100%;
+.lin-modes button[aria-selected="true"] {
+  background: var(--lin-accent);
+  color: #fff;
+}
+
+/* ───────── Tata letak utama (dasar = bertab, ponsel lanskap) ───────── */
+
+.linear-simulation.is-tabbed {
+  grid-template-rows: auto minmax(0, 1fr);
+  height: min(100dvh, 460px);
+}
+
+.lin-main {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 6px;
   min-width: 0;
-  aspect-ratio: 1 / 1;
-  max-height: 560px;
-  margin-inline: auto;
+  min-height: 0;
+  height: 100%;
+}
+
+.lin-column {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 5px;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* ───────── Grafik ───────── */
+
+.lin-board-panel {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.lin-stage {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+}
+
+.lin-board {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
-  background-color: #fcfdfc;
+  background: #fcfdfc;
+  touch-action: none;
   cursor: grab;
 }
 
@@ -135,129 +175,93 @@
 
 .lin-board:focus-visible {
   outline: 2px solid var(--lin-accent);
-  outline-offset: 2px;
+  outline-offset: -2px;
 }
 
 .lin-board .JXGtext {
   font-family: "Open Sans", sans-serif;
 }
 
-/* Layar penuh: seluruh simulasi tampil, papan : kontrol = 2 : 1 */
-.linear-simulation:fullscreen {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
-  height: 100%;
-  padding: 12px;
-  overflow: auto;
-  background: var(--sim-paper, #f3f7f5);
-}
-
-.linear-simulation:fullscreen > .lin-tabs {
-  flex: none;
-}
-
-.linear-simulation:fullscreen > .lin-boards {
-  flex: 1 1 0;
-  min-height: 0;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-}
-
-.linear-simulation:fullscreen .lin-board-panel {
-  height: 100%;
-  min-height: 0;
-  padding: 10px;
-}
-
-.linear-simulation:fullscreen .lin-board {
-  width: 100%;
-  height: 100%;
-  min-height: 0;
-  max-height: none;
-  aspect-ratio: auto;
-}
-
-/* Kolom kanan: input + info titik + keterangan */
-.linear-simulation:fullscreen .lin-side {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  min-width: 0;
-  min-height: 0;
-  height: 100%;
-  overflow-y: auto;
-}
-
-.linear-simulation:fullscreen .lin-side > * {
-  flex: none;
-}
-
-.linear-simulation:fullscreen .lin-controls {
-  gap: 10px;
-  padding: 12px;
-}
-
-.linear-simulation:fullscreen .lin-cards {
-  grid-template-columns: minmax(0, 1fr);
-}
-
-.linear-simulation:fullscreen .lin-result {
-  min-height: 0;
-  padding-top: 6px;
-}
-
-.linear-simulation:fullscreen .lin-legend {
-  padding-top: 4px;
-}
-
-.linear-simulation:fullscreen .lin-card,
-.linear-simulation:fullscreen .lin-table th,
-.linear-simulation:fullscreen .lin-table td {
-  padding-block: 5px;
-}
-
-.linear-simulation:fullscreen .lin-table caption {
-  padding-block: 5px;
-}
-
-/* Ringkasan hasil di bawah papan */
-.lin-result {
-  min-height: 42px;
+/* Ringkasan hasil melayang di kiri atas grafik */
+.lin-caption {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  z-index: 2;
+  max-width: calc(100% - 50px);
   margin: 0;
-  padding: 9px 4px 2px;
-  border-top: 1px solid var(--sim-line, #d5e0e4);
-  font-size: 13px;
+  padding: 2px 8px;
+  border-left: 3px solid #183e54;
+  background: rgba(255, 255, 255, 0.9);
+  color: #183e54;
+  font-size: 12.5px;
   font-weight: 700;
-  line-height: 1.45;
+  line-height: 1.3;
+  pointer-events: none;
+  overflow-wrap: anywhere;
+}
+
+/* Layar penuh, zoom, pusatkan, unduh: melayang di kanan atas */
+.lin-view-tools {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 2;
+  display: grid;
+  gap: 3px;
+}
+
+.lin-view-tools button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid #aebdc2;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.lin-view-tools button:hover {
+  border-color: var(--lin-accent);
+  background: #e8f3f1;
 }
 
 .lin-legend {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 6px 16px;
-  padding-top: 8px;
-  color: var(--sim-muted, #62727d);
+  gap: 4px 12px;
+  padding: 3px 8px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
   font-family: "Cambria Math", Georgia, serif;
-  font-size: 12px;
+  font-size: 10.5px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.lin-legend::-webkit-scrollbar {
+  display: none;
 }
 
 .lin-legend span {
   display: inline-flex;
+  flex: 0 0 auto;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
+  white-space: nowrap;
 }
 
 .lin-legend i {
-  width: 16px;
+  width: 14px;
   height: 0;
   border-top: 3px solid #183e54;
 }
 
 .lin-legend b {
-  width: 10px;
-  height: 10px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
 }
 
@@ -285,48 +289,112 @@
   border: 2px solid #183e54;
 }
 
-.lin-hint {
-  margin: 6px 0 0;
-  color: var(--sim-muted, #62727d);
-  font-size: 10px;
-  text-align: center;
+/* ───────── Tab panel kanan ───────── */
+
+.lin-tabs {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
 }
 
-/* Kontrol */
-.lin-controls {
+.lin-tabs button {
+  height: 28px;
+  padding: 0 2px;
+  margin-left: -1px;
+  border: 1px solid #aebdc2;
+  background: #fff;
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.lin-tabs button:first-child {
+  margin-left: 0;
+}
+
+.lin-tabs button[aria-pressed="true"] {
+  position: relative;
+  border-color: var(--lin-accent);
+  background: var(--lin-accent);
+  color: #fff;
+}
+
+/* Isi panel: satu kartu putih; judul h3 tidak perlu (sudah ada di tab) */
+.linear-simulation.is-tabbed .lin-side,
+.linear-simulation.is-tabbed .lin-results {
+  min-height: 0;
+  padding: 8px;
+  border: 1px solid var(--line);
+  background: #fff;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+
+.linear-simulation.is-tabbed .lin-side,
+.linear-simulation.is-tabbed .lin-results {
   display: grid;
   align-content: start;
-  gap: 14px;
-  min-width: 0;
-  padding: 14px;
-  border: 1px solid var(--sim-line, #d5e0e4);
-  background: #fff;
+  gap: 8px;
 }
 
-.lin-group {
+.linear-simulation.is-tabbed .lin-panel > h3 {
+  display: none;
+}
+
+.linear-simulation.is-tabbed
+  .lin-column[data-tab="lines"]
+  [data-pane]:not([data-pane="lines"]),
+.linear-simulation.is-tabbed
+  .lin-column[data-tab="goal"]
+  [data-pane]:not([data-pane="goal"]),
+.linear-simulation.is-tabbed
+  .lin-column[data-tab="preset"]
+  [data-pane]:not([data-pane="preset"]),
+.linear-simulation.is-tabbed
+  .lin-column[data-tab="view"]
+  [data-pane]:not([data-pane="view"]),
+.linear-simulation.is-tabbed
+  .lin-column[data-tab="result"]
+  [data-pane]:not([data-pane="result"]),
+.linear-simulation.is-tabbed .lin-column[data-tab="result"] .lin-side {
+  display: none;
+}
+
+.lin-panel {
   display: grid;
   gap: 8px;
   min-width: 0;
 }
 
-.lin-group-title {
-  color: var(--sim-muted, #62727d);
-  font-size: 11px;
-  font-weight: 700;
+/* ───────── Baris persamaan / kendala ───────── */
+
+.lin-eqs {
+  display: grid;
+  gap: 6px;
 }
 
 .lin-row {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 4px 6px;
+  min-width: 0;
+}
+
+.lin-lhs,
+.lin-rhs {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .lin-swatch {
   display: inline-block;
   flex: none;
-  width: 12px;
-  height: 12px;
+  width: 11px;
+  height: 11px;
   margin-right: 3px;
   border-radius: 3px;
   vertical-align: -1px;
@@ -338,52 +406,56 @@
 
 .lin-sym,
 .lin-op-static {
-  color: var(--sim-ink, #18313d);
+  color: var(--ink);
   font-family: "Cambria Math", Georgia, serif;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
+  white-space: nowrap;
 }
 
 .lin-num {
-  box-sizing: border-box;
-  width: 54px;
-  min-height: 34px;
-  padding: 0 6px;
+  width: 42px;
+  min-width: 0;
+  height: 28px;
+  padding: 0 3px;
   border: 1px solid #aebdc2;
+  border-radius: 0;
   background: #fcfdfc;
-  color: var(--sim-ink, #18313d);
+  color: var(--ink);
   font-family: "Cambria Math", "Courier New", monospace;
-  font-size: 15px;
+  font-size: 14px;
+  font-weight: 700;
   text-align: center;
 }
 
 .lin-op {
-  min-height: 34px;
-  padding: 0 4px;
+  height: 28px;
+  padding: 0 2px;
   border: 1px solid #aebdc2;
+  border-radius: 0;
   background: #fff;
-  color: var(--sim-ink, #18313d);
+  color: var(--ink);
   font-family: "Cambria Math", Georgia, serif;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
   cursor: pointer;
 }
 
 .lin-icon-btn {
-  min-width: 26px;
-  min-height: 26px;
-  padding: 0 6px;
+  width: 24px;
+  height: 24px;
+  padding: 0;
   border: 1px solid transparent;
   background: transparent;
-  color: var(--sim-muted, #62727d);
-  font-size: 15px;
+  color: var(--muted);
+  font-size: 16px;
   line-height: 1;
   cursor: pointer;
 }
 
 .lin-icon-btn:hover {
   border-color: #aebdc2;
-  background: #f3f7f5;
+  background: var(--paper);
   color: var(--lin-bad);
 }
 
@@ -391,16 +463,16 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 6px 14px;
+  gap: 4px 12px;
 }
 
 .lin-btn {
-  min-height: 32px;
-  padding: 0 12px;
+  height: 30px;
+  padding: 0 10px;
   border: 1px solid #aebdc2;
   background: #fff;
-  color: var(--sim-ink, #18313d);
-  font-size: 12px;
+  color: var(--ink);
+  font-size: 11px;
   font-weight: 700;
   cursor: pointer;
 }
@@ -410,119 +482,267 @@
   background: #e8f3f1;
 }
 
-.lin-btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+.lin-subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
 }
 
 .lin-check {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 6px;
-  color: var(--sim-muted, #62727d);
+  gap: 8px;
+  min-height: 26px;
+  color: var(--ink);
   font-size: 11px;
-  font-weight: 600;
   cursor: pointer;
 }
 
 .lin-check input {
-  width: 15px;
-  height: 15px;
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
   margin: 0;
   accent-color: var(--lin-accent);
 }
 
-.lin-options {
-  display: grid;
-  gap: 8px;
-}
-
-.lin-slider {
-  display: grid;
-  gap: 4px;
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.lin-slider input[type="range"] {
-  width: 100%;
-  min-width: 0;
-  accent-color: var(--lin-opt);
-}
-
 .lin-note {
-  min-height: 15px;
   margin: 0;
-  color: var(--sim-muted, #62727d);
-  font-size: 11px;
-  line-height: 1.4;
+  color: var(--muted);
+  font-size: 10.5px;
+  line-height: 1.35;
 }
 
-.lin-presets {
+.lin-segmented {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
 }
 
-.lin-presets button {
-  min-height: 32px;
-  padding: 0 11px;
+.lin-segmented button {
+  flex: 1 1 auto;
+  min-height: 30px;
+  padding: 0 10px;
+  margin-top: -1px;
+  margin-left: -1px;
   border: 1px solid #aebdc2;
   background: #fff;
-  color: var(--sim-ink, #18313d);
-  font-family: "Open Sans", sans-serif;
+  color: var(--ink);
   font-size: 11px;
   font-weight: 700;
   cursor: pointer;
 }
 
-.lin-presets button:hover {
+.lin-segmented button:hover {
+  background: #e8f3f1;
+}
+
+.lin-reset-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.lin-reset-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 10px;
+  border: 1px solid #aebdc2;
+  background: #fff;
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.lin-reset-button:hover {
   border-color: var(--lin-accent);
   background: #e8f3f1;
 }
 
-.linear-simulation button:focus-visible,
-.linear-simulation input:focus-visible,
-.linear-simulation select:focus-visible,
-.linear-simulation summary:focus-visible {
-  outline: 2px solid var(--lin-accent);
-  outline-offset: 3px;
+/* ───────── Slider garis selidik: −  ──●──  +  [ 12 ] ───────── */
+
+.lin-level {
+  display: grid;
+  grid-template-columns: 16px var(--step) minmax(0, 1fr) var(--step) 44px;
+  align-items: center;
+  column-gap: 4px;
+  min-width: 0;
 }
 
-/* Kartu hasil */
+.lin-level > span {
+  color: #7a5600;
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 800;
+}
+
+.lin-level .lin-num {
+  width: 100%;
+  height: 24px;
+  color: #7a5600;
+}
+
+.lin-nudge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--step);
+  height: var(--step);
+  padding: 0;
+  border: 1px solid #aebdc2;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.lin-nudge:hover {
+  border-color: var(--lin-opt);
+  background: #f1f6f5;
+}
+
+.lin-nudge:active {
+  background: #e0ecea;
+}
+
+/* Area sentuh 28px, tampilan visual hanya 2px */
+.lin-range {
+  --fill: 0%;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 28px;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+  touch-action: pan-y;
+}
+
+.lin-range::-webkit-slider-runnable-track {
+  height: var(--track);
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    var(--lin-opt) 0,
+    var(--lin-opt) var(--fill),
+    var(--line) var(--fill),
+    var(--line) 100%
+  );
+}
+
+.lin-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+  width: var(--thumb);
+  height: var(--thumb);
+  margin-top: calc((var(--track) - var(--thumb)) / 2);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: var(--lin-opt);
+  box-shadow: 0 0 0 1px rgba(24, 49, 61, 0.28);
+}
+
+.lin-range::-moz-range-track {
+  height: var(--track);
+  border-radius: 999px;
+  background: var(--line);
+}
+
+.lin-range::-moz-range-progress {
+  height: var(--track);
+  border-radius: 999px;
+  background: var(--lin-opt);
+}
+
+.lin-range::-moz-range-thumb {
+  box-sizing: border-box;
+  width: var(--thumb);
+  height: var(--thumb);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: var(--lin-opt);
+  box-shadow: 0 0 0 1px rgba(24, 49, 61, 0.28);
+}
+
+.lin-range:focus-visible {
+  outline: none;
+}
+
+.lin-range:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 2px var(--lin-opt);
+}
+
+.lin-range:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 2px var(--lin-opt);
+}
+
+@media (pointer: coarse) {
+  .linear-simulation {
+    --step: 24px;
+  }
+
+  /* 16px mencegah iOS memperbesar halaman saat kolom difokuskan */
+  .lin-num {
+    height: 30px;
+    font-size: 16px;
+  }
+
+  .lin-level .lin-num {
+    height: 28px;
+  }
+
+  .lin-level {
+    grid-template-columns: 16px var(--step) minmax(0, 1fr) var(--step) 50px;
+  }
+}
+
+/* ───────── Hasil ───────── */
+
 .lin-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1px;
-  border: 1px solid var(--sim-line, #d5e0e4);
-  background: var(--sim-line, #d5e0e4);
+  grid-template-columns: minmax(0, 1fr);
+  gap: 6px;
 }
 
 .lin-card {
+  display: grid;
+  align-content: start;
+  gap: 3px;
   min-width: 0;
-  padding: 10px 13px;
-  background: #fff;
+  padding: 6px 8px;
+  border: 1px solid var(--line);
+  background: var(--paper);
 }
 
 .lin-card h4 {
-  margin: 0 0 6px;
-  color: var(--sim-muted, #62727d);
+  color: var(--muted);
   font-size: 11px;
   font-weight: 700;
 }
 
 .lin-card p {
-  margin: 4px 0;
+  margin: 0;
+  color: #183e54;
   font-family: "Cambria Math", Georgia, serif;
-  font-size: 14px;
+  font-size: 12.5px;
   font-weight: 700;
-  line-height: 1.4;
+  line-height: 1.35;
   overflow-wrap: anywhere;
 }
 
 .lin-card small {
   margin-left: 8px;
-  color: var(--sim-muted, #62727d);
+  color: var(--muted);
   font-family: "Open Sans", sans-serif;
   font-size: 10px;
   font-weight: 600;
@@ -530,16 +750,16 @@
 
 .lin-card p.lin-muted,
 .lin-muted {
-  color: var(--sim-muted, #62727d);
+  color: var(--muted);
   font-family: "Open Sans", sans-serif;
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 400;
 }
 
 .lin-points {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px 14px;
+  gap: 3px 12px;
 }
 
 .lin-ok {
@@ -550,40 +770,40 @@
   color: var(--lin-bad);
 }
 
-/* Tabel titik sudut */
 .lin-table-wrap {
   min-width: 0;
   overflow-x: auto;
-  border: 1px solid var(--sim-line, #d5e0e4);
+  border: 1px solid var(--line);
   background: #fff;
 }
 
 .lin-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .lin-table caption {
-  padding: 9px 13px;
-  color: var(--sim-muted, #62727d);
-  font-size: 11px;
+  padding: 5px 8px;
+  color: var(--muted);
+  font-size: 10.5px;
   font-weight: 600;
   text-align: left;
 }
 
 .lin-table th,
 .lin-table td {
-  padding: 7px 13px;
-  border-top: 1px solid var(--sim-line, #d5e0e4);
+  padding: 4px 8px;
+  border-top: 1px solid var(--line);
   text-align: left;
   font-family: "Cambria Math", Georgia, serif;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
+  white-space: nowrap;
 }
 
 .lin-table thead th {
-  color: var(--sim-muted, #62727d);
+  color: var(--muted);
   font-family: "Open Sans", sans-serif;
   font-size: 10px;
 }
@@ -594,64 +814,329 @@
   color: #6b4e00;
 }
 
-/* Panduan */
 .lin-guide {
-  border: 1px solid var(--sim-line, #d5e0e4);
+  border: 1px solid var(--line);
   background: #fff;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .lin-guide summary {
-  padding: 10px 13px;
+  padding: 7px 10px;
   font-weight: 700;
   cursor: pointer;
 }
 
 .lin-guide ul {
   display: grid;
-  gap: 8px;
+  gap: 6px;
   margin: 0;
-  padding: 0 13px 12px 30px;
-  color: var(--sim-muted, #62727d);
-  font-size: 11px;
-  line-height: 1.5;
+  padding: 0 10px 10px 26px;
+  color: var(--muted);
+  line-height: 1.45;
 }
 
-@media (max-width: 860px) {
-  .lin-boards {
-    grid-template-columns: minmax(0, 1fr);
+.lin-results {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+/* Ponsel lanskap sangat pendek */
+@media (orientation: landscape) and (max-height: 360px) {
+  .linear-simulation.is-tabbed {
+    gap: 4px;
+    padding: 4px;
   }
 
-  .lin-board {
-    width: min(100%, 560px);
+  .linear-simulation.is-tabbed .lin-main {
+    gap: 4px;
+  }
+
+  .linear-simulation.is-tabbed .lin-side,
+  .linear-simulation.is-tabbed .lin-results {
+    padding: 6px;
+  }
+
+  .lin-modes button {
+    height: 24px;
+  }
+
+  .lin-range {
+    height: 24px;
   }
 }
 
-@media (max-width: 520px) {
-  .linear-simulation {
-    gap: 10px;
-    padding: 9px;
-  }
+/* ───────── Potret (cadangan): grafik atas, panel bertab di bawah ───────── */
 
-  .lin-board-panel {
+@media (orientation: portrait) and (max-width: 899px) {
+  .linear-simulation.is-tabbed:not(.is-fullscreen) {
+    grid-template-rows: none;
+    height: auto;
     padding: 8px;
   }
 
-  .lin-controls {
-    padding: 10px;
-    gap: 12px;
+  .linear-simulation.is-tabbed:not(.is-fullscreen) .lin-orientation-hint {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 0;
+    padding: 6px 9px;
+    border-left: 3px solid var(--lin-accent);
+    background: #e8f3f1;
+    font-size: 11px;
+    line-height: 1.4;
   }
 
-  .lin-num {
-    width: 48px;
-    font-size: 16px;
+  .lin-orientation-hint svg {
+    flex: 0 0 auto;
+    color: var(--lin-accent);
+  }
+
+  .linear-simulation.is-tabbed:not(.is-fullscreen) .lin-main {
+    grid-template-columns: minmax(0, 1fr);
+    height: auto;
+  }
+
+  .linear-simulation.is-tabbed:not(.is-fullscreen) .lin-board-panel {
+    height: clamp(250px, 46dvh, 420px);
+  }
+
+  .linear-simulation.is-tabbed:not(.is-fullscreen) .lin-side,
+  .linear-simulation.is-tabbed:not(.is-fullscreen) .lin-results {
+    overflow: visible;
   }
 }
 
-/* Layar penuh pada layar sempit/potret: susun atas-bawah */
-@media (max-width: 600px) {
-  .linear-simulation:fullscreen > .lin-boards {
+/* ───────── Desktop & tablet lanskap (tanpa .is-tabbed) ───────── */
+
+.linear-simulation:not(.is-tabbed) {
+  --track: 3px;
+  --thumb: 14px;
+  --step: 28px;
+  gap: 12px;
+  padding: 14px;
+  font-size: 13px;
+}
+
+.linear-simulation:not(.is-tabbed) .lin-modes button {
+  height: 38px;
+  font-size: 13px;
+}
+
+.linear-simulation:not(.is-tabbed) .lin-main {
+  grid-template-rows: clamp(460px, 72vh, 700px) auto;
+  gap: 12px;
+  height: auto;
+}
+
+.linear-simulation:not(.is-tabbed) .lin-column {
+  display: contents;
+}
+
+.linear-simulation:not(.is-tabbed) .lin-tabs {
+  display: none;
+}
+
+.linear-simulation:not(.is-tabbed) .lin-board-panel {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.linear-simulation:not(.is-tabbed) .lin-side {
+  grid-column: 2;
+  grid-row: 1;
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.linear-simulation:not(.is-tabbed) .lin-results {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  gap: 12px;
+}
+
+.linear-simulation:not(.is-tabbed) .lin-panel {
+  padding: 14px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.linear-simulation:not(.is-tabbed) .lin-caption {
+  top: 10px;
+  left: 10px;
+  padding: 4px 12px;
+  border-left-width: 4px;
+  font-size: clamp(14px, 1.4vw, 18px);
+}
+
+.linear-simulation:not(.is-tabbed) .lin-view-tools {
+  top: 10px;
+  right: 10px;
+  gap: 4px;
+}
+
+.linear-simulation:not(.is-tabbed) .lin-view-tools button {
+  width: 34px;
+  height: 34px;
+}
+
+.linear-simulation:not(.is-tabbed) .lin-legend {
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 7px 10px;
+  font-size: 12px;
+}
+
+.linear-simulation:not(.is-tabbed) .lin-num {
+  width: 50px;
+  height: 32px;
+  font-size: 15px;
+}
+
+.linear-simulation:not(.is-tabbed) .lin-op {
+  height: 32px;
+}
+
+.linear-simulation:not(.is-tabbed) .lin-sym,
+.linear-simulation:not(.is-tabbed) .lin-op-static {
+  font-size: 16px;
+}
+
+.linear-simulation:not(.is-tabbed) .lin-level {
+  grid-template-columns: 18px var(--step) minmax(0, 1fr) var(--step) 56px;
+}
+
+.linear-simulation:not(.is-tabbed) .lin-level .lin-num {
+  height: 30px;
+}
+
+.linear-simulation:not(.is-tabbed) .lin-range {
+  height: 30px;
+}
+
+.linear-simulation:not(.is-tabbed) .lin-btn {
+  height: 34px;
+  font-size: 12px;
+}
+
+.linear-simulation:not(.is-tabbed) .lin-check {
+  min-height: 32px;
+  font-size: 12px;
+}
+
+.linear-simulation:not(.is-tabbed) .lin-segmented button {
+  min-height: 36px;
+  font-size: 12px;
+}
+
+.linear-simulation:not(.is-tabbed) .lin-reset-button {
+  height: 34px;
+  padding: 0 14px;
+  font-size: 12px;
+}
+
+.linear-simulation:not(.is-tabbed) .lin-cards {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px;
+}
+
+.linear-simulation:not(.is-tabbed) .lin-card {
+  gap: 6px;
+  padding: 10px 12px;
+}
+
+.linear-simulation:not(.is-tabbed) .lin-card p {
+  font-size: 14px;
+}
+
+.linear-simulation:not(.is-tabbed) .lin-table {
+  font-size: 12px;
+}
+
+.linear-simulation:not(.is-tabbed) .lin-table th,
+.linear-simulation:not(.is-tabbed) .lin-table td {
+  padding: 7px 13px;
+  font-size: 14px;
+}
+
+.linear-simulation:not(.is-tabbed) .lin-guide {
+  font-size: 12px;
+}
+
+/* ───────── Layar penuh (selalu bertab, tanpa gulir halaman) ───────── */
+
+.linear-simulation.is-fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  grid-template-rows: auto minmax(0, 1fr);
+  width: 100vw;
+  height: 100dvh;
+  padding: max(6px, env(safe-area-inset-top, 0px))
+    max(8px, env(safe-area-inset-right, 0px))
+    max(6px, env(safe-area-inset-bottom, 0px))
+    max(8px, env(safe-area-inset-left, 0px));
+  overflow: hidden;
+}
+
+.linear-simulation.is-fullscreen .lin-orientation-hint {
+  display: none;
+}
+
+/* Layar penuh di monitor besar: ukuran sedikit lebih lega */
+@media (min-width: 900px) and (min-height: 541px) {
+  .linear-simulation.is-fullscreen {
+    --track: 3px;
+    --thumb: 14px;
+    --step: 26px;
+    font-size: 13px;
+  }
+
+  .linear-simulation.is-fullscreen .lin-caption {
+    font-size: 16px;
+  }
+
+  .linear-simulation.is-fullscreen .lin-modes button {
+    height: 32px;
+    font-size: 12px;
+  }
+
+  .linear-simulation.is-fullscreen .lin-tabs button {
+    height: 34px;
+    font-size: 12px;
+  }
+
+  .linear-simulation.is-fullscreen .lin-range {
+    height: 32px;
+  }
+
+  .linear-simulation.is-fullscreen .lin-num {
+    height: 30px;
+  }
+
+  .linear-simulation.is-fullscreen .lin-card p {
+    font-size: 13.5px;
+  }
+}
+
+/* Layar penuh + potret: tetap 2 : 1, grafik atas, input bawah */
+@media (orientation: portrait) and (max-width: 899px) {
+  .linear-simulation.is-fullscreen .lin-main {
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: minmax(0, 2fr) minmax(0, 1fr);
+  }
+
+  .linear-simulation.is-fullscreen .lin-board-panel {
+    height: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .linear-simulation * {
+    transition: none !important;
   }
 }

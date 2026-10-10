@@ -1,5 +1,23 @@
-import { useEffect, useId, useMemo, useRef, useState } from "react";
-import type { KeyboardEvent as ReactKeyboardEvent } from "react";
+import {
+  Crosshair,
+  Download,
+  Maximize2,
+  Minimize2,
+  Minus,
+  Plus,
+  RotateCcw,
+  Smartphone,
+} from "lucide-react";
+import {
+  useEffect,
+  useId,
+  useMemo,
+  useRef,
+  useState,
+  type CSSProperties,
+  type KeyboardEvent as ReactKeyboardEvent,
+  type PointerEvent as ReactPointerEvent,
+} from "react";
 import JXG from "jsxgraph";
 import "../../../node_modules/jsxgraph/distrib/jsxgraph.css";
 import "./LinearSystemSimulation.css";
@@ -32,7 +50,17 @@ import {
   type Sol,
 } from "./linearMath";
 
+/* Simulasi sistem linear (disusun ulang mengikuti VectorSimulation).
+   Prioritas: ponsel lanskap → desktop → ponsel potret.
+   Wilayah grafik : wilayah input = 2 : 1.
+   - Layar kecil / layar penuh: panel kanan bertab (Kendala, Tujuan, Contoh,
+     Opsi, Hasil) agar semuanya muat tanpa gulir panjang.
+   - Desktop: panel input bertumpuk di kanan, hasil di bawah. */
+
+/* ---------- Tipe ---------- */
+
 type Mode = "spldv" | "ptlsv" | "lp";
+type PanelTab = "lines" | "goal" | "preset" | "view" | "result";
 type Board = ReturnType<typeof JXG.JSXGraph.initBoard>;
 type JEl = {
   X(): number;
@@ -67,6 +95,8 @@ type Preset = {
   goal?: Goal;
 };
 
+/* ---------- Konstanta ---------- */
+
 const MAX_LINES = 4;
 const VERT_POOL = 8;
 const OPT_POOL = 4;
@@ -82,6 +112,8 @@ const HOME: Record<Mode, Box> = {
 };
 const COORDS_BY_USER: number =
   (JXG as unknown as { COORDS_BY_USER?: number }).COORDS_BY_USER ?? 1;
+/** Layar kecil atau pendek memakai panel bertab. */
+const TABBED_QUERY = "(max-width: 899px), (max-height: 540px)";
 
 const C = (a: number, b: number, c: number, op: Op): Cons => ({ a, b, c, op });
 
@@ -143,16 +175,77 @@ const OPS: Op[] = ["<=", ">=", "<", ">"];
 
 const fmtInput = (v: number) => String(Math.round(v * 1000) / 1000);
 
+/* ---------- Hook & komponen kecil ---------- */
+
+function useMediaQuery(query: string) {
+  const [matches, setMatches] = useState(
+    () => typeof window !== "undefined" && window.matchMedia(query).matches,
+  );
+  useEffect(() => {
+    const media = window.matchMedia(query);
+    const onChange = () => setMatches(media.matches);
+    onChange();
+    media.addEventListener("change", onChange);
+    return () => media.removeEventListener("change", onChange);
+  }, [query]);
+  return matches;
+}
+
+/** Tombol tahan-untuk-mengulang (−/+ di samping slider). */
+function useHoldRepeat(onStep: (direction: 1 | -1) => void) {
+  const stepRef = useRef(onStep);
+  stepRef.current = onStep;
+  const timers = useRef<{ delay?: number; repeat?: number }>({});
+
+  const stop = () => {
+    window.clearTimeout(timers.current.delay);
+    window.clearInterval(timers.current.repeat);
+    timers.current = {};
+  };
+
+  useEffect(
+    () => () => {
+      window.clearTimeout(timers.current.delay);
+      window.clearInterval(timers.current.repeat);
+    },
+    [],
+  );
+
+  return (direction: 1 | -1) => ({
+    type: "button" as const,
+    className: "lin-nudge",
+    onPointerDown: (event: ReactPointerEvent<HTMLButtonElement>) => {
+      if (event.pointerType === "mouse" && event.button !== 0) return;
+      stop();
+      stepRef.current(direction);
+      timers.current.delay = window.setTimeout(() => {
+        timers.current.repeat = window.setInterval(
+          () => stepRef.current(direction),
+          80,
+        );
+      }, 450);
+    },
+    onPointerUp: stop,
+    onPointerLeave: stop,
+    onPointerCancel: stop,
+    onBlur: stop,
+    onContextMenu: (event: { preventDefault: () => void }) =>
+      event.preventDefault(),
+    // detail === 0 → aktivasi lewat keyboard (Enter/Spasi)
+    onClick: (event: { detail: number }) => {
+      if (event.detail === 0) stepRef.current(direction);
+    },
+  });
+}
+
 function NumField({
   value,
   onChange,
   label,
-  className,
 }: {
   value: number;
   onChange: (v: number) => void;
   label: string;
-  className?: string;
 }) {
   const [text, setText] = useState(fmtInput(value));
   const [focused, setFocused] = useState(false);
@@ -161,31 +254,93 @@ function NumField({
   }, [value, focused]);
   return (
     <input
-      className={`lin-num ${className ?? ""}`}
+      className="lin-num"
       type="text"
+      inputMode="decimal"
       autoComplete="off"
+      enterKeyHint="done"
       spellCheck={false}
       aria-label={label}
       value={text}
-      onFocus={() => setFocused(true)}
-      onBlur={() => setFocused(false)}
       onChange={(event) => {
         const t = event.currentTarget.value;
         setText(t);
         const v = parseFloat(t.replace(",", "."));
         if (Number.isFinite(v) && /^-?\d*[.,]?\d*$/.test(t.trim())) onChange(v);
       }}
+      onFocus={(event) => {
+        setFocused(true);
+        event.currentTarget.select();
+      }}
+      onBlur={() => setFocused(false)}
     />
   );
 }
 
+/** Satu baris garis selidik: z  −  ──●──  +  [ 12 ] */
+function LevelSlider({
+  value,
+  min,
+  max,
+  onSlide,
+  onNudge,
+}: {
+  value: number;
+  min: number;
+  max: number;
+  onSlide: (value: number) => void;
+  onNudge: (direction: 1 | -1) => void;
+}) {
+  const bind = useHoldRepeat(onNudge);
+  const span = max - min || 1;
+  const clamped = Math.min(max, Math.max(min, value));
+  const style = {
+    "--fill": `${((clamped - min) / span) * 100}%`,
+  } as CSSProperties;
+
+  return (
+    <div className="lin-level">
+      <span aria-hidden="true">z</span>
+      <button {...bind(-1)} aria-label="Kurangi z 1">
+        <Minus size={13} aria-hidden="true" />
+      </button>
+      <input
+        className="lin-range"
+        type="range"
+        min={min}
+        max={max}
+        step="any"
+        value={clamped}
+        style={style}
+        aria-label="Penggeser garis selidik"
+        aria-valuetext={`z sama dengan ${fmtN(value)}`}
+        onChange={(event) => onSlide(Number(event.currentTarget.value))}
+      />
+      <button {...bind(1)} aria-label="Tambah z 1">
+        <Plus size={13} aria-hidden="true" />
+      </button>
+      <NumField
+        value={value}
+        label="Nilai z garis selidik"
+        onChange={onSlide}
+      />
+    </div>
+  );
+}
+
+/* ---------- Komponen utama ---------- */
+
 export function LinearSystemSimulation() {
   const boardId = `lin-board-${useId().replace(/:/g, "")}`;
   const rootRef = useRef<HTMLDivElement | null>(null);
-  const panelRef = useRef<HTMLElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const nativeFullscreenRef = useRef(false);
   const boardRef = useRef<Board | null>(null);
   const { appearance, onStep } = useGraphAppearance([boardRef]);
+  const [tab, setTab] = useState<PanelTab>("lines");
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const smallScreen = useMediaQuery(TABBED_QUERY);
+  const tabbed = smallScreen || isFullscreen;
 
   // objek papan
   const objsRef = useRef<{ line: JEl; p1: JEl; p2: JEl }[]>([]);
@@ -245,7 +400,6 @@ export function LinearSystemSimulation() {
     { x: 1, y: 1 },
   );
   const [analysis, setAnalysis] = useState<Analysis | null>(null);
-  const [isFull, setIsFull] = useState(false);
   const [message, setMessage] = useState("");
 
   const modeRef = useRef<Mode>(mode);
@@ -426,12 +580,78 @@ export function LinearSystemSimulation() {
     event.preventDefault();
   };
 
-  const toggleFullscreen = () => {
+  const toggleFullscreen = async () => {
     const el = rootRef.current;
     if (!el) return;
-    if (document.fullscreenElement) void document.exitFullscreen();
-    else void el.requestFullscreen?.();
+    if (!isFullscreen) {
+      setIsFullscreen(true);
+      if (el.requestFullscreen) {
+        try {
+          await el.requestFullscreen();
+          nativeFullscreenRef.current = true;
+        } catch {
+          // Gagal masuk fullscreen asli: tetap pakai mode layar penuh CSS.
+        }
+      }
+    } else {
+      if (document.fullscreenElement) {
+        try {
+          await document.exitFullscreen();
+        } catch {
+          /* diabaikan */
+        }
+      }
+      nativeFullscreenRef.current = false;
+      setIsFullscreen(false);
+    }
   };
+
+  useEffect(() => {
+    const onChange = () => {
+      if (!document.fullscreenElement && nativeFullscreenRef.current) {
+        nativeFullscreenRef.current = false;
+        setIsFullscreen(false);
+      }
+    };
+    const onKey = (event: KeyboardEvent) => {
+      if (
+        event.key === "Escape" &&
+        !document.fullscreenElement &&
+        !nativeFullscreenRef.current
+      ) {
+        setIsFullscreen(false);
+      }
+    };
+    document.addEventListener("fullscreenchange", onChange);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("fullscreenchange", onChange);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, []);
+
+  // Di layar sentuh, layar penuh dikunci ke lanskap bila browser mengizinkan.
+  useEffect(() => {
+    if (!isFullscreen) return;
+    if (!window.matchMedia("(pointer: coarse)").matches) return;
+    const orientation = (
+      screen as unknown as {
+        orientation?: {
+          lock?: (mode: "landscape") => Promise<void>;
+          unlock?: () => void;
+        };
+      }
+    ).orientation;
+    if (typeof orientation?.lock !== "function") return;
+    orientation.lock("landscape").catch(() => undefined);
+    return () => {
+      try {
+        orientation.unlock?.();
+      } catch {
+        /* abaikan */
+      }
+    };
+  }, [isFullscreen]);
 
   const exportPng = () => {
     const svg = containerRef.current?.querySelector("svg");
@@ -507,6 +727,12 @@ export function LinearSystemSimulation() {
     resetView();
   };
 
+  const resetAll = () => {
+    setSnap(true);
+    setShowHalf(true);
+    applyPreset(presets[0]);
+  };
+
   const addConstraint = () => {
     if (ineq.length >= MAX_LINES) return;
     setIneq((prev) => [...prev, C(1, 1, 6, "<=")]);
@@ -528,8 +754,17 @@ export function LinearSystemSimulation() {
       showCopyright: false,
       showNavigation: false,
       keepAspectRatio: true,
-      pan: { enabled: true, needShift: false, needTwoFingers: true },
-      zoom: { wheel: false, factorX: 1.25, factorY: 1.25 },
+      // Geser dengan tahan klik kiri (atau satu jari) pada area kosong;
+      // zoom dengan roda mouse atau pinch.
+      pan: { enabled: true, needShift: false, needTwoFingers: false },
+      zoom: {
+        wheel: true,
+        needShift: false,
+        factorX: 1.15,
+        factorY: 1.15,
+        min: 0.1,
+        max: 20,
+      },
     });
     boardRef.current = board;
     const rawCreate = board as unknown as {
@@ -869,39 +1104,37 @@ export function LinearSystemSimulation() {
 
     board.on("boundingbox", scheduleRecompute);
 
-    // ───── zoom roda mouse ke posisi kursor ─────
-    const onWheel = (e: WheelEvent) => {
-      e.preventDefault();
-      let delta = e.deltaY || e.deltaX;
-      if (e.deltaMode === 1) delta *= 33;
-      if (e.deltaMode === 2) delta *= 400;
-      const f = Math.exp(Math.max(-120, Math.min(120, delta)) * 0.0015);
-      const r = el.getBoundingClientRect();
-      const [x1, y1, x2, y2] = board.getBoundingBox();
-      const ux = x1 + ((e.clientX - r.left) / r.width) * (x2 - x1);
-      const uy = y1 - ((e.clientY - r.top) / r.height) * (y1 - y2);
-      const nx1 = ux + (x1 - ux) * f;
-      const nx2 = ux + (x2 - ux) * f;
-      const ny1 = uy + (y1 - uy) * f;
-      const ny2 = uy + (y2 - uy) * f;
-      const w = nx2 - nx1;
-      if (!(w > 1e-6 && w < 1e7)) return;
-      board.setBoundingBox([nx1, ny1, nx2, ny2], true);
-      scheduleRecompute();
-    };
-    el.addEventListener("wheel", onWheel, { passive: false });
-
+    // Saat ukuran kontainer berubah (putar layar, layar penuh, ganti mode),
+    // pertahankan skala dan titik tengah tampilan agar grafik tidak melompat.
+    let last = { w: el.clientWidth, h: el.clientHeight };
     const observer = new ResizeObserver(() => {
-      if (el.clientWidth > 0 && el.clientHeight > 0) {
-        board.resizeContainer(el.clientWidth, el.clientHeight, true);
-        scheduleRecompute();
+      if (el.clientWidth <= 0 || el.clientHeight <= 0) return;
+      const w = el.clientWidth;
+      const h = el.clientHeight;
+      if (w === last.w && h === last.h) return;
+
+      const bb = board.getBoundingBox();
+      const spanX = bb[2] - bb[0];
+      const spanY = bb[1] - bb[3];
+      board.resizeContainer(w, h, true, true);
+      if (last.w > 0 && last.h > 0 && spanX > 0 && spanY > 0) {
+        const ux = last.w / spanX;
+        const uy = last.h / spanY;
+        const cx = (bb[0] + bb[2]) / 2;
+        const cy = (bb[1] + bb[3]) / 2;
+        board.setBoundingBox(
+          [cx - w / 2 / ux, cy + h / 2 / uy, cx + w / 2 / ux, cy - h / 2 / uy],
+          true,
+        );
       }
+      last = { w, h };
+      board.update();
+      scheduleRecompute();
     });
     observer.observe(el);
 
     return () => {
       observer.disconnect();
-      el.removeEventListener("wheel", onWheel);
       if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
       rafRef.current = null;
       JXG.JSXGraph.freeBoard(board);
@@ -1015,13 +1248,6 @@ export function LinearSystemSimulation() {
     return () => window.clearTimeout(timer);
   }, [message]);
 
-  useEffect(() => {
-    const onChange = () =>
-      setIsFull(document.fullscreenElement === rootRef.current);
-    document.addEventListener("fullscreenchange", onChange);
-    return () => document.removeEventListener("fullscreenchange", onChange);
-  }, []);
-
   // ───────────── turunan tampilan ─────────────
   const sol = analysis?.sol ?? null;
   const verts = analysis?.verts ?? [];
@@ -1035,7 +1261,7 @@ export function LinearSystemSimulation() {
       if (!analysis.sol)
         return "Atur kedua garis agar terdefinisi (a dan b tidak boleh sama-sama 0).";
       if (analysis.sol.kind === "unique")
-        return `Kedua garis berpotongan di ${ptText(analysis.sol)} → x = ${fmtN(analysis.sol.x)}, y = ${fmtN(analysis.sol.y)}`;
+        return `Titik potong ${ptText(analysis.sol)} → x = ${fmtN(analysis.sol.x)}, y = ${fmtN(analysis.sol.y)}`;
       if (analysis.sol.kind === "parallel")
         return "Kedua garis sejajar: tidak ada penyelesaian.";
       return "Kedua garis berimpit: penyelesaian tak hingga banyak.";
@@ -1104,313 +1330,206 @@ export function LinearSystemSimulation() {
   const sliderMin = analysis ? analysis.zLo : -20;
   const sliderMax = analysis ? analysis.zHi : 20;
 
-  const tabsEl = (
-    <div className="lin-tabs" role="tablist" aria-label="Jenis simulasi">
-      {MODES.map((m) => (
-        <button
-          key={m.id}
-          type="button"
-          role="tab"
-          aria-selected={mode === m.id}
-          className={mode === m.id ? "is-active" : ""}
-          onClick={() => changeMode(m.id)}
-        >
-          {m.label}
-        </button>
-      ))}
-    </div>
-  );
+  const panelTabs: { tab: PanelTab; label: string }[] = [
+    { tab: "lines", label: mode === "spldv" ? "Garis" : "Kendala" },
+    ...(mode === "lp" ? [{ tab: "goal" as PanelTab, label: "Tujuan" }] : []),
+    { tab: "preset", label: "Contoh" },
+    { tab: "view", label: "Opsi" },
+    { tab: "result", label: "Hasil" },
+  ];
+  const activeTab: PanelTab = panelTabs.some((t) => t.tab === tab)
+    ? tab
+    : "lines";
 
-  const panelEl = (
-    <section
-      className="lin-board-panel"
-      aria-labelledby="lin-title"
-      ref={(node) => {
-        panelRef.current = node;
-      }}
-    >
-      <div className="lin-board-heading">
-        <h3 id="lin-title">
-          {mode === "spldv"
-            ? "Titik potong dua garis"
-            : mode === "ptlsv"
-              ? "Daerah penyelesaian"
-              : "Program linear"}
-        </h3>
-        <div className="lin-toolbar">
-          <div className="lin-zoom" role="group" aria-label="Zoom tampilan">
-            <button
-              type="button"
-              onClick={zoomIn}
-              aria-label="Perbesar"
-              title="Perbesar (+)"
-            >
-              +
-            </button>
-            <button
-              type="button"
-              onClick={zoomOut}
-              aria-label="Perkecil"
-              title="Perkecil (−)"
-            >
-              −
-            </button>
-            <button type="button" onClick={resetView} title="Tampilan awal (0)">
-              Reset
-            </button>
-          </div>
-          <div className="lin-zoom" role="group" aria-label="Alat">
-            <button
-              type="button"
-              onClick={toggleFullscreen}
-              title="Layar penuh"
-            >
-              {isFull ? "Tutup layar penuh" : "Layar penuh"}
-            </button>
-            <button
-              type="button"
-              onClick={exportPng}
-              title="Unduh gambar (PNG)"
-            >
-              PNG
-            </button>
-          </div>
-          <GraphAppearanceControls appearance={appearance} onStep={onStep} />
-        </div>
-      </div>
+  /* ---------- Bagian tampilan ---------- */
 
-      <div
-        className="lin-board"
-        id={boardId}
-        ref={containerRef}
-        tabIndex={0}
-        onKeyDown={onBoardKey}
-        aria-label="Grafik garis linear. Seret garis atau titik pegangan untuk menggesernya. Seret ruang kosong untuk menggeser tampilan, roda mouse untuk zoom."
-      />
-
-      <p className="lin-result" role="status" aria-live="polite">
-        {resultText}
-      </p>
-
-      <div className="lin-legend" aria-label="Legenda">
-        {lines.map((c, i) => (
-          <span key={i}>
-            <i style={{ borderTopColor: LINE_COLORS[i] }} /> {formatEq(c)}
-          </span>
-        ))}
-        {mode === "spldv" && sol?.kind === "unique" && (
-          <span>
-            <b className="dot-inter" /> titik potong
-          </span>
-        )}
-        {mode !== "spldv" && (
-          <>
-            <span>
-              <b className="dot-region" /> daerah penyelesaian
-            </span>
-            <span>
-              <b className="dot-vertex" /> titik sudut
-            </span>
-          </>
-        )}
-        {mode === "lp" && (
-          <span>
-            <b className="dot-opt" /> garis selidik / titik optimum
-          </span>
-        )}
-        {mode === "ptlsv" && (
-          <span>
-            <b className="dot-test" /> titik uji
-          </span>
-        )}
-      </div>
-      <p className="lin-hint" role="status">
-        {message ||
-          "Seret garis atau titik putihnya untuk menggeser · seret ruang kosong untuk menggeser tampilan · roda mouse untuk zoom."}
-      </p>
-    </section>
-  );
-
-  const controlsEl = (
-    <section className="lin-controls" aria-label="Pengaturan">
-      <div className="lin-group">
-        <span className="lin-group-title">
-          {mode === "spldv" ? "Sistem persamaan" : "Kendala (pertidaksamaan)"}
-        </span>
+  const linesPanel = (
+    <div className="lin-panel" data-pane="lines">
+      <h3>
+        {mode === "spldv" ? "Sistem persamaan" : "Kendala (pertidaksamaan)"}
+      </h3>
+      <div className="lin-eqs">
         {lines.map((c, i) => (
           <div className="lin-row" key={i}>
-            <span
-              className="lin-swatch"
-              style={{ background: LINE_COLORS[i] }}
-            />
-            <NumField
-              value={c.a}
-              label={`Koefisien x garis ${i + 1}`}
-              onChange={(v) => updateLine(i, { a: v })}
-            />
-            <span className="lin-sym">x +</span>
-            <NumField
-              value={c.b}
-              label={`Koefisien y garis ${i + 1}`}
-              onChange={(v) => updateLine(i, { b: v })}
-            />
-            <span className="lin-sym">y</span>
-            {mode === "spldv" ? (
-              <span className="lin-op-static">=</span>
-            ) : (
-              <select
-                className="lin-op"
-                aria-label={`Tanda garis ${i + 1}`}
-                value={c.op}
-                onChange={(event) =>
-                  updateLine(i, { op: event.currentTarget.value as Op })
-                }
-              >
-                {OPS.map((op) => (
-                  <option key={op} value={op}>
-                    {OP_SYMBOL[op]}
-                  </option>
-                ))}
-              </select>
-            )}
-            <NumField
-              value={c.c}
-              label={`Konstanta garis ${i + 1}`}
-              onChange={(v) => updateLine(i, { c: v })}
-            />
-            {mode !== "spldv" && lines.length > 1 && (
-              <button
-                type="button"
-                className="lin-icon-btn"
-                aria-label={`Hapus kendala ${i + 1}`}
-                onClick={() => removeConstraint(i)}
-              >
-                ×
-              </button>
-            )}
+            <span className="lin-lhs">
+              <span
+                className="lin-swatch"
+                style={{ background: LINE_COLORS[i] }}
+              />
+              <NumField
+                value={c.a}
+                label={`Koefisien x garis ${i + 1}`}
+                onChange={(v) => updateLine(i, { a: v })}
+              />
+              <span className="lin-sym">x +</span>
+              <NumField
+                value={c.b}
+                label={`Koefisien y garis ${i + 1}`}
+                onChange={(v) => updateLine(i, { b: v })}
+              />
+              <span className="lin-sym">y</span>
+            </span>
+            <span className="lin-rhs">
+              {mode === "spldv" ? (
+                <span className="lin-op-static">=</span>
+              ) : (
+                <select
+                  className="lin-op"
+                  aria-label={`Tanda garis ${i + 1}`}
+                  value={c.op}
+                  onChange={(event) =>
+                    updateLine(i, { op: event.currentTarget.value as Op })
+                  }
+                >
+                  {OPS.map((op) => (
+                    <option key={op} value={op}>
+                      {OP_SYMBOL[op]}
+                    </option>
+                  ))}
+                </select>
+              )}
+              <NumField
+                value={c.c}
+                label={`Konstanta garis ${i + 1}`}
+                onChange={(v) => updateLine(i, { c: v })}
+              />
+              {mode !== "spldv" && lines.length > 1 && (
+                <button
+                  type="button"
+                  className="lin-icon-btn"
+                  aria-label={`Hapus kendala ${i + 1}`}
+                  onClick={() => removeConstraint(i)}
+                >
+                  ×
+                </button>
+              )}
+            </span>
           </div>
         ))}
-        {mode !== "spldv" && (
-          <div className="lin-inline">
-            {lines.length < MAX_LINES && (
-              <button type="button" className="lin-btn" onClick={addConstraint}>
-                + Tambah kendala
-              </button>
-            )}
-            <label className="lin-check">
-              <input
-                type="checkbox"
-                checked={nonneg}
-                onChange={(event) => setNonneg(event.currentTarget.checked)}
-              />
-              Syarat x ≥ 0 dan y ≥ 0
-            </label>
-          </div>
-        )}
       </div>
-
-      {mode === "lp" && (
-        <div className="lin-group">
-          <span className="lin-group-title">Fungsi tujuan</span>
-          <div className="lin-row lin-objective">
-            <span className="lin-sym">z =</span>
-            <NumField value={p} label="Koefisien x pada z" onChange={setP} />
-            <span className="lin-sym">x +</span>
-            <NumField value={q} label="Koefisien y pada z" onChange={setQ} />
-            <span className="lin-sym">y</span>
-          </div>
-          <div
-            className="lin-inline"
-            role="radiogroup"
-            aria-label="Tujuan optimasi"
-          >
-            {(["max", "min"] as Goal[]).map((g) => (
-              <label className="lin-check" key={g}>
-                <input
-                  type="radio"
-                  name="lin-goal"
-                  checked={goal === g}
-                  onChange={() => setGoal(g)}
-                />
-                {g === "max" ? "Maksimumkan" : "Minimumkan"}
-              </label>
-            ))}
-          </div>
-          <label className="lin-slider">
-            <span>
-              Garis selidik: z = <b>{fmtN(k)}</b>
-            </span>
-            <input
-              type="range"
-              min={sliderMin}
-              max={sliderMax}
-              step="any"
-              value={Math.max(sliderMin, Math.min(sliderMax, k))}
-              onChange={(event) => {
-                setAnim(false);
-                moveLevel(Number(event.currentTarget.value));
-              }}
-            />
-          </label>
-          <div className="lin-inline">
-            <button
-              type="button"
-              className="lin-btn"
-              disabled={!opt || opt.status !== "optimal"}
-              onClick={() => setAnim((a) => !a)}
-            >
-              {anim ? "Hentikan" : "▶ Geser sampai menyentuh optimum"}
+      {mode !== "spldv" && (
+        <div className="lin-inline">
+          {lines.length < MAX_LINES && (
+            <button type="button" className="lin-btn" onClick={addConstraint}>
+              + Tambah kendala
             </button>
-          </div>
-          <p className="lin-note">{levelNote}</p>
-        </div>
-      )}
-
-      <div className="lin-group">
-        <span className="lin-group-title">Tampilan</span>
-        <div className="lin-options">
+          )}
           <label className="lin-check">
             <input
               type="checkbox"
-              checked={snap}
-              onChange={(event) => setSnap(event.currentTarget.checked)}
+              checked={nonneg}
+              onChange={(event) => setNonneg(event.currentTarget.checked)}
             />
-            Tempel titik pegangan ke bilangan bulat
+            Syarat x ≥ 0 dan y ≥ 0
           </label>
-          {mode !== "spldv" && (
-            <label className="lin-check">
-              <input
-                type="checkbox"
-                checked={showHalf}
-                onChange={(event) => setShowHalf(event.currentTarget.checked)}
-              />
-              Warnai sisi tiap pertidaksamaan
-            </label>
-          )}
         </div>
-      </div>
+      )}
+    </div>
+  );
 
-      <div className="lin-group">
-        <span className="lin-group-title" id="lin-presets-label">
-          Contoh cepat
+  const goalPanel = mode === "lp" && (
+    <div className="lin-panel" data-pane="goal">
+      <h3>Fungsi tujuan</h3>
+      <div className="lin-row">
+        <span className="lin-lhs">
+          <span className="lin-sym">z =</span>
+          <NumField value={p} label="Koefisien x pada z" onChange={setP} />
+          <span className="lin-sym">x +</span>
+          <NumField value={q} label="Koefisien y pada z" onChange={setQ} />
+          <span className="lin-sym">y</span>
         </span>
-        <div
-          className="lin-presets"
-          role="group"
-          aria-labelledby="lin-presets-label"
-        >
-          {presets.map((preset) => (
-            <button
-              key={preset.label}
-              type="button"
-              onClick={() => applyPreset(preset)}
-            >
-              {preset.label}
-            </button>
-          ))}
-        </div>
       </div>
-    </section>
+      <div
+        className="lin-inline"
+        role="radiogroup"
+        aria-label="Tujuan optimasi"
+      >
+        {(["max", "min"] as Goal[]).map((g) => (
+          <label className="lin-check" key={g}>
+            <input
+              type="radio"
+              name="lin-goal"
+              checked={goal === g}
+              onChange={() => setGoal(g)}
+            />
+            {g === "max" ? "Maksimumkan" : "Minimumkan"}
+          </label>
+        ))}
+      </div>
+      <p className="lin-subtitle">Garis selidik</p>
+      <LevelSlider
+        value={k}
+        min={sliderMin}
+        max={sliderMax}
+        onSlide={(v) => {
+          setAnim(false);
+          moveLevel(v);
+        }}
+        onNudge={(d) => {
+          setAnim(false);
+          moveLevel(kRef.current + d);
+        }}
+      />
+      <div className="lin-inline">
+        <button
+          type="button"
+          className="lin-btn"
+          disabled={!opt || opt.status !== "optimal"}
+          onClick={() => setAnim((a) => !a)}
+        >
+          {anim ? "Hentikan" : "▶ Geser sampai menyentuh optimum"}
+        </button>
+      </div>
+      <p className="lin-note">{levelNote}</p>
+    </div>
+  );
+
+  const presetPanel = (
+    <div className="lin-panel" data-pane="preset">
+      <h3>Contoh cepat</h3>
+      <div className="lin-segmented" role="group" aria-label="Contoh soal">
+        {presets.map((preset) => (
+          <button
+            key={preset.label}
+            type="button"
+            onClick={() => applyPreset(preset)}
+          >
+            {preset.label}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+
+  const viewPanel = (
+    <div className="lin-panel" data-pane="view">
+      <h3>Tampilan</h3>
+      <label className="lin-check">
+        <input
+          type="checkbox"
+          checked={snap}
+          onChange={(event) => setSnap(event.currentTarget.checked)}
+        />
+        Tempel titik pegangan ke bilangan bulat
+      </label>
+      {mode !== "spldv" && (
+        <label className="lin-check">
+          <input
+            type="checkbox"
+            checked={showHalf}
+            onChange={(event) => setShowHalf(event.currentTarget.checked)}
+          />
+          Warnai sisi tiap pertidaksamaan
+        </label>
+      )}
+      <div className="lin-reset-row">
+        <button type="button" className="lin-reset-button" onClick={resetAll}>
+          <RotateCcw size={14} aria-hidden="true" />
+          <span>Atur ulang semua</span>
+        </button>
+        <GraphAppearanceControls appearance={appearance} onStep={onStep} />
+      </div>
+    </div>
   );
 
   const infoEl = (
@@ -1478,7 +1597,11 @@ export function LinearSystemSimulation() {
                     />
                     {fmtN(c.a)}({fmtN(sol.x)}) + {fmtN(c.b)}({fmtN(sol.y)}) ={" "}
                     {fmtN(v)}{" "}
-                    <b className="lin-ok">
+                    <b
+                      className={
+                        Math.abs(v - c.c) < 1e-6 ? "lin-ok" : "lin-bad"
+                      }
+                    >
                       {Math.abs(v - c.c) < 1e-6 ? "✓" : "✗"}
                     </b>
                   </p>
@@ -1596,9 +1719,8 @@ export function LinearSystemSimulation() {
       <ul>
         <li>
           <b>Menggeser garis:</b> seret garisnya untuk menggeser sejajar, atau
-          seret salah satu titik putih pada garis untuk memutarnya. Koefisien di
-          panel kanan ikut berubah, dan sebaliknya Anda bisa mengetik koefisien
-          langsung.
+          seret salah satu titik putih pada garis untuk memutarnya. Koefisien
+          ikut berubah, dan sebaliknya Anda bisa mengetik koefisien langsung.
         </li>
         <li>
           <b>SPLDV:</b> titik potong dua garis adalah penyelesaian sistem. Bila
@@ -1618,8 +1740,8 @@ export function LinearSystemSimulation() {
         </li>
         <li>
           <b>Navigasi:</b> seret ruang kosong untuk menggeser tampilan, roda
-          mouse untuk zoom. Saat papan difokus: panah menggeser, +/− zoom, 0
-          reset.
+          mouse atau cubit dua jari untuk zoom. Saat papan difokus: panah
+          menggeser, +/− zoom, 0 reset.
         </li>
       </ul>
     </details>
@@ -1627,26 +1749,158 @@ export function LinearSystemSimulation() {
 
   return (
     <div
-      className={`linear-simulation simulation-fullscreen-frame${isFull ? " is-fullscreen" : ""}`}
       ref={rootRef}
+      className={`linear-simulation simulation-fullscreen-frame${
+        tabbed ? " is-tabbed" : ""
+      }${isFullscreen ? " is-fullscreen" : ""}`}
     >
-      {tabsEl}
+      <p className="lin-orientation-hint">
+        <Smartphone size={14} aria-hidden="true" />
+        <span>
+          Miringkan ponsel ke mode lanskap agar grafik dan panel isian tampil
+          berdampingan.
+        </span>
+      </p>
 
-      <div className="lin-boards">
-        {panelEl}
-        {isFull ? (
-          <div className="lin-side">
-            {controlsEl}
+      <div className="lin-modes" role="tablist" aria-label="Jenis simulasi">
+        {MODES.map((m) => (
+          <button
+            key={m.id}
+            type="button"
+            role="tab"
+            aria-selected={mode === m.id}
+            onClick={() => changeMode(m.id)}
+          >
+            {m.label}
+          </button>
+        ))}
+      </div>
+
+      <div className="lin-main">
+        {/* ───── Wilayah grafik (2 bagian) ───── */}
+        <section className="lin-board-panel" aria-label="Bidang koordinat">
+          <div className="lin-stage">
+            <div
+              className="lin-board"
+              id={boardId}
+              ref={containerRef}
+              tabIndex={0}
+              onKeyDown={onBoardKey}
+              aria-label="Grafik garis linear. Seret garis atau titik pegangan untuk menggesernya. Seret area kosong untuk menggeser bidang, gulir atau cubit untuk memperbesar atau memperkecil."
+            />
+            <p className="lin-caption" role="status" aria-live="polite">
+              {message || resultText}
+            </p>
+            <div className="lin-view-tools" role="group" aria-label="Tampilan">
+              <button
+                type="button"
+                onClick={toggleFullscreen}
+                aria-pressed={isFullscreen}
+                aria-label={isFullscreen ? "Keluar layar penuh" : "Layar penuh"}
+                title={isFullscreen ? "Keluar layar penuh" : "Layar penuh"}
+              >
+                {isFullscreen ? (
+                  <Minimize2 size={15} aria-hidden="true" />
+                ) : (
+                  <Maximize2 size={15} aria-hidden="true" />
+                )}
+              </button>
+              <button
+                type="button"
+                onClick={zoomIn}
+                aria-label="Perbesar"
+                title="Perbesar (+)"
+              >
+                <Plus size={16} aria-hidden="true" />
+              </button>
+              <button
+                type="button"
+                onClick={zoomOut}
+                aria-label="Perkecil"
+                title="Perkecil (−)"
+              >
+                <Minus size={16} aria-hidden="true" />
+              </button>
+              <button
+                type="button"
+                onClick={resetView}
+                aria-label="Pusatkan tampilan"
+                title="Pusatkan tampilan (0)"
+              >
+                <Crosshair size={15} aria-hidden="true" />
+              </button>
+              <button
+                type="button"
+                onClick={exportPng}
+                aria-label="Unduh gambar PNG"
+                title="Unduh gambar (PNG)"
+              >
+                <Download size={15} aria-hidden="true" />
+              </button>
+            </div>
+          </div>
+          <div className="lin-legend" aria-label="Legenda grafik">
+            {lines.map((c, i) => (
+              <span key={i}>
+                <i style={{ borderTopColor: LINE_COLORS[i] }} /> {formatEq(c)}
+              </span>
+            ))}
+            {mode === "spldv" && sol?.kind === "unique" && (
+              <span>
+                <b className="dot-inter" /> titik potong
+              </span>
+            )}
+            {mode !== "spldv" && (
+              <>
+                <span>
+                  <b className="dot-region" /> daerah penyelesaian
+                </span>
+                <span>
+                  <b className="dot-vertex" /> titik sudut
+                </span>
+              </>
+            )}
+            {mode === "lp" && (
+              <span>
+                <b className="dot-opt" /> garis selidik / titik optimum
+              </span>
+            )}
+            {mode === "ptlsv" && (
+              <span>
+                <b className="dot-test" /> titik uji
+              </span>
+            )}
+          </div>
+        </section>
+
+        {/* ───── Wilayah input (1 bagian) ───── */}
+        <div className="lin-column" data-tab={activeTab}>
+          <div className="lin-tabs" role="group" aria-label="Bagian panel">
+            {panelTabs.map((item) => (
+              <button
+                key={item.tab}
+                type="button"
+                aria-pressed={activeTab === item.tab}
+                onClick={() => setTab(item.tab)}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+
+          <section className="lin-side" aria-label="Pengaturan simulasi">
+            {linesPanel}
+            {goalPanel}
+            {presetPanel}
+            {viewPanel}
+          </section>
+
+          <div className="lin-results" data-pane="result">
             {infoEl}
             {guideEl}
           </div>
-        ) : (
-          controlsEl
-        )}
+        </div>
       </div>
-
-      {!isFull && infoEl}
-      {!isFull && guideEl}
     </div>
   );
 }
