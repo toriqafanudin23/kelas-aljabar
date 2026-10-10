@@ -17,7 +17,14 @@ type PracticeExerciseId =
   | "polinomial"
   | "matriks"
   | "lingkaran"
-  | "komposisi-fungsi-dan-invers";
+  | "komposisi-fungsi-dan-invers"
+  | "turunan"
+  | "fungsi-pemodelan"
+  | "transformasi-fungsi"
+  | "kombinatorika"
+  | "irisan-kerucut"
+  | "integral"
+  | "analisis-data-peluang";
 
 interface PracticeExercisePageProps {
   navigate: Navigate;
@@ -55,6 +62,31 @@ const exerciseDetails: Record<
   "komposisi-fungsi-dan-invers": {
     title: "Komposisi Fungsi dan Invers",
     grade: "Kelas X · Fase E",
+  },
+  turunan: { title: "Turunan Fungsi", grade: "Kelas XII · Fase F" },
+  "fungsi-pemodelan": {
+    title: "Fungsi dan Pemodelan",
+    grade: "Kelas XII · Fase F Lanjut",
+  },
+  "transformasi-fungsi": {
+    title: "Transformasi Fungsi",
+    grade: "Kelas XII · Fase F Lanjut",
+  },
+  kombinatorika: {
+    title: "Kombinatorika",
+    grade: "Kelas XII · Fase F Lanjut",
+  },
+  "irisan-kerucut": {
+    title: "Irisan Kerucut",
+    grade: "Kelas XII · Fase F Lanjut",
+  },
+  integral: {
+    title: "Integral",
+    grade: "Kelas XII · Fase F Lanjut",
+  },
+  "analisis-data-peluang": {
+    title: "Analisis Data dan Peluang",
+    grade: "Kelas XII · Fase F Lanjut",
   },
 };
 
@@ -95,7 +127,21 @@ export function PracticeExercisePage({
                             ? import("../latihan-soal/latihan_lingkaran.html?raw")
                             : exercise === "komposisi-fungsi-dan-invers"
                               ? import("../latihan-soal/latihan_komposisi_fungsi_invers.html?raw")
-                              : import("../latihan-soal/eksponensial.html?raw");
+                              : exercise === "turunan"
+                                ? import("../latihan-soal/latihan_turunan.html?raw")
+                                : exercise === "fungsi-pemodelan"
+                                  ? import("../latihan-soal/latihan_fungsi_pemodelan.html?raw")
+                                  : exercise === "transformasi-fungsi"
+                                    ? import("../latihan-soal/latihan_transformasi_fungsi.html?raw")
+                                    : exercise === "kombinatorika"
+                                      ? import("../latihan-soal/latihan_kombinatorika.html?raw")
+                                      : exercise === "irisan-kerucut"
+                                        ? import("../latihan-soal/latihan_irisan_kerucut.html?raw")
+                                        : exercise === "integral"
+                                          ? import("../latihan-soal/latihan_integral.html?raw")
+                                          : exercise === "analisis-data-peluang"
+                                            ? import("../latihan-soal/latihan_analisis_data_peluang.html?raw")
+                                            : import("../latihan-soal/eksponensial.html?raw");
 
     loadHtml
       .then(({ default: html }) => {

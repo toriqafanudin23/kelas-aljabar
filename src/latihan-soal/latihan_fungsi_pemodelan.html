@@ -1,0 +1,1419 @@
+<section
+  id="latihan-fungsi-pemodelan"
+  data-title="Latihan Soal Fungsi dan Pemodelan"
+  class="latihan-eks"
+>
+  <style>
+    #latihan-fungsi-pemodelan .tabel-data { margin: 0.8rem auto; border-collapse: collapse; text-align: center; }
+    #latihan-fungsi-pemodelan .tabel-data th,
+    #latihan-fungsi-pemodelan .tabel-data td { border: 1px solid rgba(128, 128, 128, 0.4); padding: 0.3rem 0.55rem; }
+    #latihan-fungsi-pemodelan .catatan-bentuk { font-size: 0.92em; opacity: 0.85; }
+  </style>
+  <h2>Latihan Soal Fungsi dan Pemodelan</h2>
+
+  <p>
+    Soal terdiri atas <strong>20 pilihan ganda</strong> (5 mudah, 5 sedang, 5
+    sulit, 5 HOTS), <strong>5 isian singkat</strong> (2 sedang, 3 sulit), dan
+    <strong>5 uraian (essay)</strong> (2 sedang, 2 sulit, 1 HOTS). Cakupan
+    materinya daerah asal dan daerah hasil, komposisi dan invers fungsi,
+    fungsi rasional, akar, nilai mutlak, eksponensial, logaritma,
+    trigonometri, fungsi tangga dan fungsi bersyarat, serta pemodelan
+    matematika berbasis konteks. Alokasi waktu yang disarankan adalah 120
+    menit. Klik salah satu pilihan jawaban untuk langsung melihat hasilnya,
+    dan buka <strong>Lihat pembahasan</strong> di bawah setiap soal jika ingin
+    memeriksa langkah penyelesaiannya.
+  </p>
+
+  <ul>
+    <li>
+      Soal disusun berjenjang dari mudah sampai HOTS dan sebagian bergaya
+      UTBK: pernyataan majemuk (soal 18), kecukupan data (soal 20), serta soal
+      berkonteks dan bergambar (grafik).
+    </li>
+    <li>
+      Skor: pilihan ganda 2 poin, isian singkat 4 poin, uraian 8 poin per soal
+      (total 100 poin). Tidak ada pengurangan skor untuk jawaban salah.
+    </li>
+    <li>
+      Notasi: \(D_f\) daerah asal, \(R_f\) daerah hasil, \((f\circ g)(x)=f(g(x))\),
+      dan \(f^{-1}\) invers dari \(f\). Satuan uang dalam rupiah dan bilangan
+      desimal ditulis dengan tanda koma.
+    </li>
+    <li>Gambar tidak selalu digambar sesuai skala. Kalkulator tidak diperkenankan. Pada isian singkat, tuliskan hanya jawaban akhir (pecahan ditulis a/b).</li>
+  </ul>
+
+  <div class="skor-bar" role="status" aria-live="polite">
+    <span
+      >Pilihan ganda: <strong data-skor-pg>0</strong> benar dari
+      <strong data-jawab-pg>0</strong> dijawab (total 20)</span
+    >
+    <span>Isian singkat: <strong data-skor-is>0</strong> benar dari 5</span>
+    <button type="button" class="btn-ulang">Ulangi semua</button>
+  </div>
+
+  <h3>A. Pilihan Ganda</h3>
+  <p>
+    20 soal \(\times\) 2 poin = 40 poin. Pilih jawaban yang paling tepat.
+  </p>
+
+  <p class="tingkat"><strong>Tingkat Mudah</strong> <em>(soal 1 sampai 5)</em></p>
+  <!-- Soal PG 1 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 1</h4>
+
+    <p>Daerah asal fungsi \(f(x)=\sqrt{3x-12}\) adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi k"><input type="radio" name="mx-pg-1" value="A" /><span class="huruf">A</span><span class="isi">\(x\ge4\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-1" value="B" /><span class="huruf">B</span><span class="isi">\(x\le4\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-1" value="C" /><span class="huruf">C</span><span class="isi">\(x&gt;4\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-1" value="D" /><span class="huruf">D</span><span class="isi">\(x\ge-4\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-1" value="E" /><span class="huruf">E</span><span class="isi">\(x\ge12\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah A.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah A.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Bentuk akar terdefinisi jika radikannya tidak negatif: \(3x-12\ge0\Rightarrow x\ge4\).</p>
+      <p>Jebakan: pilihan C membuang \(x=4\), padahal \(\sqrt0=0\) terdefinisi; pilihan B membalik arah pertidaksamaan.</p>
+      <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal PG 2 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 2</h4>
+
+    <p>Diketahui \(f(x)=2x+3\) dan \(g(x)=x^2-1\). Nilai \((g\circ f)(2)\) adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="mx-pg-2" value="A" /><span class="huruf">A</span><span class="isi">\(9\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-2" value="B" /><span class="huruf">B</span><span class="isi">\(24\)</span></label>
+      <label class="opsi k"><input type="radio" name="mx-pg-2" value="C" /><span class="huruf">C</span><span class="isi">\(48\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-2" value="D" /><span class="huruf">D</span><span class="isi">\(49\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-2" value="E" /><span class="huruf">E</span><span class="isi">\(50\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah C.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah C.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>\((g\circ f)(2)=g(f(2))\). Karena \(f(2)=2\cdot2+3=7\), maka \(g(7)=7^2-1=48\).</p>
+      <p>Jebakan: \(9\) adalah \((f\circ g)(2)=f(3)\) (urutan dibalik), dan \(49\) muncul bila suku \(-1\) terlupa.</p>
+      <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal PG 3 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 3</h4>
+
+    <p>Jika \(f(x)=5-2x\), nilai \(f^{-1}(-3)\) adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="mx-pg-3" value="A" /><span class="huruf">A</span><span class="isi">\(-1\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-3" value="B" /><span class="huruf">B</span><span class="isi">\(1\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-3" value="C" /><span class="huruf">C</span><span class="isi">\(2\)</span></label>
+      <label class="opsi k"><input type="radio" name="mx-pg-3" value="D" /><span class="huruf">D</span><span class="isi">\(4\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-3" value="E" /><span class="huruf">E</span><span class="isi">\(11\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah D.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah D.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>\(f^{-1}(-3)=a\) berarti \(f(a)=-3\). Maka \(5-2a=-3\Rightarrow a=4\).</p>
+      <p>Jebakan: \(11\) adalah \(f(-3)\), bukan \(f^{-1}(-3)\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal PG 4 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 4</h4>
+
+    <p>Persamaan asimtot tegak dan asimtot datar grafik \(f(x)=\dfrac{3x+1}{x-2}\) berturut-turut adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi k"><input type="radio" name="mx-pg-4" value="A" /><span class="huruf">A</span><span class="isi">\(x=2\) dan \(y=3\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-4" value="B" /><span class="huruf">B</span><span class="isi">\(x=-2\) dan \(y=3\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-4" value="C" /><span class="huruf">C</span><span class="isi">\(x=2\) dan \(\displaystyle y=\frac13\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-4" value="D" /><span class="huruf">D</span><span class="isi">\(x=3\) dan \(y=2\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-4" value="E" /><span class="huruf">E</span><span class="isi">\(x=2\) dan \(y=-3\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah A.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah A.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Asimtot tegak muncul saat penyebut nol: \(x-2=0\Rightarrow x=2\).</p>
+      <p>Pembilang dan penyebut berderajat sama, sehingga asimtot datarnya adalah perbandingan koefisien \(x\): \(y=\dfrac31=3\).</p>
+      <p>Jebakan: pilihan C membalik perbandingan koefisien.</p>
+      <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal PG 5 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 5</h4>
+
+    <p>Gambar menunjukkan grafik fungsi \(y=a\sin bx\) dengan \(a&gt;0\) dan \(b&gt;0\). Persamaan grafik tersebut adalah ....</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 315.3 186.0" role="img" aria-label="Grafik fungsi sinus dengan amplitudo 3 dan periode pi" style="width: 100%; max-width: 315px; height: auto" font-size="12" font-family="inherit">
+<defs><clipPath id="c5"><rect x="38.0" y="22.0" width="251.3" height="136.0"/></clipPath></defs>
+<line x1="100.8" y1="158.0" x2="100.8" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="163.7" y1="158.0" x2="163.7" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="226.5" y1="158.0" x2="226.5" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="289.3" y1="158.0" x2="289.3" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="141.0" x2="289.3" y2="141.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="124.0" x2="289.3" y2="124.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="107.0" x2="289.3" y2="107.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="73.0" x2="289.3" y2="73.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="56.0" x2="289.3" y2="56.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="39.0" x2="289.3" y2="39.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="90.0" x2="297.3" y2="90.0" stroke="currentColor" stroke-width="1.6"/>
+<line x1="38.0" y1="158.0" x2="38.0" y2="14.0" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="297.3,90.0 290.3,86.5 290.3,93.5" fill="currentColor"/>
+<polygon points="38.0,14.0 34.5,21.0 41.5,21.0" fill="currentColor"/>
+<text x="301.3" y="94.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">x</text>
+<text x="45.0" y="16.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">y</text>
+<text x="100.8" y="103.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">&pi;/2</text>
+<text x="163.7" y="103.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">&pi;</text>
+<text x="226.5" y="103.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">3&pi;/2</text>
+<text x="289.3" y="103.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">2&pi;</text>
+<text x="33.0" y="144.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">−3</text>
+<text x="33.0" y="42.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<path d="M38.0,90.0 L38.8,87.9 L39.7,85.7 L40.5,83.6 L41.4,81.5 L42.2,79.4 L43.0,77.3 L43.9,75.3 L44.7,73.2 L45.5,71.2 L46.4,69.3 L47.2,67.3 L48.1,65.4 L48.9,63.6 L49.7,61.8 L50.6,60.0 L51.4,58.3 L52.2,56.7 L53.1,55.1 L53.9,53.6 L54.8,52.1 L55.6,50.7 L56.4,49.4 L57.3,48.1 L58.1,46.9 L58.9,45.8 L59.8,44.8 L60.6,43.9 L61.5,43.0 L62.3,42.2 L63.1,41.5 L64.0,40.9 L64.8,40.3 L65.6,39.9 L66.5,39.5 L67.3,39.3 L68.2,39.1 L69.0,39.0 L69.8,39.0 L70.7,39.1 L71.5,39.3 L72.3,39.5 L73.2,39.9 L74.0,40.3 L74.9,40.9 L75.7,41.5 L76.5,42.2 L77.4,43.0 L78.2,43.9 L79.1,44.8 L79.9,45.8 L80.7,46.9 L81.6,48.1 L82.4,49.4 L83.2,50.7 L84.1,52.1 L84.9,53.6 L85.8,55.1 L86.6,56.7 L87.4,58.3 L88.3,60.0 L89.1,61.8 L89.9,63.6 L90.8,65.4 L91.6,67.3 L92.5,69.3 L93.3,71.2 L94.1,73.2 L95.0,75.3 L95.8,77.3 L96.6,79.4 L97.5,81.5 L98.3,83.6 L99.2,85.7 L100.0,87.9 L100.8,90.0 L101.7,92.1 L102.5,94.3 L103.3,96.4 L104.2,98.5 L105.0,100.6 L105.9,102.7 L106.7,104.7 L107.5,106.8 L108.4,108.8 L109.2,110.7 L110.0,112.7 L110.9,114.6 L111.7,116.4 L112.6,118.2 L113.4,120.0 L114.2,121.7 L115.1,123.3 L115.9,124.9 L116.7,126.4 L117.6,127.9 L118.4,129.3 L119.3,130.6 L120.1,131.9 L120.9,133.1 L121.8,134.2 L122.6,135.2 L123.5,136.1 L124.3,137.0 L125.1,137.8 L126.0,138.5 L126.8,139.1 L127.6,139.7 L128.5,140.1 L129.3,140.5 L130.2,140.7 L131.0,140.9 L131.8,141.0 L132.7,141.0 L133.5,140.9 L134.3,140.7 L135.2,140.5 L136.0,140.1 L136.9,139.7 L137.7,139.1 L138.5,138.5 L139.4,137.8 L140.2,137.0 L141.0,136.1 L141.9,135.2 L142.7,134.2 L143.6,133.1 L144.4,131.9 L145.2,130.6 L146.1,129.3 L146.9,127.9 L147.7,126.4 L148.6,124.9 L149.4,123.3 L150.3,121.7 L151.1,120.0 L151.9,118.2 L152.8,116.4 L153.6,114.6 L154.4,112.7 L155.3,110.7 L156.1,108.8 L157.0,106.8 L157.8,104.7 L158.6,102.7 L159.5,100.6 L160.3,98.5 L161.2,96.4 L162.0,94.3 L162.8,92.1 L163.7,90.0 L164.5,87.9 L165.3,85.7 L166.2,83.6 L167.0,81.5 L167.9,79.4 L168.7,77.3 L169.5,75.3 L170.4,73.2 L171.2,71.2 L172.0,69.3 L172.9,67.3 L173.7,65.4 L174.6,63.6 L175.4,61.8 L176.2,60.0 L177.1,58.3 L177.9,56.7 L178.7,55.1 L179.6,53.6 L180.4,52.1 L181.3,50.7 L182.1,49.4 L182.9,48.1 L183.8,46.9 L184.6,45.8 L185.4,44.8 L186.3,43.9 L187.1,43.0 L188.0,42.2 L188.8,41.5 L189.6,40.9 L190.5,40.3 L191.3,39.9 L192.1,39.5 L193.0,39.3 L193.8,39.1 L194.7,39.0 L195.5,39.0 L196.3,39.1 L197.2,39.3 L198.0,39.5 L198.8,39.9 L199.7,40.3 L200.5,40.9 L201.4,41.5 L202.2,42.2 L203.0,43.0 L203.9,43.9 L204.7,44.8 L205.6,45.8 L206.4,46.9 L207.2,48.1 L208.1,49.4 L208.9,50.7 L209.7,52.1 L210.6,53.6 L211.4,55.1 L212.3,56.7 L213.1,58.3 L213.9,60.0 L214.8,61.8 L215.6,63.6 L216.4,65.4 L217.3,67.3 L218.1,69.3 L219.0,71.2 L219.8,73.2 L220.6,75.3 L221.5,77.3 L222.3,79.4 L223.1,81.5 L224.0,83.6 L224.8,85.7 L225.7,87.9 L226.5,90.0 L227.3,92.1 L228.2,94.3 L229.0,96.4 L229.8,98.5 L230.7,100.6 L231.5,102.7 L232.4,104.7 L233.2,106.8 L234.0,108.8 L234.9,110.7 L235.7,112.7 L236.5,114.6 L237.4,116.4 L238.2,118.2 L239.1,120.0 L239.9,121.7 L240.7,123.3 L241.6,124.9 L242.4,126.4 L243.3,127.9 L244.1,129.3 L244.9,130.6 L245.8,131.9 L246.6,133.1 L247.4,134.2 L248.3,135.2 L249.1,136.1 L250.0,137.0 L250.8,137.8 L251.6,138.5 L252.5,139.1 L253.3,139.7 L254.1,140.1 L255.0,140.5 L255.8,140.7 L256.7,140.9 L257.5,141.0 L258.3,141.0 L259.2,140.9 L260.0,140.7 L260.8,140.5 L261.7,140.1 L262.5,139.7 L263.4,139.1 L264.2,138.5 L265.0,137.8 L265.9,137.0 L266.7,136.1 L267.5,135.2 L268.4,134.2 L269.2,133.1 L270.1,131.9 L270.9,130.6 L271.7,129.3 L272.6,127.9 L273.4,126.4 L274.2,124.9 L275.1,123.3 L275.9,121.7 L276.8,120.0 L277.6,118.2 L278.4,116.4 L279.3,114.6 L280.1,112.7 L280.9,110.7 L281.8,108.8 L282.6,106.8 L283.5,104.7 L284.3,102.7 L285.1,100.6 L286.0,98.5 L286.8,96.4 L287.7,94.3 L288.5,92.1 L289.3,90.0" fill="none" stroke="#be123c" stroke-width="2.4" stroke-linejoin="round" clip-path="url(#c5)"/>
+</svg>
+</figure>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="mx-pg-5" value="A" /><span class="huruf">A</span><span class="isi">\(y=3\sin x\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-5" value="B" /><span class="huruf">B</span><span class="isi">\(y=2\sin3x\)</span></label>
+      <label class="opsi k"><input type="radio" name="mx-pg-5" value="C" /><span class="huruf">C</span><span class="isi">\(y=3\sin2x\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-5" value="D" /><span class="huruf">D</span><span class="isi">\(\displaystyle y=3\sin\frac12x\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-5" value="E" /><span class="huruf">E</span><span class="isi">\(y=3\cos2x\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah C.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah C.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Nilai maksimum \(3\) dan minimum \(-3\), sehingga amplitudo \(a=3\).</p>
+      <p>Grafik naik melalui titik asal dan kembali naik melalui sumbu-\(x\) di \(x=\pi\), sehingga periodenya \(\pi\). Maka \(b=\dfrac{2\pi}{\pi}=2\).</p>
+      <p>Pemeriksaan: di \(\displaystyle x=\frac\pi4\), \(\displaystyle y=3\sin\frac\pi2=3\) (maksimum pertama). Pilihan E salah karena grafik kosinus bernilai maksimum di \(x=0\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+    </details>
+  </div>
+  <p class="tingkat"><strong>Tingkat Sedang</strong> <em>(soal 6 sampai 10)</em></p>
+  <!-- Soal PG 6 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 6</h4>
+
+    <p>Daerah asal fungsi \(f(x)=\dfrac{1}{\sqrt{x^2-x-6}}\) adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="mx-pg-6" value="A" /><span class="huruf">A</span><span class="isi">\(-2&lt;x&lt;3\)</span></label>
+      <label class="opsi k"><input type="radio" name="mx-pg-6" value="B" /><span class="huruf">B</span><span class="isi">\(x&lt;-2\) atau \(x&gt;3\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-6" value="C" /><span class="huruf">C</span><span class="isi">\(x\le-2\) atau \(x\ge3\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-6" value="D" /><span class="huruf">D</span><span class="isi">\(x&lt;-3\) atau \(x&gt;2\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-6" value="E" /><span class="huruf">E</span><span class="isi">\(-3&lt;x&lt;2\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah B.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah B.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Radikan harus positif karena berada di penyebut: \(x^2-x-6&gt;0\Rightarrow(x-3)(x+2)&gt;0\), sehingga \(x&lt;-2\) atau \(x&gt;3\).</p>
+      <p>Jebakan C: \(x=-2\) dan \(x=3\) membuat penyebut nol; pilihan A adalah daerah yang membuat radikan negatif.</p>
+      <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal PG 7 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 7</h4>
+
+    <p>Invers dari \(f(x)=\dfrac{2x+1}{x-3}\), \(x\ne3\), adalah \(f^{-1}(x)=\) ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="mx-pg-7" value="A" /><span class="huruf">A</span><span class="isi">\(\dfrac{x-3}{2x+1}\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-7" value="B" /><span class="huruf">B</span><span class="isi">\(\dfrac{3x-1}{x-2}\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-7" value="C" /><span class="huruf">C</span><span class="isi">\(\dfrac{3x+1}{x+2}\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-7" value="D" /><span class="huruf">D</span><span class="isi">\(\dfrac{x+3}{2x-1}\)</span></label>
+      <label class="opsi k"><input type="radio" name="mx-pg-7" value="E" /><span class="huruf">E</span><span class="isi">\(\dfrac{3x+1}{x-2}\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah E.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah E.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Misalkan \(y=\dfrac{2x+1}{x-3}\). Maka \(y(x-3)=2x+1\Rightarrow xy-3y=2x+1\Rightarrow x(y-2)=3y+1\), sehingga \(x=\dfrac{3y+1}{y-2}\).</p>
+      <p>Jadi \(f^{-1}(x)=\dfrac{3x+1}{x-2}\). Pemeriksaan: \(f^{-1}(5)=\dfrac{16}{3}\) dan \(f\!\left(\dfrac{16}{3}\right)=\dfrac{35/3}{7/3}=5\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal PG 8 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 8</h4>
+
+    <p>Banyak bakteri pada suatu biakan tumbuh secara eksponensial. Mula-mula terdapat \(500\) bakteri dan setelah \(3\) jam menjadi \(4000\) bakteri. Banyak bakteri setelah \(5\) jam adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="mx-pg-8" value="A" /><span class="huruf">A</span><span class="isi">\(6000\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-8" value="B" /><span class="huruf">B</span><span class="isi">\(8000\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-8" value="C" /><span class="huruf">C</span><span class="isi">\(10000\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-8" value="D" /><span class="huruf">D</span><span class="isi">\(12000\)</span></label>
+      <label class="opsi k"><input type="radio" name="mx-pg-8" value="E" /><span class="huruf">E</span><span class="isi">\(16000\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah E.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah E.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Model: \(N(t)=500\cdot r^t\). Dari \(N(3)=4000\): \(r^3=8\Rightarrow r=2\), artinya banyak bakteri berlipat dua setiap jam.</p>
+      <p>\(N(5)=500\cdot2^5=16000\).</p>
+      <p>Jebakan: menganggap pertumbuhan linear (bertambah tetap tiap jam) menghasilkan nilai yang jauh lebih kecil.</p>
+      <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal PG 9 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 9</h4>
+
+    <p>Hasil kali semua penyelesaian persamaan \(|x-2|+|x+1|=5\) adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi k"><input type="radio" name="mx-pg-9" value="A" /><span class="huruf">A</span><span class="isi">\(-6\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-9" value="B" /><span class="huruf">B</span><span class="isi">\(-3\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-9" value="C" /><span class="huruf">C</span><span class="isi">\(1\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-9" value="D" /><span class="huruf">D</span><span class="isi">\(5\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-9" value="E" /><span class="huruf">E</span><span class="isi">\(6\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah A.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah A.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Tinjau tiga daerah:</p>
+      <p>\(x\ge2\): \((x-2)+(x+1)=5\Rightarrow x=3\) (memenuhi).</p>
+      <p>\(-1\le x&lt;2\): \((2-x)+(x+1)=3\ne5\) (tidak ada penyelesaian).</p>
+      <p>\(x&lt;-1\): \((2-x)+(-x-1)=5\Rightarrow x=-2\) (memenuhi).</p>
+      <p>Hasil kali \(=3\cdot(-2)=-6\). Jebakan: \(1\) adalah jumlah kedua penyelesaian.</p>
+      <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal PG 10 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 10</h4>
+
+    <p>Tarif parkir suatu pusat perbelanjaan adalah Rp3.000 untuk jam pertama, dan Rp2.000 untuk setiap jam berikutnya atau bagian dari jam tersebut. Seorang pengunjung memarkir kendaraannya selama \(3\) jam \(20\) menit. Biaya parkir yang harus dibayar adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="mx-pg-10" value="A" /><span class="huruf">A</span><span class="isi">Rp6.000</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-10" value="B" /><span class="huruf">B</span><span class="isi">Rp7.000</span></label>
+      <label class="opsi k"><input type="radio" name="mx-pg-10" value="C" /><span class="huruf">C</span><span class="isi">Rp9.000</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-10" value="D" /><span class="huruf">D</span><span class="isi">Rp10.000</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-10" value="E" /><span class="huruf">E</span><span class="isi">Rp11.000</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah C.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah C.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Setelah jam pertama, waktu parkir masih \(2\) jam \(20\) menit \(=2\tfrac13\) jam. Karena bagian dari jam dihitung penuh, ini dihitung \(3\) jam tambahan (fungsi tangga: pembulatan ke atas).</p>
+      <p>Biaya \(=3.000+3\times2.000=\) Rp9.000.</p>
+      <p>Jebakan: Rp7.000 mengabaikan sisa \(20\) menit; Rp11.000 menghitung \(4\) jam tambahan.</p>
+      <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+    </details>
+  </div>
+  <p class="tingkat"><strong>Tingkat Sulit</strong> <em>(soal 11 sampai 15, setara UTBK)</em></p>
+  <!-- Soal PG 11 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 11</h4>
+
+    <p>Diketahui \(f(x)=2x+1\) dan \((g\circ f)(x)=4x^2+4x+3\). Nilai \((f\circ g)(3)\) adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="mx-pg-11" value="A" /><span class="huruf">A</span><span class="isi">\(7\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-11" value="B" /><span class="huruf">B</span><span class="isi">\(11\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-11" value="C" /><span class="huruf">C</span><span class="isi">\(13\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-11" value="D" /><span class="huruf">D</span><span class="isi">\(17\)</span></label>
+      <label class="opsi k"><input type="radio" name="mx-pg-11" value="E" /><span class="huruf">E</span><span class="isi">\(23\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah E.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah E.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Perhatikan \(4x^2+4x+3=(2x+1)^2+2\). Karena \(f(x)=2x+1\), diperoleh \(g(f(x))=(f(x))^2+2\), sehingga \(g(x)=x^2+2\).</p>
+      <p>\(g(3)=11\), lalu \((f\circ g)(3)=f(11)=2\cdot11+1=23\).</p>
+      <p>Jebakan: \(11\) hanyalah \(g(3)\); langkah terakhir \(f(\cdot)\) tidak boleh terlewat.</p>
+      <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal PG 12 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 12</h4>
+
+    <p>Daerah hasil fungsi \(f(x)=2-3\cos^2x\) adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="mx-pg-12" value="A" /><span class="huruf">A</span><span class="isi">\(-1\le y\le5\)</span></label>
+      <label class="opsi k"><input type="radio" name="mx-pg-12" value="B" /><span class="huruf">B</span><span class="isi">\(-1\le y\le2\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-12" value="C" /><span class="huruf">C</span><span class="isi">\(-3\le y\le2\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-12" value="D" /><span class="huruf">D</span><span class="isi">\(0\le y\le2\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-12" value="E" /><span class="huruf">E</span><span class="isi">\(-1\le y\le1\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah B.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah B.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Karena \(0\le\cos^2x\le1\), maka \(-3\le-3\cos^2x\le0\). Tambahkan \(2\): \(-1\le f(x)\le2\).</p>
+      <p>Kedua nilai batas tercapai: \(f=2\) saat \(\cos x=0\) dan \(f=-1\) saat \(\cos^2x=1\).</p>
+      <p>Jebakan A: memakai \(-1\le\cos x\le1\) tanpa memperhatikan kuadrat, yaitu seolah-olah \(f(x)=2-3\cos x\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal PG 13 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 13</h4>
+
+    <p>Diketahui \(f(x)=\dfrac{ax+1}{x-2}\), \(x\ne2\), dengan \(f^{-1}(x)=f(x)\) untuk setiap \(x\) di daerah asalnya. Nilai \(f(3)\) adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="mx-pg-13" value="A" /><span class="huruf">A</span><span class="isi">\(-5\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-13" value="B" /><span class="huruf">B</span><span class="isi">\(3\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-13" value="C" /><span class="huruf">C</span><span class="isi">\(5\)</span></label>
+      <label class="opsi k"><input type="radio" name="mx-pg-13" value="D" /><span class="huruf">D</span><span class="isi">\(7\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-13" value="E" /><span class="huruf">E</span><span class="isi">\(9\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah D.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah D.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Invers fungsi \(\dfrac{px+q}{rx+s}\) adalah \(\dfrac{-sx+q}{rx-p}\). Untuk \(f(x)=\dfrac{ax+1}{x-2}\): \(f^{-1}(x)=\dfrac{2x+1}{x-a}\).</p>
+      <p>Syarat \(f^{-1}=f\): \(\dfrac{2x+1}{x-a}=\dfrac{ax+1}{x-2}\Rightarrow a=2\).</p>
+      <p>Maka \(f(3)=\dfrac{2\cdot3+1}{3-2}=7\). Pemeriksaan: \(f(f(x))=x\) (misalnya \(\displaystyle f(f(3))=f(7)=\frac{15}{5}=3\)).</p>
+      <p>Jebakan: \(-5\) berasal dari salah tanda, yaitu memakai \(a=-2\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal PG 14 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 14</h4>
+
+    <p>Seorang pengrajin menjual \(x\) unit barang per hari dengan harga satuan \(p(x)=200-2x\) (ribu rupiah). Biaya produksi per hari \(C(x)=40x+500\) (ribu rupiah). Karena keterbatasan bahan, ia paling banyak dapat memproduksi \(30\) unit per hari. Laba maksimum per hari (dalam ribu rupiah) adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="mx-pg-14" value="A" /><span class="huruf">A</span><span class="isi">\(2.400\)</span></label>
+      <label class="opsi k"><input type="radio" name="mx-pg-14" value="B" /><span class="huruf">B</span><span class="isi">\(2.500\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-14" value="C" /><span class="huruf">C</span><span class="isi">\(2.700\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-14" value="D" /><span class="huruf">D</span><span class="isi">\(3.100\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-14" value="E" /><span class="huruf">E</span><span class="isi">\(3.500\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah B.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah B.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Laba \(L(x)=x(200-2x)-(40x+500)=-2x^2+160x-500\) untuk \(0\le x\le30\).</p>
+      <p>Puncak parabola di \(x=-\dfrac{160}{2(-2)}=40\), di luar kapasitas. Pada \([0,30]\) fungsi \(L\) terus naik, sehingga maksimum terjadi di \(x=30\):</p>
+      <div class="math-display">\[ L(30)=-2(900)+160(30)-500=2500 \]</div>
+      <p>Jebakan: \(2.700=L(40)\) melanggar batas produksi.</p>
+      <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal PG 15 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 15</h4>
+
+    <p>Fungsi \(f\) memenuhi \(f(x)+2f\!\left(\dfrac1x\right)=3x\) untuk setiap \(x\ne0\). Nilai \(f(2)\) adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="mx-pg-15" value="A" /><span class="huruf">A</span><span class="isi">\(-3\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-15" value="B" /><span class="huruf">B</span><span class="isi">\(-2\)</span></label>
+      <label class="opsi k"><input type="radio" name="mx-pg-15" value="C" /><span class="huruf">C</span><span class="isi">\(-1\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-15" value="D" /><span class="huruf">D</span><span class="isi">\(1\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-15" value="E" /><span class="huruf">E</span><span class="isi">\(2\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah C.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah C.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Ganti \(x=2\): \(\displaystyle f(2)+2f\!\left(\frac12\right)=6\) ... (i).</p>
+      <p>Ganti \(\displaystyle x=\frac12\): \(\displaystyle f\!\left(\frac12\right)+2f(2)=\frac32\) ... (ii).</p>
+      <p>Dari (ii), \(\displaystyle f\!\left(\frac12\right)=\frac32-2f(2)\). Substitusi ke (i): \(f(2)+3-4f(2)=6\Rightarrow f(2)=-1\).</p>
+      <p>Pemeriksaan: secara umum \(f(x)=-x+\dfrac2x\), sehingga \(f(2)=-1\) dan \(\displaystyle f\!\left(\frac12\right)=\frac72\); \(\displaystyle -1+2\cdot\frac72=6\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+    </details>
+  </div>
+  <p class="tingkat"><strong>Tingkat HOTS</strong> <em>(soal 16 sampai 20, penalaran tingkat tinggi gaya UTBK)</em></p>
+  <!-- Soal PG 16 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 16</h4>
+
+    <p>Sebuah kincir ria berjari-jari \(8\) m dengan pusat \(10\) m di atas tanah dan berputar satu kali setiap \(30\) detik. Seorang penumpang naik dari titik terendah pada \(t=0\) detik. Grafik tinggi penumpang \(h(t)\) dari tanah (dalam meter) ditunjukkan pada gambar. Selama satu putaran penuh \((0\le t\le30)\), penumpang berada pada ketinggian paling sedikit \(14\) m selama .... detik.</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 334.0 210.0" role="img" aria-label="Grafik tinggi penumpang kincir ria terhadap waktu" style="width: 100%; max-width: 334px; height: auto" font-size="12" font-family="inherit">
+<defs><clipPath id="c16"><rect x="38.0" y="22.0" width="270.0" height="160.0"/></clipPath></defs>
+<line x1="83.0" y1="182.0" x2="83.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="128.0" y1="182.0" x2="128.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="173.0" y1="182.0" x2="173.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="218.0" y1="182.0" x2="218.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="263.0" y1="182.0" x2="263.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="308.0" y1="182.0" x2="308.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="150.0" x2="308.0" y2="150.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="118.0" x2="308.0" y2="118.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="86.0" x2="308.0" y2="86.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="54.0" x2="308.0" y2="54.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="22.0" x2="308.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="182.0" x2="316.0" y2="182.0" stroke="currentColor" stroke-width="1.6"/>
+<line x1="38.0" y1="182.0" x2="38.0" y2="14.0" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="316.0,182.0 309.0,178.5 309.0,185.5" fill="currentColor"/>
+<polygon points="38.0,14.0 34.5,21.0 41.5,21.0" fill="currentColor"/>
+<text x="320.0" y="186.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">x</text>
+<text x="45.0" y="16.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">y</text>
+<text x="83.0" y="195.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="128.0" y="195.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">10</text>
+<text x="173.0" y="195.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">15</text>
+<text x="218.0" y="195.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">20</text>
+<text x="263.0" y="195.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">25</text>
+<text x="308.0" y="195.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">30</text>
+<text x="33.0" y="153.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="33.0" y="121.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">8</text>
+<text x="33.0" y="89.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">12</text>
+<text x="33.0" y="57.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">16</text>
+<text x="33.0" y="25.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">20</text>
+<path d="M38.0,166.0 L38.9,166.0 L39.8,165.9 L40.7,165.9 L41.6,165.8 L42.5,165.6 L43.4,165.5 L44.3,165.3 L45.2,165.1 L46.1,164.9 L47.0,164.6 L47.9,164.3 L48.8,164.0 L49.7,163.6 L50.6,163.3 L51.5,162.9 L52.4,162.4 L53.3,162.0 L54.2,161.5 L55.1,161.0 L56.0,160.5 L56.9,159.9 L57.8,159.3 L58.7,158.7 L59.6,158.1 L60.5,157.4 L61.4,156.7 L62.3,156.0 L63.2,155.3 L64.1,154.6 L65.0,153.8 L65.9,153.0 L66.8,152.2 L67.7,151.3 L68.6,150.4 L69.5,149.6 L70.4,148.7 L71.3,147.7 L72.2,146.8 L73.1,145.8 L74.0,144.8 L74.9,143.8 L75.8,142.8 L76.7,141.8 L77.6,140.7 L78.5,139.6 L79.4,138.5 L80.3,137.4 L81.2,136.3 L82.1,135.2 L83.0,134.0 L83.9,132.8 L84.8,131.7 L85.7,130.5 L86.6,129.2 L87.5,128.0 L88.4,126.8 L89.3,125.6 L90.2,124.3 L91.1,123.0 L92.0,121.8 L92.9,120.5 L93.8,119.2 L94.7,117.9 L95.6,116.6 L96.5,115.3 L97.4,114.0 L98.3,112.7 L99.2,111.3 L100.1,110.0 L101.0,108.7 L101.9,107.4 L102.8,106.0 L103.7,104.7 L104.6,103.3 L105.5,102.0 L106.4,100.7 L107.3,99.3 L108.2,98.0 L109.1,96.6 L110.0,95.3 L110.9,94.0 L111.8,92.7 L112.7,91.3 L113.6,90.0 L114.5,88.7 L115.4,87.4 L116.3,86.1 L117.2,84.8 L118.1,83.5 L119.0,82.2 L119.9,81.0 L120.8,79.7 L121.7,78.4 L122.6,77.2 L123.5,76.0 L124.4,74.8 L125.3,73.5 L126.2,72.3 L127.1,71.2 L128.0,70.0 L128.9,68.8 L129.8,67.7 L130.7,66.6 L131.6,65.5 L132.5,64.4 L133.4,63.3 L134.3,62.2 L135.2,61.2 L136.1,60.2 L137.0,59.2 L137.9,58.2 L138.8,57.2 L139.7,56.3 L140.6,55.3 L141.5,54.4 L142.4,53.6 L143.3,52.7 L144.2,51.8 L145.1,51.0 L146.0,50.2 L146.9,49.4 L147.8,48.7 L148.7,48.0 L149.6,47.3 L150.5,46.6 L151.4,45.9 L152.3,45.3 L153.2,44.7 L154.1,44.1 L155.0,43.5 L155.9,43.0 L156.8,42.5 L157.7,42.0 L158.6,41.6 L159.5,41.1 L160.4,40.7 L161.3,40.4 L162.2,40.0 L163.1,39.7 L164.0,39.4 L164.9,39.1 L165.8,38.9 L166.7,38.7 L167.6,38.5 L168.5,38.4 L169.4,38.2 L170.3,38.1 L171.2,38.1 L172.1,38.0 L173.0,38.0 L173.9,38.0 L174.8,38.1 L175.7,38.1 L176.6,38.2 L177.5,38.4 L178.4,38.5 L179.3,38.7 L180.2,38.9 L181.1,39.1 L182.0,39.4 L182.9,39.7 L183.8,40.0 L184.7,40.4 L185.6,40.7 L186.5,41.1 L187.4,41.6 L188.3,42.0 L189.2,42.5 L190.1,43.0 L191.0,43.5 L191.9,44.1 L192.8,44.7 L193.7,45.3 L194.6,45.9 L195.5,46.6 L196.4,47.3 L197.3,48.0 L198.2,48.7 L199.1,49.4 L200.0,50.2 L200.9,51.0 L201.8,51.8 L202.7,52.7 L203.6,53.6 L204.5,54.4 L205.4,55.3 L206.3,56.3 L207.2,57.2 L208.1,58.2 L209.0,59.2 L209.9,60.2 L210.8,61.2 L211.7,62.2 L212.6,63.3 L213.5,64.4 L214.4,65.5 L215.3,66.6 L216.2,67.7 L217.1,68.8 L218.0,70.0 L218.9,71.2 L219.8,72.3 L220.7,73.5 L221.6,74.8 L222.5,76.0 L223.4,77.2 L224.3,78.4 L225.2,79.7 L226.1,81.0 L227.0,82.2 L227.9,83.5 L228.8,84.8 L229.7,86.1 L230.6,87.4 L231.5,88.7 L232.4,90.0 L233.3,91.3 L234.2,92.7 L235.1,94.0 L236.0,95.3 L236.9,96.6 L237.8,98.0 L238.7,99.3 L239.6,100.7 L240.5,102.0 L241.4,103.3 L242.3,104.7 L243.2,106.0 L244.1,107.4 L245.0,108.7 L245.9,110.0 L246.8,111.3 L247.7,112.7 L248.6,114.0 L249.5,115.3 L250.4,116.6 L251.3,117.9 L252.2,119.2 L253.1,120.5 L254.0,121.8 L254.9,123.0 L255.8,124.3 L256.7,125.6 L257.6,126.8 L258.5,128.0 L259.4,129.2 L260.3,130.5 L261.2,131.7 L262.1,132.8 L263.0,134.0 L263.9,135.2 L264.8,136.3 L265.7,137.4 L266.6,138.5 L267.5,139.6 L268.4,140.7 L269.3,141.8 L270.2,142.8 L271.1,143.8 L272.0,144.8 L272.9,145.8 L273.8,146.8 L274.7,147.7 L275.6,148.7 L276.5,149.6 L277.4,150.4 L278.3,151.3 L279.2,152.2 L280.1,153.0 L281.0,153.8 L281.9,154.6 L282.8,155.3 L283.7,156.0 L284.6,156.7 L285.5,157.4 L286.4,158.1 L287.3,158.7 L288.2,159.3 L289.1,159.9 L290.0,160.5 L290.9,161.0 L291.8,161.5 L292.7,162.0 L293.6,162.4 L294.5,162.9 L295.4,163.3 L296.3,163.6 L297.2,164.0 L298.1,164.3 L299.0,164.6 L299.9,164.9 L300.8,165.1 L301.7,165.3 L302.6,165.5 L303.5,165.6 L304.4,165.8 L305.3,165.9 L306.2,165.9 L307.1,166.0 L308.0,166.0" fill="none" stroke="#be123c" stroke-width="2.4" stroke-linejoin="round" clip-path="url(#c16)"/>
+<line x1="38.0" y1="70.0" x2="308.0" y2="70.0" stroke="#ea580c" stroke-width="1.6" stroke-dasharray="6 4"/>
+<text x="308.0" y="65.0" text-anchor="end" font-size="10" fill="#ea580c">14 m</text>
+<text x="308.0" y="178.0" text-anchor="end" font-size="9.5" fill="currentColor">t (detik)</text>
+<text x="46.0" y="21.0" text-anchor="start" font-size="9.5" fill="currentColor">h (m)</text>
+</svg>
+</figure>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="mx-pg-16" value="A" /><span class="huruf">A</span><span class="isi">\(5\)</span></label>
+      <label class="opsi k"><input type="radio" name="mx-pg-16" value="B" /><span class="huruf">B</span><span class="isi">\(10\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-16" value="C" /><span class="huruf">C</span><span class="isi">\(12\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-16" value="D" /><span class="huruf">D</span><span class="isi">\(15\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-16" value="E" /><span class="huruf">E</span><span class="isi">\(20\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah B.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah B.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Titik terendah \(10-8=2\) m pada \(t=0\) dan periode \(30\) detik, sehingga \(h(t)=10-8\cos\dfrac{\pi t}{15}\).</p>
+      <p>Syarat \(h(t)\ge14\): \(-8\cos\dfrac{\pi t}{15}\ge4\Rightarrow\cos\dfrac{\pi t}{15}\le-\dfrac12\). Pada \([0,2\pi]\) ini berlaku untuk \(\dfrac{2\pi}{3}\le\dfrac{\pi t}{15}\le\dfrac{4\pi}{3}\), yaitu \(10\le t\le20\).</p>
+      <p>Lamanya \(20-10=10\) detik (simetris terhadap titik tertinggi di \(t=15\)).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal PG 17 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 17</h4>
+
+    <p>Waktu paruh suatu obat dalam tubuh adalah \(6\) jam, artinya banyak obat berkurang menjadi setengahnya setiap \(6\) jam. Pukul 06.00 seorang pasien meminum \(200\) mg obat tersebut dan pukul 18.00 meminum dosis kedua sebesar \(200\) mg. Banyak obat dalam tubuh pasien pada pukul 06.00 keesokan harinya adalah .... mg.</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="mx-pg-17" value="A" /><span class="huruf">A</span><span class="isi">\(12{,}5\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-17" value="B" /><span class="huruf">B</span><span class="isi">\(50\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-17" value="C" /><span class="huruf">C</span><span class="isi">\(56{,}25\)</span></label>
+      <label class="opsi k"><input type="radio" name="mx-pg-17" value="D" /><span class="huruf">D</span><span class="isi">\(62{,}5\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-17" value="E" /><span class="huruf">E</span><span class="isi">\(250\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah D.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah D.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Model peluruhan: \(\displaystyle Q(t)=Q_0\left(\frac12\right)^{t/6}\).</p>
+      <p>Pukul 18.00 (\(12\) jam kemudian): dosis pertama tersisa \(\displaystyle 200\cdot\left(\frac12\right)^2=50\) mg. Setelah dosis kedua, jumlah obat \(=50+200=250\) mg.</p>
+      <p>Pukul 06.00 esok harinya (\(12\) jam lagi): \(\displaystyle 250\cdot\left(\frac12\right)^2=62{,}5\) mg.</p>
+      <p>Jebakan: \(250\) mengabaikan peluruhan setelah dosis kedua, dan \(50\) hanya menghitung sisa dosis pertama.</p>
+      <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal PG 18 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 18</h4>
+
+    <p>Diketahui \(f(x)=\dfrac{x^2-1}{x-1}\) dan \(g(x)=x+1\). Perhatikan pernyataan berikut.</p>
+    <ol>
+      <li>Fungsi \(f\) dan \(g\) adalah fungsi yang sama.</li>
+      <li>Daerah hasil \(f\) adalah \(\{y\mid y\in\mathbb R,\ y\ne2\}\).</li>
+      <li>Grafik \(f\) memotong sumbu-\(x\) di dua titik.</li>
+      <li>\((f\circ g)(x)\) terdefinisi untuk semua \(x\ne0\).</li>
+    </ol>
+    <p>Pernyataan yang benar adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="mx-pg-18" value="A" /><span class="huruf">A</span><span class="isi">(1) dan (2) saja</span></label>
+      <label class="opsi k"><input type="radio" name="mx-pg-18" value="B" /><span class="huruf">B</span><span class="isi">(2) dan (4) saja</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-18" value="C" /><span class="huruf">C</span><span class="isi">(1), (3), dan (4) saja</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-18" value="D" /><span class="huruf">D</span><span class="isi">(2), (3), dan (4) saja</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-18" value="E" /><span class="huruf">E</span><span class="isi">(1), (2), dan (4) saja</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah B.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah B.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p><strong>(1) Salah.</strong> \(f\) tidak terdefinisi di \(x=1\), sedangkan \(g\) terdefinisi. Daerah asalnya berbeda, sehingga keduanya bukan fungsi yang sama (grafik \(f\) berlubang di \((1,2)\)).</p>
+      <p><strong>(2) Benar.</strong> Untuk \(x\ne1\), \(f(x)=x+1\). Nilai \(y=2\) hanya terjadi di \(x=1\) yang dikecualikan, sehingga \(R_f=\{y\mid y\in\mathbb R,\ y\ne2\}\).</p>
+      <p><strong>(3) Salah.</strong> \(f(x)=0\Rightarrow x=-1\) (nilai \(x=1\) dikecualikan), sehingga hanya ada satu titik potong sumbu-\(x\).</p>
+      <p><strong>(4) Benar.</strong> \((f\circ g)(x)\) terdefinisi jika \(g(x)\ne1\), yaitu \(x\ne0\). Untuk \(x\ne0\): \(f(g(x))=\dfrac{(x+1)^2-1}{x}=x+2\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal PG 19 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 19</h4>
+
+    <p>Gambar menunjukkan grafik biaya pemakaian air \(B\) (dalam ribu rupiah) terhadap pemakaian \(x\) (dalam m\(^3\)) yang terdiri atas tiga ruas garis (tarif progresif). Sebuah keluarga membayar Rp85.000 untuk satu bulan. Pemakaian air keluarga tersebut adalah .... m\(^3\).</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 320.0 215.0" role="img" aria-label="Grafik biaya pemakaian air tiga ruas garis" style="width: 100%; max-width: 320px; height: auto" font-size="12" font-family="inherit">
+<defs><clipPath id="c19"><rect x="38.0" y="22.0" width="256.0" height="165.0"/></clipPath></defs>
+<line x1="118.0" y1="187.0" x2="118.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="198.0" y1="187.0" x2="198.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="278.0" y1="187.0" x2="278.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="157.0" x2="294.0" y2="157.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="127.0" x2="294.0" y2="127.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="97.0" x2="294.0" y2="97.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="67.0" x2="294.0" y2="67.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="37.0" x2="294.0" y2="37.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="187.0" x2="302.0" y2="187.0" stroke="currentColor" stroke-width="1.6"/>
+<line x1="38.0" y1="187.0" x2="38.0" y2="14.0" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="302.0,187.0 295.0,183.5 295.0,190.5" fill="currentColor"/>
+<polygon points="38.0,14.0 34.5,21.0 41.5,21.0" fill="currentColor"/>
+<text x="306.0" y="191.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">x</text>
+<text x="45.0" y="16.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">y</text>
+<text x="118.0" y="200.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">10</text>
+<text x="198.0" y="200.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">20</text>
+<text x="278.0" y="200.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">30</text>
+<text x="33.0" y="160.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">20</text>
+<text x="33.0" y="130.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">40</text>
+<text x="33.0" y="100.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">60</text>
+<text x="33.0" y="70.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">80</text>
+<text x="33.0" y="40.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">100</text>
+<path d="M38.0,187.0 L118.0,157.0 L198.0,112.0 L278.0,37.0 L294.0,22.0" fill="none" stroke="#be123c" stroke-width="2.4" stroke-linejoin="round" clip-path="url(#c19)"/>
+<circle cx="118.0" cy="157.0" r="3.2" fill="#dc2626"/>
+<text x="124.0" y="171.0" text-anchor="start" font-size="10" fill="currentColor">(10; 20)</text>
+<circle cx="198.0" cy="112.0" r="3.2" fill="#dc2626"/>
+<text x="204.0" y="126.0" text-anchor="start" font-size="10" fill="currentColor">(20; 50)</text>
+<circle cx="278.0" cy="37.0" r="3.2" fill="#dc2626"/>
+<text x="284.0" y="51.0" text-anchor="start" font-size="10" fill="currentColor">(30; 100)</text>
+<text x="294.0" y="181.0" text-anchor="end" font-size="9.5" fill="currentColor">x (m<tspan font-size="8" dy="-4">3</tspan><tspan dy="4">)</tspan></text>
+<text x="46.0" y="21.0" text-anchor="start" font-size="9.5" fill="currentColor">B (ribu rupiah)</text>
+</svg>
+</figure>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="mx-pg-19" value="A" /><span class="huruf">A</span><span class="isi">\(22\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-19" value="B" /><span class="huruf">B</span><span class="isi">\(24\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-19" value="C" /><span class="huruf">C</span><span class="isi">\(25\)</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-19" value="D" /><span class="huruf">D</span><span class="isi">\(26\)</span></label>
+      <label class="opsi k"><input type="radio" name="mx-pg-19" value="E" /><span class="huruf">E</span><span class="isi">\(27\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah E.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah E.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Gradien tiap ruas adalah tarif per m\(^3\): \(\dfrac{20}{10}=2\) (Rp2.000), \(\dfrac{30}{10}=3\) (Rp3.000), dan \(\dfrac{50}{10}=5\) (Rp5.000).</p>
+      <p>Biaya \(85\) ribu lebih besar daripada \(50\) ribu (biaya di \(x=20\)) dan lebih kecil daripada \(100\) ribu (di \(x=30\)), sehingga \(20&lt;x&lt;30\) pada ruas ketiga:</p>
+      <div class="math-display">\[ B=50+5(x-20)=85\ \Rightarrow\ x=27 \]</div>
+      <p>Jebakan: memakai tarif ruas pertama atau kedua untuk seluruh pemakaian memberi nilai yang tidak konsisten dengan grafik.</p>
+      <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal PG 20 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 20</h4>
+
+    <p>Berapakah nilai \(f(10)\) jika \(f\) adalah fungsi yang memenuhi \(f(x+2)=f(x)+4\) untuk setiap bilangan real \(x\)?</p>
+    <ol>
+      <li>\(f(0)=3\).</li>
+      <li>\(f(1)=5\).</li>
+    </ol>
+    <div class="opsi-grup">
+      <label class="opsi k"><input type="radio" name="mx-pg-20" value="A" /><span class="huruf">A</span><span class="isi">Pernyataan (1) SAJA cukup untuk menjawab pertanyaan, tetapi pernyataan (2) SAJA tidak cukup.</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-20" value="B" /><span class="huruf">B</span><span class="isi">Pernyataan (2) SAJA cukup untuk menjawab pertanyaan, tetapi pernyataan (1) SAJA tidak cukup.</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-20" value="C" /><span class="huruf">C</span><span class="isi">DUA pernyataan BERSAMA-SAMA cukup untuk menjawab pertanyaan, tetapi SATU pernyataan SAJA tidak cukup.</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-20" value="D" /><span class="huruf">D</span><span class="isi">Pernyataan (1) SAJA cukup dan pernyataan (2) SAJA cukup untuk menjawab pertanyaan.</span></label>
+      <label class="opsi"><input type="radio" name="mx-pg-20" value="E" /><span class="huruf">E</span><span class="isi">Pernyataan (1) dan pernyataan (2) tidak cukup untuk menjawab pertanyaan.</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah A.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah A.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p><strong>Pernyataan (1):</strong> dari \(x=0\) ke \(x=10\) ada \(5\) langkah sebesar \(2\), setiap langkah menambah \(4\). Maka \(f(10)=f(0)+5\cdot4=3+20=23\). Cukup.</p>
+      <p><strong>Pernyataan (2):</strong> dari \(x=1\), hanya dapat dijangkau \(3,5,7,9,\dots\) (selisih kelipatan \(2\)), sedangkan \(10\) tidak dapat dijangkau. Contoh penyangkal: \(f(x)=2x+3\) memenuhi \(f(1)=5\) dengan \(f(10)=23\), tetapi \(f(x)=2x+4+\cos\pi x\) juga memenuhi syarat \(f(x+2)=f(x)+4\) dan \(f(1)=5\), dengan \(f(10)=25\). Tidak cukup.</p>
+      <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+    </details>
+  </div>
+  <h3>B. Isian Singkat</h3>
+  <p>
+    5 soal \(\times\) 4 poin = 20 poin. Ketik hanya jawaban akhir, lalu tekan
+    <strong>Periksa</strong> atau Enter.
+  </p>
+  <p class="tingkat"><strong>Tingkat Sedang</strong> <em>(soal 1 dan 2)</em></p>
+  <!-- Soal Isian 1 -->
+  <div class="lesson-example soal-isian" data-kunci="11/2|5.5">
+    <h4>Soal 1</h4>
+
+    <p>Diketahui \(f(x)=2x-3\) dan \(g(x)=x^2+1\). Hasil kali semua nilai \(x\) yang memenuhi \((f\circ g)(x)=(g\circ f)(x)\) adalah .... (tuliskan sebagai pecahan, misalnya 3/2).</p>
+
+    <div class="isian-baris">
+      <input
+        type="text"
+        class="isian-input"
+        placeholder="Tulis jawaban akhirnya saja"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="Jawaban soal isian 1"
+      />
+      <button type="button" class="btn-cek">Periksa</button>
+    </div>
+    <p class="isian-umpan" hidden></p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>\((f\circ g)(x)=2(x^2+1)-3=2x^2-1\) dan \((g\circ f)(x)=(2x-3)^2+1=4x^2-12x+10\).</p>
+      <p>Samakan: \(2x^2-1=4x^2-12x+10\Rightarrow2x^2-12x+11=0\). Diskriminan \(144-88=56&gt;0\), sehingga ada dua akar real.</p>
+      <p>Hasil kali akar \(=\dfrac ca=\) <strong>\(\dfrac{11}{2}\)</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal Isian 2 -->
+  <div class="lesson-example soal-isian" data-kunci="7">
+    <h4>Soal 2</h4>
+
+    <p>Gambar menunjukkan satu periode grafik \(y=a\cos bx+c\) dengan \(a&gt;0\) dan \(b&gt;0\). Nilai \(a+b+c\) adalah ....</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 283.9 210.0" role="img" aria-label="Satu periode grafik y sama dengan a kosinus bx tambah c" style="width: 100%; max-width: 283px; height: auto" font-size="12" font-family="inherit">
+<defs><clipPath id="ci2"><rect x="38.0" y="22.0" width="219.9" height="160.0"/></clipPath></defs>
+<line x1="93.0" y1="182.0" x2="93.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="148.0" y1="182.0" x2="148.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="202.9" y1="182.0" x2="202.9" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="257.9" y1="182.0" x2="257.9" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="162.0" x2="257.9" y2="162.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="122.0" x2="257.9" y2="122.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="102.0" x2="257.9" y2="102.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="82.0" x2="257.9" y2="82.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="62.0" x2="257.9" y2="62.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="42.0" x2="257.9" y2="42.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="142.0" x2="265.9" y2="142.0" stroke="currentColor" stroke-width="1.6"/>
+<line x1="38.0" y1="182.0" x2="38.0" y2="14.0" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="265.9,142.0 258.9,138.5 258.9,145.5" fill="currentColor"/>
+<polygon points="38.0,14.0 34.5,21.0 41.5,21.0" fill="currentColor"/>
+<text x="269.9" y="146.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">x</text>
+<text x="45.0" y="16.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">y</text>
+<text x="93.0" y="155.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">&pi;/4</text>
+<text x="148.0" y="155.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">&pi;/2</text>
+<text x="202.9" y="155.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">3&pi;/4</text>
+<text x="257.9" y="155.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">&pi;</text>
+<text x="33.0" y="165.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">−1</text>
+<text x="33.0" y="45.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<path d="M38.0,42.0 L38.7,42.0 L39.5,42.1 L40.2,42.1 L40.9,42.2 L41.7,42.3 L42.4,42.5 L43.1,42.6 L43.9,42.8 L44.6,43.1 L45.3,43.3 L46.1,43.6 L46.8,43.9 L47.5,44.2 L48.3,44.6 L49.0,44.9 L49.7,45.3 L50.5,45.8 L51.2,46.2 L51.9,46.7 L52.7,47.2 L53.4,47.7 L54.1,48.3 L54.9,48.8 L55.6,49.4 L56.3,50.0 L57.1,50.7 L57.8,51.3 L58.5,52.0 L59.3,52.7 L60.0,53.5 L60.7,54.2 L61.5,55.0 L62.2,55.8 L62.9,56.6 L63.7,57.4 L64.4,58.3 L65.1,59.1 L65.9,60.0 L66.6,60.9 L67.3,61.9 L68.1,62.8 L68.8,63.8 L69.5,64.7 L70.3,65.7 L71.0,66.7 L71.7,67.8 L72.5,68.8 L73.2,69.9 L73.9,70.9 L74.7,72.0 L75.4,73.1 L76.1,74.2 L76.9,75.3 L77.6,76.5 L78.3,77.6 L79.1,78.7 L79.8,79.9 L80.5,81.1 L81.2,82.3 L82.0,83.5 L82.7,84.7 L83.4,85.9 L84.2,87.1 L84.9,88.3 L85.6,89.5 L86.4,90.8 L87.1,92.0 L87.8,93.2 L88.6,94.5 L89.3,95.7 L90.0,97.0 L90.8,98.2 L91.5,99.5 L92.2,100.7 L93.0,102.0 L93.7,103.3 L94.4,104.5 L95.2,105.8 L95.9,107.0 L96.6,108.3 L97.4,109.5 L98.1,110.8 L98.8,112.0 L99.6,113.2 L100.3,114.5 L101.0,115.7 L101.8,116.9 L102.5,118.1 L103.2,119.3 L104.0,120.5 L104.7,121.7 L105.4,122.9 L106.2,124.1 L106.9,125.3 L107.6,126.4 L108.4,127.5 L109.1,128.7 L109.8,129.8 L110.6,130.9 L111.3,132.0 L112.0,133.1 L112.8,134.1 L113.5,135.2 L114.2,136.2 L115.0,137.3 L115.7,138.3 L116.4,139.3 L117.2,140.2 L117.9,141.2 L118.6,142.1 L119.4,143.1 L120.1,144.0 L120.8,144.9 L121.6,145.7 L122.3,146.6 L123.0,147.4 L123.8,148.2 L124.5,149.0 L125.2,149.8 L126.0,150.5 L126.7,151.3 L127.4,152.0 L128.2,152.7 L128.9,153.3 L129.6,154.0 L130.4,154.6 L131.1,155.2 L131.8,155.7 L132.6,156.3 L133.3,156.8 L134.0,157.3 L134.8,157.8 L135.5,158.2 L136.2,158.7 L137.0,159.1 L137.7,159.4 L138.4,159.8 L139.2,160.1 L139.9,160.4 L140.6,160.7 L141.4,160.9 L142.1,161.2 L142.8,161.4 L143.6,161.5 L144.3,161.7 L145.0,161.8 L145.8,161.9 L146.5,161.9 L147.2,162.0 L148.0,162.0 L148.7,162.0 L149.4,161.9 L150.2,161.9 L150.9,161.8 L151.6,161.7 L152.4,161.5 L153.1,161.4 L153.8,161.2 L154.6,160.9 L155.3,160.7 L156.0,160.4 L156.8,160.1 L157.5,159.8 L158.2,159.4 L159.0,159.1 L159.7,158.7 L160.4,158.2 L161.2,157.8 L161.9,157.3 L162.6,156.8 L163.3,156.3 L164.1,155.7 L164.8,155.2 L165.5,154.6 L166.3,154.0 L167.0,153.3 L167.7,152.7 L168.5,152.0 L169.2,151.3 L169.9,150.5 L170.7,149.8 L171.4,149.0 L172.1,148.2 L172.9,147.4 L173.6,146.6 L174.3,145.7 L175.1,144.9 L175.8,144.0 L176.5,143.1 L177.3,142.1 L178.0,141.2 L178.7,140.2 L179.5,139.3 L180.2,138.3 L180.9,137.3 L181.7,136.2 L182.4,135.2 L183.1,134.1 L183.9,133.1 L184.6,132.0 L185.3,130.9 L186.1,129.8 L186.8,128.7 L187.5,127.5 L188.3,126.4 L189.0,125.3 L189.7,124.1 L190.5,122.9 L191.2,121.7 L191.9,120.5 L192.7,119.3 L193.4,118.1 L194.1,116.9 L194.9,115.7 L195.6,114.5 L196.3,113.2 L197.1,112.0 L197.8,110.8 L198.5,109.5 L199.3,108.3 L200.0,107.0 L200.7,105.8 L201.5,104.5 L202.2,103.3 L202.9,102.0 L203.7,100.7 L204.4,99.5 L205.1,98.2 L205.9,97.0 L206.6,95.7 L207.3,94.5 L208.1,93.2 L208.8,92.0 L209.5,90.8 L210.3,89.5 L211.0,88.3 L211.7,87.1 L212.5,85.9 L213.2,84.7 L213.9,83.5 L214.7,82.3 L215.4,81.1 L216.1,79.9 L216.9,78.7 L217.6,77.6 L218.3,76.5 L219.1,75.3 L219.8,74.2 L220.5,73.1 L221.3,72.0 L222.0,70.9 L222.7,69.9 L223.5,68.8 L224.2,67.8 L224.9,66.7 L225.7,65.7 L226.4,64.7 L227.1,63.8 L227.9,62.8 L228.6,61.9 L229.3,60.9 L230.1,60.0 L230.8,59.1 L231.5,58.3 L232.3,57.4 L233.0,56.6 L233.7,55.8 L234.5,55.0 L235.2,54.2 L235.9,53.5 L236.7,52.7 L237.4,52.0 L238.1,51.3 L238.9,50.7 L239.6,50.0 L240.3,49.4 L241.1,48.8 L241.8,48.3 L242.5,47.7 L243.3,47.2 L244.0,46.7 L244.7,46.2 L245.4,45.8 L246.2,45.3 L246.9,44.9 L247.6,44.6 L248.4,44.2 L249.1,43.9 L249.8,43.6 L250.6,43.3 L251.3,43.1 L252.0,42.8 L252.8,42.6 L253.5,42.5 L254.2,42.3 L255.0,42.2 L255.7,42.1 L256.4,42.1 L257.2,42.0 L257.9,42.0" fill="none" stroke="#be123c" stroke-width="2.4" stroke-linejoin="round" clip-path="url(#ci2)"/>
+<circle cx="38.0" cy="42.0" r="3.2" fill="#dc2626"/>
+<circle cx="148.0" cy="162.0" r="3.2" fill="#dc2626"/>
+<circle cx="257.9" cy="42.0" r="3.2" fill="#dc2626"/>
+</svg>
+</figure>
+
+    <div class="isian-baris">
+      <input
+        type="text"
+        class="isian-input"
+        placeholder="Tulis jawaban akhirnya saja"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="Jawaban soal isian 2"
+      />
+      <button type="button" class="btn-cek">Periksa</button>
+    </div>
+    <p class="isian-umpan" hidden></p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Nilai maksimum \(5\) dan minimum \(-1\): \(a=\dfrac{5-(-1)}{2}=3\) dan \(c=\dfrac{5+(-1)}{2}=2\).</p>
+      <p>Maksimum terjadi di \(x=0\) dan \(x=\pi\), sehingga periode \(\pi\) dan \(b=\dfrac{2\pi}{\pi}=2\).</p>
+      <p>Jadi \(y=3\cos2x+2\) dan \(a+b+c=3+2+2=\) <strong>\(7\)</strong>.</p>
+    </details>
+  </div>
+  <p class="tingkat"><strong>Tingkat Sulit</strong> <em>(soal 3 sampai 5)</em></p>
+  <!-- Soal Isian 3 -->
+  <div class="lesson-example soal-isian" data-kunci="3">
+    <h4>Soal 3</h4>
+
+    <p>Nilai minimum fungsi \(f(x)=4^x-2^{x+2}+7\) adalah ....</p>
+
+    <div class="isian-baris">
+      <input
+        type="text"
+        class="isian-input"
+        placeholder="Tulis jawaban akhirnya saja"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="Jawaban soal isian 3"
+      />
+      <button type="button" class="btn-cek">Periksa</button>
+    </div>
+    <p class="isian-umpan" hidden></p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Misalkan \(t=2^x\) dengan \(t&gt;0\). Maka \(4^x=t^2\) dan \(2^{x+2}=4t\), sehingga \(f=t^2-4t+7=(t-2)^2+3\).</p>
+      <p>Minimum \(3\) tercapai saat \(t=2\), yaitu \(x=1\) (memenuhi \(t&gt;0\)). Jadi nilai minimumnya <strong>\(3\)</strong>.</p>
+      <p>Jebakan: \(f(0)=4\) bukan nilai minimum.</p>
+    </details>
+  </div>
+  <!-- Soal Isian 4 -->
+  <div class="lesson-example soal-isian" data-kunci="8">
+    <h4>Soal 4</h4>
+
+    <p>Grafik fungsi \(f\) dengan daerah asal \(0\le x\le6\) terdiri atas tiga ruas garis seperti pada gambar. Nilai \(f(f(f(1)))+f(f(3))\) adalah ....</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 280.0 218.0" role="img" aria-label="Grafik fungsi tiga ruas garis dengan titik sudut 0 2, 2 6, 4 2, dan 6 6" style="width: 100%; max-width: 280px; height: auto" font-size="12" font-family="inherit">
+<defs><clipPath id="ci4"><rect x="38.0" y="22.0" width="216.0" height="168.0"/></clipPath></defs>
+<line x1="74.0" y1="190.0" x2="74.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="110.0" y1="190.0" x2="110.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="146.0" y1="190.0" x2="146.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="182.0" y1="190.0" x2="182.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="218.0" y1="190.0" x2="218.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="254.0" y1="190.0" x2="254.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="166.0" x2="254.0" y2="166.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="142.0" x2="254.0" y2="142.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="118.0" x2="254.0" y2="118.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="94.0" x2="254.0" y2="94.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="70.0" x2="254.0" y2="70.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="46.0" x2="254.0" y2="46.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="22.0" x2="254.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="190.0" x2="262.0" y2="190.0" stroke="currentColor" stroke-width="1.6"/>
+<line x1="38.0" y1="190.0" x2="38.0" y2="14.0" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="262.0,190.0 255.0,186.5 255.0,193.5" fill="currentColor"/>
+<polygon points="38.0,14.0 34.5,21.0 41.5,21.0" fill="currentColor"/>
+<text x="266.0" y="194.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">x</text>
+<text x="45.0" y="16.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">y</text>
+<text x="74.0" y="203.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="110.0" y="203.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="146.0" y="203.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="182.0" y="203.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="218.0" y="203.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="254.0" y="203.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">6</text>
+<text x="33.0" y="169.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="33.0" y="145.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="33.0" y="121.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="33.0" y="97.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="33.0" y="73.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="33.0" y="49.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">6</text>
+<text x="33.0" y="25.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">7</text>
+<path d="M38.0,142.0 L110.0,46.0 L182.0,142.0 L254.0,46.0" fill="none" stroke="#be123c" stroke-width="2.4" stroke-linejoin="round" clip-path="url(#ci4)"/>
+<circle cx="38.0" cy="142.0" r="3.2" fill="#dc2626"/>
+<circle cx="110.0" cy="46.0" r="3.2" fill="#dc2626"/>
+<circle cx="182.0" cy="142.0" r="3.2" fill="#dc2626"/>
+<circle cx="254.0" cy="46.0" r="3.2" fill="#dc2626"/>
+</svg>
+</figure>
+
+    <div class="isian-baris">
+      <input
+        type="text"
+        class="isian-input"
+        placeholder="Tulis jawaban akhirnya saja"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="Jawaban soal isian 4"
+      />
+      <button type="button" class="btn-cek">Periksa</button>
+    </div>
+    <p class="isian-umpan" hidden></p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Dari titik-titik sudut \((0,2),(2,6),(4,2),(6,6)\): \(f(x)=2x+2\) untuk \(0\le x\le2\); \(f(x)=-2x+10\) untuk \(2\le x\le4\); \(f(x)=2x-6\) untuk \(4\le x\le6\).</p>
+      <p>\(f(1)=4\), \(f(4)=2\), \(f(2)=6\), sehingga \(f(f(f(1)))=6\).</p>
+      <p>\(f(3)=4\) dan \(f(4)=2\), sehingga \(f(f(3))=2\). Jumlah \(=6+2=\) <strong>\(8\)</strong>.</p>
+    </details>
+  </div>
+  <!-- Soal Isian 5 -->
+  <div class="lesson-example soal-isian" data-kunci="120">
+    <h4>Soal 5</h4>
+
+    <p>Fungsi \(f\) memenuhi \(f(x+y)=f(x)+f(y)+2xy\) untuk semua bilangan real \(x\) dan \(y\), serta \(f(1)=3\). Nilai \(f(10)\) adalah ....</p>
+
+    <div class="isian-baris">
+      <input
+        type="text"
+        class="isian-input"
+        placeholder="Tulis jawaban akhirnya saja"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="Jawaban soal isian 5"
+      />
+      <button type="button" class="btn-cek">Periksa</button>
+    </div>
+    <p class="isian-umpan" hidden></p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Ambil \(y=1\): \(f(x+1)=f(x)+3+2x\). Maka \(f(2)=3+3+2=8\), \(f(3)=8+3+4=15\), \(f(4)=15+3+6=24\), dan polanya \(f(n)=n^2+2n\).</p>
+      <p>Pemeriksaan pola: \(f(n+1)-f(n)=(n+1)^2+2(n+1)-n^2-2n=2n+3\), sama dengan hasil rekursi.</p>
+      <p>Jadi \(f(10)=100+20=\) <strong>\(120\)</strong>.</p>
+    </details>
+  </div>
+  <h3>C. Uraian (Essay)</h3>
+  <p>
+    5 soal \(\times\) 8 poin = 40 poin. Tuliskan langkah penyelesaian dengan
+    lengkap di buku atau kertas, lalu bandingkan dengan pembahasan dan pedoman
+    penskoran.
+  </p>
+  <p class="tingkat"><strong>Tingkat Sedang</strong> <em>(soal 1 dan 2)</em></p>
+  <!-- Soal Uraian 1 -->
+  <div class="lesson-example soal-uraian">
+    <h4>Soal 1 <span class="poin">[8 poin]</span></h4>
+
+    <p>Diketahui \(f(x)=\sqrt{x+2}\) dan \(g(x)=x^2-2\). Gambar menunjukkan grafik \(y=(f\circ g)(x)\) (garis tebal) dan \(y=(g\circ f)(x)\) (garis putus-putus).</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 244.0 230.0" role="img" aria-label="Grafik komposisi f bundaran g dan g bundaran f" style="width: 100%; max-width: 244px; height: auto" font-size="12" font-family="inherit">
+<defs><clipPath id="cu1"><rect x="38.0" y="22.0" width="180.0" height="180.0"/></clipPath></defs>
+<line x1="38.0" y1="202.0" x2="38.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="68.0" y1="202.0" x2="68.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="98.0" y1="202.0" x2="98.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="158.0" y1="202.0" x2="158.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="188.0" y1="202.0" x2="188.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="218.0" y1="202.0" x2="218.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="187.0" x2="218.0" y2="187.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="157.0" x2="218.0" y2="157.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="97.0" x2="218.0" y2="97.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="67.0" x2="218.0" y2="67.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="37.0" x2="218.0" y2="37.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="127.0" x2="226.0" y2="127.0" stroke="currentColor" stroke-width="1.6"/>
+<line x1="128.0" y1="202.0" x2="128.0" y2="14.0" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="226.0,127.0 219.0,123.5 219.0,130.5" fill="currentColor"/>
+<polygon points="128.0,14.0 124.5,21.0 131.5,21.0" fill="currentColor"/>
+<text x="230.0" y="131.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">x</text>
+<text x="135.0" y="16.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">y</text>
+<text x="38.0" y="140.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">−3</text>
+<text x="68.0" y="140.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">−2</text>
+<text x="98.0" y="140.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">−1</text>
+<text x="158.0" y="140.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="188.0" y="140.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="218.0" y="140.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="123.0" y="190.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">−2</text>
+<text x="123.0" y="160.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">−1</text>
+<text x="123.0" y="100.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="123.0" y="70.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="123.0" y="40.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<path d="M38.0,37.0 L128.0,127.0 L218.0,37.0" fill="none" stroke="#be123c" stroke-width="2.8" stroke-linejoin="round" clip-path="url(#cu1)"/>
+<path d="M68.0,187.0 L218.0,37.0" fill="none" stroke="#ea580c" stroke-width="1.8" stroke-linejoin="round" stroke-dasharray="6 4" clip-path="url(#cu1)"/>
+<text x="42.0" y="30.0" text-anchor="start" font-size="10" fill="#be123c">y=(f∘g)(x)</text>
+<text x="218.0" y="187.0" text-anchor="end" font-size="10" fill="#ea580c">y=(g∘f)(x)</text>
+</svg>
+</figure>
+    <ol type="a">
+      <li>Tentukan daerah asal dan daerah hasil \(f\) dan \(g\).</li>
+      <li>Tentukan rumus \((f\circ g)(x)\) beserta daerah asalnya.</li>
+      <li>Tentukan rumus \((g\circ f)(x)\) beserta daerah asalnya.</li>
+      <li>Tentukan semua nilai \(x\) sehingga \((f\circ g)(x)=(g\circ f)(x)\), lalu jelaskan mengapa kedua grafik pada gambar berimpit hanya pada sebagian daerah.</li>
+    </ol>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p><strong>(a)</strong> \(f\): \(x+2\ge0\Rightarrow D_f=\{x\mid x\ge-2\}\) dan \(R_f=\{y\mid y\ge0\}\). \(g\): \(D_g=\mathbb R\) dan karena \(x^2\ge0\), \(R_g=\{y\mid y\ge-2\}\).</p>
+      <p><strong>(b)</strong> \((f\circ g)(x)=\sqrt{(x^2-2)+2}=\sqrt{x^2}=|x|\). Syarat \(g(x)\ge-2\) selalu benar (\(R_g=[-2,\infty)\)), sehingga daerah asalnya semua bilangan real.</p>
+      <p><strong>(c)</strong> \((g\circ f)(x)=(\sqrt{x+2})^2-2=x\). Daerah asalnya mengikuti \(D_f\), yaitu \(x\ge-2\) (bukan semua bilangan real).</p>
+      <p><strong>(d)</strong> \(|x|=x\) dengan \(x\ge-2\) berlaku untuk \(x\ge0\), jadi semua \(x\ge0\). Untuk \(-2\le x&lt;0\), \(|x|=-x\ne x\); untuk \(x&lt;-2\), \((g\circ f)\) tidak terdefinisi. Karena itu kedua grafik berimpit hanya pada \(x\ge0\).</p>
+      <p class="penskoran"><em>Penskoran: tiap bagian 2 poin.</em></p>
+    </details>
+  </div>
+  <!-- Soal Uraian 2 -->
+  <div class="lesson-example soal-uraian">
+    <h4>Soal 2 <span class="poin">[8 poin]</span></h4>
+
+    <p>Nilai sebuah mobil menyusut secara eksponensial sehingga menjadi setengahnya setiap \(4\) tahun. Harga mobil saat baru Rp320 juta. Misalkan \(V(t)\) adalah nilai mobil (dalam juta rupiah) setelah \(t\) tahun, dengan grafik seperti pada gambar.</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 330.0 220.0" role="img" aria-label="Grafik nilai mobil terhadap waktu yang menurun eksponensial" style="width: 100%; max-width: 330px; height: auto" font-size="12" font-family="inherit">
+<defs><clipPath id="cu2"><rect x="40.0" y="22.0" width="264.0" height="170.0"/></clipPath></defs>
+<line x1="84.0" y1="192.0" x2="84.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="128.0" y1="192.0" x2="128.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="172.0" y1="192.0" x2="172.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="216.0" y1="192.0" x2="216.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="260.0" y1="192.0" x2="260.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="304.0" y1="192.0" x2="304.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="40.0" y1="152.0" x2="304.0" y2="152.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="40.0" y1="112.0" x2="304.0" y2="112.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="40.0" y1="72.0" x2="304.0" y2="72.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="40.0" y1="32.0" x2="304.0" y2="32.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="40.0" y1="192.0" x2="312.0" y2="192.0" stroke="currentColor" stroke-width="1.6"/>
+<line x1="40.0" y1="192.0" x2="40.0" y2="14.0" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="312.0,192.0 305.0,188.5 305.0,195.5" fill="currentColor"/>
+<polygon points="40.0,14.0 36.5,21.0 43.5,21.0" fill="currentColor"/>
+<text x="316.0" y="196.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">x</text>
+<text x="47.0" y="16.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">y</text>
+<text x="84.0" y="205.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="128.0" y="205.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">8</text>
+<text x="172.0" y="205.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">12</text>
+<text x="216.0" y="205.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">16</text>
+<text x="260.0" y="205.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">20</text>
+<text x="304.0" y="205.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">24</text>
+<text x="35.0" y="155.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">80</text>
+<text x="35.0" y="115.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">160</text>
+<text x="35.0" y="75.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">240</text>
+<text x="35.0" y="35.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">320</text>
+<path d="M40.0,32.0 L40.9,34.2 L41.8,36.4 L42.6,38.5 L43.5,40.6 L44.4,42.7 L45.3,44.8 L46.2,46.8 L47.0,48.8 L47.9,50.8 L48.8,52.7 L49.7,54.6 L50.6,56.5 L51.4,58.4 L52.3,60.2 L53.2,62.0 L54.1,63.8 L55.0,65.6 L55.8,67.3 L56.7,69.0 L57.6,70.7 L58.5,72.4 L59.4,74.1 L60.2,75.7 L61.1,77.3 L62.0,78.9 L62.9,80.4 L63.8,82.0 L64.6,83.5 L65.5,85.0 L66.4,86.4 L67.3,87.9 L68.2,89.3 L69.0,90.7 L69.9,92.1 L70.8,93.5 L71.7,94.9 L72.6,96.2 L73.4,97.5 L74.3,98.8 L75.2,100.1 L76.1,101.4 L77.0,102.6 L77.8,103.8 L78.7,105.1 L79.6,106.3 L80.5,107.4 L81.4,108.6 L82.2,109.8 L83.1,110.9 L84.0,112.0 L84.9,113.1 L85.8,114.2 L86.6,115.3 L87.5,116.3 L88.4,117.4 L89.3,118.4 L90.2,119.4 L91.0,120.4 L91.9,121.4 L92.8,122.4 L93.7,123.3 L94.6,124.3 L95.4,125.2 L96.3,126.1 L97.2,127.0 L98.1,127.9 L99.0,128.8 L99.8,129.7 L100.7,130.5 L101.6,131.4 L102.5,132.2 L103.4,133.0 L104.2,133.8 L105.1,134.6 L106.0,135.4 L106.9,136.2 L107.8,137.0 L108.6,137.7 L109.5,138.5 L110.4,139.2 L111.3,139.9 L112.2,140.7 L113.0,141.4 L113.9,142.1 L114.8,142.8 L115.7,143.4 L116.6,144.1 L117.4,144.8 L118.3,145.4 L119.2,146.1 L120.1,146.7 L121.0,147.3 L121.8,147.9 L122.7,148.5 L123.6,149.1 L124.5,149.7 L125.4,150.3 L126.2,150.9 L127.1,151.4 L128.0,152.0 L128.9,152.6 L129.8,153.1 L130.6,153.6 L131.5,154.2 L132.4,154.7 L133.3,155.2 L134.2,155.7 L135.0,156.2 L135.9,156.7 L136.8,157.2 L137.7,157.7 L138.6,158.1 L139.4,158.6 L140.3,159.1 L141.2,159.5 L142.1,160.0 L143.0,160.4 L143.8,160.8 L144.7,161.3 L145.6,161.7 L146.5,162.1 L147.4,162.5 L148.2,162.9 L149.1,163.3 L150.0,163.7 L150.9,164.1 L151.8,164.5 L152.6,164.9 L153.5,165.2 L154.4,165.6 L155.3,166.0 L156.2,166.3 L157.0,166.7 L157.9,167.0 L158.8,167.4 L159.7,167.7 L160.6,168.1 L161.4,168.4 L162.3,168.7 L163.2,169.0 L164.1,169.3 L165.0,169.7 L165.8,170.0 L166.7,170.3 L167.6,170.6 L168.5,170.9 L169.4,171.2 L170.2,171.4 L171.1,171.7 L172.0,172.0 L172.9,172.3 L173.8,172.5 L174.6,172.8 L175.5,173.1 L176.4,173.3 L177.3,173.6 L178.2,173.8 L179.0,174.1 L179.9,174.3 L180.8,174.6 L181.7,174.8 L182.6,175.1 L183.4,175.3 L184.3,175.5 L185.2,175.8 L186.1,176.0 L187.0,176.2 L187.8,176.4 L188.7,176.6 L189.6,176.8 L190.5,177.1 L191.4,177.3 L192.2,177.5 L193.1,177.7 L194.0,177.9 L194.9,178.1 L195.8,178.2 L196.6,178.4 L197.5,178.6 L198.4,178.8 L199.3,179.0 L200.2,179.2 L201.0,179.3 L201.9,179.5 L202.8,179.7 L203.7,179.9 L204.6,180.0 L205.4,180.2 L206.3,180.4 L207.2,180.5 L208.1,180.7 L209.0,180.8 L209.8,181.0 L210.7,181.1 L211.6,181.3 L212.5,181.4 L213.4,181.6 L214.2,181.7 L215.1,181.9 L216.0,182.0 L216.9,182.1 L217.8,182.3 L218.6,182.4 L219.5,182.5 L220.4,182.7 L221.3,182.8 L222.2,182.9 L223.0,183.0 L223.9,183.2 L224.8,183.3 L225.7,183.4 L226.6,183.5 L227.4,183.6 L228.3,183.8 L229.2,183.9 L230.1,184.0 L231.0,184.1 L231.8,184.2 L232.7,184.3 L233.6,184.4 L234.5,184.5 L235.4,184.6 L236.2,184.7 L237.1,184.8 L238.0,184.9 L238.9,185.0 L239.8,185.1 L240.6,185.2 L241.5,185.3 L242.4,185.4 L243.3,185.5 L244.2,185.6 L245.0,185.7 L245.9,185.8 L246.8,185.8 L247.7,185.9 L248.6,186.0 L249.4,186.1 L250.3,186.2 L251.2,186.3 L252.1,186.3 L253.0,186.4 L253.8,186.5 L254.7,186.6 L255.6,186.6 L256.5,186.7 L257.4,186.8 L258.2,186.9 L259.1,186.9 L260.0,187.0 L260.9,187.1 L261.8,187.1 L262.6,187.2 L263.5,187.3 L264.4,187.3 L265.3,187.4 L266.2,187.5 L267.0,187.5 L267.9,187.6 L268.8,187.6 L269.7,187.7 L270.6,187.8 L271.4,187.8 L272.3,187.9 L273.2,187.9 L274.1,188.0 L275.0,188.0 L275.8,188.1 L276.7,188.2 L277.6,188.2 L278.5,188.3 L279.4,188.3 L280.2,188.4 L281.1,188.4 L282.0,188.5 L282.9,188.5 L283.8,188.6 L284.6,188.6 L285.5,188.7 L286.4,188.7 L287.3,188.7 L288.2,188.8 L289.0,188.8 L289.9,188.9 L290.8,188.9 L291.7,189.0 L292.6,189.0 L293.4,189.0 L294.3,189.1 L295.2,189.1 L296.1,189.2 L297.0,189.2 L297.8,189.2 L298.7,189.3 L299.6,189.3 L300.5,189.4 L301.4,189.4 L302.2,189.4 L303.1,189.5 L304.0,189.5" fill="none" stroke="#be123c" stroke-width="2.4" stroke-linejoin="round" clip-path="url(#cu2)"/>
+<circle cx="40.0" cy="32.0" r="3.2" fill="#dc2626"/>
+<text x="47.0" y="26.0" text-anchor="start" font-size="10" fill="currentColor">(0; 320)</text>
+<circle cx="84.0" cy="112.0" r="3.2" fill="#dc2626"/>
+<text x="91.0" y="106.0" text-anchor="start" font-size="10" fill="currentColor">(4; 160)</text>
+<text x="304.0" y="187.0" text-anchor="end" font-size="9.5" fill="currentColor">t (tahun)</text>
+<text x="48.0" y="21.0" text-anchor="start" font-size="9.5" fill="currentColor">V (juta rupiah)</text>
+</svg>
+</figure>
+    <ol type="a">
+      <li>Tulis model \(V(t)\).</li>
+      <li>Tentukan nilai mobil setelah \(12\) tahun.</li>
+      <li>Tentukan kapan nilai mobil tersebut menjadi Rp20 juta.</li>
+      <li>Tentukan fungsi invers \(V^{-1}(v)\), jelaskan arti serta daerah asalnya, lalu gunakan untuk menentukan umur mobil ketika nilainya Rp10 juta.</li>
+    </ol>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p><strong>(a)</strong> \(V(t)=320\left(\dfrac12\right)^{t/4}=320\cdot2^{-t/4}\).</p>
+      <p><strong>(b)</strong> \(V(12)=320\left(\dfrac12\right)^3=40\), yaitu Rp40 juta.</p>
+      <p><strong>(c)</strong> \(320\cdot2^{-t/4}=20\Rightarrow2^{-t/4}=\dfrac1{16}=2^{-4}\Rightarrow\dfrac t4=4\Rightarrow t=16\) tahun.</p>
+      <p><strong>(d)</strong> Dari \(v=320\cdot2^{-t/4}\): \(2^{-t/4}=\dfrac v{320}\Rightarrow-\dfrac t4={}^2\log\dfrac v{320}\Rightarrow t=4\cdot{}^2\log\dfrac{320}{v}\). Jadi \(V^{-1}(v)=4\cdot{}^2\log\dfrac{320}{v}\), yaitu umur mobil (tahun) ketika nilainya \(v\) juta rupiah. Daerah asalnya sama dengan daerah hasil \(V\): \(0&lt;v\le320\). Untuk \(v=10\): \(t=4\cdot{}^2\log32=4\cdot5=20\) tahun.</p>
+      <p class="penskoran"><em>Penskoran: tiap bagian 2 poin.</em></p>
+    </details>
+  </div>
+  <p class="tingkat"><strong>Tingkat Sulit</strong> <em>(soal 3 dan 4)</em></p>
+  <!-- Soal Uraian 3 -->
+  <div class="lesson-example soal-uraian">
+    <h4>Soal 3 <span class="poin">[8 poin]</span></h4>
+
+    <p>Diketahui fungsi \(f(x)=\dfrac{3x-2}{x+1}\) dengan grafik seperti pada gambar (garis putus-putus tipis adalah asimtot).</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 350.0 288.0" role="img" aria-label="Grafik fungsi rasional dengan asimtot tegak x sama dengan minus 1 dan asimtot datar y sama dengan 3" style="width: 100%; max-width: 350px; height: auto" font-size="12" font-family="inherit">
+<defs><clipPath id="cu3"><rect x="38.0" y="22.0" width="286.0" height="238.0"/></clipPath></defs>
+<line x1="38.0" y1="260.0" x2="38.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="64.0" y1="260.0" x2="64.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="90.0" y1="260.0" x2="90.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="116.0" y1="260.0" x2="116.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="142.0" y1="260.0" x2="142.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="194.0" y1="260.0" x2="194.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="220.0" y1="260.0" x2="220.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="246.0" y1="260.0" x2="246.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="272.0" y1="260.0" x2="272.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="298.0" y1="260.0" x2="298.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="324.0" y1="260.0" x2="324.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="260.0" x2="324.0" y2="260.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="226.0" x2="324.0" y2="226.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="192.0" x2="324.0" y2="192.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="124.0" x2="324.0" y2="124.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="90.0" x2="324.0" y2="90.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="56.0" x2="324.0" y2="56.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="22.0" x2="324.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="158.0" x2="332.0" y2="158.0" stroke="currentColor" stroke-width="1.6"/>
+<line x1="168.0" y1="260.0" x2="168.0" y2="14.0" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="332.0,158.0 325.0,154.5 325.0,161.5" fill="currentColor"/>
+<polygon points="168.0,14.0 164.5,21.0 171.5,21.0" fill="currentColor"/>
+<text x="336.0" y="162.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">x</text>
+<text x="175.0" y="16.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">y</text>
+<text x="38.0" y="171.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">−5</text>
+<text x="64.0" y="171.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">−4</text>
+<text x="90.0" y="171.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">−3</text>
+<text x="116.0" y="171.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">−2</text>
+<text x="142.0" y="171.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">−1</text>
+<text x="194.0" y="171.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="220.0" y="171.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="246.0" y="171.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="272.0" y="171.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="298.0" y="171.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="324.0" y="171.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">6</text>
+<text x="163.0" y="263.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">−6</text>
+<text x="163.0" y="229.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">−4</text>
+<text x="163.0" y="195.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">−2</text>
+<text x="163.0" y="127.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="163.0" y="93.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="163.0" y="59.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">6</text>
+<text x="163.0" y="25.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">8</text>
+<line x1="142.0" y1="260.0" x2="142.0" y2="22.0" stroke="currentColor" stroke-width="1.2" stroke-dasharray="5 4"/>
+<line x1="38.0" y1="107.0" x2="324.0" y2="107.0" stroke="currentColor" stroke-width="1.2" stroke-dasharray="5 4"/>
+<path d="M38.0,85.8 L38.3,85.7 L38.7,85.6 L39.0,85.5 L39.3,85.5 L39.6,85.4 L40.0,85.3 L40.3,85.3 L40.6,85.2 L40.9,85.1 L41.2,85.1 L41.6,85.0 L41.9,84.9 L42.2,84.9 L42.5,84.8 L42.9,84.7 L43.2,84.6 L43.5,84.6 L43.8,84.5 L44.2,84.4 L44.5,84.3 L44.8,84.3 L45.2,84.2 L45.5,84.1 L45.8,84.0 L46.1,83.9 L46.5,83.9 L46.8,83.8 L47.1,83.7 L47.4,83.6 L47.8,83.6 L48.1,83.5 L48.4,83.4 L48.7,83.3 L49.0,83.2 L49.4,83.1 L49.7,83.1 L50.0,83.0 L50.3,82.9 L50.7,82.8 L51.0,82.7 L51.3,82.6 L51.7,82.5 L52.0,82.5 L52.3,82.4 L52.6,82.3 L53.0,82.2 L53.3,82.1 L53.6,82.0 L53.9,81.9 L54.2,81.8 L54.6,81.7 L54.9,81.6 L55.2,81.5 L55.5,81.4 L55.9,81.3 L56.2,81.2 L56.5,81.1 L56.8,81.0 L57.2,80.9 L57.5,80.8 L57.8,80.7 L58.2,80.6 L58.5,80.5 L58.8,80.4 L59.1,80.3 L59.5,80.2 L59.8,80.1 L60.1,80.0 L60.4,79.9 L60.8,79.8 L61.1,79.7 L61.4,79.6 L61.7,79.5 L62.0,79.4 L62.4,79.2 L62.7,79.1 L63.0,79.0 L63.3,78.9 L63.7,78.8 L64.0,78.7 L64.3,78.5 L64.7,78.4 L65.0,78.3 L65.3,78.2 L65.6,78.1 L66.0,77.9 L66.3,77.8 L66.6,77.7 L66.9,77.6 L67.2,77.4 L67.6,77.3 L67.9,77.2 L68.2,77.0 L68.5,76.9 L68.9,76.8 L69.2,76.6 L69.5,76.5 L69.8,76.4 L70.2,76.2 L70.5,76.1 L70.8,75.9 L71.2,75.8 L71.5,75.7 L71.8,75.5 L72.1,75.4 L72.5,75.2 L72.8,75.1 L73.1,74.9 L73.4,74.8 L73.8,74.6 L74.1,74.5 L74.4,74.3 L74.7,74.1 L75.0,74.0 L75.4,73.8 L75.7,73.7 L76.0,73.5 L76.3,73.3 L76.7,73.2 L77.0,73.0 L77.3,72.8 L77.7,72.7 L78.0,72.5 L78.3,72.3 L78.6,72.1 L79.0,71.9 L79.3,71.8 L79.6,71.6 L79.9,71.4 L80.2,71.2 L80.6,71.0 L80.9,70.8 L81.2,70.6 L81.5,70.4 L81.9,70.2 L82.2,70.0 L82.5,69.8 L82.8,69.6 L83.2,69.4 L83.5,69.2 L83.8,69.0 L84.2,68.8 L84.5,68.6 L84.8,68.4 L85.1,68.1 L85.5,67.9 L85.8,67.7 L86.1,67.5 L86.4,67.2 L86.8,67.0 L87.1,66.8 L87.4,66.5 L87.7,66.3 L88.0,66.0 L88.4,65.8 L88.7,65.5 L89.0,65.3 L89.3,65.0 L89.7,64.8 L90.0,64.5 L90.3,64.2 L90.7,64.0 L91.0,63.7 L91.3,63.4 L91.6,63.1 L92.0,62.8 L92.3,62.6 L92.6,62.3 L92.9,62.0 L93.2,61.7 L93.6,61.4 L93.9,61.1 L94.2,60.7 L94.5,60.4 L94.9,60.1 L95.2,59.8 L95.5,59.4 L95.8,59.1 L96.2,58.8 L96.5,58.4 L96.8,58.1 L97.2,57.7 L97.5,57.4 L97.8,57.0 L98.1,56.6 L98.5,56.3 L98.8,55.9 L99.1,55.5 L99.4,55.1 L99.8,54.7 L100.1,54.3 L100.4,53.9 L100.7,53.5 L101.0,53.0 L101.4,52.6 L101.7,52.2 L102.0,51.7 L102.4,51.3 L102.7,50.8 L103.0,50.3 L103.3,49.9 L103.6,49.4 L104.0,48.9 L104.3,48.4 L104.6,47.9 L105.0,47.4 L105.3,46.8 L105.6,46.3 L105.9,45.7 L106.2,45.2 L106.6,44.6 L106.9,44.0 L107.2,43.4 L107.5,42.8 L107.9,42.2 L108.2,41.6 L108.5,41.0 L108.9,40.3 L109.2,39.7 L109.5,39.0 L109.8,38.3 L110.1,37.6 L110.5,36.9 L110.8,36.2 L111.1,35.4 L111.5,34.7 L111.8,33.9 L112.1,33.1 L112.4,32.3 L112.8,31.4 L113.1,30.6 L113.4,29.7 L113.7,28.8 L114.0,27.9 L114.4,27.0 L114.7,26.0 L115.0,25.1 L115.4,24.1 L115.7,23.0 L116.0,22.0 L116.3,20.9 L116.6,19.8 L117.0,18.7 L117.3,17.5 L117.6,16.3 L118.0,15.1 L118.3,13.8 L118.6,12.6 L118.9,11.2 L119.2,9.9 L119.6,8.4 L119.9,7.0 L120.2,5.5 L120.5,4.0 L120.9,2.4 L121.2,0.7 L121.5,-0.9 L121.9,-2.7 L122.2,-4.5 L122.5,-6.3 L122.8,-8.3 L123.1,-10.2 L123.5,-12.3 L123.8,-14.4 L124.1,-16.6 L124.5,-18.9 L124.8,-21.3 L125.1,-23.8 L125.4,-26.3 L125.8,-29.0" fill="none" stroke="#be123c" stroke-width="2.4" stroke-linejoin="round" clip-path="url(#cu3)"/>
+<path d="M153.1,307.0 L153.4,301.3 L153.7,295.9 L154.0,290.8 L154.3,285.9 L154.7,281.4 L155.0,277.0 L155.3,272.9 L155.7,268.9 L156.0,265.1 L156.3,261.5 L156.6,258.1 L156.9,254.8 L157.3,251.7 L157.6,248.7 L157.9,245.8 L158.2,243.0 L158.6,240.3 L158.9,237.8 L159.2,235.3 L159.6,232.9 L159.9,230.6 L160.2,228.4 L160.5,226.3 L160.8,224.2 L161.2,222.3 L161.5,220.3 L161.8,218.5 L162.2,216.7 L162.5,214.9 L162.8,213.3 L163.1,211.6 L163.4,210.0 L163.8,208.5 L164.1,207.0 L164.4,205.6 L164.8,204.1 L165.1,202.8 L165.4,201.4 L165.7,200.2 L166.0,198.9 L166.4,197.7 L166.7,196.5 L167.0,195.3 L167.3,194.2 L167.7,193.1 L168.0,192.0 L168.3,191.0 L168.7,189.9 L169.0,188.9 L169.3,188.0 L169.6,187.0 L170.0,186.1 L170.3,185.2 L170.6,184.3 L170.9,183.4 L171.2,182.6 L171.6,181.7 L171.9,180.9 L172.2,180.1 L172.5,179.3 L172.9,178.6 L173.2,177.8 L173.5,177.1 L173.8,176.4 L174.2,175.7 L174.5,175.0 L174.8,174.3 L175.2,173.7 L175.5,173.0 L175.8,172.4 L176.1,171.8 L176.5,171.2 L176.8,170.6 L177.1,170.0 L177.4,169.4 L177.8,168.8 L178.1,168.3 L178.4,167.7 L178.7,167.2 L179.0,166.6 L179.4,166.1 L179.7,165.6 L180.0,165.1 L180.3,164.6 L180.7,164.1 L181.0,163.7 L181.3,163.2 L181.7,162.7 L182.0,162.3 L182.3,161.8 L182.6,161.4 L183.0,161.0 L183.3,160.5 L183.6,160.1 L183.9,159.7 L184.2,159.3 L184.6,158.9 L184.9,158.5 L185.2,158.1 L185.5,157.7 L185.9,157.4 L186.2,157.0 L186.5,156.6 L186.8,156.3 L187.2,155.9 L187.5,155.6 L187.8,155.2 L188.2,154.9 L188.5,154.6 L188.8,154.2 L189.1,153.9 L189.5,153.6 L189.8,153.3 L190.1,152.9 L190.4,152.6 L190.8,152.3 L191.1,152.0 L191.4,151.7 L191.7,151.4 L192.0,151.2 L192.4,150.9 L192.7,150.6 L193.0,150.3 L193.3,150.0 L193.7,149.8 L194.0,149.5 L194.3,149.2 L194.7,149.0 L195.0,148.7 L195.3,148.5 L195.6,148.2 L196.0,148.0 L196.3,147.7 L196.6,147.5 L196.9,147.2 L197.2,147.0 L197.6,146.8 L197.9,146.5 L198.2,146.3 L198.5,146.1 L198.9,145.9 L199.2,145.6 L199.5,145.4 L199.8,145.2 L200.2,145.0 L200.5,144.8 L200.8,144.6 L201.2,144.4 L201.5,144.2 L201.8,144.0 L202.1,143.8 L202.5,143.6 L202.8,143.4 L203.1,143.2 L203.4,143.0 L203.8,142.8 L204.1,142.6 L204.4,142.4 L204.7,142.2 L205.0,142.1 L205.4,141.9 L205.7,141.7 L206.0,141.5 L206.3,141.3 L206.7,141.2 L207.0,141.0 L207.3,140.8 L207.7,140.7 L208.0,140.5 L208.3,140.3 L208.6,140.2 L209.0,140.0 L209.3,139.9 L209.6,139.7 L209.9,139.5 L210.2,139.4 L210.6,139.2 L210.9,139.1 L211.2,138.9 L211.5,138.8 L211.9,138.6 L212.2,138.5 L212.5,138.3 L212.8,138.2 L213.2,138.1 L213.5,137.9 L213.8,137.8 L214.2,137.6 L214.5,137.5 L214.8,137.4 L215.1,137.2 L215.5,137.1 L215.8,137.0 L216.1,136.8 L216.4,136.7 L216.8,136.6 L217.1,136.4 L217.4,136.3 L217.7,136.2 L218.0,136.1 L218.4,135.9 L218.7,135.8 L219.0,135.7 L219.3,135.6 L219.7,135.5 L220.0,135.3 L220.3,135.2 L220.7,135.1 L221.0,135.0 L221.3,134.9 L221.6,134.8 L222.0,134.6 L222.3,134.5 L222.6,134.4 L222.9,134.3 L223.2,134.2 L223.6,134.1 L223.9,134.0 L224.2,133.9 L224.5,133.8 L224.9,133.7 L225.2,133.6 L225.5,133.5 L225.8,133.4 L226.2,133.3 L226.5,133.2 L226.8,133.1 L227.2,133.0 L227.5,132.9 L227.8,132.8 L228.1,132.7 L228.5,132.6 L228.8,132.5 L229.1,132.4 L229.4,132.3 L229.8,132.2 L230.1,132.1 L230.4,132.0 L230.7,131.9 L231.0,131.8 L231.4,131.7 L231.7,131.6 L232.0,131.5 L232.3,131.5 L232.7,131.4 L233.0,131.3 L233.3,131.2 L233.7,131.1 L234.0,131.0 L234.3,130.9 L234.6,130.9 L235.0,130.8 L235.3,130.7 L235.6,130.6 L235.9,130.5 L236.2,130.4 L236.6,130.4 L236.9,130.3 L237.2,130.2 L237.5,130.1 L237.9,130.1 L238.2,130.0 L238.5,129.9 L238.8,129.8 L239.2,129.7 L239.5,129.7 L239.8,129.6 L240.2,129.5 L240.5,129.4 L240.8,129.4 L241.1,129.3 L241.5,129.2 L241.8,129.1 L242.1,129.1 L242.4,129.0 L242.8,128.9 L243.1,128.9 L243.4,128.8 L243.7,128.7 L244.0,128.7 L244.4,128.6 L244.7,128.5 L245.0,128.5 L245.3,128.4 L245.7,128.3 L246.0,128.2 L246.3,128.2 L246.7,128.1 L247.0,128.1 L247.3,128.0 L247.6,127.9 L247.9,127.9 L248.3,127.8 L248.6,127.7 L248.9,127.7 L249.2,127.6 L249.6,127.5 L249.9,127.5 L250.2,127.4 L250.6,127.4 L250.9,127.3 L251.2,127.2 L251.5,127.2 L251.8,127.1 L252.2,127.1 L252.5,127.0 L252.8,126.9 L253.2,126.9 L253.5,126.8 L253.8,126.8 L254.1,126.7 L254.4,126.7 L254.8,126.6 L255.1,126.5 L255.4,126.5 L255.8,126.4 L256.1,126.4 L256.4,126.3 L256.7,126.3 L257.1,126.2 L257.4,126.2 L257.7,126.1 L258.0,126.0 L258.4,126.0 L258.7,125.9 L259.0,125.9 L259.3,125.8 L259.6,125.8 L260.0,125.7 L260.3,125.7 L260.6,125.6 L260.9,125.6 L261.3,125.5 L261.6,125.5 L261.9,125.4 L262.2,125.4 L262.6,125.3 L262.9,125.3 L263.2,125.2 L263.6,125.2 L263.9,125.1 L264.2,125.1 L264.5,125.0 L264.9,125.0 L265.2,124.9 L265.5,124.9 L265.8,124.8 L266.1,124.8 L266.5,124.8 L266.8,124.7 L267.1,124.7 L267.4,124.6 L267.8,124.6 L268.1,124.5 L268.4,124.5 L268.8,124.4 L269.1,124.4 L269.4,124.3 L269.7,124.3 L270.1,124.3 L270.4,124.2 L270.7,124.2 L271.0,124.1 L271.4,124.1 L271.7,124.0 L272.0,124.0 L272.3,124.0 L272.6,123.9 L273.0,123.9 L273.3,123.8 L273.6,123.8 L273.9,123.7 L274.3,123.7 L274.6,123.7 L274.9,123.6 L275.2,123.6 L275.6,123.5 L275.9,123.5 L276.2,123.5 L276.6,123.4 L276.9,123.4 L277.2,123.3 L277.5,123.3 L277.9,123.3 L278.2,123.2 L278.5,123.2 L278.8,123.2 L279.1,123.1 L279.5,123.1 L279.8,123.0 L280.1,123.0 L280.4,123.0 L280.8,122.9 L281.1,122.9 L281.4,122.9 L281.8,122.8 L282.1,122.8 L282.4,122.7 L282.7,122.7 L283.1,122.7 L283.4,122.6 L283.7,122.6 L284.0,122.6 L284.4,122.5 L284.7,122.5 L285.0,122.5 L285.3,122.4 L285.6,122.4 L286.0,122.3 L286.3,122.3 L286.6,122.3 L286.9,122.2 L287.3,122.2 L287.6,122.2 L287.9,122.1 L288.2,122.1 L288.6,122.1 L288.9,122.0 L289.2,122.0 L289.6,122.0 L289.9,121.9 L290.2,121.9 L290.5,121.9 L290.9,121.8 L291.2,121.8 L291.5,121.8 L291.8,121.8 L292.1,121.7 L292.5,121.7 L292.8,121.7 L293.1,121.6 L293.4,121.6 L293.8,121.6 L294.1,121.5 L294.4,121.5 L294.8,121.5 L295.1,121.4 L295.4,121.4 L295.7,121.4 L296.1,121.3 L296.4,121.3 L296.7,121.3 L297.0,121.3 L297.3,121.2 L297.7,121.2 L298.0,121.2 L298.3,121.1 L298.7,121.1 L299.0,121.1 L299.3,121.0 L299.6,121.0 L299.9,121.0 L300.3,121.0 L300.6,120.9 L300.9,120.9 L301.2,120.9 L301.6,120.8 L301.9,120.8 L302.2,120.8 L302.6,120.8 L302.9,120.7 L303.2,120.7 L303.5,120.7 L303.8,120.7 L304.2,120.6 L304.5,120.6 L304.8,120.6 L305.2,120.5 L305.5,120.5 L305.8,120.5 L306.1,120.5 L306.4,120.4 L306.8,120.4 L307.1,120.4 L307.4,120.4 L307.8,120.3 L308.1,120.3 L308.4,120.3 L308.7,120.3 L309.1,120.2 L309.4,120.2 L309.7,120.2 L310.0,120.2 L310.3,120.1 L310.7,120.1 L311.0,120.1 L311.3,120.1 L311.7,120.0 L312.0,120.0 L312.3,120.0 L312.6,120.0 L312.9,119.9 L313.3,119.9 L313.6,119.9 L313.9,119.9 L314.2,119.8 L314.6,119.8 L314.9,119.8 L315.2,119.8 L315.6,119.7 L315.9,119.7 L316.2,119.7 L316.5,119.7 L316.8,119.6 L317.2,119.6 L317.5,119.6 L317.8,119.6 L318.2,119.5 L318.5,119.5 L318.8,119.5 L319.1,119.5 L319.4,119.5 L319.8,119.4 L320.1,119.4 L320.4,119.4 L320.8,119.4 L321.1,119.3 L321.4,119.3 L321.7,119.3 L322.1,119.3 L322.4,119.3 L322.7,119.2 L323.0,119.2 L323.3,119.2 L323.7,119.2 L324.0,119.1" fill="none" stroke="#be123c" stroke-width="2.4" stroke-linejoin="round" clip-path="url(#cu3)"/>
+<text x="147.0" y="34.0" text-anchor="start" font-size="10" fill="currentColor">x = −1</text>
+<text x="324.0" y="102.0" text-anchor="end" font-size="10" fill="currentColor">y = 3</text>
+</svg>
+</figure>
+    <ol type="a">
+      <li>Tentukan titik potong grafik dengan sumbu-koordinat dan persamaan kedua asimtotnya.</li>
+      <li>Tunjukkan bahwa \(f(x)=3-\dfrac{5}{x+1}\), lalu tentukan daerah hasil \(f\) dan jelaskan urutan transformasi dari grafik \(y=\dfrac1x\).</li>
+      <li>Tentukan \(f^{-1}(x)\) beserta daerah asalnya, lalu periksa dengan menghitung \(f^{-1}(1)\) dan \(f\!\left(f^{-1}(1)\right)\).</li>
+      <li>Tentukan himpunan penyelesaian pertidaksamaan \(f(x)&gt;1\).</li>
+    </ol>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p><strong>(a)</strong> Sumbu-\(y\): \(f(0)=-2\), titik \((0,-2)\). Sumbu-\(x\): \(\displaystyle 3x-2=0\Rightarrow x=\frac23\), titik \(\displaystyle \left(\frac23,0\right)\). Asimtot tegak \(x=-1\) dan asimtot datar \(y=\dfrac31=3\).</p>
+      <p><strong>(b)</strong> \(3x-2=3(x+1)-5\), sehingga \(f(x)=3-\dfrac5{x+1}\). Karena \(\dfrac5{x+1}\) dapat bernilai apa saja kecuali \(0\), \(f\) tidak pernah bernilai \(3\): \(R_f=\{y\mid y\in\mathbb R,\ y\ne3\}\). Transformasi: \(y=\dfrac1x\) diregangkan vertikal faktor \(5\), dicerminkan terhadap sumbu-\(x\) (\(y=-\dfrac5x\)), lalu ditranslasikan oleh \((-1,3)\).</p>
+      <p><strong>(c)</strong> \(y(x+1)=3x-2\Rightarrow xy+y=3x-2\Rightarrow x(y-3)=-y-2\Rightarrow x=\dfrac{y+2}{3-y}\). Jadi \(f^{-1}(x)=\dfrac{x+2}{3-x}\) dengan \(D_{f^{-1}}=R_f=\{x\mid x\ne3\}\). Pemeriksaan: \(f^{-1}(1)=\dfrac32\) dan \(f\!\left(\dfrac32\right)=\dfrac{9/2-2}{5/2}=1\).</p>
+      <p><strong>(d)</strong> \(\dfrac{3x-2}{x+1}-1&gt;0\Rightarrow\dfrac{2x-3}{x+1}&gt;0\). Titik pembuat nol \(x=-1\) dan \(\displaystyle x=\frac32\), sehingga penyelesaiannya \(x&lt;-1\) atau \(x&gt;\dfrac32\).</p>
+      <p class="penskoran"><em>Penskoran: tiap bagian 2 poin.</em></p>
+    </details>
+  </div>
+  <!-- Soal Uraian 4 -->
+  <div class="lesson-example soal-uraian">
+    <h4>Soal 4 <span class="poin">[8 poin]</span></h4>
+
+    <p>Diketahui \(f(x)=|x+2|-|x-3|\) dengan grafik seperti pada gambar.</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 350.0 290.0" role="img" aria-label="Grafik fungsi nilai mutlak yang mendatar di y sama dengan minus 5 dan y sama dengan 5" style="width: 100%; max-width: 350px; height: auto" font-size="12" font-family="inherit">
+<defs><clipPath id="cu4"><rect x="38.0" y="22.0" width="286.0" height="240.0"/></clipPath></defs>
+<line x1="38.0" y1="262.0" x2="38.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="64.0" y1="262.0" x2="64.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="90.0" y1="262.0" x2="90.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="116.0" y1="262.0" x2="116.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="142.0" y1="262.0" x2="142.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="194.0" y1="262.0" x2="194.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="220.0" y1="262.0" x2="220.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="246.0" y1="262.0" x2="246.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="272.0" y1="262.0" x2="272.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="298.0" y1="262.0" x2="298.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="324.0" y1="262.0" x2="324.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="262.0" x2="324.0" y2="262.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="242.0" x2="324.0" y2="242.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="222.0" x2="324.0" y2="222.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="202.0" x2="324.0" y2="202.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="182.0" x2="324.0" y2="182.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="162.0" x2="324.0" y2="162.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="122.0" x2="324.0" y2="122.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="102.0" x2="324.0" y2="102.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="82.0" x2="324.0" y2="82.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="62.0" x2="324.0" y2="62.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="42.0" x2="324.0" y2="42.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="22.0" x2="324.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="142.0" x2="332.0" y2="142.0" stroke="currentColor" stroke-width="1.6"/>
+<line x1="168.0" y1="262.0" x2="168.0" y2="14.0" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="332.0,142.0 325.0,138.5 325.0,145.5" fill="currentColor"/>
+<polygon points="168.0,14.0 164.5,21.0 171.5,21.0" fill="currentColor"/>
+<text x="336.0" y="146.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">x</text>
+<text x="175.0" y="16.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">y</text>
+<text x="38.0" y="155.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">−5</text>
+<text x="64.0" y="155.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">−4</text>
+<text x="90.0" y="155.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">−3</text>
+<text x="116.0" y="155.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">−2</text>
+<text x="142.0" y="155.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">−1</text>
+<text x="194.0" y="155.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="220.0" y="155.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="246.0" y="155.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="272.0" y="155.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="298.0" y="155.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="324.0" y="155.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">6</text>
+<text x="163.0" y="265.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">−6</text>
+<text x="163.0" y="245.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">−5</text>
+<text x="163.0" y="225.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">−4</text>
+<text x="163.0" y="205.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">−3</text>
+<text x="163.0" y="185.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">−2</text>
+<text x="163.0" y="165.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">−1</text>
+<text x="163.0" y="125.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="163.0" y="105.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="163.0" y="85.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="163.0" y="65.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="163.0" y="45.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="163.0" y="25.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">6</text>
+<path d="M38.0,242.0 L116.0,242.0 L246.0,42.0 L324.0,42.0" fill="none" stroke="#be123c" stroke-width="2.4" stroke-linejoin="round" clip-path="url(#cu4)"/>
+<circle cx="116.0" cy="242.0" r="3.2" fill="#dc2626"/>
+<circle cx="246.0" cy="42.0" r="3.2" fill="#dc2626"/>
+</svg>
+</figure>
+    <ol type="a">
+      <li>Tulis \(f(x)\) tanpa tanda nilai mutlak (dalam bentuk fungsi bersyarat).</li>
+      <li>Tentukan daerah hasil \(f\).</li>
+      <li>Selesaikan \(f(x)=1\) dan \(f(x)\ge3\).</li>
+      <li>Tentukan banyak penyelesaian \(f(x)=k\) untuk setiap nilai \(k\), lalu jelaskan apakah \(f\) mempunyai invers pada daerah asal \(\mathbb R\).</li>
+    </ol>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p><strong>(a)</strong> Titik pecah \(x=-2\) dan \(x=3\).</p>
+      <p>\(x&lt;-2\): \(f(x)=-(x+2)-(3-x)=-5\). &nbsp; \(-2\le x&lt;3\): \(f(x)=(x+2)-(3-x)=2x-1\). &nbsp; \(x\ge3\): \(f(x)=(x+2)-(x-3)=5\).</p>
+      <p>(Nilai di titik pecah konsisten: \(2(-2)-1=-5\) dan \(2(3)-1=5\).)</p>
+      <p><strong>(b)</strong> Pada \([-2,3]\), \(2x-1\) bergerak dari \(-5\) sampai \(5\), sedangkan sisanya konstan \(-5\) dan \(5\). Jadi \(R_f=[-5,5]\).</p>
+      <p><strong>(c)</strong> \(f(x)=1\): hanya mungkin pada \(-2\le x&lt;3\), yaitu \(2x-1=1\Rightarrow x=1\). \(f(x)\ge3\): untuk \(x&lt;-2\) tidak terpenuhi (\(-5\)); pada \([-2,3)\), \(2x-1\ge3\Rightarrow2\le x&lt;3\); untuk \(x\ge3\), \(5\ge3\) selalu benar. Gabungan: \(x\ge2\).</p>
+      <p><strong>(d)</strong> \(k&lt;-5\) atau \(k&gt;5\): tidak ada penyelesaian. \(k=-5\): tak hingga banyak (semua \(x\le-2\)). \(k=5\): tak hingga banyak (semua \(x\ge3\)). \(-5&lt;k&lt;5\): tepat satu penyelesaian, \(x=\dfrac{k+1}2\). Karena ada nilai \(y\) yang dicapai oleh tak hingga banyak \(x\), \(f\) tidak satu-satu sehingga tidak mempunyai invers pada \(\mathbb R\).</p>
+      <p class="penskoran"><em>Penskoran: tiap bagian 2 poin ((d): banyak penyelesaian 1 poin, invers 1 poin).</em></p>
+    </details>
+  </div>
+  <p class="tingkat"><strong>Tingkat HOTS</strong> <em>(soal 5)</em></p>
+  <!-- Soal Uraian 5 -->
+  <div class="lesson-example soal-uraian">
+    <h4>Soal 5 <span class="poin">[8 poin]</span></h4>
+
+    <p>Dua perusahaan taksi daring menetapkan tarif sebagai berikut. Taksi A: biaya \(A(x)=6.000+3.000x\) rupiah untuk perjalanan sejauh \(x\) km. Taksi B: tarif tetap Rp12.000 untuk \(3\) km pertama, dan Rp5.000 untuk setiap km berikutnya (dihitung proporsional terhadap jarak). Grafik kedua tarif ditunjukkan pada gambar (satuan ribu rupiah).</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 336.0 270.0" role="img" aria-label="Grafik tarif dua taksi daring terhadap jarak tempuh" style="width: 100%; max-width: 336px; height: auto" font-size="12" font-family="inherit">
+<defs><clipPath id="cu5"><rect x="38.0" y="22.0" width="272.0" height="220.0"/></clipPath></defs>
+<line x1="72.0" y1="242.0" x2="72.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="106.0" y1="242.0" x2="106.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="140.0" y1="242.0" x2="140.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="174.0" y1="242.0" x2="174.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="208.0" y1="242.0" x2="208.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="242.0" y1="242.0" x2="242.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="276.0" y1="242.0" x2="276.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="310.0" y1="242.0" x2="310.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="187.0" x2="310.0" y2="187.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="132.0" x2="310.0" y2="132.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="77.0" x2="310.0" y2="77.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="22.0" x2="310.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="38.0" y1="242.0" x2="318.0" y2="242.0" stroke="currentColor" stroke-width="1.6"/>
+<line x1="38.0" y1="242.0" x2="38.0" y2="14.0" stroke="currentColor" stroke-width="1.6"/>
+<polygon points="318.0,242.0 311.0,238.5 311.0,245.5" fill="currentColor"/>
+<polygon points="38.0,14.0 34.5,21.0 41.5,21.0" fill="currentColor"/>
+<text x="322.0" y="246.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">x</text>
+<text x="45.0" y="16.0" text-anchor="start" font-size="12" font-style="italic" fill="currentColor">y</text>
+<text x="72.0" y="255.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">1</text>
+<text x="106.0" y="255.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">2</text>
+<text x="140.0" y="255.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">3</text>
+<text x="174.0" y="255.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">4</text>
+<text x="208.0" y="255.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">5</text>
+<text x="242.0" y="255.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">6</text>
+<text x="276.0" y="255.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">7</text>
+<text x="310.0" y="255.0" text-anchor="middle" font-size="9.5" fill="currentColor" fill-opacity=".7">8</text>
+<text x="33.0" y="190.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">10</text>
+<text x="33.0" y="135.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">20</text>
+<text x="33.0" y="80.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">30</text>
+<text x="33.0" y="25.5" text-anchor="end" font-size="9.5" fill="currentColor" fill-opacity=".7">40</text>
+<path d="M38.0,209.0 L310.0,77.0" fill="none" stroke="#be123c" stroke-width="2.4" stroke-linejoin="round" clip-path="url(#cu5)"/>
+<path d="M38.0,176.0 L140.0,176.0 L310.0,38.5" fill="none" stroke="#ea580c" stroke-width="2.4" stroke-linejoin="round" clip-path="url(#cu5)"/>
+<text x="310.0" y="91.0" text-anchor="end" font-size="10" fill="#be123c">Taksi A</text>
+<text x="310.0" y="32.5" text-anchor="end" font-size="10" fill="#ea580c">Taksi B</text>
+<text x="310.0" y="237.0" text-anchor="end" font-size="9.5" fill="currentColor">x (km)</text>
+<text x="46.0" y="21.0" text-anchor="start" font-size="9.5" fill="currentColor">biaya (ribu rupiah)</text>
+</svg>
+</figure>
+    <ol type="a">
+      <li>Tulis \(B(x)\) sebagai fungsi bersyarat.</li>
+      <li>Hitung biaya Taksi A dan Taksi B untuk perjalanan sejauh \(3\) km dan \(6\) km.</li>
+      <li>Tentukan jarak-jarak \(x\) sehingga kedua tarif sama, lalu tentukan interval jarak ketika Taksi B lebih murah daripada Taksi A.</li>
+      <li>Seorang penumpang membawa uang Rp30.000. Taksi mana yang memungkinkan menempuh jarak terjauh, dan berapa selisih jaraknya?</li>
+    </ol>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p><strong>(a)</strong> \(B(x)=12.000\) untuk \(0&lt;x\le3\), dan \(B(x)=12.000+5.000(x-3)=5.000x-3.000\) untuk \(x&gt;3\).</p>
+      <p><strong>(b)</strong> \(A(3)=6.000+9.000=15.000\) dan \(B(3)=12.000\). \(A(6)=6.000+18.000=24.000\) dan \(B(6)=5.000\cdot6-3.000=27.000\).</p>
+      <p><strong>(c)</strong> Untuk \(0&lt;x\le3\): \(6.000+3.000x=12.000\Rightarrow x=2\). Untuk \(x&gt;3\): \(6.000+3.000x=5.000x-3.000\Rightarrow x=4{,}5\). Jadi kedua tarif sama di \(x=2\) km dan \(x=4{,}5\) km. Taksi B lebih murah pada \(2&lt;x&lt;4{,}5\) (misalnya \(x=3\): Rp12.000 &lt; Rp15.000; sedangkan \(x=5\): B Rp22.000 &gt; A Rp21.000).</p>
+      <p><strong>(d)</strong> Taksi A: \(6.000+3.000x=30.000\Rightarrow x=8\) km. Taksi B: \(5.000x-3.000=30.000\Rightarrow x=6{,}6\) km. Taksi A menempuh jarak terjauh, selisihnya \(8-6{,}6=1{,}4\) km.</p>
+      <p class="penskoran"><em>Penskoran: tiap bagian 2 poin.</em></p>
+    </details>
+  </div>
+
+  <script>
+    (function () {
+      function init() {
+        var root = document.getElementById("latihan-fungsi-pemodelan");
+        if (!root || root.getAttribute("data-init")) return;
+        root.setAttribute("data-init", "1");
+
+        var pg = root.querySelectorAll(".soal-pg");
+        var is = root.querySelectorAll(".soal-isian");
+        var elSkorPg = root.querySelector("[data-skor-pg]");
+        var elJawabPg = root.querySelector("[data-jawab-pg]");
+        var elSkorIs = root.querySelector("[data-skor-is]");
+
+        function norm(s) {
+          return s
+            .toLowerCase()
+            .replace(/\s+/g, "")
+            .replace(/[*\u00b7\u00d7{}]/g, "")
+            .replace(/\u2212/g, "-")
+            .replace(/\u00b2/g, "^2")
+            .replace(/,/g, ".");
+        }
+        function has(el, c) {
+          return el.className && String(el.className).indexOf(c) > -1;
+        }
+
+        function hitung() {
+          var benar = 0,
+            jawab = 0,
+            benarIs = 0,
+            i;
+          for (i = 0; i < pg.length; i++) {
+            if (has(pg[i], "soal-kompleks") || has(pg[i], "soal-kategori")) {
+              var st = pg[i].getAttribute("data-status");
+              if (st) {
+                jawab++;
+                if (st === "benar") benar++;
+              }
+            } else {
+              var c = pg[i].querySelector("input:checked");
+              if (c) {
+                jawab++;
+                if (c.parentNode.className.indexOf(" k") > -1) benar++;
+              }
+            }
+          }
+          for (i = 0; i < is.length; i++) {
+            if (is[i].getAttribute("data-status") === "benar") benarIs++;
+          }
+          elSkorPg.textContent = benar;
+          elJawabPg.textContent = jawab;
+          elSkorIs.textContent = benarIs;
+        }
+
+        function periksa(q) {
+          var inp = q.querySelector(".isian-input");
+          var um = q.querySelector(".isian-umpan");
+          var v = norm(inp.value);
+          if (!v) {
+            inp.focus();
+            return;
+          }
+          var kunci = q.getAttribute("data-kunci").split("|");
+          var ok = false;
+          for (var i = 0; i < kunci.length; i++) {
+            if (norm(kunci[i]) === v) {
+              ok = true;
+              break;
+            }
+          }
+          q.setAttribute("data-status", ok ? "benar" : "salah");
+          um.hidden = false;
+          um.textContent = ok
+            ? "Benar!"
+            : "Belum sesuai. Coba lagi, atau buka pembahasan (bentuk jawaban yang setara juga dapat benar).";
+          hitung();
+        }
+
+        function periksaK(q) {
+          var um = q.querySelector(".isian-umpan");
+          var kunci = q.getAttribute("data-kunci").split(",");
+          var ok, jawaban, i;
+          if (has(q, "soal-kompleks")) {
+            var cb = q.querySelectorAll("input:checked");
+            if (!cb.length) {
+              um.hidden = false;
+              um.textContent = "Centang minimal satu pilihan terlebih dahulu.";
+              return;
+            }
+            jawaban = [];
+            for (i = 0; i < cb.length; i++) jawaban.push(cb[i].value);
+            ok = jawaban.sort().join(",") === kunci.slice().sort().join(",");
+            q.setAttribute("data-status", ok ? "benar" : "salah");
+            um.hidden = false;
+            um.textContent = ok
+              ? "Benar! Jawaban yang tepat adalah " + kunci.join(", ") + "."
+              : "Belum tepat. Jawaban yang benar adalah " + kunci.join(", ") + ".";
+          } else {
+            var n = kunci.length;
+            ok = true;
+            for (i = 0; i < n; i++) {
+              var r = q.querySelector('input[name$="-' + (i + 1) + '"]:checked');
+              if (!r) {
+                um.hidden = false;
+                um.textContent = "Pilih Benar atau Salah untuk setiap pernyataan.";
+                return;
+              }
+              if (r.value !== kunci[i]) ok = false;
+            }
+            var kt = [];
+            for (i = 0; i < n; i++) kt.push(kunci[i] === "B" ? "Benar" : "Salah");
+            q.setAttribute("data-status", ok ? "benar" : "salah");
+            um.hidden = false;
+            um.textContent = ok
+              ? "Benar! Semua pernyataan sudah tepat."
+              : "Belum tepat. Kunci: " + kt.join(", ") + ".";
+          }
+          var inputs = q.querySelectorAll("input");
+          for (i = 0; i < inputs.length; i++) inputs[i].disabled = true;
+          hitung();
+        }
+
+        function ulangi() {
+          var i, j;
+          for (i = 0; i < pg.length; i++) {
+            var r = pg[i].querySelectorAll("input");
+            for (j = 0; j < r.length; j++) {
+              r[j].checked = false;
+              r[j].disabled = false;
+            }
+            pg[i].removeAttribute("data-status");
+            var u = pg[i].querySelector(".isian-umpan");
+            if (u) {
+              u.hidden = true;
+              u.textContent = "";
+            }
+          }
+          for (i = 0; i < is.length; i++) {
+            is[i].removeAttribute("data-status");
+            is[i].querySelector(".isian-input").value = "";
+            var um = is[i].querySelector(".isian-umpan");
+            um.hidden = true;
+            um.textContent = "";
+          }
+          var d = root.querySelectorAll("details");
+          for (i = 0; i < d.length; i++) d[i].removeAttribute("open");
+          hitung();
+        }
+
+        root.addEventListener("change", function (e) {
+          var t = e.target;
+          if (
+            t &&
+            t.type === "radio" &&
+            t.name.indexOf("mx-pg-") === 0 &&
+            !t.closest(".soal-kategori")
+          ) {
+            var grup = root.querySelectorAll('input[name="' + t.name + '"]');
+            for (var i = 0; i < grup.length; i++) grup[i].disabled = true;
+            hitung();
+          }
+        });
+
+        root.addEventListener("click", function (e) {
+          var el = e.target;
+          while (el && el !== root) {
+            if (el.className && typeof el.className === "string") {
+              if (el.className.indexOf("btn-cek-k") > -1) {
+                periksaK(el.parentNode.parentNode);
+                return;
+              }
+              if (el.className.indexOf("btn-cek") > -1) {
+                periksa(el.parentNode.parentNode);
+                return;
+              }
+              if (el.className.indexOf("btn-ulang") > -1) {
+                ulangi();
+                return;
+              }
+            }
+            el = el.parentNode;
+          }
+        });
+
+        root.addEventListener("keydown", function (e) {
+          if (
+            e.key === "Enter" &&
+            e.target.className &&
+            String(e.target.className).indexOf("isian-input") > -1
+          ) {
+            e.preventDefault();
+            periksa(e.target.parentNode.parentNode);
+          }
+        });
+      }
+      if (document.readyState === "loading")
+        document.addEventListener("DOMContentLoaded", init);
+      else init();
+    })();
+  </script>
+</section>

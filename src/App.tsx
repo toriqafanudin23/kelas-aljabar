@@ -107,6 +107,13 @@ function App() {
     page !== "practice-matriks" &&
     page !== "practice-lingkaran" &&
     page !== "practice-komposisi-fungsi-dan-invers" &&
+    page !== "practice-turunan" &&
+    page !== "practice-fungsi-pemodelan" &&
+    page !== "practice-transformasi-fungsi" &&
+    page !== "practice-kombinatorika" &&
+    page !== "practice-irisan-kerucut" &&
+    page !== "practice-integral" &&
+    page !== "practice-analisis-data-peluang" &&
     page !== "simulation" &&
     page !== "simulation-play" &&
     page !== "shop" &&
@@ -193,6 +200,36 @@ function App() {
           <PracticeExercisePage
             navigate={navigate}
             exercise="komposisi-fungsi-dan-invers"
+          />
+        )}
+        {page === "practice-turunan" && (
+          <PracticeExercisePage navigate={navigate} exercise="turunan" />
+        )}
+        {page === "practice-fungsi-pemodelan" && (
+          <PracticeExercisePage
+            navigate={navigate}
+            exercise="fungsi-pemodelan"
+          />
+        )}
+        {page === "practice-transformasi-fungsi" && (
+          <PracticeExercisePage
+            navigate={navigate}
+            exercise="transformasi-fungsi"
+          />
+        )}
+        {page === "practice-kombinatorika" && (
+          <PracticeExercisePage navigate={navigate} exercise="kombinatorika" />
+        )}
+        {page === "practice-irisan-kerucut" && (
+          <PracticeExercisePage navigate={navigate} exercise="irisan-kerucut" />
+        )}
+        {page === "practice-integral" && (
+          <PracticeExercisePage navigate={navigate} exercise="integral" />
+        )}
+        {page === "practice-analisis-data-peluang" && (
+          <PracticeExercisePage
+            navigate={navigate}
+            exercise="analisis-data-peluang"
           />
         )}
         {page === "simulation" && <SimulationPage navigate={navigate} />}

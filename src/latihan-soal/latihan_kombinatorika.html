@@ -1,0 +1,1059 @@
+<section
+  id="latihan-kombinatorika"
+  data-title="Latihan Soal Kombinatorika"
+  class="latihan-eks"
+>
+  <style>
+    #latihan-kombinatorika .tabel-kategori { width: 100%; border-collapse: collapse; margin: 0.6rem 0; }
+    #latihan-kombinatorika .tabel-kategori th,
+    #latihan-kombinatorika .tabel-kategori td { border: 1px solid rgba(128, 128, 128, 0.4); padding: 0.45rem 0.6rem; text-align: left; vertical-align: top; }
+    #latihan-kombinatorika .tabel-kategori .c { text-align: center; width: 3.5rem; }
+    #latihan-kombinatorika .daftar-pernyataan { list-style: none; padding-left: 0; margin: 0.4rem 0; }
+  </style>
+  <h2>Latihan Soal Kombinatorika</h2>
+
+  <p>
+    Soal terdiri atas <strong>20 pilihan ganda</strong> (5 mudah, 6 sedang, 7
+    sulit, 2 HOTS), <strong>5 isian singkat</strong> (2 sedang, 3 sulit), dan
+    <strong>5 uraian (essay)</strong> (2 sedang, 2 sulit, 1 HOTS). Cakupan
+    materinya aturan pencacahan, permutasi, kombinasi, binomial Newton, dan
+    penalaran menghitung. Alokasi waktu yang disarankan adalah 120 menit. Klik
+    salah satu pilihan jawaban untuk langsung melihat hasilnya, dan buka
+    <strong>Lihat pembahasan</strong> di bawah setiap soal jika ingin memeriksa
+    langkah penyelesaiannya.
+  </p>
+
+  <ul>
+    <li>
+      Bentuk soal sejalan dengan UTBK-SNBT 2026: pilihan ganda lima opsi,
+      pernyataan majemuk (benar/salah, soal 5), kecukupan data (soal 19), soal
+      berkonteks dengan gambar atau diagram, dan isian singkat.
+    </li>
+    <li>
+      Skor: pilihan ganda 2 poin, isian singkat 4 poin, uraian 8 poin per soal
+      (total 100 poin). Tidak ada pengurangan skor untuk jawaban salah.
+    </li>
+    <li>
+      Notasi: \(n!=n(n-1)\cdots1\) dengan \(0!=1\), \({}_{n}P_{r}=\frac{n!}{(n-r)!}\)
+      permutasi, dan \(\binom nr=\frac{n!}{r!(n-r)!}\) kombinasi. Benda atau
+      orang yang disebut &ldquo;sejenis&rdquo; dianggap tidak dapat dibedakan.
+    </li>
+    <li>Bilangan ribuan ditulis dengan tanda titik dan bilangan desimal dengan tanda koma. Pada isian singkat, tuliskan hanya jawaban akhir. Gambar tidak selalu digambar sesuai skala. Kalkulator tidak diperkenankan.</li>
+  </ul>
+
+  <div class="skor-bar" role="status" aria-live="polite">
+    <span
+      >Pilihan ganda: <strong data-skor-pg>0</strong> benar dari
+      <strong data-jawab-pg>0</strong> dijawab (total 20)</span
+    >
+    <span>Isian singkat: <strong data-skor-is>0</strong> benar dari 5</span>
+    <button type="button" class="btn-ulang">Ulangi semua</button>
+  </div>
+
+  <h3>A. Pilihan Ganda</h3>
+  <p>
+    20 soal \(\times\) 2 poin = 40 poin. Pilih satu jawaban yang paling tepat.
+  </p>
+
+  <p class="tingkat"><strong>Tingkat Mudah</strong> <em>(soal 1 sampai 5)</em></p>
+
+  <!-- Soal PG 1 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 1</h4>
+
+    <p>Gambar menunjukkan jaringan jalan satu arah dari Rumah ke Sekolah. Angka pada setiap garis menyatakan banyak jalan berbeda yang menghubungkan dua tempat. Banyak rute berbeda dari Rumah ke Sekolah adalah ....</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 360 190" role="img" aria-label="Jaringan jalan satu arah: Rumah ke Halte 2 jalan, Halte ke Sekolah 5, Rumah ke Pasar 2, Pasar ke Sekolah 2, Rumah ke Sekolah 3 jalan langsung" style="width: 100%; max-width: 360px; height: auto" font-size="12" font-family="inherit">
+<defs><marker id="mk1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#7c2d12"/></marker></defs><rect x="10" y="81" width="70" height="28" rx="5" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/><text x="45.0" y="99.5" text-anchor="middle" fill="currentColor">Rumah</text><rect x="145" y="21" width="70" height="28" rx="5" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/><text x="180.0" y="39.5" text-anchor="middle" fill="currentColor">Halte</text><rect x="145" y="141" width="70" height="28" rx="5" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/><text x="180.0" y="159.5" text-anchor="middle" fill="currentColor">Pasar</text><rect x="280" y="81" width="70" height="28" rx="5" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/><text x="315.0" y="99.5" text-anchor="middle" fill="currentColor">Sekolah</text><line x1="80" y1="86" x2="145" y2="43" stroke="#7c2d12" stroke-width="1.8" marker-end="url(#mk1)"/><text x="100" y="55" text-anchor="middle" fill="currentColor" font-size="13" font-weight="bold">2</text><line x1="215" y1="43" x2="280" y2="86" stroke="#7c2d12" stroke-width="1.8" marker-end="url(#mk1)"/><text x="262" y="55" text-anchor="middle" fill="currentColor" font-size="13" font-weight="bold">5</text><line x1="80" y1="104" x2="145" y2="147" stroke="#7c2d12" stroke-width="1.8" marker-end="url(#mk1)"/><text x="100" y="142" text-anchor="middle" fill="currentColor" font-size="13" font-weight="bold">2</text><line x1="215" y1="147" x2="280" y2="104" stroke="#7c2d12" stroke-width="1.8" marker-end="url(#mk1)"/><text x="262" y="142" text-anchor="middle" fill="currentColor" font-size="13" font-weight="bold">2</text><line x1="80" y1="95" x2="280" y2="95" stroke="#7c2d12" stroke-width="1.8" marker-end="url(#mk1)"/><text x="180" y="88" text-anchor="middle" fill="currentColor" font-size="13" font-weight="bold">3</text>
+</svg>
+</figure>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="kb-pg-1" value="A" /><span class="huruf">A</span><span class="isi">\(12\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-1" value="B" /><span class="huruf">B</span><span class="isi">\(14\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-1" value="C" /><span class="huruf">C</span><span class="isi">\(15\)</span></label>
+      <label class="opsi k"><input type="radio" name="kb-pg-1" value="D" /><span class="huruf">D</span><span class="isi">\(17\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-1" value="E" /><span class="huruf">E</span><span class="isi">\(20\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah D.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah D.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Rute dibagi menjadi tiga kasus yang saling lepas (jumlahkan), dan tiap kasus memakai aturan perkalian.</p>
+      <p>Lewat Halte: \(2\times5=10\). Lewat Pasar: \(2\times2=4\). Langsung: \(3\). Total \(10+4+3=17\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 2 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 2</h4>
+
+    <p>Jika \(\dfrac{(n+1)!}{(n-1)!}=56\), maka nilai \(n\) adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="kb-pg-2" value="A" /><span class="huruf">A</span><span class="isi">\(6\)</span></label>
+      <label class="opsi k"><input type="radio" name="kb-pg-2" value="B" /><span class="huruf">B</span><span class="isi">\(7\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-2" value="C" /><span class="huruf">C</span><span class="isi">\(8\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-2" value="D" /><span class="huruf">D</span><span class="isi">\(9\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-2" value="E" /><span class="huruf">E</span><span class="isi">\(14\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah B.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah B.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>\(\dfrac{(n+1)!}{(n-1)!}=(n+1)\,n=56=8\cdot7\), sehingga \(n=7\) (akar negatif \(n=-8\) tidak memenuhi).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 3 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 3</h4>
+
+    <p>Banyak susunan huruf yang berbeda dari kata <strong>SEMARANG</strong> adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="kb-pg-3" value="A" /><span class="huruf">A</span><span class="isi">\(2.520\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-3" value="B" /><span class="huruf">B</span><span class="isi">\(5.040\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-3" value="C" /><span class="huruf">C</span><span class="isi">\(10.080\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-3" value="D" /><span class="huruf">D</span><span class="isi">\(40.320\)</span></label>
+      <label class="opsi k"><input type="radio" name="kb-pg-3" value="E" /><span class="huruf">E</span><span class="isi">\(20.160\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah E.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah E.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>SEMARANG terdiri atas \(8\) huruf dengan \(A\) muncul \(2\) kali:</p>
+      <div class="math-display">\[ \dfrac{8!}{2!}=20.160 \]</div>
+      <p>Jebakan: memakai \(8!=40.320\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 4 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 4</h4>
+
+    <p>Pada gambar terdapat \(7\) titik berbeda pada sebuah lingkaran. Banyak segitiga yang titik-titik sudutnya dipilih dari ketujuh titik tersebut adalah ....</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 180 160" role="img" aria-label="Tujuh titik berbeda pada sebuah lingkaran" style="width: 100%; max-width: 180px; height: auto" font-size="12" font-family="inherit">
+<circle cx="90" cy="80" r="60" fill="none" stroke="#2563eb" stroke-width="2.2"/><circle cx="90.0" cy="20.0" r="4.5" fill="#dc2626"/><circle cx="43.1" cy="42.6" r="4.5" fill="#dc2626"/><circle cx="31.5" cy="93.4" r="4.5" fill="#dc2626"/><circle cx="64.0" cy="134.1" r="4.5" fill="#dc2626"/><circle cx="116.0" cy="134.1" r="4.5" fill="#dc2626"/><circle cx="148.5" cy="93.4" r="4.5" fill="#dc2626"/><circle cx="136.9" cy="42.6" r="4.5" fill="#dc2626"/>
+</svg>
+</figure>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="kb-pg-4" value="A" /><span class="huruf">A</span><span class="isi">\(21\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-4" value="B" /><span class="huruf">B</span><span class="isi">\(28\)</span></label>
+      <label class="opsi k"><input type="radio" name="kb-pg-4" value="C" /><span class="huruf">C</span><span class="isi">\(35\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-4" value="D" /><span class="huruf">D</span><span class="isi">\(42\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-4" value="E" /><span class="huruf">E</span><span class="isi">\(210\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah C.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah C.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Urutan titik sudut tidak penting: \(\binom73=\dfrac{7\cdot6\cdot5}{3\cdot2\cdot1}=35\). Karena titik-titik berada pada lingkaran, tidak ada tiga yang segaris.</p>
+      <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 5 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 5</h4>
+
+    <p>Enam orang \(A,B,C,D,E,F\) dibentuk menjadi beberapa susunan. Tentukan nilai kebenaran tiga pernyataan berikut (B = benar, S = salah), berurutan dari (i) sampai (iii).</p>
+    <ul class="daftar-pernyataan">
+      <li>(i) Banyak cara memilih ketua dan wakil ketua dari keenam orang tersebut adalah \(30\).</li>
+      <li>(ii) Banyak cara memilih \(2\) orang perwakilan yang kedudukannya setara adalah \(30\).</li>
+      <li>(iii) Jika keenam orang berjajar dalam satu baris dengan \(A\) dan \(B\) selalu berdampingan, banyak susunannya adalah \(240\).</li>
+    </ul>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="kb-pg-5" value="A" /><span class="huruf">A</span><span class="isi">S, S, S</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-5" value="B" /><span class="huruf">B</span><span class="isi">B, B, S</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-5" value="C" /><span class="huruf">C</span><span class="isi">B, B, B</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-5" value="D" /><span class="huruf">D</span><span class="isi">S, B, B</span></label>
+      <label class="opsi k"><input type="radio" name="kb-pg-5" value="E" /><span class="huruf">E</span><span class="isi">B, S, B</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah E.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah E.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p><strong>(i) Benar:</strong> jabatan berbeda, \({}_{6}P_{2}=30\).</p>
+      <p><strong>(ii) Salah:</strong> perwakilan setara, \(\binom62=15\), bukan \(30\).</p>
+      <p><strong>(iii) Benar:</strong> \(A,B\) satu blok: \(5!\cdot2!=240\).</p>
+      <p>Urutannya: B, S, B.</p>
+      <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+    </details>
+  </div>
+
+  <p class="tingkat"><strong>Tingkat Sedang</strong> <em>(soal 6 sampai 11)</em></p>
+
+  <!-- Soal PG 6 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 6</h4>
+
+    <p>Dari angka \(0,1,2,3,4,5,6\) dibentuk bilangan empat angka yang semua angkanya berbeda, lebih dari \(3.000\), dan habis dibagi \(5\). Banyak bilangan yang dapat dibentuk adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi k"><input type="radio" name="kb-pg-6" value="A" /><span class="huruf">A</span><span class="isi">\(140\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-6" value="B" /><span class="huruf">B</span><span class="isi">\(105\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-6" value="C" /><span class="huruf">C</span><span class="isi">\(120\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-6" value="D" /><span class="huruf">D</span><span class="isi">\(150\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-6" value="E" /><span class="huruf">E</span><span class="isi">\(180\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah A.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah A.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Satuan \(0\): ribuan dari \(\{3,4,5,6\}\) (\(4\) cara), ratusan \(5\) cara, puluhan \(4\) cara: \(4\cdot5\cdot4=80\).</p>
+      <p>Satuan \(5\): ribuan dari \(\{3,4,6\}\) (\(3\) cara, tidak boleh \(5\) dan harus \(\ge3\)), ratusan \(5\) cara, puluhan \(4\) cara: \(3\cdot5\cdot4=60\).</p>
+      <p>Total \(80+60=140\). Jebakan: memakai ribuan \(\{3,4,5,6\}\) pada kasus satuan \(5\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 7 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 7</h4>
+
+    <p>Peta jalan sebuah kota berbentuk kisi seperti pada gambar. Dani berjalan dari \(A\) ke \(B\) hanya dengan bergerak ke kanan atau ke atas. Ruas jalan yang ditandai silang sedang ditutup untuk perbaikan. Banyak rute berbeda dari \(A\) ke \(B\) adalah ....</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 264 184" role="img" aria-label="Kisi jalan 5 kali 3 dari A ke B dengan satu ruas jalan ditutup antara titik (2,1) dan (3,1)" style="width: 100%; max-width: 264px; height: auto" font-size="12" font-family="inherit">
+<line x1="22" y1="158" x2="22" y2="26" stroke="#2563eb" stroke-opacity=".5" stroke-width="1.5"/><line x1="66" y1="158" x2="66" y2="26" stroke="#2563eb" stroke-opacity=".5" stroke-width="1.5"/><line x1="110" y1="158" x2="110" y2="26" stroke="#2563eb" stroke-opacity=".5" stroke-width="1.5"/><line x1="154" y1="158" x2="154" y2="26" stroke="#2563eb" stroke-opacity=".5" stroke-width="1.5"/><line x1="198" y1="158" x2="198" y2="26" stroke="#2563eb" stroke-opacity=".5" stroke-width="1.5"/><line x1="242" y1="158" x2="242" y2="26" stroke="#2563eb" stroke-opacity=".5" stroke-width="1.5"/><line x1="22" y1="158" x2="242" y2="158" stroke="#2563eb" stroke-opacity=".5" stroke-width="1.5"/><line x1="22" y1="114" x2="242" y2="114" stroke="#2563eb" stroke-opacity=".5" stroke-width="1.5"/><line x1="22" y1="70" x2="242" y2="70" stroke="#2563eb" stroke-opacity=".5" stroke-width="1.5"/><line x1="22" y1="26" x2="242" y2="26" stroke="#2563eb" stroke-opacity=".5" stroke-width="1.5"/><line x1="110" y1="114" x2="154" y2="114" stroke="#d97706" stroke-width="4.5"/><path d="M123.0,105 L141.0,123 M123.0,123 L141.0,105" stroke="#dc2626" stroke-width="3" stroke-linecap="round"/><circle cx="22" cy="158" r="4.5" fill="#7c2d12"/><circle cx="242" cy="26" r="4.5" fill="#7c2d12"/><text x="14" y="175" fill="currentColor" font-weight="bold">A</text><text x="246" y="18" fill="currentColor" font-weight="bold">B</text>
+</svg>
+</figure>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="kb-pg-7" value="A" /><span class="huruf">A</span><span class="isi">\(30\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-7" value="B" /><span class="huruf">B</span><span class="isi">\(36\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-7" value="C" /><span class="huruf">C</span><span class="isi">\(42\)</span></label>
+      <label class="opsi k"><input type="radio" name="kb-pg-7" value="D" /><span class="huruf">D</span><span class="isi">\(38\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-7" value="E" /><span class="huruf">E</span><span class="isi">\(56\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah D.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah D.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Semua rute: \(5\) langkah kanan dan \(3\) langkah atas, \(\binom83=56\).</p>
+      <p>Rute yang melalui ruas tertutup \((2,1)\to(3,1)\): dari \(A\) ke \((2,1)\) ada \(\binom31=3\), dari \((3,1)\) ke \(B\) (\(2\) kanan, \(2\) atas) ada \(\binom42=6\), jadi \(3\cdot6=18\).</p>
+      <p>Rute valid \(56-18=38\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 8 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 8</h4>
+
+    <p>Sebuah tim cerdas cermat beranggotakan \(5\) orang akan dibentuk dari \(6\) putra dan \(5\) putri. Andi (putra) dan Rina (putri) tidak mau berada dalam tim yang sama. Banyak tim yang dapat dibentuk adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="kb-pg-8" value="A" /><span class="huruf">A</span><span class="isi">\(84\)</span></label>
+      <label class="opsi k"><input type="radio" name="kb-pg-8" value="B" /><span class="huruf">B</span><span class="isi">\(378\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-8" value="C" /><span class="huruf">C</span><span class="isi">\(420\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-8" value="D" /><span class="huruf">D</span><span class="isi">\(462\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-8" value="E" /><span class="huruf">E</span><span class="isi">\(504\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah B.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah B.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Semua tim: \(\binom{11}5=462\). Tim yang memuat Andi dan Rina: pilih \(3\) lagi dari \(9\) orang, \(\binom93=84\).</p>
+      <p>Jadi \(462-84=378\). Jebakan: menjawab \(462\) atau \(84\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 9 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 9</h4>
+
+    <p>Enam kartu terdiri atas \(2\) kartu merah, \(2\) kartu biru, dan \(2\) kartu hijau (kartu sewarna dianggap identik). Kartu-kartu itu disusun berjajar sehingga tidak ada dua kartu sewarna yang berdampingan. Banyak susunan yang mungkin adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="kb-pg-9" value="A" /><span class="huruf">A</span><span class="isi">\(24\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-9" value="B" /><span class="huruf">B</span><span class="isi">\(36\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-9" value="C" /><span class="huruf">C</span><span class="isi">\(42\)</span></label>
+      <label class="opsi k"><input type="radio" name="kb-pg-9" value="D" /><span class="huruf">D</span><span class="isi">\(30\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-9" value="E" /><span class="huruf">E</span><span class="isi">\(90\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah D.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah D.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Semua susunan: \(\dfrac{6!}{2!2!2!}=90\). Satu pasangan warna berdampingan: \(\dfrac{5!}{2!2!}=30\) (ada \(3\) warna). Dua pasangan berdampingan: \(\dfrac{4!}{2!}=12\) (ada \(3\) pilihan pasangan). Ketiganya: \(3!=6\).</p>
+      <p>Inklusi&ndash;eksklusi:</p>
+      <div class="math-display">\[ 90-3\cdot30+3\cdot12-6=30 \]</div>
+      <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 10 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 10</h4>
+
+    <p>Banyak pembagi positif dari \(2.520\) yang merupakan kelipatan \(6\) adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="kb-pg-10" value="A" /><span class="huruf">A</span><span class="isi">\(12\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-10" value="B" /><span class="huruf">B</span><span class="isi">\(16\)</span></label>
+      <label class="opsi k"><input type="radio" name="kb-pg-10" value="C" /><span class="huruf">C</span><span class="isi">\(24\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-10" value="D" /><span class="huruf">D</span><span class="isi">\(36\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-10" value="E" /><span class="huruf">E</span><span class="isi">\(48\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah C.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah C.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>\(2.520=2^{3}\cdot3^{2}\cdot5\cdot7\). Kelipatan \(6\) harus memuat setidaknya satu faktor \(2\) dan satu faktor \(3\): pangkat \(2\in\{1,2,3\}\) (\(3\) cara), pangkat \(3\in\{1,2\}\) (\(2\) cara), pangkat \(5\in\{0,1\}\), pangkat \(7\in\{0,1\}\).</p>
+      <p>Total \(3\cdot2\cdot2\cdot2=24\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 11 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 11</h4>
+
+    <p>Jumlah koefisien \(x^{3}\) dan suku tetap (suku yang tidak memuat \(x\)) pada penjabaran \(\left(x^{2}-\dfrac2x\right)^{6}\) adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi k"><input type="radio" name="kb-pg-11" value="A" /><span class="huruf">A</span><span class="isi">\(80\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-11" value="B" /><span class="huruf">B</span><span class="isi">\(-80\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-11" value="C" /><span class="huruf">C</span><span class="isi">\(160\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-11" value="D" /><span class="huruf">D</span><span class="isi">\(240\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-11" value="E" /><span class="huruf">E</span><span class="isi">\(400\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah A.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah A.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Suku umum \(\binom6k(x^{2})^{6-k}\left(-\dfrac2x\right)^{k}=\binom6k(-2)^{k}x^{12-3k}\).</p>
+      <p>Untuk \(x^{3}\): \(k=3\), koefisien \(\binom63(-2)^{3}=-160\). Suku tetap: \(k=4\), nilai \(\binom64(-2)^{4}=240\). Jumlah \(=80\).</p>
+      <p>Jebakan: lupa tanda negatif sehingga \(160+240=400\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+    </details>
+  </div>
+
+  <p class="tingkat"><strong>Tingkat Sulit</strong> <em>(soal 12 sampai 18, setara UTBK)</em></p>
+
+  <!-- Soal PG 12 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 12</h4>
+
+    <p>Lima surat berbeda akan dimasukkan ke dalam lima amplop yang masing-masing sudah bertuliskan alamat salah satu surat, satu surat untuk satu amplop. Banyak cara memasukkan surat sehingga tepat satu surat masuk ke amplop yang benar adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="kb-pg-12" value="A" /><span class="huruf">A</span><span class="isi">\(20\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-12" value="B" /><span class="huruf">B</span><span class="isi">\(30\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-12" value="C" /><span class="huruf">C</span><span class="isi">\(44\)</span></label>
+      <label class="opsi k"><input type="radio" name="kb-pg-12" value="D" /><span class="huruf">D</span><span class="isi">\(45\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-12" value="E" /><span class="huruf">E</span><span class="isi">\(60\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah D.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah D.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Pilih surat yang benar: \(5\) cara. Empat surat sisanya harus salah semua (derangement \(D_4=9\)). Total \(5\cdot9=45\).</p>
+      <p>Jebakan: \(44=D_5\) adalah banyak cara jika <em>tidak ada</em> yang benar.</p>
+      <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 13 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 13</h4>
+
+    <p>Bilangan empat angka disebut <em>menurun</em> jika setiap angkanya lebih kecil daripada angka di sebelah kirinya, misalnya \(7.410\) dan \(9.865\). Banyak bilangan menurun empat angka yang habis dibagi \(5\) adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi k"><input type="radio" name="kb-pg-13" value="A" /><span class="huruf">A</span><span class="isi">\(88\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-13" value="B" /><span class="huruf">B</span><span class="isi">\(84\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-13" value="C" /><span class="huruf">C</span><span class="isi">\(90\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-13" value="D" /><span class="huruf">D</span><span class="isi">\(94\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-13" value="E" /><span class="huruf">E</span><span class="isi">\(126\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah A.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah A.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Angka-angka menurun ketat berarti himpunan empat angka berbeda yang urutannya sudah tertentu.</p>
+      <p>Satuan \(0\): pilih tiga angka dari \(1\)&ndash;\(9\), \(\binom93=84\). Satuan \(5\): tiga angka lainnya harus lebih besar dari \(5\), pilih dari \(\{6,7,8,9\}\), \(\binom43=4\). Total \(88\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 14 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 14</h4>
+
+    <p>Banyak susunan huruf kata <strong>MATEMATIKA</strong> yang tidak memuat dua huruf vokal berdampingan adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="kb-pg-14" value="A" /><span class="huruf">A</span><span class="isi">\(600\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-14" value="B" /><span class="huruf">B</span><span class="isi">\(1.200\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-14" value="C" /><span class="huruf">C</span><span class="isi">\(1.800\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-14" value="D" /><span class="huruf">D</span><span class="isi">\(7.200\)</span></label>
+      <label class="opsi k"><input type="radio" name="kb-pg-14" value="E" /><span class="huruf">E</span><span class="isi">\(3.600\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah E.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah E.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Konsonan \(M,M,T,T,K\): \(\dfrac{5!}{2!2!}=30\) susunan. Terbentuk \(6\) celah (termasuk ujung), pilih \(5\) celah berbeda untuk vokal: \(\binom65=6\). Vokal \(A,A,A,E,I\) di celah terpilih: \(\dfrac{5!}{3!}=20\).</p>
+      <p>Total \(30\cdot6\cdot20=3.600\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 15 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 15</h4>
+
+    <p>Sebuah segi sepuluh beraturan memiliki \(10\) titik sudut. Segitiga dibentuk dengan memilih tiga titik sudutnya (contoh segitiga berwarna pada gambar). Banyak segitiga yang <strong>tidak satu pun</strong> sisinya berimpit dengan sisi segi sepuluh tersebut adalah ....</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 200 180" role="img" aria-label="Segi sepuluh beraturan dengan satu contoh segitiga berwarna dari tiga titik sudutnya" style="width: 100%; max-width: 200px; height: auto" font-size="12" font-family="inherit">
+<polygon points="100.0,20.0 58.9,33.4 33.4,68.4 33.4,111.6 58.9,146.6 100.0,160.0 141.1,146.6 166.6,111.6 166.6,68.4 141.1,33.4" fill="none" stroke="#2563eb" stroke-width="2.4" stroke-linejoin="round"/><polygon points="100.0,20.0 33.4,111.6 141.1,146.6" fill="#d97706" fill-opacity=".18" stroke="#d97706" stroke-width="2.6" stroke-linejoin="round"/><circle cx="100.0" cy="20.0" r="3.6" fill="#7c2d12"/><circle cx="58.9" cy="33.4" r="3.6" fill="#7c2d12"/><circle cx="33.4" cy="68.4" r="3.6" fill="#7c2d12"/><circle cx="33.4" cy="111.6" r="3.6" fill="#7c2d12"/><circle cx="58.9" cy="146.6" r="3.6" fill="#7c2d12"/><circle cx="100.0" cy="160.0" r="3.6" fill="#7c2d12"/><circle cx="141.1" cy="146.6" r="3.6" fill="#7c2d12"/><circle cx="166.6" cy="111.6" r="3.6" fill="#7c2d12"/><circle cx="166.6" cy="68.4" r="3.6" fill="#7c2d12"/><circle cx="141.1" cy="33.4" r="3.6" fill="#7c2d12"/>
+</svg>
+</figure>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="kb-pg-15" value="A" /><span class="huruf">A</span><span class="isi">\(40\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-15" value="B" /><span class="huruf">B</span><span class="isi">\(45\)</span></label>
+      <label class="opsi k"><input type="radio" name="kb-pg-15" value="C" /><span class="huruf">C</span><span class="isi">\(50\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-15" value="D" /><span class="huruf">D</span><span class="isi">\(60\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-15" value="E" /><span class="huruf">E</span><span class="isi">\(70\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah C.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah C.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Semua segitiga \(\binom{10}3=120\). Tepat \(2\) sisi berimpit (tiga titik berurutan): \(10\). Tepat \(1\) sisi: pilih sisi (\(10\)), titik ketiga tidak boleh bertetangga dengan kedua ujung sisi: \(10-4=6\), jadi \(60\).</p>
+      <p>Tanpa sisi: \(120-10-60=50\). Rumus: \(\dfrac{n}{n-3}\binom{n-3}{3}=\dfrac{10}{7}\cdot35=50\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 16 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 16</h4>
+
+    <p>Sembilan siswa akan dibagi menjadi tiga kelompok yang masing-masing beranggotakan tiga orang. Kelompok tidak diberi nama atau nomor. Banyak cara membagi jika Ana dan Budi harus berada dalam kelompok yang sama adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="kb-pg-16" value="A" /><span class="huruf">A</span><span class="isi">\(35\)</span></label>
+      <label class="opsi k"><input type="radio" name="kb-pg-16" value="B" /><span class="huruf">B</span><span class="isi">\(70\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-16" value="C" /><span class="huruf">C</span><span class="isi">\(140\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-16" value="D" /><span class="huruf">D</span><span class="isi">\(280\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-16" value="E" /><span class="huruf">E</span><span class="isi">\(420\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah B.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah B.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Ana dan Budi satu kelompok, pilih anggota ketiga dari \(7\) orang: \(7\) cara. Enam orang tersisa dibagi dua kelompok tak bernama: \(\dfrac12\binom63=10\).</p>
+      <p>Total \(7\cdot10=70\). Jebakan: tanpa membagi dengan \(2\) diperoleh \(140\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 17 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 17</h4>
+
+    <p>Lima pria dan tiga wanita duduk mengelilingi sebuah meja bundar sehingga tidak ada dua wanita yang duduk bersebelahan. Banyak susunan duduk yang mungkin adalah ....</p>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="kb-pg-17" value="A" /><span class="huruf">A</span><span class="isi">\(480\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-17" value="B" /><span class="huruf">B</span><span class="isi">\(720\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-17" value="C" /><span class="huruf">C</span><span class="isi">\(1.200\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-17" value="D" /><span class="huruf">D</span><span class="isi">\(2.880\)</span></label>
+      <label class="opsi k"><input type="radio" name="kb-pg-17" value="E" /><span class="huruf">E</span><span class="isi">\(1.440\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah E.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah E.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Susun \(5\) pria melingkar: \((5-1)!=24\). Terbentuk \(5\) celah di antara pria. Tempatkan \(3\) wanita pada \(3\) celah berbeda (urutan penting): \({}_{5}P_{3}=60\).</p>
+      <p>Total \(24\cdot60=1.440\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 18 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 18</h4>
+
+    <p>Pada papan berukuran \(5\times4\) petak terdapat satu petak berwarna. Banyak persegi panjang (termasuk persegi) yang tersusun dari petak-petak utuh dan <strong>memuat petak berwarna</strong> tersebut adalah ....</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 228 200" role="img" aria-label="Papan 5 kali 4 petak dengan satu petak berwarna pada kolom ketiga dan baris kedua dari bawah" style="width: 100%; max-width: 228px; height: auto" font-size="12" font-family="inherit">
+<rect x="94" y="94" width="40" height="40" fill="#38bdf8" fill-opacity=".55"/><line x1="14" y1="174" x2="14" y2="14" stroke="#2563eb" stroke-width="1.8"/><line x1="54" y1="174" x2="54" y2="14" stroke="#2563eb" stroke-width="1.8"/><line x1="94" y1="174" x2="94" y2="14" stroke="#2563eb" stroke-width="1.8"/><line x1="134" y1="174" x2="134" y2="14" stroke="#2563eb" stroke-width="1.8"/><line x1="174" y1="174" x2="174" y2="14" stroke="#2563eb" stroke-width="1.8"/><line x1="214" y1="174" x2="214" y2="14" stroke="#2563eb" stroke-width="1.8"/><line x1="14" y1="174" x2="214" y2="174" stroke="#2563eb" stroke-width="1.8"/><line x1="14" y1="134" x2="214" y2="134" stroke="#2563eb" stroke-width="1.8"/><line x1="14" y1="94" x2="214" y2="94" stroke="#2563eb" stroke-width="1.8"/><line x1="14" y1="54" x2="214" y2="54" stroke="#2563eb" stroke-width="1.8"/><line x1="14" y1="14" x2="214" y2="14" stroke="#2563eb" stroke-width="1.8"/><rect x="54" y="54" width="120" height="120" fill="none" stroke="#d97706" stroke-width="3" stroke-dasharray="7 4"/><text x="114.0" y="192" text-anchor="middle" fill="#d97706" font-size="11">contoh persegi panjang</text>
+</svg>
+</figure>
+    <div class="opsi-grup">
+      <label class="opsi k"><input type="radio" name="kb-pg-18" value="A" /><span class="huruf">A</span><span class="isi">\(54\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-18" value="B" /><span class="huruf">B</span><span class="isi">\(36\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-18" value="C" /><span class="huruf">C</span><span class="isi">\(48\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-18" value="D" /><span class="huruf">D</span><span class="isi">\(60\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-18" value="E" /><span class="huruf">E</span><span class="isi">\(72\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah A.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah A.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Sebuah persegi panjang ditentukan oleh sisi kiri, kanan, bawah, dan atas. Petak berwarna berada pada kolom ke-\(3\) dari kiri (kolom \(1\)&ndash;\(5\)) dan baris ke-\(2\) dari bawah (baris \(1\)&ndash;\(4\)).</p>
+      <p>Sisi kiri: \(3\) pilihan (garis \(0,1,2\)). Sisi kanan: \(3\) pilihan (garis \(3,4,5\)). Sisi bawah: \(2\) pilihan (garis \(0,1\)). Sisi atas: \(3\) pilihan (garis \(2,3,4\)).</p>
+      <p>Total \(3\cdot3\cdot2\cdot3=54\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+    </details>
+  </div>
+
+  <p class="tingkat"><strong>Tingkat HOTS</strong> <em>(soal 19 dan 20, penalaran tingkat tinggi gaya UTBK)</em></p>
+
+  <!-- Soal PG 19 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 19</h4>
+
+    <p>Sebuah komite beranggotakan \(r\) orang dipilih dari \(n\) orang (\(0&lt;r&lt;n\)). Berapa banyak komite berbeda yang dapat dibentuk?</p>
+    <ul class="daftar-pernyataan">
+      <li>(1) \(n=10\).</li>
+      <li>(2) Banyak komite beranggotakan \(r\) orang sama dengan banyak komite beranggotakan \((r+2)\) orang.</li>
+    </ul>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="kb-pg-19" value="A" /><span class="huruf">A</span><span class="isi">Pernyataan (1) SAJA cukup untuk menjawab pertanyaan, tetapi pernyataan (2) SAJA tidak cukup.</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-19" value="B" /><span class="huruf">B</span><span class="isi">Pernyataan (2) SAJA cukup untuk menjawab pertanyaan, tetapi pernyataan (1) SAJA tidak cukup.</span></label>
+      <label class="opsi k"><input type="radio" name="kb-pg-19" value="C" /><span class="huruf">C</span><span class="isi">DUA pernyataan BERSAMA-SAMA cukup untuk menjawab pertanyaan, tetapi SATU pernyataan SAJA tidak cukup.</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-19" value="D" /><span class="huruf">D</span><span class="isi">Pernyataan (1) SAJA cukup dan pernyataan (2) SAJA cukup untuk menjawab pertanyaan.</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-19" value="E" /><span class="huruf">E</span><span class="isi">Pernyataan (1) dan pernyataan (2) tidak cukup untuk menjawab pertanyaan.</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah C.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah C.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Pernyataan (1) saja: \(r\) tidak diketahui, tidak cukup.</p>
+      <p>Pernyataan (2): \(\binom nr=\binom n{r+2}\) dengan \(r\neq r+2\) berarti \(r+(r+2)=n\), yaitu \(n=2r+2\); nilai \(n\) dan \(r\) belum tertentu, jadi tidak cukup.</p>
+      <p>Bersama: \(10=2r+2\Rightarrow r=4\), sehingga \(\binom{10}4=210\). Kedua pernyataan diperlukan.</p>
+      <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+    </details>
+  </div>
+
+  <!-- Soal PG 20 -->
+  <div class="lesson-example soal-pg">
+    <h4>Soal 20</h4>
+
+    <p>Pada segi tujuh beraturan digambar semua diagonalnya (lihat gambar). Pada segi tujuh beraturan, tidak ada tiga diagonal yang berpotongan di satu titik di dalamnya. Semua diagonal tersebut membagi daerah dalam segi tujuh menjadi beberapa daerah kecil. Banyak daerah kecil yang terbentuk adalah .... <br /><small>(Petunjuk: tambahkan diagonal satu per satu dan amati berapa daerah baru yang lahir.)</small></p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 200 190" role="img" aria-label="Segi tujuh beraturan dengan semua diagonalnya" style="width: 100%; max-width: 200px; height: auto" font-size="12" font-family="inherit">
+<line x1="100.0" y1="14.0" x2="39.0" y2="43.4" stroke="#0f8b7d" stroke-width="1.2"/><line x1="100.0" y1="14.0" x2="24.0" y2="109.4" stroke="#0f8b7d" stroke-width="1.2"/><line x1="100.0" y1="14.0" x2="66.2" y2="162.3" stroke="#0f8b7d" stroke-width="1.2"/><line x1="100.0" y1="14.0" x2="133.8" y2="162.3" stroke="#0f8b7d" stroke-width="1.2"/><line x1="100.0" y1="14.0" x2="176.0" y2="109.4" stroke="#0f8b7d" stroke-width="1.2"/><line x1="100.0" y1="14.0" x2="161.0" y2="43.4" stroke="#0f8b7d" stroke-width="1.2"/><line x1="39.0" y1="43.4" x2="24.0" y2="109.4" stroke="#0f8b7d" stroke-width="1.2"/><line x1="39.0" y1="43.4" x2="66.2" y2="162.3" stroke="#0f8b7d" stroke-width="1.2"/><line x1="39.0" y1="43.4" x2="133.8" y2="162.3" stroke="#0f8b7d" stroke-width="1.2"/><line x1="39.0" y1="43.4" x2="176.0" y2="109.4" stroke="#0f8b7d" stroke-width="1.2"/><line x1="39.0" y1="43.4" x2="161.0" y2="43.4" stroke="#0f8b7d" stroke-width="1.2"/><line x1="24.0" y1="109.4" x2="66.2" y2="162.3" stroke="#0f8b7d" stroke-width="1.2"/><line x1="24.0" y1="109.4" x2="133.8" y2="162.3" stroke="#0f8b7d" stroke-width="1.2"/><line x1="24.0" y1="109.4" x2="176.0" y2="109.4" stroke="#0f8b7d" stroke-width="1.2"/><line x1="24.0" y1="109.4" x2="161.0" y2="43.4" stroke="#0f8b7d" stroke-width="1.2"/><line x1="66.2" y1="162.3" x2="133.8" y2="162.3" stroke="#0f8b7d" stroke-width="1.2"/><line x1="66.2" y1="162.3" x2="176.0" y2="109.4" stroke="#0f8b7d" stroke-width="1.2"/><line x1="66.2" y1="162.3" x2="161.0" y2="43.4" stroke="#0f8b7d" stroke-width="1.2"/><line x1="133.8" y1="162.3" x2="176.0" y2="109.4" stroke="#0f8b7d" stroke-width="1.2"/><line x1="133.8" y1="162.3" x2="161.0" y2="43.4" stroke="#0f8b7d" stroke-width="1.2"/><line x1="176.0" y1="109.4" x2="161.0" y2="43.4" stroke="#0f8b7d" stroke-width="1.2"/><polygon points="100.0,14.0 39.0,43.4 24.0,109.4 66.2,162.3 133.8,162.3 176.0,109.4 161.0,43.4" fill="none" stroke="#2563eb" stroke-width="3" stroke-linejoin="round"/><circle cx="100.0" cy="14.0" r="3.6" fill="#7c2d12"/><circle cx="39.0" cy="43.4" r="3.6" fill="#7c2d12"/><circle cx="24.0" cy="109.4" r="3.6" fill="#7c2d12"/><circle cx="66.2" cy="162.3" r="3.6" fill="#7c2d12"/><circle cx="133.8" cy="162.3" r="3.6" fill="#7c2d12"/><circle cx="176.0" cy="109.4" r="3.6" fill="#7c2d12"/><circle cx="161.0" cy="43.4" r="3.6" fill="#7c2d12"/>
+</svg>
+</figure>
+    <div class="opsi-grup">
+      <label class="opsi"><input type="radio" name="kb-pg-20" value="A" /><span class="huruf">A</span><span class="isi">\(35\)</span></label>
+      <label class="opsi k"><input type="radio" name="kb-pg-20" value="B" /><span class="huruf">B</span><span class="isi">\(50\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-20" value="C" /><span class="huruf">C</span><span class="isi">\(56\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-20" value="D" /><span class="huruf">D</span><span class="isi">\(42\)</span></label>
+      <label class="opsi"><input type="radio" name="kb-pg-20" value="E" /><span class="huruf">E</span><span class="isi">\(64\)</span></label>
+    </div>
+
+    <p class="umpan umpan-benar">Benar! Jawaban yang tepat adalah B.</p>
+    <p class="umpan umpan-salah">Belum tepat. Jawaban yang benar adalah B.</p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Banyak diagonal: \(\dfrac{7\cdot4}2=14\). Titik potong di dalam: tiap empat titik sudut menentukan tepat satu perpotongan dua diagonal, jadi \(\binom74=35\).</p>
+      <p>Tiap diagonal baru menambah daerah sebanyak \(1+\) (banyaknya perpotongan dengan diagonal sebelumnya). Total daerah \(=1+14+35=50\).</p>
+      <p>Pemeriksaan dengan rumus Euler: \(V=7+35=42\), \(E=7+(14+2\cdot35)=91\), daerah dalam \(=E-V+1=50\).</p>
+      <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+    </details>
+  </div>
+
+  <h3>B. Isian Singkat</h3>
+  <p>
+    5 soal \(\times\) 4 poin = 20 poin. Ketik hanya jawaban akhir, lalu tekan
+    <strong>Periksa</strong> atau Enter.
+  </p>
+
+  <p class="tingkat"><strong>Tingkat Sedang</strong> <em>(soal 1 dan 2)</em></p>
+
+  <!-- Soal Isian 1 -->
+  <div class="lesson-example soal-isian" data-kunci="21">
+    <h4>Soal 1</h4>
+
+    <p>Banyak bilangan tiga angka (dari \(100\) sampai \(999\)) yang jumlah ketiga angkanya sama dengan \(6\) adalah ....</p>
+
+    <div class="isian-baris">
+      <input
+        type="text"
+        class="isian-input"
+        placeholder="Tulis angkanya saja"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="Jawaban soal isian 1"
+      />
+      <button type="button" class="btn-cek">Periksa</button>
+    </div>
+    <p class="isian-umpan" hidden></p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Misalkan angkanya \(a,b,c\) dengan \(a\ge1\) dan \(a+b+c=6\). Ganti \(a'=a-1\ge0\), sehingga \(a'+b+c=5\) dengan semua peubah bilangan bulat tak negatif.</p>
+      <p>Banyak solusi \(\binom{5+2}2=21\) (bintang dan batang). Batas angka \(\le9\) otomatis terpenuhi.</p>
+    </details>
+  </div>
+
+  <!-- Soal Isian 2 -->
+  <div class="lesson-example soal-isian" data-kunci="7">
+    <h4>Soal 2</h4>
+
+    <p>Jika \(\dbinom{n+2}{4}=6\dbinom n2\), maka nilai \(n\) adalah ....</p>
+
+    <div class="isian-baris">
+      <input
+        type="text"
+        class="isian-input"
+        placeholder="Tulis angkanya saja"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="Jawaban soal isian 2"
+      />
+      <button type="button" class="btn-cek">Periksa</button>
+    </div>
+    <p class="isian-umpan" hidden></p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>\(\dfrac{(n+2)(n+1)n(n-1)}{24}=6\cdot\dfrac{n(n-1)}2\). Untuk \(n\ge2\) bagi dengan \(n(n-1)\): \(\dfrac{(n+2)(n+1)}{24}=3\), sehingga \((n+2)(n+1)=72=9\cdot8\) dan \(n=7\).</p>
+      <p>Pemeriksaan: \(\binom94=126=6\cdot21\).</p>
+    </details>
+  </div>
+
+  <p class="tingkat"><strong>Tingkat Sulit</strong> <em>(soal 3 sampai 5)</em></p>
+
+  <!-- Soal Isian 3 -->
+  <div class="lesson-example soal-isian" data-kunci="4320|4.320">
+    <h4>Soal 3</h4>
+
+    <p>Sebuah kode terdiri atas empat angka (dari \(0\) sampai \(9\), boleh berulang). Banyak kode yang memuat <strong>tepat tiga angka berbeda</strong>, misalnya \(3137\) atau \(5055\), adalah ....</p>
+
+    <div class="isian-baris">
+      <input
+        type="text"
+        class="isian-input"
+        placeholder="Tulis angkanya saja"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="Jawaban soal isian 3"
+      />
+      <button type="button" class="btn-cek">Periksa</button>
+    </div>
+    <p class="isian-umpan" hidden></p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Pilih angka yang muncul dua kali (\(10\) cara), pilih dua angka lain yang berbeda dari \(9\) sisanya (\(\binom92=36\)), lalu susun empat posisi: \(\dfrac{4!}{2!}=12\).</p>
+      <p>Total \(10\cdot36\cdot12=4.320\).</p>
+    </details>
+  </div>
+
+  <!-- Soal Isian 4 -->
+  <div class="lesson-example soal-isian" data-kunci="266">
+    <h4>Soal 4</h4>
+
+    <p>Banyak bilangan bulat positif yang tidak lebih dari \(1.000\) dan <strong>tidak habis dibagi</strong> \(2\), \(3\), maupun \(5\) adalah ....</p>
+
+    <div class="isian-baris">
+      <input
+        type="text"
+        class="isian-input"
+        placeholder="Tulis angkanya saja"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="Jawaban soal isian 4"
+      />
+      <button type="button" class="btn-cek">Periksa</button>
+    </div>
+    <p class="isian-umpan" hidden></p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Inklusi&ndash;eksklusi: habis dibagi \(2\): \(500\); \(3\): \(333\); \(5\): \(200\). Dua sekaligus: \(6\to166\), \(10\to100\), \(15\to66\). Ketiganya: \(30\to33\).</p>
+      <p>Yang habis dibagi minimal satu: \(500+333+200-166-100-66+33=734\). Sisanya \(1.000-734=266\).</p>
+    </details>
+  </div>
+
+  <!-- Soal Isian 5 -->
+  <div class="lesson-example soal-isian" data-kunci="72">
+    <h4>Soal 5</h4>
+
+    <p>Peta pada gambar terdiri atas daerah \(P\) di tengah dan empat daerah \(1,2,3,4\) yang mengelilinginya. Dua daerah bertetangga bila berbagi batas (daerah \(1\) dan \(3\) tidak bertetangga, demikian pula \(2\) dan \(4\)). Tersedia \(4\) warna, dan setiap daerah diwarnai satu warna sehingga daerah bertetangga berbeda warna (tidak harus memakai semua warna). Banyak cara mewarnai peta adalah ....</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 200 200" role="img" aria-label="Peta dengan daerah P di tengah dan empat daerah 1, 2, 3, 4 di sekelilingnya" style="width: 100%; max-width: 200px; height: auto" font-size="12" font-family="inherit">
+<path d="M132.0,100.0 A32,32 0 0 0 100.0,68.0 L100.0,20.0 A80,80 0 0 1 180.0,100.0 Z" fill="#eff6ff" stroke="#2563eb" stroke-width="2.4"/><path d="M100.0,68.0 A32,32 0 0 0 68.0,100.0 L20.0,100.0 A80,80 0 0 1 100.0,20.0 Z" fill="#eff6ff" stroke="#2563eb" stroke-width="2.4"/><path d="M68.0,100.0 A32,32 0 0 0 100.0,132.0 L100.0,180.0 A80,80 0 0 1 20.0,100.0 Z" fill="#eff6ff" stroke="#2563eb" stroke-width="2.4"/><path d="M100.0,132.0 A32,32 0 0 0 132.0,100.0 L180.0,100.0 A80,80 0 0 1 100.0,180.0 Z" fill="#eff6ff" stroke="#2563eb" stroke-width="2.4"/><circle cx="100" cy="100" r="32" fill="#bae6fd" fill-opacity=".7" stroke="#2563eb" stroke-width="2.4"/><text x="100" y="105" text-anchor="middle" fill="currentColor" font-weight="bold" font-size="15">P</text><text x="140.3" y="64.7" text-anchor="middle" fill="currentColor" font-size="14">1</text><text x="59.7" y="64.7" text-anchor="middle" fill="currentColor" font-size="14">2</text><text x="59.7" y="145.3" text-anchor="middle" fill="currentColor" font-size="14">3</text><text x="140.3" y="145.3" text-anchor="middle" fill="currentColor" font-size="14">4</text>
+</svg>
+</figure>
+
+    <div class="isian-baris">
+      <input
+        type="text"
+        class="isian-input"
+        placeholder="Tulis angkanya saja"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        aria-label="Jawaban soal isian 5"
+      />
+      <button type="button" class="btn-cek">Periksa</button>
+    </div>
+    <p class="isian-umpan" hidden></p>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p>Pilih warna \(P\): \(4\) cara. Keempat daerah di sekelilingnya hanya boleh memakai \(3\) warna sisa dan membentuk lingkaran empat daerah dengan tetangga berbeda warna: banyak pewarnaan siklus-\(4\) dengan \(3\) warna adalah \((3-1)^{4}+(3-1)=18\).</p>
+      <p>Total \(4\cdot18=72\).</p>
+    </details>
+  </div>
+
+  <h3>C. Uraian (Essay)</h3>
+  <p>
+    5 soal \(\times\) 8 poin = 40 poin. Tuliskan langkah penyelesaian dengan
+    lengkap di buku atau kertas, lalu bandingkan dengan pembahasan dan pedoman
+    penskoran.
+  </p>
+
+  <p class="tingkat"><strong>Tingkat Sedang</strong> <em>(soal 1 dan 2)</em></p>
+
+  <!-- Soal Uraian 1 -->
+  <div class="lesson-example soal-uraian">
+    <h4>Soal 1 <span class="poin">[8 poin]</span></h4>
+
+    <p>Sebuah kunci pintu digital menggunakan PIN empat angka yang dipilih dari tombol \(0,1,2,\dots,9\) (lihat gambar).</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 214 225" role="img" aria-label="Panel PIN dengan empat kotak isian dan tombol angka 0 sampai 9" style="width: 100%; max-width: 214px; height: auto" font-size="12" font-family="inherit">
+<rect x="10" y="8" width="40" height="32" rx="5" fill="#ffffff" stroke="#2563eb" stroke-width="2"/><text x="30.0" y="28.5" text-anchor="middle" fill="currentColor"></text><rect x="59" y="8" width="40" height="32" rx="5" fill="#ffffff" stroke="#2563eb" stroke-width="2"/><text x="79.0" y="28.5" text-anchor="middle" fill="currentColor"></text><rect x="108" y="8" width="40" height="32" rx="5" fill="#ffffff" stroke="#2563eb" stroke-width="2"/><text x="128.0" y="28.5" text-anchor="middle" fill="currentColor"></text><rect x="157" y="8" width="40" height="32" rx="5" fill="#ffffff" stroke="#2563eb" stroke-width="2"/><text x="177.0" y="28.5" text-anchor="middle" fill="currentColor"></text><rect x="10" y="60" width="40" height="32" rx="5" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/><text x="30.0" y="80.5" text-anchor="middle" fill="currentColor"><tspan font-weight="bold" font-size="15">1</tspan></text><rect x="59" y="60" width="40" height="32" rx="5" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/><text x="79.0" y="80.5" text-anchor="middle" fill="currentColor"><tspan font-weight="bold" font-size="15">2</tspan></text><rect x="108" y="60" width="40" height="32" rx="5" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/><text x="128.0" y="80.5" text-anchor="middle" fill="currentColor"><tspan font-weight="bold" font-size="15">3</tspan></text><rect x="10" y="100" width="40" height="32" rx="5" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/><text x="30.0" y="120.5" text-anchor="middle" fill="currentColor"><tspan font-weight="bold" font-size="15">4</tspan></text><rect x="59" y="100" width="40" height="32" rx="5" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/><text x="79.0" y="120.5" text-anchor="middle" fill="currentColor"><tspan font-weight="bold" font-size="15">5</tspan></text><rect x="108" y="100" width="40" height="32" rx="5" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/><text x="128.0" y="120.5" text-anchor="middle" fill="currentColor"><tspan font-weight="bold" font-size="15">6</tspan></text><rect x="10" y="140" width="40" height="32" rx="5" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/><text x="30.0" y="160.5" text-anchor="middle" fill="currentColor"><tspan font-weight="bold" font-size="15">7</tspan></text><rect x="59" y="140" width="40" height="32" rx="5" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/><text x="79.0" y="160.5" text-anchor="middle" fill="currentColor"><tspan font-weight="bold" font-size="15">8</tspan></text><rect x="108" y="140" width="40" height="32" rx="5" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/><text x="128.0" y="160.5" text-anchor="middle" fill="currentColor"><tspan font-weight="bold" font-size="15">9</tspan></text><rect x="59" y="180" width="40" height="32" rx="5" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/><text x="79.0" y="200.5" text-anchor="middle" fill="currentColor"><tspan font-weight="bold" font-size="15">0</tspan></text>
+</svg>
+</figure>
+    <ol type="a">
+      <li>Berapa banyak PIN jika angka boleh berulang?</li>
+      <li>Berapa banyak PIN jika keempat angkanya harus berbeda?</li>
+      <li>Berapa banyak PIN dengan empat angka berbeda yang <strong>dua angka pertamanya ganjil</strong>?</li>
+      <li>Jika angka boleh berulang, berapa banyak PIN yang memuat <strong>paling sedikit satu angka \(7\)</strong>?</li>
+    </ol>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p><strong>(a)</strong> Empat posisi, masing-masing \(10\) pilihan: \(10^{4}=10.000\).</p>
+      <p><strong>(b)</strong> \({}_{10}P_{4}=10\cdot9\cdot8\cdot7=5.040\).</p>
+      <p><strong>(c)</strong> Dua angka pertama ganjil dan berbeda: \(5\cdot4=20\). Dua angka berikutnya dari \(8\) angka tersisa: \(8\cdot7=56\). Total \(20\cdot56=1.120\).</p>
+      <p><strong>(d)</strong> Komplemen: semua PIN \(10^{4}\) dikurangi PIN tanpa angka \(7\) (\(9^{4}=6.561\)): \(10.000-6.561=3.439\).</p>
+      <p class="penskoran"><em>Penskoran: tiap bagian 2 poin.</em></p>
+    </details>
+  </div>
+
+  <!-- Soal Uraian 2 -->
+  <div class="lesson-example soal-uraian">
+    <h4>Soal 2 <span class="poin">[8 poin]</span></h4>
+
+    <p>Sebuah sekolah memiliki \(20\) siswa yang mendaftar sebagai pengurus: \(7\) dari kelas X, \(8\) dari kelas XI, dan \(5\) dari kelas XII (lihat diagram).</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 200 175" role="img" aria-label="Diagram batang: 7 siswa kelas X, 8 siswa kelas XI, 5 siswa kelas XII" style="width: 100%; max-width: 200px; height: auto" font-size="12" font-family="inherit">
+<line x1="30" y1="15" x2="30" y2="150" stroke="currentColor" stroke-width="1.6"/><line x1="30" y1="150" x2="190" y2="150" stroke="currentColor" stroke-width="1.6"/><text x="38" y="12" fill="currentColor" font-size="11">siswa</text><line x1="26" y1="90" x2="190" y2="90" stroke="currentColor" stroke-opacity=".15"/><text x="22" y="94" text-anchor="end" fill="currentColor" font-size="10">5</text><line x1="26" y1="30" x2="190" y2="30" stroke="currentColor" stroke-opacity=".15"/><text x="22" y="34" text-anchor="end" fill="currentColor" font-size="10">10</text><rect x="45" y="66" width="28" height="84" fill="#0f8b7d"/><text x="59" y="62" text-anchor="middle" fill="currentColor" font-size="12">7</text><text x="59" y="166" text-anchor="middle" fill="currentColor" font-size="12">X</text><rect x="93" y="54" width="28" height="96" fill="#0f8b7d"/><text x="107" y="50" text-anchor="middle" fill="currentColor" font-size="12">8</text><text x="107" y="166" text-anchor="middle" fill="currentColor" font-size="12">XI</text><rect x="141" y="90" width="28" height="60" fill="#0f8b7d"/><text x="155" y="86" text-anchor="middle" fill="currentColor" font-size="12">5</text><text x="155" y="166" text-anchor="middle" fill="currentColor" font-size="12">XII</text>
+</svg>
+</figure>
+    <ol type="a">
+      <li>Dari \(20\) siswa dipilih ketua, wakil ketua, dan sekretaris (jabatan berbeda). Berapa cara?</li>
+      <li>Berapa banyak panitia \(4\) orang yang dapat dibentuk tanpa syarat?</li>
+      <li>Berapa banyak panitia \(4\) orang yang memuat <strong>paling sedikit satu wakil dari tiap kelas</strong>? Gunakan cara langsung (pembagian kasus), lalu periksa dengan cara komplemen.</li>
+      <li>Ali dan Beni (keduanya kelas XII) tidak mau berada dalam panitia yang sama. Berapa panitia \(4\) orang yang dapat dibentuk?</li>
+    </ol>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p><strong>(a)</strong> Jabatan berbeda: \({}_{20}P_{3}=20\cdot19\cdot18=6.840\).</p>
+      <p><strong>(b)</strong> \(\binom{20}4=4.845\).</p>
+      <p><strong>(c)</strong> Cara langsung: satu kelas menyumbang \(2\) orang dan dua kelas lain masing-masing \(1\) orang. Kelas X \(2\) orang: \(\binom72\cdot8\cdot5=840\). Kelas XI \(2\) orang: \(\binom82\cdot7\cdot5=980\). Kelas XII \(2\) orang: \(\binom52\cdot7\cdot8=560\). Total \(840+980+560=2.380\). Cek komplemen: \(4.845-\binom{13}4-\binom{12}4-\binom{15}4+\binom54+\binom84+\binom74=4.845-715-495-1.365+5+70+35=2.380\).</p>
+      <p><strong>(d)</strong> Panitia yang memuat Ali dan Beni: pilih \(2\) lagi dari \(18\), \(\binom{18}2=153\). Panitia valid \(4.845-153=4.692\).</p>
+      <p class="penskoran"><em>Penskoran: (a) 1 poin; (b) 2 poin; (c) 3 poin; (d) 2 poin.</em></p>
+    </details>
+  </div>
+
+  <p class="tingkat"><strong>Tingkat Sulit</strong> <em>(soal 3 dan 4)</em></p>
+
+  <!-- Soal Uraian 3 -->
+  <div class="lesson-example soal-uraian">
+    <h4>Soal 3 <span class="poin">[8 poin]</span></h4>
+
+    <p>Misalkan \(S=\{1,2,3,\dots,8\}\).</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 280 160" role="img" aria-label="Dua baris petak bernomor 1 sampai 8: himpunan renggang {1,4,7} dan bukan renggang {2,3,6}" style="width: 100%; max-width: 280px; height: auto" font-size="12" font-family="inherit">
+<rect x="8" y="28" width="30" height="30" fill="#38bdf8" fill-opacity=".6" stroke="#2563eb" stroke-width="2"/><text x="23" y="48" text-anchor="middle" fill="currentColor" font-weight="bold">1</text><rect x="8" y="98" width="30" height="30" fill="none" fill-opacity=".5" stroke="#2563eb" stroke-width="2"/><text x="23" y="118" text-anchor="middle" fill="currentColor" >1</text><rect x="42" y="28" width="30" height="30" fill="none" fill-opacity=".6" stroke="#2563eb" stroke-width="2"/><text x="57" y="48" text-anchor="middle" fill="currentColor" >2</text><rect x="42" y="98" width="30" height="30" fill="#fb923c" fill-opacity=".5" stroke="#2563eb" stroke-width="2"/><text x="57" y="118" text-anchor="middle" fill="currentColor" font-weight="bold">2</text><rect x="76" y="28" width="30" height="30" fill="none" fill-opacity=".6" stroke="#2563eb" stroke-width="2"/><text x="91" y="48" text-anchor="middle" fill="currentColor" >3</text><rect x="76" y="98" width="30" height="30" fill="#fb923c" fill-opacity=".5" stroke="#2563eb" stroke-width="2"/><text x="91" y="118" text-anchor="middle" fill="currentColor" font-weight="bold">3</text><rect x="110" y="28" width="30" height="30" fill="#38bdf8" fill-opacity=".6" stroke="#2563eb" stroke-width="2"/><text x="125" y="48" text-anchor="middle" fill="currentColor" font-weight="bold">4</text><rect x="110" y="98" width="30" height="30" fill="none" fill-opacity=".5" stroke="#2563eb" stroke-width="2"/><text x="125" y="118" text-anchor="middle" fill="currentColor" >4</text><rect x="144" y="28" width="30" height="30" fill="none" fill-opacity=".6" stroke="#2563eb" stroke-width="2"/><text x="159" y="48" text-anchor="middle" fill="currentColor" >5</text><rect x="144" y="98" width="30" height="30" fill="none" fill-opacity=".5" stroke="#2563eb" stroke-width="2"/><text x="159" y="118" text-anchor="middle" fill="currentColor" >5</text><rect x="178" y="28" width="30" height="30" fill="none" fill-opacity=".6" stroke="#2563eb" stroke-width="2"/><text x="193" y="48" text-anchor="middle" fill="currentColor" >6</text><rect x="178" y="98" width="30" height="30" fill="#fb923c" fill-opacity=".5" stroke="#2563eb" stroke-width="2"/><text x="193" y="118" text-anchor="middle" fill="currentColor" font-weight="bold">6</text><rect x="212" y="28" width="30" height="30" fill="#38bdf8" fill-opacity=".6" stroke="#2563eb" stroke-width="2"/><text x="227" y="48" text-anchor="middle" fill="currentColor" font-weight="bold">7</text><rect x="212" y="98" width="30" height="30" fill="none" fill-opacity=".5" stroke="#2563eb" stroke-width="2"/><text x="227" y="118" text-anchor="middle" fill="currentColor" >7</text><rect x="246" y="28" width="30" height="30" fill="none" fill-opacity=".6" stroke="#2563eb" stroke-width="2"/><text x="261" y="48" text-anchor="middle" fill="currentColor" >8</text><rect x="246" y="98" width="30" height="30" fill="none" fill-opacity=".5" stroke="#2563eb" stroke-width="2"/><text x="261" y="118" text-anchor="middle" fill="currentColor" >8</text><text x="140" y="18" text-anchor="middle" fill="#0f766e" font-size="12">renggang: {1, 4, 7}</text><text x="140" y="148" text-anchor="middle" fill="#d97706" font-size="12">bukan renggang: {2, 3, 6}</text>
+</svg>
+</figure>
+    <ol type="a">
+      <li>Berapa banyak himpunan bagian dari \(S\), dan berapa banyak di antaranya yang beranggota \(3\) unsur?</li>
+      <li>Sebuah himpunan bagian disebut <em>renggang</em> jika tidak memuat dua bilangan berurutan (lihat gambar). Tentukan banyak himpunan bagian renggang beranggota \(3\) unsur, dengan memetakannya ke himpunan bagian dari \(\{1,\dots,6\}\).</li>
+      <li>Tentukan banyak <strong>semua</strong> himpunan bagian renggang dari \(S\) (termasuk himpunan kosong) dengan membuat hubungan rekursif.</li>
+      <li>Hitung \(\displaystyleplaystyle\sum_{k=0}^{4}\binom{9-k}{k}\) dan bandingkan dengan hasil (c).</li>
+    </ol>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p><strong>(a)</strong> Setiap unsur dipilih atau tidak: \(2^{8}=256\) himpunan bagian. Beranggota \(3\): \(\binom83=56\).</p>
+      <p><strong>(b)</strong> Misalkan unsur terurut \(a_1&lt;a_2&lt;a_3\) dengan selisih berurutan minimal \(2\). Petakan ke \((a_1,\,a_2-1,\,a_3-2)\), yang merupakan himpunan bagian tiga unsur dari \(\{1,\dots,6\}\) (selisih menjadi minimal \(1\)). Pemetaan ini bijektif, sehingga banyaknya \(\binom63=20\).</p>
+      <p><strong>(c)</strong> Misalkan \(a_n\) adalah banyak himpunan bagian renggang dari \(\{1,\dots,n\}\). Jika \(n\) tidak dipilih: \(a_{n-1}\) cara. Jika \(n\) dipilih, maka \(n-1\) tidak boleh dipilih: \(a_{n-2}\) cara. Jadi \(a_n=a_{n-1}+a_{n-2}\) dengan \(a_1=2\) dan \(a_2=3\). Diperoleh \(a_3=5\), \(a_4=8\), \(a_5=13\), \(a_6=21\), \(a_7=34\), \(a_8=55\).</p>
+      <p><strong>(d)</strong> Dengan pemetaan seperti (b), banyak himpunan renggang berukuran \(k\) adalah \(\binom{9-k}k\): \(\binom90+\binom81+\binom72+\binom63+\binom54=1+8+21+20+5=55\) (untuk \(k\ge5\) nilainya \(0\)). Hasilnya sama dengan (c).</p>
+      <p class="penskoran"><em>Penskoran: (a) 1 poin; (b) 3 poin; (c) 3 poin; (d) 1 poin.</em></p>
+    </details>
+  </div>
+
+  <!-- Soal Uraian 4 -->
+  <div class="lesson-example soal-uraian">
+    <h4>Soal 4 <span class="poin">[8 poin]</span></h4>
+
+    <p>Enam mahasiswa akan ditempatkan pada tiga laboratorium berbeda: Lab 1, Lab 2, dan Lab 3 (contoh penempatan \(3\)&ndash;\(2\)&ndash;\(1\) pada gambar).</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 250 128" role="img" aria-label="Tiga laboratorium: Lab 1 berisi 3 mahasiswa, Lab 2 berisi 2, Lab 3 berisi 1" style="width: 100%; max-width: 250px; height: auto" font-size="12" font-family="inherit">
+<rect x="10" y="10" width="64" height="88" rx="5" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/><text x="42" y="118" text-anchor="middle" fill="currentColor" font-weight="bold" font-size="12">Lab 1</text><circle cx="30" cy="26" r="6.5" fill="#0f8b7d"/><circle cx="30" cy="50" r="6.5" fill="#0f8b7d"/><circle cx="30" cy="74" r="6.5" fill="#0f8b7d"/><rect x="90" y="10" width="64" height="88" rx="5" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/><text x="122" y="118" text-anchor="middle" fill="currentColor" font-weight="bold" font-size="12">Lab 2</text><circle cx="110" cy="26" r="6.5" fill="#0f8b7d"/><circle cx="110" cy="50" r="6.5" fill="#0f8b7d"/><rect x="170" y="10" width="64" height="88" rx="5" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/><text x="202" y="118" text-anchor="middle" fill="currentColor" font-weight="bold" font-size="12">Lab 3</text><circle cx="190" cy="26" r="6.5" fill="#0f8b7d"/>
+</svg>
+</figure>
+    <ol type="a">
+      <li>Berapa banyak cara menempatkan keenam mahasiswa jika tidak ada syarat?</li>
+      <li>Berapa banyak cara jika Lab 1 tidak dipakai sama sekali?</li>
+      <li>Berapa banyak cara jika <strong>setiap lab terisi paling sedikit satu mahasiswa</strong>? Gunakan prinsip inklusi&ndash;eksklusi.</li>
+      <li>Jika ketiga lab dianggap identik (yang dihitung hanya cara membagi menjadi tiga kelompok tak kosong), berapa banyak cara? Jelaskan mengapa Anda membagi dengan \(3!\).</li>
+    </ol>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p><strong>(a)</strong> Tiap mahasiswa punya \(3\) pilihan lab: \(3^{6}=729\).</p>
+      <p><strong>(b)</strong> Lab 1 kosong berarti tiap mahasiswa hanya memilih Lab 2 atau Lab 3: \(2^{6}=64\).</p>
+      <p><strong>(c)</strong> Misalkan \(A_i\) adalah himpunan penempatan dengan Lab \(i\) kosong. \(|A_i|=2^{6}=64\), \(|A_i\cap A_j|=1\) (semua di lab ketiga), dan \(|A_1\cap A_2\cap A_3|=0\). Penempatan dengan semua lab terisi: \(729-3\cdot64+3\cdot1-0=540\).</p>
+      <p><strong>(d)</strong> Tiap pembagian menjadi tiga kelompok tak kosong yang tak bernama bersesuaian dengan tepat \(3!=6\) penempatan ke lab yang diberi nama (kelompok mana ke lab mana), semuanya berbeda karena kelompok-kelompoknya berbeda. Jadi \(\dfrac{540}{6}=90\). Cek: \(\dfrac{6!}{4!1!1!2!}+\dfrac{6!}{3!2!1!}+\dfrac{6!}{2!2!2!3!}=15+60+15=90\).</p>
+      <p class="penskoran"><em>Penskoran: (a) 1 poin; (b) 2 poin; (c) 3 poin; (d) 2 poin.</em></p>
+    </details>
+  </div>
+
+  <p class="tingkat"><strong>Tingkat HOTS</strong> <em>(soal 5)</em></p>
+
+  <!-- Soal Uraian 5 -->
+  <div class="lesson-example soal-uraian">
+    <h4>Soal 5 <span class="poin">[8 poin]</span></h4>
+
+    <p>Sebuah wahana menjual tiket seharga Rp50.000. Empat pengunjung membayar dengan uang pas Rp50.000 (simbol \(R\), langkah ke kanan) dan empat pengunjung membayar dengan uang Rp100.000 (simbol \(U\), langkah ke atas). Loket tidak memiliki uang kembalian di awal. Urutan kedatangan disebut <em>sah</em> jika di setiap saat loket mampu memberi kembalian, yaitu pada setiap awal urutan banyaknya \(R\) tidak kurang dari banyaknya \(U\). Pengunjung yang membayar dengan uang sama dianggap tidak dapat dibedakan. Setiap urutan menjadi lintasan dari \((0,0)\) ke \((4,4)\); urutan sah adalah lintasan yang tidak pernah melewati garis \(y=x\) ke atas.</p>
+<figure style="margin: 1rem auto; text-align: center">
+<svg viewBox="0 0 264 260" role="img" aria-label="Kisi 4 kali 4: lintasan biru sah, lintasan merah tak sah, garis putus-putus y=x dan y=x+1" style="width: 100%; max-width: 264px; height: auto" font-size="12" font-family="inherit">
+<clipPath id="c1"><rect x="24.0" y="22.0" width="216.0" height="216.0"/></clipPath>
+<line x1="24.0" y1="238.0" x2="24.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="78.0" y1="238.0" x2="78.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="132.0" y1="238.0" x2="132.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="186.0" y1="238.0" x2="186.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="240.0" y1="238.0" x2="240.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="238.0" x2="240.0" y2="238.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="184.0" x2="240.0" y2="184.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="130.0" x2="240.0" y2="130.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="76.0" x2="240.0" y2="76.0" stroke="currentColor" stroke-opacity=".13"/>
+<line x1="24.0" y1="22.0" x2="240.0" y2="22.0" stroke="currentColor" stroke-opacity=".13"/>
+<g clip-path="url(#c1)"><line x1="24.0" y1="238.0" x2="250.8" y2="11.2" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="5 4"/>
+<line x1="24.0" y1="184.0" x2="186.0" y2="22.0" stroke="#d97706" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="6 4"/>
+<line x1="24.0" y1="238.0" x2="132.0" y2="238.0" stroke="#2563eb" stroke-width="3.6" stroke-linecap="round"/>
+<line x1="132.0" y1="238.0" x2="132.0" y2="184.0" stroke="#2563eb" stroke-width="3.6" stroke-linecap="round"/>
+<line x1="132.0" y1="184.0" x2="186.0" y2="184.0" stroke="#2563eb" stroke-width="3.6" stroke-linecap="round"/>
+<line x1="186.0" y1="184.0" x2="186.0" y2="130.0" stroke="#2563eb" stroke-width="3.6" stroke-linecap="round"/>
+<line x1="186.0" y1="130.0" x2="240.0" y2="130.0" stroke="#2563eb" stroke-width="3.6" stroke-linecap="round"/>
+<line x1="240.0" y1="130.0" x2="240.0" y2="22.0" stroke="#2563eb" stroke-width="3.6" stroke-linecap="round"/>
+<line x1="24.0" y1="238.0" x2="24.0" y2="184.0" stroke="#dc2626" stroke-width="3.6" stroke-linecap="round"/>
+<line x1="24.0" y1="184.0" x2="78.0" y2="184.0" stroke="#dc2626" stroke-width="3.6" stroke-linecap="round"/>
+<line x1="78.0" y1="184.0" x2="78.0" y2="76.0" stroke="#dc2626" stroke-width="3.6" stroke-linecap="round"/>
+<line x1="78.0" y1="76.0" x2="186.0" y2="76.0" stroke="#dc2626" stroke-width="3.6" stroke-linecap="round"/>
+<line x1="186.0" y1="76.0" x2="186.0" y2="22.0" stroke="#dc2626" stroke-width="3.6" stroke-linecap="round"/>
+<line x1="186.0" y1="22.0" x2="240.0" y2="22.0" stroke="#dc2626" stroke-width="3.6" stroke-linecap="round"/></g>
+<circle cx="24.0" cy="238.0" r="3.6" fill="#7c2d12"/>
+<circle cx="240.0" cy="22.0" r="3.6" fill="#7c2d12"/>
+<text x="246.0" y="253.0" text-anchor="start" fill="currentColor">R</text>
+<text x="18.0" y="16.0" text-anchor="end" fill="currentColor">U</text>
+<text x="192.0" y="16.0" text-anchor="start" fill="#d97706">y = x + 1</text>
+<text x="233.0" y="204.2" text-anchor="end" fill="#2563eb">biru: sah</text>
+<text x="233.0" y="220.4" text-anchor="end" fill="#dc2626">merah: tak sah</text>
+</svg>
+</figure>
+    <ol type="a">
+      <li>Berapa banyak urutan kedatangan tanpa syarat?</li>
+      <li>Urutan tak sah pasti menyentuh garis \(y=x+1\). Pantulkan bagian lintasan sebelum sentuhan pertama terhadap garis tersebut, lalu tentukan banyak lintasan tak sah.</li>
+      <li>Tentukan banyak urutan sah.</li>
+      <li>Terapkan cara yang sama untuk \(5\) pengunjung \(R\) dan \(5\) pengunjung \(U\).</li>
+    </ol>
+
+    <details class="pembahasan">
+      <summary>Lihat pembahasan</summary>
+      <p><strong>(a)</strong> Urutan memuat \(4\) langkah \(R\) dan \(4\) langkah \(U\): \(\binom84=70\).</p>
+      <p><strong>(b)</strong> Urutan tak sah pasti menyentuh garis \(y=x+1\). Pantulkan bagian lintasan dari \((0,0)\) sampai sentuhan pertama terhadap garis \(y=x+1\): titik awal menjadi \((-1,1)\). Terjadi korespondensi satu-satu antara lintasan tak sah dan semua lintasan dari \((-1,1)\) ke \((4,4)\), yaitu \(5\) langkah \(R\) dan \(3\) langkah \(U\): \(\binom83=56\).</p>
+      <p><strong>(c)</strong> Urutan sah: \(70-56=14\).</p>
+      <p><strong>(d)</strong> Untuk \(5\) dan \(5\): semua lintasan \(\binom{10}5=252\). Tak sah: dari \((-1,1)\) ke \((5,5)\) ada \(6\) langkah \(R\) dan \(4\) langkah \(U\), \(\binom{10}4=210\). Sah: \(252-210=42\) (bilangan Catalan, sama dengan \(\dfrac1{6}\binom{10}5\)).</p>
+      <p class="penskoran"><em>Penskoran: (a) 1 poin; (b) 4 poin; (c) 1 poin; (d) 2 poin.</em></p>
+    </details>
+  </div>
+
+  <script>
+    (function () {
+      function init() {
+        var root = document.getElementById("latihan-kombinatorika");
+        if (!root || root.getAttribute("data-init")) return;
+        root.setAttribute("data-init", "1");
+
+        var pg = root.querySelectorAll(".soal-pg");
+        var is = root.querySelectorAll(".soal-isian");
+        var elSkorPg = root.querySelector("[data-skor-pg]");
+        var elJawabPg = root.querySelector("[data-jawab-pg]");
+        var elSkorIs = root.querySelector("[data-skor-is]");
+
+        function norm(s) {
+          return s
+            .toLowerCase()
+            .replace(/\s+/g, "")
+            .replace(/[*\u00b7\u00d7{}]/g, "")
+            .replace(/\u2212/g, "-")
+            .replace(/\u00b2/g, "^2")
+            .replace(/,/g, ".");
+        }
+        function has(el, c) {
+          return el.className && String(el.className).indexOf(c) > -1;
+        }
+
+        function hitung() {
+          var benar = 0,
+            jawab = 0,
+            benarIs = 0,
+            i;
+          for (i = 0; i < pg.length; i++) {
+            var c = pg[i].querySelector("input:checked");
+            if (c) {
+              jawab++;
+              if (c.parentNode.className.indexOf(" k") > -1) benar++;
+            }
+          }
+          for (i = 0; i < is.length; i++) {
+            if (is[i].getAttribute("data-status") === "benar") benarIs++;
+          }
+          elSkorPg.textContent = benar;
+          elJawabPg.textContent = jawab;
+          elSkorIs.textContent = benarIs;
+        }
+
+        function periksa(q) {
+          var inp = q.querySelector(".isian-input");
+          var um = q.querySelector(".isian-umpan");
+          var v = norm(inp.value);
+          if (!v) {
+            inp.focus();
+            return;
+          }
+          var kunci = q.getAttribute("data-kunci").split("|");
+          var ok = false;
+          for (var i = 0; i < kunci.length; i++) {
+            if (norm(kunci[i]) === v) {
+              ok = true;
+              break;
+            }
+          }
+          q.setAttribute("data-status", ok ? "benar" : "salah");
+          um.hidden = false;
+          um.textContent = ok
+            ? "Benar!"
+            : "Belum sesuai. Coba lagi, atau buka pembahasan (bentuk jawaban yang setara juga dapat benar).";
+          hitung();
+        }
+
+        function ulangi() {
+          var i, j;
+          for (i = 0; i < pg.length; i++) {
+            var r = pg[i].querySelectorAll("input");
+            for (j = 0; j < r.length; j++) {
+              r[j].checked = false;
+              r[j].disabled = false;
+            }
+          }
+          for (i = 0; i < is.length; i++) {
+            is[i].removeAttribute("data-status");
+            is[i].querySelector(".isian-input").value = "";
+            var um = is[i].querySelector(".isian-umpan");
+            um.hidden = true;
+            um.textContent = "";
+          }
+          var d = root.querySelectorAll("details");
+          for (i = 0; i < d.length; i++) d[i].removeAttribute("open");
+          hitung();
+        }
+
+        root.addEventListener("change", function (e) {
+          var t = e.target;
+          if (
+            t &&
+            t.type === "radio" &&
+            t.name.indexOf("kb-pg-") === 0
+          ) {
+            var grup = root.querySelectorAll('input[name="' + t.name + '"]');
+            for (var i = 0; i < grup.length; i++) grup[i].disabled = true;
+            hitung();
+          }
+        });
+
+        root.addEventListener("click", function (e) {
+          var el = e.target;
+          while (el && el !== root) {
+            if (el.className && typeof el.className === "string") {
+              if (el.className.indexOf("btn-cek") > -1) {
+                periksa(el.parentNode.parentNode);
+                return;
+              }
+              if (el.className.indexOf("btn-ulang") > -1) {
+                ulangi();
+                return;
+              }
+            }
+            el = el.parentNode;
+          }
+        });
+
+        root.addEventListener("keydown", function (e) {
+          if (
+            e.key === "Enter" &&
+            e.target.className &&
+            String(e.target.className).indexOf("isian-input") > -1
+          ) {
+            e.preventDefault();
+            periksa(e.target.parentNode.parentNode);
+          }
+        });
+      }
+      if (document.readyState === "loading")
+        document.addEventListener("DOMContentLoaded", init);
+      else init();
+    })();
+  </script>
+</section>

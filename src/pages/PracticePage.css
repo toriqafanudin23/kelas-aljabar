@@ -71,11 +71,65 @@
   line-height: 1.35;
 }
 
+.practice-search-wrap {
+  margin: 18px 0 20px;
+}
+
+.practice-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: min(100%, 420px);
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--muted);
+  box-shadow: 0 1px 2px rgba(18, 34, 52, 0.04);
+}
+
+.practice-search:focus-within {
+  border-color: var(--navy-bright);
+  box-shadow: 0 0 0 3px rgba(39, 98, 162, 0.1);
+}
+
+.practice-search svg {
+  flex-shrink: 0;
+  color: var(--navy-bright);
+}
+
+.practice-search input {
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+}
+
+.practice-search input:focus {
+  outline: none;
+}
+
 .practice-module-count {
   flex: 0 0 auto;
   color: var(--muted);
   font-size: 11px;
   font-weight: 700;
+}
+
+.practice-empty-state {
+  display: grid;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 24px 20px;
+  border: 1px dashed var(--line);
+  background: var(--paper);
+  color: var(--muted);
+}
+
+.practice-empty-state strong {
+  color: var(--navy);
+  font-size: 16px;
 }
 
 .practice-card-grid {

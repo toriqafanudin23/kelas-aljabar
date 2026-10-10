@@ -24,6 +24,13 @@ export type Page =
   | "practice-matriks"
   | "practice-lingkaran"
   | "practice-komposisi-fungsi-dan-invers"
+  | "practice-turunan"
+  | "practice-fungsi-pemodelan"
+  | "practice-transformasi-fungsi"
+  | "practice-kombinatorika"
+  | "practice-irisan-kerucut"
+  | "practice-integral"
+  | "practice-analisis-data-peluang"
   | string;
 export type Navigate = (
   event: MouseEvent<HTMLAnchorElement>,
@@ -113,6 +120,44 @@ export function getPageFromPath(path: string): Page {
   ) {
     return "practice-komposisi-fungsi-dan-invers";
   }
+  if (path === "/latihan-soal/turunan" || path === "/latihan-soal/turunan/") {
+    return "practice-turunan";
+  }
+  if (
+    path === "/latihan-soal/fungsi-pemodelan" ||
+    path === "/latihan-soal/fungsi-pemodelan/"
+  ) {
+    return "practice-fungsi-pemodelan";
+  }
+  if (
+    path === "/latihan-soal/transformasi-fungsi" ||
+    path === "/latihan-soal/transformasi-fungsi/"
+  ) {
+    return "practice-transformasi-fungsi";
+  }
+  if (
+    path === "/latihan-soal/kombinatorika" ||
+    path === "/latihan-soal/kombinatorika/"
+  ) {
+    return "practice-kombinatorika";
+  }
+  if (
+    path === "/latihan-soal/irisan-kerucut" ||
+    path === "/latihan-soal/irisan-kerucut/"
+  ) {
+    return "practice-irisan-kerucut";
+  }
+  if (path === "/latihan-soal/integral" || path === "/latihan-soal/integral/") {
+    return "practice-integral";
+  }
+  if (
+    path === "/latihan-soal/analisis-data-peluang" ||
+    path === "/latihan-soal/analisis-data-peluang/" ||
+    path === "/latihan-soal/analisis-data-dan-peluang" ||
+    path === "/latihan-soal/analisis-data-dan-peluang/"
+  ) {
+    return "practice-analisis-data-peluang";
+  }
   if (path === "/simulasi" || path === "/simulasi/") return "simulation";
   if (
     path === "/simulasi-interaktif" ||
@@ -158,6 +203,23 @@ export function getPathFromPage(page: Page): string {
   if (page === "practice-lingkaran") return "/latihan-soal/lingkaran";
   if (page === "practice-komposisi-fungsi-dan-invers") {
     return "/latihan-soal/komposisi-fungsi-dan-invers";
+  }
+  if (page === "practice-turunan") return "/latihan-soal/turunan";
+  if (page === "practice-fungsi-pemodelan") {
+    return "/latihan-soal/fungsi-pemodelan";
+  }
+  if (page === "practice-transformasi-fungsi") {
+    return "/latihan-soal/transformasi-fungsi";
+  }
+  if (page === "practice-kombinatorika") {
+    return "/latihan-soal/kombinatorika";
+  }
+  if (page === "practice-irisan-kerucut") {
+    return "/latihan-soal/irisan-kerucut";
+  }
+  if (page === "practice-integral") return "/latihan-soal/integral";
+  if (page === "practice-analisis-data-peluang") {
+    return "/latihan-soal/analisis-data-peluang";
   }
   if (page === "simulation") return "/simulasi";
   if (page === "simulation-play") return "/simulasi-interaktif";

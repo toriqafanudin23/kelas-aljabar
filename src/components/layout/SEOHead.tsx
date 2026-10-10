@@ -466,6 +466,182 @@ export function SEOHead({ page }: SEOHeadProps) {
           };
           break;
 
+        case "practice-turunan":
+          meta = {
+            title: "Latihan Soal Turunan Kelas XII | Math 1729",
+            description:
+              "Kerjakan latihan interaktif turunan fungsi dengan soal tentang definisi turunan, aturan rantai, fungsi naik-turun, dan aplikasi optimasi. Dilengkapi pembahasan dan skor.",
+            keywords:
+              "latihan soal turunan kelas 12, turunan fungsi, aturan rantai, aplikasi turunan, fungsi naik turun, kalkulus sma",
+            ogType: "article",
+            schema: {
+              "@context": "https://schema.org",
+              "@type": "LearningResource",
+              name: "Latihan Soal Turunan",
+              learningResourceType: "Quiz",
+              educationalLevel: "Kelas XII",
+              inLanguage: "id",
+              url: currentUrl,
+              provider: {
+                "@type": "EducationalOrganization",
+                name: "Math 1729",
+                url: BASE_URL,
+              },
+            },
+          };
+          break;
+
+        case "practice-fungsi-pemodelan":
+          meta = {
+            title: "Latihan Soal Fungsi dan Pemodelan Kelas XII | Math 1729",
+            description:
+              "Kerjakan latihan interaktif fungsi dan pemodelan tentang domain, range, operasi fungsi, transformasi grafik, dan penerapan matematika pada situasi nyata. Dilengkapi pembahasan dan skor.",
+            keywords:
+              "latihan soal fungsi dan pemodelan kelas 12, fungsi matematika, domain range, transformasi grafik, pemodelan matematika, soal fungsi kelas XII",
+            ogType: "article",
+            schema: {
+              "@context": "https://schema.org",
+              "@type": "LearningResource",
+              name: "Latihan Soal Fungsi dan Pemodelan",
+              learningResourceType: "Quiz",
+              educationalLevel: "Kelas XII",
+              inLanguage: "id",
+              url: currentUrl,
+              provider: {
+                "@type": "EducationalOrganization",
+                name: "Math 1729",
+                url: BASE_URL,
+              },
+            },
+          };
+          break;
+
+        case "practice-transformasi-fungsi":
+          meta = {
+            title: "Latihan Soal Transformasi Fungsi Kelas XII | Math 1729",
+            description:
+              "Kerjakan latihan interaktif transformasi fungsi dengan soal tentang translasi, refleksi, dilatasi, dan komposisi transformasi. Dilengkapi pembahasan dan skor.",
+            keywords:
+              "latihan soal transformasi fungsi kelas 12, translasi refleksi dilatasi fungsi, komposisi transformasi, grafik fungsi, pemodelan fungsi",
+            ogType: "article",
+            schema: {
+              "@context": "https://schema.org",
+              "@type": "LearningResource",
+              name: "Latihan Soal Transformasi Fungsi",
+              learningResourceType: "Quiz",
+              educationalLevel: "Kelas XII",
+              inLanguage: "id",
+              url: currentUrl,
+              provider: {
+                "@type": "EducationalOrganization",
+                name: "Math 1729",
+                url: BASE_URL,
+              },
+            },
+          };
+          break;
+
+        case "practice-kombinatorika":
+          meta = {
+            title: "Latihan Soal Kombinatorika Kelas XII | Math 1729",
+            description:
+              "Kerjakan latihan interaktif kombinatorika tentang aturan pencacahan, permutasi, kombinasi, dan pemecahan masalah kontekstual. Dilengkapi pembahasan dan skor.",
+            keywords:
+              "latihan soal kombinatorika kelas 12, aturan pencacahan, permutasi dan kombinasi, soal kombinatorika sma, pembahasan kombinatorika",
+            ogType: "article",
+            schema: {
+              "@context": "https://schema.org",
+              "@type": "LearningResource",
+              name: "Latihan Soal Kombinatorika",
+              learningResourceType: "Quiz",
+              educationalLevel: "Kelas XII",
+              inLanguage: "id",
+              url: currentUrl,
+              provider: {
+                "@type": "EducationalOrganization",
+                name: "Math 1729",
+                url: BASE_URL,
+              },
+            },
+          };
+          break;
+
+        case "practice-irisan-kerucut":
+          meta = {
+            title: "Latihan Soal Irisan Kerucut Kelas XII | Math 1729",
+            description:
+              "Kerjakan latihan interaktif irisan kerucut tentang parabola, elips, hiperbola, dan persamaan kurva. Dilengkapi pembahasan dan skor.",
+            keywords:
+              "latihan soal irisan kerucut kelas 12, parabola elips hiperbola, persamaan irisan kerucut, geometri analitik sma, pembahasan irisan kerucut",
+            ogType: "article",
+            schema: {
+              "@context": "https://schema.org",
+              "@type": "LearningResource",
+              name: "Latihan Soal Irisan Kerucut",
+              learningResourceType: "Quiz",
+              educationalLevel: "Kelas XII",
+              inLanguage: "id",
+              url: currentUrl,
+              provider: {
+                "@type": "EducationalOrganization",
+                name: "Math 1729",
+                url: BASE_URL,
+              },
+            },
+          };
+          break;
+
+        case "practice-integral":
+          meta = {
+            title: "Latihan Soal Integral Kelas XII | Math 1729",
+            description:
+              "Kerjakan latihan interaktif integral tentang antiturunan, integral tentu, substitusi, luas daerah, dan volume benda putar. Dilengkapi pembahasan dan skor.",
+            keywords:
+              "latihan soal integral kelas 12, integral tentu, antiturunan, luas daerah, volume benda putar, kalkulus sma",
+            ogType: "article",
+            schema: {
+              "@context": "https://schema.org",
+              "@type": "LearningResource",
+              name: "Latihan Soal Integral",
+              learningResourceType: "Quiz",
+              educationalLevel: "Kelas XII",
+              inLanguage: "id",
+              url: currentUrl,
+              provider: {
+                "@type": "EducationalOrganization",
+                name: "Math 1729",
+                url: BASE_URL,
+              },
+            },
+          };
+          break;
+
+        case "practice-analisis-data-peluang":
+          meta = {
+            title:
+              "Latihan Soal Analisis Data dan Peluang Kelas XII | Math 1729",
+            description:
+              "Kerjakan latihan interaktif analisis data dan peluang tentang distribusi data, ukuran pemusatan, probabilitas, dan analisis keputusan. Dilengkapi pembahasan dan skor.",
+            keywords:
+              "latihan soal analisis data dan peluang kelas 12, statistik peluang sma, ukuran pemusatan, distribusi data, probabilitas, pembahasan analisis data",
+            ogType: "article",
+            schema: {
+              "@context": "https://schema.org",
+              "@type": "LearningResource",
+              name: "Latihan Soal Analisis Data dan Peluang",
+              learningResourceType: "Quiz",
+              educationalLevel: "Kelas XII",
+              inLanguage: "id",
+              url: currentUrl,
+              provider: {
+                "@type": "EducationalOrganization",
+                name: "Math 1729",
+                url: BASE_URL,
+              },
+            },
+          };
+          break;
+
         case "shop":
           meta = {
             title:

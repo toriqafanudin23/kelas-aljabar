@@ -1,4 +1,5 @@
-import { ArrowRight, Clock3, FileQuestion, Trophy } from "lucide-react";
+import { useMemo, useState } from "react";
+import { ArrowRight, Clock3, FileQuestion, Search, Trophy } from "lucide-react";
 import type { Navigate } from "../types/navigation";
 import "./PracticePage.css";
 
@@ -171,9 +172,116 @@ const practiceModules = [
     points: 100,
     duration: 120,
   },
+  {
+    id: "14",
+    page: "practice-turunan",
+    href: "/latihan-soal/turunan",
+    title: "Turunan Fungsi",
+    description:
+      "Latih definisi turunan, aturan-aturan diferensiasi, aplikasi pada garis singgung, dan masalah optimasi dengan soal interaktif serta pembahasan.",
+    topics: ["Definisi turunan", "Aturan rantai", "Aplikasi turunan"],
+    questionCount: 30,
+    points: 100,
+    duration: 120,
+  },
+  {
+    id: "15",
+    page: "practice-fungsi-pemodelan",
+    href: "/latihan-soal/fungsi-pemodelan",
+    title: "Fungsi dan Pemodelan",
+    description:
+      "Latih fungsi, domain dan range, operasi fungsi, transformasi grafik, serta pemodelan matematika dari situasi nyata melalui soal interaktif dan pembahasan.",
+    topics: ["Definisi fungsi", "Domain dan range", "Pemodelan"],
+    questionCount: 30,
+    points: 100,
+    duration: 120,
+  },
+  {
+    id: "16",
+    page: "practice-transformasi-fungsi",
+    href: "/latihan-soal/transformasi-fungsi",
+    title: "Transformasi Fungsi",
+    description:
+      "Latih translasi, refleksi, dilatasi, dan komposisi transformasi pada grafik fungsi serta interpretasinya melalui soal interaktif dan pembahasan.",
+    topics: ["Translasi", "Refleksi", "Dilatasi"],
+    questionCount: 30,
+    points: 100,
+    duration: 120,
+  },
+  {
+    id: "17",
+    page: "practice-kombinatorika",
+    href: "/latihan-soal/kombinatorika",
+    title: "Kombinatorika",
+    description:
+      "Latih aturan pencacahan, permutasi, kombinasi, dan penerapannya dalam masalah kontekstual dengan soal interaktif serta pembahasan.",
+    topics: ["Aturan pencacahan", "Permutasi", "Kombinasi"],
+    questionCount: 30,
+    points: 100,
+    duration: 120,
+  },
+  {
+    id: "18",
+    page: "practice-irisan-kerucut",
+    href: "/latihan-soal/irisan-kerucut",
+    title: "Irisan Kerucut",
+    description:
+      "Latih parabola, elips, dan hiperbola melalui persamaan, unsur-unsur kurva, serta penerapan geometri analitik dengan soal interaktif dan pembahasan.",
+    topics: ["Parabola", "Elips", "Hiperbola"],
+    questionCount: 30,
+    points: 100,
+    duration: 120,
+  },
+  {
+    id: "19",
+    page: "practice-integral",
+    href: "/latihan-soal/integral",
+    title: "Integral",
+    description:
+      "Latih antiturunan, integral tentu, teknik substitusi, luas daerah, dan volume benda putar dengan soal interaktif serta pembahasan.",
+    topics: ["Antiturunan", "Integral tentu", "Luas dan volume"],
+    questionCount: 30,
+    points: 100,
+    duration: 120,
+  },
+  {
+    id: "20",
+    page: "practice-analisis-data-peluang",
+    href: "/latihan-soal/analisis-data-peluang",
+    title: "Analisis Data dan Peluang",
+    description:
+      "Latih penyajian data, ukuran pemusatan, distribusi peluang, dan penerapan statistika serta peluang dalam konteks nyata melalui soal interaktif dan pembahasan.",
+    topics: ["Data dan statistik", "Ukuran pemusatan", "Peluang"],
+    questionCount: 30,
+    points: 100,
+    duration: 120,
+  },
 ];
 
 export function PracticePage({ navigate }: PracticePageProps) {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredModules = useMemo(() => {
+    const normalizedQuery = searchTerm.trim().toLowerCase();
+
+    if (!normalizedQuery) {
+      return practiceModules;
+    }
+
+    return practiceModules.filter((module) => {
+      const haystack = [
+        module.title,
+        module.description,
+        module.page,
+        ...module.topics,
+      ]
+        .join(" ")
+        .toLowerCase();
+
+      return haystack.includes(normalizedQuery);
+    });
+  }, [searchTerm]);
+
   const totalQuestions = practiceModules.reduce(
     (total, module) => total + module.questionCount,
     0,
@@ -220,53 +328,81 @@ export function PracticePage({ navigate }: PracticePageProps) {
             <h2>Mulai dari materi yang ingin kamu latih</h2>
           </div>
           <span className="practice-module-count">
-            {practiceModules.length} paket
+            {filteredModules.length} paket
           </span>
         </div>
-        <div className="practice-card-grid">
-          {practiceModules.map((module) => (
-            <a
-              key={module.page}
-              className="practice-card"
-              href={module.href}
-              onClick={(event) =>
-                navigate(event, module.page as Parameters<Navigate>[1])
-              }
-            >
-              <div className="practice-card-heading">
-                <span className="practice-card-index">PAKET {module.id}</span>
-                <span className="practice-card-question-count">
-                  <FileQuestion size={15} aria-hidden="true" />
-                  {module.questionCount} soal
-                </span>
-              </div>
-              <div className="practice-card-main">
-                <h3>{module.title}</h3>
-                <p>{module.description}</p>
-              </div>
-              <div className="practice-card-topics" aria-label="Fokus materi">
-                {module.topics.map((topic) => (
-                  <span className="practice-topic" key={topic}>
-                    {topic}
-                  </span>
-                ))}
-              </div>
-              <div className="practice-card-details">
-                <span>
-                  <Clock3 size={15} aria-hidden="true" />
-                  {module.duration} menit
-                </span>
-                <span>
-                  <Trophy size={15} aria-hidden="true" />
-                  {module.points} poin
-                </span>
-              </div>
-              <span className="practice-card-cta">
-                Mulai latihan <ArrowRight size={16} aria-hidden="true" />
-              </span>
-            </a>
-          ))}
+
+        <div className="practice-search-wrap">
+          <label className="practice-search" htmlFor="practice-search-input">
+            <Search size={16} aria-hidden="true" />
+            <input
+              id="practice-search-input"
+              type="search"
+              value={searchTerm}
+              onChange={(event) => setSearchTerm(event.target.value)}
+              placeholder="Cari materi atau topik..."
+              aria-label="Cari latihan soal"
+            />
+          </label>
         </div>
+
+        {filteredModules.length === 0 ? (
+          <div
+            className="practice-empty-state"
+            role="status"
+            aria-live="polite"
+          >
+            <strong>Tidak ada latihan yang cocok.</strong>
+            <span>
+              Coba kata kunci lain seperti “turunan”, “fungsi”, atau “geometri”.
+            </span>
+          </div>
+        ) : (
+          <div className="practice-card-grid">
+            {filteredModules.map((module) => (
+              <a
+                key={module.page}
+                className="practice-card"
+                href={module.href}
+                onClick={(event) =>
+                  navigate(event, module.page as Parameters<Navigate>[1])
+                }
+              >
+                <div className="practice-card-heading">
+                  <span className="practice-card-index">PAKET {module.id}</span>
+                  <span className="practice-card-question-count">
+                    <FileQuestion size={15} aria-hidden="true" />
+                    {module.questionCount} soal
+                  </span>
+                </div>
+                <div className="practice-card-main">
+                  <h3>{module.title}</h3>
+                  <p>{module.description}</p>
+                </div>
+                <div className="practice-card-topics" aria-label="Fokus materi">
+                  {module.topics.map((topic) => (
+                    <span className="practice-topic" key={topic}>
+                      {topic}
+                    </span>
+                  ))}
+                </div>
+                <div className="practice-card-details">
+                  <span>
+                    <Clock3 size={15} aria-hidden="true" />
+                    {module.duration} menit
+                  </span>
+                  <span>
+                    <Trophy size={15} aria-hidden="true" />
+                    {module.points} poin
+                  </span>
+                </div>
+                <span className="practice-card-cta">
+                  Mulai latihan <ArrowRight size={16} aria-hidden="true" />
+                </span>
+              </a>
+            ))}
+          </div>
+        )}
       </section>
     </main>
   );

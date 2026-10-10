@@ -39,12 +39,7 @@ interface ShopPageProps {
 }
 
 type CategoryFilter =
-  | "semua"
-  | "paket-soal"
-  | "slide"
-  | "modul-bahan"
-  | "tka"
-  | "satuan";
+  "semua" | "paket-soal" | "slide" | "modul-bahan" | "tka" | "satuan";
 
 function buildEmailLink(subject: string, body: string) {
   return `mailto:${ORDER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -64,7 +59,9 @@ function buildSatuanEmailBody(item: SatuanItem) {
 export function ShopPage({ navigate: _navigate }: ShopPageProps) {
   const [activeCategory, setActiveCategory] = useState<CategoryFilter>("semua");
   const [searchQuery, setSearchQuery] = useState("");
-  const [expandedCards, setExpandedCards] = useState<Record<string, boolean>>({});
+  const [expandedCards, setExpandedCards] = useState<Record<string, boolean>>(
+    {},
+  );
   const [copiedAccount, setCopiedAccount] = useState<string | null>(null);
 
   const toggleExpand = (id: string) => {
@@ -81,6 +78,13 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
 
   const scrollToCatalog = () => {
     const el = document.getElementById("katalog-produk");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
+  const scrollToOrderFlow = () => {
+    const el = document.getElementById("cara-memesan");
     if (el) {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
     }
@@ -199,9 +203,13 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
       const matchBadge = item.gradeBadge.toLowerCase().includes(q);
       const matchDesc = item.desc.toLowerCase().includes(q);
       const matchTopics = item.items?.some((t) => t.toLowerCase().includes(q));
-      const matchBenefits = item.benefits?.some((b) => b.toLowerCase().includes(q));
+      const matchBenefits = item.benefits?.some((b) =>
+        b.toLowerCase().includes(q),
+      );
 
-      return matchTitle || matchBadge || matchDesc || matchTopics || matchBenefits;
+      return (
+        matchTitle || matchBadge || matchDesc || matchTopics || matchBenefits
+      );
     });
   }, [catalogItems, activeCategory, searchQuery]);
 
@@ -247,10 +255,11 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
           </div>
           <h1>Bahan Ajar, Bank Soal, dan Slide Presentasi Siap Pakai</h1>
           <p className="shop-hero-desc">
-            Dapatkan paket soal terstruktur, slide presentasi interaktif, latihan
-            TKA, dan modul pembelajaran mendalam. Tersedia format ganda{" "}
-            <strong>PDF siap cetak</strong> dan <strong>source LaTeX (.tex)</strong>{" "}
-            yang bebas dimodifikasi sesuai kurikulum kelas Anda.
+            Dapatkan paket soal terstruktur, slide presentasi interaktif,
+            latihan TKA, dan modul pembelajaran mendalam. Tersedia format ganda{" "}
+            <strong>PDF siap cetak</strong> dan{" "}
+            <strong>source LaTeX (.tex)</strong> yang bebas dimodifikasi sesuai
+            kurikulum kelas Anda.
           </p>
           <div className="shop-hero-actions">
             <button
@@ -269,12 +278,13 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
               <MessageCircle size={17} aria-hidden="true" />
               Chat Admin WA (Konsultasi Cepat)
             </a>
-            <a
-              href="#cara-memesan"
+            <button
+              type="button"
+              onClick={scrollToOrderFlow}
               className="shop-btn-outline-hero"
             >
               Alur Pemesanan
-            </a>
+            </button>
           </div>
         </div>
 
@@ -306,7 +316,10 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
           </div>
           <div className="shop-trust-content">
             <h3>Preview Transparan</h3>
-            <p>Periksa pratinjau dokumen asli PDF sebelum memutuskan melakukan transfer.</p>
+            <p>
+              Periksa pratinjau dokumen asli PDF sebelum memutuskan melakukan
+              transfer.
+            </p>
           </div>
         </div>
 
@@ -316,7 +329,9 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
           </div>
           <div className="shop-trust-content">
             <h3>Kirim Maks. 1 Jam</h3>
-            <p>File dikirim cepat setelah konfirmasi pembayaran diterima admin.</p>
+            <p>
+              File dikirim cepat setelah konfirmasi pembayaran diterima admin.
+            </p>
           </div>
         </div>
 
@@ -326,7 +341,10 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
           </div>
           <div className="shop-trust-content">
             <h3>Format PDF &amp; LaTeX</h3>
-            <p>File siap cetak kualitas tinggi + source code LaTeX yang rapi dan terstruktur.</p>
+            <p>
+              File siap cetak kualitas tinggi + source code LaTeX yang rapi dan
+              terstruktur.
+            </p>
           </div>
         </div>
 
@@ -336,17 +354,25 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
           </div>
           <div className="shop-trust-content">
             <h3>Dukungan Langsung</h3>
-            <p>Konsultasi ramah via WhatsApp untuk pemesanan kustom atau pertanyaan teknis.</p>
+            <p>
+              Konsultasi ramah via WhatsApp untuk pemesanan kustom atau
+              pertanyaan teknis.
+            </p>
           </div>
         </div>
       </section>
 
       {/* Spotlight: Modul Ajar Pembelajaran Mendalam */}
-      <section className="shop-spotlight" aria-label="Produk Unggulan Modul Ajar">
+      <section
+        className="shop-spotlight"
+        aria-label="Produk Unggulan Modul Ajar"
+      >
         <div className="shop-spotlight-inner">
           <div className="shop-spotlight-main">
             <div className="shop-spotlight-badges">
-              <span className="badge-tag badge-tag--green">PROMO SPESIAL 75%</span>
+              <span className="badge-tag badge-tag--green">
+                PROMO SPESIAL 75%
+              </span>
               <span className="badge-tag badge-tag--navy">PRODUK BARU</span>
             </div>
             <h2 className="shop-spotlight-title">
@@ -354,20 +380,27 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
             </h2>
             <div className="shop-spotlight-price">
               <del>{MODUL_AJAR_PEMBELAJARAN_MENDALAM.originalPrice}</del>
-              <span className="current">{MODUL_AJAR_PEMBELAJARAN_MENDALAM.price}</span>
+              <span className="current">
+                {MODUL_AJAR_PEMBELAJARAN_MENDALAM.price}
+              </span>
               <span className="note">/ per materi pilihan</span>
             </div>
             <p className="shop-spotlight-desc">
               Modul ajar kurikulum mendalam dirancang berorientasi konsep dan
-              pemahaman bermakna. Anda bebas memilih salah satu materi yang diinginkan.
+              pemahaman bermakna. Anda bebas memilih salah satu materi yang
+              diinginkan.
             </p>
-            <div className="shop-spotlight-topics-label">Materi Siap Pakai:</div>
+            <div className="shop-spotlight-topics-label">
+              Materi Siap Pakai:
+            </div>
             <div className="shop-spotlight-chips">
-              {MODUL_AJAR_PEMBELAJARAN_MENDALAM.availableMaterials.map((mat) => (
-                <span key={mat} className="shop-topic-chip">
-                  {mat}
-                </span>
-              ))}
+              {MODUL_AJAR_PEMBELAJARAN_MENDALAM.availableMaterials.map(
+                (mat) => (
+                  <span key={mat} className="shop-topic-chip">
+                    {mat}
+                  </span>
+                ),
+              )}
             </div>
             <p className="shop-spotlight-preorder">
               * {MODUL_AJAR_PEMBELAJARAN_MENDALAM.preorderMessage}
@@ -446,7 +479,9 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
               onClick={() => setActiveCategory("semua")}
             >
               Semua
-              <span className="shop-filter-tab-count">{categoryCounts.semua}</span>
+              <span className="shop-filter-tab-count">
+                {categoryCounts.semua}
+              </span>
             </button>
             <button
               type="button"
@@ -456,7 +491,9 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
               onClick={() => setActiveCategory("paket-soal")}
             >
               Paket Soal
-              <span className="shop-filter-tab-count">{categoryCounts["paket-soal"]}</span>
+              <span className="shop-filter-tab-count">
+                {categoryCounts["paket-soal"]}
+              </span>
             </button>
             <button
               type="button"
@@ -466,7 +503,9 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
               onClick={() => setActiveCategory("slide")}
             >
               Slide Presentasi
-              <span className="shop-filter-tab-count">{categoryCounts.slide}</span>
+              <span className="shop-filter-tab-count">
+                {categoryCounts.slide}
+              </span>
             </button>
             <button
               type="button"
@@ -476,7 +515,9 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
               onClick={() => setActiveCategory("modul-bahan")}
             >
               Modul &amp; Bahan
-              <span className="shop-filter-tab-count">{categoryCounts["modul-bahan"]}</span>
+              <span className="shop-filter-tab-count">
+                {categoryCounts["modul-bahan"]}
+              </span>
             </button>
             <button
               type="button"
@@ -486,7 +527,9 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
               onClick={() => setActiveCategory("tka")}
             >
               Latihan TKA
-              <span className="shop-filter-tab-count">{categoryCounts.tka}</span>
+              <span className="shop-filter-tab-count">
+                {categoryCounts.tka}
+              </span>
             </button>
             <button
               type="button"
@@ -496,7 +539,9 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
               onClick={() => setActiveCategory("satuan")}
             >
               Custom / Satuan
-              <span className="shop-filter-tab-count">{categoryCounts.satuan}</span>
+              <span className="shop-filter-tab-count">
+                {categoryCounts.satuan}
+              </span>
             </button>
           </div>
         </div>
@@ -525,11 +570,16 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
 
       {/* Product Catalog Grid (Unless user clicked "Item Satuan") */}
       {activeCategory !== "satuan" && (
-        <section className="shop-catalog-section" aria-label="Daftar Paket Produk">
+        <section
+          className="shop-catalog-section"
+          aria-label="Daftar Paket Produk"
+        >
           {filteredProducts.length === 0 ? (
             <div className="shop-empty-state">
               <h3>Produk tidak ditemukan</h3>
-              <p>Tidak ada paket yang sesuai dengan kata kunci pencarian Anda.</p>
+              <p>
+                Tidak ada paket yang sesuai dengan kata kunci pencarian Anda.
+              </p>
               <button
                 type="button"
                 className="shop-btn-primary"
@@ -557,9 +607,13 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
                 return (
                   <article key={product.id} className="shop-product-card">
                     <div className="shop-card-badge-row">
-                      <span className="shop-badge-grade">{product.gradeBadge}</span>
+                      <span className="shop-badge-grade">
+                        {product.gradeBadge}
+                      </span>
                       {product.promoBadge && (
-                        <span className="shop-badge-promo">{product.promoBadge}</span>
+                        <span className="shop-badge-promo">
+                          {product.promoBadge}
+                        </span>
                       )}
                     </div>
 
@@ -567,7 +621,9 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
                       <h3 className="shop-card-title">{product.title}</h3>
 
                       <div className="shop-card-price-row">
-                        {product.originalPrice && <del>{product.originalPrice}</del>}
+                        {product.originalPrice && (
+                          <del>{product.originalPrice}</del>
+                        )}
                         <span className="price-val">{product.price}</span>
                       </div>
 
@@ -597,11 +653,13 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
                             >
                               {isExpanded ? (
                                 <>
-                                  Tampilkan Lebih Sedikit <ChevronUp size={13} />
+                                  Tampilkan Lebih Sedikit{" "}
+                                  <ChevronUp size={13} />
                                 </>
                               ) : (
                                 <>
-                                  + {hiddenCount} Materi Lainnya <ChevronDown size={13} />
+                                  + {hiddenCount} Materi Lainnya{" "}
+                                  <ChevronDown size={13} />
                                 </>
                               )}
                             </button>
@@ -616,7 +674,11 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
                           <ul className="shop-card-topics-list">
                             {product.benefits.map((benefit) => (
                               <li key={benefit}>
-                                <Check size={14} className="shop-check-svg" aria-hidden="true" />
+                                <Check
+                                  size={14}
+                                  className="shop-check-svg"
+                                  aria-hidden="true"
+                                />
                                 <span>{benefit}</span>
                               </li>
                             ))}
@@ -639,7 +701,10 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
                     <div className="shop-card-footer">
                       {/* Primary WhatsApp order button */}
                       <a
-                        href={buildWhatsAppOrderLink(product.title, product.price)}
+                        href={buildWhatsAppOrderLink(
+                          product.title,
+                          product.price,
+                        )}
                         target="_blank"
                         rel="noreferrer"
                         className="shop-btn-action-primary"
@@ -671,7 +736,10 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
                         )}
 
                         <a
-                          href={buildEmailLink(product.emailSubject, product.emailBody)}
+                          href={buildEmailLink(
+                            product.emailSubject,
+                            product.emailBody,
+                          )}
                           className="shop-btn-action-mail"
                           title="Pesan via Email"
                         >
@@ -696,12 +764,15 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
           aria-label="Pembelian Per File atau Custom"
         >
           <div className="shop-satuan-heading">
-            <span className="badge-tag badge-tag--navy">FLEKSIBEL &amp; HEMAT</span>
+            <span className="badge-tag badge-tag--navy">
+              FLEKSIBEL &amp; HEMAT
+            </span>
             <h2>Pembelian Per File atau Kustomisasi</h2>
             <p>
-              Hanya butuh satu materi tertentu atau membutuhkan LKPD khusus berbasis
-              Discovery / Problem Based Learning? Kami menyediakan opsi satuan dan
-              pembuatan bahan ajar kustom sesuai indikator pembelajaran sekolah Anda.
+              Hanya butuh satu materi tertentu atau membutuhkan LKPD khusus
+              berbasis Discovery / Problem Based Learning? Kami menyediakan opsi
+              satuan dan pembuatan bahan ajar kustom sesuai indikator
+              pembelajaran sekolah Anda.
             </p>
           </div>
 
@@ -743,11 +814,18 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
       )}
 
       {/* Cara Memesan (3-Step Order Flow) */}
-      <section id="cara-memesan" className="shop-flow-section" aria-label="Alur Pemesanan">
+      <section
+        id="cara-memesan"
+        className="shop-flow-section"
+        aria-label="Alur Pemesanan"
+      >
         <div className="shop-flow-header">
           <span className="badge-tag badge-tag--navy">PANDUAN PEMESANAN</span>
           <h2>Cara Memesan Produk di Math 1729</h2>
-          <p>Proses pemesanan mudah, cepat, dan transparan dalam 3 langkah sederhana.</p>
+          <p>
+            Proses pemesanan mudah, cepat, dan transparan dalam 3 langkah
+            sederhana.
+          </p>
         </div>
 
         <div className="shop-flow-steps-grid">
@@ -756,7 +834,8 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
             <strong>Pilih Produk &amp; Tinjau Preview</strong>
             <p>
               Pilih paket materi yang Anda butuhkan. Anda dapat membuka tombol{" "}
-              <em>Preview PDF</em> pada setiap kartu produk untuk memastikan kesesuaian isi materi.
+              <em>Preview PDF</em> pada setiap kartu produk untuk memastikan
+              kesesuaian isi materi.
             </p>
           </div>
 
@@ -764,8 +843,9 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
             <span className="shop-flow-step-num">LANGKAH 02</span>
             <strong>Konfirmasi &amp; Transfer Pembayaran</strong>
             <p>
-              Hubungi admin melalui WhatsApp atau Email. Lakukan transfer ke salah satu
-              rekening resmi (BNI, BRI, ShopeePay) lalu kirimkan bukti pembayaran.
+              Hubungi admin melalui WhatsApp atau Email. Lakukan transfer ke
+              salah satu rekening resmi (BNI, BRI, ShopeePay) lalu kirimkan
+              bukti pembayaran.
             </p>
           </div>
 
@@ -773,20 +853,24 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
             <span className="shop-flow-step-num">LANGKAH 03</span>
             <strong>Terima File Asli (&lt; 1 Jam)</strong>
             <p>
-              File dokumen lengkap dalam format <code>.pdf</code> siap cetak dan source code{" "}
-              <code>.tex</code> akan dikirimkan langsung maksimal 1 jam setelah konfirmasi.
+              File dokumen lengkap dalam format <code>.pdf</code> siap cetak dan
+              source code <code>.tex</code> akan dikirimkan langsung maksimal 1
+              jam setelah konfirmasi.
             </p>
           </div>
         </div>
       </section>
 
       {/* Informasi Rekening Pembayaran Terverifikasi */}
-      <section className="shop-payment-section" aria-label="Informasi Rekening Pembayaran">
+      <section
+        className="shop-payment-section"
+        aria-label="Informasi Rekening Pembayaran"
+      >
         <div className="shop-payment-header">
           <h2>Metode &amp; Rekening Pembayaran Resmi</h2>
           <p>
-            Pastikan rekening tujuan atas nama <strong>{ACCOUNT_HOLDER}</strong>.
-            Salin nomor rekening dengan sekali klik di bawah ini:
+            Pastikan rekening tujuan atas nama <strong>{ACCOUNT_HOLDER}</strong>
+            . Salin nomor rekening dengan sekali klik di bawah ini:
           </p>
         </div>
 
@@ -824,87 +908,107 @@ export function ShopPage({ navigate: _navigate }: ShopPageProps) {
         </div>
 
         <div className="shop-payment-note-box">
-          <strong>Penting:</strong> Pembayaran dilakukan setelah Anda memeriksa pratinjau dokumen.
-          Lampirkan bukti pembayaran saat menghubungi admin melalui WhatsApp atau email untuk
-          mempercepat verifikasi pesanan.
+          <strong>Penting:</strong> Pembayaran dilakukan setelah Anda memeriksa
+          pratinjau dokumen. Lampirkan bukti pembayaran saat menghubungi admin
+          melalui WhatsApp atau email untuk mempercepat verifikasi pesanan.
         </div>
       </section>
 
       {/* Ketentuan & FAQ Accordion */}
-      <section className="shop-faq-section" aria-label="Pertanyaan yang Sering Diajukan">
+      <section
+        className="shop-faq-section"
+        aria-label="Pertanyaan yang Sering Diajukan"
+      >
         <div className="shop-faq-header">
           <span className="badge-tag badge-tag--navy">BANTUAN &amp; FAQ</span>
           <h2>Pertanyaan yang Sering Diajukan</h2>
-          <p>Jawaban atas hal-hal yang sering ditanyakan pengajar dan pembeli produk kami.</p>
+          <p>
+            Jawaban atas hal-hal yang sering ditanyakan pengajar dan pembeli
+            produk kami.
+          </p>
         </div>
 
         <div className="shop-faq-list">
           <div className="shop-faq-item">
             <strong>Format file apa saja yang akan saya terima?</strong>
             <p>
-              Setiap paket dokumen menyertakan file <code>.pdf</code> (kualitas tinggi, siap cetak)
-              dan file <code>.tex</code> (source code LaTeX asli yang dapat diedit di Overleaf
-              maupun TeXstudio).
+              Setiap paket dokumen menyertakan file <code>.pdf</code> (kualitas
+              tinggi, siap cetak) dan file <code>.tex</code> (source code LaTeX
+              asli yang dapat diedit di Overleaf maupun TeXstudio).
             </p>
           </div>
 
           <div className="shop-faq-item">
-            <strong>Bolehkah saya memodifikasi file .tex untuk kebutuhan kelas?</strong>
+            <strong>
+              Bolehkah saya memodifikasi file .tex untuk kebutuhan kelas?
+            </strong>
             <p>
-              Ya, Anda memiliki lisensi penuh untuk mengedit, menambah, atau menyesuaikan soal
-              dan slide untuk keperluan pengajaran di kelas sendiri. Dilarang keras menjual
-              kembali atau mendistribusikan secara publik.
+              Ya, Anda memiliki lisensi penuh untuk mengedit, menambah, atau
+              menyesuaikan soal dan slide untuk keperluan pengajaran di kelas
+              sendiri. Dilarang keras menjual kembali atau mendistribusikan
+              secara publik.
             </p>
           </div>
 
           <div className="shop-faq-item">
             <strong>Berapa lama file dikirimkan setelah pembayaran?</strong>
             <p>
-              File asli akan dikirimkan maksimal <strong>1 jam</strong> setelah bukti pembayaran
-              diterima dan diverifikasi oleh admin kami.
+              File asli akan dikirimkan maksimal <strong>1 jam</strong> setelah
+              bukti pembayaran diterima dan diverifikasi oleh admin kami.
             </p>
           </div>
 
           <div className="shop-faq-item">
-            <strong>Bagaimana jika file belum saya terima lebih dari 1 jam?</strong>
+            <strong>
+              Bagaimana jika file belum saya terima lebih dari 1 jam?
+            </strong>
             <p>
-              Jika dalam 1 jam belum menerima file, segera hubungi admin via WhatsApp di{" "}
+              Jika dalam 1 jam belum menerima file, segera hubungi admin via
+              WhatsApp di{" "}
               <a href={WHATSAPP_LINK} target="_blank" rel="noreferrer">
                 {PHONE_WA}
               </a>
-              . Kemungkinan antrean pesanan sedang padat dan akan diprioritaskan segera.
+              . Kemungkinan antrean pesanan sedang padat dan akan diprioritaskan
+              segera.
             </p>
           </div>
 
           <div className="shop-faq-item">
-            <strong>Apakah ada kunci jawaban dan pembahasan untuk paket soal?</strong>
+            <strong>
+              Apakah ada kunci jawaban dan pembahasan untuk paket soal?
+            </strong>
             <p>
-              Ya, semua paket soal per kelas telah dilengkapi dengan kunci jawaban dan uraian
-              pembahasan langkah demi langkah yang rapi.
+              Ya, semua paket soal per kelas telah dilengkapi dengan kunci
+              jawaban dan uraian pembahasan langkah demi langkah yang rapi.
             </p>
           </div>
 
           <div className="shop-faq-item">
-            <strong>Bagaimana jika saya ingin memesan materi khusus (custom)?</strong>
+            <strong>
+              Bagaimana jika saya ingin memesan materi khusus (custom)?
+            </strong>
             <p>
-              Pilih menu <em>Item Satuan / Custom</em> atau langsung hubungi admin melalui
-              WhatsApp. Kami dapat menyusun soal, kisi-kisi, atau LKPD sesuai KD dan indikator
-              spesifik sekolah Anda.
+              Pilih menu <em>Item Satuan / Custom</em> atau langsung hubungi
+              admin melalui WhatsApp. Kami dapat menyusun soal, kisi-kisi, atau
+              LKPD sesuai KD dan indikator spesifik sekolah Anda.
             </p>
           </div>
         </div>
       </section>
 
       {/* Support Direct Banner */}
-      <section className="shop-support-card" aria-label="Bantuan dan Konsultasi Langsung">
+      <section
+        className="shop-support-card"
+        aria-label="Bantuan dan Konsultasi Langsung"
+      >
         <div className="shop-support-badge-icon" aria-hidden="true">
           <MessageCircle size={26} />
         </div>
         <div className="shop-support-info">
           <h3>Butuh Bantuan atau Mau Tanya Materi Dulu?</h3>
           <p>
-            Admin Math 1729 siap membantu rekomendasi paket materi yang paling cocok untuk
-            tingkat kelas atau kebutuhan ujian Anda.
+            Admin Math 1729 siap membantu rekomendasi paket materi yang paling
+            cocok untuk tingkat kelas atau kebutuhan ujian Anda.
           </p>
         </div>
         <div className="shop-support-actions">
