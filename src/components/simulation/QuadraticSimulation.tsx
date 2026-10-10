@@ -1,4 +1,20 @@
-import { useEffect, useId, useRef, useState } from "react";
+import {
+  Crosshair,
+  Maximize2,
+  Minimize2,
+  Minus,
+  Plus,
+  RotateCcw,
+  Smartphone,
+} from "lucide-react";
+import {
+  useEffect,
+  useId,
+  useRef,
+  useState,
+  type CSSProperties,
+  type PointerEvent as ReactPointerEvent,
+} from "react";
 import JXG from "jsxgraph";
 import "../../../node_modules/jsxgraph/distrib/jsxgraph.css";
 import "./QuadraticSimulation.css";
@@ -13,6 +29,12 @@ const initialStyle: Style = { curveWidth: 3, pointSize: 4 };
 const initialBox: [number, number, number, number] = [-10, 10, 10, -10];
 const CURVE_WIDTH_RANGE = [1, 8] as const;
 const POINT_SIZE_RANGE = [2, 10] as const;
+
+const sliderConfig = [
+  { key: "a", min: -5, max: 5, hint: "Arah & kelebaran parabola" },
+  { key: "b", min: -10, max: 10, hint: "Menggeser sumbu simetri" },
+  { key: "c", min: -10, max: 10, hint: "Titik potong sumbu y" },
+] as const;
 
 const colors = {
   a: "#087f8c",
@@ -56,13 +78,16 @@ function equationLabel({ a, b, c }: Params) {
 type Board = ReturnType<typeof JXG.JSXGraph.initBoard>;
 
 export function QuadraticSimulation() {
-  const boardId = `quad-board-${useId().replace(/:/g, "")}`;
+  const baseId = useId().replace(/:/g, "");
+  const boardId = `quad-board-${baseId}`;
+  const titleId = `quad-title-${baseId}`;
   const rootRef = useRef<HTMLDivElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const boardRef = useRef<Board | null>(null);
   const curveRef = useRef<JXG.Functiongraph | null>(null);
   const pointsRef = useRef<{ el: JXG.Point; extra: number }[]>([]);
   const nativeFullscreenRef = useRef(false);
+  const holdRef = useRef<{ delay?: number; repeat?: number }>({});
 
   const [params, setParams] = useStoredSimulationState(
     "quadratic.params",
@@ -84,6 +109,44 @@ export function QuadraticSimulation() {
     setParams(next);
     boardRef.current?.update();
   };
+
+  const stepParam = (key: keyof Params, direction: 1 | -1) => {
+    const config = sliderConfig.find((item) => item.key === key);
+    if (!config) return;
+    updateParam(
+      key,
+      clamp(paramsRef.current[key] + direction * 0.1, [config.min, config.max]),
+    );
+  };
+
+  const stopHold = () => {
+    window.clearTimeout(holdRef.current.delay);
+    window.clearInterval(holdRef.current.repeat);
+    holdRef.current = {};
+  };
+
+  // Tahan tombol −/+ untuk mengubah nilai terus-menerus.
+  const startHold =
+    (key: keyof Params, direction: 1 | -1) =>
+    (event: ReactPointerEvent<HTMLButtonElement>) => {
+      if (event.pointerType === "mouse" && event.button !== 0) return;
+      stopHold();
+      stepParam(key, direction);
+      holdRef.current.delay = window.setTimeout(() => {
+        holdRef.current.repeat = window.setInterval(
+          () => stepParam(key, direction),
+          60,
+        );
+      }, 400);
+    };
+
+  useEffect(
+    () => () => {
+      window.clearTimeout(holdRef.current.delay);
+      window.clearInterval(holdRef.current.repeat);
+    },
+    [],
+  );
 
   const reset = () => {
     paramsRef.current = initialParams;
@@ -125,6 +188,29 @@ export function QuadraticSimulation() {
       setIsFullscreen(false);
     }
   };
+
+  // Di ponsel, layar penuh dikunci ke lanskap bila browser mengizinkan.
+  useEffect(() => {
+    if (!isFullscreen) return;
+    if (!window.matchMedia("(pointer: coarse)").matches) return;
+    const orientation = (
+      screen as unknown as {
+        orientation?: {
+          lock?: (mode: "landscape") => Promise<void>;
+          unlock?: () => void;
+        };
+      }
+    ).orientation;
+    if (typeof orientation?.lock !== "function") return;
+    orientation.lock("landscape").catch(() => undefined);
+    return () => {
+      try {
+        orientation.unlock?.();
+      } catch {
+        /* abaikan */
+      }
+    };
+  }, [isFullscreen]);
 
   // Sinkron saat keluar fullscreen lewat tombol Esc browser.
   useEffect(() => {
@@ -372,41 +458,85 @@ export function QuadraticSimulation() {
   const widthText =
     Math.abs(a) > 1 ? "lebih sempit" : Math.abs(a) < 1 ? "lebih lebar" : "sama";
 
+  const stepProps = (
+    key: keyof Params,
+    direction: 1 | -1,
+    atLimit: boolean,
+  ) => ({
+    type: "button" as const,
+    className: "quad-step-button",
+    disabled: atLimit,
+    "aria-label": `${direction === 1 ? "Tambah" : "Kurangi"} ${key} 0,1`,
+    onPointerDown: startHold(key, direction),
+    onPointerUp: stopHold,
+    onPointerLeave: stopHold,
+    onPointerCancel: stopHold,
+    onBlur: stopHold,
+    onContextMenu: (event: { preventDefault: () => void }) =>
+      event.preventDefault(),
+    // detail === 0 → aktivasi lewat keyboard (Enter/Spasi)
+    onClick: (event: { detail: number }) => {
+      if (event.detail === 0) stepParam(key, direction);
+    },
+  });
+
   return (
     <div
       ref={rootRef}
       className={`quadratic-simulation simulation-fullscreen-frame${isFullscreen ? " is-fullscreen" : ""}`}
     >
+      <p className="quad-orientation-hint">
+        <Smartphone size={16} aria-hidden="true" />
+        <span>
+          Di ponsel, tekan <strong>Layar penuh</strong> lalu miringkan ke mode
+          lanskap agar grafik, slider, dan hasil tampil sekaligus.
+        </span>
+      </p>
+
       <div className="quad-boards">
-        <section className="quad-board-panel" aria-labelledby="quad-title">
+        <section className="quad-board-panel" aria-labelledby={titleId}>
           <div className="quad-board-heading">
-            <h3 id="quad-title">Grafik fungsi kuadrat</h3>
-            <span className="quad-equation">{equationLabel(params)}</span>
+            <h3 id={titleId}>Grafik fungsi kuadrat</h3>
+            <button
+              className="quad-fullscreen-button"
+              type="button"
+              onClick={toggleFullscreen}
+              aria-pressed={isFullscreen}
+              aria-label={isFullscreen ? "Keluar layar penuh" : "Layar penuh"}
+            >
+              {isFullscreen ? (
+                <Minimize2 size={16} aria-hidden="true" />
+              ) : (
+                <Maximize2 size={16} aria-hidden="true" />
+              )}
+              <span>{isFullscreen ? "Keluar layar penuh" : "Layar penuh"}</span>
+            </button>
+            <p className="quad-equation">{equationLabel(params)}</p>
+          </div>
+          <div className="quad-board-wrap">
+            <div
+              className="quad-board"
+              id={boardId}
+              ref={containerRef}
+              aria-label="Grafik fungsi kuadrat y = ax² + bx + c. Ubah nilai a, b, dan c dengan penggeser. Seret untuk menggeser grafik, gulir atau cubit untuk memperbesar."
+            />
             <div className="quad-view-tools" role="group" aria-label="Tampilan">
               <button type="button" onClick={zoomIn} aria-label="Perbesar">
-                +
+                <Plus size={18} aria-hidden="true" />
               </button>
               <button type="button" onClick={zoomOut} aria-label="Perkecil">
-                −
-              </button>
-              <button type="button" onClick={resetView}>
-                Pusatkan
+                <Minus size={18} aria-hidden="true" />
               </button>
               <button
                 type="button"
-                onClick={toggleFullscreen}
-                aria-pressed={isFullscreen}
+                onClick={resetView}
+                aria-label="Pusatkan tampilan"
+                title="Pusatkan tampilan"
               >
-                {isFullscreen ? "Keluar layar penuh" : "Layar penuh"}
+                <Crosshair size={17} aria-hidden="true" />
               </button>
             </div>
           </div>
-          <div
-            className="quad-board"
-            id={boardId}
-            ref={containerRef}
-            aria-label="Grafik fungsi kuadrat y = ax² + bx + c. Ubah nilai a, b, dan c dengan penggeser. Tahan klik kiri lalu seret untuk menggeser grafik, gulir untuk memperbesar."
-          />
           <div className="quad-legend" aria-label="Legenda grafik">
             <span>
               <i className="legend-curve" /> y = ax² + bx + c
@@ -430,60 +560,76 @@ export function QuadraticSimulation() {
         </section>
 
         <section className="quad-controls" aria-label="Pengatur koefisien">
-          {(
-            [
-              {
-                key: "a",
-                min: -5,
-                max: 5,
-                hint: "Arah & kelebaran parabola",
-              },
-              {
-                key: "b",
-                min: -10,
-                max: 10,
-                hint: "Menggeser sumbu simetri",
-              },
-              {
-                key: "c",
-                min: -10,
-                max: 10,
-                hint: "Titik potong sumbu y",
-              },
-            ] as const
-          ).map(({ key, min, max, hint }) => (
-            <div className={`quad-slider quad-slider-${key}`} key={key}>
-              <label htmlFor={`quad-${key}`}>
-                {key} <small>{hint}</small>
-              </label>
-              <output htmlFor={`quad-${key}`} aria-live="polite">
-                {formatValue(params[key])}
-              </output>
-              <input
-                id={`quad-${key}`}
-                type="range"
-                min={min}
-                max={max}
-                step="0.1"
-                value={params[key]}
-                aria-valuetext={`${key} sama dengan ${formatValue(params[key])}`}
-                onChange={(event) =>
-                  updateParam(key, Number(event.currentTarget.value))
-                }
+          <div className="quad-inputs">
+            {sliderConfig.map(({ key, min, max, hint }) => {
+              const value = params[key];
+              const inputId = `quad-${baseId}-${key}`;
+              const sliderStyle = {
+                "--quad-fill": `${((value - min) / (max - min)) * 100}%`,
+              } as CSSProperties;
+              return (
+                <div className={`quad-slider quad-slider-${key}`} key={key}>
+                  <div className="quad-slider-head">
+                    <label htmlFor={inputId}>
+                      {key} <small>{hint}</small>
+                    </label>
+                    <output htmlFor={inputId} aria-live="polite">
+                      {formatValue(value)}
+                    </output>
+                  </div>
+                  <div className="quad-slider-row">
+                    <button {...stepProps(key, -1, value <= min)}>
+                      <Minus size={18} aria-hidden="true" />
+                    </button>
+                    <input
+                      id={inputId}
+                      className="quad-slider-input"
+                      type="range"
+                      min={min}
+                      max={max}
+                      step="0.1"
+                      value={value}
+                      style={sliderStyle}
+                      aria-valuetext={`${key} sama dengan ${formatValue(value)}`}
+                      onChange={(event) =>
+                        updateParam(key, Number(event.currentTarget.value))
+                      }
+                    />
+                    <button {...stepProps(key, 1, value >= max)}>
+                      <Plus size={18} aria-hidden="true" />
+                    </button>
+                    <div className="quad-range-labels" aria-hidden="true">
+                      <span>{min}</span>
+                      <span>0</span>
+                      <span>{max}</span>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+
+            <div className="quad-actions">
+              <button
+                className="quad-reset-button"
+                type="button"
+                onClick={reset}
+              >
+                <RotateCcw size={15} aria-hidden="true" />
+                <span>Atur ulang</span>
+              </button>
+              <GraphAppearanceControls
+                appearance={style}
+                onStep={changeStyle}
               />
-              <div className="quad-range-labels" aria-hidden="true">
-                <span>{min}</span>
-                <span>0</span>
-                <span>{max}</span>
-              </div>
             </div>
-          ))}
 
-          <button className="quad-reset-button" type="button" onClick={reset}>
-            Atur ulang
-          </button>
-
-          <GraphAppearanceControls appearance={style} onStep={changeStyle} />
+            {!isQuadratic && (
+              <p className="quad-warning" role="status">
+                Saat a = 0, persamaan menjadi garis lurus (bukan fungsi
+                kuadrat). Geser a menjauhi 0 untuk melihat parabola.
+              </p>
+            )}
+          </div>
 
           <dl className="quad-readouts" aria-live="polite">
             <div className="readout-a">
@@ -522,13 +668,6 @@ export function QuadraticSimulation() {
               {rootsNote && <small>{rootsNote}</small>}
             </div>
           </dl>
-
-          {!isQuadratic && (
-            <p className="quad-warning" role="status">
-              Saat a = 0, persamaan menjadi garis lurus (bukan fungsi kuadrat).
-              Geser a menjauhi 0 untuk melihat parabola.
-            </p>
-          )}
         </section>
       </div>
 

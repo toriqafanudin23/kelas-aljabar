@@ -5,18 +5,59 @@
   --quad-a: #087f8c;
   --quad-b: #d16b36;
   --quad-c: #527a41;
+  --quad-btn: 40px; /* tinggi minimum tombol; naik di layar sentuh */
   display: grid;
-  gap: 14px;
+  gap: 12px;
   padding: 16px;
   border-top: 3px solid var(--gold);
   background: var(--sim-paper, #f3f7f5);
   color: var(--sim-ink, #18313d);
   font-variant-numeric: tabular-nums;
+  -webkit-tap-highlight-color: transparent;
 }
+
+@media (pointer: coarse) {
+  .quadratic-simulation {
+    --quad-btn: 46px;
+  }
+}
+
+.quadratic-simulation button {
+  touch-action: manipulation;
+}
+
+.quadratic-simulation button:focus-visible,
+.quadratic-simulation input:focus-visible {
+  outline: 2px solid var(--quad-a);
+  outline-offset: 3px;
+}
+
+/* ───────── Petunjuk ponsel ───────── */
+
+.quad-orientation-hint {
+  display: none;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0;
+  padding: 8px 10px;
+  border-left: 3px solid var(--quad-a);
+  background: #e8f3f1;
+  color: var(--sim-ink, #18313d);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.quad-orientation-hint svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
+  color: var(--quad-a);
+}
+
+/* ───────── Papan grafik ───────── */
 
 .quad-boards {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
   gap: 14px;
   min-width: 0;
   min-height: 0;
@@ -33,58 +74,60 @@
 }
 
 .quad-board-heading {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 6px 10px;
-  min-height: 28px;
-  padding-bottom: 8px;
+  gap: 8px 10px;
+  padding-bottom: 10px;
 }
 
 .quad-board-heading h3 {
+  grid-area: 1 / 1;
   margin: 0;
   font-size: 13px;
   font-weight: 700;
 }
 
-.quad-equation {
-  margin-right: auto;
-  color: #183e54;
-  font-family: "Cambria Math", Georgia, serif;
-  font-size: 15px;
+.quad-fullscreen-button {
+  grid-area: 1 / 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: var(--quad-btn);
+  padding: 0 14px;
+  border: 1px solid var(--quad-a);
+  background: #e8f3f1;
+  color: #0a5f69;
+  font: inherit;
+  font-size: 12px;
   font-weight: 700;
-}
-
-/* Tombol tampilan: zoom, pusatkan, layar penuh */
-.quad-view-tools {
-  display: flex;
-  gap: 4px;
-}
-
-.quad-view-tools button,
-.quad-stepper button {
-  min-width: 28px;
-  min-height: 28px;
-  padding: 0 9px;
-  border: 1px solid #aebdc2;
-  background: #fff;
-  color: var(--sim-ink, #18313d);
-  font-size: 11px;
-  font-weight: 700;
-  line-height: 1;
   cursor: pointer;
 }
 
-.quad-view-tools button:hover:not(:disabled),
-.quad-stepper button:hover:not(:disabled) {
-  border-color: var(--quad-a);
-  background: #e8f3f1;
+.quad-fullscreen-button:hover {
+  background: #d7ebe8;
 }
 
-.quad-stepper button:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
+/* Persamaan: besar & mudah dibaca */
+.quad-equation {
+  grid-area: 2 / 1 / 3 / 3;
+  margin: 0;
+  padding: 8px 14px;
+  border-left: 4px solid var(--quad-a);
+  background: #eef4f2;
+  color: #183e54;
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: clamp(22px, 2.4vw, 32px);
+  font-weight: 700;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.quad-board-wrap {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
 }
 
 .quad-board {
@@ -107,6 +150,42 @@
   font-family: "Open Sans", sans-serif;
 }
 
+/* Zoom & pusatkan: melayang di sudut grafik */
+.quad-view-tools {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+  display: grid;
+  gap: 4px;
+}
+
+.quad-view-tools button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid #aebdc2;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--sim-ink, #18313d);
+  box-shadow: 0 1px 3px rgba(24, 49, 61, 0.18);
+  cursor: pointer;
+}
+
+.quad-view-tools button:hover {
+  border-color: var(--quad-a);
+  background: #e8f3f1;
+}
+
+@media (pointer: coarse) {
+  .quad-view-tools button {
+    width: 42px;
+    height: 42px;
+  }
+}
+
 .quad-legend {
   display: flex;
   justify-content: center;
@@ -114,13 +193,15 @@
   gap: 6px 16px;
   padding-top: 8px;
   color: var(--sim-muted, #62727d);
-  font-size: 10px;
+  font-size: 11px;
 }
 
 .quad-legend span {
   display: inline-flex;
+  flex: 0 0 auto;
   align-items: center;
   gap: 6px;
+  white-space: nowrap;
 }
 
 .quad-legend i {
@@ -155,7 +236,8 @@
   background: var(--quad-c);
 }
 
-/* Kontrol */
+/* ───────── Kontrol ───────── */
+
 .quad-controls {
   display: grid;
   align-content: start;
@@ -167,21 +249,46 @@
   background: #fff;
 }
 
+.quad-inputs {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+}
+
 .quad-slider {
   display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: baseline;
-  gap: 4px 12px;
+  gap: 2px;
+  min-width: 0;
 }
 
-.quad-slider label {
-  font-size: 18px;
+.quad-slider-a {
+  --slider-color: var(--quad-a);
+}
+
+.quad-slider-b {
+  --slider-color: var(--quad-b);
+}
+
+.quad-slider-c {
+  --slider-color: var(--quad-c);
+}
+
+.quad-slider-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--slider-color);
+}
+
+.quad-slider-head label {
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 21px;
   font-style: italic;
   font-weight: 800;
-  font-family: "Cambria Math", Georgia, serif;
 }
 
-.quad-slider label small {
+.quad-slider-head label small {
   margin-left: 8px;
   color: var(--sim-muted, #62727d);
   font-family: "Open Sans", sans-serif;
@@ -190,62 +297,163 @@
   font-weight: 600;
 }
 
-.quad-slider output {
-  font-size: 17px;
+.quad-slider-head output {
+  font-size: 19px;
   font-weight: 800;
+  white-space: nowrap;
 }
 
-.quad-slider-a label,
-.quad-slider-a output {
-  color: var(--quad-a);
+.quad-slider-row {
+  display: grid;
+  grid-template-columns: var(--quad-btn) minmax(0, 1fr) var(--quad-btn);
+  align-items: center;
+  column-gap: 8px;
 }
 
-.quad-slider-b label,
-.quad-slider-b output {
-  color: var(--quad-b);
+.quad-step-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--quad-btn);
+  height: var(--quad-btn);
+  padding: 0;
+  border: 1px solid #aebdc2;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--sim-ink, #18313d);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
-.quad-slider-c label,
-.quad-slider-c output {
-  color: var(--quad-c);
+.quad-step-button:hover:not(:disabled) {
+  border-color: var(--slider-color);
+  background: #f1f6f5;
 }
 
-.quad-slider input {
-  grid-column: 1 / -1;
+.quad-step-button:active:not(:disabled) {
+  background: #e0ecea;
+}
+
+.quad-step-button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.quad-slider-input {
+  --quad-fill: 50%;
+  -webkit-appearance: none;
+  appearance: none;
   width: 100%;
-  height: 26px;
-  margin: 2px 0 0;
-  cursor: ew-resize;
+  height: 40px;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+  touch-action: pan-y;
 }
 
-.quad-slider-a input {
-  accent-color: var(--quad-a);
+.quad-slider-input::-webkit-slider-runnable-track {
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    var(--slider-color) 0,
+    var(--slider-color) var(--quad-fill),
+    #d5e0e4 var(--quad-fill),
+    #d5e0e4 100%
+  );
 }
 
-.quad-slider-b input {
-  accent-color: var(--quad-b);
+.quad-slider-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  margin-top: -10px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background: var(--slider-color);
+  box-shadow: 0 1px 5px rgba(24, 49, 61, 0.5);
 }
 
-.quad-slider-c input {
-  accent-color: var(--quad-c);
+.quad-slider-input::-moz-range-track {
+  height: 8px;
+  border-radius: 999px;
+  background: #d5e0e4;
+}
+
+.quad-slider-input::-moz-range-progress {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--slider-color);
+}
+
+.quad-slider-input::-moz-range-thumb {
+  box-sizing: border-box;
+  width: 28px;
+  height: 28px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background: var(--slider-color);
+  box-shadow: 0 1px 5px rgba(24, 49, 61, 0.5);
+}
+
+@media (pointer: coarse) {
+  .quad-slider-input {
+    height: 46px;
+  }
+
+  .quad-slider-input::-webkit-slider-runnable-track {
+    height: 10px;
+  }
+
+  .quad-slider-input::-webkit-slider-thumb {
+    width: 34px;
+    height: 34px;
+    margin-top: -12px;
+  }
+
+  .quad-slider-input::-moz-range-track,
+  .quad-slider-input::-moz-range-progress {
+    height: 10px;
+  }
+
+  .quad-slider-input::-moz-range-thumb {
+    width: 34px;
+    height: 34px;
+  }
 }
 
 .quad-range-labels {
-  grid-column: 1 / -1;
+  grid-column: 2;
   display: flex;
   justify-content: space-between;
+  margin-top: -4px;
   color: var(--sim-muted, #62727d);
   font-size: 9px;
   line-height: 1;
 }
 
+.quad-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
 .quad-reset-button {
-  min-height: 38px;
-  padding: 0 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: var(--quad-btn);
+  padding: 0 14px;
   border: 1px solid #aebdc2;
   background: #fff;
   color: var(--sim-ink, #18313d);
-  font-size: 11px;
+  font: inherit;
+  font-size: 12px;
   font-weight: 700;
   cursor: pointer;
 }
@@ -253,34 +461,6 @@
 .quad-reset-button:hover {
   border-color: var(--quad-a);
   background: #e8f3f1;
-}
-
-/* Pengatur ketebalan grafik & ukuran titik */
-.quad-style {
-  display: grid;
-  gap: 6px;
-}
-
-.quad-stepper {
-  display: grid;
-  grid-template-columns: 1fr auto auto auto;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  font-weight: 600;
-}
-
-.quad-stepper output {
-  min-width: 22px;
-  text-align: center;
-  font-size: 14px;
-  font-weight: 800;
-}
-
-.quadratic-simulation button:focus-visible,
-.quadratic-simulation input:focus-visible {
-  outline: 2px solid var(--quad-a);
-  outline-offset: 3px;
 }
 
 .quad-warning {
@@ -292,28 +472,21 @@
   font-size: 12px;
 }
 
-/* Readouts: kini berada di bawah tombol, dua kolom */
+/* ───────── Hasil perhitungan ───────── */
+
 .quad-readouts {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
   margin: 0;
   border: 1px solid var(--sim-line, #d5e0e4);
-  background: #fff;
+  background: var(--sim-line, #d5e0e4);
 }
 
 .quad-readouts > div {
   min-width: 0;
   padding: 8px 11px;
-  border-left: 1px solid var(--sim-line, #d5e0e4);
-  border-top: 1px solid var(--sim-line, #d5e0e4);
-}
-
-.quad-readouts > div:nth-child(-n + 2) {
-  border-top: 0;
-}
-
-.quad-readouts > div:nth-child(odd) {
-  border-left: 0;
+  background: #fff;
 }
 
 .quad-readouts dt {
@@ -361,7 +534,8 @@
   color: #b23a48;
 }
 
-/* Penjelasan */
+/* ───────── Penjelasan ───────── */
+
 .quad-insights {
   display: grid;
   gap: 6px;
@@ -369,7 +543,8 @@
   padding: 0;
   list-style: none;
   color: var(--sim-muted, #62727d);
-  font-size: 11px;
+  font-size: 12px;
+  line-height: 1.5;
 }
 
 .quad-insights li {
@@ -377,83 +552,9 @@
   border-left: 3px solid var(--sim-line, #d5e0e4);
 }
 
-/* ============ Mode layar penuh (16:9) ============
-   Seluruh bagian harus muat tanpa scroll: papan grafik mengisi sisa
-   tinggi, kolom kontrol di kanan, penjelasan di baris bawah. */
-.quadratic-simulation.is-fullscreen {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  box-sizing: border-box;
-  width: 100vw;
-  height: 100vh;
-  height: 100dvh;
-  grid-template-rows: minmax(0, 1fr) auto;
-  gap: 8px;
-  padding: 10px 14px;
-  overflow: hidden;
-}
+/* ───────── Layar sempit / potret: papan ditumpuk ───────── */
 
-.is-fullscreen .quad-boards {
-  grid-template-columns: minmax(0, 1fr) clamp(300px, 28vw, 420px);
-  gap: 10px;
-  height: 100%;
-}
-
-.is-fullscreen .quad-board-panel {
-  height: 100%;
-  padding: 8px 10px;
-}
-
-.is-fullscreen .quad-board-heading {
-  padding-bottom: 6px;
-}
-
-.is-fullscreen .quad-board {
-  width: 100%;
-  height: 100%;
-  max-height: none;
-  aspect-ratio: auto;
-}
-
-.is-fullscreen .quad-legend {
-  padding-top: 6px;
-}
-
-.is-fullscreen .quad-controls {
-  gap: clamp(6px, 1.4vh, 12px);
-  padding: clamp(8px, 1.6vh, 14px);
-  overflow-y: auto;
-  align-content: space-between;
-}
-
-.is-fullscreen .quad-slider {
-  gap: 2px 12px;
-}
-
-.is-fullscreen .quad-slider input {
-  height: 20px;
-  margin: 0;
-}
-
-.is-fullscreen .quad-reset-button {
-  min-height: 32px;
-}
-
-.is-fullscreen .quad-readouts > div {
-  padding: 6px 10px;
-}
-
-.is-fullscreen .quad-readouts dd {
-  font-size: 15px;
-}
-
-.is-fullscreen .quad-insights {
-  gap: 3px;
-  font-size: 11px;
-}
-
-@media (max-width: 860px) {
+@media (max-width: 860px) and (orientation: portrait), (max-width: 560px) {
   .quad-boards {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -462,20 +563,64 @@
     width: min(100%, 520px);
   }
 
-  /* Di layar sempit, mode penuh boleh di-scroll agar tetap terbaca */
-  .quadratic-simulation.is-fullscreen {
-    overflow-y: auto;
-    grid-template-rows: auto auto;
+  .quad-board-wrap {
+    justify-self: center;
+    width: min(100%, 520px);
   }
 
-  .is-fullscreen .quad-boards {
-    grid-template-columns: minmax(0, 1fr);
-    height: auto;
+  /* Legenda satu baris yang bisa digeser, hemat tinggi */
+  .quad-legend {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    scrollbar-width: none;
   }
 
-  .is-fullscreen .quad-board {
+  .quad-legend::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (max-width: 860px) and (orientation: portrait) {
+  .quadratic-simulation:not(.is-fullscreen) .quad-orientation-hint {
+    display: flex;
+  }
+}
+
+/* Potret ponsel: grafik menempel di atas, slider digeser di bawahnya */
+@media (max-width: 860px) and (orientation: portrait) and (min-height: 560px) {
+  .quadratic-simulation:not(.is-fullscreen) .quad-board-panel {
+    position: sticky;
+    top: 0;
+    z-index: 6;
+    padding: 8px;
+    box-shadow: 0 6px 16px rgba(24, 49, 61, 0.16);
+  }
+
+  .quadratic-simulation:not(.is-fullscreen) .quad-board-heading {
+    gap: 6px 8px;
+    padding-bottom: 6px;
+  }
+
+  .quadratic-simulation:not(.is-fullscreen) .quad-board-heading h3 {
+    font-size: 12px;
+  }
+
+  .quadratic-simulation:not(.is-fullscreen) .quad-equation {
+    padding: 5px 10px;
+    font-size: clamp(20px, 6vw, 26px);
+  }
+
+  .quadratic-simulation:not(.is-fullscreen) .quad-board {
     width: 100%;
-    height: 60vh;
+    height: clamp(190px, 36dvh, 340px);
+    max-height: none;
+    aspect-ratio: auto;
+  }
+
+  .quadratic-simulation:not(.is-fullscreen) .quad-board-wrap {
+    width: 100%;
   }
 }
 
@@ -494,11 +639,293 @@
     gap: 12px;
   }
 
+  .quad-inputs {
+    gap: 10px;
+  }
+
   .quad-readouts dd {
-    font-size: 14px;
+    font-size: 15px;
+  }
+
+  .quad-actions {
+    display: grid;
+    grid-template-columns: 1fr;
   }
 
   .quad-reset-button {
     width: 100%;
+  }
+}
+
+/* ───────── Mode layar penuh ───────── */
+
+.quadratic-simulation.is-fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 8px;
+  padding: max(10px, env(safe-area-inset-top, 0px))
+    max(14px, env(safe-area-inset-right, 0px))
+    max(10px, env(safe-area-inset-bottom, 0px))
+    max(14px, env(safe-area-inset-left, 0px));
+  overflow: hidden;
+}
+
+.is-fullscreen .quad-orientation-hint {
+  display: none;
+}
+
+.is-fullscreen .quad-boards {
+  grid-template-columns: minmax(0, 1fr) clamp(300px, 28vw, 420px);
+  gap: 10px;
+  height: 100%;
+}
+
+.is-fullscreen .quad-board-panel {
+  height: 100%;
+  padding: 8px 10px;
+}
+
+.is-fullscreen .quad-board-heading {
+  padding-bottom: 6px;
+}
+
+.is-fullscreen .quad-board-wrap {
+  width: 100%;
+  height: 100%;
+}
+
+.is-fullscreen .quad-board {
+  width: 100%;
+  height: 100%;
+  max-height: none;
+  aspect-ratio: auto;
+}
+
+.is-fullscreen .quad-legend {
+  padding-top: 6px;
+}
+
+.is-fullscreen .quad-controls {
+  gap: clamp(8px, 1.6vh, 14px);
+  padding: clamp(8px, 1.6vh, 14px);
+  overflow-y: auto;
+}
+
+.is-fullscreen .quad-inputs {
+  gap: clamp(6px, 1.4vh, 12px);
+}
+
+.is-fullscreen .quad-readouts > div {
+  padding: 6px 10px;
+}
+
+.is-fullscreen .quad-readouts dd {
+  font-size: 15px;
+}
+
+.is-fullscreen .quad-insights {
+  gap: 3px;
+  font-size: 11px;
+}
+
+/* Layar penuh + potret (tablet / ponsel): papan atas, kontrol bawah (bisa digulir) */
+@media (max-width: 860px) and (orientation: portrait) {
+  .quadratic-simulation.is-fullscreen {
+    grid-template-rows: auto;
+    overflow-y: auto;
+  }
+
+  .is-fullscreen .quad-boards {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(300px, 52dvh) auto;
+    height: auto;
+  }
+
+  .is-fullscreen .quad-controls {
+    overflow-y: visible;
+  }
+
+  .is-fullscreen .quad-insights {
+    display: none;
+  }
+}
+
+/* ───────── Ponsel LANSKAP (tinggi pendek) ─────────
+   Layar penuh dibagi tiga kolom tanpa scroll:
+   grafik | slider a, b, c | hasil perhitungan. */
+
+@media (orientation: landscape) and (max-height: 540px) {
+  .quadratic-simulation {
+    --quad-btn: 40px;
+    gap: 8px;
+  }
+
+  /* Slider satu baris: label di kiri, − slider + di kanan */
+  .quad-inputs {
+    gap: 4px;
+  }
+
+  .quad-slider {
+    grid-template-columns: 54px minmax(0, 1fr);
+    align-items: center;
+    gap: 0 6px;
+  }
+
+  .quad-slider-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .quad-slider-head label {
+    font-size: 18px;
+    line-height: 1.1;
+  }
+
+  .quad-slider-head label small,
+  .quad-range-labels {
+    display: none;
+  }
+
+  .quad-slider-head output {
+    font-size: 14px;
+    line-height: 1.2;
+  }
+
+  .quad-slider-input {
+    height: 38px;
+  }
+
+  .quad-reset-button {
+    min-height: 36px;
+    padding: 0 10px;
+  }
+
+  .quad-insights {
+    display: none;
+  }
+
+  .quadratic-simulation.is-fullscreen {
+    grid-template-rows: minmax(0, 1fr);
+    overflow: hidden;
+  }
+
+  .is-fullscreen .quad-boards {
+    grid-template-columns:
+      minmax(0, 1fr)
+      clamp(210px, 29vw, 270px)
+      clamp(150px, 21vw, 200px);
+    grid-template-rows: minmax(0, 1fr);
+    gap: 8px;
+    height: 100%;
+  }
+
+  /* Dua kartu terpisah di samping grafik */
+  .is-fullscreen .quad-controls {
+    display: contents;
+  }
+
+  .is-fullscreen .quad-inputs,
+  .is-fullscreen .quad-readouts {
+    min-height: 0;
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  .is-fullscreen .quad-inputs {
+    align-content: start;
+    padding: 8px 10px;
+    border: 1px solid var(--sim-line, #d5e0e4);
+    background: #fff;
+  }
+
+  .is-fullscreen .quad-readouts {
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: minmax(min-content, 1fr);
+    align-content: stretch;
+  }
+
+  .is-fullscreen .quad-readouts > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3px 9px;
+  }
+
+  .is-fullscreen .quad-readouts dt {
+    margin: 0;
+    font-size: 9px;
+  }
+
+  .is-fullscreen .quad-readouts dd {
+    font-size: 13px;
+    line-height: 1.2;
+  }
+
+  .is-fullscreen .quad-readouts .readout-a dd {
+    font-size: 12px;
+  }
+
+  .is-fullscreen .quad-readouts small {
+    display: none;
+  }
+
+  .is-fullscreen .quad-warning {
+    padding: 5px 8px;
+    font-size: 10px;
+    line-height: 1.3;
+  }
+
+  /* Judul grafik: hanya persamaan (besar) + tombol keluar */
+  .is-fullscreen .quad-board-panel {
+    padding: 6px 8px;
+  }
+
+  .is-fullscreen .quad-board-heading {
+    gap: 0 8px;
+    padding-bottom: 4px;
+  }
+
+  .is-fullscreen .quad-board-heading h3 {
+    display: none;
+  }
+
+  .is-fullscreen .quad-equation {
+    grid-area: 1 / 1;
+    padding: 3px 10px;
+    font-size: clamp(18px, 3.2vw, 24px);
+  }
+
+  .is-fullscreen .quad-fullscreen-button {
+    min-height: 34px;
+    padding: 0 10px;
+  }
+
+  .is-fullscreen .quad-fullscreen-button span {
+    display: none;
+  }
+
+  .is-fullscreen .quad-view-tools button {
+    width: 34px;
+    height: 34px;
+  }
+
+  .is-fullscreen .quad-legend {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-top: 4px;
+    font-size: 10px;
+    scrollbar-width: none;
+  }
+
+  .is-fullscreen .quad-legend::-webkit-scrollbar {
+    display: none;
   }
 }

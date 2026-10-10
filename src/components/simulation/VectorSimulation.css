@@ -5,13 +5,21 @@
   --vs-b: #d16b36;
   --vs-sum: #183e54;
   --vs-proj: #c08a00;
+  --vs-btn: 40px; /* tinggi minimum tombol & kolom isian; naik di layar sentuh */
   display: grid;
-  gap: 14px;
+  gap: 12px;
   padding: 16px;
   border-top: 3px solid var(--gold);
   background: var(--sim-paper, #f3f7f5);
   color: var(--sim-ink, #18313d);
   font-variant-numeric: tabular-nums;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (pointer: coarse) {
+  .vector-simulation {
+    --vs-btn: 46px;
+  }
 }
 
 .vector-simulation h3 {
@@ -26,9 +34,49 @@
   font-weight: 800;
 }
 
+.vector-simulation button {
+  font-family: inherit;
+  touch-action: manipulation;
+}
+
+.vector-simulation button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.vector-simulation button:focus-visible,
+.vector-simulation input:focus-visible,
+.vector-simulation select:focus-visible {
+  outline: 2px solid var(--vs-a);
+  outline-offset: 2px;
+}
+
+/* ───────── Petunjuk ponsel ───────── */
+
+.vs-orientation-hint {
+  display: none;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0;
+  padding: 8px 10px;
+  border-left: 3px solid var(--vs-a);
+  background: #e8f3f1;
+  color: var(--sim-ink, #18313d);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.vs-orientation-hint svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
+  color: var(--vs-a);
+}
+
+/* ───────── Tata letak utama ───────── */
+
 .vs-main {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
   gap: 14px;
   min-width: 0;
 }
@@ -56,12 +104,41 @@
 }
 
 .vs-board-heading h3 {
+  flex: 1 1 auto;
   margin: 0;
 }
 
-.vs-board-heading > span {
+.vs-board-heading .vs-board-hint {
+  order: 3;
+  flex: 1 1 100%;
   color: var(--sim-muted, #62727d);
-  font-size: 10px;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.vs-fullscreen-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: var(--vs-btn);
+  padding: 0 14px;
+  border: 1px solid var(--vs-a);
+  background: #e8f3f1;
+  color: #0a5f69;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.vs-fullscreen-button:hover {
+  background: #d7ebe8;
+}
+
+.vs-board-wrap {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
 }
 
 .vs-board {
@@ -80,27 +157,31 @@
   cursor: grabbing;
 }
 
-.vs-board-heading .vs-board-hint {
-  flex: 1 1 200px;
-  order: 3;
+.vs-board .JXGtext {
+  font-family: "Open Sans", sans-serif;
 }
 
+/* Zoom & pusatkan melayang di sudut bidang koordinat */
 .vs-view-tools {
-  display: flex;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+  display: grid;
   gap: 4px;
-  margin-left: auto;
 }
 
 .vs-view-tools button {
-  min-width: 28px;
-  min-height: 28px;
-  padding: 0 9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
   border: 1px solid #aebdc2;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.94);
   color: var(--sim-ink, #18313d);
-  font-size: 11px;
-  font-weight: 700;
-  line-height: 1;
+  box-shadow: 0 1px 3px rgba(24, 49, 61, 0.18);
   cursor: pointer;
 }
 
@@ -109,20 +190,27 @@
   background: #e8f3f1;
 }
 
+@media (pointer: coarse) {
+  .vs-view-tools button {
+    width: 42px;
+    height: 42px;
+  }
+}
+
 /* Pembungkus pengaturan + hasil: tidak memengaruhi tata letak biasa */
 .vs-column {
   display: contents;
 }
 
+.vs-tabs {
+  display: none;
+}
+
 .vs-results {
   display: grid;
   grid-column: 1 / -1;
-  gap: 14px;
+  gap: 12px;
   min-width: 0;
-}
-
-.vs-board .JXGtext {
-  font-family: "Open Sans", sans-serif;
 }
 
 .vs-legend {
@@ -131,13 +219,15 @@
   flex-wrap: wrap;
   gap: 6px 16px;
   color: var(--sim-muted, #62727d);
-  font-size: 10px;
+  font-size: 11px;
 }
 
 .vs-legend span {
   display: inline-flex;
+  flex: 0 0 auto;
   align-items: center;
   gap: 6px;
+  white-space: nowrap;
 }
 
 .vs-legend i {
@@ -169,24 +259,26 @@
   margin: 0;
   color: var(--vs-sum);
   font-family: "Cambria Math", Georgia, serif;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
+  line-height: 1.35;
   text-align: center;
   overflow-wrap: anywhere;
 }
 
-/* Tombol */
-.vector-simulation button {
-  font-family: inherit;
-}
+/* ───────── Tombol umum ───────── */
 
 .vs-reset-button {
-  min-height: 34px;
-  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: var(--vs-btn);
+  padding: 0 14px;
   border: 1px solid #aebdc2;
   background: #fff;
   color: var(--sim-ink, #18313d);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   cursor: pointer;
 }
@@ -196,19 +288,8 @@
   background: #e8f3f1;
 }
 
-.vector-simulation button:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
-}
+/* ───────── Panel pengaturan ───────── */
 
-.vector-simulation button:focus-visible,
-.vector-simulation input:focus-visible,
-.vector-simulation select:focus-visible {
-  outline: 2px solid var(--vs-a);
-  outline-offset: 2px;
-}
-
-/* Panel samping */
 .vs-side {
   display: grid;
   align-content: start;
@@ -224,14 +305,14 @@
 
 .vs-segmented button {
   flex: 1 1 auto;
-  min-height: 34px;
-  padding: 0 10px;
+  min-height: var(--vs-btn);
+  padding: 0 12px;
   border: 1px solid #aebdc2;
   margin-left: -1px;
   margin-top: -1px;
   background: #fff;
   color: var(--sim-ink, #18313d);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   cursor: pointer;
 }
@@ -250,10 +331,12 @@
 .vs-check {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin-top: 10px;
-  color: var(--sim-muted, #62727d);
-  font-size: 11px;
+  gap: 10px;
+  min-height: 36px;
+  margin-top: 6px;
+  color: var(--sim-ink, #18313d);
+  font-size: 12px;
+  cursor: pointer;
 }
 
 .vs-check-first {
@@ -261,6 +344,10 @@
 }
 
 .vs-check input {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  margin: 0;
   accent-color: var(--vs-a);
 }
 
@@ -278,7 +365,7 @@
   overflow-wrap: anywhere;
 }
 
-/* Kolom komponen */
+/* Kolom komponen: [nama] [x: − isian +] [y: − isian +] */
 .vs-vector-row {
   display: grid;
   grid-template-columns: auto repeat(2, minmax(0, 1fr));
@@ -290,10 +377,10 @@
 .vs-name {
   display: grid;
   place-items: center;
-  width: 28px;
-  height: 32px;
+  width: 30px;
+  height: var(--vs-btn);
   color: #fff;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 800;
 }
 
@@ -311,31 +398,74 @@
   min-width: 0;
 }
 
-.vs-field span {
+.vs-field label {
   color: var(--sim-muted, #62727d);
   font-size: 10px;
   font-weight: 700;
 }
 
-.vs-field input {
+.vs-field-control {
+  display: grid;
+  grid-template-columns: var(--vs-btn) minmax(0, 1fr) var(--vs-btn);
+  min-width: 0;
+}
+
+.vs-field-control input {
   width: 100%;
   min-width: 0;
-  min-height: 32px;
-  padding: 0 8px;
+  height: var(--vs-btn);
+  padding: 0 4px;
   border: 1px solid #aebdc2;
+  border-inline: 0;
+  border-radius: 0;
   background: #fff;
   color: var(--sim-ink, #18313d);
-  font-size: 12px;
   font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.vs-nudge-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--vs-btn);
+  padding: 0;
+  border: 1px solid #aebdc2;
+  background: #f1f6f5;
+  color: var(--sim-ink, #18313d);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.vs-nudge-button:hover {
+  border-color: var(--vs-a);
+  background: #e0efed;
+}
+
+.vs-nudge-button:active {
+  background: #cfe5e2;
+}
+
+@media (pointer: coarse) {
+  /* 16px mencegah iOS memperbesar halaman saat kolom difokuskan */
+  .vs-field-control input {
+    font-size: 16px;
+  }
 }
 
 .vs-reset-row {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 8px;
 }
 
-/* Hasil perhitungan */
+/* ───────── Hasil perhitungan ───────── */
+
 .vs-wide {
   display: grid;
   gap: 8px;
@@ -347,7 +477,7 @@
 
 .vs-card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 10px;
 }
 
@@ -364,8 +494,8 @@
 .vs-card p {
   margin: 0;
   color: var(--sim-muted, #62727d);
-  font-size: 10px;
-  line-height: 1.4;
+  font-size: 11px;
+  line-height: 1.45;
   overflow-wrap: anywhere;
 }
 
@@ -387,7 +517,6 @@
   background: #eaf5f4;
 }
 
-/* Tabel */
 .vs-table-wrap {
   overflow-x: auto;
 }
@@ -437,7 +566,8 @@
   padding: 0;
   list-style: none;
   color: var(--sim-muted, #62727d);
-  font-size: 11px;
+  font-size: 12px;
+  line-height: 1.5;
 }
 
 .vs-insights li {
@@ -449,13 +579,73 @@
   color: var(--sim-ink, #18313d);
 }
 
-@media (max-width: 900px) {
+/* ───────── Layar sempit / potret ───────── */
+
+@media (max-width: 900px) and (orientation: portrait), (max-width: 560px) {
   .vs-main {
     grid-template-columns: minmax(0, 1fr);
   }
 
   .vs-board {
     width: min(100%, 560px);
+  }
+
+  .vs-board-wrap {
+    justify-self: center;
+    width: min(100%, 560px);
+  }
+
+  .vs-legend {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+  }
+
+  .vs-legend::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) and (orientation: portrait) {
+  .vector-simulation:not(.is-fullscreen) .vs-orientation-hint {
+    display: flex;
+  }
+}
+
+/* Potret ponsel: bidang koordinat menempel di atas, isian digeser di bawahnya */
+@media (max-width: 900px) and (orientation: portrait) and (min-height: 560px) {
+  .vector-simulation:not(.is-fullscreen) .vs-board-panel {
+    position: sticky;
+    top: 0;
+    z-index: 6;
+    gap: 6px;
+    padding: 8px;
+    box-shadow: 0 6px 16px rgba(24, 49, 61, 0.16);
+  }
+
+  .vector-simulation:not(.is-fullscreen) .vs-board-heading .vs-board-hint {
+    display: none;
+  }
+
+  .vector-simulation:not(.is-fullscreen) .vs-fullscreen-button {
+    min-height: 36px;
+  }
+
+  .vector-simulation:not(.is-fullscreen) .vs-board-wrap {
+    width: 100%;
+  }
+
+  .vector-simulation:not(.is-fullscreen) .vs-board {
+    width: 100%;
+    height: clamp(190px, 34dvh, 330px);
+    max-height: none;
+    aspect-ratio: auto;
+  }
+
+  .vector-simulation:not(.is-fullscreen) .vs-caption {
+    font-size: 14px;
   }
 }
 
@@ -470,12 +660,8 @@
     padding: 8px;
   }
 
-  .vs-board-heading > span {
-    display: none;
-  }
-
-  .vs-caption {
-    font-size: 13px;
+  .vs-card-grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .vs-table th,
@@ -487,8 +673,9 @@
     font-size: 12px;
   }
 
-  .vs-reset-row button {
-    flex: 1 1 auto;
+  .vs-reset-row {
+    display: grid;
+    grid-template-columns: 1fr;
   }
 }
 
@@ -498,10 +685,8 @@
   }
 }
 
-/* ============ Mode layar penuh (16:9) ============
-   Dua kolom 2 : 1: bidang koordinat | satu kolom berisi pengaturan lalu
-   hasil dan tabel (menurun ke bawah, bisa di-scroll). Penjelasan berada
-   di baris bawah. Halaman tidak di-scroll. */
+/* ───────── Mode layar penuh ───────── */
+
 .vector-simulation.is-fullscreen {
   position: fixed;
   inset: 0;
@@ -514,8 +699,15 @@
   grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
   grid-template-rows: minmax(0, 1fr) auto;
   gap: 8px 10px;
-  padding: 10px 14px;
+  padding: max(10px, env(safe-area-inset-top, 0px))
+    max(14px, env(safe-area-inset-right, 0px))
+    max(10px, env(safe-area-inset-bottom, 0px))
+    max(14px, env(safe-area-inset-left, 0px));
   overflow: hidden;
+}
+
+.is-fullscreen .vs-orientation-hint {
+  display: none;
 }
 
 /* .vs-main melebur sehingga anak-anaknya ikut grid utama */
@@ -528,7 +720,6 @@
   min-height: 0;
 }
 
-/* Pengaturan dan hasil jadi satu kolom menurun, satu scroll */
 .is-fullscreen .vs-column {
   display: grid;
   gap: 8px;
@@ -538,6 +729,7 @@
 
 .is-fullscreen .vs-results {
   grid-column: auto;
+  gap: 8px;
 }
 
 .is-fullscreen .vs-board-panel {
@@ -551,6 +743,11 @@
   display: none;
 }
 
+.is-fullscreen .vs-board-wrap {
+  width: 100%;
+  height: 100%;
+}
+
 .is-fullscreen .vs-board {
   width: 100%;
   height: 100%;
@@ -560,7 +757,7 @@
 
 .is-fullscreen .vs-caption {
   min-height: 0;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .is-fullscreen .vs-side {
@@ -580,7 +777,7 @@
 }
 
 .is-fullscreen .vs-check {
-  margin-top: 6px;
+  margin-top: 2px;
 }
 
 .is-fullscreen .vs-subtitle {
@@ -590,14 +787,6 @@
 .is-fullscreen .vs-hint {
   margin-top: 4px;
   font-size: 10px;
-}
-
-.is-fullscreen .vs-segmented button {
-  min-height: 30px;
-}
-
-.is-fullscreen .vs-results {
-  gap: 8px;
 }
 
 .is-fullscreen .vs-card-grid {
@@ -637,8 +826,8 @@
   line-height: 1.35;
 }
 
-/* Layar sempit/potret: mode penuh boleh di-scroll agar tetap terbaca */
-@media (max-width: 1000px) {
+/* Layar penuh + potret: halaman digulir, bidang koordinat menempel di atas */
+@media (max-width: 1000px) and (orientation: portrait), (max-width: 560px) {
   .vector-simulation.is-fullscreen {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
@@ -653,19 +842,195 @@
     gap: 10px;
   }
 
-  .is-fullscreen .vs-board {
-    height: 60vh;
+  .is-fullscreen .vs-board-panel {
+    position: sticky;
+    top: 0;
+    z-index: 6;
+    box-shadow: 0 6px 16px rgba(24, 49, 61, 0.16);
   }
 
-  .is-fullscreen .vs-board-heading .vs-board-hint {
-    display: block;
+  .is-fullscreen .vs-board {
+    height: clamp(200px, 42dvh, 460px);
   }
 
   .is-fullscreen .vs-column {
+    display: contents;
     overflow: visible;
   }
 
   .is-fullscreen .vs-insights {
     grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ───────── Ponsel LANSKAP (tinggi pendek) ─────────
+   Layar penuh: bidang koordinat di kiri; di kanan satu panel dengan tab
+   Vektor | Contoh | Tampilan | Hasil, sehingga tidak perlu menggulir panjang. */
+
+@media (orientation: landscape) and (max-height: 540px) {
+  .vector-simulation {
+    --vs-btn: 40px;
+    gap: 8px;
+  }
+
+  .vs-insights {
+    display: none;
+  }
+
+  /* Tidak layar penuh: dua kolom, bidang koordinat tidak terlalu tinggi */
+  .vector-simulation:not(.is-fullscreen) .vs-main {
+    grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
+  }
+
+  .vector-simulation:not(.is-fullscreen) .vs-board {
+    width: 100%;
+    height: clamp(230px, 84dvh, 420px);
+    max-height: none;
+    aspect-ratio: auto;
+  }
+
+  .vector-simulation:not(.is-fullscreen) .vs-board-wrap {
+    width: 100%;
+  }
+
+  .vector-simulation.is-fullscreen {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) clamp(300px, 40vw, 380px);
+    grid-template-rows: minmax(0, 1fr);
+    align-content: stretch;
+    overflow: hidden;
+  }
+
+  .is-fullscreen .vs-main {
+    display: contents;
+  }
+
+  .is-fullscreen .vs-board-panel {
+    position: static;
+    box-shadow: none;
+    padding: 6px 8px;
+    gap: 4px;
+  }
+
+  .is-fullscreen .vs-board {
+    height: 100%;
+  }
+
+  .is-fullscreen .vs-board-heading h3 {
+    display: none;
+  }
+
+  .is-fullscreen .vs-board-heading {
+    justify-content: flex-end;
+    min-height: 0;
+  }
+
+  .is-fullscreen .vs-fullscreen-button {
+    min-height: 34px;
+    padding: 0 10px;
+  }
+
+  .is-fullscreen .vs-fullscreen-button span {
+    display: none;
+  }
+
+  .is-fullscreen .vs-view-tools button {
+    width: 34px;
+    height: 34px;
+  }
+
+  .is-fullscreen .vs-legend {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    font-size: 10px;
+    scrollbar-width: none;
+  }
+
+  .is-fullscreen .vs-legend::-webkit-scrollbar {
+    display: none;
+  }
+
+  .is-fullscreen .vs-caption {
+    font-size: 13px;
+    line-height: 1.25;
+  }
+
+  /* Panel kanan bertab */
+  .is-fullscreen .vs-column {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: 6px;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .is-fullscreen .vs-tabs {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .vs-tabs button {
+    min-height: 38px;
+    padding: 0 4px;
+    border: 1px solid #aebdc2;
+    margin-left: -1px;
+    background: #fff;
+    color: var(--sim-ink, #18313d);
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .vs-tabs button:first-child {
+    margin-left: 0;
+  }
+
+  .vs-tabs button[aria-pressed="true"] {
+    border-color: var(--vs-a);
+    background: var(--vs-a);
+    color: #fff;
+  }
+
+  .is-fullscreen .vs-side,
+  .is-fullscreen .vs-results {
+    min-height: 0;
+    overflow-y: auto;
+    align-content: start;
+    overscroll-behavior: contain;
+  }
+
+  /* Hanya panel pada tab aktif yang tampil */
+  .is-fullscreen
+    .vs-column[data-tab="vector"]
+    [data-pane]:not([data-pane="vector"]),
+  .is-fullscreen
+    .vs-column[data-tab="preset"]
+    [data-pane]:not([data-pane="preset"]),
+  .is-fullscreen
+    .vs-column[data-tab="view"]
+    [data-pane]:not([data-pane="view"]),
+  .is-fullscreen
+    .vs-column[data-tab="result"]
+    [data-pane]:not([data-pane="result"]),
+  .is-fullscreen .vs-column[data-tab="result"] .vs-side {
+    display: none;
+  }
+
+  .is-fullscreen .vs-hint {
+    display: none;
+  }
+
+  .is-fullscreen .vs-vector-row {
+    grid-template-columns: 28px repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .is-fullscreen .vs-name {
+    width: 28px;
+  }
+
+  .is-fullscreen .vs-panel {
+    padding: 8px 10px;
   }
 }

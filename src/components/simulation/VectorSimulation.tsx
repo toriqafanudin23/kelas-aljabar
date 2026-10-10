@@ -1,4 +1,19 @@
-import { useEffect, useId, useRef, useState } from "react";
+import {
+  Crosshair,
+  Maximize2,
+  Minimize2,
+  Minus,
+  Plus,
+  RotateCcw,
+  Smartphone,
+} from "lucide-react";
+import {
+  useEffect,
+  useId,
+  useRef,
+  useState,
+  type PointerEvent as ReactPointerEvent,
+} from "react";
 import JXG from "jsxgraph";
 import "../../../node_modules/jsxgraph/distrib/jsxgraph.css";
 import "./VectorSimulation.css";
@@ -12,6 +27,14 @@ type Vec = [number, number];
 type ProjectionMode = "a" | "b" | "off";
 type FieldKey = "a1" | "a2" | "b1" | "b2";
 type Fields = Record<FieldKey, string>;
+type PanelTab = "vector" | "preset" | "view" | "result";
+
+const panelTabs: { tab: PanelTab; label: string }[] = [
+  { tab: "vector", label: "Vektor" },
+  { tab: "preset", label: "Contoh" },
+  { tab: "view", label: "Tampilan" },
+  { tab: "result", label: "Hasil" },
+];
 
 type DataCurve = {
   dataX: number[];
@@ -136,32 +159,100 @@ function parseField(text: string): number | null {
 
 /* ---------- Komponen kecil ---------- */
 
+/** Tombol tahan-untuk-mengulang (−/+ pada kolom angka). */
+function useHoldRepeat(onStep: (direction: 1 | -1) => void) {
+  const stepRef = useRef(onStep);
+  stepRef.current = onStep;
+  const timers = useRef<{ delay?: number; repeat?: number }>({});
+
+  const stop = () => {
+    window.clearTimeout(timers.current.delay);
+    window.clearInterval(timers.current.repeat);
+    timers.current = {};
+  };
+
+  useEffect(
+    () => () => {
+      window.clearTimeout(timers.current.delay);
+      window.clearInterval(timers.current.repeat);
+    },
+    [],
+  );
+
+  return (direction: 1 | -1) => ({
+    type: "button" as const,
+    className: "vs-nudge-button",
+    onPointerDown: (event: ReactPointerEvent<HTMLButtonElement>) => {
+      if (event.pointerType === "mouse" && event.button !== 0) return;
+      stop();
+      stepRef.current(direction);
+      timers.current.delay = window.setTimeout(() => {
+        timers.current.repeat = window.setInterval(
+          () => stepRef.current(direction),
+          80,
+        );
+      }, 450);
+    },
+    onPointerUp: stop,
+    onPointerLeave: stop,
+    onPointerCancel: stop,
+    onBlur: stop,
+    onContextMenu: (event: { preventDefault: () => void }) =>
+      event.preventDefault(),
+    // detail === 0 → aktivasi lewat keyboard (Enter/Spasi)
+    onClick: (event: { detail: number }) => {
+      if (event.detail === 0) stepRef.current(direction);
+    },
+  });
+}
+
 function Field({
   label,
   value,
   onChange,
+  onNudge,
 }: {
   label: string;
   value: string;
   onChange: (value: string) => void;
+  onNudge: (direction: 1 | -1) => void;
 }) {
+  const inputId = `vs-field-${useId().replace(/:/g, "")}`;
+  const bind = useHoldRepeat(onNudge);
   return (
-    <label className="vs-field">
-      <span>{label}</span>
-      <input
-        type="text"
-        inputMode="decimal"
-        value={value}
-        onChange={(event) => onChange(event.currentTarget.value)}
-      />
-    </label>
+    <div className="vs-field">
+      <label htmlFor={inputId}>{label}</label>
+      <div className="vs-field-control">
+        <button {...bind(-1)} aria-label={`Kurangi ${label} 1`}>
+          <Minus size={16} aria-hidden="true" />
+        </button>
+        <input
+          id={inputId}
+          type="text"
+          inputMode="decimal"
+          autoComplete="off"
+          enterKeyHint="done"
+          value={value}
+          onChange={(event) => onChange(event.currentTarget.value)}
+          onFocus={(event) => event.currentTarget.select()}
+        />
+        <button {...bind(1)} aria-label={`Tambah ${label} 1`}>
+          <Plus size={16} aria-hidden="true" />
+        </button>
+      </div>
+    </div>
   );
 }
 
 /* ---------- Komponen utama ---------- */
 
 export function VectorSimulation() {
-  const boardId = `vs-board-${useId().replace(/:/g, "")}`;
+  const baseId = useId().replace(/:/g, "");
+  const boardId = `vs-board-${baseId}`;
+  const boardTitleId = `vs-board-title-${baseId}`;
+  const calcTitleId = `vs-calc-title-${baseId}`;
+  const tableTitleId = `vs-table-title-${baseId}`;
+  const [tab, setTab] = useState<PanelTab>("vector");
   const rootRef = useRef<HTMLDivElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const nativeFullscreenRef = useRef(false);
@@ -255,6 +346,29 @@ export function VectorSimulation() {
     };
   }, []);
 
+  // Di ponsel, layar penuh dikunci ke lanskap bila browser mengizinkan.
+  useEffect(() => {
+    if (!isFullscreen) return;
+    if (!window.matchMedia("(pointer: coarse)").matches) return;
+    const orientation = (
+      screen as unknown as {
+        orientation?: {
+          lock?: (mode: "landscape") => Promise<void>;
+          unlock?: () => void;
+        };
+      }
+    ).orientation;
+    if (typeof orientation?.lock !== "function") return;
+    orientation.lock("landscape").catch(() => undefined);
+    return () => {
+      try {
+        orientation.unlock?.();
+      } catch {
+        /* abaikan */
+      }
+    };
+  }, [isFullscreen]);
+
   /** Menetapkan vektor dari luar papan (contoh, reset, kolom angka). */
   const setVectors = (a: Vec, b: Vec, syncFields: boolean) => {
     vectorsRef.current = { a, b };
@@ -278,6 +392,17 @@ export function VectorSimulation() {
     else if (key === "b1") nextB[0] = value;
     else nextB[1] = value;
     setVectors(nextA, nextB, false);
+  };
+
+  const nudgeField = (key: FieldKey, direction: 1 | -1) => {
+    const { a, b } = vectorsRef.current;
+    const current =
+      key === "a1" ? a[0] : key === "a2" ? a[1] : key === "b1" ? b[0] : b[1];
+    const next = Math.min(
+      LIMIT,
+      Math.max(-LIMIT, cleanNumber(current + direction)),
+    );
+    changeField(key, toField(next));
   };
 
   const toggleSum = (checked: boolean) => {
@@ -716,40 +841,61 @@ export function VectorSimulation() {
       ref={rootRef}
       className={`vector-simulation simulation-fullscreen-frame${isFullscreen ? " is-fullscreen" : ""}`}
     >
+      <p className="vs-orientation-hint">
+        <Smartphone size={16} aria-hidden="true" />
+        <span>
+          Di ponsel, tekan <strong>Layar penuh</strong> lalu miringkan ke mode
+          lanskap agar bidang koordinat dan panel isian tampil berdampingan.
+        </span>
+      </p>
+
       <div className="vs-main">
-        <section className="vs-board-panel" aria-labelledby="vs-board-title">
+        <section className="vs-board-panel" aria-labelledby={boardTitleId}>
           <div className="vs-board-heading">
-            <h3 id="vs-board-title">Bidang koordinat</h3>
+            <h3 id={boardTitleId}>Bidang koordinat</h3>
+            <button
+              type="button"
+              className="vs-fullscreen-button"
+              onClick={toggleFullscreen}
+              aria-pressed={isFullscreen}
+              aria-label={isFullscreen ? "Keluar layar penuh" : "Layar penuh"}
+            >
+              {isFullscreen ? (
+                <Minimize2 size={16} aria-hidden="true" />
+              ) : (
+                <Maximize2 size={16} aria-hidden="true" />
+              )}
+              <span>{isFullscreen ? "Keluar layar penuh" : "Layar penuh"}</span>
+            </button>
             <span className="vs-board-hint">
-              Seret ujung vektor a atau b · tahan klik kiri pada area kosong
-              untuk menggeser · gulir untuk zoom
+              Seret ujung vektor a atau b · seret area kosong untuk menggeser ·
+              cubit atau gulir untuk zoom
             </span>
+          </div>
+          <div className="vs-board-wrap">
+            <div
+              className="vs-board"
+              id={boardId}
+              ref={containerRef}
+              aria-label="Bidang koordinat interaktif. Seret ujung vektor a (biru kehijauan) atau vektor b (oranye) untuk mengubah posisinya. Seret area kosong untuk menggeser bidang, gulir atau cubit untuk memperbesar atau memperkecil."
+            />
             <div className="vs-view-tools" role="group" aria-label="Tampilan">
               <button type="button" onClick={zoomIn} aria-label="Perbesar">
-                +
+                <Plus size={18} aria-hidden="true" />
               </button>
               <button type="button" onClick={zoomOut} aria-label="Perkecil">
-                −
-              </button>
-              <button type="button" onClick={resetView}>
-                Pusatkan
+                <Minus size={18} aria-hidden="true" />
               </button>
               <button
                 type="button"
-                onClick={toggleFullscreen}
-                aria-pressed={isFullscreen}
+                onClick={resetView}
+                aria-label="Pusatkan tampilan"
+                title="Pusatkan tampilan"
               >
-                {isFullscreen ? "Keluar layar penuh" : "Layar penuh"}
+                <Crosshair size={17} aria-hidden="true" />
               </button>
             </div>
-            <GraphAppearanceControls appearance={appearance} onStep={onStep} />
           </div>
-          <div
-            className="vs-board"
-            id={boardId}
-            ref={containerRef}
-            aria-label="Bidang koordinat interaktif. Seret ujung vektor a (biru kehijauan) atau vektor b (oranye) untuk mengubah posisinya. Tahan klik kiri pada area kosong untuk menggeser bidang, gulir untuk memperbesar atau memperkecil."
-          />
           <div className="vs-legend" aria-label="Legenda grafik">
             <span>
               <i className="legend-a" /> vektor a
@@ -769,9 +915,21 @@ export function VectorSimulation() {
           </p>
         </section>
 
-        <div className="vs-column">
+        <div className="vs-column" data-tab={tab}>
+          <div className="vs-tabs" role="group" aria-label="Bagian panel">
+            {panelTabs.map((item) => (
+              <button
+                key={item.tab}
+                type="button"
+                aria-pressed={tab === item.tab}
+                onClick={() => setTab(item.tab)}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
           <section className="vs-side" aria-label="Pengaturan vektor">
-            <div className="vs-panel">
+            <div className="vs-panel" data-pane="vector">
               <h3>Komponen vektor</h3>
               <div className="vs-vector-row">
                 <strong className="vs-name vs-name-a">a</strong>
@@ -779,11 +937,13 @@ export function VectorSimulation() {
                   label="a₁ (x)"
                   value={fields.a1}
                   onChange={(v) => changeField("a1", v)}
+                  onNudge={(d) => nudgeField("a1", d)}
                 />
                 <Field
                   label="a₂ (y)"
                   value={fields.a2}
                   onChange={(v) => changeField("a2", v)}
+                  onNudge={(d) => nudgeField("a2", d)}
                 />
               </div>
               <div className="vs-vector-row">
@@ -792,11 +952,13 @@ export function VectorSimulation() {
                   label="b₁ (x)"
                   value={fields.b1}
                   onChange={(v) => changeField("b1", v)}
+                  onNudge={(d) => nudgeField("b1", d)}
                 />
                 <Field
                   label="b₂ (y)"
                   value={fields.b2}
                   onChange={(v) => changeField("b2", v)}
+                  onNudge={(d) => nudgeField("b2", d)}
                 />
               </div>
               <label className="vs-check">
@@ -813,7 +975,7 @@ export function VectorSimulation() {
               </p>
             </div>
 
-            <div className="vs-panel">
+            <div className="vs-panel" data-pane="preset">
               <h3>Contoh posisi</h3>
               <div
                 className="vs-segmented"
@@ -834,7 +996,7 @@ export function VectorSimulation() {
               </div>
             </div>
 
-            <div className="vs-panel">
+            <div className="vs-panel" data-pane="view">
               <h3>Tampilan</h3>
               <label className="vs-check vs-check-first">
                 <input
@@ -871,23 +1033,25 @@ export function VectorSimulation() {
               </div>
             </div>
 
-            <div className="vs-reset-row">
+            <div className="vs-reset-row" data-pane="view">
               <button
                 type="button"
                 className="vs-reset-button"
                 onClick={resetAll}
               >
-                Atur ulang semua
+                <RotateCcw size={15} aria-hidden="true" />
+                <span>Atur ulang semua</span>
               </button>
+              <GraphAppearanceControls
+                appearance={appearance}
+                onStep={onStep}
+              />
             </div>
           </section>
 
-          <div className="vs-results">
-            <section
-              className="vs-panel vs-wide"
-              aria-labelledby="vs-calc-title"
-            >
-              <h3 id="vs-calc-title">Hasil perhitungan</h3>
+          <div className="vs-results" data-pane="result">
+            <section className="vs-panel vs-wide" aria-labelledby={calcTitleId}>
+              <h3 id={calcTitleId}>Hasil perhitungan</h3>
               <div className="vs-card-grid">
                 <article className="vs-card">
                   <h4>Penjumlahan vektor</h4>
@@ -971,9 +1135,9 @@ export function VectorSimulation() {
 
             <section
               className="vs-panel vs-wide"
-              aria-labelledby="vs-table-title"
+              aria-labelledby={tableTitleId}
             >
-              <h3 id="vs-table-title">Komponen dan panjang</h3>
+              <h3 id={tableTitleId}>Komponen dan panjang</h3>
               <div className="vs-table-wrap">
                 <table className="vs-table">
                   <thead>
