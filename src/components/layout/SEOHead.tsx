@@ -164,6 +164,31 @@ export function SEOHead({ page }: SEOHeadProps) {
           };
           break;
 
+        case "practice-tka-smp-paket1":
+          meta = {
+            title: "Persiapan TKA SMP Paket 1 | Math 1729",
+            description:
+              "Simulasi ujian TKA Matematika SMP/MTs Paket 1 dengan pilihan ganda, pilihan ganda kompleks, timer, skor, dan pembahasan.",
+            keywords:
+              "persiapan TKA SMP, simulasi ujian TKA matematika SMP, TKA SMP paket 1, latihan TKA SMP/MTs",
+            ogType: "article",
+            schema: {
+              "@context": "https://schema.org",
+              "@type": "LearningResource",
+              name: "Persiapan TKA SMP Paket 1",
+              learningResourceType: "Practice test",
+              educationalLevel: "SMP",
+              inLanguage: "id",
+              url: currentUrl,
+              provider: {
+                "@type": "EducationalOrganization",
+                name: "Math 1729",
+                url: BASE_URL,
+              },
+            },
+          };
+          break;
+
         case "practice-eksponensial":
           meta = {
             title: "Latihan Soal Eksponen dan Logaritma Kelas X | Math 1729",

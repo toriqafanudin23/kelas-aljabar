@@ -12,6 +12,7 @@ export type Page =
   | "not-found"
   | "practice"
   | "practice-tka-paket1"
+  | "practice-tka-smp-paket1"
   | "practice-eksponensial"
   | "practice-barisan-deret"
   | "practice-vektor"
@@ -62,6 +63,12 @@ export function getPageFromPath(path: string): Page {
     path === "/latihan-soal/tka-paket-1/"
   ) {
     return "practice-tka-paket1";
+  }
+  if (
+    path === "/latihan-soal/tka-smp-paket-1" ||
+    path === "/latihan-soal/tka-smp-paket-1/"
+  ) {
+    return "practice-tka-smp-paket1";
   }
   if (
     path === "/latihan-soal/eksponensial" ||
@@ -202,6 +209,9 @@ export function getPathFromPage(page: Page): string {
   if (page === "bank-download") return "/unduh-bank-soal";
   if (page === "practice") return "/latihan-soal";
   if (page === "practice-tka-paket1") return "/latihan-soal/tka-paket-1";
+  if (page === "practice-tka-smp-paket1") {
+    return "/latihan-soal/tka-smp-paket-1";
+  }
   if (page === "practice-eksponensial") return "/latihan-soal/eksponensial";
   if (page === "practice-barisan-deret") return "/latihan-soal/barisan-deret";
   if (page === "practice-vektor") return "/latihan-soal/vektor";

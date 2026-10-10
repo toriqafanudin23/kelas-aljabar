@@ -438,7 +438,7 @@ export function PracticePage({ navigate }: PracticePageProps) {
             <span className="practice-overview-label">Mode ujian</span>
             <h2>Persiapan ujian</h2>
           </div>
-          <span className="practice-module-count">1 paket</span>
+          <span className="practice-module-count">2 paket</span>
         </div>
 
         <div className="practice-card-grid">
@@ -474,6 +474,51 @@ export function PracticePage({ navigate }: PracticePageProps) {
                   {topic}
                 </span>
               ))}
+            </div>
+            <div className="practice-card-details">
+              <span>
+                <Clock3 size={15} aria-hidden="true" />
+                Durasi dapat dipilih
+              </span>
+              <span>
+                <Trophy size={15} aria-hidden="true" />
+                Skor maksimal 100
+              </span>
+            </div>
+            <span className="practice-card-cta">
+              Mulai persiapan <ArrowRight size={16} aria-hidden="true" />
+            </span>
+          </a>
+          <a
+            className="practice-card practice-exam-card"
+            href="/latihan-soal/tka-smp-paket-1"
+            onClick={(event) => navigate(event, "practice-tka-smp-paket1")}
+          >
+            <div className="practice-card-heading">
+              <span className="practice-card-index">
+                SIMULASI TKA · SMP · PAKET 1
+              </span>
+              <span className="practice-card-question-count">
+                <FileQuestion size={15} aria-hidden="true" />
+                30 soal
+              </span>
+            </div>
+            <div className="practice-card-main">
+              <h3>Persiapan TKA SMP Paket 1</h3>
+              <p>
+                Simulasi ujian Matematika SMP/MTs dengan pilihan ganda dan
+                pilihan ganda kompleks, dilengkapi timer, skor, serta
+                pembahasan.
+              </p>
+            </div>
+            <div className="practice-card-topics" aria-label="Tipe soal">
+              {["Pilihan ganda", "MCMA", "Kategori Benar/Salah"].map(
+                (topic) => (
+                  <span className="practice-topic" key={topic}>
+                    {topic}
+                  </span>
+                ),
+              )}
             </div>
             <div className="practice-card-details">
               <span>

@@ -98,6 +98,7 @@ function App() {
     page !== "bank-download" &&
     page !== "practice" &&
     page !== "practice-tka-paket1" &&
+    page !== "practice-tka-smp-paket1" &&
     page !== "practice-eksponensial" &&
     page !== "practice-barisan-deret" &&
     page !== "practice-vektor" &&
@@ -161,6 +162,9 @@ function App() {
         )}
         {page === "practice" && <PracticePage navigate={navigate} />}
         {page === "practice-tka-paket1" && <TkaExamPage navigate={navigate} />}
+        {page === "practice-tka-smp-paket1" && (
+          <TkaExamPage navigate={navigate} exam="smp" />
+        )}
         {page === "practice-eksponensial" && (
           <PracticeExercisePage navigate={navigate} exercise="eksponensial" />
         )}

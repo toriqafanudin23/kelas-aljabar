@@ -5,19 +5,35 @@ import "../latihan-soal/latihan-soal.css";
 import "./PracticePage.css";
 import "../ujian/simulasi-tka-paket1.css";
 
+const TKA_EXAM_DETAILS = {
+  sma: {
+    id: "simulasi-tka-paket1",
+    title: "Persiapan TKA SMA Paket 1",
+    load: () => import("../ujian/simulasi-tka-paket1.html?raw"),
+  },
+  smp: {
+    id: "simulasi-tka-smp-paket1",
+    title: "Persiapan TKA SMP Paket 1",
+    load: () => import("../ujian/simulasi-tka-smp-paket1.html?raw"),
+  },
+} as const;
+
 interface TkaExamPageProps {
   navigate: Navigate;
+  exam?: "sma" | "smp";
 }
 
-export function TkaExamPage({ navigate }: TkaExamPageProps) {
+export function TkaExamPage({ navigate, exam = "sma" }: TkaExamPageProps) {
   const examRef = useRef<HTMLDivElement>(null);
+  const examDetails = TKA_EXAM_DETAILS[exam];
 
   useEffect(() => {
     const root = examRef.current;
     if (!root) return;
 
     let isActive = true;
-    import("../ujian/simulasi-tka-paket1.html?raw")
+    examDetails
+      .load()
       .then(({ default: html }) => {
         if (!isActive || !root.isConnected) return;
 
@@ -50,11 +66,11 @@ export function TkaExamPage({ navigate }: TkaExamPageProps) {
 
     return () => {
       isActive = false;
-      const section = root.querySelector<HTMLElement>("#simulasi-tka-paket1");
+      const section = root.querySelector<HTMLElement>(`#${examDetails.id}`);
       section?.dispatchEvent(new Event("tka:dispose"));
       root.replaceChildren();
     };
-  }, []);
+  }, [examDetails]);
 
   return (
     <main className="site-width inner-page practice-page practice-exercise-page">
@@ -70,7 +86,7 @@ export function TkaExamPage({ navigate }: TkaExamPageProps) {
           Latihan Soal
         </a>
         <span>/</span>
-        <span>Persiapan TKA SMA Paket 1</span>
+        <span>{examDetails.title}</span>
       </div>
 
       <div className="practice-exercise-toolbar">
