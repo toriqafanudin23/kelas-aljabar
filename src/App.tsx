@@ -25,6 +25,9 @@ const BankSoalDownloadPage = lazy(() =>
 const PracticePage = lazy(() =>
   import("./pages/PracticePage").then((m) => ({ default: m.PracticePage })),
 );
+const TkaExamPage = lazy(() =>
+  import("./pages/TkaExamPage").then((m) => ({ default: m.TkaExamPage })),
+);
 const PracticeExercisePage = lazy(() =>
   import("./pages/PracticeExercisePage").then((m) => ({
     default: m.PracticeExercisePage,
@@ -94,6 +97,7 @@ function App() {
     page !== "download" &&
     page !== "bank-download" &&
     page !== "practice" &&
+    page !== "practice-tka-paket1" &&
     page !== "practice-eksponensial" &&
     page !== "practice-barisan-deret" &&
     page !== "practice-vektor" &&
@@ -156,6 +160,7 @@ function App() {
           <BankSoalDownloadPage navigate={navigate} />
         )}
         {page === "practice" && <PracticePage navigate={navigate} />}
+        {page === "practice-tka-paket1" && <TkaExamPage navigate={navigate} />}
         {page === "practice-eksponensial" && (
           <PracticeExercisePage navigate={navigate} exercise="eksponensial" />
         )}

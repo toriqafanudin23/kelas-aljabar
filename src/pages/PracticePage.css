@@ -54,6 +54,15 @@
   padding-top: 34px;
 }
 
+.practice-exam-list {
+  margin-top: 12px;
+  border-top: 2px solid var(--gold);
+}
+
+.practice-exam-card {
+  border-top-color: var(--gold);
+}
+
 .practice-section-heading {
   display: flex;
   align-items: end;

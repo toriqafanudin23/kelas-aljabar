@@ -1,0 +1,3539 @@
+<section
+  id="simulasi-tka-paket1"
+  data-title="Persiapan TKA SMA Paket 1"
+  class="latihan-eks"
+>
+  <div class="tka-exam-intro">
+    <h2>Persiapan TKA SMA Paket 1</h2>
+    <p>
+      Simulasi ini memuat <strong>30 soal TKA Matematika SMA</strong> (20
+      pilihan ganda, 5 pilihan ganda kompleks, dan 5 benar/salah) serta
+      <strong>4 isian singkat tambahan</strong>. Soal dikerjakan satu per satu.
+      Setelah semua dijawab, tekan <strong>Kumpulkan</strong> untuk melihat
+      nilai dan pembahasan. Jika waktu habis, jawaban dikumpulkan otomatis.
+    </p>
+    <ul>
+      <li>
+        Lama pengerjaan dapat dipilih. Alokasi yang disarankan adalah 90 menit
+        untuk 30 soal.
+      </li>
+      <li>
+        Skor: pilihan ganda 3 poin, pilihan ganda kompleks 4 poin, benar/salah 4
+        poin, isian singkat 4 poin. Soal kompleks dan benar/salah bernilai penuh
+        hanya jika semua bagian benar. Tidak ada pengurangan skor untuk jawaban
+        salah.
+      </li>
+      <li>
+        Kalkulator tidak diperkenankan. Gunakan \(\pi=\frac{22}{7}\) bila tidak
+        disebutkan lain. Gambar tidak selalu digambar sesuai skala.
+      </li>
+    </ul>
+  </div>
+
+  <!-- Pengaturan -->
+  <div class="lesson-example" data-sim="atur">
+    <h4>Pengaturan simulasi</h4>
+    <p><strong>Lama pengerjaan</strong> (menit)</p>
+    <div class="isian-baris">
+      <input
+        type="number"
+        class="isian-input"
+        data-sim="menit"
+        min="1"
+        max="300"
+        value="90"
+        aria-label="Lama pengerjaan dalam menit"
+      />
+      <button type="button" class="btn-ulang" data-menit="30">30</button>
+      <button type="button" class="btn-ulang" data-menit="45">45</button>
+      <button type="button" class="btn-ulang" data-menit="60">60</button>
+      <button type="button" class="btn-ulang" data-menit="90">90</button>
+      <button type="button" class="btn-ulang" data-menit="120">120</button>
+    </div>
+    <p><strong>Jenis soal yang dikerjakan</strong></p>
+    <div class="opsi-grup">
+      <label class="opsi"
+        ><input type="checkbox" data-sim-tipe="pg" checked /><span class="isi"
+          >Pilihan ganda (<span data-sim-n="pg">0</span> soal)</span
+        ></label
+      >
+      <label class="opsi"
+        ><input type="checkbox" data-sim-tipe="kompleks" checked /><span
+          class="isi"
+          >Pilihan ganda kompleks (<span data-sim-n="kompleks">0</span>
+          soal)</span
+        ></label
+      >
+      <label class="opsi"
+        ><input type="checkbox" data-sim-tipe="kategori" checked /><span
+          class="isi"
+          >Benar/Salah (<span data-sim-n="kategori">0</span> soal)</span
+        ></label
+      >
+      <label class="opsi"
+        ><input type="checkbox" data-sim-tipe="isian" checked /><span
+          class="isi"
+          >Isian singkat (<span data-sim-n="isian">0</span> soal)</span
+        ></label
+      >
+    </div>
+    <p class="catatan-bentuk" data-sim="ringkas"></p>
+    <button type="button" class="btn-cek" data-aksi="mulai">
+      Mulai simulasi
+    </button>
+  </div>
+
+  <!-- Bilah ujian -->
+  <div data-sim="ujian" hidden>
+    <div class="skor-bar" role="status">
+      <span>Sisa waktu: <strong data-sim-waktu>00:00</strong></span>
+      <span
+        >Terjawab: <strong data-sim-terjawab>0</strong> dari
+        <strong data-sim-total>0</strong></span
+      >
+      <button type="button" class="btn-ulang" data-aksi="kumpul">
+        Kumpulkan
+      </button>
+      <button type="button" class="btn-ulang" data-aksi="fullscreen">
+        Layar penuh
+      </button>
+    </div>
+  </div>
+
+  <dialog
+    class="tka-confirm-dialog"
+    data-sim="confirm-dialog"
+    aria-labelledby="tka-confirm-title"
+    aria-describedby="tka-confirm-message"
+  >
+    <div class="tka-confirm-content">
+      <span class="tka-confirm-kicker">Konfirmasi ujian</span>
+      <h3 id="tka-confirm-title">Kumpulkan jawaban?</h3>
+      <p id="tka-confirm-message" data-sim="confirm-message"></p>
+      <div class="tka-confirm-actions">
+        <button type="button" class="btn-ulang" data-aksi="cancel-submit">
+          Periksa kembali
+        </button>
+        <button type="button" class="btn-cek" data-aksi="confirm-submit">
+          Ya, kumpulkan
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Hasil -->
+  <div data-sim="hasil" hidden>
+    <div class="lesson-example">
+      <h4>Hasil simulasi</h4>
+      <p class="sim-otomatis" data-sim="otomatis" hidden>
+        Waktu habis. Jawaban Anda dikumpulkan secara otomatis.
+      </p>
+      <p class="sim-skor">
+        <strong data-sim-nilai>0</strong> <span>dari 100</span>
+      </p>
+      <p data-sim="verdik"></p>
+      <div class="skor-bar">
+        <span>Benar: <strong data-h="benar">0</strong></span>
+        <span>Salah: <strong data-h="salah">0</strong></span>
+        <span>Kosong: <strong data-h="kosong">0</strong></span>
+        <span>Poin: <strong data-h="poin">0</strong></span>
+        <span>Waktu terpakai: <strong data-h="waktu">0</strong></span>
+      </div>
+      <table class="tabel-data" data-sim="rjenis"></table>
+      <table class="tabel-data" data-sim="relemen"></table>
+      <button type="button" class="btn-ulang" data-aksi="ulang">
+        Ulangi simulasi
+      </button>
+    </div>
+    <h3>Pembahasan</h3>
+    <div class="sim-filter">
+      <button type="button" class="btn-ulang" data-filter="semua">Semua</button>
+      <button type="button" class="btn-ulang" data-filter="salah">Salah</button>
+      <button type="button" class="btn-ulang" data-filter="kosong">
+        Kosong
+      </button>
+      <button type="button" class="btn-ulang" data-filter="benar">Benar</button>
+      <button type="button" class="btn-ulang" data-aksi="buka">
+        Buka semua pembahasan
+      </button>
+    </div>
+  </div>
+
+  <div class="tka-exam-workspace">
+    <div class="sim-nomor" data-sim="nomor" hidden></div>
+
+    <!-- Daftar soal: ditampilkan satu per satu saat ujian, semuanya saat pembahasan.
+       Untuk menambah soal, salin salah satu blok dan ubah data-tipe
+       (pg | kompleks | kategori | isian), data-kunci, data-poin, serta atribut data lainnya. -->
+    <div class="tka-exam-question-viewport">
+      <div data-sim="soal">
+        <!-- Soal 1 -->
+        <div
+          class="lesson-example soal-pg"
+          data-tipe="pg"
+          data-kunci="C"
+          data-poin="3"
+          data-elemen="Bilangan"
+          data-materi="Operasi bentuk akar"
+          data-level="1"
+        >
+          <h4>Soal 1</h4>
+          <p>
+            Bentuk paling sederhana dari \(\sqrt{48}-\sqrt{12}+\sqrt{75}\)
+            adalah ....
+          </p>
+          <div class="opsi-grup">
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-1" value="A" /><span
+                class="huruf"
+                >A</span
+              ><span class="isi">\(5\sqrt3\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-1" value="B" /><span
+                class="huruf"
+                >B</span
+              ><span class="isi">\(6\sqrt3\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-1" value="C" /><span
+                class="huruf"
+                >C</span
+              ><span class="isi">\(7\sqrt3\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-1" value="D" /><span
+                class="huruf"
+                >D</span
+              ><span class="isi">\(9\sqrt3\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-1" value="E" /><span
+                class="huruf"
+                >E</span
+              ><span class="isi">\(11\sqrt3\)</span></label
+            >
+          </div>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>
+              \(\sqrt{48}=4\sqrt3\), \(\sqrt{12}=2\sqrt3\), dan
+              \(\sqrt{75}=5\sqrt3\). Hasilnya \((4-2+5)\sqrt3=7\sqrt3\).
+            </p>
+            <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+          </details>
+        </div>
+
+        <!-- Soal 2 -->
+        <div
+          class="lesson-example soal-pg"
+          data-tipe="pg"
+          data-kunci="A"
+          data-poin="3"
+          data-elemen="Aljabar"
+          data-materi="Persamaan garis dari grafik"
+          data-level="1"
+        >
+          <h4>Soal 2</h4>
+          <p>
+            Garis \(g\) pada gambar melalui titik \((0,-2)\) dan \((3,4)\).
+            Persamaan garis \(g\) adalah ....
+          </p>
+          <div class="sim-gambar">
+            <svg
+              class="fig"
+              viewBox="0 0 262 244"
+              style="width: 262px"
+              role="img"
+              aria-label="Gambar soal"
+            >
+              <line class="g" x1="26" y1="218" x2="26" y2="26" />
+              <line class="g" x1="56" y1="218" x2="56" y2="26" />
+              <line class="g" x1="86" y1="218" x2="86" y2="26" />
+              <line class="g" x1="116" y1="218" x2="116" y2="26" />
+              <line class="g" x1="146" y1="218" x2="146" y2="26" />
+              <line class="g" x1="176" y1="218" x2="176" y2="26" />
+              <line class="g" x1="206" y1="218" x2="206" y2="26" />
+              <line class="g" x1="236" y1="218" x2="236" y2="26" />
+              <line class="g" x1="26" y1="218" x2="236" y2="218" />
+              <line class="g" x1="26" y1="194" x2="236" y2="194" />
+              <line class="g" x1="26" y1="170" x2="236" y2="170" />
+              <line class="g" x1="26" y1="146" x2="236" y2="146" />
+              <line class="g" x1="26" y1="122" x2="236" y2="122" />
+              <line class="g" x1="26" y1="98" x2="236" y2="98" />
+              <line class="g" x1="26" y1="74" x2="236" y2="74" />
+              <line class="g" x1="26" y1="50" x2="236" y2="50" />
+              <line class="g" x1="26" y1="26" x2="236" y2="26" />
+              <line class="ax" x1="26" y1="146" x2="251.0" y2="146" />
+              <line class="ax" x1="116" y1="218" x2="116" y2="14.0" />
+              <text class="tk" x="23" y="157">-3</text>
+              <text class="tk" x="53" y="157">-2</text>
+              <text class="tk" x="83" y="157">-1</text>
+              <text class="tk" x="143" y="157">1</text>
+              <text class="tk" x="173" y="157">2</text>
+              <text class="tk" x="203" y="157">3</text>
+              <text class="tk" x="233" y="157">4</text>
+              <text class="tk" x="106" y="221">-3</text>
+              <text class="tk" x="106" y="197">-2</text>
+              <text class="tk" x="106" y="173">-1</text>
+              <text class="tk" x="106" y="125">1</text>
+              <text class="tk" x="106" y="101">2</text>
+              <text class="tk" x="106" y="77">3</text>
+              <text class="tk" x="106" y="53">4</text>
+              <text class="tk" x="106" y="29">5</text>
+              <text class="tx" x="255.0" y="150">x</text>
+              <text class="tx" x="122" y="16.0">y</text>
+              <line class="a" x1="101.0" y1="218" x2="221.0" y2="26" />
+              <circle class="dot" cx="116" cy="194" r="2.6" />
+              <text class="tx" x="122" y="208">(0,-2)</text>
+              <circle class="dot" cx="206" cy="50" r="2.6" />
+              <text class="tx" x="212" y="54">(3,4)</text>
+              <text class="tx" x="87.0" y="203.6">g</text>
+            </svg>
+          </div>
+          <div class="opsi-grup">
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-2" value="A" /><span
+                class="huruf"
+                >A</span
+              ><span class="isi">\(2x-y-2=0\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-2" value="B" /><span
+                class="huruf"
+                >B</span
+              ><span class="isi">\(2x+y-2=0\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-2" value="C" /><span
+                class="huruf"
+                >C</span
+              ><span class="isi">\(x-2y-2=0\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-2" value="D" /><span
+                class="huruf"
+                >D</span
+              ><span class="isi">\(2x-y+2=0\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-2" value="E" /><span
+                class="huruf"
+                >E</span
+              ><span class="isi">\(x+2y+2=0\)</span></label
+            >
+          </div>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>
+              Gradien \(=\frac{4-(-2)}{3-0}=2\) dan memotong sumbu-\(y\) di
+              \(-2\), sehingga \(y=2x-2\), yaitu \(2x-y-2=0\). Cek titik
+              \((3,4)\): \(6-4-2=0\). (Jebakan D: salah tanda konstanta.)
+            </p>
+            <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+          </details>
+        </div>
+
+        <!-- Soal 3 -->
+        <div
+          class="lesson-example soal-pg"
+          data-tipe="pg"
+          data-kunci="B"
+          data-poin="3"
+          data-elemen="Geometri dan Pengukuran"
+          data-materi="Luas permukaan tabung"
+          data-level="1"
+        >
+          <h4>Soal 3</h4>
+          <p>
+            Sebuah wadah berbentuk tabung tanpa tutup mempunyai jari-jari alas
+            \(7\) cm dan tinggi \(10\) cm. Luas permukaan wadah tersebut adalah
+            ... cm\(^{2}\).
+          </p>
+          <div class="opsi-grup">
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-3" value="A" /><span
+                class="huruf"
+                >A</span
+              ><span class="isi">\(440\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-3" value="B" /><span
+                class="huruf"
+                >B</span
+              ><span class="isi">\(594\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-3" value="C" /><span
+                class="huruf"
+                >C</span
+              ><span class="isi">\(748\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-3" value="D" /><span
+                class="huruf"
+                >D</span
+              ><span class="isi">\(880\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-3" value="E" /><span
+                class="huruf"
+                >E</span
+              ><span class="isi">\(1.034\)</span></label
+            >
+          </div>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>
+              Tanpa tutup berarti luas alas ditambah luas selimut: \(\pi
+              r^{2}+2\pi rh=154+440=594\). (Jebakan C: \(748\) adalah luas
+              permukaan tabung dengan tutup.)
+            </p>
+            <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+          </details>
+        </div>
+
+        <!-- Soal 4 -->
+        <div
+          class="lesson-example soal-pg"
+          data-tipe="pg"
+          data-kunci="D"
+          data-poin="3"
+          data-elemen="Trigonometri"
+          data-materi="Perbandingan trigonometri pada segitiga siku-siku"
+          data-level="1"
+        >
+          <h4>Soal 4</h4>
+          <p>
+            Pada segitiga \(ABC\) yang siku-siku di \(B\) dengan \(AB=5\) dan
+            \(BC=12\) (lihat gambar), nilai \(\sin A+\cos A\) adalah ....
+          </p>
+          <div class="sim-gambar">
+            <svg
+              class="fig"
+              viewBox="0 0 268.0 142.0"
+              style="width: 268px"
+              role="img"
+              aria-label="Gambar soal"
+            >
+              <polygon class="f" points="26,26.0 26,116.0 242.0,116.0" />
+              <line class="a" x1="26" y1="26.0" x2="26" y2="116.0" />
+              <line class="a" x1="26" y1="116.0" x2="242.0" y2="116.0" />
+              <line class="a" x1="242.0" y1="116.0" x2="26" y2="26.0" />
+              <line class="m" x1="26" y1="104.0" x2="38.0" y2="104.0" />
+              <line class="m" x1="38.0" y1="104.0" x2="38.0" y2="116.0" />
+              <circle class="dot" cx="26" cy="26.0" r="2.6" />
+              <text class="tx" x="12" y="22.0">A</text>
+              <circle class="dot" cx="26" cy="116.0" r="2.6" />
+              <text class="tx" x="12" y="128.0">B</text>
+              <circle class="dot" cx="242.0" cy="116.0" r="2.6" />
+              <text class="tx" x="248.0" y="128.0">C</text>
+              <text class="tx" x="12" y="75.0">5</text>
+              <text class="tx" x="128.0" y="134.0">12</text>
+            </svg>
+          </div>
+          <div class="opsi-grup">
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-4" value="A" /><span
+                class="huruf"
+                >A</span
+              ><span class="isi">\(\frac{7}{13}\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-4" value="B" /><span
+                class="huruf"
+                >B</span
+              ><span class="isi">\(\frac{12}{13}\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-4" value="C" /><span
+                class="huruf"
+                >C</span
+              ><span class="isi">\(\frac{15}{13}\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-4" value="D" /><span
+                class="huruf"
+                >D</span
+              ><span class="isi">\(\frac{17}{13}\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-4" value="E" /><span
+                class="huruf"
+                >E</span
+              ><span class="isi">\(\frac{60}{13}\)</span></label
+            >
+          </div>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>
+              \(AC=\sqrt{5^{2}+12^{2}}=13\). \(\sin
+              A=\frac{BC}{AC}=\frac{12}{13}\) dan \(\cos
+              A=\frac{AB}{AC}=\frac{5}{13}\), sehingga jumlahnya
+              \(\frac{17}{13}\).
+            </p>
+            <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+          </details>
+        </div>
+
+        <!-- Soal 5 -->
+        <div
+          class="lesson-example soal-pg"
+          data-tipe="pg"
+          data-kunci="E"
+          data-poin="3"
+          data-elemen="Data dan Peluang"
+          data-materi="Rata-rata dari diagram batang"
+          data-level="1"
+        >
+          <h4>Soal 5</h4>
+          <p>
+            Diagram batang menunjukkan banyak siswa untuk setiap nilai pada
+            suatu ulangan harian. Rata-rata nilai ulangan tersebut adalah ....
+          </p>
+          <div class="sim-gambar">
+            <svg
+              class="fig"
+              viewBox="0 0 270 180"
+              style="width: 270px"
+              role="img"
+              aria-label="Diagram batang"
+            >
+              <line class="g" x1="40" x2="250" y1="150" y2="150" />
+              <text class="tk" x="34" y="153" text-anchor="end">0</text>
+              <line class="g" x1="40" x2="250" y1="114" y2="114" />
+              <text class="tk" x="34" y="117" text-anchor="end">2</text>
+              <line class="g" x1="40" x2="250" y1="78" y2="78" />
+              <text class="tk" x="34" y="81" text-anchor="end">4</text>
+              <line class="g" x1="40" x2="250" y1="42" y2="42" />
+              <text class="tk" x="34" y="45" text-anchor="end">6</text>
+              <rect class="bar" x="52" y="114" width="28" height="36" />
+              <text class="tx" x="66" y="110" text-anchor="middle">2</text>
+              <text class="tx" x="66" y="165" text-anchor="middle">5</text>
+              <rect class="bar" x="92" y="78" width="28" height="72" />
+              <text class="tx" x="106" y="74" text-anchor="middle">4</text>
+              <text class="tx" x="106" y="165" text-anchor="middle">6</text>
+              <rect class="bar" x="132" y="42" width="28" height="108" />
+              <text class="tx" x="146" y="38" text-anchor="middle">6</text>
+              <text class="tx" x="146" y="165" text-anchor="middle">7</text>
+              <rect class="bar" x="172" y="60" width="28" height="90" />
+              <text class="tx" x="186" y="56" text-anchor="middle">5</text>
+              <text class="tx" x="186" y="165" text-anchor="middle">8</text>
+              <rect class="bar" x="212" y="96" width="28" height="54" />
+              <text class="tx" x="226" y="92" text-anchor="middle">3</text>
+              <text class="tx" x="226" y="165" text-anchor="middle">9</text>
+              <line class="ax" x1="40" y1="150" x2="255" y2="150" />
+              <line class="ax" x1="40" y1="150" x2="40" y2="20" />
+              <text class="tx" x="255" y="168" text-anchor="end">nilai</text>
+              <text class="tx" x="4" y="14">frekuensi</text>
+            </svg>
+          </div>
+          <div class="opsi-grup">
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-5" value="A" /><span
+                class="huruf"
+                >A</span
+              ><span class="isi">\(6{,}95\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-5" value="B" /><span
+                class="huruf"
+                >B</span
+              ><span class="isi">\(7{,}00\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-5" value="C" /><span
+                class="huruf"
+                >C</span
+              ><span class="isi">\(7{,}05\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-5" value="D" /><span
+                class="huruf"
+                >D</span
+              ><span class="isi">\(7{,}10\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-5" value="E" /><span
+                class="huruf"
+                >E</span
+              ><span class="isi">\(7{,}15\)</span></label
+            >
+          </div>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>
+              Banyak siswa \(2+4+6+5+3=20\). Jumlah nilai
+              \(5\cdot2+6\cdot4+7\cdot6+8\cdot5+9\cdot3=10+24+42+40+27=143\).
+              Rata-rata \(=\frac{143}{20}=7{,}15\). (Jebakan B: rata-rata tanpa
+              memperhatikan frekuensi, \(\frac{5+6+7+8+9}{5}=7{,}00\).)
+            </p>
+            <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+          </details>
+        </div>
+
+        <!-- Soal 6 -->
+        <div
+          class="lesson-example soal-pg"
+          data-tipe="pg"
+          data-kunci="B"
+          data-poin="3"
+          data-elemen="Aljabar"
+          data-materi="Barisan aritmetika"
+          data-level="1"
+        >
+          <h4>Soal 6</h4>
+          <p>
+            Pada suatu barisan aritmetika, suku ke-\(3\) bernilai \(11\) dan
+            suku ke-\(8\) bernilai \(31\). Suku ke-\(15\) barisan tersebut
+            adalah ....
+          </p>
+          <div class="opsi-grup">
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-6" value="A" /><span
+                class="huruf"
+                >A</span
+              ><span class="isi">\(55\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-6" value="B" /><span
+                class="huruf"
+                >B</span
+              ><span class="isi">\(59\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-6" value="C" /><span
+                class="huruf"
+                >C</span
+              ><span class="isi">\(63\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-6" value="D" /><span
+                class="huruf"
+                >D</span
+              ><span class="isi">\(67\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-6" value="E" /><span
+                class="huruf"
+                >E</span
+              ><span class="isi">\(71\)</span></label
+            >
+          </div>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>
+              \(u_8-u_3=5b=20\), sehingga \(b=4\). \(a=u_3-2b=11-8=3\).
+              \(u_{15}=3+14\cdot4=59\). (Jebakan C: memakai \(15b\) bukan
+              \(14b\), menghasilkan \(63\).)
+            </p>
+            <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+          </details>
+        </div>
+
+        <!-- Soal 7 -->
+        <div
+          class="lesson-example soal-pg soal-kompleks"
+          data-tipe="kompleks"
+          data-kunci="A,B,E"
+          data-poin="4"
+          data-elemen="Aljabar"
+          data-materi="Komposisi dan invers fungsi"
+          data-level="1"
+        >
+          <h4>Soal 7</h4>
+          <p>
+            Diketahui \(f(x)=2x+1\) dan \(g(x)=x^{2}-3\). Pilih
+            <em>semua</em> pernyataan yang benar.
+          </p>
+          <div class="opsi-grup">
+            <label class="opsi"
+              ><input type="checkbox" name="sim-kompleks-7" value="A" /><span
+                class="huruf"
+                >A</span
+              ><span class="isi">\((f\circ g)(x)=2x^{2}-5\).</span></label
+            >
+            <label class="opsi"
+              ><input type="checkbox" name="sim-kompleks-7" value="B" /><span
+                class="huruf"
+                >B</span
+              ><span class="isi">\((g\circ f)(x)=4x^{2}+4x-2\).</span></label
+            >
+            <label class="opsi"
+              ><input type="checkbox" name="sim-kompleks-7" value="C" /><span
+                class="huruf"
+                >C</span
+              ><span class="isi">\(f^{-1}(x)=\dfrac{x+1}{2}\).</span></label
+            >
+            <label class="opsi"
+              ><input type="checkbox" name="sim-kompleks-7" value="D" /><span
+                class="huruf"
+                >D</span
+              ><span class="isi">\((f\circ g)(2)=5\).</span></label
+            >
+            <label class="opsi"
+              ><input type="checkbox" name="sim-kompleks-7" value="E" /><span
+                class="huruf"
+                >E</span
+              ><span class="isi"
+                >Fungsi \(g\) tidak mempunyai invers pada himpunan bilangan
+                real.</span
+              ></label
+            >
+          </div>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>
+              A benar: \(f(g(x))=2(x^{2}-3)+1=2x^{2}-5\). B benar:
+              \(g(f(x))=(2x+1)^{2}-3=4x^{2}+4x-2\). C salah: dari \(y=2x+1\)
+              diperoleh \(x=\frac{y-1}{2}\), sehingga
+              \(f^{-1}(x)=\frac{x-1}{2}\). D salah: \(g(2)=1\) dan \(f(1)=3\),
+              bukan \(5\). E benar: \(g(1)=g(-1)=-2\) sehingga \(g\) tidak
+              satu-satu dan tidak mempunyai invers pada bilangan real.
+            </p>
+            <p>Jadi, pernyataan yang benar adalah <strong>A, B, E</strong>.</p>
+          </details>
+        </div>
+
+        <!-- Soal 8 -->
+        <div
+          class="lesson-example soal-pg"
+          data-tipe="pg"
+          data-kunci="A"
+          data-poin="3"
+          data-elemen="Geometri dan Pengukuran"
+          data-materi="Transformasi: rotasi dan refleksi"
+          data-level="1"
+        >
+          <h4>Soal 8</h4>
+          <p>
+            Titik \(P(-3,5)\) diputar sejauh \(90^\circ\) berlawanan arah jarum
+            jam terhadap titik asal, kemudian hasilnya dicerminkan terhadap
+            sumbu-\(x\). Koordinat bayangan akhir titik \(P\) adalah ....
+          </p>
+          <div class="opsi-grup">
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-8" value="A" /><span
+                class="huruf"
+                >A</span
+              ><span class="isi">\((-5,3)\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-8" value="B" /><span
+                class="huruf"
+                >B</span
+              ><span class="isi">\((5,3)\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-8" value="C" /><span
+                class="huruf"
+                >C</span
+              ><span class="isi">\((5,-3)\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-8" value="D" /><span
+                class="huruf"
+                >D</span
+              ><span class="isi">\((-5,-3)\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-8" value="E" /><span
+                class="huruf"
+                >E</span
+              ><span class="isi">\((3,5)\)</span></label
+            >
+          </div>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>
+              Rotasi \(90^\circ\) berlawanan arah jarum jam:
+              \((x,y)\mapsto(-y,x)\), sehingga \(P(-3,5)\mapsto(-5,-3)\).
+              Refleksi terhadap sumbu-\(x\): \((x,y)\mapsto(x,-y)\), sehingga
+              \((-5,-3)\mapsto(-5,3)\). (Jebakan D: hanya melakukan rotasi.)
+            </p>
+            <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+          </details>
+        </div>
+
+        <!-- Soal 9 -->
+        <div
+          class="lesson-example soal-pg"
+          data-tipe="pg"
+          data-kunci="E"
+          data-poin="3"
+          data-elemen="Bilangan"
+          data-materi="Fungsi eksponen (peluruhan)"
+          data-level="2"
+        >
+          <h4>Soal 9</h4>
+          <p>
+            Massa suatu zat radioaktif setelah \(t\) jam dinyatakan dengan
+            \(M(t)=80\left(\tfrac12\right)^{t/12}\) gram. Agar massa zat tersisa
+            \(10\) gram, diperlukan waktu ....
+          </p>
+          <div class="opsi-grup">
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-9" value="A" /><span
+                class="huruf"
+                >A</span
+              ><span class="isi">\(12\) jam</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-9" value="B" /><span
+                class="huruf"
+                >B</span
+              ><span class="isi">\(18\) jam</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-9" value="C" /><span
+                class="huruf"
+                >C</span
+              ><span class="isi">\(24\) jam</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-9" value="D" /><span
+                class="huruf"
+                >D</span
+              ><span class="isi">\(30\) jam</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-9" value="E" /><span
+                class="huruf"
+                >E</span
+              ><span class="isi">\(36\) jam</span></label
+            >
+          </div>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>
+              \(80\left(\frac12\right)^{t/12}=10\) memberi
+              \(\left(\frac12\right)^{t/12}=\frac18=\left(\frac12\right)^{3}\),
+              sehingga \(\frac{t}{12}=3\) dan \(t=36\) jam. (Jebakan C: \(24\)
+              jam baru dua kali waktu paruh, massa tersisa \(20\) gram.)
+            </p>
+            <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+          </details>
+        </div>
+
+        <!-- Soal 10 -->
+        <div
+          class="lesson-example soal-pg soal-kategori"
+          data-tipe="kategori"
+          data-kunci="B,S,B,S"
+          data-poin="4"
+          data-elemen="Bilangan"
+          data-materi="Bentuk akar bersarang, bilangan irasional"
+          data-level="2"
+        >
+          <h4>Soal 10</h4>
+          <p>
+            Diketahui \(p=\sqrt{7+4\sqrt3}\). Tentukan benar atau salah setiap
+            pernyataan berikut.
+          </p>
+          <table class="tabel-kategori">
+            <thead>
+              <tr>
+                <th>Pernyataan</th>
+                <th class="c">Benar</th>
+                <th class="c">Salah</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>\(p=2+\sqrt3\).</td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-10-1"
+                    value="B"
+                    aria-label="Benar pernyataan 1"
+                  />
+                </td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-10-1"
+                    value="S"
+                    aria-label="Salah pernyataan 1"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>\(p\) merupakan bilangan rasional.</td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-10-2"
+                    value="B"
+                    aria-label="Benar pernyataan 2"
+                  />
+                </td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-10-2"
+                    value="S"
+                    aria-label="Salah pernyataan 2"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>\(\dfrac1p=2-\sqrt3\).</td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-10-3"
+                    value="B"
+                    aria-label="Benar pernyataan 3"
+                  />
+                </td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-10-3"
+                    value="S"
+                    aria-label="Salah pernyataan 3"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>\(p^{2}+\dfrac{1}{p^{2}}=16\).</td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-10-4"
+                    value="B"
+                    aria-label="Benar pernyataan 4"
+                  />
+                </td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-10-4"
+                    value="S"
+                    aria-label="Salah pernyataan 4"
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>
+              \((2+\sqrt3)^{2}=7+4\sqrt3\) sehingga \(p=2+\sqrt3\) (positif):
+              (1)
+              <em>benar</em>. \(\sqrt3\) irasional sehingga \(p\) irasional: (2)
+              <em>salah</em>. \((2+\sqrt3)(2-\sqrt3)=1\) sehingga
+              \(\frac1p=2-\sqrt3\): (3) <em>benar</em>.
+              \(p^{2}+\frac1{p^{2}}=(7+4\sqrt3)+(7-4\sqrt3)=14\), bukan \(16\):
+              (4) <em>salah</em>.
+            </p>
+            <p>
+              Jadi, urutan jawabannya:
+              <strong>(1) Benar; (2) Salah; (3) Benar; (4) Salah</strong>.
+            </p>
+          </details>
+        </div>
+
+        <!-- Soal 11 -->
+        <div
+          class="lesson-example soal-pg"
+          data-tipe="pg"
+          data-kunci="E"
+          data-poin="3"
+          data-elemen="Aljabar"
+          data-materi="Sistem persamaan linear tiga variabel (konteks)"
+          data-level="2"
+        >
+          <h4>Soal 11</h4>
+          <p>
+            Tiga kelompok siswa membeli alat tulis di koperasi. Kelompok I
+            membeli \(2\) buku, \(1\) pulpen, dan \(1\) penggaris seharga
+            Rp15.000. Kelompok II membeli \(1\) buku, \(2\) pulpen, dan \(3\)
+            penggaris seharga Rp17.000. Kelompok III membeli \(3\) buku, \(1\)
+            pulpen, dan \(2\) penggaris seharga Rp22.000. Harga \(1\) buku,
+            \(4\) pulpen, dan \(2\) penggaris adalah ....
+          </p>
+          <div class="opsi-grup">
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-11" value="A" /><span
+                class="huruf"
+                >A</span
+              ><span class="isi">Rp17.000</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-11" value="B" /><span
+                class="huruf"
+                >B</span
+              ><span class="isi">Rp18.000</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-11" value="C" /><span
+                class="huruf"
+                >C</span
+              ><span class="isi">Rp19.000</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-11" value="D" /><span
+                class="huruf"
+                >D</span
+              ><span class="isi">Rp20.000</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-11" value="E" /><span
+                class="huruf"
+                >E</span
+              ><span class="isi">Rp21.000</span></label
+            >
+          </div>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>
+              Misalkan harga buku \(b\), pulpen \(p\), penggaris \(g\) (rupiah).
+              Persamaan (III) \(-\) (I): \(b+g=7.000\). Dari (I):
+              \((b+g)+(b+p)=15.000\) sehingga \(b+p=8.000\). Substitusi
+              \(g=7.000-b\) dan \(p=8.000-b\) ke (II):
+              \(b+2(8.000-b)+3(7.000-b)=17.000\), yaitu \(37.000-4b=17.000\),
+              sehingga \(b=5.000\), \(p=3.000\), \(g=2.000\). Jadi
+              \(b+4p+2g=5.000+12.000+4.000=21.000\).
+            </p>
+            <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+          </details>
+        </div>
+
+        <!-- Soal 12 -->
+        <div
+          class="lesson-example soal-pg"
+          data-tipe="pg"
+          data-kunci="D"
+          data-poin="3"
+          data-elemen="Aljabar"
+          data-materi="Program linear (nilai optimum dari grafik)"
+          data-level="2"
+        >
+          <h4>Soal 12</h4>
+          <p>
+            Daerah yang diarsir pada gambar adalah daerah penyelesaian suatu
+            sistem pertidaksamaan linear dengan batas garis \(g_1\) dan \(g_2\)
+            di kuadran pertama. Nilai maksimum \(f(x,y)=4x+5y\) pada daerah
+            tersebut adalah ....
+          </p>
+          <div class="sim-gambar">
+            <svg
+              class="fig"
+              viewBox="0 0 308 268"
+              style="width: 308px"
+              role="img"
+              aria-label="Gambar soal"
+            >
+              <line class="g" x1="26" y1="242" x2="26" y2="26" />
+              <line class="g" x1="58" y1="242" x2="58" y2="26" />
+              <line class="g" x1="90" y1="242" x2="90" y2="26" />
+              <line class="g" x1="122" y1="242" x2="122" y2="26" />
+              <line class="g" x1="154" y1="242" x2="154" y2="26" />
+              <line class="g" x1="186" y1="242" x2="186" y2="26" />
+              <line class="g" x1="218" y1="242" x2="218" y2="26" />
+              <line class="g" x1="250" y1="242" x2="250" y2="26" />
+              <line class="g" x1="282" y1="242" x2="282" y2="26" />
+              <line class="g" x1="26" y1="242" x2="282" y2="242" />
+              <line class="g" x1="26" y1="218" x2="282" y2="218" />
+              <line class="g" x1="26" y1="194" x2="282" y2="194" />
+              <line class="g" x1="26" y1="170" x2="282" y2="170" />
+              <line class="g" x1="26" y1="146" x2="282" y2="146" />
+              <line class="g" x1="26" y1="122" x2="282" y2="122" />
+              <line class="g" x1="26" y1="98" x2="282" y2="98" />
+              <line class="g" x1="26" y1="74" x2="282" y2="74" />
+              <line class="g" x1="26" y1="50" x2="282" y2="50" />
+              <line class="g" x1="26" y1="26" x2="282" y2="26" />
+              <line class="ax" x1="26" y1="242" x2="298.0" y2="242" />
+              <line class="ax" x1="26" y1="242" x2="26" y2="14.0" />
+              <text class="tk" x="55" y="253">1</text>
+              <text class="tk" x="87" y="253">2</text>
+              <text class="tk" x="119" y="253">3</text>
+              <text class="tk" x="151" y="253">4</text>
+              <text class="tk" x="183" y="253">5</text>
+              <text class="tk" x="215" y="253">6</text>
+              <text class="tk" x="247" y="253">7</text>
+              <text class="tk" x="279" y="253">8</text>
+              <text class="tk" x="16" y="221">1</text>
+              <text class="tk" x="16" y="197">2</text>
+              <text class="tk" x="16" y="173">3</text>
+              <text class="tk" x="16" y="149">4</text>
+              <text class="tk" x="16" y="125">5</text>
+              <text class="tk" x="16" y="101">6</text>
+              <text class="tk" x="16" y="77">7</text>
+              <text class="tk" x="16" y="53">8</text>
+              <text class="tk" x="16" y="29">9</text>
+              <text class="tx" x="302.0" y="246">x</text>
+              <text class="tx" x="32" y="16.0">y</text>
+              <polygon class="f" points="26,242 122,242 90,170 26,146" />
+              <line class="t" x1="26" y1="146" x2="282" y2="242" />
+              <line class="a" x1="122" y1="242" x2="26" y2="26" />
+              <circle class="dot" cx="26" cy="146" r="2.6" />
+              <text class="tx" x="33" y="149">(0,4)</text>
+              <circle class="dot" cx="282" cy="242" r="2.6" />
+              <text class="tx" x="268" y="234">(8,0)</text>
+              <circle class="dot" cx="122" cy="242" r="2.6" />
+              <text class="tx" x="126" y="234">(3,0)</text>
+              <circle class="dot" cx="26" cy="26" r="2.6" />
+              <text class="tx" x="33" y="30">(0,9)</text>
+              <text class="tx" x="198.8" y="210.8">g₁</text>
+              <text class="tx" x="56.0" y="83.6">g₂</text>
+            </svg>
+          </div>
+          <div class="opsi-grup">
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-12" value="A" /><span
+                class="huruf"
+                >A</span
+              ><span class="isi">\(12\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-12" value="B" /><span
+                class="huruf"
+                >B</span
+              ><span class="isi">\(20\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-12" value="C" /><span
+                class="huruf"
+                >C</span
+              ><span class="isi">\(21\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-12" value="D" /><span
+                class="huruf"
+                >D</span
+              ><span class="isi">\(23\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-12" value="E" /><span
+                class="huruf"
+                >E</span
+              ><span class="isi">\(27\)</span></label
+            >
+          </div>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>
+              \(g_1\) melalui \((0,4)\) dan \((8,0)\): \(x+2y=8\). \(g_2\)
+              melalui \((3,0)\) dan \((0,9)\): \(3x+y=9\). Perpotongan:
+              \(y=9-3x\) ke \(x+2y=8\) memberi \(x=2\), \(y=3\). Titik sudut
+              daerah: \((0,0)\), \((3,0)\), \((2,3)\), \((0,4)\) dengan nilai
+              \(f\) berturut-turut \(0\), \(12\), \(23\), \(20\). Maksimum
+              \(=23\). (Jebakan B: hanya memeriksa titik pada sumbu.)
+            </p>
+            <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+          </details>
+        </div>
+
+        <!-- Soal 13 -->
+        <div
+          class="lesson-example soal-pg"
+          data-tipe="pg"
+          data-kunci="B"
+          data-poin="3"
+          data-elemen="Aljabar"
+          data-materi="Fungsi kuadrat dari grafik"
+          data-level="2"
+        >
+          <h4>Soal 13</h4>
+          <p>
+            Parabola pada gambar adalah grafik fungsi kuadrat \(f\) yang
+            memotong sumbu-\(x\) di \((-1,0)\) dan \((5,0)\) serta memotong
+            sumbu-\(y\) di \((0,-5)\). Nilai minimum \(f\) adalah ....
+          </p>
+          <div class="sim-gambar">
+            <svg
+              class="fig"
+              viewBox="0 0 324 318"
+              style="width: 324px"
+              role="img"
+              aria-label="Gambar soal"
+            >
+              <line class="g" x1="26" y1="292" x2="26" y2="26" />
+              <line class="g" x1="60" y1="292" x2="60" y2="26" />
+              <line class="g" x1="94" y1="292" x2="94" y2="26" />
+              <line class="g" x1="128" y1="292" x2="128" y2="26" />
+              <line class="g" x1="162" y1="292" x2="162" y2="26" />
+              <line class="g" x1="196" y1="292" x2="196" y2="26" />
+              <line class="g" x1="230" y1="292" x2="230" y2="26" />
+              <line class="g" x1="264" y1="292" x2="264" y2="26" />
+              <line class="g" x1="298" y1="292" x2="298" y2="26" />
+              <line class="g" x1="26" y1="292" x2="298" y2="292" />
+              <line class="g" x1="26" y1="273" x2="298" y2="273" />
+              <line class="g" x1="26" y1="254" x2="298" y2="254" />
+              <line class="g" x1="26" y1="235" x2="298" y2="235" />
+              <line class="g" x1="26" y1="216" x2="298" y2="216" />
+              <line class="g" x1="26" y1="197" x2="298" y2="197" />
+              <line class="g" x1="26" y1="178" x2="298" y2="178" />
+              <line class="g" x1="26" y1="159" x2="298" y2="159" />
+              <line class="g" x1="26" y1="140" x2="298" y2="140" />
+              <line class="g" x1="26" y1="121" x2="298" y2="121" />
+              <line class="g" x1="26" y1="102" x2="298" y2="102" />
+              <line class="g" x1="26" y1="83" x2="298" y2="83" />
+              <line class="g" x1="26" y1="64" x2="298" y2="64" />
+              <line class="g" x1="26" y1="45" x2="298" y2="45" />
+              <line class="g" x1="26" y1="26" x2="298" y2="26" />
+              <line class="ax" x1="26" y1="102" x2="315.0" y2="102" />
+              <line class="ax" x1="94" y1="292" x2="94" y2="16.5" />
+              <text class="tk" x="23" y="113">-2</text>
+              <text class="tk" x="57" y="113">-1</text>
+              <text class="tk" x="125" y="113">1</text>
+              <text class="tk" x="159" y="113">2</text>
+              <text class="tk" x="193" y="113">3</text>
+              <text class="tk" x="227" y="113">4</text>
+              <text class="tk" x="261" y="113">5</text>
+              <text class="tk" x="295" y="113">6</text>
+              <text class="tk" x="84" y="295">-10</text>
+              <text class="tk" x="84" y="276">-9</text>
+              <text class="tk" x="84" y="257">-8</text>
+              <text class="tk" x="84" y="238">-7</text>
+              <text class="tk" x="84" y="219">-6</text>
+              <text class="tk" x="84" y="200">-5</text>
+              <text class="tk" x="84" y="181">-4</text>
+              <text class="tk" x="84" y="162">-3</text>
+              <text class="tk" x="84" y="143">-2</text>
+              <text class="tk" x="84" y="124">-1</text>
+              <text class="tk" x="84" y="86">1</text>
+              <text class="tk" x="84" y="67">2</text>
+              <text class="tk" x="84" y="48">3</text>
+              <text class="tk" x="84" y="29">4</text>
+              <text class="tx" x="319.0" y="106">x</text>
+              <text class="tx" x="100" y="18.5">y</text>
+              <polyline
+                class="a"
+                points="43.0,40.2 46.4,53.4 49.8,66.1 53.2,78.4 56.6,90.4 60.0,102.0 63.4,113.2 66.8,124.0 70.2,134.5 73.6,144.6 77.0,154.2 80.4,163.6 83.8,172.5 87.2,181.0 90.6,189.2 94.0,197.0 97.4,204.4 100.8,211.4 104.2,218.1 107.6,224.4 111.0,230.2 114.4,235.8 117.8,240.9 121.2,245.6 124.6,250.0 128.0,254.0 131.4,257.6 134.8,260.8 138.2,263.7 141.6,266.2 145.0,268.2 148.4,270.0 151.8,271.3 155.2,272.2 158.6,272.8 162.0,273.0 165.4,272.8 168.8,272.2 172.2,271.3 175.6,270.0 179.0,268.2 182.4,266.2 185.8,263.7 189.2,260.8 192.6,257.6 196.0,254.0 199.4,250.0 202.8,245.6 206.2,240.9 209.6,235.8 213.0,230.2 216.4,224.4 219.8,218.1 223.2,211.4 226.6,204.4 230.0,197.0 233.4,189.2 236.8,181.0 240.2,172.5 243.6,163.6 247.0,154.2 250.4,144.6 253.8,134.5 257.2,124.0 260.6,113.2 264.0,102.0 267.4,90.4 270.8,78.4 274.2,66.1 277.6,53.4 281.0,40.2"
+              />
+              <circle class="dot" cx="60" cy="102" r="2.6" />
+              <text class="tx" x="26" y="96">(-1,0)</text>
+              <circle class="dot" cx="264" cy="102" r="2.6" />
+              <text class="tx" x="268" y="96">(5,0)</text>
+              <circle class="dot" cx="94" cy="197" r="2.6" />
+              <text class="tx" x="100" y="201">(0,-5)</text>
+            </svg>
+          </div>
+          <div class="opsi-grup">
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-13" value="A" /><span
+                class="huruf"
+                >A</span
+              ><span class="isi">\(-10\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-13" value="B" /><span
+                class="huruf"
+                >B</span
+              ><span class="isi">\(-9\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-13" value="C" /><span
+                class="huruf"
+                >C</span
+              ><span class="isi">\(-8\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-13" value="D" /><span
+                class="huruf"
+                >D</span
+              ><span class="isi">\(-6\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-13" value="E" /><span
+                class="huruf"
+                >E</span
+              ><span class="isi">\(-5\)</span></label
+            >
+          </div>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>
+              \(f(x)=a(x+1)(x-5)\) dan \(f(0)=-5a=-5\) sehingga \(a=1\), yaitu
+              \(f(x)=x^{2}-4x-5\). Sumbu simetri \(x=\frac{-1+5}{2}=2\) dan
+              \(f(2)=4-8-5=-9\).
+            </p>
+            <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+          </details>
+        </div>
+
+        <!-- Soal 14 -->
+        <div
+          class="lesson-example soal-pg soal-kompleks"
+          data-tipe="kompleks"
+          data-kunci="A,C,D"
+          data-poin="4"
+          data-elemen="Aljabar"
+          data-materi="Barisan dan deret geometri"
+          data-level="2"
+        >
+          <h4>Soal 14</h4>
+          <p>
+            Pada suatu barisan geometri \(u_n\) diketahui \(u_2=6\) dan
+            \(u_5=162\). Pilih <em>semua</em> pernyataan yang benar.
+          </p>
+          <div class="opsi-grup">
+            <label class="opsi"
+              ><input type="checkbox" name="sim-kompleks-14" value="A" /><span
+                class="huruf"
+                >A</span
+              ><span class="isi"
+                >Rasio barisan tersebut adalah \(3\).</span
+              ></label
+            >
+            <label class="opsi"
+              ><input type="checkbox" name="sim-kompleks-14" value="B" /><span
+                class="huruf"
+                >B</span
+              ><span class="isi">Suku pertamanya adalah \(3\).</span></label
+            >
+            <label class="opsi"
+              ><input type="checkbox" name="sim-kompleks-14" value="C" /><span
+                class="huruf"
+                >C</span
+              ><span class="isi">\(u_7=1.458\).</span></label
+            >
+            <label class="opsi"
+              ><input type="checkbox" name="sim-kompleks-14" value="D" /><span
+                class="huruf"
+                >D</span
+              ><span class="isi"
+                >Jumlah lima suku pertamanya adalah \(242\).</span
+              ></label
+            >
+            <label class="opsi"
+              ><input type="checkbox" name="sim-kompleks-14" value="E" /><span
+                class="huruf"
+                >E</span
+              ><span class="isi"
+                >Deret geometri tak hingga yang bersesuaian konvergen.</span
+              ></label
+            >
+          </div>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>
+              \(u_5/u_2=r^{3}=27\) sehingga \(r=3\) dan \(u_1=\frac{6}{3}=2\). A
+              benar. B salah (\(u_1=2\)). C benar: \(u_7=2\cdot3^{6}=1.458\). D
+              benar: \(S_5=\frac{2(3^{5}-1)}{3-1}=242\). E salah: deret tak
+              hingga konvergen hanya jika \(|r|&lt;1\), sedangkan \(r=3\).
+            </p>
+            <p>Jadi, pernyataan yang benar adalah <strong>A, C, D</strong>.</p>
+          </details>
+        </div>
+
+        <!-- Soal 15 -->
+        <div
+          class="lesson-example soal-pg"
+          data-tipe="pg"
+          data-kunci="C"
+          data-poin="3"
+          data-elemen="Geometri dan Pengukuran"
+          data-materi="Jarak titik ke garis pada bangun ruang"
+          data-level="2"
+        >
+          <h4>Soal 15</h4>
+          <p>
+            Pada kubus \(ABCD.EFGH\) dengan panjang rusuk \(6\) cm, titik \(A\)
+            dihubungkan dengan diagonal ruang \(CE\) (lihat gambar). Jarak titik
+            \(A\) ke garis \(CE\) adalah ... cm.
+          </p>
+          <div class="sim-gambar">
+            <svg
+              class="fig"
+              viewBox="0 0 192.0 192.0"
+              style="width: 192px"
+              role="img"
+              aria-label="Gambar soal"
+            >
+              <line class="d" x1="26" y1="166.0" x2="66.0" y2="126.0" />
+              <line class="d" x1="66.0" y1="126.0" x2="166.0" y2="126.0" />
+              <line class="d" x1="66.0" y1="126.0" x2="66.0" y2="26.0" />
+              <line class="m" x1="26" y1="166.0" x2="126" y2="166.0" />
+              <line class="m" x1="126" y1="166.0" x2="166.0" y2="126.0" />
+              <line class="m" x1="166.0" y1="126.0" x2="166.0" y2="26.0" />
+              <line class="m" x1="166.0" y1="26.0" x2="66.0" y2="26.0" />
+              <line class="m" x1="66.0" y1="26.0" x2="26" y2="66.0" />
+              <line class="m" x1="26" y1="66.0" x2="26" y2="166.0" />
+              <line class="m" x1="26" y1="66.0" x2="126" y2="66.0" />
+              <line class="m" x1="126" y1="166.0" x2="126" y2="66.0" />
+              <line class="m" x1="126" y1="66.0" x2="166.0" y2="26.0" />
+              <polygon class="f" points="26,166.0 166.0,126.0 26,66.0" />
+              <line class="a" x1="26" y1="166.0" x2="166.0" y2="126.0" />
+              <line class="a" x1="166.0" y1="126.0" x2="26" y2="66.0" />
+              <line class="a" x1="26" y1="66.0" x2="26" y2="166.0" />
+              <circle class="dot" cx="26" cy="166.0" r="2.6" />
+              <text class="tx" x="16" y="178.0">A</text>
+              <circle class="dot" cx="126" cy="166.0" r="2.6" />
+              <text class="tx" x="130" y="179.0">B</text>
+              <circle class="dot" cx="166.0" cy="126.0" r="2.6" />
+              <text class="tx" x="174.0" y="130.0">C</text>
+              <circle class="dot" cx="66.0" cy="126.0" r="2.6" />
+              <text class="tx" x="54.0" y="122.0">D</text>
+              <circle class="dot" cx="26" cy="66.0" r="2.6" />
+              <text class="tx" x="14" y="64.0">E</text>
+              <circle class="dot" cx="126" cy="66.0" r="2.6" />
+              <text class="tx" x="130" y="62.0">F</text>
+              <circle class="dot" cx="166.0" cy="26.0" r="2.6" />
+              <text class="tx" x="172.0" y="22.0">G</text>
+              <circle class="dot" cx="66.0" cy="26.0" r="2.6" />
+              <text class="tx" x="54.0" y="22.0">H</text>
+            </svg>
+          </div>
+          <div class="opsi-grup">
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-15" value="A" /><span
+                class="huruf"
+                >A</span
+              ><span class="isi">\(2\sqrt3\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-15" value="B" /><span
+                class="huruf"
+                >B</span
+              ><span class="isi">\(3\sqrt2\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-15" value="C" /><span
+                class="huruf"
+                >C</span
+              ><span class="isi">\(2\sqrt6\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-15" value="D" /><span
+                class="huruf"
+                >D</span
+              ><span class="isi">\(3\sqrt3\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-15" value="E" /><span
+                class="huruf"
+                >E</span
+              ><span class="isi">\(4\sqrt3\)</span></label
+            >
+          </div>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>
+              Karena \(AE\) tegak lurus bidang alas, segitiga \(ACE\) siku-siku
+              di \(A\) dengan \(AC=6\sqrt2\), \(AE=6\), dan \(CE=6\sqrt3\).
+              Jarak \(A\) ke \(CE\) adalah tinggi dari titik siku-siku:
+              \(\frac{AC\cdot
+              AE}{CE}=\frac{6\sqrt2\cdot6}{6\sqrt3}=\frac{6\sqrt2}{\sqrt3}=2\sqrt6\).
+              (Jebakan B: \(3\sqrt2\) adalah setengah \(AC\).)
+            </p>
+            <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+          </details>
+        </div>
+
+        <!-- Soal 16 -->
+        <div
+          class="lesson-example soal-pg"
+          data-tipe="pg"
+          data-kunci="C"
+          data-poin="3"
+          data-elemen="Geometri dan Pengukuran"
+          data-materi="Keliling juring lingkaran (konteks)"
+          data-level="2"
+        >
+          <h4>Soal 16</h4>
+          <p>
+            Sebuah taman berbentuk juring lingkaran dengan jari-jari \(21\) m
+            dan sudut pusat \(120^\circ\). Seluruh tepi taman akan dipagari
+            dengan biaya Rp50.000 per meter. Dengan \(\pi=\frac{22}{7}\), total
+            biaya pemagaran adalah ....
+          </p>
+          <div class="opsi-grup">
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-16" value="A" /><span
+                class="huruf"
+                >A</span
+              ><span class="isi">Rp2.200.000</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-16" value="B" /><span
+                class="huruf"
+                >B</span
+              ><span class="isi">Rp3.250.000</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-16" value="C" /><span
+                class="huruf"
+                >C</span
+              ><span class="isi">Rp4.300.000</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-16" value="D" /><span
+                class="huruf"
+                >D</span
+              ><span class="isi">Rp6.600.000</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-16" value="E" /><span
+                class="huruf"
+                >E</span
+              ><span class="isi">Rp8.700.000</span></label
+            >
+          </div>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>
+              Panjang busur
+              \(=\frac{120}{360}\cdot2\cdot\frac{22}{7}\cdot21=44\) m. Keliling
+              taman \(=44+21+21=86\) m. Biaya \(=86\times50.000=4.300.000\).
+              (Jebakan A: hanya busur; B: busur dan satu jari-jari; D: keliling
+              lingkaran penuh.)
+            </p>
+            <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+          </details>
+        </div>
+
+        <!-- Soal 17 -->
+        <div
+          class="lesson-example soal-pg soal-kategori"
+          data-tipe="kategori"
+          data-kunci="B,B,S,S"
+          data-poin="4"
+          data-elemen="Geometri dan Pengukuran"
+          data-materi="Volume dan luas permukaan limas"
+          data-level="2"
+        >
+          <h4>Soal 17</h4>
+          <p>
+            Limas segiempat beraturan \(T.ABCD\) mempunyai alas berbentuk
+            persegi dengan sisi \(8\) cm dan tinggi limas \(3\) cm. Titik \(O\)
+            adalah pusat alas. Tentukan benar atau salah setiap pernyataan
+            berikut.
+          </p>
+          <table class="tabel-kategori">
+            <thead>
+              <tr>
+                <th>Pernyataan</th>
+                <th class="c">Benar</th>
+                <th class="c">Salah</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  Tinggi segitiga pada setiap sisi tegak limas adalah \(5\) cm.
+                </td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-17-1"
+                    value="B"
+                    aria-label="Benar pernyataan 1"
+                  />
+                </td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-17-1"
+                    value="S"
+                    aria-label="Salah pernyataan 1"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Volume limas adalah \(64\) cm\(^{3}\).</td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-17-2"
+                    value="B"
+                    aria-label="Benar pernyataan 2"
+                  />
+                </td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-17-2"
+                    value="S"
+                    aria-label="Salah pernyataan 2"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Luas permukaan limas adalah \(160\) cm\(^{2}\).</td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-17-3"
+                    value="B"
+                    aria-label="Benar pernyataan 3"
+                  />
+                </td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-17-3"
+                    value="S"
+                    aria-label="Salah pernyataan 3"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Panjang rusuk tegak \(TA\) adalah \(5\) cm.</td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-17-4"
+                    value="B"
+                    aria-label="Benar pernyataan 4"
+                  />
+                </td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-17-4"
+                    value="S"
+                    aria-label="Salah pernyataan 4"
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>
+              Jarak \(O\) ke tengah sisi alas \(=4\) cm. Tinggi segitiga sisi
+              tegak \(=\sqrt{3^{2}+4^{2}}=5\) cm: (1) <em>benar</em>.
+              \(V=\frac13\cdot8^{2}\cdot3=64\): (2) <em>benar</em>. Luas
+              permukaan \(=64+4\cdot\frac12\cdot8\cdot5=144\), bukan \(160\):
+              (3) <em>salah</em>. \(OA=4\sqrt2\) sehingga
+              \(TA=\sqrt{3^{2}+32}=\sqrt{41}\), bukan \(5\): (4) <em>salah</em>.
+            </p>
+            <p>
+              Jadi, urutan jawabannya:
+              <strong>(1) Benar; (2) Benar; (3) Salah; (4) Salah</strong>.
+            </p>
+          </details>
+        </div>
+
+        <!-- Soal 18 -->
+        <div
+          class="lesson-example soal-pg"
+          data-tipe="pg"
+          data-kunci="E"
+          data-poin="3"
+          data-elemen="Trigonometri"
+          data-materi="Sudut elevasi dan tinggi benda"
+          data-level="2"
+        >
+          <h4>Soal 18</h4>
+          <p>
+            Andi mengamati puncak sebuah menara dari titik \(P\) di tanah datar
+            dengan sudut elevasi \(30^\circ\). Setelah berjalan mendekati menara
+            sejauh \(40\) m sampai di titik \(Q\), sudut elevasi puncak menara
+            menjadi \(60^\circ\). Tinggi menara tersebut adalah ... m.
+          </p>
+          <div class="opsi-grup">
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-18" value="A" /><span
+                class="huruf"
+                >A</span
+              ><span class="isi">\(10\sqrt3\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-18" value="B" /><span
+                class="huruf"
+                >B</span
+              ><span class="isi">\(20\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-18" value="C" /><span
+                class="huruf"
+                >C</span
+              ><span class="isi">\(20\sqrt2\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-18" value="D" /><span
+                class="huruf"
+                >D</span
+              ><span class="isi">\(30\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-18" value="E" /><span
+                class="huruf"
+                >E</span
+              ><span class="isi">\(20\sqrt3\)</span></label
+            >
+          </div>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>
+              Misalkan tinggi menara \(h\). Jarak \(P\) ke kaki menara
+              \(=\frac{h}{\tan30^\circ}=h\sqrt3\) dan jarak \(Q\) ke kaki menara
+              \(=\frac{h}{\tan60^\circ}=\frac{h}{\sqrt3}\). Selisihnya \(40\):
+              \(h\sqrt3-\frac{h}{\sqrt3}=\frac{2h}{\sqrt3}=40\), sehingga
+              \(h=20\sqrt3\) m.
+            </p>
+            <p>Jadi, jawaban yang benar adalah <strong>E</strong>.</p>
+          </details>
+        </div>
+
+        <!-- Soal 19 -->
+        <div
+          class="lesson-example soal-pg"
+          data-tipe="pg"
+          data-kunci="D"
+          data-poin="3"
+          data-elemen="Aljabar"
+          data-materi="Pertidaksamaan kuadrat (konteks)"
+          data-level="2"
+        >
+          <h4>Soal 19</h4>
+          <p>
+            Ketinggian sebuah peluru yang ditembakkan vertikal ke atas dari
+            tanah dinyatakan dengan \(h(t)=40t-5t^{2}\) meter, dengan \(t\)
+            dalam detik. Peluru berada pada ketinggian lebih dari \(60\) m
+            selama ....
+          </p>
+          <div class="opsi-grup">
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-19" value="A" /><span
+                class="huruf"
+                >A</span
+              ><span class="isi">\(1\) detik</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-19" value="B" /><span
+                class="huruf"
+                >B</span
+              ><span class="isi">\(2\) detik</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-19" value="C" /><span
+                class="huruf"
+                >C</span
+              ><span class="isi">\(3\) detik</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-19" value="D" /><span
+                class="huruf"
+                >D</span
+              ><span class="isi">\(4\) detik</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-19" value="E" /><span
+                class="huruf"
+                >E</span
+              ><span class="isi">\(6\) detik</span></label
+            >
+          </div>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>
+              \(40t-5t^{2}&gt;60\Rightarrow
+              t^{2}-8t+12&lt;0\Rightarrow(t-2)(t-6)&lt;0\), sehingga
+              \(2&lt;t&lt;6\). Lamanya \(6-2=4\) detik. (Jebakan E: \(6\) adalah
+              batas atas, bukan lamanya.)
+            </p>
+            <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+          </details>
+        </div>
+
+        <!-- Soal 20 -->
+        <div
+          class="lesson-example soal-pg soal-kompleks"
+          data-tipe="kompleks"
+          data-kunci="B,C,D"
+          data-poin="4"
+          data-elemen="Data dan Peluang"
+          data-materi="Peluang kejadian majemuk, pengambilan sekaligus"
+          data-level="2"
+        >
+          <h4>Soal 20</h4>
+          <p>
+            Sebuah kotak berisi \(5\) bola merah, \(4\) bola biru, dan \(3\)
+            bola hijau. Dua bola diambil sekaligus secara acak. Pilih
+            <em>semua</em> pernyataan yang benar.
+          </p>
+          <div class="opsi-grup">
+            <label class="opsi"
+              ><input type="checkbox" name="sim-kompleks-20" value="A" /><span
+                class="huruf"
+                >A</span
+              ><span class="isi"
+                >Peluang kedua bola merah adalah \(\dfrac{5}{66}\).</span
+              ></label
+            >
+            <label class="opsi"
+              ><input type="checkbox" name="sim-kompleks-20" value="B" /><span
+                class="huruf"
+                >B</span
+              ><span class="isi"
+                >Peluang kedua bola berbeda warna adalah
+                \(\dfrac{47}{66}\).</span
+              ></label
+            >
+            <label class="opsi"
+              ><input type="checkbox" name="sim-kompleks-20" value="C" /><span
+                class="huruf"
+                >C</span
+              ><span class="isi"
+                >Peluang terambil tepat satu bola biru adalah
+                \(\dfrac{16}{33}\).</span
+              ></label
+            >
+            <label class="opsi"
+              ><input type="checkbox" name="sim-kompleks-20" value="D" /><span
+                class="huruf"
+                >D</span
+              ><span class="isi"
+                >Peluang terambil paling sedikit satu bola hijau adalah
+                \(\dfrac{5}{11}\).</span
+              ></label
+            >
+            <label class="opsi"
+              ><input type="checkbox" name="sim-kompleks-20" value="E" /><span
+                class="huruf"
+                >E</span
+              ><span class="isi"
+                >Peluang kedua bola sewarna adalah \(\dfrac13\).</span
+              ></label
+            >
+          </div>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>
+              Banyak cara mengambil \(2\) bola: \(\binom{12}{2}=66\). A salah:
+              \(\binom52=10\), peluang \(\frac{10}{66}=\frac{5}{33}\). B benar:
+              sewarna \(=10+6+3=19\), sehingga berbeda warna
+              \(\frac{66-19}{66}=\frac{47}{66}\). C benar:
+              \(\frac{4\cdot8}{66}=\frac{16}{33}\). D benar:
+              \(1-\frac{\binom92}{66}=1-\frac{36}{66}=\frac{5}{11}\). E salah:
+              sewarna \(=\frac{19}{66}\).
+            </p>
+            <p>Jadi, pernyataan yang benar adalah <strong>B, C, D</strong>.</p>
+          </details>
+        </div>
+
+        <!-- Soal 21 -->
+        <div
+          class="lesson-example soal-pg"
+          data-tipe="pg"
+          data-kunci="C"
+          data-poin="3"
+          data-elemen="Data dan Peluang"
+          data-materi="Median data berkelompok"
+          data-level="2"
+        >
+          <h4>Soal 21</h4>
+          <p>
+            Tabel menunjukkan distribusi nilai ulangan matematika \(40\) siswa.
+            Median nilai tersebut adalah ....
+          </p>
+          <div class="sim-gambar">
+            <table class="tabel-data">
+              <tr>
+                <th><strong>Nilai</strong></th>
+                <th><strong>Frekuensi</strong></th>
+              </tr>
+              <tr>
+                <td>\(41\)–\(50\)</td>
+                <td>\(4\)</td>
+              </tr>
+              <tr>
+                <td>\(51\)–\(60\)</td>
+                <td>\(10\)</td>
+              </tr>
+              <tr>
+                <td>\(61\)–\(70\)</td>
+                <td>\(12\)</td>
+              </tr>
+              <tr>
+                <td>\(71\)–\(80\)</td>
+                <td>\(10\)</td>
+              </tr>
+              <tr>
+                <td>\(81\)–\(90\)</td>
+                <td>\(4\)</td>
+              </tr>
+            </table>
+          </div>
+          <div class="opsi-grup">
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-21" value="A" /><span
+                class="huruf"
+                >A</span
+              ><span class="isi">\(64{,}5\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-21" value="B" /><span
+                class="huruf"
+                >B</span
+              ><span class="isi">\(65{,}0\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-21" value="C" /><span
+                class="huruf"
+                >C</span
+              ><span class="isi">\(65{,}5\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-21" value="D" /><span
+                class="huruf"
+                >D</span
+              ><span class="isi">\(66{,}0\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-21" value="E" /><span
+                class="huruf"
+                >E</span
+              ><span class="isi">\(66{,}5\)</span></label
+            >
+          </div>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>
+              \(n=40\) sehingga letak median pada data ke-\(20\). Frekuensi
+              kumulatif: \(4,\,14,\,26\), sehingga kelas median \(61\)–\(70\)
+              dengan tepi bawah \(60{,}5\), \(F=14\), \(f=12\), panjang kelas
+              \(10\). \(\text{Me}=60{,}5+\frac{20-14}{12}\cdot10=65{,}5\).
+            </p>
+            <p>Jadi, jawaban yang benar adalah <strong>C</strong>.</p>
+          </details>
+        </div>
+
+        <!-- Soal 22 -->
+        <div
+          class="lesson-example soal-pg"
+          data-tipe="pg"
+          data-kunci="A"
+          data-poin="3"
+          data-elemen="Bilangan"
+          data-materi="Sifat logaritma dan perubahan basis"
+          data-level="3"
+        >
+          <h4>Soal 22</h4>
+          <p>
+            Diketahui \({}^{2}\!\log 3=p\) dan \({}^{3}\!\log 5=q\). Nilai
+            \({}^{15}\!\log 20\) dinyatakan dalam \(p\) dan \(q\) adalah ....
+          </p>
+          <div class="opsi-grup">
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-22" value="A" /><span
+                class="huruf"
+                >A</span
+              ><span class="isi">\(\dfrac{2+pq}{p(1+q)}\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-22" value="B" /><span
+                class="huruf"
+                >B</span
+              ><span class="isi">\(\dfrac{2+pq}{p+q}\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-22" value="C" /><span
+                class="huruf"
+                >C</span
+              ><span class="isi">\(\dfrac{2+p}{p(1+q)}\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-22" value="D" /><span
+                class="huruf"
+                >D</span
+              ><span class="isi">\(\dfrac{2p+q}{1+pq}\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-22" value="E" /><span
+                class="huruf"
+                >E</span
+              ><span class="isi">\(\dfrac{pq}{2+p}\)</span></label
+            >
+          </div>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>
+              \({}^{2}\!\log5={}^{2}\!\log3\cdot{}^{3}\!\log5=pq\). Ubah ke
+              basis \(2\):
+              \({}^{15}\!\log20=\frac{{}^{2}\!\log20}{{}^{2}\!\log15}=\frac{2+pq}{p+pq}=\frac{2+pq}{p(1+q)}\).
+              Cek numerik: \(p\approx1{,}585\), \(q\approx1{,}465\) memberi
+              \(\frac{4{,}322}{3{,}907}\approx1{,}106\), sesuai
+              \({}^{15}\!\log20\).
+            </p>
+            <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+          </details>
+        </div>
+
+        <!-- Soal 23 -->
+        <div
+          class="lesson-example soal-pg"
+          data-tipe="pg"
+          data-kunci="B"
+          data-poin="3"
+          data-elemen="Aljabar"
+          data-materi="Fungsi invers dan persamaan kuadrat"
+          data-level="3"
+        >
+          <h4>Soal 23</h4>
+          <p>
+            Diketahui \(f(x)=\dfrac{2x+1}{x-3}\) untuk \(x\neq3\). Hasil kali
+            semua nilai \(a\) yang memenuhi \(f(a)=f^{-1}(a)\) adalah ....
+          </p>
+          <div class="opsi-grup">
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-23" value="A" /><span
+                class="huruf"
+                >A</span
+              ><span class="isi">\(-5\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-23" value="B" /><span
+                class="huruf"
+                >B</span
+              ><span class="isi">\(-1\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-23" value="C" /><span
+                class="huruf"
+                >C</span
+              ><span class="isi">\(1\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-23" value="D" /><span
+                class="huruf"
+                >D</span
+              ><span class="isi">\(5\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-23" value="E" /><span
+                class="huruf"
+                >E</span
+              ><span class="isi">\(6\)</span></label
+            >
+          </div>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>
+              Dari \(y=\frac{2x+1}{x-3}\) diperoleh \(x=\frac{3y+1}{y-2}\),
+              sehingga \(f^{-1}(x)=\frac{3x+1}{x-2}\). \(f(a)=f^{-1}(a)\):
+              \((2a+1)(a-2)=(3a+1)(a-3)\), yaitu \(2a^{2}-3a-2=3a^{2}-8a-3\),
+              sehingga \(a^{2}-5a-1=0\). Hasil kali akar \(=-1\). (Jebakan D:
+              \(5\) adalah jumlah akar.)
+            </p>
+            <p>Jadi, jawaban yang benar adalah <strong>B</strong>.</p>
+          </details>
+        </div>
+
+        <!-- Soal 24 -->
+        <div
+          class="lesson-example soal-pg soal-kategori"
+          data-tipe="kategori"
+          data-kunci="B,S,B,B"
+          data-poin="4"
+          data-elemen="Trigonometri"
+          data-materi="Fungsi sinus: nilai ekstrem, periode, persamaan"
+          data-level="3"
+        >
+          <h4>Soal 24</h4>
+          <p>
+            Diketahui \(f(x)=3\sin\!\left(2x-\dfrac{\pi}{3}\right)+1\). Tentukan
+            benar atau salah setiap pernyataan berikut.
+          </p>
+          <table class="tabel-kategori">
+            <thead>
+              <tr>
+                <th>Pernyataan</th>
+                <th class="c">Benar</th>
+                <th class="c">Salah</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Nilai maksimum \(f\) adalah \(4\).</td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-24-1"
+                    value="B"
+                    aria-label="Benar pernyataan 1"
+                  />
+                </td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-24-1"
+                    value="S"
+                    aria-label="Salah pernyataan 1"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Periode \(f\) adalah \(2\pi\).</td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-24-2"
+                    value="B"
+                    aria-label="Benar pernyataan 2"
+                  />
+                </td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-24-2"
+                    value="S"
+                    aria-label="Salah pernyataan 2"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Grafik \(f\) memotong sumbu-\(y\) di titik
+                  \(\left(0,\,1-\dfrac{3\sqrt3}{2}\right)\).
+                </td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-24-3"
+                    value="B"
+                    aria-label="Benar pernyataan 3"
+                  />
+                </td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-24-3"
+                    value="S"
+                    aria-label="Salah pernyataan 3"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Persamaan \(f(x)=1\) mempunyai tepat dua penyelesaian pada
+                  interval \(0\le x\le\pi\).
+                </td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-24-4"
+                    value="B"
+                    aria-label="Benar pernyataan 4"
+                  />
+                </td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-24-4"
+                    value="S"
+                    aria-label="Salah pernyataan 4"
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>
+              (1) Nilai maksimum \(=3+1=4\): <em>benar</em>. (2) Periode
+              \(=\frac{2\pi}{2}=\pi\): <em>salah</em>. (3)
+              \(f(0)=3\sin\!\left(-\frac\pi3\right)+1=1-\frac{3\sqrt3}{2}\):
+              <em>benar</em>. (4) \(f(x)=1\) berarti
+              \(\sin\!\left(2x-\frac\pi3\right)=0\). Untuk \(0\le x\le\pi\),
+              nilai \(2x-\frac\pi3\) berada pada
+              \(\left[-\frac\pi3,\frac{5\pi}{3}\right]\), dan sinus bernilai
+              \(0\) pada \(0\) dan \(\pi\) saja, yaitu \(x=\frac\pi6\) dan
+              \(x=\frac{2\pi}{3}\): dua penyelesaian, <em>benar</em>.
+            </p>
+            <p>
+              Jadi, urutan jawabannya:
+              <strong>(1) Benar; (2) Salah; (3) Benar; (4) Benar</strong>.
+            </p>
+          </details>
+        </div>
+
+        <!-- Soal 25 -->
+        <div
+          class="lesson-example soal-pg"
+          data-tipe="pg"
+          data-kunci="A"
+          data-poin="3"
+          data-elemen="Trigonometri"
+          data-materi="Luas segitiga dengan rumus sinus dan garis bagi"
+          data-level="3"
+        >
+          <h4>Soal 25</h4>
+          <p>
+            Dua jalan lurus \(AB\) dan \(AC\) berpotongan di \(A\) dengan sudut
+            \(120^\circ\), dengan \(AB=3\) km dan \(AC=5\) km. Dibangun jalan
+            lurus \(AD\) dengan \(D\) pada \(BC\) sehingga \(AD\) membagi sudut
+            \(BAC\) menjadi dua sama besar (lihat gambar). Panjang jalan \(AD\)
+            adalah ... km.
+          </p>
+          <div class="sim-gambar">
+            <svg
+              class="fig"
+              viewBox="0 0 349.0 173.5"
+              style="width: 349px"
+              role="img"
+              aria-label="Gambar soal"
+            >
+              <polygon class="f" points="30.5,30.6 98.0,147.5 323.0,147.5" />
+              <line class="a" x1="30.5" y1="30.6" x2="98.0" y2="147.5" />
+              <line class="a" x1="98.0" y1="147.5" x2="323.0" y2="147.5" />
+              <line class="a" x1="323.0" y1="147.5" x2="30.5" y2="30.6" />
+              <line class="t ds" x1="98.0" y1="147.5" x2="140.2" y2="74.4" />
+              <circle class="dot" cx="98.0" cy="147.5" r="2.6" />
+              <text class="tx" x="84.0" y="159.5">A</text>
+              <circle class="dot" cx="30.5" cy="30.6" r="2.6" />
+              <text class="tx" x="26.5" y="24.6">B</text>
+              <circle class="dot" cx="323.0" cy="147.5" r="2.6" />
+              <text class="tx" x="329.0" y="159.5">C</text>
+              <circle class="dot" cx="140.2" cy="74.4" r="2.6" />
+              <text class="tx" x="146.2" y="70.4">D</text>
+              <text class="tx" x="108.0" y="125.0">120°</text>
+              <text class="tx" x="24.200000000000003" y="89.0">3 km</text>
+              <text class="tx" x="198.5" y="162.5">5 km</text>
+            </svg>
+          </div>
+          <div class="opsi-grup">
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-25" value="A" /><span
+                class="huruf"
+                >A</span
+              ><span class="isi">\(\frac{15}{8}\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-25" value="B" /><span
+                class="huruf"
+                >B</span
+              ><span class="isi">\(2\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-25" value="C" /><span
+                class="huruf"
+                >C</span
+              ><span class="isi">\(\frac{15}{7}\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-25" value="D" /><span
+                class="huruf"
+                >D</span
+              ><span class="isi">\(\frac52\)</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-25" value="E" /><span
+                class="huruf"
+                >E</span
+              ><span class="isi">\(\frac{15}{4}\)</span></label
+            >
+          </div>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>
+              Luas \(\triangle ABC=\) luas \(\triangle ABD+\) luas \(\triangle
+              ADC\): \(\frac12\cdot3\cdot5\sin120^\circ=\frac12\cdot3\cdot
+              AD\sin60^\circ+\frac12\cdot5\cdot AD\sin60^\circ\). Karena
+              \(\sin120^\circ=\sin60^\circ\), diperoleh \(15=8\,AD\) sehingga
+              \(AD=\frac{15}{8}\) km.
+            </p>
+            <p>Jadi, jawaban yang benar adalah <strong>A</strong>.</p>
+          </details>
+        </div>
+
+        <!-- Soal 26 -->
+        <div
+          class="lesson-example soal-pg soal-kompleks"
+          data-tipe="kompleks"
+          data-kunci="A,D,E"
+          data-poin="4"
+          data-elemen="Geometri dan Pengukuran"
+          data-materi="Volume tabung dan bola (penalaran)"
+          data-level="3"
+        >
+          <h4>Soal 26</h4>
+          <p>
+            Sebuah tabung tegak berjari-jari \(6\) cm dan tinggi \(20\) cm
+            berisi air setinggi \(12\) cm. Ke dalam tabung dimasukkan sebuah
+            bola padat berjari-jari \(3\) cm yang tenggelam seluruhnya. Pilih
+            <em>semua</em> pernyataan yang benar.
+          </p>
+          <div class="opsi-grup">
+            <label class="opsi"
+              ><input type="checkbox" name="sim-kompleks-26" value="A" /><span
+                class="huruf"
+                >A</span
+              ><span class="isi"
+                >Volume bola tersebut adalah \(36\pi\) cm\(^{3}\).</span
+              ></label
+            >
+            <label class="opsi"
+              ><input type="checkbox" name="sim-kompleks-26" value="B" /><span
+                class="huruf"
+                >B</span
+              ><span class="isi"
+                >Tinggi air setelah bola dimasukkan adalah \(14\) cm.</span
+              ></label
+            >
+            <label class="opsi"
+              ><input type="checkbox" name="sim-kompleks-26" value="C" /><span
+                class="huruf"
+                >C</span
+              ><span class="isi"
+                >Jika tiga bola identik dimasukkan dan semuanya tenggelam, air
+                meluap dari tabung.</span
+              ></label
+            >
+            <label class="opsi"
+              ><input type="checkbox" name="sim-kompleks-26" value="D" /><span
+                class="huruf"
+                >D</span
+              ><span class="isi"
+                >Jika yang dimasukkan bola berjari-jari \(4{,}5\) cm, tinggi air
+                naik \(3{,}375\) cm.</span
+              ></label
+            >
+            <label class="opsi"
+              ><input type="checkbox" name="sim-kompleks-26" value="E" /><span
+                class="huruf"
+                >E</span
+              ><span class="isi"
+                >Untuk bola yang sama, kenaikan tinggi air berbanding terbalik
+                dengan kuadrat jari-jari tabung.</span
+              ></label
+            >
+          </div>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>
+              Luas alas tabung \(=36\pi\). A benar:
+              \(V=\frac43\pi\cdot27=36\pi\). B salah: kenaikan
+              \(=\frac{36\pi}{36\pi}=1\) cm sehingga tinggi air \(13\) cm. C
+              salah: tiga bola menaikkan air \(3\) cm menjadi \(15\) cm, masih
+              di bawah \(20\) cm. D benar:
+              \(V=\frac43\pi(4{,}5)^{3}=121{,}5\pi\) sehingga kenaikan
+              \(=\frac{121{,}5\pi}{36\pi}=3{,}375\) cm. E benar: kenaikan
+              \(=\frac{V_{\text{bola}}}{\pi R^{2}}\) berbanding terbalik dengan
+              \(R^{2}\).
+            </p>
+            <p>Jadi, pernyataan yang benar adalah <strong>A, D, E</strong>.</p>
+          </details>
+        </div>
+
+        <!-- Soal 27 -->
+        <div
+          class="lesson-example soal-pg"
+          data-tipe="pg"
+          data-kunci="D"
+          data-poin="3"
+          data-elemen="Aljabar"
+          data-materi="Program linear dan perubahan fungsi tujuan"
+          data-level="3"
+        >
+          <h4>Soal 27</h4>
+          <p>
+            Sebuah toko roti membuat roti A dan roti B. Kebutuhan bahan dan laba
+            per roti ditunjukkan pada tabel. Persediaan tepung \(6\) kg dan
+            mentega \(1{,}2\) kg, dan semua roti yang dibuat habis terjual. Laba
+            roti A tetap Rp3.000, sedangkan laba roti B berubah menjadi Rp\(p\).
+            Nilai \(p\) terkecil agar membuat roti B saja (tanpa roti A)
+            termasuk salah satu rencana produksi dengan laba maksimum adalah
+            ....
+          </p>
+          <div class="sim-gambar">
+            <table class="tabel-data">
+              <tr>
+                <th></th>
+                <th>Tepung</th>
+                <th>Mentega</th>
+                <th>Laba</th>
+              </tr>
+              <tr>
+                <td>Roti A</td>
+                <td>\(200\) g</td>
+                <td>\(20\) g</td>
+                <td>Rp3.000</td>
+              </tr>
+              <tr>
+                <td>Roti B</td>
+                <td>\(150\) g</td>
+                <td>\(40\) g</td>
+                <td>Rp4.000</td>
+              </tr>
+            </table>
+          </div>
+          <div class="opsi-grup">
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-27" value="A" /><span
+                class="huruf"
+                >A</span
+              ><span class="isi">Rp3.000</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-27" value="B" /><span
+                class="huruf"
+                >B</span
+              ><span class="isi">Rp4.500</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-27" value="C" /><span
+                class="huruf"
+                >C</span
+              ><span class="isi">Rp5.000</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-27" value="D" /><span
+                class="huruf"
+                >D</span
+              ><span class="isi">Rp6.000</span></label
+            >
+            <label class="opsi"
+              ><input type="radio" name="sim-pg-27" value="E" /><span
+                class="huruf"
+                >E</span
+              ><span class="isi">Rp7.500</span></label
+            >
+          </div>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>
+              Kendala: \(200x+150y\le6.000\Rightarrow4x+3y\le120\) dan
+              \(20x+40y\le1.200\Rightarrow x+2y\le60\). Titik sudut daerah
+              layak: \((0,0)\), \((30,0)\), \((12,24)\), \((0,30)\). Dengan laba
+              (ribuan) \(3x+py\): \((0,30)\to30p\), \((12,24)\to36+24p\),
+              \((30,0)\to90\). Titik \((0,30)\) optimum bila \(30p\ge36+24p\)
+              dan \(30p\ge90\), yaitu \(p\ge6\). Nilai terkecil \(p=6\), yaitu
+              Rp6.000 (saat itu \((0,30)\) dan \((12,24)\) sama-sama optimum).
+            </p>
+            <p>Jadi, jawaban yang benar adalah <strong>D</strong>.</p>
+          </details>
+        </div>
+
+        <!-- Soal 28 -->
+        <div
+          class="lesson-example soal-pg soal-kategori"
+          data-tipe="kategori"
+          data-kunci="S,B,B,S"
+          data-poin="4"
+          data-elemen="Data dan Peluang"
+          data-materi="Rata-rata gabungan dan sifat ukuran pemusatan"
+          data-level="3"
+        >
+          <h4>Soal 28</h4>
+          <p>
+            Kelas A terdiri atas \(30\) siswa dengan rata-rata nilai ulangan
+            \(70\), dan kelas B terdiri atas \(20\) siswa dengan rata-rata nilai
+            ulangan \(80\). Tentukan benar atau salah setiap pernyataan berikut.
+          </p>
+          <table class="tabel-kategori">
+            <thead>
+              <tr>
+                <th>Pernyataan</th>
+                <th class="c">Benar</th>
+                <th class="c">Salah</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Rata-rata nilai gabungan kedua kelas adalah \(75\).</td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-28-1"
+                    value="B"
+                    aria-label="Benar pernyataan 1"
+                  />
+                </td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-28-1"
+                    value="S"
+                    aria-label="Salah pernyataan 1"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Jika semua siswa kelas A mendapat tambahan \(5\) poin,
+                  rata-rata nilai gabungan menjadi \(77\).
+                </td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-28-2"
+                    value="B"
+                    aria-label="Benar pernyataan 2"
+                  />
+                </td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-28-2"
+                    value="S"
+                    aria-label="Salah pernyataan 2"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Jika \(10\) siswa baru dengan rata-rata nilai \(80\)
+                  bergabung, rata-rata nilai seluruh siswa menjadi \(75\).
+                </td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-28-3"
+                    value="B"
+                    aria-label="Benar pernyataan 3"
+                  />
+                </td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-28-3"
+                    value="S"
+                    aria-label="Salah pernyataan 3"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Median nilai gabungan pasti sama dengan rata-rata nilai
+                  gabungan.
+                </td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-28-4"
+                    value="B"
+                    aria-label="Benar pernyataan 4"
+                  />
+                </td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-28-4"
+                    value="S"
+                    aria-label="Salah pernyataan 4"
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>
+              Jumlah nilai \(30\cdot70+20\cdot80=3.700\) dan rata-rata gabungan
+              \(\frac{3.700}{50}=74\): (1) <em>salah</em>. Tambahan \(5\) poin
+              untuk \(30\) siswa menambah jumlah \(150\), rata-rata
+              \(\frac{3.850}{50}=77\): (2) <em>benar</em>. \(10\) siswa baru
+              dengan rata-rata \(80\): \(\frac{3.700+800}{60}=75\): (3)
+              <em>benar</em>. Median tidak dapat ditentukan hanya dari rata-rata
+              kelas dan tidak harus sama dengan rata-rata: (4) <em>salah</em>.
+            </p>
+            <p>
+              Jadi, urutan jawabannya:
+              <strong>(1) Salah; (2) Benar; (3) Benar; (4) Salah</strong>.
+            </p>
+          </details>
+        </div>
+
+        <!-- Soal 29 -->
+        <div
+          class="lesson-example soal-pg soal-kompleks"
+          data-tipe="kompleks"
+          data-kunci="B,C,E"
+          data-poin="4"
+          data-elemen="Data dan Peluang"
+          data-materi="Kombinasi, permutasi, dan peluang"
+          data-level="3"
+        >
+          <h4>Soal 29</h4>
+          <p>
+            Dari \(6\) siswa putra dan \(4\) siswa putri akan dipilih \(4\)
+            orang sebagai pengurus kelas secara acak. Pilih
+            <em>semua</em> pernyataan yang benar.
+          </p>
+          <div class="opsi-grup">
+            <label class="opsi"
+              ><input type="checkbox" name="sim-kompleks-29" value="A" /><span
+                class="huruf"
+                >A</span
+              ><span class="isi"
+                >Banyak cara memilih \(4\) pengurus tanpa memperhatikan jabatan
+                adalah \(5.040\).</span
+              ></label
+            >
+            <label class="opsi"
+              ><input type="checkbox" name="sim-kompleks-29" value="B" /><span
+                class="huruf"
+                >B</span
+              ><span class="isi"
+                >Banyak cara memilih pengurus yang terdiri atas tepat \(2\)
+                putri adalah \(90\).</span
+              ></label
+            >
+            <label class="opsi"
+              ><input type="checkbox" name="sim-kompleks-29" value="C" /><span
+                class="huruf"
+                >C</span
+              ><span class="isi"
+                >Peluang pengurus terdiri atas paling sedikit satu putri adalah
+                \(\dfrac{13}{14}\).</span
+              ></label
+            >
+            <label class="opsi"
+              ><input type="checkbox" name="sim-kompleks-29" value="D" /><span
+                class="huruf"
+                >D</span
+              ><span class="isi"
+                >Jika keempat pengurus menduduki jabatan berbeda (ketua, wakil,
+                sekretaris, bendahara), banyak susunan pengurus adalah
+                \(210\).</span
+              ></label
+            >
+            <label class="opsi"
+              ><input type="checkbox" name="sim-kompleks-29" value="E" /><span
+                class="huruf"
+                >E</span
+              ><span class="isi"
+                >Peluang pengurus terdiri atas tepat \(3\) putra adalah
+                \(\dfrac{8}{21}\).</span
+              ></label
+            >
+          </div>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>
+              A salah: \(\binom{10}{4}=210\) (\(5.040\) adalah banyak susunan
+              berjabatan, \(P(10,4)\)). B benar:
+              \(\binom42\binom62=6\cdot15=90\). C benar: tanpa putri
+              \(\binom64=15\), sehingga peluang paling sedikit satu putri
+              \(=1-\frac{15}{210}=\frac{13}{14}\). D salah: dengan jabatan
+              berbeda banyak susunan \(=P(10,4)=5.040\). E benar: \(3\) putra
+              dan \(1\) putri \(=\binom63\binom41=80\), peluang
+              \(\frac{80}{210}=\frac{8}{21}\).
+            </p>
+            <p>Jadi, pernyataan yang benar adalah <strong>B, C, E</strong>.</p>
+          </details>
+        </div>
+
+        <!-- Soal 30 -->
+        <div
+          class="lesson-example soal-pg soal-kategori"
+          data-tipe="kategori"
+          data-kunci="B,S,S,B"
+          data-poin="4"
+          data-elemen="Geometri dan Pengukuran"
+          data-materi="Jarak titik ke bidang, luas, dan volume pada kubus"
+          data-level="3"
+        >
+          <h4>Soal 30</h4>
+          <p>
+            Pada kubus \(ABCD.EFGH\) dengan panjang rusuk \(4\) cm, bidang
+            \(BDG\) dan diagonal ruang \(AG\) digambar seperti pada gambar.
+            Tentukan benar atau salah setiap pernyataan berikut.
+          </p>
+          <div class="sim-gambar">
+            <svg
+              class="fig"
+              viewBox="0 0 192.0 192.0"
+              style="width: 192px"
+              role="img"
+              aria-label="Gambar soal"
+            >
+              <line class="d" x1="26" y1="166.0" x2="66.0" y2="126.0" />
+              <line class="d" x1="66.0" y1="126.0" x2="166.0" y2="126.0" />
+              <line class="d" x1="66.0" y1="126.0" x2="66.0" y2="26.0" />
+              <line class="m" x1="26" y1="166.0" x2="126" y2="166.0" />
+              <line class="m" x1="126" y1="166.0" x2="166.0" y2="126.0" />
+              <line class="m" x1="166.0" y1="126.0" x2="166.0" y2="26.0" />
+              <line class="m" x1="166.0" y1="26.0" x2="66.0" y2="26.0" />
+              <line class="m" x1="66.0" y1="26.0" x2="26" y2="66.0" />
+              <line class="m" x1="26" y1="66.0" x2="26" y2="166.0" />
+              <line class="m" x1="26" y1="66.0" x2="126" y2="66.0" />
+              <line class="m" x1="126" y1="166.0" x2="126" y2="66.0" />
+              <line class="m" x1="126" y1="66.0" x2="166.0" y2="26.0" />
+              <polygon class="f" points="126,166.0 66.0,126.0 166.0,26.0" />
+              <line class="a" x1="126" y1="166.0" x2="66.0" y2="126.0" />
+              <line class="a" x1="66.0" y1="126.0" x2="166.0" y2="26.0" />
+              <line class="a" x1="166.0" y1="26.0" x2="126" y2="166.0" />
+              <line class="t ds" x1="26" y1="166.0" x2="166.0" y2="26.0" />
+              <circle class="dot" cx="26" cy="166.0" r="2.6" />
+              <text class="tx" x="16" y="178.0">A</text>
+              <circle class="dot" cx="126" cy="166.0" r="2.6" />
+              <text class="tx" x="130" y="179.0">B</text>
+              <circle class="dot" cx="166.0" cy="126.0" r="2.6" />
+              <text class="tx" x="174.0" y="130.0">C</text>
+              <circle class="dot" cx="66.0" cy="126.0" r="2.6" />
+              <text class="tx" x="54.0" y="122.0">D</text>
+              <circle class="dot" cx="26" cy="66.0" r="2.6" />
+              <text class="tx" x="14" y="64.0">E</text>
+              <circle class="dot" cx="126" cy="66.0" r="2.6" />
+              <text class="tx" x="130" y="62.0">F</text>
+              <circle class="dot" cx="166.0" cy="26.0" r="2.6" />
+              <text class="tx" x="172.0" y="22.0">G</text>
+              <circle class="dot" cx="66.0" cy="26.0" r="2.6" />
+              <text class="tx" x="54.0" y="22.0">H</text>
+            </svg>
+          </div>
+          <table class="tabel-kategori">
+            <thead>
+              <tr>
+                <th>Pernyataan</th>
+                <th class="c">Benar</th>
+                <th class="c">Salah</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  Jarak titik \(A\) ke bidang \(BDG\) adalah
+                  \(\dfrac{4\sqrt3}{3}\) cm.
+                </td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-30-1"
+                    value="B"
+                    aria-label="Benar pernyataan 1"
+                  />
+                </td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-30-1"
+                    value="S"
+                    aria-label="Salah pernyataan 1"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Jarak titik \(E\) ke bidang \(BDG\) adalah
+                  \(\dfrac{4\sqrt3}{3}\) cm.
+                </td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-30-2"
+                    value="B"
+                    aria-label="Benar pernyataan 2"
+                  />
+                </td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-30-2"
+                    value="S"
+                    aria-label="Salah pernyataan 2"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Luas segitiga \(BDG\) adalah \(16\sqrt3\) cm\(^{2}\).</td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-30-3"
+                    value="B"
+                    aria-label="Benar pernyataan 3"
+                  />
+                </td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-30-3"
+                    value="S"
+                    aria-label="Salah pernyataan 3"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  Volume limas segitiga \(A.BDG\) adalah \(\dfrac{32}{3}\)
+                  cm\(^{3}\).
+                </td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-30-4"
+                    value="B"
+                    aria-label="Benar pernyataan 4"
+                  />
+                </td>
+                <td class="c">
+                  <input
+                    type="radio"
+                    name="sim-bs-30-4"
+                    value="S"
+                    aria-label="Salah pernyataan 4"
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>
+              Dengan \(A(0,0,0)\), \(B(4,0,0)\), \(D(0,4,0)\), \(G(4,4,4)\),
+              \(E(0,0,4)\), bidang \(BDG\) adalah \(x+y-z=4\). (1) Jarak \(A\):
+              \(\frac{|0-4|}{\sqrt3}=\frac{4\sqrt3}{3}\): <em>benar</em>. (2)
+              Jarak \(E\): \(\frac{|0+0-4-4|}{\sqrt3}=\frac{8\sqrt3}{3}\):
+              <em>salah</em>. (3) Segitiga \(BDG\) sama sisi dengan sisi
+              \(4\sqrt2\), luas \(\frac{\sqrt3}{4}\cdot32=8\sqrt3\), bukan
+              \(16\sqrt3\): <em>salah</em>. (4) Volume
+              \(=\frac13\cdot8\sqrt3\cdot\frac{4}{\sqrt3}=\frac{32}{3}\):
+              <em>benar</em>. Cek lain: alas \(ABD\) luas \(8\) dan tinggi \(4\)
+              memberi \(\frac13\cdot8\cdot4=\frac{32}{3}\).
+            </p>
+            <p>
+              Jadi, urutan jawabannya:
+              <strong>(1) Benar; (2) Salah; (3) Salah; (4) Benar</strong>.
+            </p>
+          </details>
+        </div>
+
+        <!-- Soal 31 -->
+        <div
+          class="lesson-example soal-isian"
+          data-tipe="isian"
+          data-kunci="99"
+          data-poin="4"
+          data-elemen="Aljabar"
+          data-materi="Barisan aritmetika (soal tambahan)"
+          data-level="1"
+        >
+          <h4>Soal 31</h4>
+          <p>
+            Diketahui barisan aritmetika \(3, 7, 11, 15, \dots\). Suku ke-\(25\)
+            barisan tersebut adalah ....
+          </p>
+          <div class="isian-baris">
+            <input
+              type="text"
+              class="isian-input"
+              placeholder="Tulis jawaban akhirnya saja"
+              autocomplete="off"
+              autocapitalize="off"
+              spellcheck="false"
+              aria-label="Jawaban soal isian 31"
+            />
+          </div>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>Beda \(b=4\) dan \(a=3\). \(u_{25}=a+24b=3+96=99\).</p>
+            <p>Jadi, jawabannya adalah <strong>99</strong>.</p>
+          </details>
+        </div>
+
+        <!-- Soal 32 -->
+        <div
+          class="lesson-example soal-isian"
+          data-tipe="isian"
+          data-kunci="4"
+          data-poin="4"
+          data-elemen="Bilangan"
+          data-materi="Persamaan eksponen (soal tambahan)"
+          data-level="1"
+        >
+          <h4>Soal 32</h4>
+          <p>Nilai \(x\) yang memenuhi \(2^{x+1}=32\) adalah ....</p>
+          <div class="isian-baris">
+            <input
+              type="text"
+              class="isian-input"
+              placeholder="Tulis jawaban akhirnya saja"
+              autocomplete="off"
+              autocapitalize="off"
+              spellcheck="false"
+              aria-label="Jawaban soal isian 32"
+            />
+          </div>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>\(32=2^{5}\) sehingga \(x+1=5\) dan \(x=4\).</p>
+            <p>Jadi, jawabannya adalah <strong>4</strong>.</p>
+          </details>
+        </div>
+
+        <!-- Soal 33 -->
+        <div
+          class="lesson-example soal-isian"
+          data-tipe="isian"
+          data-kunci="5/36"
+          data-poin="4"
+          data-elemen="Data dan Peluang"
+          data-materi="Peluang kejadian (soal tambahan)"
+          data-level="2"
+        >
+          <h4>Soal 33</h4>
+          <p>
+            Dua dadu setimbang dilempar bersamaan. Peluang munculnya jumlah mata
+            dadu \(8\) adalah .... (tulis dalam bentuk pecahan sederhana,
+            misalnya 1/2)
+          </p>
+          <div class="isian-baris">
+            <input
+              type="text"
+              class="isian-input"
+              placeholder="Tulis jawaban akhirnya saja"
+              autocomplete="off"
+              autocapitalize="off"
+              spellcheck="false"
+              aria-label="Jawaban soal isian 33"
+            />
+          </div>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>
+              Pasangan berjumlah \(8\): \((2,6),(3,5),(4,4),(5,3),(6,2)\), yaitu
+              \(5\) dari \(36\) hasil. Peluangnya \(\frac{5}{36}\).
+            </p>
+            <p>Jadi, jawabannya adalah <strong>5/36</strong>.</p>
+          </details>
+        </div>
+
+        <!-- Soal 34 -->
+        <div
+          class="lesson-example soal-isian"
+          data-tipe="isian"
+          data-kunci="155"
+          data-poin="4"
+          data-elemen="Aljabar"
+          data-materi="Deret aritmetika (soal tambahan)"
+          data-level="2"
+        >
+          <h4>Soal 34</h4>
+          <p>Jumlah \(10\) suku pertama deret \(2+5+8+11+\dots\) adalah ....</p>
+          <div class="isian-baris">
+            <input
+              type="text"
+              class="isian-input"
+              placeholder="Tulis jawaban akhirnya saja"
+              autocomplete="off"
+              autocapitalize="off"
+              spellcheck="false"
+              aria-label="Jawaban soal isian 34"
+            />
+          </div>
+
+          <details class="pembahasan">
+            <summary>Lihat pembahasan</summary>
+            <p>
+              \(a=2\), \(b=3\).
+              \(S_{10}=\frac{10}{2}\,(2\cdot2+9\cdot3)=5\cdot31=155\).
+            </p>
+            <p>Jadi, jawabannya adalah <strong>155</strong>.</p>
+          </details>
+        </div>
+      </div>
+    </div>
+
+    <div class="sim-aksi" data-sim="aksi" hidden>
+      <button type="button" class="btn-ulang" data-aksi="prev">
+        Sebelumnya
+      </button>
+      <button type="button" class="btn-ulang" data-aksi="ragu">
+        Tandai ragu
+      </button>
+      <button type="button" class="btn-cek" data-aksi="next">Berikutnya</button>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      function init() {
+        var root = document.getElementById("simulasi-tka-paket1");
+        if (!root || root.getAttribute("data-init")) return;
+        root.setAttribute("data-init", "1");
+
+        var NAMA = {
+          pg: "Pilihan ganda",
+          kompleks: "Pilihan ganda kompleks",
+          kategori: "Benar/Salah",
+          isian: "Isian singkat",
+        };
+        var PETUNJUK = {
+          pg: "Pilih satu jawaban yang paling tepat.",
+          kompleks:
+            "Pilih semua jawaban yang benar. Nilai penuh hanya jika semua pilihan tepat.",
+          kategori:
+            "Tentukan Benar atau Salah untuk setiap pernyataan. Nilai penuh hanya jika semuanya tepat.",
+          isian:
+            "Tulis jawaban akhirnya saja (angka atau pecahan, misalnya 5/36).",
+        };
+
+        function $(s, el) {
+          return (el || root).querySelector(s);
+        }
+        function $$(s, el) {
+          return Array.prototype.slice.call((el || root).querySelectorAll(s));
+        }
+        var semua = $$(".lesson-example[data-tipe]");
+        var elAtur = $('[data-sim="atur"]');
+        var elUjian = $('[data-sim="ujian"]');
+        var elHasil = $('[data-sim="hasil"]');
+        var elAksi = $('[data-sim="aksi"]');
+        var elNomor = $('[data-sim="nomor"]');
+        var elQuestionViewport = $(".tka-exam-question-viewport");
+        var fullscreenButton = $('[data-aksi="fullscreen"]');
+        var confirmDialog = $('[data-sim="confirm-dialog"]');
+        var confirmMessage = $('[data-sim="confirm-message"]');
+        var elMenit = $('[data-sim="menit"]');
+        var elRingkas = $('[data-sim="ringkas"]');
+        var aktif = [],
+          idx = 0,
+          akhir = 0,
+          mulaiAt = 0,
+          timer = null,
+          mode = "atur";
+
+        function updateFullscreenButton() {
+          var isFullscreen = document.fullscreenElement === root;
+          fullscreenButton.textContent = isFullscreen
+            ? "Keluar layar penuh"
+            : "Layar penuh";
+          fullscreenButton.setAttribute(
+            "aria-label",
+            isFullscreen ? "Keluar dari layar penuh" : "Masuk layar penuh",
+          );
+        }
+        function toggleFullscreen() {
+          if (document.fullscreenElement === root) {
+            document.exitFullscreen().catch(function () {});
+          } else if (root.requestFullscreen) {
+            root.requestFullscreen().catch(function () {});
+          }
+        }
+
+        function norm(s) {
+          return String(s)
+            .toLowerCase()
+            .replace(/\s+/g, "")
+            .replace(/[*\u00b7\u00d7{}]/g, "")
+            .replace(/\u2212/g, "-")
+            .replace(/\u00b2/g, "^2")
+            .replace(/,/g, ".");
+        }
+        function angka(s) {
+          s = norm(s);
+          var m = s.match(/^(-?\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)$/);
+          if (m) return +m[1] / +m[2];
+          return /^-?\d+(\.\d+)?$/.test(s) ? +s : null;
+        }
+        function fmt(n) {
+          return n.toLocaleString("id-ID", { maximumFractionDigits: 1 });
+        }
+        function dua(n) {
+          return (n < 10 ? "0" : "") + n;
+        }
+        function tipe(q) {
+          return q.getAttribute("data-tipe");
+        }
+        function poin(q) {
+          return +q.getAttribute("data-poin");
+        }
+        function typeset() {
+          var el = $('[data-sim="soal"]');
+          try {
+            if (window.MathJax && MathJax.typesetPromise)
+              MathJax.typesetPromise([el]).catch(function () {});
+            else if (window.MathJax && MathJax.Hub)
+              MathJax.Hub.Queue(["Typeset", MathJax.Hub, el]);
+            else if (window.renderMathInElement)
+              renderMathInElement(el, {
+                delimiters: [
+                  { left: "\\(", right: "\\)", display: false },
+                  { left: "\\[", right: "\\]", display: true },
+                ],
+              });
+          } catch (e) {}
+        }
+
+        /* ---------- penilaian ---------- */
+        function terjawab(q) {
+          var t = tipe(q);
+          if (t === "isian")
+            return !!$(".isian-input", q).value.replace(/\s+/g, "");
+          return !!$("input:checked", q);
+        }
+        function benar(q) {
+          var t = tipe(q),
+            k = q.getAttribute("data-kunci"),
+            i;
+          if (!terjawab(q)) return false;
+          if (t === "pg") return $("input:checked", q).value === k;
+          if (t === "kompleks") {
+            var j = $$("input:checked", q).map(function (x) {
+              return x.value;
+            });
+            return j.sort().join(",") === k.split(",").sort().join(",");
+          }
+          if (t === "kategori") {
+            var kk = k.split(",");
+            for (i = 0; i < kk.length; i++) {
+              var r = $('input[name$="-' + (i + 1) + '"]:checked', q);
+              if (!r || r.value !== kk[i]) return false;
+            }
+            return true;
+          }
+          var v = norm($(".isian-input", q).value),
+            n = angka(v),
+            ks = k.split("|");
+          for (i = 0; i < ks.length; i++) {
+            if (norm(ks[i]) === v) return true;
+            if (
+              n !== null &&
+              angka(ks[i]) !== null &&
+              Math.abs(angka(ks[i]) - n) < 1e-9
+            )
+              return true;
+          }
+          return false;
+        }
+        function teksKunci(q) {
+          var t = tipe(q),
+            k = q.getAttribute("data-kunci");
+          if (t === "kategori")
+            return k
+              .split(",")
+              .map(function (x, i) {
+                return i + 1 + ": " + (x === "B" ? "Benar" : "Salah");
+              })
+              .join(", ");
+          if (t === "kompleks") return k.split(",").join(", ");
+          return k.split("|")[0];
+        }
+
+        /* ---------- keadaan ---------- */
+        function reset(q) {
+          $$("input", q).forEach(function (x) {
+            x.checked = false;
+            x.disabled = false;
+            if (x.type === "text") x.value = "";
+          });
+          $$(".sim-kunci,.sim-salah", q).forEach(function (x) {
+            x.classList.remove("sim-kunci", "sim-salah");
+          });
+          $$(".sim-verdik,.sim-teks-kunci", q).forEach(function (x) {
+            x.parentNode.removeChild(x);
+          });
+          $$("details", q).forEach(function (d) {
+            d.open = false;
+          });
+          q.removeAttribute("data-status");
+          q.removeAttribute("data-ragu");
+          q.hidden = true;
+        }
+        function setMode(m) {
+          mode = m;
+          root.setAttribute("data-mode", m);
+          elAtur.hidden = m !== "atur";
+          elUjian.hidden = m !== "ujian";
+          elAksi.hidden = m !== "ujian";
+          elHasil.hidden = m !== "hasil";
+          elNomor.hidden = m === "atur";
+        }
+        function dipilih() {
+          return $$("[data-sim-tipe]")
+            .filter(function (x) {
+              return x.checked;
+            })
+            .map(function (x) {
+              return x.getAttribute("data-sim-tipe");
+            });
+        }
+        function ringkasan() {
+          var d = dipilih(),
+            n = 0,
+            p = 0;
+          semua.forEach(function (q) {
+            if (d.indexOf(tipe(q)) > -1) {
+              n++;
+              p += poin(q);
+            }
+          });
+          var mnt = Math.max(1, Math.min(300, +elMenit.value || 0));
+          elRingkas.textContent = n
+            ? n + " soal, maksimal " + p + " poin, waktu " + mnt + " menit."
+            : "Pilih minimal satu jenis soal.";
+        }
+
+        /* ---------- ujian ---------- */
+        function renderNomor() {
+          var h = "";
+          for (var i = 0; i < aktif.length; i++) {
+            var q = aktif[i],
+              c = "";
+            if (mode === "hasil") c = "sim-" + q.getAttribute("data-status");
+            else {
+              if (terjawab(q)) c += " sim-isi";
+              if (q.getAttribute("data-ragu")) c += " sim-ragu";
+              if (i === idx) c += " sim-sekarang";
+            }
+            h +=
+              '<button type="button" data-no="' +
+              i +
+              '" class="' +
+              c +
+              '" aria-label="Soal ' +
+              (i + 1) +
+              '">' +
+              (i + 1) +
+              "</button>";
+          }
+          elNomor.innerHTML = h;
+        }
+        function status() {
+          var n = aktif.filter(terjawab).length;
+          $("[data-sim-terjawab]").textContent = n;
+          renderNomor();
+        }
+        function tampil(i, gulir) {
+          idx = Math.max(0, Math.min(aktif.length - 1, i));
+          aktif.forEach(function (q, k) {
+            q.hidden = k !== idx;
+          });
+          $('[data-aksi="prev"]').disabled = idx === 0;
+          $('[data-aksi="next"]').textContent =
+            idx === aktif.length - 1 ? "Selesai dan kumpulkan" : "Berikutnya";
+          $('[data-aksi="ragu"]').textContent = aktif[idx].getAttribute(
+            "data-ragu",
+          )
+            ? "Hapus tanda ragu"
+            : "Tandai ragu";
+          status();
+          typeset();
+          if (gulir) elQuestionViewport.scrollTop = 0;
+        }
+        function tick() {
+          var sisa = akhir - Date.now(),
+            w = $("[data-sim-waktu]");
+          if (sisa <= 0) {
+            selesai(true);
+            return;
+          }
+          var s = Math.ceil(sisa / 1000);
+          w.textContent = dua(Math.floor(s / 60)) + ":" + dua(s % 60);
+          w.setAttribute(
+            "data-waktu",
+            sisa < 60000 ? "kritis" : sisa < 300000 ? "menipis" : "",
+          );
+        }
+        function mulai() {
+          var d = dipilih();
+          if (!d.length) return;
+          var mnt = Math.max(1, Math.min(300, +elMenit.value || 0));
+          semua.forEach(reset);
+          aktif = semua.filter(function (q) {
+            return d.indexOf(tipe(q)) > -1;
+          });
+          aktif.forEach(function (q, i) {
+            $("h4", q).textContent =
+              "Soal " + (i + 1) + " dari " + aktif.length;
+          });
+          $("[data-sim-total]").textContent = aktif.length;
+          mulaiAt = Date.now();
+          akhir = mulaiAt + mnt * 60000;
+          setMode("ujian");
+          toggleFullscreen();
+          clearInterval(timer);
+          timer = setInterval(tick, 250);
+          tick();
+          tampil(0, true);
+        }
+        function kumpul() {
+          var kosong = aktif.filter(function (q) {
+            return !terjawab(q);
+          }).length;
+          confirmMessage.textContent = kosong
+            ? "Masih ada " +
+              kosong +
+              " soal yang belum dijawab. Jawaban yang sudah dikumpulkan tidak dapat diubah."
+            : "Semua soal sudah dijawab. Setelah dikumpulkan, jawaban tidak dapat diubah.";
+          confirmDialog.showModal();
+        }
+
+        /* ---------- hasil ---------- */
+        function selesai(otomatis) {
+          if (mode !== "ujian") return;
+          clearInterval(timer);
+          var dipakai = Math.round(
+            (Math.min(Date.now(), akhir) - mulaiAt) / 1000,
+          );
+          var hit = { benar: 0, salah: 0, kosong: 0 },
+            dapat = 0,
+            maks = 0,
+            perJenis = {},
+            perElemen = {};
+          aktif.forEach(function (q) {
+            var t = tipe(q),
+              ok = benar(q),
+              st = !terjawab(q) ? "kosong" : ok ? "benar" : "salah";
+            var kunci = q
+              .getAttribute("data-kunci")
+              .split(t === "isian" ? "|" : ",");
+            q.setAttribute("data-status", st);
+            q.hidden = false;
+            hit[st]++;
+            maks += poin(q);
+            if (ok) dapat += poin(q);
+            var el = q.getAttribute("data-elemen");
+            [
+              [perJenis, NAMA[t]],
+              [perElemen, el],
+            ].forEach(function (p) {
+              p[0][p[1]] = p[0][p[1]] || [0, 0];
+              p[0][p[1]][1]++;
+              if (ok) p[0][p[1]][0]++;
+            });
+            if (t === "pg" || t === "kompleks") {
+              $$("label.opsi", q).forEach(function (lb) {
+                var inp = $("input", lb);
+                if (kunci.indexOf(inp.value) > -1)
+                  lb.classList.add("sim-kunci");
+                else if (inp.checked) lb.classList.add("sim-salah");
+              });
+            } else if (t === "kategori") {
+              $$("tbody tr", q).forEach(function (tr, i) {
+                $$("input", tr).forEach(function (inp) {
+                  if (inp.value === kunci[i])
+                    inp.parentNode.classList.add("sim-kunci");
+                  else if (inp.checked)
+                    inp.parentNode.classList.add("sim-salah");
+                });
+              });
+            } else {
+              var p = document.createElement("p");
+              p.className = "sim-teks-kunci";
+              p.innerHTML =
+                "Jawaban Anda: <strong></strong>. Kunci: <strong></strong>.";
+              var sg = p.querySelectorAll("strong");
+              sg[0].textContent = $(".isian-input", q).value || "(kosong)";
+              sg[1].textContent = kunci[0];
+              $(".isian-baris", q).parentNode.insertBefore(
+                p,
+                $(".isian-baris", q).nextSibling,
+              );
+            }
+            $$("input", q).forEach(function (x) {
+              x.disabled = true;
+            });
+            var v = document.createElement("p");
+            v.className = "sim-verdik";
+            v.textContent =
+              (st === "benar"
+                ? "Benar"
+                : st === "salah"
+                  ? "Salah"
+                  : "Tidak dijawab") +
+              " (" +
+              (ok ? poin(q) : 0) +
+              " dari " +
+              poin(q) +
+              " poin)";
+            $("h4", q).parentNode.insertBefore(v, $("h4", q).nextSibling);
+            $$("details", q).forEach(function (d) {
+              d.open = false;
+            });
+          });
+          var nilai = (dapat / maks) * 100;
+          $("[data-sim-nilai]").textContent = fmt(nilai);
+          $('[data-sim="verdik"]').textContent =
+            nilai >= 85
+              ? "Sangat baik."
+              : nilai >= 70
+                ? "Baik."
+                : nilai >= 55
+                  ? "Cukup, terus berlatih."
+                  : "Perlu latihan lebih banyak.";
+          $('[data-sim="otomatis"]').hidden = !otomatis;
+          $('[data-h="benar"]').textContent = hit.benar;
+          $('[data-h="salah"]').textContent = hit.salah;
+          $('[data-h="kosong"]').textContent = hit.kosong;
+          $('[data-h="poin"]').textContent = dapat + " dari " + maks;
+          $('[data-h="waktu"]').textContent =
+            Math.floor(dipakai / 60) + " mnt " + (dipakai % 60) + " dtk";
+          function tabel(judul, g) {
+            var h =
+              "<thead><tr><th>" +
+              judul +
+              "</th><th>Benar</th><th>Total</th><th>Persen</th></tr></thead><tbody>";
+            for (var k in g)
+              h +=
+                "<tr><td>" +
+                k +
+                "</td><td>" +
+                g[k][0] +
+                "</td><td>" +
+                g[k][1] +
+                "</td><td>" +
+                Math.round((g[k][0] / g[k][1]) * 100) +
+                "%</td></tr>";
+            return h + "</tbody>";
+          }
+          $('[data-sim="rjenis"]').innerHTML = tabel("Jenis soal", perJenis);
+          $('[data-sim="relemen"]').innerHTML = tabel(
+            "Elemen materi",
+            perElemen,
+          );
+          setMode("hasil");
+          renderNomor();
+          typeset();
+          if (document.fullscreenElement === root) {
+            document.exitFullscreen().then(function () {
+              elHasil.scrollIntoView({ block: "start" });
+            });
+          } else {
+            elHasil.scrollIntoView({ block: "start" });
+          }
+        }
+        function saring(f) {
+          aktif.forEach(function (q) {
+            q.hidden = !(f === "semua" || q.getAttribute("data-status") === f);
+          });
+        }
+        function ulang() {
+          clearInterval(timer);
+          semua.forEach(reset);
+          aktif = [];
+          setMode("atur");
+          ringkasan();
+          elAtur.scrollIntoView({ block: "start" });
+        }
+
+        /* ---------- peristiwa ---------- */
+        root.addEventListener("input", function () {
+          if (mode === "ujian") status();
+        });
+        root.addEventListener("tka:dispose", function () {
+          clearInterval(timer);
+          timer = null;
+          document.removeEventListener(
+            "fullscreenchange",
+            updateFullscreenButton,
+          );
+        });
+        document.addEventListener("fullscreenchange", updateFullscreenButton);
+        root.addEventListener("change", function (e) {
+          if (mode === "atur") ringkasan();
+          else if (mode === "ujian") status();
+        });
+        root.addEventListener("click", function (e) {
+          var el = e.target;
+          while (el && el !== root) {
+            if (el.getAttribute) {
+              var a = el.getAttribute("data-aksi");
+              if (el.getAttribute("data-menit")) {
+                elMenit.value = el.getAttribute("data-menit");
+                ringkasan();
+                return;
+              }
+              if (el.getAttribute("data-filter")) {
+                saring(el.getAttribute("data-filter"));
+                return;
+              }
+              if (
+                el.getAttribute("data-no") !== null &&
+                el.parentNode === elNomor
+              ) {
+                var i = +el.getAttribute("data-no");
+                if (mode === "ujian") tampil(i, true);
+                else {
+                  saring("semua");
+                  aktif[i].scrollIntoView({ block: "start" });
+                }
+                return;
+              }
+              if (a === "mulai") return mulai();
+              if (a === "fullscreen") return toggleFullscreen();
+              if (a === "kumpul") return kumpul();
+              if (a === "cancel-submit") return confirmDialog.close();
+              if (a === "confirm-submit") {
+                confirmDialog.close();
+                return selesai(false);
+              }
+              if (a === "prev") return tampil(idx - 1, true);
+              if (a === "next")
+                return idx === aktif.length - 1
+                  ? kumpul()
+                  : tampil(idx + 1, true);
+              if (a === "ragu") {
+                var q = aktif[idx];
+                if (q.getAttribute("data-ragu")) q.removeAttribute("data-ragu");
+                else q.setAttribute("data-ragu", "1");
+                return tampil(idx);
+              }
+              if (a === "ulang") return ulang();
+              if (a === "buka") {
+                var buka = el.textContent.indexOf("Buka") === 0;
+                $$("details.pembahasan").forEach(function (d) {
+                  d.open = buka;
+                });
+                el.textContent = buka
+                  ? "Tutup semua pembahasan"
+                  : "Buka semua pembahasan";
+                return;
+              }
+            }
+            el = el.parentNode;
+          }
+        });
+
+        semua.forEach(function (q) {
+          var t = tipe(q);
+          $("h4", q).insertAdjacentHTML(
+            "afterend",
+            '<p class="catatan-bentuk sim-petunjuk"><strong>' +
+              NAMA[t] +
+              ".</strong> " +
+              PETUNJUK[t] +
+              "</p>",
+          );
+          q.hidden = true;
+        });
+        $$("[data-sim-n]").forEach(function (s) {
+          var t = s.getAttribute("data-sim-n");
+          s.textContent = semua.filter(function (q) {
+            return tipe(q) === t;
+          }).length;
+        });
+        elMenit.addEventListener("input", ringkasan);
+        setMode("atur");
+        updateFullscreenButton();
+        ringkasan();
+      }
+      if (document.readyState === "loading")
+        document.addEventListener("DOMContentLoaded", init);
+      else init();
+    })();
+  </script>
+</section>

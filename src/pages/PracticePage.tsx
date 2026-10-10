@@ -428,6 +428,69 @@ export function PracticePage({ navigate }: PracticePageProps) {
           </div>
         )}
       </section>
+
+      <section
+        className="practice-list practice-exam-list"
+        aria-label="Simulasi ujian"
+      >
+        <div className="practice-section-heading">
+          <div>
+            <span className="practice-overview-label">Mode ujian</span>
+            <h2>Persiapan ujian</h2>
+          </div>
+          <span className="practice-module-count">1 paket</span>
+        </div>
+
+        <div className="practice-card-grid">
+          <a
+            className="practice-card practice-exam-card"
+            href="/latihan-soal/tka-paket-1"
+            onClick={(event) => navigate(event, "practice-tka-paket1")}
+          >
+            <div className="practice-card-heading">
+              <span className="practice-card-index">
+                SIMULASI TKA · PAKET 1
+              </span>
+              <span className="practice-card-question-count">
+                <FileQuestion size={15} aria-hidden="true" />
+                30 soal + 4 isian
+              </span>
+            </div>
+            <div className="practice-card-main">
+              <h3>Persiapan TKA SMA Paket 1</h3>
+              <p>
+                Kerjakan soal dalam mode ujian, atur durasi dan tipe soal, lalu
+                lihat hasil serta pembahasan setelah dikumpulkan.
+              </p>
+            </div>
+            <div className="practice-card-topics" aria-label="Tipe soal">
+              {[
+                "Pilihan ganda",
+                "PG kompleks",
+                "Benar/Salah",
+                "Isian singkat",
+              ].map((topic) => (
+                <span className="practice-topic" key={topic}>
+                  {topic}
+                </span>
+              ))}
+            </div>
+            <div className="practice-card-details">
+              <span>
+                <Clock3 size={15} aria-hidden="true" />
+                Durasi dapat dipilih
+              </span>
+              <span>
+                <Trophy size={15} aria-hidden="true" />
+                Skor maksimal 100
+              </span>
+            </div>
+            <span className="practice-card-cta">
+              Mulai persiapan <ArrowRight size={16} aria-hidden="true" />
+            </span>
+          </a>
+        </div>
+      </section>
     </main>
   );
 }
