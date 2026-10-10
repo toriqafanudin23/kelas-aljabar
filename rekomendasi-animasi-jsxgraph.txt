@@ -5,23 +5,11 @@ JSXGraph paling cocok untuk materi yang menggunakan grafik, koordinat, konstruks
 
 PALING COCOK
 
-1. Trigonometri
-   Geser sudut pada lingkaran satuan dan tampilkan perubahan nilai sinus, kosinus, serta tangen. Sinkronkan titik pada lingkaran dengan grafik fungsi trigonometri.
 
-2. Transformasi Geometri
-   Geser titik atau poligon, lalu animasikan translasi, refleksi, rotasi, dilatasi, dan komposisinya. Tampilkan koordinat dan matriks transformasi.
-
-3. Transformasi Fungsi
-   Gunakan slider untuk mengubah translasi, refleksi, dan peregangan grafik. Bandingkan grafik awal dengan hasil transformasinya.
-
-4. Fungsi Kuadrat
-   Ubah koefisien a, b, dan c untuk mengamati perubahan parabola, akar, titik puncak, sumbu simetri, dan diskriminan.
 
 5. Irisan Kerucut
    Ubah parameter atau eksentrisitas untuk membandingkan lingkaran, elips, parabola, dan hiperbola. Tampilkan fokus, direktriks, serta garis singgung.
 
-6. Vektor
-   Geser dua vektor untuk memperlihatkan penjumlahan, sudut, proyeksi, dan hasil kali titik pada bidang koordinat.
 
 7. Lingkaran
    Ubah jari-jari dan sudut pusat untuk memperlihatkan panjang busur, luas juring, tali busur, dan garis singgung.
@@ -29,8 +17,7 @@ PALING COCOK
 8. Limit, Turunan, dan Integral
    Animasikan tali busur yang mendekati garis singgung saat h menuju nol. Tampilkan kemiringan turunan dan pendekatan luas dengan jumlah Riemann.
 
-9. Sistem Persamaan dan Pertidaksamaan Linear
-   Geser garis untuk melihat titik potong, daerah penyelesaian, dan perubahan titik optimum pada masalah linear.
+
 
 10. Fungsi dan Pemodelan
     Gambarkan model fungsi dan tunjukkan bagaimana perubahan parameter atau input memengaruhi grafik dan hasil model.
