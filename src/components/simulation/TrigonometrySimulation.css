@@ -8,6 +8,8 @@
   --sim-green: #527a41;
 }
 
+/* ───────── Beranda & halaman daftar simulasi (tidak berubah) ───────── */
+
 .home-trig-showcase {
   padding-block: 52px;
   border-bottom: 1px solid var(--line);
@@ -207,7 +209,7 @@
 }
 
 .simulation-fullscreen-button {
-  min-height: 36px;
+  min-height: 40px;
   padding: 0 16px;
   border: 1px solid #c49a00;
   background: var(--gold);
@@ -228,15 +230,48 @@
   outline-offset: 3px;
 }
 
+/* ───────── Simulasi trigonometri: dasar ───────── */
+
 .trigonometry-simulation {
+  --sim-btn: 40px; /* tinggi minimum tombol; naik di layar sentuh */
   display: grid;
-  gap: 14px;
+  gap: 12px;
   padding: 16px;
   border-top: 3px solid var(--gold);
   background: var(--sim-paper);
   color: var(--sim-ink);
   font-variant-numeric: tabular-nums;
+  -webkit-tap-highlight-color: transparent;
 }
+
+@media (pointer: coarse) {
+  .trigonometry-simulation {
+    --sim-btn: 46px;
+  }
+}
+
+.trigonometry-simulation button {
+  touch-action: manipulation;
+}
+
+.trigonometry-simulation button:focus-visible,
+.trigonometry-simulation input:focus-visible {
+  outline: 2px solid var(--sim-teal);
+  outline-offset: 3px;
+}
+
+/* Cadangan layar penuh bila Fullscreen API tidak tersedia (mis. iPhone) */
+.trigonometry-simulation.is-fullscreen:not(:fullscreen) {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+/* ───────── Toolbar ───────── */
 
 .trig-toolbar {
   display: flex;
@@ -244,6 +279,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 8px;
+  min-height: 36px;
 }
 
 .trig-fullscreen-button {
@@ -251,29 +287,47 @@
   align-items: center;
   justify-content: center;
   gap: 7px;
-  min-height: 36px;
-  padding: 0 12px;
-  border: 1px solid var(--sim-line);
-  background: #fff;
-  color: var(--sim-ink);
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--sim-teal);
+  background: #e8f3f1;
+  color: #0a5f69;
   font: inherit;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   cursor: pointer;
 }
 
 .trig-fullscreen-button:hover {
-  border-color: var(--sim-teal);
-  background: #e8f3f1;
+  background: #d7ebe8;
 }
 
-.trigonometry-simulation:fullscreen.simulation-fullscreen-frame {
-  grid-template-rows: auto minmax(0, 1fr) auto auto auto;
-  min-height: 0;
-  gap: 8px;
-  padding: 10px 12px;
-  overflow: hidden !important;
+@media (pointer: coarse) {
+  .trig-fullscreen-button {
+    min-height: 44px;
+  }
 }
+
+.trig-orientation-hint {
+  display: none;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 0;
+  padding: 8px 10px;
+  border-left: 3px solid var(--sim-teal);
+  background: #e8f3f1;
+  color: var(--sim-ink);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.trig-orientation-hint svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
+  color: var(--sim-teal);
+}
+
+/* ───────── Papan (lingkaran + grafik) ───────── */
 
 .trig-boards {
   display: grid;
@@ -282,25 +336,14 @@
   min-width: 0;
 }
 
-.trigonometry-simulation:fullscreen .trig-boards {
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-  min-height: 0;
-  height: 100%;
-  gap: 8px;
-}
-
 .trig-board-panel {
+  position: relative;
   display: grid;
   grid-template-rows: auto minmax(0, 1fr) auto;
   min-width: 0;
   padding: 12px;
   border: 1px solid var(--sim-line);
   background: #fff;
-}
-
-.trigonometry-simulation:fullscreen .trig-board-panel {
-  min-height: 0;
-  padding: 8px;
 }
 
 .trig-board-heading {
@@ -321,7 +364,7 @@
 .trig-board-heading > span {
   color: var(--sim-muted);
   font-size: 10px;
-  white-space: nowrap;
+  text-align: right;
 }
 
 .trig-board {
@@ -352,15 +395,6 @@
   aspect-ratio: 1.55 / 1;
 }
 
-.trigonometry-simulation:fullscreen .trig-circle-board,
-.trigonometry-simulation:fullscreen .trig-function-board {
-  width: 100%;
-  height: 100%;
-  min-height: 0;
-  max-height: none;
-  aspect-ratio: auto;
-}
-
 .trig-board .JXGtext {
   font-family: "Open Sans", sans-serif;
 }
@@ -380,10 +414,10 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 10px 20px;
-  padding-top: 5px;
+  gap: 6px 18px;
+  padding-top: 6px;
   color: var(--sim-muted);
-  font-size: 10px;
+  font-size: 11px;
 }
 
 .trig-legend span {
@@ -410,84 +444,246 @@
   color: var(--sim-green);
 }
 
+/* ───────── Dock: kontrol + hasil ───────── */
+
+.trig-dock {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
 .trig-controls {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: end;
-  gap: 18px;
-  padding: 13px 14px;
+  gap: 12px;
+  min-width: 0;
+  padding: 12px 14px;
   border: 1px solid var(--sim-line);
   background: #fff;
 }
 
 .trig-angle-control {
   display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: baseline;
-  gap: 4px 12px;
+  gap: 6px;
+  min-width: 0;
 }
 
-.trig-angle-control label {
+.trig-angle-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.trig-angle-head label {
   color: var(--sim-muted);
   font-size: 11px;
   font-weight: 700;
 }
 
-.trig-angle-control output {
+.trig-angle-head output {
+  flex: 1 1 auto;
+  min-width: 0;
   color: var(--sim-ink);
-  font-size: 15px;
+  font-size: 21px;
   font-weight: 800;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
-.trig-angle-control output span {
+.trig-angle-head output span {
   color: var(--sim-muted);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
 }
 
-.trig-angle-control input {
-  grid-column: 1 / -1;
+.trig-reset-button {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1px solid #aebdc2;
+  background: #fff;
+  color: var(--sim-ink);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.trig-reset-button:hover {
+  border-color: var(--sim-teal);
+  background: #e8f3f1;
+}
+
+@media (pointer: coarse) {
+  .trig-reset-button {
+    min-height: 40px;
+  }
+}
+
+/* Slider + tombol -1° / +1° */
+
+.trig-slider-row {
+  display: grid;
+  grid-template-columns: var(--sim-btn) minmax(0, 1fr) var(--sim-btn);
+  align-items: center;
+  column-gap: 8px;
+}
+
+.trig-step-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--sim-btn);
+  height: var(--sim-btn);
+  padding: 0;
+  border: 1px solid #aebdc2;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--sim-ink);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.trig-step-button:hover {
+  border-color: var(--sim-teal);
+  background: #e8f3f1;
+}
+
+.trig-step-button:active {
+  background: #d3e9e6;
+}
+
+.trig-angle-slider {
+  --trig-fill: 0%;
+  -webkit-appearance: none;
+  appearance: none;
   width: 100%;
-  height: 26px;
-  margin: 3px 0 0;
-  accent-color: var(--sim-teal);
-  cursor: ew-resize;
+  height: 40px;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+  touch-action: pan-y;
+}
+
+.trig-angle-slider::-webkit-slider-runnable-track {
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    var(--sim-teal) 0,
+    var(--sim-teal) var(--trig-fill),
+    #d5e0e4 var(--trig-fill),
+    #d5e0e4 100%
+  );
+}
+
+.trig-angle-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  margin-top: -10px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background: var(--sim-teal);
+  box-shadow: 0 1px 5px rgba(24, 49, 61, 0.5);
+}
+
+.trig-angle-slider::-moz-range-track {
+  height: 8px;
+  border-radius: 999px;
+  background: #d5e0e4;
+}
+
+.trig-angle-slider::-moz-range-progress {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--sim-teal);
+}
+
+.trig-angle-slider::-moz-range-thumb {
+  box-sizing: border-box;
+  width: 28px;
+  height: 28px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background: var(--sim-teal);
+  box-shadow: 0 1px 5px rgba(24, 49, 61, 0.5);
+}
+
+@media (pointer: coarse) {
+  .trig-angle-slider {
+    height: 46px;
+  }
+
+  .trig-angle-slider::-webkit-slider-runnable-track {
+    height: 10px;
+  }
+
+  .trig-angle-slider::-webkit-slider-thumb {
+    width: 34px;
+    height: 34px;
+    margin-top: -12px;
+  }
+
+  .trig-angle-slider::-moz-range-track,
+  .trig-angle-slider::-moz-range-progress {
+    height: 10px;
+  }
+
+  .trig-angle-slider::-moz-range-thumb {
+    width: 34px;
+    height: 34px;
+  }
 }
 
 .trig-range-labels {
-  grid-column: 1 / -1;
+  grid-column: 2;
   display: flex;
   justify-content: space-between;
+  margin-top: -4px;
   color: var(--sim-muted);
   font-size: 9px;
   line-height: 1;
 }
 
+/* Sudut istimewa */
+
 .trig-special-angles {
-  grid-column: 1 / -1;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px 12px;
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.trig-special-angles > span {
   color: var(--sim-muted);
   font-size: 10px;
   font-weight: 700;
 }
 
 .trig-special-angle-buttons {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
+  gap: 5px;
 }
 
 .trig-special-angle-buttons button {
-  min-width: 36px;
-  min-height: 28px;
-  padding: 0 7px;
+  flex: 0 0 auto;
+  min-width: 42px;
+  min-height: 34px;
+  padding: 0 8px;
   border: 1px solid var(--sim-line);
   background: #fff;
   color: var(--sim-ink);
-  font-size: 10px;
+  font: inherit;
+  font-size: 11px;
   font-weight: 700;
   cursor: pointer;
 }
@@ -503,44 +699,29 @@
   box-shadow: inset 0 -2px var(--sim-teal);
 }
 
-.trig-reset-button {
-  min-height: 38px;
-  padding: 0 13px;
-  border: 1px solid #aebdc2;
-  background: #fff;
-  color: var(--sim-ink);
-  font-size: 11px;
-  font-weight: 700;
-  cursor: pointer;
+@media (pointer: coarse) {
+  .trig-special-angle-buttons button {
+    min-width: 48px;
+    min-height: 42px;
+    font-size: 12px;
+  }
 }
 
-.trig-reset-button:hover {
-  border-color: var(--sim-teal);
-  background: #e8f3f1;
-}
-
-.trigonometry-simulation button:focus-visible,
-.trigonometry-simulation input:focus-visible {
-  outline: 2px solid var(--sim-teal);
-  outline-offset: 3px;
-}
+/* Hasil perhitungan */
 
 .trig-readouts {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
   margin: 0;
   border: 1px solid var(--sim-line);
-  background: #fff;
+  background: var(--sim-line);
 }
 
 .trig-readouts > div {
   min-width: 0;
   padding: 10px 13px;
-  border-left: 1px solid var(--sim-line);
-}
-
-.trig-readouts > div:first-child {
-  border-left: 0;
+  background: #fff;
 }
 
 .trig-readouts dt {
@@ -578,74 +759,107 @@
   margin: 0;
   color: var(--sim-muted);
   font-size: 11px;
+  line-height: 1.5;
 }
 
 .trig-explanation strong {
   color: var(--sim-ink);
 }
 
-.trigonometry-simulation:fullscreen .trig-controls {
-  gap: 4px 12px;
-  padding: 7px 10px;
-}
+/* ───────── Layar lebar: kontrol di kiri, hasil 2×2 di kanan ───────── */
 
-.trigonometry-simulation:fullscreen .trig-angle-control input {
-  height: 20px;
-  margin-top: 0;
-}
+@media (min-width: 900px) {
+  .trig-dock {
+    grid-template-columns: minmax(0, 1.55fr) minmax(280px, 1fr);
+    align-items: stretch;
+  }
 
-.trigonometry-simulation:fullscreen .trig-special-angle-buttons button {
-  min-height: 25px;
-}
+  .trig-readouts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 1fr;
+  }
 
-.trigonometry-simulation:fullscreen .trig-reset-button {
-  grid-column: 2;
-  grid-row: 1;
-  min-height: 32px;
-}
-
-.trigonometry-simulation:fullscreen .trig-readouts > div {
-  padding: 6px 10px;
-}
-
-.trigonometry-simulation:fullscreen .trig-readouts dd {
-  font-size: 16px;
-}
-
-.trigonometry-simulation:fullscreen .trig-readouts .readout-tangent dd {
-  font-size: 12px;
-}
-
-.trigonometry-simulation:fullscreen .trig-explanation {
-  font-size: 10px;
-  line-height: 1.35;
-}
-
-@media (max-width: 760px) {
-  .home-trig-showcase-heading {
-    align-items: flex-start;
+  .trig-readouts > div {
+    display: flex;
     flex-direction: column;
-    gap: 14px;
+    justify-content: center;
   }
+}
 
-  .simulation-picker {
-    gap: 9px;
-  }
+/* ───────── Layar sempit / potret: papan ditumpuk ───────── */
 
+@media (max-width: 640px), (orientation: portrait) and (max-width: 820px) {
   .trig-boards {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .trigonometry-simulation:fullscreen .trig-boards {
-    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-  }
-
   .trig-circle-board {
-    width: min(100%, 410px);
+    width: min(100%, 400px);
   }
 
   .trig-function-board {
-    min-height: 270px;
+    min-height: 240px;
+    aspect-ratio: 1.3 / 1;
+  }
+
+  /* Geser vertikal pada grafik tetap menggulir halaman */
+  .trigonometry-simulation:not(.is-fullscreen):not(:fullscreen)
+    .trig-function-board {
+    touch-action: pan-y !important;
+  }
+}
+
+/* Potret ponsel: tampilkan petunjuk + dock menempel di bawah */
+@media (max-width: 820px) and (orientation: portrait) {
+  .trigonometry-simulation:not(.is-fullscreen):not(:fullscreen)
+    .trig-orientation-hint {
+    display: flex;
+  }
+}
+
+@media (max-width: 820px) and (orientation: portrait) and (min-height: 560px) {
+  .trigonometry-simulation:not(.is-fullscreen):not(:fullscreen) .trig-dock {
+    position: sticky;
+    bottom: 0;
+    z-index: 5;
+    margin-inline: -9px;
+    padding: 8px 9px calc(8px + env(safe-area-inset-bottom, 0px));
+    border-top: 1px solid var(--sim-line);
+    background: rgba(243, 247, 245, 0.97);
+    box-shadow: 0 -6px 16px rgba(24, 49, 61, 0.14);
+  }
+
+  .trigonometry-simulation:not(.is-fullscreen):not(:fullscreen)
+    .trig-range-labels,
+  .trigonometry-simulation:not(.is-fullscreen):not(:fullscreen)
+    .trig-special-angles
+    > span {
+    display: none;
+  }
+
+  .trigonometry-simulation:not(.is-fullscreen):not(:fullscreen) .trig-controls {
+    gap: 8px;
+    padding: 8px 10px;
+  }
+}
+
+@media (max-width: 820px) {
+  /* Sudut istimewa: satu baris yang bisa digeser, bukan membungkus */
+  .trig-special-angle-buttons {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 3px;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .trig-special-angle-buttons::-webkit-scrollbar {
+    display: none;
+  }
+
+  .trig-special-angle-buttons button {
+    scroll-snap-align: center;
   }
 }
 
@@ -694,38 +908,310 @@
     padding: 9px;
   }
 
+  .trig-toolbar {
+    gap: 6px;
+  }
+
+  .trig-fullscreen-button {
+    flex: 1 1 auto;
+  }
+
   .trig-board-panel {
     padding: 8px;
   }
 
-  .trig-function-board {
-    min-height: 230px;
-    aspect-ratio: 1.25 / 1;
+  .trig-board-heading > span {
+    display: none;
   }
 
   .trig-controls {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 8px;
     padding: 10px;
   }
 
-  .trig-reset-button {
-    width: 100%;
+  .trig-angle-head output {
+    font-size: 19px;
+  }
+
+  .trig-readouts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .trig-readouts > div {
-    padding: 8px;
-  }
-
-  .trig-readouts dt {
-    font-size: 9px;
+    padding: 7px 10px;
   }
 
   .trig-readouts dd {
-    font-size: 16px;
+    font-size: 17px;
   }
 
   .trig-readouts .readout-tangent dd {
+    font-size: 13px;
+  }
+}
+
+/* ───────── Mode layar penuh (semua ukuran) ───────── */
+
+.trigonometry-simulation:fullscreen.simulation-fullscreen-frame {
+  box-sizing: border-box;
+  grid-template-rows: auto minmax(0, 1fr) auto auto;
+  align-content: stretch;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  gap: 8px;
+  padding: max(10px, env(safe-area-inset-top, 0px))
+    max(12px, env(safe-area-inset-right, 0px))
+    max(10px, env(safe-area-inset-bottom, 0px))
+    max(12px, env(safe-area-inset-left, 0px));
+  overflow: hidden !important;
+}
+
+.trigonometry-simulation.is-fullscreen {
+  grid-template-rows: auto minmax(0, 1fr) auto auto;
+  align-content: stretch;
+  gap: 8px;
+  padding: max(10px, env(safe-area-inset-top, 0px))
+    max(12px, env(safe-area-inset-right, 0px))
+    max(10px, env(safe-area-inset-bottom, 0px))
+    max(12px, env(safe-area-inset-left, 0px));
+}
+
+.trigonometry-simulation.is-fullscreen .trig-orientation-hint,
+.trigonometry-simulation:fullscreen .trig-orientation-hint {
+  display: none;
+}
+
+.trigonometry-simulation.is-fullscreen .trig-boards,
+.trigonometry-simulation:fullscreen .trig-boards {
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  grid-template-rows: minmax(0, 1fr);
+  min-height: 0;
+  height: 100%;
+  gap: 8px;
+}
+
+.trigonometry-simulation.is-fullscreen .trig-board-panel,
+.trigonometry-simulation:fullscreen .trig-board-panel {
+  min-height: 0;
+  padding: 8px;
+}
+
+.trigonometry-simulation.is-fullscreen .trig-circle-board,
+.trigonometry-simulation.is-fullscreen .trig-function-board,
+.trigonometry-simulation:fullscreen .trig-circle-board,
+.trigonometry-simulation:fullscreen .trig-function-board {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  max-height: none;
+  aspect-ratio: auto;
+  touch-action: none !important;
+}
+
+.trigonometry-simulation.is-fullscreen .trig-dock,
+.trigonometry-simulation:fullscreen .trig-dock {
+  gap: 8px;
+}
+
+.trigonometry-simulation.is-fullscreen .trig-controls,
+.trigonometry-simulation:fullscreen .trig-controls {
+  gap: 6px;
+  padding: 8px 12px;
+}
+
+.trigonometry-simulation.is-fullscreen .trig-readouts > div,
+.trigonometry-simulation:fullscreen .trig-readouts > div {
+  padding: 6px 10px;
+}
+
+.trigonometry-simulation.is-fullscreen .trig-readouts dd,
+.trigonometry-simulation:fullscreen .trig-readouts dd {
+  font-size: 17px;
+}
+
+.trigonometry-simulation.is-fullscreen .trig-readouts .readout-tangent dd,
+.trigonometry-simulation:fullscreen .trig-readouts .readout-tangent dd {
+  font-size: 13px;
+}
+
+.trigonometry-simulation.is-fullscreen .trig-explanation,
+.trigonometry-simulation:fullscreen .trig-explanation {
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+/* Layar penuh + potret (tablet / ponsel): papan atas-bawah */
+@media (max-width: 640px), (orientation: portrait) and (max-width: 820px) {
+  .trigonometry-simulation.is-fullscreen .trig-boards,
+  .trigonometry-simulation:fullscreen .trig-boards {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+
+/* ───────── Ponsel LANSKAP (tinggi pendek) ─────────
+   Papan di atas selebar layar; dock ringkas di bawah:
+   kiri = sudut + slider + sudut istimewa, kanan = hasil sin/cos/tan. */
+
+@media (orientation: landscape) and (max-height: 540px) {
+  .trigonometry-simulation {
+    --sim-btn: 40px;
+    gap: 8px;
+  }
+
+  .trig-dock {
+    grid-template-columns: minmax(0, 1fr) 190px;
+    gap: 8px;
+  }
+
+  .trig-controls {
+    gap: 4px;
+    padding: 6px 10px;
+  }
+
+  .trig-angle-control {
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+    gap: 0 10px;
+  }
+
+  .trig-angle-head label,
+  .trig-range-labels,
+  .trig-special-angles > span {
+    display: none;
+  }
+
+  .trig-angle-head {
+    gap: 6px;
+  }
+
+  .trig-angle-head output {
+    flex: 0 0 auto;
+    font-size: 18px;
+  }
+
+  .trig-angle-head output span {
     font-size: 11px;
+  }
+
+  .trig-reset-button {
+    width: 36px;
+    min-height: 36px;
+    padding: 0;
+  }
+
+  .trig-reset-button span {
+    display: none;
+  }
+
+  .trig-angle-slider {
+    height: 38px;
+  }
+
+  .trig-special-angles {
+    gap: 0;
+  }
+
+  .trig-special-angle-buttons button {
+    min-height: 32px;
+  }
+
+  .trig-readouts {
+    grid-template-columns: minmax(0, 1fr);
+    grid-auto-rows: 1fr;
+  }
+
+  .trig-readouts .readout-angle {
+    display: none;
+  }
+
+  .trig-readouts > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 2px 10px;
+  }
+
+  .trig-readouts dt {
+    margin: 0;
+    font-size: 11px;
+  }
+
+  .trig-readouts dd,
+  .trigonometry-simulation.is-fullscreen .trig-readouts dd,
+  .trigonometry-simulation:fullscreen .trig-readouts dd {
+    font-size: 15px;
+    line-height: 1.2;
+    text-align: right;
+  }
+
+  .trig-readouts .readout-tangent dd,
+  .trigonometry-simulation.is-fullscreen .trig-readouts .readout-tangent dd,
+  .trigonometry-simulation:fullscreen .trig-readouts .readout-tangent dd {
+    font-size: 12px;
+  }
+
+  .trig-explanation {
+    display: none;
+  }
+
+  .trig-toolbar {
+    min-height: 32px;
+  }
+
+  .trig-fullscreen-button {
+    min-height: 34px;
+  }
+
+  /* Papan: lingkaran persegi (mengikuti tinggi) + grafik mengisi sisa lebar */
+  .trigonometry-simulation.is-fullscreen .trig-boards,
+  .trigonometry-simulation:fullscreen .trig-boards {
+    grid-template-columns:
+      clamp(150px, calc(100vh - 176px), 42vw)
+      minmax(0, 1fr);
+    grid-template-columns:
+      clamp(150px, calc(100dvh - 176px), 42vw)
+      minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr);
+  }
+
+  .trigonometry-simulation.is-fullscreen .trig-board-panel,
+  .trigonometry-simulation:fullscreen .trig-board-panel {
+    grid-template-rows: auto minmax(0, 1fr);
+    padding: 6px;
+  }
+
+  .trigonometry-simulation.is-fullscreen .trig-board-heading,
+  .trigonometry-simulation:fullscreen .trig-board-heading {
+    min-height: 18px;
+  }
+
+  .trigonometry-simulation.is-fullscreen .trig-board-heading h3,
+  .trigonometry-simulation:fullscreen .trig-board-heading h3 {
+    font-size: 11px;
+  }
+
+  .trigonometry-simulation.is-fullscreen .trig-board-heading > span,
+  .trigonometry-simulation:fullscreen .trig-board-heading > span,
+  .trigonometry-simulation.is-fullscreen .trig-board-caption,
+  .trigonometry-simulation:fullscreen .trig-board-caption {
+    display: none;
+  }
+
+  /* Legenda menumpang di baris judul grafik agar tidak memakan tinggi */
+  .trigonometry-simulation.is-fullscreen .trig-legend,
+  .trigonometry-simulation:fullscreen .trig-legend {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    padding: 0;
+    gap: 12px;
+    font-size: 10px;
+  }
+
+  /* Non-layar-penuh di lanskap: tidak perlu tinggi minimum besar */
+  .trig-function-board {
+    min-height: 220px;
   }
 }
