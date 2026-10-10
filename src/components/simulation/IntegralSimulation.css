@@ -1,6 +1,16 @@
-/* Memakai variabel --sim-* dari TrigonometrySimulation.css.
-   Tata letak: grafik : (input + info) = 2 : 1, area grafik bisa digeser
-   dengan tahan klik kiri, dan mode layar penuh 16:9 tanpa scroll. */
+/* Simulasi integral (disusun ulang, mengikuti VectorSimulation.css).
+   Urutan: (1) ponsel lanskap = dasar (kelas .is-tabbed, panel bertab),
+   (2) potret, (3) desktop (tanpa .is-tabbed), (4) layar penuh.
+   Wilayah grafik : wilayah input = 2fr : 1fr.
+   Kelas .is-tabbed dipasang oleh komponen saat layar kecil/pendek atau
+   saat layar penuh. */
+
+.integral-simulation,
+.integral-simulation *,
+.integral-simulation *::before,
+.integral-simulation *::after {
+  box-sizing: border-box;
+}
 
 .integral-simulation {
   --k-teal: #087f8c;
@@ -9,96 +19,114 @@
   --k-gold: #927000;
   --k-red: #b23a48;
   --k-ink: #183e54;
+  --ink: var(--sim-ink, #18313d);
+  --muted: var(--sim-muted, #62727d);
+  --line: var(--sim-line, #d5e0e4);
+  --paper: var(--sim-paper, #f3f7f5);
+
+  /* slider tipis, bulatan kecil */
+  --track: 3px;
+  --thumb: 13px;
+  --step: 22px;
+
   display: grid;
-  gap: 14px;
-  padding: 16px;
-  border-top: 3px solid var(--gold);
-  background: var(--sim-paper, #f3f7f5);
-  color: var(--sim-ink, #18313d);
+  gap: 6px;
+  padding: 6px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 12px;
   font-variant-numeric: tabular-nums;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.ig-boards {
-  display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-  gap: 14px;
-  min-width: 0;
-  min-height: 0;
-}
-
-.ig-board-panel {
-  display: grid;
-  grid-template-rows: auto minmax(0, 1fr) auto;
-  min-width: 0;
-  min-height: 0;
-  padding: 12px;
-  border: 1px solid var(--sim-line, #d5e0e4);
-  background: #fff;
-}
-
-.ig-board-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 6px 10px;
-  min-height: 28px;
-  padding-bottom: 8px;
-}
-
-.ig-board-heading h3 {
-  margin: 0;
+.integral-simulation h3 {
+  margin: 0 0 8px;
   font-size: 13px;
   font-weight: 700;
 }
 
-.ig-equation {
-  margin-right: auto;
-  color: var(--k-ink);
-  font-family: "Cambria Math", Georgia, serif;
-  font-size: 15px;
-  font-weight: 700;
+.integral-simulation button {
+  font-family: inherit;
+  touch-action: manipulation;
 }
 
-/* Tombol tampilan: zoom, pusatkan, layar penuh */
-.ig-view-tools {
-  display: flex;
-  gap: 4px;
-}
-
-.ig-view-tools button,
-.ig-stepper button {
-  min-width: 28px;
-  min-height: 28px;
-  padding: 0 9px;
-  border: 1px solid #aebdc2;
-  background: #fff;
-  color: var(--sim-ink, #18313d);
-  font-size: 11px;
-  font-weight: 700;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.ig-view-tools button:hover:not(:disabled),
-.ig-stepper button:hover:not(:disabled) {
-  border-color: var(--k-teal);
-  background: #e8f3f1;
-}
-
-.ig-stepper button:disabled {
-  opacity: 0.4;
+.integral-simulation button:disabled {
+  opacity: 0.45;
   cursor: not-allowed;
 }
 
-.ig-board {
-  width: 100%;
-  min-width: 0;
-  aspect-ratio: 1 / 1;
-  max-height: 560px;
-  margin-inline: auto;
+.integral-simulation button:focus-visible,
+.integral-simulation input:focus-visible {
+  outline: 2px solid var(--k-teal);
+  outline-offset: 2px;
+}
+
+.ig-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
   overflow: hidden;
-  background-color: #fcfdfc;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.ig-orientation-hint {
+  display: none;
+}
+
+/* ───────── Tata letak utama (dasar = bertab, ponsel lanskap) ───────── */
+
+.integral-simulation.is-tabbed {
+  grid-template-rows: minmax(0, 1fr);
+  height: min(100dvh, 460px);
+}
+
+.ig-main {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 6px;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+}
+
+.ig-column {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 5px;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* ───────── Grafik ───────── */
+
+.ig-board-panel {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.ig-stage {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+}
+
+.ig-board {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #fcfdfc;
   touch-action: none;
   cursor: grab;
 }
@@ -111,52 +139,100 @@
   font-family: "Open Sans", sans-serif;
 }
 
+/* Persamaan dan kemiringan melayang di kiri atas grafik */
+.ig-caption {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  z-index: 2;
+  display: grid;
+  gap: 1px;
+  max-width: calc(100% - 50px);
+  margin: 0;
+  padding: 2px 8px;
+  border-left: 3px solid var(--k-ink);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--k-ink);
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.3;
+  pointer-events: none;
+  overflow-wrap: anywhere;
+}
+
+.ig-caption-sum {
+  color: var(--k-green);
+  font-size: 12px;
+}
+
+/* Layar penuh, zoom, pusatkan: melayang di kanan atas */
+.ig-view-tools {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 2;
+  display: grid;
+  gap: 3px;
+}
+
+.ig-view-tools button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid #aebdc2;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.ig-view-tools button:hover {
+  border-color: var(--k-teal);
+  background: #e8f3f1;
+}
+
 .ig-legend {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 6px 16px;
-  padding-top: 8px;
-  color: var(--sim-muted, #62727d);
+  gap: 4px 12px;
+  padding: 3px 8px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
   font-size: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.ig-legend::-webkit-scrollbar {
+  display: none;
 }
 
 .ig-legend span {
   display: inline-flex;
+  flex: 0 0 auto;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
+  white-space: nowrap;
 }
 
 .ig-legend i {
-  width: 16px;
+  width: 14px;
   height: 0;
-  border-top: 3px solid var(--k-ink);
-}
-
-.ig-legend .legend-secant {
-  border-top-color: var(--k-orange);
-}
-
-.ig-legend .legend-tangent {
-  border-top: 2px dashed var(--k-teal);
+  border: 0 solid var(--k-ink);
+  border-top-width: 3px;
 }
 
 .ig-legend .legend-bound {
-  border-top: 2px dashed var(--k-gold);
+  border-color: var(--k-gold);
+  border-top-width: 2px;
+  border-top-style: dashed;
 }
 
 .ig-legend b {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-}
-
-.ig-legend .dot-p {
-  background: var(--k-gold);
-}
-
-.ig-legend .dot-q {
-  background: var(--k-orange);
+  width: 10px;
+  height: 10px;
 }
 
 .ig-legend .dot-area {
@@ -165,149 +241,321 @@
   outline: 1px solid var(--k-green);
 }
 
-/* Kontrol */
-.ig-controls {
+/* ───────── Tab panel kanan ───────── */
+
+.ig-tabs {
   display: grid;
-  align-content: start;
-  gap: 14px;
-  min-width: 0;
-  min-height: 0;
-  padding: 14px;
-  border: 1px solid var(--sim-line, #d5e0e4);
-  background: #fff;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.ig-field {
-  display: grid;
-  gap: 6px;
-}
-
-.ig-field > span {
-  color: var(--sim-muted, #62727d);
-  font-size: 11px;
-  font-weight: 700;
-}
-
-.ig-segment {
-  display: flex;
-  flex-wrap: wrap;
+.ig-tabs button {
+  height: 28px;
+  padding: 0 2px;
+  margin-left: -1px;
   border: 1px solid #aebdc2;
-}
-
-.ig-segment button {
-  flex: 1 1 0;
-  min-height: 32px;
-  padding: 0 10px;
-  border: 0;
-  border-left: 1px solid #aebdc2;
   background: #fff;
-  color: var(--sim-ink, #18313d);
-  font-family: "Cambria Math", Georgia, serif;
-  font-size: 13px;
+  color: var(--ink);
+  font-size: 11px;
   font-weight: 700;
   cursor: pointer;
 }
 
-.ig-segment button:first-child {
-  border-left: 0;
+.ig-tabs button:first-child {
+  margin-left: 0;
 }
 
-.ig-segment button:hover {
-  background: #e8f3f1;
-}
-
-.ig-segment button.is-active {
+.ig-tabs button[aria-pressed="true"] {
+  position: relative;
+  border-color: var(--k-teal);
   background: var(--k-teal);
   color: #fff;
 }
 
-.ig-slider {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: baseline;
-  gap: 4px 12px;
+/* Isi panel: satu kartu putih; judul h3 tidak perlu (sudah ada di tab) */
+.integral-simulation.is-tabbed .ig-side,
+.integral-simulation.is-tabbed .ig-results {
+  min-height: 0;
+  padding: 8px;
+  border: 1px solid var(--line);
+  background: #fff;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
 }
 
-.ig-slider label {
-  font-size: 18px;
+.integral-simulation.is-tabbed .ig-side,
+.integral-simulation.is-tabbed .ig-results {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+
+.integral-simulation.is-tabbed .ig-panel > h3 {
+  display: none;
+}
+
+/* Hanya satu tab yang tampil */
+.integral-simulation.is-tabbed
+  .ig-column[data-tab="fn"]
+  [data-pane]:not([data-pane="fn"]),
+.integral-simulation.is-tabbed
+  .ig-column[data-tab="bounds"]
+  [data-pane]:not([data-pane="bounds"]),
+.integral-simulation.is-tabbed
+  .ig-column[data-tab="view"]
+  [data-pane]:not([data-pane="view"]),
+.integral-simulation.is-tabbed .ig-column[data-tab="fn"] .ig-results,
+.integral-simulation.is-tabbed .ig-column[data-tab="bounds"] .ig-results,
+.integral-simulation.is-tabbed .ig-column[data-tab="view"] .ig-results,
+.integral-simulation.is-tabbed .ig-column[data-tab="result"] .ig-side {
+  display: none;
+}
+
+.ig-panel {
+  min-width: 0;
+}
+
+.ig-insights {
+  display: none;
+}
+
+/* ───────── Pilih fungsi ───────── */
+
+.ig-subtitle {
+  margin: 0 0 4px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.ig-segmented {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.ig-segmented:last-child {
+  margin-bottom: 0;
+}
+
+.ig-segmented button {
+  flex: 1 1 auto;
+  min-height: 30px;
+  padding: 0 10px;
+  margin-top: -1px;
+  margin-left: -1px;
+  border: 1px solid #aebdc2;
+  background: #fff;
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ig-segmented .ig-fn-button {
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 12px;
+}
+
+.ig-segmented button:hover {
+  background: #e8f3f1;
+}
+
+.ig-segmented button[aria-pressed="true"] {
+  position: relative;
+  border-color: var(--k-teal);
+  background: var(--k-teal);
+  color: #fff;
+}
+
+/* ───────── Baris slider: x₀  −  ──●──  +  1,0 ───────── */
+
+.ig-rows {
+  display: grid;
+  gap: 2px;
+}
+
+.ig-row-wrap + .ig-row-wrap {
+  margin-top: 2px;
+}
+
+.ig-row {
+  --tone: var(--k-teal);
+  display: grid;
+  grid-template-columns: 24px var(--step) minmax(0, 1fr) var(--step) 46px;
+  align-items: center;
+  column-gap: 4px;
+  min-width: 0;
+}
+
+.ig-row-b {
+  --tone: var(--k-orange);
+}
+
+.ig-row-n {
+  --tone: var(--k-green);
+}
+
+.ig-row label {
+  color: var(--tone);
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 15px;
   font-style: italic;
   font-weight: 800;
-  font-family: "Cambria Math", Georgia, serif;
+  white-space: nowrap;
 }
 
-.ig-slider label small {
-  margin-left: 8px;
-  color: var(--sim-muted, #62727d);
-  font-family: "Open Sans", sans-serif;
+.ig-row-hint {
+  display: none;
+  margin: 0;
+  color: var(--muted);
   font-size: 10px;
-  font-style: normal;
   font-weight: 600;
 }
 
-.ig-slider output {
-  font-size: 17px;
+.ig-nudge-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--step);
+  height: var(--step);
+  padding: 0;
+  border: 1px solid #aebdc2;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.ig-nudge-button:hover {
+  border-color: var(--tone);
+  background: #f1f6f5;
+}
+
+.ig-nudge-button:active {
+  background: #e0ecea;
+}
+
+.ig-value {
+  min-width: 0;
+  color: var(--tone);
+  font-size: 12.5px;
   font-weight: 800;
+  text-align: right;
+  white-space: nowrap;
 }
 
-.ig-slider input {
-  grid-column: 1 / -1;
+@media (pointer: coarse) {
+  .integral-simulation {
+    --step: 24px;
+  }
+
+  .ig-row {
+    grid-template-columns: 24px var(--step) minmax(0, 1fr) var(--step) 48px;
+  }
+}
+
+/* Area sentuh 28px, tampilan visual hanya 3px. Isi dari titik 0 (tengah). */
+.ig-range {
+  --lo: 50%;
+  --hi: 50%;
+  -webkit-appearance: none;
+  appearance: none;
   width: 100%;
-  height: 26px;
-  margin: 2px 0 0;
-  cursor: ew-resize;
+  height: 28px;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+  touch-action: pan-y;
 }
 
-.ig-slider-teal label,
-.ig-slider-teal output {
-  color: var(--k-teal);
+.ig-range::-webkit-slider-runnable-track {
+  height: var(--track);
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    var(--line) 0,
+    var(--line) var(--lo),
+    var(--tone) var(--lo),
+    var(--tone) var(--hi),
+    var(--line) var(--hi),
+    var(--line) 100%
+  );
 }
 
-.ig-slider-orange label,
-.ig-slider-orange output {
-  color: var(--k-orange);
+.ig-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+  width: var(--thumb);
+  height: var(--thumb);
+  margin-top: calc((var(--track) - var(--thumb)) / 2);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: var(--tone);
+  box-shadow: 0 0 0 1px rgba(24, 49, 61, 0.28);
 }
 
-.ig-slider-green label,
-.ig-slider-green output {
-  color: var(--k-green);
+.ig-range::-moz-range-track {
+  height: var(--track);
+  border-radius: 999px;
+  background: var(--line);
 }
 
-.ig-slider-teal input {
-  accent-color: var(--k-teal);
+.ig-range::-moz-range-progress {
+  height: var(--track);
+  border-radius: 999px;
+  background: transparent;
 }
 
-.ig-slider-orange input {
-  accent-color: var(--k-orange);
+.ig-range::-moz-range-thumb {
+  box-sizing: border-box;
+  width: var(--thumb);
+  height: var(--thumb);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: var(--tone);
+  box-shadow: 0 0 0 1px rgba(24, 49, 61, 0.28);
 }
 
-.ig-slider-green input {
-  accent-color: var(--k-green);
+.ig-range:focus-visible {
+  outline: none;
 }
 
-.ig-range-labels {
-  grid-column: 1 / -1;
-  display: flex;
-  justify-content: space-between;
-  color: var(--sim-muted, #62727d);
-  font-size: 9px;
-  line-height: 1;
+.ig-range:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 2px var(--tone);
 }
+
+.ig-range:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 2px var(--tone);
+}
+
+/* ───────── Tombol aksi ───────── */
 
 .ig-actions {
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 8px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 6px;
+  margin-top: 8px;
 }
 
 .ig-primary-button,
 .ig-reset-button {
-  min-height: 38px;
-  padding: 0 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 10px;
   border: 1px solid #aebdc2;
   background: #fff;
-  color: var(--sim-ink, #18313d);
+  color: var(--ink);
   font-size: 11px;
   font-weight: 700;
+  white-space: nowrap;
   cursor: pointer;
 }
 
@@ -331,70 +579,35 @@
   background: #e8f3f1;
 }
 
-/* Pengatur ketebalan grafik & ukuran titik */
-.ig-style {
+/* ───────── Hasil perhitungan ───────── */
+
+.ig-wide {
   display: grid;
+  align-content: start;
   gap: 6px;
 }
 
-.ig-stepper {
-  display: grid;
-  grid-template-columns: 1fr auto auto auto;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  font-weight: 600;
+.ig-wide h3 {
+  margin-bottom: 0;
 }
 
-.ig-stepper output {
-  min-width: 22px;
-  text-align: center;
-  font-size: 14px;
-  font-weight: 800;
-}
-
-.integral-simulation button:focus-visible,
-.integral-simulation input:focus-visible {
-  outline: 2px solid var(--k-teal);
-  outline-offset: 3px;
-}
-
-.ig-warning {
-  margin: 0;
-  padding: 9px 12px;
-  border: 1px solid #e2c27a;
-  background: #fff7e0;
-  color: #6b5200;
-  font-size: 12px;
-}
-
-/* Readouts: dua kolom */
 .ig-readouts {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
+  gap: 6px;
   margin: 0;
-  border: 1px solid var(--sim-line, #d5e0e4);
-  background: #fff;
 }
 
 .ig-readouts > div {
   min-width: 0;
-  padding: 8px 11px;
-  border-left: 1px solid var(--sim-line, #d5e0e4);
-  border-top: 1px solid var(--sim-line, #d5e0e4);
-}
-
-.ig-readouts > div:nth-child(-n + 2) {
-  border-top: 0;
-}
-
-.ig-readouts > div:nth-child(odd) {
-  border-left: 0;
+  padding: 6px 8px;
+  border: 1px solid var(--line);
+  background: var(--paper);
 }
 
 .ig-readouts dt {
-  margin-bottom: 2px;
-  color: var(--sim-muted, #62727d);
+  margin-bottom: 1px;
+  color: var(--muted);
   font-size: 10px;
   font-weight: 600;
 }
@@ -402,7 +615,7 @@
 .ig-readouts dd {
   margin: 0;
   font-family: "Cambria Math", Georgia, serif;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 700;
   line-height: 1.3;
   overflow-wrap: anywhere;
@@ -410,9 +623,9 @@
 
 .ig-readouts small {
   display: block;
-  margin-top: 2px;
-  color: var(--sim-muted, #62727d);
-  font-size: 10px;
+  margin-top: 1px;
+  color: var(--muted);
+  font-size: 9.5px;
 }
 
 .ig-readouts .readout-teal dd {
@@ -439,218 +652,318 @@
   color: var(--k-ink);
 }
 
-/* Tabel limit */
-.ig-table-wrap {
-  min-width: 0;
-  overflow-x: auto;
-  border: 1px solid var(--sim-line, #d5e0e4);
+/* Ponsel lanskap sangat pendek */
+@media (orientation: landscape) and (max-height: 360px) {
+  .integral-simulation.is-tabbed {
+    gap: 4px;
+    padding: 4px;
+  }
+
+  .integral-simulation.is-tabbed .ig-main {
+    gap: 4px;
+  }
+
+  .integral-simulation.is-tabbed .ig-side,
+  .integral-simulation.is-tabbed .ig-results {
+    padding: 6px;
+  }
+
+  .ig-range {
+    height: 24px;
+  }
+}
+
+/* ───────── Potret (cadangan): grafik atas, panel bertab di bawah ───────── */
+
+@media (orientation: portrait) and (max-width: 899px) {
+  .integral-simulation.is-tabbed:not(.is-fullscreen) {
+    grid-template-rows: auto auto;
+    height: auto;
+    padding: 8px;
+  }
+
+  .integral-simulation.is-tabbed:not(.is-fullscreen) .ig-orientation-hint {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 0;
+    padding: 6px 9px;
+    border-left: 3px solid var(--k-teal);
+    background: #e8f3f1;
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .ig-orientation-hint svg {
+    flex: 0 0 auto;
+    color: var(--k-teal);
+  }
+
+  .integral-simulation.is-tabbed:not(.is-fullscreen) .ig-main {
+    grid-template-columns: minmax(0, 1fr);
+    height: auto;
+  }
+
+  .integral-simulation.is-tabbed:not(.is-fullscreen) .ig-board-panel {
+    height: clamp(250px, 46dvh, 420px);
+  }
+
+  .integral-simulation.is-tabbed:not(.is-fullscreen) .ig-side,
+  .integral-simulation.is-tabbed:not(.is-fullscreen) .ig-results {
+    overflow: visible;
+  }
+
+  .integral-simulation.is-tabbed:not(.is-fullscreen) .ig-readouts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ───────── Desktop & tablet lanskap (tanpa .is-tabbed) ───────── */
+
+.integral-simulation:not(.is-tabbed) {
+  --track: 4px;
+  --thumb: 16px;
+  --step: 28px;
+  gap: 12px;
+  padding: 14px;
+  border-top: 3px solid var(--gold);
+  font-size: 13px;
+}
+
+.integral-simulation:not(.is-tabbed) .ig-main {
+  grid-template-rows: clamp(460px, 72vh, 700px) auto;
+  gap: 12px;
+  height: auto;
+}
+
+.integral-simulation:not(.is-tabbed) .ig-column {
+  display: contents;
+}
+
+.integral-simulation:not(.is-tabbed) .ig-tabs {
+  display: none;
+}
+
+.integral-simulation:not(.is-tabbed) .ig-board-panel {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.integral-simulation:not(.is-tabbed) .ig-side {
+  grid-column: 2;
+  grid-row: 1;
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.integral-simulation:not(.is-tabbed) .ig-results {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: grid;
+  gap: 12px;
+}
+
+.integral-simulation:not(.is-tabbed) .ig-panel {
+  padding: 14px;
+  border: 1px solid var(--line);
   background: #fff;
 }
 
-.ig-table {
-  width: 100%;
-  border-collapse: collapse;
+.integral-simulation:not(.is-tabbed) .ig-caption {
+  top: 10px;
+  left: 10px;
+  padding: 4px 12px;
+  border-left-width: 4px;
+  font-size: clamp(15px, 1.5vw, 20px);
+}
+
+.integral-simulation:not(.is-tabbed) .ig-caption-sum {
+  font-size: clamp(13px, 1.3vw, 17px);
+}
+
+.integral-simulation:not(.is-tabbed) .ig-view-tools {
+  top: 10px;
+  right: 10px;
+  gap: 4px;
+}
+
+.integral-simulation:not(.is-tabbed) .ig-view-tools button {
+  width: 34px;
+  height: 34px;
+}
+
+.integral-simulation:not(.is-tabbed) .ig-legend {
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 7px 10px;
+  font-size: 11px;
+}
+
+.integral-simulation:not(.is-tabbed) .ig-segmented {
+  margin-bottom: 12px;
+}
+
+.integral-simulation:not(.is-tabbed) .ig-segmented button {
+  min-height: 36px;
+  font-size: 13px;
+}
+
+.integral-simulation:not(.is-tabbed) .ig-row {
+  grid-template-columns: 30px var(--step) minmax(0, 1fr) var(--step) 58px;
+}
+
+.integral-simulation:not(.is-tabbed) .ig-row label {
+  font-size: 19px;
+}
+
+.integral-simulation:not(.is-tabbed) .ig-row-hint {
+  display: block;
+  padding-left: 34px;
+  margin-top: -4px;
+}
+
+.integral-simulation:not(.is-tabbed) .ig-row-wrap + .ig-row-wrap {
+  margin-top: 10px;
+}
+
+.integral-simulation:not(.is-tabbed) .ig-value {
+  font-size: 15px;
+}
+
+.integral-simulation:not(.is-tabbed) .ig-range {
+  height: 30px;
+}
+
+.integral-simulation:not(.is-tabbed) .ig-actions {
+  margin-top: 14px;
+}
+
+.integral-simulation:not(.is-tabbed) .ig-primary-button,
+.integral-simulation:not(.is-tabbed) .ig-reset-button {
+  height: 36px;
+  padding: 0 14px;
   font-size: 12px;
 }
 
-.ig-table caption {
-  padding: 7px 10px;
-  color: var(--sim-muted, #62727d);
-  font-size: 10px;
-  font-weight: 600;
-  text-align: left;
+.integral-simulation:not(.is-tabbed) .ig-readouts {
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 10px;
 }
 
-.ig-table th,
-.ig-table td {
-  padding: 5px 10px;
-  border-top: 1px solid var(--sim-line, #d5e0e4);
-  text-align: right;
-  font-family: "Cambria Math", Georgia, serif;
-  font-size: 13px;
-  font-weight: 700;
+.integral-simulation:not(.is-tabbed) .ig-readouts > div {
+  padding: 9px 12px;
 }
 
-.ig-table thead th {
-  color: var(--sim-muted, #62727d);
-  font-family: "Open Sans", sans-serif;
-  font-size: 10px;
-  font-weight: 700;
+.integral-simulation:not(.is-tabbed) .ig-readouts dt {
+  font-size: 11px;
 }
 
-.ig-table tbody th {
-  color: var(--k-orange);
-  font-style: italic;
+.integral-simulation:not(.is-tabbed) .ig-readouts dd {
+  font-size: 16px;
 }
 
-.ig-table td {
-  color: var(--k-ink);
+.integral-simulation:not(.is-tabbed) .ig-readouts small {
+  font-size: 10.5px;
 }
 
-.ig-table-limit th,
-.ig-table-limit td {
-  background: #e8f3f1;
-  color: var(--k-teal);
-}
-
-.ig-table-limit td {
-  text-align: center;
-}
-
-/* Penjelasan */
-.ig-insights {
+.integral-simulation:not(.is-tabbed) .ig-insights {
   display: grid;
   gap: 6px;
   margin: 0;
   padding: 0;
   list-style: none;
-  color: var(--sim-muted, #62727d);
-  font-size: 11px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
 }
 
-.ig-insights li {
+.integral-simulation:not(.is-tabbed) .ig-insights li {
   padding-left: 10px;
-  border-left: 3px solid var(--sim-line, #d5e0e4);
+  border-left: 3px solid var(--line);
 }
 
-/* ============ Mode layar penuh (16:9) ============
-   Seluruh bagian harus muat tanpa scroll: papan grafik mengisi sisa
-   tinggi (2/3 lebar), kolom kontrol di kanan (1/3 lebar), penjelasan
-   di baris bawah. */
+/* ───────── Layar penuh (selalu bertab, tanpa gulir halaman) ───────── */
+
 .integral-simulation.is-fullscreen {
   position: fixed;
   inset: 0;
   z-index: 1000;
-  box-sizing: border-box;
+  grid-template-rows: minmax(0, 1fr);
   width: 100vw;
-  height: 100vh;
   height: 100dvh;
-  grid-template-rows: minmax(0, 1fr) auto;
-  gap: 8px;
-  padding: 10px 14px;
+  padding: max(6px, env(safe-area-inset-top, 0px))
+    max(8px, env(safe-area-inset-right, 0px))
+    max(6px, env(safe-area-inset-bottom, 0px))
+    max(8px, env(safe-area-inset-left, 0px));
   overflow: hidden;
 }
 
-.is-fullscreen .ig-boards {
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-  gap: 10px;
-  height: 100%;
+.integral-simulation.is-fullscreen .ig-orientation-hint,
+.integral-simulation.is-fullscreen .ig-insights {
+  display: none;
 }
 
-.is-fullscreen .ig-board-panel {
-  height: 100%;
-  padding: 8px 10px;
-}
-
-.is-fullscreen .ig-board-heading {
-  padding-bottom: 6px;
-}
-
-.is-fullscreen .ig-board {
-  width: 100%;
-  height: 100%;
-  max-height: none;
-  aspect-ratio: auto;
-}
-
-.is-fullscreen .ig-legend {
-  padding-top: 6px;
-}
-
-.is-fullscreen .ig-controls {
-  gap: clamp(6px, 1.2vh, 12px);
-  padding: clamp(8px, 1.4vh, 14px);
-  overflow-y: auto;
-  align-content: space-between;
-}
-
-.is-fullscreen .ig-slider {
-  gap: 2px 12px;
-}
-
-.is-fullscreen .ig-slider input {
-  height: 20px;
-  margin: 0;
-}
-
-.is-fullscreen .ig-primary-button,
-.is-fullscreen .ig-reset-button {
-  min-height: 32px;
-}
-
-.is-fullscreen .ig-readouts > div {
-  padding: 5px 10px;
-}
-
-.is-fullscreen .ig-readouts dd {
-  font-size: 14px;
-}
-
-.is-fullscreen .ig-table caption {
-  padding: 4px 10px;
-}
-
-.is-fullscreen .ig-table th,
-.is-fullscreen .ig-table td {
-  padding: 3px 10px;
-}
-
-.is-fullscreen .ig-insights {
-  gap: 3px;
-  font-size: 11px;
-}
-
-@media (max-width: 860px) {
-  .ig-boards {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .ig-board {
-    width: min(100%, 560px);
-  }
-
-  /* Di layar sempit, mode penuh boleh di-scroll agar tetap terbaca */
+/* Layar penuh di monitor besar: ukuran sedikit lebih lega */
+@media (min-width: 900px) and (min-height: 541px) {
   .integral-simulation.is-fullscreen {
-    overflow-y: auto;
-    grid-template-rows: auto auto;
+    --track: 4px;
+    --thumb: 15px;
+    --step: 26px;
+    font-size: 13px;
   }
 
-  .is-fullscreen .ig-boards {
-    grid-template-columns: minmax(0, 1fr);
-    height: auto;
+  .integral-simulation.is-fullscreen .ig-caption {
+    font-size: 17px;
   }
 
-  .is-fullscreen .ig-board {
-    width: 100%;
-    height: 60vh;
-  }
-}
-
-@media (max-width: 520px) {
-  .integral-simulation {
-    gap: 10px;
-    padding: 9px;
+  .integral-simulation.is-fullscreen .ig-caption-sum {
+    font-size: 15px;
   }
 
-  .ig-board-panel {
-    padding: 8px;
+  .integral-simulation.is-fullscreen .ig-row {
+    grid-template-columns: 30px var(--step) minmax(0, 1fr) var(--step) 54px;
   }
 
-  .ig-controls {
-    padding: 10px;
-    gap: 12px;
+  .integral-simulation.is-fullscreen .ig-row label {
+    font-size: 18px;
   }
 
-  .ig-readouts dd {
+  .integral-simulation.is-fullscreen .ig-range {
+    height: 32px;
+  }
+
+  .integral-simulation.is-fullscreen .ig-value {
     font-size: 14px;
   }
 
-  .ig-actions {
-    grid-template-columns: 1fr;
+  .integral-simulation.is-fullscreen .ig-tabs button {
+    height: 34px;
+    font-size: 12px;
   }
 
-  .ig-table th,
-  .ig-table td {
-    padding: 5px 7px;
+  .integral-simulation.is-fullscreen .ig-readouts dd {
+    font-size: 15px;
+  }
+}
+
+/* Layar penuh + potret: tetap 2 : 1, grafik atas, input bawah */
+@media (orientation: portrait) and (max-width: 899px) {
+  .integral-simulation.is-fullscreen .ig-main {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 2fr) minmax(0, 1fr);
+  }
+
+  .integral-simulation.is-fullscreen .ig-board-panel {
+    height: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .integral-simulation * {
+    transition: none !important;
   }
 }

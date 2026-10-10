@@ -1,6 +1,16 @@
-/* Memakai variabel --sim-* dari TrigonometrySimulation.css.
-   Tata letak: grafik : (input + info) = 2 : 1, area grafik bisa digeser
-   dengan tahan klik kiri, dan mode layar penuh 16:9 tanpa scroll. */
+/* Simulasi turunan (disusun ulang, mengikuti VectorSimulation.css).
+   Urutan: (1) ponsel lanskap = dasar (kelas .is-tabbed, panel bertab),
+   (2) potret, (3) desktop (tanpa .is-tabbed), (4) layar penuh.
+   Wilayah grafik : wilayah input = 2fr : 1fr.
+   Kelas .is-tabbed dipasang oleh komponen saat layar kecil/pendek atau
+   saat layar penuh. */
+
+.derivative-simulation,
+.derivative-simulation *,
+.derivative-simulation *::before,
+.derivative-simulation *::after {
+  box-sizing: border-box;
+}
 
 .derivative-simulation {
   --k-teal: #087f8c;
@@ -9,96 +19,114 @@
   --k-gold: #927000;
   --k-red: #b23a48;
   --k-ink: #183e54;
+  --ink: var(--sim-ink, #18313d);
+  --muted: var(--sim-muted, #62727d);
+  --line: var(--sim-line, #d5e0e4);
+  --paper: var(--sim-paper, #f3f7f5);
+
+  /* slider tipis, bulatan kecil */
+  --track: 3px;
+  --thumb: 13px;
+  --step: 22px;
+
   display: grid;
-  gap: 14px;
-  padding: 16px;
-  border-top: 3px solid var(--gold);
-  background: var(--sim-paper, #f3f7f5);
-  color: var(--sim-ink, #18313d);
+  gap: 6px;
+  padding: 6px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 12px;
   font-variant-numeric: tabular-nums;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.dv-boards {
-  display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-  gap: 14px;
-  min-width: 0;
-  min-height: 0;
-}
-
-.dv-board-panel {
-  display: grid;
-  grid-template-rows: auto minmax(0, 1fr) auto;
-  min-width: 0;
-  min-height: 0;
-  padding: 12px;
-  border: 1px solid var(--sim-line, #d5e0e4);
-  background: #fff;
-}
-
-.dv-board-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 6px 10px;
-  min-height: 28px;
-  padding-bottom: 8px;
-}
-
-.dv-board-heading h3 {
-  margin: 0;
+.derivative-simulation h3 {
+  margin: 0 0 8px;
   font-size: 13px;
   font-weight: 700;
 }
 
-.dv-equation {
-  margin-right: auto;
-  color: var(--k-ink);
-  font-family: "Cambria Math", Georgia, serif;
-  font-size: 15px;
-  font-weight: 700;
+.derivative-simulation button {
+  font-family: inherit;
+  touch-action: manipulation;
 }
 
-/* Tombol tampilan: zoom, pusatkan, layar penuh */
-.dv-view-tools {
-  display: flex;
-  gap: 4px;
-}
-
-.dv-view-tools button,
-.dv-stepper button {
-  min-width: 28px;
-  min-height: 28px;
-  padding: 0 9px;
-  border: 1px solid #aebdc2;
-  background: #fff;
-  color: var(--sim-ink, #18313d);
-  font-size: 11px;
-  font-weight: 700;
-  line-height: 1;
-  cursor: pointer;
-}
-
-.dv-view-tools button:hover:not(:disabled),
-.dv-stepper button:hover:not(:disabled) {
-  border-color: var(--k-teal);
-  background: #e8f3f1;
-}
-
-.dv-stepper button:disabled {
-  opacity: 0.4;
+.derivative-simulation button:disabled {
+  opacity: 0.45;
   cursor: not-allowed;
 }
 
-.dv-board {
-  width: 100%;
-  min-width: 0;
-  aspect-ratio: 1 / 1;
-  max-height: 560px;
-  margin-inline: auto;
+.derivative-simulation button:focus-visible,
+.derivative-simulation input:focus-visible {
+  outline: 2px solid var(--k-teal);
+  outline-offset: 2px;
+}
+
+.dv-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
   overflow: hidden;
-  background-color: #fcfdfc;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.dv-orientation-hint {
+  display: none;
+}
+
+/* ───────── Tata letak utama (dasar = bertab, ponsel lanskap) ───────── */
+
+.derivative-simulation.is-tabbed {
+  grid-template-rows: minmax(0, 1fr);
+  height: min(100dvh, 460px);
+}
+
+.dv-main {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 6px;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+}
+
+.dv-column {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 5px;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* ───────── Grafik ───────── */
+
+.dv-board-panel {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.dv-stage {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+}
+
+.dv-board {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #fcfdfc;
   touch-action: none;
   cursor: grab;
 }
@@ -111,38 +139,99 @@
   font-family: "Open Sans", sans-serif;
 }
 
+/* Persamaan dan kemiringan melayang di kiri atas grafik */
+.dv-caption {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  z-index: 2;
+  display: grid;
+  gap: 1px;
+  max-width: calc(100% - 50px);
+  margin: 0;
+  padding: 2px 8px;
+  border-left: 3px solid var(--k-ink);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--k-ink);
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.3;
+  pointer-events: none;
+  overflow-wrap: anywhere;
+}
+
+.dv-caption-slope {
+  color: var(--k-orange);
+  font-size: 12px;
+}
+
+/* Layar penuh, zoom, pusatkan: melayang di kanan atas */
+.dv-view-tools {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 2;
+  display: grid;
+  gap: 3px;
+}
+
+.dv-view-tools button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid #aebdc2;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.dv-view-tools button:hover {
+  border-color: var(--k-teal);
+  background: #e8f3f1;
+}
+
 .dv-legend {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 6px 16px;
-  padding-top: 8px;
-  color: var(--sim-muted, #62727d);
+  gap: 4px 12px;
+  padding: 3px 8px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
   font-size: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.dv-legend::-webkit-scrollbar {
+  display: none;
 }
 
 .dv-legend span {
   display: inline-flex;
+  flex: 0 0 auto;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
+  white-space: nowrap;
 }
 
 .dv-legend i {
-  width: 16px;
+  width: 14px;
   height: 0;
-  border-top: 3px solid var(--k-ink);
+  border: 0 solid var(--k-ink);
+  border-top-width: 3px;
 }
 
 .dv-legend .legend-secant {
-  border-top-color: var(--k-orange);
+  border-color: var(--k-orange);
 }
 
 .dv-legend .legend-tangent {
-  border-top: 2px dashed var(--k-teal);
-}
-
-.dv-legend .legend-bound {
-  border-top: 2px dashed var(--k-gold);
+  border-color: var(--k-teal);
+  border-top-width: 2px;
+  border-top-style: dashed;
 }
 
 .dv-legend b {
@@ -159,155 +248,305 @@
   background: var(--k-orange);
 }
 
-.dv-legend .dot-area {
-  border-radius: 2px;
-  background: rgba(82, 122, 65, 0.45);
-  outline: 1px solid var(--k-green);
-}
+/* ───────── Tab panel kanan ───────── */
 
-/* Kontrol */
-.dv-controls {
+.dv-tabs {
   display: grid;
-  align-content: start;
-  gap: 14px;
-  min-width: 0;
-  min-height: 0;
-  padding: 14px;
-  border: 1px solid var(--sim-line, #d5e0e4);
-  background: #fff;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.dv-field {
-  display: grid;
-  gap: 6px;
-}
-
-.dv-field > span {
-  color: var(--sim-muted, #62727d);
-  font-size: 11px;
-  font-weight: 700;
-}
-
-.dv-segment {
-  display: flex;
-  flex-wrap: wrap;
+.dv-tabs button {
+  height: 28px;
+  padding: 0 2px;
+  margin-left: -1px;
   border: 1px solid #aebdc2;
-}
-
-.dv-segment button {
-  flex: 1 1 0;
-  min-height: 32px;
-  padding: 0 10px;
-  border: 0;
-  border-left: 1px solid #aebdc2;
   background: #fff;
-  color: var(--sim-ink, #18313d);
-  font-family: "Cambria Math", Georgia, serif;
-  font-size: 13px;
+  color: var(--ink);
+  font-size: 11px;
   font-weight: 700;
   cursor: pointer;
 }
 
-.dv-segment button:first-child {
-  border-left: 0;
+.dv-tabs button:first-child {
+  margin-left: 0;
 }
 
-.dv-segment button:hover {
-  background: #e8f3f1;
-}
-
-.dv-segment button.is-active {
+.dv-tabs button[aria-pressed="true"] {
+  position: relative;
+  border-color: var(--k-teal);
   background: var(--k-teal);
   color: #fff;
 }
 
-.dv-slider {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  align-items: baseline;
-  gap: 4px 12px;
+/* Isi panel: satu kartu putih; judul h3 tidak perlu (sudah ada di tab) */
+.derivative-simulation.is-tabbed .dv-side,
+.derivative-simulation.is-tabbed .dv-results {
+  min-height: 0;
+  padding: 8px;
+  border: 1px solid var(--line);
+  background: #fff;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
 }
 
-.dv-slider label {
-  font-size: 18px;
+.derivative-simulation.is-tabbed .dv-side,
+.derivative-simulation.is-tabbed .dv-results {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+
+.derivative-simulation.is-tabbed .dv-panel > h3 {
+  display: none;
+}
+
+/* Hanya satu tab yang tampil */
+.derivative-simulation.is-tabbed
+  .dv-column[data-tab="input"]
+  [data-pane]:not([data-pane="input"]),
+.derivative-simulation.is-tabbed
+  .dv-column[data-tab="view"]
+  [data-pane]:not([data-pane="view"]),
+.derivative-simulation.is-tabbed
+  .dv-column[data-tab="result"]
+  [data-pane]:not([data-pane="result"]),
+.derivative-simulation.is-tabbed
+  .dv-column[data-tab="limit"]
+  [data-pane]:not([data-pane="limit"]),
+.derivative-simulation.is-tabbed .dv-column[data-tab="input"] .dv-results,
+.derivative-simulation.is-tabbed .dv-column[data-tab="view"] .dv-results,
+.derivative-simulation.is-tabbed .dv-column[data-tab="result"] .dv-side,
+.derivative-simulation.is-tabbed .dv-column[data-tab="limit"] .dv-side {
+  display: none;
+}
+
+.dv-panel {
+  min-width: 0;
+}
+
+.dv-insights {
+  display: none;
+}
+
+/* ───────── Pilih fungsi ───────── */
+
+.dv-segmented {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.dv-segmented button {
+  flex: 1 1 auto;
+  min-height: 30px;
+  padding: 0 10px;
+  margin-top: -1px;
+  margin-left: -1px;
+  border: 1px solid #aebdc2;
+  background: #fff;
+  color: var(--ink);
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.dv-segmented button:hover {
+  background: #e8f3f1;
+}
+
+.dv-segmented button[aria-pressed="true"] {
+  position: relative;
+  border-color: var(--k-teal);
+  background: var(--k-teal);
+  color: #fff;
+}
+
+/* ───────── Baris slider: x₀  −  ──●──  +  1,0 ───────── */
+
+.dv-rows {
+  display: grid;
+  gap: 2px;
+}
+
+.dv-row-wrap + .dv-row-wrap {
+  margin-top: 4px;
+}
+
+.dv-row {
+  --tone: var(--k-teal);
+  display: grid;
+  grid-template-columns: 24px var(--step) minmax(0, 1fr) var(--step) 46px;
+  align-items: center;
+  column-gap: 4px;
+  min-width: 0;
+}
+
+.dv-row-h {
+  --tone: var(--k-orange);
+}
+
+.dv-row label {
+  color: var(--tone);
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 15px;
   font-style: italic;
   font-weight: 800;
-  font-family: "Cambria Math", Georgia, serif;
+  white-space: nowrap;
 }
 
-.dv-slider label small {
-  margin-left: 8px;
-  color: var(--sim-muted, #62727d);
-  font-family: "Open Sans", sans-serif;
+.dv-row-hint {
+  display: none;
+  margin: 0;
+  color: var(--muted);
   font-size: 10px;
-  font-style: normal;
   font-weight: 600;
 }
 
-.dv-slider output {
-  font-size: 17px;
+.dv-nudge-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--step);
+  height: var(--step);
+  padding: 0;
+  border: 1px solid #aebdc2;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.dv-nudge-button:hover {
+  border-color: var(--tone);
+  background: #f1f6f5;
+}
+
+.dv-nudge-button:active {
+  background: #e0ecea;
+}
+
+.dv-value {
+  min-width: 0;
+  color: var(--tone);
+  font-size: 12.5px;
   font-weight: 800;
+  text-align: right;
+  white-space: nowrap;
 }
 
-.dv-slider input {
-  grid-column: 1 / -1;
+@media (pointer: coarse) {
+  .derivative-simulation {
+    --step: 24px;
+  }
+
+  .dv-row {
+    grid-template-columns: 24px var(--step) minmax(0, 1fr) var(--step) 48px;
+  }
+}
+
+/* Area sentuh 28px, tampilan visual hanya 3px. Isi dari titik 0 (tengah). */
+.dv-range {
+  --lo: 50%;
+  --hi: 50%;
+  -webkit-appearance: none;
+  appearance: none;
   width: 100%;
-  height: 26px;
-  margin: 2px 0 0;
-  cursor: ew-resize;
+  height: 28px;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+  touch-action: pan-y;
 }
 
-.dv-slider-teal label,
-.dv-slider-teal output {
-  color: var(--k-teal);
+.dv-range::-webkit-slider-runnable-track {
+  height: var(--track);
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    var(--line) 0,
+    var(--line) var(--lo),
+    var(--tone) var(--lo),
+    var(--tone) var(--hi),
+    var(--line) var(--hi),
+    var(--line) 100%
+  );
 }
 
-.dv-slider-orange label,
-.dv-slider-orange output {
-  color: var(--k-orange);
+.dv-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+  width: var(--thumb);
+  height: var(--thumb);
+  margin-top: calc((var(--track) - var(--thumb)) / 2);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: var(--tone);
+  box-shadow: 0 0 0 1px rgba(24, 49, 61, 0.28);
 }
 
-.dv-slider-green label,
-.dv-slider-green output {
-  color: var(--k-green);
+.dv-range::-moz-range-track {
+  height: var(--track);
+  border-radius: 999px;
+  background: var(--line);
 }
 
-.dv-slider-teal input {
-  accent-color: var(--k-teal);
+.dv-range::-moz-range-progress {
+  height: var(--track);
+  border-radius: 999px;
+  background: transparent;
 }
 
-.dv-slider-orange input {
-  accent-color: var(--k-orange);
+.dv-range::-moz-range-thumb {
+  box-sizing: border-box;
+  width: var(--thumb);
+  height: var(--thumb);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: var(--tone);
+  box-shadow: 0 0 0 1px rgba(24, 49, 61, 0.28);
 }
 
-.dv-slider-green input {
-  accent-color: var(--k-green);
+.dv-range:focus-visible {
+  outline: none;
 }
 
-.dv-range-labels {
-  grid-column: 1 / -1;
-  display: flex;
-  justify-content: space-between;
-  color: var(--sim-muted, #62727d);
-  font-size: 9px;
-  line-height: 1;
+.dv-range:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 2px var(--tone);
 }
+
+.dv-range:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 2px var(--tone);
+}
+
+/* ───────── Tombol aksi ───────── */
 
 .dv-actions {
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 8px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 6px;
+  margin-top: 8px;
 }
 
 .dv-primary-button,
 .dv-reset-button {
-  min-height: 38px;
-  padding: 0 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 30px;
+  padding: 0 10px;
   border: 1px solid #aebdc2;
   background: #fff;
-  color: var(--sim-ink, #18313d);
+  color: var(--ink);
   font-size: 11px;
   font-weight: 700;
+  white-space: nowrap;
   cursor: pointer;
 }
 
@@ -331,70 +570,35 @@
   background: #e8f3f1;
 }
 
-/* Pengatur ketebalan grafik & ukuran titik */
-.dv-style {
+/* ───────── Hasil perhitungan ───────── */
+
+.dv-wide {
   display: grid;
+  align-content: start;
   gap: 6px;
 }
 
-.dv-stepper {
-  display: grid;
-  grid-template-columns: 1fr auto auto auto;
-  align-items: center;
-  gap: 6px;
-  font-size: 11px;
-  font-weight: 600;
+.dv-wide h3 {
+  margin-bottom: 0;
 }
 
-.dv-stepper output {
-  min-width: 22px;
-  text-align: center;
-  font-size: 14px;
-  font-weight: 800;
-}
-
-.derivative-simulation button:focus-visible,
-.derivative-simulation input:focus-visible {
-  outline: 2px solid var(--k-teal);
-  outline-offset: 3px;
-}
-
-.dv-warning {
-  margin: 0;
-  padding: 9px 12px;
-  border: 1px solid #e2c27a;
-  background: #fff7e0;
-  color: #6b5200;
-  font-size: 12px;
-}
-
-/* Readouts: dua kolom */
 .dv-readouts {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
+  gap: 6px;
   margin: 0;
-  border: 1px solid var(--sim-line, #d5e0e4);
-  background: #fff;
 }
 
 .dv-readouts > div {
   min-width: 0;
-  padding: 8px 11px;
-  border-left: 1px solid var(--sim-line, #d5e0e4);
-  border-top: 1px solid var(--sim-line, #d5e0e4);
-}
-
-.dv-readouts > div:nth-child(-n + 2) {
-  border-top: 0;
-}
-
-.dv-readouts > div:nth-child(odd) {
-  border-left: 0;
+  padding: 6px 8px;
+  border: 1px solid var(--line);
+  background: var(--paper);
 }
 
 .dv-readouts dt {
-  margin-bottom: 2px;
-  color: var(--sim-muted, #62727d);
+  margin-bottom: 1px;
+  color: var(--muted);
   font-size: 10px;
   font-weight: 600;
 }
@@ -402,7 +606,7 @@
 .dv-readouts dd {
   margin: 0;
   font-family: "Cambria Math", Georgia, serif;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 700;
   line-height: 1.3;
   overflow-wrap: anywhere;
@@ -410,9 +614,9 @@
 
 .dv-readouts small {
   display: block;
-  margin-top: 2px;
-  color: var(--sim-muted, #62727d);
-  font-size: 10px;
+  margin-top: 1px;
+  color: var(--muted);
+  font-size: 9.5px;
 }
 
 .dv-readouts .readout-teal dd {
@@ -439,23 +643,31 @@
   color: var(--k-ink);
 }
 
+.dv-warning {
+  margin: 0;
+  padding: 6px 8px;
+  border: 1px solid #e2c27a;
+  background: #fff7e0;
+  color: #6b5200;
+  font-size: 10.5px;
+  line-height: 1.4;
+}
+
 /* Tabel limit */
 .dv-table-wrap {
   min-width: 0;
   overflow-x: auto;
-  border: 1px solid var(--sim-line, #d5e0e4);
-  background: #fff;
 }
 
 .dv-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .dv-table caption {
-  padding: 7px 10px;
-  color: var(--sim-muted, #62727d);
+  padding: 0 0 4px;
+  color: var(--muted);
   font-size: 10px;
   font-weight: 600;
   text-align: left;
@@ -463,16 +675,17 @@
 
 .dv-table th,
 .dv-table td {
-  padding: 5px 10px;
-  border-top: 1px solid var(--sim-line, #d5e0e4);
+  padding: 4px 6px;
+  border-top: 1px solid var(--line);
   text-align: right;
   font-family: "Cambria Math", Georgia, serif;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
+  white-space: nowrap;
 }
 
 .dv-table thead th {
-  color: var(--sim-muted, #62727d);
+  color: var(--muted);
   font-family: "Open Sans", sans-serif;
   font-size: 10px;
   font-weight: 700;
@@ -497,160 +710,344 @@
   text-align: center;
 }
 
-/* Penjelasan */
-.dv-insights {
+/* Ponsel lanskap sangat pendek */
+@media (orientation: landscape) and (max-height: 360px) {
+  .derivative-simulation.is-tabbed {
+    gap: 4px;
+    padding: 4px;
+  }
+
+  .derivative-simulation.is-tabbed .dv-main {
+    gap: 4px;
+  }
+
+  .derivative-simulation.is-tabbed .dv-side,
+  .derivative-simulation.is-tabbed .dv-results {
+    padding: 6px;
+  }
+
+  .dv-range {
+    height: 24px;
+  }
+}
+
+/* ───────── Potret (cadangan): grafik atas, panel bertab di bawah ───────── */
+
+@media (orientation: portrait) and (max-width: 899px) {
+  .derivative-simulation.is-tabbed:not(.is-fullscreen) {
+    grid-template-rows: auto auto;
+    height: auto;
+    padding: 8px;
+  }
+
+  .derivative-simulation.is-tabbed:not(.is-fullscreen) .dv-orientation-hint {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 0;
+    padding: 6px 9px;
+    border-left: 3px solid var(--k-teal);
+    background: #e8f3f1;
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .dv-orientation-hint svg {
+    flex: 0 0 auto;
+    color: var(--k-teal);
+  }
+
+  .derivative-simulation.is-tabbed:not(.is-fullscreen) .dv-main {
+    grid-template-columns: minmax(0, 1fr);
+    height: auto;
+  }
+
+  .derivative-simulation.is-tabbed:not(.is-fullscreen) .dv-board-panel {
+    height: clamp(250px, 46dvh, 420px);
+  }
+
+  .derivative-simulation.is-tabbed:not(.is-fullscreen) .dv-side,
+  .derivative-simulation.is-tabbed:not(.is-fullscreen) .dv-results {
+    overflow: visible;
+  }
+
+  .derivative-simulation.is-tabbed:not(.is-fullscreen) .dv-readouts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ───────── Desktop & tablet lanskap (tanpa .is-tabbed) ───────── */
+
+.derivative-simulation:not(.is-tabbed) {
+  --track: 4px;
+  --thumb: 16px;
+  --step: 28px;
+  gap: 12px;
+  padding: 14px;
+  border-top: 3px solid var(--gold);
+  font-size: 13px;
+}
+
+.derivative-simulation:not(.is-tabbed) .dv-main {
+  grid-template-rows: clamp(460px, 72vh, 700px) auto;
+  gap: 12px;
+  height: auto;
+}
+
+.derivative-simulation:not(.is-tabbed) .dv-column {
+  display: contents;
+}
+
+.derivative-simulation:not(.is-tabbed) .dv-tabs {
+  display: none;
+}
+
+.derivative-simulation:not(.is-tabbed) .dv-board-panel {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.derivative-simulation:not(.is-tabbed) .dv-side {
+  grid-column: 2;
+  grid-row: 1;
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.derivative-simulation:not(.is-tabbed) .dv-results {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 12px;
+  align-items: start;
+}
+
+.derivative-simulation:not(.is-tabbed) .dv-panel {
+  padding: 14px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.derivative-simulation:not(.is-tabbed) .dv-caption {
+  top: 10px;
+  left: 10px;
+  padding: 4px 12px;
+  border-left-width: 4px;
+  font-size: clamp(15px, 1.5vw, 20px);
+}
+
+.derivative-simulation:not(.is-tabbed) .dv-caption-slope {
+  font-size: clamp(13px, 1.3vw, 17px);
+}
+
+.derivative-simulation:not(.is-tabbed) .dv-view-tools {
+  top: 10px;
+  right: 10px;
+  gap: 4px;
+}
+
+.derivative-simulation:not(.is-tabbed) .dv-view-tools button {
+  width: 34px;
+  height: 34px;
+}
+
+.derivative-simulation:not(.is-tabbed) .dv-legend {
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 7px 10px;
+  font-size: 11px;
+}
+
+.derivative-simulation:not(.is-tabbed) .dv-segmented {
+  margin-bottom: 12px;
+}
+
+.derivative-simulation:not(.is-tabbed) .dv-segmented button {
+  min-height: 36px;
+  font-size: 13px;
+}
+
+.derivative-simulation:not(.is-tabbed) .dv-row {
+  grid-template-columns: 30px var(--step) minmax(0, 1fr) var(--step) 58px;
+}
+
+.derivative-simulation:not(.is-tabbed) .dv-row label {
+  font-size: 19px;
+}
+
+.derivative-simulation:not(.is-tabbed) .dv-row-hint {
+  display: block;
+  padding-left: 34px;
+  margin-top: -4px;
+}
+
+.derivative-simulation:not(.is-tabbed) .dv-row-wrap + .dv-row-wrap {
+  margin-top: 10px;
+}
+
+.derivative-simulation:not(.is-tabbed) .dv-value {
+  font-size: 15px;
+}
+
+.derivative-simulation:not(.is-tabbed) .dv-range {
+  height: 30px;
+}
+
+.derivative-simulation:not(.is-tabbed) .dv-actions {
+  margin-top: 14px;
+}
+
+.derivative-simulation:not(.is-tabbed) .dv-primary-button,
+.derivative-simulation:not(.is-tabbed) .dv-reset-button {
+  height: 36px;
+  padding: 0 14px;
+  font-size: 12px;
+}
+
+.derivative-simulation:not(.is-tabbed) .dv-readouts {
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 10px;
+}
+
+.derivative-simulation:not(.is-tabbed) .dv-readouts > div {
+  padding: 9px 12px;
+}
+
+.derivative-simulation:not(.is-tabbed) .dv-readouts dt {
+  font-size: 11px;
+}
+
+.derivative-simulation:not(.is-tabbed) .dv-readouts dd {
+  font-size: 16px;
+}
+
+.derivative-simulation:not(.is-tabbed) .dv-readouts small {
+  font-size: 10.5px;
+}
+
+.derivative-simulation:not(.is-tabbed) .dv-warning {
+  padding: 9px 12px;
+  font-size: 12px;
+}
+
+.derivative-simulation:not(.is-tabbed) .dv-table {
+  font-size: 12px;
+}
+
+.derivative-simulation:not(.is-tabbed) .dv-table caption {
+  padding-bottom: 8px;
+  font-size: 11px;
+}
+
+.derivative-simulation:not(.is-tabbed) .dv-table th,
+.derivative-simulation:not(.is-tabbed) .dv-table td {
+  padding: 7px 10px;
+  font-size: 14px;
+}
+
+.derivative-simulation:not(.is-tabbed) .dv-table thead th {
+  font-size: 11px;
+}
+
+.derivative-simulation:not(.is-tabbed) .dv-insights {
   display: grid;
   gap: 6px;
   margin: 0;
   padding: 0;
   list-style: none;
-  color: var(--sim-muted, #62727d);
-  font-size: 11px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
 }
 
-.dv-insights li {
+.derivative-simulation:not(.is-tabbed) .dv-insights li {
   padding-left: 10px;
-  border-left: 3px solid var(--sim-line, #d5e0e4);
+  border-left: 3px solid var(--line);
 }
 
-/* ============ Mode layar penuh (16:9) ============
-   Seluruh bagian harus muat tanpa scroll: papan grafik mengisi sisa
-   tinggi (2/3 lebar), kolom kontrol di kanan (1/3 lebar), penjelasan
-   di baris bawah. */
+/* ───────── Layar penuh (selalu bertab, tanpa gulir halaman) ───────── */
+
 .derivative-simulation.is-fullscreen {
   position: fixed;
   inset: 0;
   z-index: 1000;
-  box-sizing: border-box;
+  grid-template-rows: minmax(0, 1fr);
   width: 100vw;
-  height: 100vh;
   height: 100dvh;
-  grid-template-rows: minmax(0, 1fr) auto;
-  gap: 8px;
-  padding: 10px 14px;
+  padding: max(6px, env(safe-area-inset-top, 0px))
+    max(8px, env(safe-area-inset-right, 0px))
+    max(6px, env(safe-area-inset-bottom, 0px))
+    max(8px, env(safe-area-inset-left, 0px));
   overflow: hidden;
 }
 
-.is-fullscreen .dv-boards {
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-  gap: 10px;
-  height: 100%;
+.derivative-simulation.is-fullscreen .dv-orientation-hint,
+.derivative-simulation.is-fullscreen .dv-insights {
+  display: none;
 }
 
-.is-fullscreen .dv-board-panel {
-  height: 100%;
-  padding: 8px 10px;
-}
-
-.is-fullscreen .dv-board-heading {
-  padding-bottom: 6px;
-}
-
-.is-fullscreen .dv-board {
-  width: 100%;
-  height: 100%;
-  max-height: none;
-  aspect-ratio: auto;
-}
-
-.is-fullscreen .dv-legend {
-  padding-top: 6px;
-}
-
-.is-fullscreen .dv-controls {
-  gap: clamp(6px, 1.2vh, 12px);
-  padding: clamp(8px, 1.4vh, 14px);
-  overflow-y: auto;
-  align-content: space-between;
-}
-
-.is-fullscreen .dv-slider {
-  gap: 2px 12px;
-}
-
-.is-fullscreen .dv-slider input {
-  height: 20px;
-  margin: 0;
-}
-
-.is-fullscreen .dv-primary-button,
-.is-fullscreen .dv-reset-button {
-  min-height: 32px;
-}
-
-.is-fullscreen .dv-readouts > div {
-  padding: 5px 10px;
-}
-
-.is-fullscreen .dv-readouts dd {
-  font-size: 14px;
-}
-
-.is-fullscreen .dv-table caption {
-  padding: 4px 10px;
-}
-
-.is-fullscreen .dv-table th,
-.is-fullscreen .dv-table td {
-  padding: 3px 10px;
-}
-
-.is-fullscreen .dv-insights {
-  gap: 3px;
-  font-size: 11px;
-}
-
-@media (max-width: 860px) {
-  .dv-boards {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .dv-board {
-    width: min(100%, 560px);
-  }
-
-  /* Di layar sempit, mode penuh boleh di-scroll agar tetap terbaca */
+/* Layar penuh di monitor besar: ukuran sedikit lebih lega */
+@media (min-width: 900px) and (min-height: 541px) {
   .derivative-simulation.is-fullscreen {
-    overflow-y: auto;
-    grid-template-rows: auto auto;
+    --track: 4px;
+    --thumb: 15px;
+    --step: 26px;
+    font-size: 13px;
   }
 
-  .is-fullscreen .dv-boards {
-    grid-template-columns: minmax(0, 1fr);
-    height: auto;
+  .derivative-simulation.is-fullscreen .dv-caption {
+    font-size: 17px;
   }
 
-  .is-fullscreen .dv-board {
-    width: 100%;
-    height: 60vh;
-  }
-}
-
-@media (max-width: 520px) {
-  .derivative-simulation {
-    gap: 10px;
-    padding: 9px;
+  .derivative-simulation.is-fullscreen .dv-caption-slope {
+    font-size: 15px;
   }
 
-  .dv-board-panel {
-    padding: 8px;
+  .derivative-simulation.is-fullscreen .dv-row {
+    grid-template-columns: 30px var(--step) minmax(0, 1fr) var(--step) 54px;
   }
 
-  .dv-controls {
-    padding: 10px;
-    gap: 12px;
+  .derivative-simulation.is-fullscreen .dv-row label {
+    font-size: 18px;
   }
 
-  .dv-readouts dd {
+  .derivative-simulation.is-fullscreen .dv-range {
+    height: 32px;
+  }
+
+  .derivative-simulation.is-fullscreen .dv-value {
     font-size: 14px;
   }
 
-  .dv-actions {
-    grid-template-columns: 1fr;
+  .derivative-simulation.is-fullscreen .dv-tabs button {
+    height: 34px;
+    font-size: 12px;
   }
 
-  .dv-table th,
-  .dv-table td {
-    padding: 5px 7px;
+  .derivative-simulation.is-fullscreen .dv-readouts dd {
+    font-size: 15px;
+  }
+}
+
+/* Layar penuh + potret: tetap 2 : 1, grafik atas, input bawah */
+@media (orientation: portrait) and (max-width: 899px) {
+  .derivative-simulation.is-fullscreen .dv-main {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 2fr) minmax(0, 1fr);
+  }
+
+  .derivative-simulation.is-fullscreen .dv-board-panel {
+    height: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .derivative-simulation * {
+    transition: none !important;
   }
 }
