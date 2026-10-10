@@ -1,16 +1,39 @@
-/* Memakai variabel --sim-* dan --gold dari TrigonometrySimulation.css. */
+/* Simulasi transformasi fungsi (disusun ulang, mengikuti simulasi vektor).
+   Urutan: (1) ponsel lanskap = dasar (kelas .is-tabbed, panel bertab),
+   (2) potret, (3) desktop (tanpa .is-tabbed), (4) layar penuh.
+   Wilayah grafik : wilayah input = 2fr : 1fr.
+   Kelas .is-tabbed dipasang oleh komponen saat layar kecil/pendek atau
+   saat layar penuh. Memakai variabel --sim-* dari TrigonometrySimulation.css. */
+
+.function-transformation-simulation,
+.function-transformation-simulation *,
+.function-transformation-simulation *::before,
+.function-transformation-simulation *::after {
+  box-sizing: border-box;
+}
 
 .function-transformation-simulation {
   --ft-original: #087f8c;
   --ft-image: #d16b36;
   --ft-guide: #183e54;
+  --ink: var(--sim-ink, #18313d);
+  --muted: var(--sim-muted, #62727d);
+  --line: var(--sim-line, #d5e0e4);
+  --paper: var(--sim-paper, #f3f7f5);
+
+  /* slider tipis, bulatan kecil */
+  --track: 3px;
+  --thumb: 13px;
+  --step: 22px;
+
   display: grid;
-  gap: 14px;
-  padding: 16px;
-  border-top: 3px solid var(--gold);
-  background: var(--sim-paper, #f3f7f5);
-  color: var(--sim-ink, #18313d);
+  gap: 6px;
+  padding: 6px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 12px;
   font-variant-numeric: tabular-nums;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .function-transformation-simulation h3 {
@@ -25,82 +48,74 @@
   font-weight: 800;
 }
 
-.ft-main {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
-  gap: 14px;
-  min-width: 0;
+.function-transformation-simulation button {
+  font-family: inherit;
+  touch-action: manipulation;
 }
 
-.ft-board-panel,
-.ft-panel {
-  min-width: 0;
-  padding: 12px;
-  border: 1px solid var(--sim-line, #d5e0e4);
-  background: #fff;
+.function-transformation-simulation button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
 }
+
+.function-transformation-simulation button:focus-visible,
+.function-transformation-simulation input:focus-visible {
+  outline: 2px solid var(--ft-original);
+  outline-offset: 2px;
+}
+
+.ft-orientation-hint {
+  display: none;
+}
+
+/* ───────── Tata letak utama (dasar = bertab, ponsel lanskap) ───────── */
+
+.function-transformation-simulation.is-tabbed {
+  grid-template-rows: minmax(0, 1fr);
+  height: min(100dvh, 460px);
+}
+
+.ft-main {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 6px;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+}
+
+.ft-column {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 5px;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* ───────── Grafik ───────── */
 
 .ft-board-panel {
   display: grid;
-  align-content: start;
-  gap: 8px;
-}
-
-.ft-board-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 6px 10px;
-}
-
-.ft-board-heading h3 {
-  margin: 0;
-}
-
-.ft-toolbar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.ft-zoom {
-  display: inline-flex;
-  border: 1px solid #aebdc2;
-}
-
-.ft-zoom button {
-  min-width: 34px;
-  min-height: 30px;
-  padding: 0 10px;
-  border: 0;
-  border-left: 1px solid #aebdc2;
+  grid-template-rows: minmax(0, 1fr) auto;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  border: 1px solid var(--line);
   background: #fff;
-  color: var(--sim-ink, #18313d);
-  font-size: 13px;
-  font-weight: 700;
-  cursor: pointer;
 }
 
-.ft-zoom button:first-child {
-  border-left: 0;
-}
-
-.ft-zoom button:last-child:not(:first-child),
-.ft-zoom button:only-child {
-  font-size: 11px;
-}
-
-.ft-zoom button:hover {
-  background: #e8f3f1;
+.ft-stage {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
 }
 
 .ft-board {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  min-width: 0;
-  aspect-ratio: 1 / 1;
-  max-height: 560px;
-  margin-inline: auto;
+  height: 100%;
   overflow: hidden;
   background: #fcfdfc;
   touch-action: none;
@@ -115,19 +130,75 @@
   font-family: "Open Sans", sans-serif;
 }
 
+/* Rumus g(x) melayang di kiri atas grafik */
+.ft-caption {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  z-index: 2;
+  max-width: calc(100% - 50px);
+  margin: 0;
+  padding: 2px 8px;
+  border-left: 3px solid var(--ft-image);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--ft-image);
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.3;
+  pointer-events: none;
+  overflow-wrap: anywhere;
+}
+
+/* Layar penuh, zoom, pusatkan: melayang di kanan atas */
+.ft-view-tools {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 2;
+  display: grid;
+  gap: 3px;
+}
+
+.ft-view-tools button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid #aebdc2;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.ft-view-tools button:hover {
+  border-color: var(--ft-original);
+  background: #e8f3f1;
+}
+
 .ft-legend {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 6px 16px;
-  color: var(--sim-muted, #62727d);
+  gap: 4px 12px;
+  padding: 3px 8px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
   font-size: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.ft-legend::-webkit-scrollbar {
+  display: none;
 }
 
 .ft-legend span {
   display: inline-flex;
+  flex: 0 0 auto;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
+  white-space: nowrap;
 }
 
 .ft-legend i {
@@ -151,83 +222,373 @@
   border-style: dashed;
 }
 
-.ft-caption {
-  min-height: 1.5em;
-  margin: 0;
-  color: var(--ft-image);
-  font-family: "Cambria Math", Georgia, serif;
-  font-size: 15px;
-  font-weight: 700;
-  text-align: center;
-  overflow-wrap: anywhere;
+/* ───────── Tab panel kanan ───────── */
+
+.ft-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-/* Tombol */
-.function-transformation-simulation button {
-  font-family: inherit;
-}
-
-.ft-reset-button {
-  min-height: 34px;
-  padding: 0 12px;
+.ft-tabs button {
+  height: 28px;
+  padding: 0 2px;
+  margin-left: -1px;
   border: 1px solid #aebdc2;
   background: #fff;
-  color: var(--sim-ink, #18313d);
+  color: var(--ink);
   font-size: 11px;
   font-weight: 700;
   cursor: pointer;
 }
 
-.ft-reset-button:hover:not(:disabled) {
-  border-color: var(--ft-original);
-  background: #e8f3f1;
+.ft-tabs button:first-child {
+  margin-left: 0;
 }
 
-.ft-reset-button[aria-pressed="true"] {
+.ft-tabs button[aria-pressed="true"] {
+  position: relative;
   border-color: var(--ft-original);
   background: var(--ft-original);
   color: #fff;
 }
 
-.function-transformation-simulation button:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
+/* Isi panel: satu kartu putih; judul h3 tidak perlu (sudah ada di tab) */
+.function-transformation-simulation.is-tabbed .ft-side,
+.function-transformation-simulation.is-tabbed .ft-results {
+  min-height: 0;
+  padding: 8px;
+  border: 1px solid var(--line);
+  background: #fff;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
 }
 
-.function-transformation-simulation button:focus-visible,
-.function-transformation-simulation input:focus-visible,
-.function-transformation-simulation select:focus-visible {
-  outline: 2px solid var(--ft-original);
-  outline-offset: 2px;
-}
-
-/* Panel samping */
-.ft-side {
+.function-transformation-simulation.is-tabbed .ft-side,
+.function-transformation-simulation.is-tabbed .ft-results {
   display: grid;
   align-content: start;
-  gap: 12px;
+  gap: 8px;
+}
+
+.function-transformation-simulation.is-tabbed .ft-panel > h3,
+.function-transformation-simulation.is-tabbed .ft-wide > h3,
+.function-transformation-simulation.is-tabbed .ft-hint {
+  display: none;
+}
+
+.function-transformation-simulation.is-tabbed
+  .ft-column[data-tab="function"]
+  [data-pane]:not([data-pane="function"]),
+.function-transformation-simulation.is-tabbed
+  .ft-column[data-tab="transform"]
+  [data-pane]:not([data-pane="transform"]),
+.function-transformation-simulation.is-tabbed
+  .ft-column[data-tab="more"]
+  [data-pane]:not([data-pane="more"]),
+.function-transformation-simulation.is-tabbed
+  .ft-column[data-tab="result"]
+  [data-pane]:not([data-pane="result"]),
+.function-transformation-simulation.is-tabbed
+  .ft-column[data-tab="result"]
+  .ft-side {
+  display: none;
+}
+
+.ft-panel {
   min-width: 0;
+}
+
+.ft-insights {
+  display: none;
+}
+
+/* ───────── Kolom fungsi awal f(x) ───────── */
+
+.ft-expr-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 6px;
+}
+
+.ft-expr-label {
+  color: var(--ft-original);
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.ft-expr {
+  width: 100%;
+  min-width: 0;
+  height: 28px;
+  padding: 0 6px;
+  border: 1px solid #aebdc2;
+  border-radius: 0;
+  background: #fff;
+  color: var(--ft-original);
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.ft-expr[aria-invalid="true"] {
+  border-color: #b3261e;
+}
+
+.ft-expr-note {
+  margin: 4px 0 6px;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.ft-expr-note.is-error {
+  color: #b3261e;
+  font-weight: 700;
+}
+
+/* ───────── Baris parameter: h  −  ──●──  +  [ 2 ] ───────── */
+
+.ft-rows {
+  display: grid;
+  gap: 2px;
+}
+
+.ft-row {
+  --tone: var(--ft-original);
+  display: grid;
+  grid-template-columns: 26px var(--step) minmax(0, 1fr) var(--step) 44px;
+  align-items: center;
+  column-gap: 4px;
+  min-width: 0;
+}
+
+.ft-row-stretch {
+  --tone: var(--ft-image);
+}
+
+.ft-row-probe {
+  --tone: var(--ft-guide);
+}
+
+.ft-row-shift + .ft-row-stretch {
+  margin-top: 4px;
+}
+
+.ft-row label {
+  color: var(--tone);
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.ft-row label small {
+  display: none;
+}
+
+.ft-nudge-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--step);
+  height: var(--step);
+  padding: 0;
+  border: 1px solid #aebdc2;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.ft-nudge-button:hover {
+  border-color: var(--tone);
+  background: #f1f6f5;
+}
+
+.ft-nudge-button:active {
+  background: #e0ecea;
+}
+
+.ft-num {
+  width: 100%;
+  min-width: 0;
+  height: 24px;
+  padding: 0 2px;
+  border: 1px solid #aebdc2;
+  border-radius: 0;
+  background: #fff;
+  color: var(--tone);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  text-align: center;
+}
+
+@media (pointer: coarse) {
+  .function-transformation-simulation {
+    --step: 24px;
+  }
+
+  /* 16px mencegah iOS memperbesar halaman saat kolom difokuskan */
+  .ft-num {
+    height: 28px;
+    font-size: 16px;
+  }
+
+  .ft-expr {
+    height: 32px;
+    font-size: 16px;
+  }
+
+  .ft-row {
+    grid-template-columns: 26px var(--step) minmax(0, 1fr) var(--step) 50px;
+  }
+}
+
+/* Area sentuh 28px, tampilan visual hanya 3px. Isi dari titik 0. */
+.ft-range {
+  --lo: 50%;
+  --hi: 50%;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 28px;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+  touch-action: pan-y;
+}
+
+.ft-range::-webkit-slider-runnable-track {
+  height: var(--track);
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    var(--line) 0,
+    var(--line) var(--lo),
+    var(--tone) var(--lo),
+    var(--tone) var(--hi),
+    var(--line) var(--hi),
+    var(--line) 100%
+  );
+}
+
+.ft-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+  width: var(--thumb);
+  height: var(--thumb);
+  margin-top: calc((var(--track) - var(--thumb)) / 2);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: var(--tone);
+  box-shadow: 0 0 0 1px rgba(24, 49, 61, 0.28);
+}
+
+.ft-range::-moz-range-track {
+  height: var(--track);
+  border-radius: 999px;
+  background: var(--line);
+}
+
+.ft-range::-moz-range-progress {
+  height: var(--track);
+  border-radius: 999px;
+  background: transparent;
+}
+
+.ft-range::-moz-range-thumb {
+  box-sizing: border-box;
+  width: var(--thumb);
+  height: var(--thumb);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: var(--tone);
+  box-shadow: 0 0 0 1px rgba(24, 49, 61, 0.28);
+}
+
+.ft-range:focus-visible {
+  outline: none;
+}
+
+.ft-range:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 2px var(--tone);
+}
+
+.ft-range:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 2px var(--tone);
+}
+
+/* ───────── Kontrol umum ───────── */
+
+.ft-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 28px;
+  margin-top: 4px;
+  color: var(--ink);
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.ft-check input {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--ft-original);
+}
+
+.ft-hint {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+
+.ft-probe-note {
+  margin: 4px 0 0;
+  color: var(--ft-guide);
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 12.5px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
 }
 
 .ft-segmented {
   display: flex;
   flex-wrap: wrap;
-  gap: 0;
 }
 
 .ft-segmented button {
   flex: 1 1 auto;
-  min-width: 52px;
-  min-height: 34px;
-  padding: 0 10px;
-  border: 1px solid #aebdc2;
-  margin-left: -1px;
+  min-width: 40px;
+  min-height: 30px;
+  padding: 0 8px;
   margin-top: -1px;
+  margin-left: -1px;
+  border: 1px solid #aebdc2;
   background: #fff;
-  color: var(--sim-ink, #18313d);
-  font-size: 12px;
+  color: var(--ink);
+  font-size: 11px;
   font-weight: 700;
   cursor: pointer;
+}
+
+.ft-segmented button:hover {
+  background: #e8f3f1;
 }
 
 .ft-segmented button[aria-pressed="true"] {
@@ -237,81 +598,43 @@
   color: #fff;
 }
 
-.ft-check {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 10px;
-  color: var(--sim-muted, #62727d);
-  font-size: 11px;
-}
-
-.ft-check input {
-  accent-color: var(--ft-original);
-}
-
-.ft-hint {
-  margin: 6px 0 0;
-  color: var(--sim-muted, #62727d);
-  font-size: 11px;
-  overflow-wrap: anywhere;
-}
-
-.ft-board-hint {
-  margin: 0;
-  text-align: center;
-}
-
-/* Slider */
-.ft-slider {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: baseline;
-  gap: 2px 10px;
+.ft-mirror {
   margin-top: 8px;
 }
 
-.ft-panel h3 + .ft-slider {
-  margin-top: 0;
-}
-
-.ft-slider label {
-  color: var(--sim-muted, #62727d);
-  font-size: 10px;
-  font-weight: 700;
-}
-
-.ft-slider output {
-  font-family: "Cambria Math", Georgia, serif;
-  font-size: 13px;
-  font-weight: 800;
-}
-
-.ft-slider input {
-  grid-column: 1 / -1;
-  width: 100%;
-  height: 24px;
-  margin: 0;
-  accent-color: var(--ft-image);
-  cursor: ew-resize;
-}
-
-.ft-actions,
 .ft-reset-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 10px;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
 }
 
-.ft-reset-row {
-  margin-top: 0;
+.ft-reset-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 10px;
+  border: 1px solid #aebdc2;
+  background: #fff;
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
 }
 
-/* Persamaan */
+.ft-reset-button:hover {
+  border-color: var(--ft-original);
+  background: #e8f3f1;
+}
+
+/* ───────── Hasil ───────── */
+
 .ft-wide {
   display: grid;
-  gap: 8px;
+  gap: 6px;
 }
 
 .ft-wide h3 {
@@ -320,32 +643,32 @@
 
 .ft-card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 10px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 6px;
 }
 
 .ft-card {
   display: grid;
   align-content: start;
-  gap: 6px;
+  gap: 3px;
   min-width: 0;
-  padding: 10px 12px;
-  border: 1px solid var(--sim-line, #d5e0e4);
-  background: var(--sim-paper, #f3f7f5);
+  padding: 6px 8px;
+  border: 1px solid var(--line);
+  background: var(--paper);
 }
 
 .ft-card p {
   margin: 0;
-  color: var(--sim-muted, #62727d);
-  font-size: 10px;
-  line-height: 1.4;
+  color: var(--muted);
+  font-size: 10.5px;
+  line-height: 1.35;
   overflow-wrap: anywhere;
 }
 
 .ft-card .ft-formula {
   color: var(--ft-guide);
   font-family: "Cambria Math", Georgia, serif;
-  font-size: 15px;
+  font-size: 12.5px;
   font-weight: 700;
   line-height: 1.35;
 }
@@ -364,10 +687,25 @@
 }
 
 .ft-effects {
-  margin-top: 4px;
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+  font-size: 10.5px;
+  line-height: 1.35;
 }
 
-/* Tabel koordinat */
+.ft-effects li {
+  padding-left: 8px;
+  border-left: 3px solid var(--line);
+}
+
+.ft-effects strong {
+  color: var(--ink);
+}
+
 .ft-table-wrap {
   overflow-x: auto;
 }
@@ -375,19 +713,19 @@
 .ft-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .ft-table th,
 .ft-table td {
-  padding: 7px 10px;
-  border-bottom: 1px solid var(--sim-line, #d5e0e4);
+  padding: 4px 6px;
+  border-bottom: 1px solid var(--line);
   text-align: left;
   white-space: nowrap;
 }
 
 .ft-table thead th {
-  color: var(--sim-muted, #62727d);
+  color: var(--muted);
   font-size: 10px;
   font-weight: 700;
 }
@@ -398,7 +736,7 @@
 
 .ft-table td {
   font-family: "Cambria Math", Georgia, serif;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
 }
 
@@ -410,117 +748,347 @@
   color: var(--ft-image);
 }
 
-.ft-insights {
+/* Ponsel lanskap sangat pendek */
+@media (orientation: landscape) and (max-height: 360px) {
+  .function-transformation-simulation.is-tabbed {
+    gap: 4px;
+    padding: 4px;
+  }
+
+  .function-transformation-simulation.is-tabbed .ft-main {
+    gap: 4px;
+  }
+
+  .function-transformation-simulation.is-tabbed .ft-side,
+  .function-transformation-simulation.is-tabbed .ft-results {
+    padding: 6px;
+  }
+
+  .ft-range {
+    height: 24px;
+  }
+}
+
+/* ───────── Potret (cadangan): grafik atas, panel bertab di bawah ───────── */
+
+@media (orientation: portrait) and (max-width: 899px) {
+  .function-transformation-simulation.is-tabbed:not(.is-fullscreen) {
+    grid-template-rows: auto auto;
+    height: auto;
+    padding: 8px;
+  }
+
+  .function-transformation-simulation.is-tabbed:not(.is-fullscreen)
+    .ft-orientation-hint {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 0;
+    padding: 6px 9px;
+    border-left: 3px solid var(--ft-original);
+    background: #e8f3f1;
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .ft-orientation-hint svg {
+    flex: 0 0 auto;
+    color: var(--ft-original);
+  }
+
+  .function-transformation-simulation.is-tabbed:not(.is-fullscreen) .ft-main {
+    grid-template-columns: minmax(0, 1fr);
+    height: auto;
+  }
+
+  .function-transformation-simulation.is-tabbed:not(.is-fullscreen)
+    .ft-board-panel {
+    height: clamp(250px, 46dvh, 420px);
+  }
+
+  .function-transformation-simulation.is-tabbed:not(.is-fullscreen) .ft-side,
+  .function-transformation-simulation.is-tabbed:not(.is-fullscreen)
+    .ft-results {
+    overflow: visible;
+  }
+
+  .function-transformation-simulation.is-tabbed:not(.is-fullscreen) .ft-hint {
+    display: block;
+  }
+}
+
+/* ───────── Desktop & tablet lanskap (tanpa .is-tabbed) ───────── */
+
+.function-transformation-simulation:not(.is-tabbed) {
+  --track: 4px;
+  --thumb: 16px;
+  --step: 28px;
+  gap: 12px;
+  padding: 14px;
+  border-top: 3px solid var(--gold);
+  font-size: 13px;
+}
+
+.function-transformation-simulation:not(.is-tabbed) .ft-main {
+  grid-template-rows: clamp(460px, 72vh, 700px) auto;
+  gap: 12px;
+  height: auto;
+}
+
+.function-transformation-simulation:not(.is-tabbed) .ft-column {
+  display: contents;
+}
+
+.function-transformation-simulation:not(.is-tabbed) .ft-tabs {
+  display: none;
+}
+
+.function-transformation-simulation:not(.is-tabbed) .ft-board-panel {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.function-transformation-simulation:not(.is-tabbed) .ft-side {
+  grid-column: 2;
+  grid-row: 1;
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.function-transformation-simulation:not(.is-tabbed) .ft-results {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: grid;
+  gap: 12px;
+}
+
+.function-transformation-simulation:not(.is-tabbed) .ft-panel {
+  padding: 14px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.function-transformation-simulation:not(.is-tabbed) .ft-caption {
+  top: 10px;
+  left: 10px;
+  padding: 4px 12px;
+  border-left-width: 4px;
+  font-size: clamp(15px, 1.5vw, 20px);
+}
+
+.function-transformation-simulation:not(.is-tabbed) .ft-view-tools {
+  top: 10px;
+  right: 10px;
+  gap: 4px;
+}
+
+.function-transformation-simulation:not(.is-tabbed) .ft-view-tools button {
+  width: 34px;
+  height: 34px;
+}
+
+.function-transformation-simulation:not(.is-tabbed) .ft-legend {
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 7px 10px;
+  font-size: 11px;
+}
+
+.function-transformation-simulation:not(.is-tabbed) .ft-expr {
+  height: 34px;
+  font-size: 16px;
+}
+
+.function-transformation-simulation:not(.is-tabbed) .ft-expr-label {
+  font-size: 16px;
+}
+
+.function-transformation-simulation:not(.is-tabbed) .ft-expr-note {
+  font-size: 11px;
+}
+
+.function-transformation-simulation:not(.is-tabbed) .ft-row {
+  grid-template-columns: 34px var(--step) minmax(0, 1fr) var(--step) 56px;
+}
+
+.function-transformation-simulation:not(.is-tabbed) .ft-row label {
+  font-size: 19px;
+}
+
+.function-transformation-simulation:not(.is-tabbed) .ft-row label small {
+  display: block;
+  margin-top: -4px;
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.function-transformation-simulation:not(.is-tabbed) .ft-rows {
+  gap: 4px;
+}
+
+.function-transformation-simulation:not(.is-tabbed)
+  .ft-row-shift
+  + .ft-row-stretch {
+  margin-top: 10px;
+}
+
+.function-transformation-simulation:not(.is-tabbed) .ft-range {
+  height: 30px;
+}
+
+.function-transformation-simulation:not(.is-tabbed) .ft-num {
+  height: 30px;
+  font-size: 14px;
+}
+
+.function-transformation-simulation:not(.is-tabbed) .ft-check {
+  min-height: 32px;
+  font-size: 12px;
+}
+
+.function-transformation-simulation:not(.is-tabbed) .ft-segmented button {
+  min-height: 36px;
+  font-size: 12px;
+}
+
+.function-transformation-simulation:not(.is-tabbed) .ft-reset-button {
+  height: 34px;
+  padding: 0 14px;
+  font-size: 12px;
+}
+
+.function-transformation-simulation:not(.is-tabbed) .ft-probe-note {
+  font-size: 14px;
+}
+
+.function-transformation-simulation:not(.is-tabbed) .ft-card-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px;
+}
+
+.function-transformation-simulation:not(.is-tabbed) .ft-card {
+  gap: 6px;
+  padding: 10px 12px;
+}
+
+.function-transformation-simulation:not(.is-tabbed) .ft-card p {
+  font-size: 11px;
+}
+
+.function-transformation-simulation:not(.is-tabbed) .ft-card .ft-formula {
+  font-size: 14px;
+}
+
+.function-transformation-simulation:not(.is-tabbed) .ft-effects {
+  font-size: 12px;
+}
+
+.function-transformation-simulation:not(.is-tabbed) .ft-table {
+  font-size: 12px;
+}
+
+.function-transformation-simulation:not(.is-tabbed) .ft-table th,
+.function-transformation-simulation:not(.is-tabbed) .ft-table td {
+  padding: 7px 10px;
+}
+
+.function-transformation-simulation:not(.is-tabbed) .ft-table td {
+  font-size: 14px;
+}
+
+.function-transformation-simulation:not(.is-tabbed) .ft-insights {
   display: grid;
   gap: 6px;
   margin: 0;
   padding: 0;
   list-style: none;
-  color: var(--sim-muted, #62727d);
-  font-size: 11px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
 }
 
-.ft-insights li {
+.function-transformation-simulation:not(.is-tabbed) .ft-insights li {
   padding-left: 10px;
-  border-left: 3px solid var(--sim-line, #d5e0e4);
+  border-left: 3px solid var(--line);
 }
 
-.ft-insights strong {
-  color: var(--sim-ink, #18313d);
+.function-transformation-simulation:not(.is-tabbed) .ft-insights strong {
+  color: var(--ink);
 }
 
-@media (max-width: 900px) {
-  .ft-main {
-    grid-template-columns: minmax(0, 1fr);
-  }
+/* ───────── Layar penuh (selalu bertab, tanpa gulir halaman) ───────── */
 
-  .ft-board {
-    width: min(100%, 560px);
-  }
+.function-transformation-simulation.is-fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  grid-template-rows: minmax(0, 1fr);
+  width: 100vw;
+  height: 100dvh;
+  padding: max(6px, env(safe-area-inset-top, 0px))
+    max(8px, env(safe-area-inset-right, 0px))
+    max(6px, env(safe-area-inset-bottom, 0px))
+    max(8px, env(safe-area-inset-left, 0px));
+  overflow: hidden;
 }
 
-@media (max-width: 520px) {
-  .function-transformation-simulation {
-    gap: 10px;
-    padding: 9px;
-  }
+.function-transformation-simulation.is-fullscreen .ft-orientation-hint,
+.function-transformation-simulation.is-fullscreen .ft-insights {
+  display: none;
+}
 
-  .ft-board-panel,
-  .ft-panel {
-    padding: 8px;
-  }
-
-  .ft-caption {
+/* Layar penuh di monitor besar: ukuran sedikit lebih lega */
+@media (min-width: 900px) and (min-height: 541px) {
+  .function-transformation-simulation.is-fullscreen {
+    --track: 4px;
+    --thumb: 15px;
+    --step: 26px;
     font-size: 13px;
   }
 
-  .ft-table th,
-  .ft-table td {
-    padding: 6px;
+  .function-transformation-simulation.is-fullscreen .ft-caption {
+    font-size: 17px;
   }
 
-  .ft-table td {
+  .function-transformation-simulation.is-fullscreen .ft-row {
+    grid-template-columns: 30px var(--step) minmax(0, 1fr) var(--step) 52px;
+  }
+
+  .function-transformation-simulation.is-fullscreen .ft-row label {
+    font-size: 18px;
+  }
+
+  .function-transformation-simulation.is-fullscreen .ft-range {
+    height: 32px;
+  }
+
+  .function-transformation-simulation.is-fullscreen .ft-num {
+    height: 28px;
+  }
+
+  .function-transformation-simulation.is-fullscreen .ft-tabs button {
+    height: 34px;
     font-size: 12px;
   }
-
-  .ft-actions button,
-  .ft-reset-row button {
-    flex: 1 1 auto;
-  }
 }
 
-/* Layar penuh: grafik di kiri, input + info di kanan (2 : 1) */
-.function-transformation-simulation:fullscreen {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
-  height: 100%;
-  padding: 12px;
-  overflow: auto;
-  background: var(--sim-paper, #f3f7f5);
-}
-
-.function-transformation-simulation:fullscreen > .ft-main {
-  flex: 1 1 0;
-  min-height: 0;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-}
-
-.function-transformation-simulation:fullscreen .ft-board-panel {
-  height: 100%;
-  min-height: 0;
-  padding: 10px;
-  grid-template-rows: auto minmax(0, 1fr) auto auto auto;
-  align-content: stretch;
-}
-
-.function-transformation-simulation:fullscreen .ft-board {
-  width: 100%;
-  height: 100%;
-  min-height: 0;
-  max-height: none;
-  aspect-ratio: auto;
-}
-
-.ft-rightcol {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  min-width: 0;
-  min-height: 0;
-  height: 100%;
-  overflow-y: auto;
-}
-
-.ft-rightcol > * {
-  flex: none;
-}
-
-@media (max-width: 600px) {
-  .function-transformation-simulation:fullscreen > .ft-main {
+/* Layar penuh + potret: tetap 2 : 1, grafik atas, input bawah */
+@media (orientation: portrait) and (max-width: 899px) {
+  .function-transformation-simulation.is-fullscreen .ft-main {
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: minmax(0, 2fr) minmax(0, 1fr);
+  }
+
+  .function-transformation-simulation.is-fullscreen .ft-board-panel {
+    height: auto;
   }
 }
 

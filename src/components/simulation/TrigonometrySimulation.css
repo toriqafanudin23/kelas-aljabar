@@ -230,146 +230,139 @@
   outline-offset: 3px;
 }
 
-/* ───────── Simulasi trigonometri: dasar ───────── */
+/* ───────── Simulasi trigonometri (disusun ulang) ─────────
+   Urutan: (1) ponsel lanskap = dasar (kelas .is-tabbed, panel bertab),
+   (2) potret, (3) desktop (tanpa .is-tabbed), (4) layar penuh.
+   Wilayah grafik : wilayah input = 2fr : 1fr.
+   Kelas .is-tabbed dipasang oleh komponen saat layar kecil/pendek atau
+   saat layar penuh. */
+
+.trigonometry-simulation,
+.trigonometry-simulation *,
+.trigonometry-simulation *::before,
+.trigonometry-simulation *::after {
+  box-sizing: border-box;
+}
 
 .trigonometry-simulation {
-  --sim-btn: 40px; /* tinggi minimum tombol; naik di layar sentuh */
+  --ink: var(--sim-ink, #18313d);
+  --muted: var(--sim-muted, #62727d);
+  --line: var(--sim-line, #d5e0e4);
+  --paper: var(--sim-paper, #f3f7f5);
+  --teal: var(--sim-teal, #087f8c);
+  --orange: var(--sim-orange, #d16b36);
+  --green: var(--sim-green, #527a41);
+
+  /* slider tipis, bulatan kecil */
+  --track: 3px;
+  --thumb: 13px;
+  --step: 22px;
+
   display: grid;
-  gap: 12px;
-  padding: 16px;
-  border-top: 3px solid var(--gold);
-  background: var(--sim-paper);
-  color: var(--sim-ink);
+  gap: 6px;
+  padding: 6px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 12px;
   font-variant-numeric: tabular-nums;
   -webkit-tap-highlight-color: transparent;
 }
 
-@media (pointer: coarse) {
-  .trigonometry-simulation {
-    --sim-btn: 46px;
-  }
+.trigonometry-simulation h3 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 700;
 }
 
 .trigonometry-simulation button {
+  font-family: inherit;
   touch-action: manipulation;
 }
 
 .trigonometry-simulation button:focus-visible,
 .trigonometry-simulation input:focus-visible {
-  outline: 2px solid var(--sim-teal);
-  outline-offset: 3px;
-}
-
-/* Cadangan layar penuh bila Fullscreen API tidak tersedia (mis. iPhone) */
-.trigonometry-simulation.is-fullscreen:not(:fullscreen) {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  box-sizing: border-box;
-  height: 100vh;
-  height: 100dvh;
-  overflow: hidden;
-}
-
-/* ───────── Toolbar ───────── */
-
-.trig-toolbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 8px;
-  min-height: 36px;
-}
-
-.trig-fullscreen-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  min-height: 40px;
-  padding: 0 14px;
-  border: 1px solid var(--sim-teal);
-  background: #e8f3f1;
-  color: #0a5f69;
-  font: inherit;
-  font-size: 12px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.trig-fullscreen-button:hover {
-  background: #d7ebe8;
-}
-
-@media (pointer: coarse) {
-  .trig-fullscreen-button {
-    min-height: 44px;
-  }
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
 }
 
 .trig-orientation-hint {
   display: none;
-  align-items: flex-start;
-  gap: 8px;
-  margin: 0;
-  padding: 8px 10px;
-  border-left: 3px solid var(--sim-teal);
-  background: #e8f3f1;
-  color: var(--sim-ink);
-  font-size: 11px;
-  line-height: 1.45;
 }
 
-.trig-orientation-hint svg {
-  flex: 0 0 auto;
-  margin-top: 1px;
-  color: var(--sim-teal);
+.trig-explanation {
+  display: none;
 }
 
-/* ───────── Papan (lingkaran + grafik) ───────── */
+/* ───────── Tata letak utama (dasar = bertab, ponsel lanskap) ───────── */
 
-.trig-boards {
+.trigonometry-simulation.is-tabbed {
+  grid-template-rows: minmax(0, 1fr);
+  height: min(100dvh, 460px);
+}
+
+/* Lingkaran : (input + grafik) = 1 : 2 */
+.trig-main {
   display: grid;
-  grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1.3fr);
-  gap: 14px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: 6px;
   min-width: 0;
+  min-height: 0;
+  height: 100%;
 }
+
+/* Kolom kanan: input di atas, grafik di bawah, input : grafik = 1 : 2 */
+.trig-right {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) minmax(0, 2fr);
+  gap: 6px;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+}
+
+.trig-column {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 5px;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* ───────── Grafik: lingkaran satuan + grafik fungsi ───────── */
 
 .trig-board-panel {
-  position: relative;
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-rows: minmax(0, 1fr) auto;
   min-width: 0;
-  padding: 12px;
-  border: 1px solid var(--sim-line);
+  min-height: 0;
+  height: 100%;
+  border: 1px solid var(--line);
   background: #fff;
 }
 
-.trig-board-heading {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 10px;
-  min-height: 28px;
+.trig-stage {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
 }
 
-.trig-board-heading h3 {
-  margin: 0;
-  color: var(--sim-ink);
-  font-size: 13px;
-  font-weight: 700;
+.trig-circle-panel {
+  grid-template-rows: minmax(0, 1fr);
 }
 
-.trig-board-heading > span {
-  color: var(--sim-muted);
-  font-size: 10px;
-  text-align: right;
+.trig-board-cell {
+  position: absolute;
+  inset: 0;
+  min-width: 0;
+  min-height: 0;
 }
 
 .trig-board {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  min-width: 0;
+  height: 100%;
   overflow: hidden;
   background-color: #fcfdfc;
   background-image:
@@ -384,166 +377,218 @@
   cursor: grabbing;
 }
 
-.trig-circle-board {
-  aspect-ratio: 1 / 1;
-  max-height: 410px;
-  margin-inline: auto;
-}
-
-.trig-function-board {
-  min-height: 300px;
-  aspect-ratio: 1.55 / 1;
-}
-
 .trig-board .JXGtext {
   font-family: "Open Sans", sans-serif;
 }
 
-.trig-board-caption {
-  margin: 5px 0 0;
-  color: var(--sim-muted);
-  font-size: 10px;
-  text-align: center;
+/* Sudut θ melayang di kiri atas lingkaran */
+.trig-caption {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  z-index: 2;
+  max-width: calc(100% - 12px);
+  margin: 0;
+  padding: 2px 8px;
+  border-left: 3px solid var(--teal);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--ink);
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.3;
+  pointer-events: none;
+  overflow-wrap: anywhere;
 }
 
-.trig-board-caption strong {
-  color: var(--sim-ink);
+/* Koordinat titik melayang di kiri bawah lingkaran */
+.trig-tag {
+  position: absolute;
+  bottom: 4px;
+  left: 4px;
+  z-index: 2;
+  max-width: calc(100% - 8px);
+  margin: 0;
+  padding: 1px 6px;
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.3;
+  pointer-events: none;
+  overflow-wrap: anywhere;
+}
+
+/* Layar penuh: melayang di kanan atas */
+.trig-view-tools {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 3;
+  display: grid;
+  gap: 3px;
+}
+
+.trig-view-tools button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid #aebdc2;
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.trig-view-tools button:hover {
+  border-color: var(--teal);
+  background: #e8f3f1;
 }
 
 .trig-legend {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 6px 18px;
-  padding-top: 6px;
-  color: var(--sim-muted);
-  font-size: 11px;
+  gap: 4px 12px;
+  padding: 3px 8px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.trig-legend::-webkit-scrollbar {
+  display: none;
 }
 
 .trig-legend span {
   display: inline-flex;
+  flex: 0 0 auto;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
+  white-space: nowrap;
 }
 
 .trig-legend i {
-  width: 16px;
+  width: 14px;
   height: 3px;
   background: currentColor;
 }
 
 .trig-legend .legend-sine {
-  color: var(--sim-orange);
+  color: var(--orange);
 }
 
 .trig-legend .legend-cosine {
-  color: var(--sim-teal);
+  color: var(--teal);
 }
 
 .trig-legend .legend-tangent {
-  color: var(--sim-green);
+  color: var(--green);
 }
 
-/* ───────── Dock: kontrol + hasil ───────── */
+/* ───────── Tab panel kanan ───────── */
 
-.trig-dock {
+.trig-tabs {
   display: grid;
-  gap: 10px;
-  min-width: 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.trig-controls {
-  display: grid;
-  gap: 12px;
-  min-width: 0;
-  padding: 12px 14px;
-  border: 1px solid var(--sim-line);
-  background: #fff;
-}
-
-.trig-angle-control {
-  display: grid;
-  gap: 6px;
-  min-width: 0;
-}
-
-.trig-angle-head {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  min-width: 0;
-}
-
-.trig-angle-head label {
-  color: var(--sim-muted);
-  font-size: 11px;
-  font-weight: 700;
-}
-
-.trig-angle-head output {
-  flex: 1 1 auto;
-  min-width: 0;
-  color: var(--sim-ink);
-  font-size: 21px;
-  font-weight: 800;
-  line-height: 1.2;
-  white-space: nowrap;
-}
-
-.trig-angle-head output span {
-  color: var(--sim-muted);
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.trig-reset-button {
-  display: inline-flex;
-  flex: 0 0 auto;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  min-height: 36px;
-  padding: 0 12px;
+.trig-tabs button {
+  height: 28px;
+  padding: 0 2px;
+  margin-left: -1px;
   border: 1px solid #aebdc2;
   background: #fff;
-  color: var(--sim-ink);
-  font: inherit;
+  color: var(--ink);
   font-size: 11px;
   font-weight: 700;
   cursor: pointer;
 }
 
-.trig-reset-button:hover {
-  border-color: var(--sim-teal);
-  background: #e8f3f1;
+.trig-tabs button:first-child {
+  margin-left: 0;
 }
 
-@media (pointer: coarse) {
-  .trig-reset-button {
-    min-height: 40px;
-  }
+.trig-tabs button[aria-pressed="true"] {
+  position: relative;
+  border-color: var(--teal);
+  background: var(--teal);
+  color: #fff;
 }
 
-/* Slider + tombol -1° / +1° */
-
-.trig-slider-row {
+/* Isi panel: satu kartu putih; judul h3 tidak perlu (sudah ada di tab) */
+.trigonometry-simulation.is-tabbed .trig-side,
+.trigonometry-simulation.is-tabbed .trig-results {
   display: grid;
-  grid-template-columns: var(--sim-btn) minmax(0, 1fr) var(--sim-btn);
+  align-content: start;
+  gap: 8px;
+  min-height: 0;
+  padding: 8px;
+  border: 1px solid var(--line);
+  background: #fff;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+
+.trigonometry-simulation.is-tabbed .trig-panel > h3,
+.trigonometry-simulation.is-tabbed .trig-hint {
+  display: none;
+}
+
+.trigonometry-simulation.is-tabbed
+  .trig-column[data-tab="angle"]
+  [data-pane]:not([data-pane="angle"]),
+.trigonometry-simulation.is-tabbed
+  .trig-column[data-tab="special"]
+  [data-pane]:not([data-pane="special"]),
+.trigonometry-simulation.is-tabbed
+  .trig-column[data-tab="result"]
+  [data-pane]:not([data-pane="result"]),
+.trigonometry-simulation.is-tabbed .trig-column[data-tab="result"] .trig-side {
+  display: none;
+}
+
+.trig-panel {
+  min-width: 0;
+}
+
+/* ───────── Baris sudut: θ  −  ──●──  +  [ 45 ] ───────── */
+
+.trig-angle-row {
+  --tone: var(--teal);
+  display: grid;
+  grid-template-columns: 24px var(--step) minmax(0, 1fr) var(--step) 44px;
   align-items: center;
-  column-gap: 8px;
+  column-gap: 4px;
+  min-width: 0;
+}
+
+.trig-angle-row label {
+  color: var(--tone);
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.trig-angle-row label small {
+  display: none;
 }
 
 .trig-step-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: var(--sim-btn);
-  height: var(--sim-btn);
+  width: var(--step);
+  height: var(--step);
   padding: 0;
   border: 1px solid #aebdc2;
   border-radius: 50%;
   background: #fff;
-  color: var(--sim-ink);
+  color: var(--ink);
   cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
@@ -551,20 +596,59 @@
 }
 
 .trig-step-button:hover {
-  border-color: var(--sim-teal);
-  background: #e8f3f1;
+  border-color: var(--teal);
+  background: #f1f6f5;
 }
 
 .trig-step-button:active {
-  background: #d3e9e6;
+  background: #e0ecea;
 }
 
+.trig-num {
+  width: 100%;
+  min-width: 0;
+  height: 24px;
+  padding: 0 2px;
+  border: 1px solid #aebdc2;
+  border-radius: 0;
+  background: #fff;
+  color: var(--teal);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.trig-angle-note {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+@media (pointer: coarse) {
+  .trigonometry-simulation {
+    --step: 24px;
+  }
+
+  /* 16px mencegah iOS memperbesar halaman saat kolom difokuskan */
+  .trig-num {
+    height: 28px;
+    font-size: 16px;
+  }
+
+  .trig-angle-row {
+    grid-template-columns: 24px var(--step) minmax(0, 1fr) var(--step) 50px;
+  }
+}
+
+/* Area sentuh 28px, tampilan visual hanya 3px. */
 .trig-angle-slider {
   --trig-fill: 0%;
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
-  height: 40px;
+  height: 28px;
   margin: 0;
   background: transparent;
   cursor: pointer;
@@ -572,296 +656,536 @@
 }
 
 .trig-angle-slider::-webkit-slider-runnable-track {
-  height: 8px;
+  height: var(--track);
   border-radius: 999px;
   background: linear-gradient(
     to right,
-    var(--sim-teal) 0,
-    var(--sim-teal) var(--trig-fill),
-    #d5e0e4 var(--trig-fill),
-    #d5e0e4 100%
+    var(--teal) 0,
+    var(--teal) var(--trig-fill),
+    var(--line) var(--trig-fill),
+    var(--line) 100%
   );
 }
 
 .trig-angle-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 28px;
-  height: 28px;
-  margin-top: -10px;
-  border: 3px solid #fff;
+  box-sizing: border-box;
+  width: var(--thumb);
+  height: var(--thumb);
+  margin-top: calc((var(--track) - var(--thumb)) / 2);
+  border: 2px solid #fff;
   border-radius: 50%;
-  background: var(--sim-teal);
-  box-shadow: 0 1px 5px rgba(24, 49, 61, 0.5);
+  background: var(--teal);
+  box-shadow: 0 0 0 1px rgba(24, 49, 61, 0.28);
 }
 
 .trig-angle-slider::-moz-range-track {
-  height: 8px;
+  height: var(--track);
   border-radius: 999px;
-  background: #d5e0e4;
+  background: var(--line);
 }
 
 .trig-angle-slider::-moz-range-progress {
-  height: 8px;
+  height: var(--track);
   border-radius: 999px;
-  background: var(--sim-teal);
+  background: var(--teal);
 }
 
 .trig-angle-slider::-moz-range-thumb {
   box-sizing: border-box;
-  width: 28px;
-  height: 28px;
-  border: 3px solid #fff;
+  width: var(--thumb);
+  height: var(--thumb);
+  border: 2px solid #fff;
   border-radius: 50%;
-  background: var(--sim-teal);
-  box-shadow: 0 1px 5px rgba(24, 49, 61, 0.5);
+  background: var(--teal);
+  box-shadow: 0 0 0 1px rgba(24, 49, 61, 0.28);
 }
 
-@media (pointer: coarse) {
-  .trig-angle-slider {
-    height: 46px;
-  }
-
-  .trig-angle-slider::-webkit-slider-runnable-track {
-    height: 10px;
-  }
-
-  .trig-angle-slider::-webkit-slider-thumb {
-    width: 34px;
-    height: 34px;
-    margin-top: -12px;
-  }
-
-  .trig-angle-slider::-moz-range-track,
-  .trig-angle-slider::-moz-range-progress {
-    height: 10px;
-  }
-
-  .trig-angle-slider::-moz-range-thumb {
-    width: 34px;
-    height: 34px;
-  }
+.trig-angle-slider:focus-visible {
+  outline: none;
 }
 
-.trig-range-labels {
-  grid-column: 2;
-  display: flex;
-  justify-content: space-between;
-  margin-top: -4px;
-  color: var(--sim-muted);
-  font-size: 9px;
-  line-height: 1;
+.trig-angle-slider:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 2px var(--teal);
 }
 
-/* Sudut istimewa */
-
-.trig-special-angles {
-  display: grid;
-  gap: 6px;
-  min-width: 0;
+.trig-angle-slider:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 2px var(--teal);
 }
 
-.trig-special-angles > span {
-  color: var(--sim-muted);
-  font-size: 10px;
-  font-weight: 700;
+/* ───────── Kontrol umum ───────── */
+
+.trig-hint {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  overflow-wrap: anywhere;
 }
 
 .trig-special-angle-buttons {
-  position: relative;
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
 }
 
 .trig-special-angle-buttons button {
-  flex: 0 0 auto;
-  min-width: 42px;
-  min-height: 34px;
+  flex: 1 1 auto;
+  min-width: 44px;
+  min-height: 30px;
   padding: 0 8px;
-  border: 1px solid var(--sim-line);
+  margin-top: -1px;
+  margin-left: -1px;
+  border: 1px solid #aebdc2;
   background: #fff;
-  color: var(--sim-ink);
-  font: inherit;
+  color: var(--ink);
   font-size: 11px;
   font-weight: 700;
   cursor: pointer;
 }
 
-.trig-special-angle-buttons button:hover,
-.trig-special-angle-buttons button.active {
-  border-color: var(--sim-teal);
+.trig-special-angle-buttons button:hover {
   background: #e8f3f1;
-  color: var(--sim-teal);
 }
 
-.trig-special-angle-buttons button.active {
-  box-shadow: inset 0 -2px var(--sim-teal);
+.trig-special-angle-buttons button[aria-pressed="true"] {
+  position: relative;
+  border-color: var(--teal);
+  background: var(--teal);
+  color: #fff;
 }
 
-@media (pointer: coarse) {
-  .trig-special-angle-buttons button {
-    min-width: 48px;
-    min-height: 42px;
-    font-size: 12px;
-  }
+.trig-reset-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
 }
 
-/* Hasil perhitungan */
+.trig-reset-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 10px;
+  border: 1px solid #aebdc2;
+  background: #fff;
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
 
+.trig-reset-button:hover {
+  border-color: var(--teal);
+  background: #e8f3f1;
+}
+
+/* ───────── Hasil perhitungan ───────── */
+
+/* Panel input lebar tapi pendek: hasil disusun mendatar (4 kolom) */
 .trig-readouts {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1px;
   margin: 0;
-  border: 1px solid var(--sim-line);
-  background: var(--sim-line);
+  border: 1px solid var(--line);
+  background: var(--line);
 }
 
 .trig-readouts > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
   min-width: 0;
-  padding: 10px 13px;
+  padding: 6px 8px;
   background: #fff;
 }
 
 .trig-readouts dt {
-  margin-bottom: 2px;
-  color: var(--sim-muted);
+  margin: 0;
+  color: var(--muted);
   font-size: 10px;
   font-weight: 600;
 }
 
 .trig-readouts dd {
   margin: 0;
-  color: var(--sim-ink);
+  color: var(--ink);
   font-family: "Cambria Math", Georgia, serif;
-  font-size: 19px;
+  font-size: 15px;
   font-weight: 700;
-  line-height: 1.3;
+  line-height: 1.2;
   overflow-wrap: anywhere;
 }
 
+.trig-readouts dd span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
 .trig-readouts .readout-sine dd {
-  color: var(--sim-orange);
+  color: var(--orange);
 }
 
 .trig-readouts .readout-cosine dd {
-  color: var(--sim-teal);
+  color: var(--teal);
 }
 
 .trig-readouts .readout-tangent dd {
-  color: var(--sim-green);
+  color: var(--green);
   font-family: "Open Sans", sans-serif;
-  font-size: 15px;
+  font-size: 13px;
 }
 
-.trig-explanation {
-  margin: 0;
-  color: var(--sim-muted);
-  font-size: 11px;
-  line-height: 1.5;
-}
-
-.trig-explanation strong {
-  color: var(--sim-ink);
-}
-
-/* ───────── Layar lebar: kontrol di kiri, hasil 2×2 di kanan ───────── */
-
-@media (min-width: 900px) {
-  .trig-dock {
-    grid-template-columns: minmax(0, 1.55fr) minmax(280px, 1fr);
-    align-items: stretch;
+/* Ponsel lanskap sangat pendek */
+@media (orientation: landscape) and (max-height: 360px) {
+  .trigonometry-simulation.is-tabbed {
+    gap: 4px;
+    padding: 4px;
   }
 
-  .trig-readouts {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-auto-rows: 1fr;
+  .trigonometry-simulation.is-tabbed .trig-main {
+    gap: 4px;
   }
 
-  .trig-readouts > div {
+  .trigonometry-simulation.is-tabbed .trig-side,
+  .trigonometry-simulation.is-tabbed .trig-results {
+    padding: 6px;
+  }
+
+  .trig-angle-slider {
+    height: 24px;
+  }
+}
+
+/* ───────── Potret (cadangan): grafik atas, panel bertab di bawah ───────── */
+
+@media (orientation: portrait) and (max-width: 899px) {
+  .trigonometry-simulation.is-tabbed:not(.is-fullscreen) {
+    grid-template-rows: auto auto;
+    height: auto;
+    padding: 8px;
+  }
+
+  .trigonometry-simulation.is-tabbed:not(.is-fullscreen)
+    .trig-orientation-hint {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    margin: 0;
+    padding: 6px 9px;
+    border-left: 3px solid var(--teal);
+    background: #e8f3f1;
+    font-size: 11px;
+    line-height: 1.4;
   }
-}
 
-/* ───────── Layar sempit / potret: papan ditumpuk ───────── */
+  .trig-orientation-hint svg {
+    flex: 0 0 auto;
+    color: var(--teal);
+  }
 
-@media (max-width: 640px), (orientation: portrait) and (max-width: 820px) {
-  .trig-boards {
+  .trigonometry-simulation.is-tabbed:not(.is-fullscreen) .trig-main {
     grid-template-columns: minmax(0, 1fr);
+    height: auto;
   }
 
-  .trig-circle-board {
-    width: min(100%, 400px);
+  /* Potret: lingkaran, lalu input, lalu grafik (input tetap di atas grafik) */
+  .trigonometry-simulation.is-tabbed:not(.is-fullscreen) .trig-right {
+    grid-template-rows: auto auto;
+    height: auto;
   }
 
-  .trig-function-board {
-    min-height: 240px;
-    aspect-ratio: 1.3 / 1;
+  .trigonometry-simulation.is-tabbed:not(.is-fullscreen) .trig-circle-panel {
+    height: clamp(240px, 40dvh, 360px);
+  }
+
+  .trigonometry-simulation.is-tabbed:not(.is-fullscreen) .trig-graph-panel {
+    height: clamp(220px, 36dvh, 340px);
   }
 
   /* Geser vertikal pada grafik tetap menggulir halaman */
-  .trigonometry-simulation:not(.is-fullscreen):not(:fullscreen)
-    .trig-function-board {
+  .trigonometry-simulation.is-tabbed:not(.is-fullscreen) .trig-function-board {
     touch-action: pan-y !important;
   }
-}
 
-/* Potret ponsel: tampilkan petunjuk + dock menempel di bawah */
-@media (max-width: 820px) and (orientation: portrait) {
-  .trigonometry-simulation:not(.is-fullscreen):not(:fullscreen)
-    .trig-orientation-hint {
-    display: flex;
+  .trigonometry-simulation.is-tabbed:not(.is-fullscreen) .trig-side,
+  .trigonometry-simulation.is-tabbed:not(.is-fullscreen) .trig-results {
+    overflow: visible;
+  }
+
+  .trigonometry-simulation.is-tabbed:not(.is-fullscreen) .trig-hint {
+    display: block;
   }
 }
 
-@media (max-width: 820px) and (orientation: portrait) and (min-height: 560px) {
-  .trigonometry-simulation:not(.is-fullscreen):not(:fullscreen) .trig-dock {
-    position: sticky;
-    bottom: 0;
-    z-index: 5;
-    margin-inline: -9px;
-    padding: 8px 9px calc(8px + env(safe-area-inset-bottom, 0px));
-    border-top: 1px solid var(--sim-line);
-    background: rgba(243, 247, 245, 0.97);
-    box-shadow: 0 -6px 16px rgba(24, 49, 61, 0.14);
+/* ───────── Desktop & tablet lanskap (tanpa .is-tabbed) ───────── */
+
+.trigonometry-simulation:not(.is-tabbed) {
+  --track: 4px;
+  --thumb: 16px;
+  --step: 28px;
+  gap: 12px;
+  padding: 14px;
+  border-top: 3px solid var(--gold);
+  font-size: 13px;
+}
+
+.trigonometry-simulation:not(.is-tabbed) .trig-main {
+  grid-template-rows: clamp(500px, 76vh, 760px);
+  gap: 12px;
+  height: auto;
+}
+
+.trigonometry-simulation:not(.is-tabbed) .trig-right {
+  gap: 12px;
+}
+
+/* Area input (1/3 tinggi kolom kanan): tiga kolom berdampingan
+   [sudut + atur ulang] [sudut istimewa] [hasil] */
+.trigonometry-simulation:not(.is-tabbed) .trig-column {
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 8px 12px;
+}
+
+.trigonometry-simulation:not(.is-tabbed) .trig-tabs {
+  display: none;
+}
+
+.trigonometry-simulation:not(.is-tabbed) .trig-side {
+  display: contents;
+}
+
+.trigonometry-simulation:not(.is-tabbed) .trig-panel {
+  min-height: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  background: #fff;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.trigonometry-simulation:not(.is-tabbed) .trig-panel > h3 {
+  margin-bottom: 6px;
+}
+
+.trigonometry-simulation:not(.is-tabbed) .trig-panel[data-pane="angle"] {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.trigonometry-simulation:not(.is-tabbed) .trig-reset-row {
+  grid-column: 1;
+  grid-row: 2;
+  margin: 0;
+}
+
+.trigonometry-simulation:not(.is-tabbed) .trig-panel[data-pane="special"] {
+  grid-column: 2;
+  grid-row: 1 / -1;
+}
+
+.trigonometry-simulation:not(.is-tabbed) .trig-results {
+  grid-column: 3;
+  grid-row: 1 / -1;
+  display: grid;
+  min-height: 0;
+}
+
+.trigonometry-simulation:not(.is-tabbed) .trig-hint {
+  display: none;
+}
+
+.trigonometry-simulation:not(.is-tabbed) .trig-caption {
+  top: 14px;
+  left: 14px;
+  padding: 4px 12px;
+  border-left-width: 4px;
+  font-size: clamp(15px, 1.5vw, 20px);
+}
+
+.trigonometry-simulation:not(.is-tabbed) .trig-tag {
+  bottom: 12px;
+  left: 12px;
+  font-size: 11px;
+}
+
+.trigonometry-simulation:not(.is-tabbed) .trig-view-tools {
+  top: 10px;
+  right: 10px;
+}
+
+.trigonometry-simulation:not(.is-tabbed) .trig-view-tools button {
+  width: 34px;
+  height: 34px;
+}
+
+.trigonometry-simulation:not(.is-tabbed) .trig-legend {
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 7px 10px;
+  font-size: 11px;
+}
+
+.trigonometry-simulation:not(.is-tabbed) .trig-angle-row {
+  grid-template-columns: 52px var(--step) minmax(0, 1fr) var(--step) 56px;
+}
+
+.trigonometry-simulation:not(.is-tabbed) .trig-angle-row label {
+  font-size: 19px;
+}
+
+.trigonometry-simulation:not(.is-tabbed) .trig-angle-row label small {
+  display: block;
+  margin-top: -4px;
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 9px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.trigonometry-simulation:not(.is-tabbed) .trig-angle-slider {
+  height: 30px;
+}
+
+.trigonometry-simulation:not(.is-tabbed) .trig-num {
+  height: 30px;
+  font-size: 14px;
+}
+
+.trigonometry-simulation:not(.is-tabbed) .trig-angle-note {
+  font-size: 13px;
+}
+
+.trigonometry-simulation:not(.is-tabbed) .trig-special-angle-buttons button {
+  min-height: 36px;
+  font-size: 12px;
+}
+
+.trigonometry-simulation:not(.is-tabbed) .trig-reset-button {
+  height: 34px;
+  padding: 0 14px;
+  font-size: 12px;
+}
+
+.trigonometry-simulation:not(.is-tabbed) .trig-readouts {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-rows: minmax(0, 1fr);
+  height: 100%;
+}
+
+.trigonometry-simulation:not(.is-tabbed) .trig-readouts > div {
+  padding: 6px 12px;
+}
+
+.trigonometry-simulation:not(.is-tabbed) .trig-readouts dt {
+  font-size: 11px;
+}
+
+.trigonometry-simulation:not(.is-tabbed) .trig-readouts dd {
+  font-size: 19px;
+}
+
+.trigonometry-simulation:not(.is-tabbed) .trig-readouts .readout-tangent dd {
+  font-size: 14px;
+}
+
+.trigonometry-simulation:not(.is-tabbed) .trig-explanation {
+  display: block;
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.trigonometry-simulation:not(.is-tabbed) .trig-explanation strong {
+  color: var(--ink);
+}
+
+/* ───────── Layar penuh (selalu bertab, tanpa gulir halaman) ───────── */
+
+.trigonometry-simulation.is-fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  grid-template-rows: minmax(0, 1fr);
+  width: 100vw;
+  height: 100dvh;
+  padding: max(6px, env(safe-area-inset-top, 0px))
+    max(8px, env(safe-area-inset-right, 0px))
+    max(6px, env(safe-area-inset-bottom, 0px))
+    max(8px, env(safe-area-inset-left, 0px));
+  overflow: hidden;
+}
+
+.trigonometry-simulation:fullscreen.simulation-fullscreen-frame {
+  width: 100%;
+  height: 100%;
+}
+
+.trigonometry-simulation.is-fullscreen .trig-orientation-hint,
+.trigonometry-simulation.is-fullscreen .trig-explanation {
+  display: none;
+}
+
+/* Layar penuh di monitor besar: ukuran sedikit lebih lega */
+@media (min-width: 900px) and (min-height: 541px) {
+  .trigonometry-simulation.is-fullscreen {
+    --track: 4px;
+    --thumb: 15px;
+    --step: 26px;
+    font-size: 13px;
   }
 
-  .trigonometry-simulation:not(.is-fullscreen):not(:fullscreen)
-    .trig-range-labels,
-  .trigonometry-simulation:not(.is-fullscreen):not(:fullscreen)
-    .trig-special-angles
-    > span {
-    display: none;
+  .trigonometry-simulation.is-fullscreen .trig-caption {
+    font-size: 17px;
   }
 
-  .trigonometry-simulation:not(.is-fullscreen):not(:fullscreen) .trig-controls {
-    gap: 8px;
-    padding: 8px 10px;
+  .trigonometry-simulation.is-fullscreen .trig-angle-row {
+    grid-template-columns: 30px var(--step) minmax(0, 1fr) var(--step) 52px;
+  }
+
+  .trigonometry-simulation.is-fullscreen .trig-angle-row label {
+    font-size: 18px;
+  }
+
+  .trigonometry-simulation.is-fullscreen .trig-angle-slider {
+    height: 32px;
+  }
+
+  .trigonometry-simulation.is-fullscreen .trig-num {
+    height: 28px;
+  }
+
+  .trigonometry-simulation.is-fullscreen .trig-tabs button {
+    height: 34px;
+    font-size: 12px;
   }
 }
 
-@media (max-width: 820px) {
-  /* Sudut istimewa: satu baris yang bisa digeser, bukan membungkus */
-  .trig-special-angle-buttons {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    padding-bottom: 3px;
-    scroll-snap-type: x proximity;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
+/* Layar penuh + potret: tetap 2 : 1, grafik atas, input bawah */
+@media (orientation: portrait) and (max-width: 899px) {
+  .trigonometry-simulation.is-fullscreen .trig-main {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 2fr) minmax(0, 1fr);
   }
 
-  .trig-special-angle-buttons::-webkit-scrollbar {
-    display: none;
+  .trigonometry-simulation.is-fullscreen .trig-board-panel {
+    height: auto;
   }
 
-  .trig-special-angle-buttons button {
-    scroll-snap-align: center;
+  .trigonometry-simulation.is-fullscreen .trig-boards {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) minmax(0, 0.85fr);
   }
 }
+
+/* ───────── Beranda & halaman daftar simulasi, layar sempit (tidak berubah) ───────── */
 
 @media (max-width: 520px) {
   .home-trig-showcase {
@@ -902,316 +1226,10 @@
     padding: 4px 6px;
     font-size: 9px;
   }
-
-  .trigonometry-simulation {
-    gap: 10px;
-    padding: 9px;
-  }
-
-  .trig-toolbar {
-    gap: 6px;
-  }
-
-  .trig-fullscreen-button {
-    flex: 1 1 auto;
-  }
-
-  .trig-board-panel {
-    padding: 8px;
-  }
-
-  .trig-board-heading > span {
-    display: none;
-  }
-
-  .trig-controls {
-    padding: 10px;
-  }
-
-  .trig-angle-head output {
-    font-size: 19px;
-  }
-
-  .trig-readouts {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .trig-readouts > div {
-    padding: 7px 10px;
-  }
-
-  .trig-readouts dd {
-    font-size: 17px;
-  }
-
-  .trig-readouts .readout-tangent dd {
-    font-size: 13px;
-  }
 }
 
-/* ───────── Mode layar penuh (semua ukuran) ───────── */
-
-.trigonometry-simulation:fullscreen.simulation-fullscreen-frame {
-  box-sizing: border-box;
-  grid-template-rows: auto minmax(0, 1fr) auto auto;
-  align-content: stretch;
-  width: 100%;
-  height: 100%;
-  min-height: 0;
-  gap: 8px;
-  padding: max(10px, env(safe-area-inset-top, 0px))
-    max(12px, env(safe-area-inset-right, 0px))
-    max(10px, env(safe-area-inset-bottom, 0px))
-    max(12px, env(safe-area-inset-left, 0px));
-  overflow: hidden !important;
-}
-
-.trigonometry-simulation.is-fullscreen {
-  grid-template-rows: auto minmax(0, 1fr) auto auto;
-  align-content: stretch;
-  gap: 8px;
-  padding: max(10px, env(safe-area-inset-top, 0px))
-    max(12px, env(safe-area-inset-right, 0px))
-    max(10px, env(safe-area-inset-bottom, 0px))
-    max(12px, env(safe-area-inset-left, 0px));
-}
-
-.trigonometry-simulation.is-fullscreen .trig-orientation-hint,
-.trigonometry-simulation:fullscreen .trig-orientation-hint {
-  display: none;
-}
-
-.trigonometry-simulation.is-fullscreen .trig-boards,
-.trigonometry-simulation:fullscreen .trig-boards {
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-  grid-template-rows: minmax(0, 1fr);
-  min-height: 0;
-  height: 100%;
-  gap: 8px;
-}
-
-.trigonometry-simulation.is-fullscreen .trig-board-panel,
-.trigonometry-simulation:fullscreen .trig-board-panel {
-  min-height: 0;
-  padding: 8px;
-}
-
-.trigonometry-simulation.is-fullscreen .trig-circle-board,
-.trigonometry-simulation.is-fullscreen .trig-function-board,
-.trigonometry-simulation:fullscreen .trig-circle-board,
-.trigonometry-simulation:fullscreen .trig-function-board {
-  width: 100%;
-  height: 100%;
-  min-height: 0;
-  max-height: none;
-  aspect-ratio: auto;
-  touch-action: none !important;
-}
-
-.trigonometry-simulation.is-fullscreen .trig-dock,
-.trigonometry-simulation:fullscreen .trig-dock {
-  gap: 8px;
-}
-
-.trigonometry-simulation.is-fullscreen .trig-controls,
-.trigonometry-simulation:fullscreen .trig-controls {
-  gap: 6px;
-  padding: 8px 12px;
-}
-
-.trigonometry-simulation.is-fullscreen .trig-readouts > div,
-.trigonometry-simulation:fullscreen .trig-readouts > div {
-  padding: 6px 10px;
-}
-
-.trigonometry-simulation.is-fullscreen .trig-readouts dd,
-.trigonometry-simulation:fullscreen .trig-readouts dd {
-  font-size: 17px;
-}
-
-.trigonometry-simulation.is-fullscreen .trig-readouts .readout-tangent dd,
-.trigonometry-simulation:fullscreen .trig-readouts .readout-tangent dd {
-  font-size: 13px;
-}
-
-.trigonometry-simulation.is-fullscreen .trig-explanation,
-.trigonometry-simulation:fullscreen .trig-explanation {
-  font-size: 10px;
-  line-height: 1.35;
-}
-
-/* Layar penuh + potret (tablet / ponsel): papan atas-bawah */
-@media (max-width: 640px), (orientation: portrait) and (max-width: 820px) {
-  .trigonometry-simulation.is-fullscreen .trig-boards,
-  .trigonometry-simulation:fullscreen .trig-boards {
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
-  }
-}
-
-/* ───────── Ponsel LANSKAP (tinggi pendek) ─────────
-   Papan di atas selebar layar; dock ringkas di bawah:
-   kiri = sudut + slider + sudut istimewa, kanan = hasil sin/cos/tan. */
-
-@media (orientation: landscape) and (max-height: 540px) {
-  .trigonometry-simulation {
-    --sim-btn: 40px;
-    gap: 8px;
-  }
-
-  .trig-dock {
-    grid-template-columns: minmax(0, 1fr) 190px;
-    gap: 8px;
-  }
-
-  .trig-controls {
-    gap: 4px;
-    padding: 6px 10px;
-  }
-
-  .trig-angle-control {
-    grid-template-columns: auto minmax(0, 1fr);
-    align-items: center;
-    gap: 0 10px;
-  }
-
-  .trig-angle-head label,
-  .trig-range-labels,
-  .trig-special-angles > span {
-    display: none;
-  }
-
-  .trig-angle-head {
-    gap: 6px;
-  }
-
-  .trig-angle-head output {
-    flex: 0 0 auto;
-    font-size: 18px;
-  }
-
-  .trig-angle-head output span {
-    font-size: 11px;
-  }
-
-  .trig-reset-button {
-    width: 36px;
-    min-height: 36px;
-    padding: 0;
-  }
-
-  .trig-reset-button span {
-    display: none;
-  }
-
-  .trig-angle-slider {
-    height: 38px;
-  }
-
-  .trig-special-angles {
-    gap: 0;
-  }
-
-  .trig-special-angle-buttons button {
-    min-height: 32px;
-  }
-
-  .trig-readouts {
-    grid-template-columns: minmax(0, 1fr);
-    grid-auto-rows: 1fr;
-  }
-
-  .trig-readouts .readout-angle {
-    display: none;
-  }
-
-  .trig-readouts > div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 8px;
-    padding: 2px 10px;
-  }
-
-  .trig-readouts dt {
-    margin: 0;
-    font-size: 11px;
-  }
-
-  .trig-readouts dd,
-  .trigonometry-simulation.is-fullscreen .trig-readouts dd,
-  .trigonometry-simulation:fullscreen .trig-readouts dd {
-    font-size: 15px;
-    line-height: 1.2;
-    text-align: right;
-  }
-
-  .trig-readouts .readout-tangent dd,
-  .trigonometry-simulation.is-fullscreen .trig-readouts .readout-tangent dd,
-  .trigonometry-simulation:fullscreen .trig-readouts .readout-tangent dd {
-    font-size: 12px;
-  }
-
-  .trig-explanation {
-    display: none;
-  }
-
-  .trig-toolbar {
-    min-height: 32px;
-  }
-
-  .trig-fullscreen-button {
-    min-height: 34px;
-  }
-
-  /* Papan: lingkaran persegi (mengikuti tinggi) + grafik mengisi sisa lebar */
-  .trigonometry-simulation.is-fullscreen .trig-boards,
-  .trigonometry-simulation:fullscreen .trig-boards {
-    grid-template-columns:
-      clamp(150px, calc(100vh - 176px), 42vw)
-      minmax(0, 1fr);
-    grid-template-columns:
-      clamp(150px, calc(100dvh - 176px), 42vw)
-      minmax(0, 1fr);
-    grid-template-rows: minmax(0, 1fr);
-  }
-
-  .trigonometry-simulation.is-fullscreen .trig-board-panel,
-  .trigonometry-simulation:fullscreen .trig-board-panel {
-    grid-template-rows: auto minmax(0, 1fr);
-    padding: 6px;
-  }
-
-  .trigonometry-simulation.is-fullscreen .trig-board-heading,
-  .trigonometry-simulation:fullscreen .trig-board-heading {
-    min-height: 18px;
-  }
-
-  .trigonometry-simulation.is-fullscreen .trig-board-heading h3,
-  .trigonometry-simulation:fullscreen .trig-board-heading h3 {
-    font-size: 11px;
-  }
-
-  .trigonometry-simulation.is-fullscreen .trig-board-heading > span,
-  .trigonometry-simulation:fullscreen .trig-board-heading > span,
-  .trigonometry-simulation.is-fullscreen .trig-board-caption,
-  .trigonometry-simulation:fullscreen .trig-board-caption {
-    display: none;
-  }
-
-  /* Legenda menumpang di baris judul grafik agar tidak memakan tinggi */
-  .trigonometry-simulation.is-fullscreen .trig-legend,
-  .trigonometry-simulation:fullscreen .trig-legend {
-    position: absolute;
-    top: 6px;
-    right: 10px;
-    padding: 0;
-    gap: 12px;
-    font-size: 10px;
-  }
-
-  /* Non-layar-penuh di lanskap: tidak perlu tinggi minimum besar */
-  .trig-function-board {
-    min-height: 220px;
+@media (prefers-reduced-motion: reduce) {
+  .trigonometry-simulation * {
+    transition: none !important;
   }
 }

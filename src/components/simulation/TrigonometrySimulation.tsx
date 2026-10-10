@@ -10,6 +10,7 @@ import {
   useEffect,
   useId,
   useRef,
+  useState,
   type CSSProperties,
   type PointerEvent as ReactPointerEvent,
 } from "react";
@@ -20,8 +21,30 @@ import { GraphAppearanceControls } from "./GraphAppearanceControls";
 import { useGraphAppearance, useSimulationFullscreen } from "./simulationBoard";
 import { useStoredSimulationState } from "./useStoredSimulationState";
 
+/* Simulasi trigonometri (versi disusun ulang, mengikuti simulasi vektor).
+   Prioritas: ponsel lanskap → desktop → ponsel potret.
+   Wilayah grafik (lingkaran satuan + grafik fungsi) : wilayah input = 2 : 1.
+   - Layar kecil / layar penuh: panel kanan bertab (Sudut, Istimewa, Hasil)
+     agar semuanya muat tanpa gulir panjang.
+   - Desktop: panel sudut dan sudut istimewa bertumpuk di kanan, hasil di
+     bawah. */
+
+/* ---------- Tipe ---------- */
+
+type PanelTab = "angle" | "special" | "result";
+
+const panelTabs: { tab: PanelTab; label: string }[] = [
+  { tab: "angle", label: "Sudut" },
+  { tab: "special", label: "Istimewa" },
+  { tab: "result", label: "Hasil" },
+];
+
+/* ---------- Konstanta ---------- */
+
 const initialAngle = 45;
 const graphLimit = Math.PI * 2;
+/** Layar kecil atau pendek memakai panel bertab. */
+const TABBED_QUERY = "(max-width: 899px), (max-height: 540px)";
 const specialAngles = [
   0, 30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330,
 ];
@@ -31,6 +54,8 @@ const unitColors = {
   tangent: "#527a41",
   guide: "#71808b",
 };
+
+/* ---------- Matematika & format ---------- */
 
 function normalizeDegrees(value: number) {
   return ((Math.round(value) % 360) + 360) % 360;
@@ -55,17 +80,88 @@ function formatValue(value: number) {
   if (Math.abs(value) < 0.0005) return "0";
   return new Intl.NumberFormat("id-ID", {
     maximumFractionDigits: 3,
-  }).format(value);
+  })
+    .format(value)
+    .replace("-", "−");
 }
+
+/* ---------- Hook ---------- */
+
+function useMediaQuery(query: string) {
+  const [matches, setMatches] = useState(
+    () => typeof window !== "undefined" && window.matchMedia(query).matches,
+  );
+  useEffect(() => {
+    const media = window.matchMedia(query);
+    const onChange = () => setMatches(media.matches);
+    onChange();
+    media.addEventListener("change", onChange);
+    return () => media.removeEventListener("change", onChange);
+  }, [query]);
+  return matches;
+}
+
+/** Tombol tahan-untuk-mengulang (−/+ di samping slider). */
+function useHoldRepeat(onStep: (direction: 1 | -1) => void) {
+  const stepRef = useRef(onStep);
+  stepRef.current = onStep;
+  const timers = useRef<{ delay?: number; repeat?: number }>({});
+
+  const stop = () => {
+    window.clearTimeout(timers.current.delay);
+    window.clearInterval(timers.current.repeat);
+    timers.current = {};
+  };
+
+  useEffect(
+    () => () => {
+      window.clearTimeout(timers.current.delay);
+      window.clearInterval(timers.current.repeat);
+    },
+    [],
+  );
+
+  return (direction: 1 | -1) => ({
+    type: "button" as const,
+    className: "trig-step-button",
+    "aria-label":
+      direction === 1 ? "Tambah sudut 1 derajat" : "Kurangi sudut 1 derajat",
+    onPointerDown: (event: ReactPointerEvent<HTMLButtonElement>) => {
+      if (event.pointerType === "mouse" && event.button !== 0) return;
+      stop();
+      stepRef.current(direction);
+      timers.current.delay = window.setTimeout(() => {
+        timers.current.repeat = window.setInterval(
+          () => stepRef.current(direction),
+          45,
+        );
+      }, 400);
+    },
+    onPointerUp: stop,
+    onPointerLeave: stop,
+    onPointerCancel: stop,
+    onBlur: stop,
+    onContextMenu: (event: { preventDefault: () => void }) =>
+      event.preventDefault(),
+    // detail === 0 → aktivasi lewat keyboard (Enter/Spasi)
+    onClick: (event: { detail: number }) => {
+      if (event.detail === 0) stepRef.current(direction);
+    },
+  });
+}
+
+/* ---------- Komponen utama ---------- */
 
 export function TrigonometrySimulation() {
   const baseId = useId().replace(/:/g, "");
   const circleId = `trig-circle-${baseId}`;
   const graphId = `trig-graph-${baseId}`;
   const sliderId = `trig-angle-${baseId}`;
-  const circleTitleId = `trig-circle-title-${baseId}`;
-  const graphTitleId = `trig-graph-title-${baseId}`;
+  const numId = `trig-angle-num-${baseId}`;
   const { rootRef, isFullscreen, toggleFullscreen } = useSimulationFullscreen();
+  const [tab, setTab] = useState<PanelTab>("angle");
+  const smallScreen = useMediaQuery(TABBED_QUERY);
+  const tabbed = smallScreen || isFullscreen;
   const circleContainerRef = useRef<HTMLDivElement | null>(null);
   const graphContainerRef = useRef<HTMLDivElement | null>(null);
   const circleBoardRef = useRef<ReturnType<
@@ -84,8 +180,8 @@ export function TrigonometrySimulation() {
     initialAngle,
   );
   const angleRef = useRef(angleDegrees);
-  const specialRowRef = useRef<HTMLDivElement | null>(null);
-  const holdRef = useRef<{ delay?: number; repeat?: number }>({});
+  const [angleText, setAngleText] = useState(String(angleDegrees));
+  const angleFocused = useRef(false);
 
   const updateAngle = (value: number) => {
     const nextAngle = normalizeDegrees(value);
@@ -101,33 +197,21 @@ export function TrigonometrySimulation() {
     graphBoardRef.current?.update();
   };
 
-  const stopHold = () => {
-    window.clearTimeout(holdRef.current.delay);
-    window.clearInterval(holdRef.current.repeat);
-    holdRef.current = {};
+  const bind = useHoldRepeat((direction) =>
+    updateAngle(angleRef.current + direction),
+  );
+
+  const changeAngleText = (text: string) => {
+    setAngleText(text);
+    const cleaned = text.trim().replace("°", "");
+    if (!/^\d{1,3}$/.test(cleaned)) return;
+    updateAngle(Number(cleaned));
   };
 
-  // Tahan tombol −/+ untuk mengubah sudut terus-menerus.
-  const startHold =
-    (direction: 1 | -1) => (event: ReactPointerEvent<HTMLButtonElement>) => {
-      if (event.pointerType === "mouse" && event.button !== 0) return;
-      stopHold();
-      updateAngle(angleRef.current + direction);
-      holdRef.current.delay = window.setTimeout(() => {
-        holdRef.current.repeat = window.setInterval(
-          () => updateAngle(angleRef.current + direction),
-          45,
-        );
-      }, 400);
-    };
-
-  useEffect(
-    () => () => {
-      window.clearTimeout(holdRef.current.delay);
-      window.clearInterval(holdRef.current.repeat);
-    },
-    [],
-  );
+  // Kolom angka mengikuti sudut yang berubah dari slider atau lingkaran.
+  useEffect(() => {
+    if (!angleFocused.current) setAngleText(String(angleDegrees));
+  }, [angleDegrees]);
 
   // Di ponsel, layar penuh dikunci ke lanskap bila browser mengizinkan.
   useEffect(() => {
@@ -152,17 +236,7 @@ export function TrigonometrySimulation() {
     };
   }, [isFullscreen]);
 
-  // Jaga tombol sudut istimewa yang aktif tetap terlihat di baris yang bisa digeser.
-  useEffect(() => {
-    const row = specialRowRef.current;
-    const active = row?.querySelector<HTMLButtonElement>("button.active");
-    if (!row || !active || row.scrollWidth <= row.clientWidth) return;
-    row.scrollTo({
-      left: active.offsetLeft - (row.clientWidth - active.offsetWidth) / 2,
-      behavior: "smooth",
-    });
-  }, [angleDegrees]);
-
+  /* Papan JSXGraph */
   useEffect(() => {
     const angleRadians = () => (angleRef.current * Math.PI) / 180;
     const circleBoard = JXG.JSXGraph.initBoard(circleId, {
@@ -192,22 +266,20 @@ export function TrigonometrySimulation() {
       strokeWidth: 1.2,
       highlight: false,
     };
+    const circleTicks = {
+      ticksDistance: 1,
+      minorTicks: 0,
+      majorHeight: 7,
+      drawLabels: true,
+      label: { fontSize: 10, strokeColor: "#63727d" },
+    };
     circleBoard.create(
       "axis",
       [
         [0, 0],
         [1, 0],
       ],
-      {
-        ...axisStyle,
-        ticks: {
-          ticksDistance: 1,
-          minorTicks: 0,
-          majorHeight: 7,
-          drawLabels: true,
-          label: { fontSize: 10, strokeColor: "#63727d" },
-        },
-      },
+      { ...axisStyle, ticks: circleTicks },
     );
     circleBoard.create(
       "axis",
@@ -215,16 +287,7 @@ export function TrigonometrySimulation() {
         [0, 0],
         [0, 1],
       ],
-      {
-        ...axisStyle,
-        ticks: {
-          ticksDistance: 1,
-          minorTicks: 0,
-          majorHeight: 7,
-          drawLabels: true,
-          label: { fontSize: 10, strokeColor: "#63727d" },
-        },
-      },
+      { ...axisStyle, ticks: circleTicks },
     );
 
     const unitCircle = circleBoard.create("circle", [[0, 0], 1], {
@@ -241,7 +304,7 @@ export function TrigonometrySimulation() {
       {
         name: "",
         withLabel: false,
-        size: 8,
+        size: 6,
         fillColor: unitColors.cosine,
         strokeColor: "#ffffff",
         strokeWidth: 2,
@@ -444,6 +507,8 @@ export function TrigonometrySimulation() {
       unitColors.tangent,
     );
 
+    // Saat ukuran kontainer berubah (putar layar, layar penuh, ganti mode),
+    // papan mengikuti ukuran kontainernya.
     const observeBoard = (
       element: HTMLDivElement | null,
       board: ReturnType<typeof JXG.JSXGraph.initBoard>,
@@ -456,6 +521,7 @@ export function TrigonometrySimulation() {
             element.clientHeight,
             true,
           );
+          board.update();
         }
       });
       resizeObserver.observe(element);
@@ -476,204 +542,240 @@ export function TrigonometrySimulation() {
     };
   }, [circleId, graphId]);
 
+  /* ---------- Turunan untuk tampilan ---------- */
+
   const radians = (angleDegrees * Math.PI) / 180;
   const cosine = Math.cos(radians);
   const sine = Math.sin(radians);
   const tangentIsDefined = Math.abs(cosine) > 0.0005;
   const tangent = tangentIsDefined ? Math.tan(radians) : null;
+  const caption = `θ = ${angleDegrees}° (${radiansLabel(angleDegrees)})`;
+  const coordTag = `(cos θ; sin θ) = (${formatValue(cosine)}; ${formatValue(sine)})`;
 
+  // Isi dari kiri (0°) menuju sudut terpilih.
   const sliderStyle = {
     "--trig-fill": `${(angleDegrees / 359) * 100}%`,
   } as CSSProperties;
 
-  const stepButtonProps = (direction: 1 | -1) => ({
-    type: "button" as const,
-    className: "trig-step-button",
-    "aria-label":
-      direction === 1 ? "Tambah sudut 1 derajat" : "Kurangi sudut 1 derajat",
-    onPointerDown: startHold(direction),
-    onPointerUp: stopHold,
-    onPointerLeave: stopHold,
-    onPointerCancel: stopHold,
-    onBlur: stopHold,
-    onContextMenu: (event: { preventDefault: () => void }) =>
-      event.preventDefault(),
-    // detail === 0 → aktivasi lewat keyboard (Enter/Spasi)
-    onClick: (event: { detail: number }) => {
-      if (event.detail === 0) updateAngle(angleRef.current + direction);
-    },
-  });
-
   return (
     <div
-      className={`trigonometry-simulation simulation-fullscreen-frame${isFullscreen ? " is-fullscreen" : ""}`}
       ref={rootRef}
+      className={`trigonometry-simulation simulation-fullscreen-frame${
+        tabbed ? " is-tabbed" : ""
+      }${isFullscreen ? " is-fullscreen" : ""}`}
     >
-      <div className="trig-toolbar">
-        <GraphAppearanceControls appearance={appearance} onStep={onStep} />
-        <button
-          className="trig-fullscreen-button"
-          type="button"
-          onClick={toggleFullscreen}
-          aria-pressed={isFullscreen}
-        >
-          {isFullscreen ? (
-            <>
-              <Minimize2 size={16} aria-hidden="true" />
-              <span>Keluar layar penuh</span>
-            </>
-          ) : (
-            <>
-              <Maximize2 size={16} aria-hidden="true" />
-              <span>Layar penuh</span>
-            </>
-          )}
-        </button>
-      </div>
-
       <p className="trig-orientation-hint">
-        <Smartphone size={16} aria-hidden="true" />
+        <Smartphone size={14} aria-hidden="true" />
         <span>
-          Di ponsel, tekan <strong>Layar penuh</strong> lalu miringkan ke mode
-          lanskap agar lingkaran dan grafik tampil berdampingan.
+          Miringkan ponsel ke mode lanskap agar lingkaran, grafik, dan panel
+          isian tampil berdampingan.
         </span>
       </p>
 
-      <div className="trig-boards">
-        <section className="trig-board-panel" aria-labelledby={circleTitleId}>
-          <div className="trig-board-heading">
-            <h3 id={circleTitleId}>Lingkaran satuan</h3>
-            <span>r = 1</span>
-          </div>
-          <div
-            className="trig-board trig-circle-board"
-            id={circleId}
-            ref={circleContainerRef}
-            aria-label="Lingkaran satuan interaktif. Seret titik pada keliling untuk mengubah sudut."
-          />
-          <p className="trig-board-caption">
-            Koordinat titik <strong>(cos θ, sin θ)</strong>
-          </p>
-        </section>
-
-        <section className="trig-board-panel" aria-labelledby={graphTitleId}>
-          <div className="trig-board-heading">
-            <h3 id={graphTitleId}>Grafik fungsi trigonometri</h3>
-            <span>Seret untuk menggeser · −2π sampai 2π</span>
-          </div>
-          <div
-            className="trig-board trig-function-board"
-            id={graphId}
-            ref={graphContainerRef}
-            aria-label="Grafik sinus, kosinus, dan tangen. Garis putus-putus menunjukkan sudut terpilih."
-          />
-          <div className="trig-legend" aria-label="Legenda grafik">
-            <span>
-              <i className="legend-sine" /> sin θ
-            </span>
-            <span>
-              <i className="legend-cosine" /> cos θ
-            </span>
-            <span>
-              <i className="legend-tangent" /> tan θ
-            </span>
-          </div>
-        </section>
-      </div>
-
-      <div className="trig-dock">
-        <div className="trig-controls">
-          <div className="trig-angle-control">
-            <div className="trig-angle-head">
-              <label htmlFor={sliderId}>Sudut θ</label>
-              <output htmlFor={sliderId} aria-live="polite">
-                {angleDegrees}° <span>({radiansLabel(angleDegrees)})</span>
-              </output>
-              <button
-                className="trig-reset-button"
-                type="button"
-                onClick={() => updateAngle(initialAngle)}
-                title="Kembalikan sudut ke 45 derajat"
-                aria-label="Atur ulang sudut ke 45 derajat"
-              >
-                <RotateCcw size={15} aria-hidden="true" />
-                <span>Atur ulang</span>
-              </button>
-            </div>
-
-            <div className="trig-slider-row">
-              <button {...stepButtonProps(-1)}>
-                <Minus size={18} aria-hidden="true" />
-              </button>
-              <input
-                id={sliderId}
-                className="trig-angle-slider"
-                type="range"
-                min="0"
-                max="359"
-                step="1"
-                value={angleDegrees}
-                style={sliderStyle}
-                aria-valuetext={`${angleDegrees} derajat`}
-                onChange={(event) =>
-                  updateAngle(Number(event.currentTarget.value))
-                }
+      <div className="trig-main">
+        {/* ───── Wilayah grafik (2 bagian): lingkaran + grafik fungsi ───── */}
+        <section
+          className="trig-board-panel trig-circle-panel"
+          aria-label="Lingkaran satuan"
+        >
+          <div className="trig-stage">
+            <div className="trig-board-cell">
+              <div
+                className="trig-board trig-circle-board"
+                id={circleId}
+                ref={circleContainerRef}
+                aria-label="Lingkaran satuan interaktif. Seret titik pada keliling untuk mengubah sudut."
               />
-              <button {...stepButtonProps(1)}>
-                <Plus size={18} aria-hidden="true" />
+              <p className="trig-caption" aria-live="polite">
+                {caption}
+              </p>
+              <p className="trig-tag">{coordTag}</p>
+            </div>
+            <div className="trig-view-tools" role="group" aria-label="Tampilan">
+              <button
+                type="button"
+                onClick={toggleFullscreen}
+                aria-pressed={isFullscreen}
+                aria-label={isFullscreen ? "Keluar layar penuh" : "Layar penuh"}
+                title={isFullscreen ? "Keluar layar penuh" : "Layar penuh"}
+              >
+                {isFullscreen ? (
+                  <Minimize2 size={15} aria-hidden="true" />
+                ) : (
+                  <Maximize2 size={15} aria-hidden="true" />
+                )}
               </button>
-              <div className="trig-range-labels" aria-hidden="true">
-                <span>0°</span>
-                <span>90°</span>
-                <span>180°</span>
-                <span>270°</span>
-                <span>360°</span>
-              </div>
             </div>
           </div>
+        </section>
 
-          <div
-            className="trig-special-angles"
-            role="group"
-            aria-label="Sudut istimewa"
-          >
-            <span>Sudut istimewa</span>
-            <div className="trig-special-angle-buttons" ref={specialRowRef}>
-              {specialAngles.map((angle) => (
+        {/* ───── Kolom kanan (2 bagian): input di atas, grafik di bawah (1 : 2) ───── */}
+        <div className="trig-right">
+          <div className="trig-column" data-tab={tab}>
+            <div className="trig-tabs" role="group" aria-label="Bagian panel">
+              {panelTabs.map((item) => (
                 <button
-                  key={angle}
+                  key={item.tab}
                   type="button"
-                  className={angleDegrees === angle ? "active" : ""}
-                  aria-pressed={angleDegrees === angle}
-                  onClick={() => updateAngle(angle)}
+                  aria-pressed={tab === item.tab}
+                  onClick={() => setTab(item.tab)}
                 >
-                  {angle}°
+                  {item.label}
                 </button>
               ))}
             </div>
-          </div>
-        </div>
 
-        <dl className="trig-readouts" aria-live="polite">
-          <div className="readout-angle">
-            <dt>Sudut</dt>
-            <dd>{angleDegrees}°</dd>
+            <section className="trig-side" aria-label="Pengaturan sudut">
+              <div className="trig-panel" data-pane="angle">
+                <h3>Sudut θ</h3>
+                <div className="trig-angle-row">
+                  <label htmlFor={sliderId}>
+                    θ<small>derajat</small>
+                  </label>
+                  <button {...bind(-1)}>
+                    <Minus size={13} aria-hidden="true" />
+                  </button>
+                  <input
+                    id={sliderId}
+                    className="trig-angle-slider"
+                    type="range"
+                    min="0"
+                    max="359"
+                    step="1"
+                    value={angleDegrees}
+                    style={sliderStyle}
+                    aria-valuetext={`${angleDegrees} derajat`}
+                    onChange={(event) =>
+                      updateAngle(Number(event.currentTarget.value))
+                    }
+                  />
+                  <button {...bind(1)}>
+                    <Plus size={13} aria-hidden="true" />
+                  </button>
+                  <input
+                    id={numId}
+                    className="trig-num"
+                    type="text"
+                    inputMode="numeric"
+                    autoComplete="off"
+                    enterKeyHint="done"
+                    aria-label="Sudut dalam derajat"
+                    value={angleText}
+                    onChange={(event) =>
+                      changeAngleText(event.currentTarget.value)
+                    }
+                    onFocus={(event) => {
+                      angleFocused.current = true;
+                      event.currentTarget.select();
+                    }}
+                    onBlur={() => {
+                      angleFocused.current = false;
+                      setAngleText(String(angleDegrees));
+                    }}
+                  />
+                </div>
+                <p className="trig-angle-note">
+                  {angleDegrees}° = {radiansLabel(angleDegrees)} radian
+                </p>
+                <p className="trig-hint">
+                  Seret titik pada lingkaran, geser slider, atau ketik sudutnya
+                  (0–359).
+                </p>
+              </div>
+
+              <div className="trig-panel" data-pane="special">
+                <h3>Sudut istimewa</h3>
+                <div
+                  className="trig-special-angle-buttons"
+                  role="group"
+                  aria-label="Sudut istimewa"
+                >
+                  {specialAngles.map((angle) => (
+                    <button
+                      key={angle}
+                      type="button"
+                      className={angleDegrees === angle ? "active" : ""}
+                      aria-pressed={angleDegrees === angle}
+                      onClick={() => updateAngle(angle)}
+                    >
+                      {angle}°
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="trig-reset-row" data-pane="angle">
+                <button
+                  type="button"
+                  className="trig-reset-button"
+                  onClick={() => updateAngle(initialAngle)}
+                  title="Kembalikan sudut ke 45 derajat"
+                >
+                  <RotateCcw size={14} aria-hidden="true" />
+                  <span>Atur ulang</span>
+                </button>
+                <GraphAppearanceControls
+                  appearance={appearance}
+                  onStep={onStep}
+                />
+              </div>
+            </section>
+
+            <div className="trig-results" data-pane="result">
+              <dl className="trig-readouts" aria-live="polite">
+                <div className="readout-angle">
+                  <dt>Sudut</dt>
+                  <dd>
+                    {angleDegrees}° <span>({radiansLabel(angleDegrees)})</span>
+                  </dd>
+                </div>
+                <div className="readout-sine">
+                  <dt>sin θ</dt>
+                  <dd>{formatValue(sine)}</dd>
+                </div>
+                <div className="readout-cosine">
+                  <dt>cos θ</dt>
+                  <dd>{formatValue(cosine)}</dd>
+                </div>
+                <div className="readout-tangent">
+                  <dt>tan θ</dt>
+                  <dd>
+                    {tangent === null
+                      ? "Tidak terdefinisi"
+                      : formatValue(tangent)}
+                  </dd>
+                </div>
+              </dl>
+            </div>
           </div>
-          <div className="readout-sine">
-            <dt>sin θ</dt>
-            <dd>{formatValue(sine)}</dd>
-          </div>
-          <div className="readout-cosine">
-            <dt>cos θ</dt>
-            <dd>{formatValue(cosine)}</dd>
-          </div>
-          <div className="readout-tangent">
-            <dt>tan θ</dt>
-            <dd>
-              {tangent === null ? "Tidak terdefinisi" : formatValue(tangent)}
-            </dd>
-          </div>
-        </dl>
+
+          <section
+            className="trig-board-panel trig-graph-panel"
+            aria-label="Grafik fungsi trigonometri"
+          >
+            <div className="trig-stage">
+              <div className="trig-board-cell">
+                <div
+                  className="trig-board trig-function-board"
+                  id={graphId}
+                  ref={graphContainerRef}
+                  aria-label="Grafik sinus, kosinus, dan tangen dari −2π sampai 2π. Seret untuk menggeser. Garis putus-putus menunjukkan sudut terpilih."
+                />
+              </div>
+            </div>
+            <div className="trig-legend" aria-label="Legenda grafik">
+              <span>
+                <i className="legend-sine" /> sin θ
+              </span>
+              <span>
+                <i className="legend-cosine" /> cos θ
+              </span>
+              <span>
+                <i className="legend-tangent" /> tan θ
+              </span>
+            </div>
+          </section>
+        </div>
       </div>
 
       <p className="trig-explanation">
