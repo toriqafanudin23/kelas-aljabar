@@ -12,6 +12,7 @@ import {
   useId,
   useRef,
   useState,
+  type CSSProperties,
   type PointerEvent as ReactPointerEvent,
 } from "react";
 import JXG from "jsxgraph";
@@ -20,6 +21,13 @@ import "./VectorSimulation.css";
 import { GraphAppearanceControls } from "./GraphAppearanceControls";
 import { useGraphAppearance } from "./simulationBoard";
 import { useStoredSimulationState } from "./useStoredSimulationState";
+
+/* Simulasi vektor (versi disusun ulang).
+   Prioritas: ponsel lanskap → desktop → ponsel potret.
+   Wilayah grafik : wilayah input = 2 : 1.
+   - Layar kecil / layar penuh: panel kanan bertab (Vektor, Contoh,
+     Tampilan, Hasil) agar semuanya muat tanpa gulir panjang.
+   - Desktop: tiga panel input bertumpuk di kanan, hasil di bawah. */
 
 /* ---------- Tipe ---------- */
 
@@ -48,6 +56,8 @@ const EPS = 1e-9;
 const LIMIT = 9.5;
 const ARC_STEPS = 48;
 const INITIAL_BOX: [number, number, number, number] = [-10, 10, 10, -10];
+/** Layar kecil atau pendek memakai panel bertab. */
+const TABBED_QUERY = "(max-width: 899px), (max-height: 540px)";
 
 const colors = {
   a: "#087f8c",
@@ -157,9 +167,23 @@ function parseField(text: string): number | null {
     : null;
 }
 
-/* ---------- Komponen kecil ---------- */
+/* ---------- Hook & komponen kecil ---------- */
 
-/** Tombol tahan-untuk-mengulang (−/+ pada kolom angka). */
+function useMediaQuery(query: string) {
+  const [matches, setMatches] = useState(
+    () => typeof window !== "undefined" && window.matchMedia(query).matches,
+  );
+  useEffect(() => {
+    const media = window.matchMedia(query);
+    const onChange = () => setMatches(media.matches);
+    onChange();
+    media.addEventListener("change", onChange);
+    return () => media.removeEventListener("change", onChange);
+  }, [query]);
+  return matches;
+}
+
+/** Tombol tahan-untuk-mengulang (−/+ di samping slider). */
 function useHoldRepeat(onStep: (direction: 1 | -1) => void) {
   const stepRef = useRef(onStep);
   stepRef.current = onStep;
@@ -206,40 +230,74 @@ function useHoldRepeat(onStep: (direction: 1 | -1) => void) {
   });
 }
 
-function Field({
+/** Satu baris komponen: a₁  −  ──●──  +  [ 5 ] */
+function SliderField({
   label,
+  axis,
+  tone,
   value,
-  onChange,
+  text,
+  snap,
+  onText,
+  onSlide,
   onNudge,
 }: {
   label: string;
-  value: string;
-  onChange: (value: string) => void;
+  axis: string;
+  tone: "a" | "b";
+  value: number;
+  text: string;
+  snap: boolean;
+  onText: (value: string) => void;
+  onSlide: (value: number) => void;
   onNudge: (direction: 1 | -1) => void;
 }) {
   const inputId = `vs-field-${useId().replace(/:/g, "")}`;
   const bind = useHoldRepeat(onNudge);
+
+  // Isi dari titik 0 (tengah) menuju nilai, karena komponen bisa negatif.
+  const clamped = Math.min(LIMIT, Math.max(-LIMIT, value));
+  const pct = ((clamped + LIMIT) / (2 * LIMIT)) * 100;
+  const rangeStyle = {
+    "--lo": `${Math.min(50, pct)}%`,
+    "--hi": `${Math.max(50, pct)}%`,
+  } as CSSProperties;
+
   return (
-    <div className="vs-field">
-      <label htmlFor={inputId}>{label}</label>
-      <div className="vs-field-control">
-        <button {...bind(-1)} aria-label={`Kurangi ${label} 1`}>
-          <Minus size={16} aria-hidden="true" />
-        </button>
-        <input
-          id={inputId}
-          type="text"
-          inputMode="decimal"
-          autoComplete="off"
-          enterKeyHint="done"
-          value={value}
-          onChange={(event) => onChange(event.currentTarget.value)}
-          onFocus={(event) => event.currentTarget.select()}
-        />
-        <button {...bind(1)} aria-label={`Tambah ${label} 1`}>
-          <Plus size={16} aria-hidden="true" />
-        </button>
-      </div>
+    <div className={`vs-row vs-row-${tone}`}>
+      <label htmlFor={inputId} aria-label={`${label} (${axis})`}>
+        {label}
+        <small>{axis}</small>
+      </label>
+      <button {...bind(-1)} aria-label={`Kurangi ${label} 1`}>
+        <Minus size={13} aria-hidden="true" />
+      </button>
+      <input
+        className="vs-range"
+        type="range"
+        min={-LIMIT}
+        max={LIMIT}
+        step={snap ? 0.5 : 0.1}
+        value={clamped}
+        style={rangeStyle}
+        aria-label={`Penggeser ${label}`}
+        aria-valuetext={`${label} sama dengan ${formatValue(value)}`}
+        onChange={(event) => onSlide(Number(event.currentTarget.value))}
+      />
+      <button {...bind(1)} aria-label={`Tambah ${label} 1`}>
+        <Plus size={13} aria-hidden="true" />
+      </button>
+      <input
+        id={inputId}
+        className="vs-num"
+        type="text"
+        inputMode="decimal"
+        autoComplete="off"
+        enterKeyHint="done"
+        value={text}
+        onChange={(event) => onText(event.currentTarget.value)}
+        onFocus={(event) => event.currentTarget.select()}
+      />
     </div>
   );
 }
@@ -249,7 +307,6 @@ function Field({
 export function VectorSimulation() {
   const baseId = useId().replace(/:/g, "");
   const boardId = `vs-board-${baseId}`;
-  const boardTitleId = `vs-board-title-${baseId}`;
   const calcTitleId = `vs-calc-title-${baseId}`;
   const tableTitleId = `vs-table-title-${baseId}`;
   const [tab, setTab] = useState<PanelTab>("vector");
@@ -257,6 +314,8 @@ export function VectorSimulation() {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const nativeFullscreenRef = useRef(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const smallScreen = useMediaQuery(TABBED_QUERY);
+  const tabbed = smallScreen || isFullscreen;
   const boardRef = useRef<ReturnType<typeof JXG.JSXGraph.initBoard> | null>(
     null,
   );
@@ -346,7 +405,7 @@ export function VectorSimulation() {
     };
   }, []);
 
-  // Di ponsel, layar penuh dikunci ke lanskap bila browser mengizinkan.
+  // Di layar sentuh, layar penuh dikunci ke lanskap bila browser mengizinkan.
   useEffect(() => {
     if (!isFullscreen) return;
     if (!window.matchMedia("(pointer: coarse)").matches) return;
@@ -468,9 +527,9 @@ export function VectorSimulation() {
     };
     const ticks = {
       insertTicks: true,
-      minTicksDistance: 36,
+      minTicksDistance: 32,
       minorTicks: 1,
-      majorHeight: 7,
+      majorHeight: 6,
       drawLabels: true,
       label: { fontSize: 9, strokeColor: "#63727d" },
     };
@@ -497,7 +556,7 @@ export function VectorSimulation() {
       board.create("point", [at[0], at[1]], {
         name,
         withLabel: true,
-        size: 3,
+        size: 4,
         fillColor: color,
         strokeColor: "#ffffff",
         strokeWidth: 2,
@@ -762,8 +821,8 @@ export function VectorSimulation() {
 
     board.update();
 
-    // Saat ukuran kontainer berubah (mis. layar penuh), pertahankan skala
-    // dan titik tengah tampilan agar grafik tidak melompat.
+    // Saat ukuran kontainer berubah (putar layar, layar penuh, ganti mode),
+    // pertahankan skala dan titik tengah tampilan agar grafik tidak melompat.
     let last = {
       w: containerRef.current?.clientWidth ?? 0,
       h: containerRef.current?.clientHeight ?? 0,
@@ -778,18 +837,16 @@ export function VectorSimulation() {
       const bb = board.getBoundingBox();
       const spanX = bb[2] - bb[0];
       const spanY = bb[1] - bb[3];
+      board.resizeContainer(w, h, true, true);
       if (last.w > 0 && last.h > 0 && spanX > 0 && spanY > 0) {
         const ux = last.w / spanX;
         const uy = last.h / spanY;
         const cx = (bb[0] + bb[2]) / 2;
         const cy = (bb[1] + bb[3]) / 2;
-        board.resizeContainer(w, h, true, true);
         board.setBoundingBox(
           [cx - w / 2 / ux, cy + h / 2 / uy, cx + w / 2 / ux, cy - h / 2 / uy],
           true,
         );
-      } else {
-        board.resizeContainer(w, h, true);
       }
       last = { w, h };
       board.update();
@@ -836,55 +893,66 @@ export function VectorSimulation() {
     },
   ];
 
+  const fieldRows: {
+    key: FieldKey;
+    label: string;
+    axis: string;
+    tone: "a" | "b";
+    value: number;
+  }[] = [
+    { key: "a1", label: "a₁", axis: "x", tone: "a", value: vecA[0] },
+    { key: "a2", label: "a₂", axis: "y", tone: "a", value: vecA[1] },
+    { key: "b1", label: "b₁", axis: "x", tone: "b", value: vecB[0] },
+    { key: "b2", label: "b₂", axis: "y", tone: "b", value: vecB[1] },
+  ];
+
   return (
     <div
       ref={rootRef}
-      className={`vector-simulation simulation-fullscreen-frame${isFullscreen ? " is-fullscreen" : ""}`}
+      className={`vector-simulation simulation-fullscreen-frame${
+        tabbed ? " is-tabbed" : ""
+      }${isFullscreen ? " is-fullscreen" : ""}`}
     >
       <p className="vs-orientation-hint">
-        <Smartphone size={16} aria-hidden="true" />
+        <Smartphone size={14} aria-hidden="true" />
         <span>
-          Di ponsel, tekan <strong>Layar penuh</strong> lalu miringkan ke mode
-          lanskap agar bidang koordinat dan panel isian tampil berdampingan.
+          Miringkan ponsel ke mode lanskap agar bidang koordinat dan panel isian
+          tampil berdampingan.
         </span>
       </p>
 
       <div className="vs-main">
-        <section className="vs-board-panel" aria-labelledby={boardTitleId}>
-          <div className="vs-board-heading">
-            <h3 id={boardTitleId}>Bidang koordinat</h3>
-            <button
-              type="button"
-              className="vs-fullscreen-button"
-              onClick={toggleFullscreen}
-              aria-pressed={isFullscreen}
-              aria-label={isFullscreen ? "Keluar layar penuh" : "Layar penuh"}
-            >
-              {isFullscreen ? (
-                <Minimize2 size={16} aria-hidden="true" />
-              ) : (
-                <Maximize2 size={16} aria-hidden="true" />
-              )}
-              <span>{isFullscreen ? "Keluar layar penuh" : "Layar penuh"}</span>
-            </button>
-            <span className="vs-board-hint">
-              Seret ujung vektor a atau b · seret area kosong untuk menggeser ·
-              cubit atau gulir untuk zoom
-            </span>
-          </div>
-          <div className="vs-board-wrap">
+        {/* ───── Wilayah grafik (2 bagian) ───── */}
+        <section className="vs-board-panel" aria-label="Bidang koordinat">
+          <div className="vs-stage">
             <div
               className="vs-board"
               id={boardId}
               ref={containerRef}
               aria-label="Bidang koordinat interaktif. Seret ujung vektor a (biru kehijauan) atau vektor b (oranye) untuk mengubah posisinya. Seret area kosong untuk menggeser bidang, gulir atau cubit untuk memperbesar atau memperkecil."
             />
+            <p className="vs-caption" aria-live="polite">
+              {caption}
+            </p>
             <div className="vs-view-tools" role="group" aria-label="Tampilan">
+              <button
+                type="button"
+                onClick={toggleFullscreen}
+                aria-pressed={isFullscreen}
+                aria-label={isFullscreen ? "Keluar layar penuh" : "Layar penuh"}
+                title={isFullscreen ? "Keluar layar penuh" : "Layar penuh"}
+              >
+                {isFullscreen ? (
+                  <Minimize2 size={15} aria-hidden="true" />
+                ) : (
+                  <Maximize2 size={15} aria-hidden="true" />
+                )}
+              </button>
               <button type="button" onClick={zoomIn} aria-label="Perbesar">
-                <Plus size={18} aria-hidden="true" />
+                <Plus size={16} aria-hidden="true" />
               </button>
               <button type="button" onClick={zoomOut} aria-label="Perkecil">
-                <Minus size={18} aria-hidden="true" />
+                <Minus size={16} aria-hidden="true" />
               </button>
               <button
                 type="button"
@@ -892,7 +960,7 @@ export function VectorSimulation() {
                 aria-label="Pusatkan tampilan"
                 title="Pusatkan tampilan"
               >
-                <Crosshair size={17} aria-hidden="true" />
+                <Crosshair size={15} aria-hidden="true" />
               </button>
             </div>
           </div>
@@ -910,11 +978,9 @@ export function VectorSimulation() {
               <i className="legend-proj" /> proyeksi
             </span>
           </div>
-          <p className="vs-caption" aria-live="polite">
-            {caption}
-          </p>
         </section>
 
+        {/* ───── Wilayah input (1 bagian) ───── */}
         <div className="vs-column" data-tab={tab}>
           <div className="vs-tabs" role="group" aria-label="Bagian panel">
             {panelTabs.map((item) => (
@@ -928,38 +994,25 @@ export function VectorSimulation() {
               </button>
             ))}
           </div>
+
           <section className="vs-side" aria-label="Pengaturan vektor">
             <div className="vs-panel" data-pane="vector">
               <h3>Komponen vektor</h3>
-              <div className="vs-vector-row">
-                <strong className="vs-name vs-name-a">a</strong>
-                <Field
-                  label="a₁ (x)"
-                  value={fields.a1}
-                  onChange={(v) => changeField("a1", v)}
-                  onNudge={(d) => nudgeField("a1", d)}
-                />
-                <Field
-                  label="a₂ (y)"
-                  value={fields.a2}
-                  onChange={(v) => changeField("a2", v)}
-                  onNudge={(d) => nudgeField("a2", d)}
-                />
-              </div>
-              <div className="vs-vector-row">
-                <strong className="vs-name vs-name-b">b</strong>
-                <Field
-                  label="b₁ (x)"
-                  value={fields.b1}
-                  onChange={(v) => changeField("b1", v)}
-                  onNudge={(d) => nudgeField("b1", d)}
-                />
-                <Field
-                  label="b₂ (y)"
-                  value={fields.b2}
-                  onChange={(v) => changeField("b2", v)}
-                  onNudge={(d) => nudgeField("b2", d)}
-                />
+              <div className="vs-rows">
+                {fieldRows.map((row) => (
+                  <SliderField
+                    key={row.key}
+                    label={row.label}
+                    axis={row.axis}
+                    tone={row.tone}
+                    value={row.value}
+                    text={fields[row.key]}
+                    snap={snap}
+                    onText={(v) => changeField(row.key, v)}
+                    onSlide={(v) => changeField(row.key, toField(v))}
+                    onNudge={(d) => nudgeField(row.key, d)}
+                  />
+                ))}
               </div>
               <label className="vs-check">
                 <input
@@ -967,11 +1020,12 @@ export function VectorSimulation() {
                   checked={snap}
                   onChange={(event) => setSnap(event.currentTarget.checked)}
                 />
-                Tempel ke titik bilangan bulat saat menyeret
+                Tempel ke bilangan bulat saat menyeret
               </label>
               <p className="vs-hint">
-                Nilai komponen dibatasi antara −{formatValue(LIMIT)} dan{" "}
-                {formatValue(LIMIT)} agar vektor tetap terlihat.
+                Seret ujung vektor di grafik, atau ubah komponennya di sini.
+                Nilai dibatasi antara −{formatValue(LIMIT)} dan{" "}
+                {formatValue(LIMIT)}.
               </p>
             </div>
 
@@ -1039,7 +1093,7 @@ export function VectorSimulation() {
                 className="vs-reset-button"
                 onClick={resetAll}
               >
-                <RotateCcw size={15} aria-hidden="true" />
+                <RotateCcw size={14} aria-hidden="true" />
                 <span>Atur ulang semua</span>
               </button>
               <GraphAppearanceControls

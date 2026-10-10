@@ -18,8 +18,11 @@ import {
 import JXG from "jsxgraph";
 import "../../../node_modules/jsxgraph/distrib/jsxgraph.css";
 import "./QuadraticSimulation.css";
-import { GraphAppearanceControls } from "./GraphAppearanceControls";
 import { useStoredSimulationState } from "./useStoredSimulationState";
+
+/* Simulasi fungsi kuadrat v2.
+   Prioritas: ponsel lanskap → desktop → ponsel potret.
+   Wilayah grafik : wilayah input = 2 : 1. */
 
 type Params = { a: number; b: number; c: number };
 type Style = { curveWidth: number; pointSize: number };
@@ -31,9 +34,9 @@ const CURVE_WIDTH_RANGE = [1, 8] as const;
 const POINT_SIZE_RANGE = [2, 10] as const;
 
 const sliderConfig = [
-  { key: "a", min: -5, max: 5, hint: "Arah & kelebaran parabola" },
-  { key: "b", min: -10, max: 10, hint: "Menggeser sumbu simetri" },
-  { key: "c", min: -10, max: 10, hint: "Titik potong sumbu y" },
+  { key: "a", min: -5, max: 5, hint: "arah & kelebaran" },
+  { key: "b", min: -10, max: 10, hint: "geser sumbu simetri" },
+  { key: "c", min: -10, max: 10, hint: "potong sumbu y" },
 ] as const;
 
 const colors = {
@@ -55,9 +58,9 @@ function clamp(value: number, [min, max]: readonly [number, number]) {
 
 function formatValue(value: number) {
   if (Math.abs(value) < 0.0005) return "0";
-  return new Intl.NumberFormat("id-ID", {
-    maximumFractionDigits: 2,
-  }).format(value);
+  return new Intl.NumberFormat("id-ID", { maximumFractionDigits: 2 }).format(
+    value,
+  );
 }
 
 function equationLabel({ a, b, c }: Params) {
@@ -79,8 +82,7 @@ type Board = ReturnType<typeof JXG.JSXGraph.initBoard>;
 
 export function QuadraticSimulation() {
   const baseId = useId().replace(/:/g, "");
-  const boardId = `quad-board-${baseId}`;
-  const titleId = `quad-title-${baseId}`;
+  const boardId = `qs2-board-${baseId}`;
   const rootRef = useRef<HTMLDivElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const boardRef = useRef<Board | null>(null);
@@ -102,6 +104,8 @@ export function QuadraticSimulation() {
   const paramsRef = useRef<Params>(params);
   const styleRef = useRef<Style>(style);
   styleRef.current = style;
+
+  /* ───────── Parameter a, b, c ───────── */
 
   const updateParam = (key: keyof Params, value: number) => {
     const next = { ...paramsRef.current, [key]: round1(value) };
@@ -140,13 +144,7 @@ export function QuadraticSimulation() {
       }, 400);
     };
 
-  useEffect(
-    () => () => {
-      window.clearTimeout(holdRef.current.delay);
-      window.clearInterval(holdRef.current.repeat);
-    },
-    [],
-  );
+  useEffect(() => stopHold, []);
 
   const reset = () => {
     paramsRef.current = initialParams;
@@ -159,9 +157,13 @@ export function QuadraticSimulation() {
     setStyle({ ...style, [key]: clamp(style[key] + delta, range) });
   };
 
+  /* ───────── Tampilan grafik ───────── */
+
   const resetView = () => boardRef.current?.setBoundingBox(initialBox, true);
   const zoomIn = () => boardRef.current?.zoomIn();
   const zoomOut = () => boardRef.current?.zoomOut();
+
+  /* ───────── Layar penuh ───────── */
 
   const toggleFullscreen = async () => {
     const el = rootRef.current;
@@ -173,7 +175,7 @@ export function QuadraticSimulation() {
           await el.requestFullscreen();
           nativeFullscreenRef.current = true;
         } catch {
-          // Gagal masuk fullscreen asli: tetap pakai mode layar penuh CSS.
+          // Tetap memakai mode layar penuh CSS.
         }
       }
     } else {
@@ -189,7 +191,7 @@ export function QuadraticSimulation() {
     }
   };
 
-  // Di ponsel, layar penuh dikunci ke lanskap bila browser mengizinkan.
+  // Di layar sentuh, layar penuh dikunci ke lanskap bila browser mengizinkan.
   useEffect(() => {
     if (!isFullscreen) return;
     if (!window.matchMedia("(pointer: coarse)").matches) return;
@@ -212,7 +214,6 @@ export function QuadraticSimulation() {
     };
   }, [isFullscreen]);
 
-  // Sinkron saat keluar fullscreen lewat tombol Esc browser.
   useEffect(() => {
     const onChange = () => {
       if (!document.fullscreenElement && nativeFullscreenRef.current) {
@@ -224,7 +225,7 @@ export function QuadraticSimulation() {
       if (
         event.key === "Escape" &&
         !document.fullscreenElement &&
-        nativeFullscreenRef.current === false
+        !nativeFullscreenRef.current
       ) {
         setIsFullscreen(false);
       }
@@ -236,6 +237,8 @@ export function QuadraticSimulation() {
       document.removeEventListener("keydown", onKey);
     };
   }, []);
+
+  /* ───────── Papan JSXGraph ───────── */
 
   useEffect(() => {
     const p = () => paramsRef.current;
@@ -254,7 +257,6 @@ export function QuadraticSimulation() {
       showCopyright: false,
       showNavigation: false,
       keepAspectRatio: true,
-      // Geser dengan tahan klik kiri (atau satu jari), zoom dengan scroll/pinch.
       pan: { enabled: true, needShift: false, needTwoFingers: false },
       zoom: {
         wheel: true,
@@ -267,7 +269,6 @@ export function QuadraticSimulation() {
     });
     boardRef.current = board;
 
-    // Grid ikut bergeser dan zoom bersama grafik.
     board.create("grid", [], {
       strokeColor: "#486567",
       strokeOpacity: 0.14,
@@ -282,9 +283,9 @@ export function QuadraticSimulation() {
     };
     const ticks = {
       insertTicks: true,
-      minTicksDistance: 36,
+      minTicksDistance: 32,
       minorTicks: 1,
-      majorHeight: 7,
+      majorHeight: 6,
       drawLabels: true,
       label: { fontSize: 9, strokeColor: "#63727d" },
     };
@@ -305,7 +306,7 @@ export function QuadraticSimulation() {
       { ...axisStyle, ticks },
     );
 
-    // Kurva pembanding y = x² (tanpa batas domain, mengikuti area yang terlihat)
+    // Pembanding y = x²
     board.create("functiongraph", [(x: number) => x * x], {
       strokeColor: "#9aa8b0",
       strokeWidth: 1.5,
@@ -313,7 +314,7 @@ export function QuadraticSimulation() {
       highlight: false,
     });
 
-    // Sumbu simetri: garis vertikal tak berhingga
+    // Sumbu simetri
     board.create(
       "line",
       [
@@ -375,8 +376,8 @@ export function QuadraticSimulation() {
       1,
     );
 
-    // Saat ukuran kontainer berubah (mis. layar penuh), pertahankan skala
-    // dan titik tengah tampilan agar grafik tidak melompat.
+    // Saat ukuran kontainer berubah (putar layar, layar penuh), pertahankan
+    // skala dan titik tengah agar grafik tidak melompat.
     let last = {
       w: containerRef.current?.clientWidth ?? 0,
       h: containerRef.current?.clientHeight ?? 0,
@@ -391,18 +392,16 @@ export function QuadraticSimulation() {
       const bb = board.getBoundingBox();
       const spanX = bb[2] - bb[0];
       const spanY = bb[1] - bb[3];
+      board.resizeContainer(w, h, true, true);
       if (last.w > 0 && last.h > 0 && spanX > 0 && spanY > 0) {
         const ux = last.w / spanX;
         const uy = last.h / spanY;
         const cx = (bb[0] + bb[2]) / 2;
         const cy = (bb[1] + bb[3]) / 2;
-        board.resizeContainer(w, h, true, true);
         board.setBoundingBox(
           [cx - w / 2 / ux, cy + h / 2 / uy, cx + w / 2 / ux, cy - h / 2 / uy],
           true,
         );
-      } else {
-        board.resizeContainer(w, h, true);
       }
       last = { w, h };
       board.update();
@@ -418,7 +417,7 @@ export function QuadraticSimulation() {
     };
   }, [boardId]);
 
-  // Terapkan ketebalan grafik dan ukuran titik.
+  // Ketebalan kurva dan ukuran titik.
   useEffect(() => {
     curveRef.current?.setAttribute({
       strokeWidth: clamp(style.curveWidth, CURVE_WIDTH_RANGE),
@@ -431,6 +430,8 @@ export function QuadraticSimulation() {
     boardRef.current?.update();
   }, [style]);
 
+  /* ───────── Nilai turunan ───────── */
+
   const { a, b, c } = params;
   const isQuadratic = a !== 0;
   const discriminant = b * b - 4 * a * c;
@@ -438,20 +439,16 @@ export function QuadraticSimulation() {
   const vy = isQuadratic && vx !== null ? a * vx * vx + b * vx + c : null;
 
   let rootsText = "—";
-  let rootsNote = "";
   if (isQuadratic) {
     if (discriminant > 0) {
       const r1 = (-b - Math.sqrt(discriminant)) / (2 * a);
       const r2 = (-b + Math.sqrt(discriminant)) / (2 * a);
       const [lo, hi] = r1 < r2 ? [r1, r2] : [r2, r1];
       rootsText = `${formatValue(lo)} dan ${formatValue(hi)}`;
-      rootsNote = "Memotong sumbu x di dua titik";
     } else if (discriminant === 0) {
       rootsText = formatValue(-b / (2 * a));
-      rootsNote = "Menyinggung sumbu x";
     } else {
       rootsText = "Tidak ada";
-      rootsNote = "Tidak memotong sumbu x";
     }
   }
 
@@ -464,7 +461,7 @@ export function QuadraticSimulation() {
     atLimit: boolean,
   ) => ({
     type: "button" as const,
-    className: "quad-step-button",
+    className: "qs2-step",
     disabled: atLimit,
     "aria-label": `${direction === 1 ? "Tambah" : "Kurangi"} ${key} 0,1`,
     onPointerDown: startHold(key, direction),
@@ -481,51 +478,46 @@ export function QuadraticSimulation() {
   });
 
   return (
-    <div
-      ref={rootRef}
-      className={`quadratic-simulation simulation-fullscreen-frame${isFullscreen ? " is-fullscreen" : ""}`}
-    >
-      <p className="quad-orientation-hint">
-        <Smartphone size={16} aria-hidden="true" />
+    <div ref={rootRef} className={`qs2${isFullscreen ? " is-fs" : ""}`}>
+      <p className="qs2-hint">
+        <Smartphone size={14} aria-hidden="true" />
         <span>
-          Di ponsel, tekan <strong>Layar penuh</strong> lalu miringkan ke mode
-          lanskap agar grafik, slider, dan hasil tampil sekaligus.
+          Miringkan ponsel ke mode lanskap agar grafik dan slider tampil nyaman.
         </span>
       </p>
 
-      <div className="quad-boards">
-        <section className="quad-board-panel" aria-labelledby={titleId}>
-          <div className="quad-board-heading">
-            <h3 id={titleId}>Grafik fungsi kuadrat</h3>
-            <button
-              className="quad-fullscreen-button"
-              type="button"
-              onClick={toggleFullscreen}
-              aria-pressed={isFullscreen}
-              aria-label={isFullscreen ? "Keluar layar penuh" : "Layar penuh"}
-            >
-              {isFullscreen ? (
-                <Minimize2 size={16} aria-hidden="true" />
-              ) : (
-                <Maximize2 size={16} aria-hidden="true" />
-              )}
-              <span>{isFullscreen ? "Keluar layar penuh" : "Layar penuh"}</span>
-            </button>
-            <p className="quad-equation">{equationLabel(params)}</p>
-          </div>
-          <div className="quad-board-wrap">
+      <div className="qs2-layout">
+        {/* ───── Wilayah grafik (2 bagian) ───── */}
+        <section className="qs2-graph" aria-label="Grafik fungsi kuadrat">
+          <div className="qs2-stage">
             <div
-              className="quad-board"
+              className="qs2-board"
               id={boardId}
               ref={containerRef}
-              aria-label="Grafik fungsi kuadrat y = ax² + bx + c. Ubah nilai a, b, dan c dengan penggeser. Seret untuk menggeser grafik, gulir atau cubit untuk memperbesar."
+              aria-label="Grafik y = ax² + bx + c. Seret untuk menggeser, gulir atau cubit untuk memperbesar."
             />
-            <div className="quad-view-tools" role="group" aria-label="Tampilan">
+            <p className="qs2-eq" aria-live="polite">
+              {equationLabel(params)}
+            </p>
+            <div className="qs2-tools" role="group" aria-label="Tampilan">
+              <button
+                type="button"
+                onClick={toggleFullscreen}
+                aria-pressed={isFullscreen}
+                aria-label={isFullscreen ? "Keluar layar penuh" : "Layar penuh"}
+                title={isFullscreen ? "Keluar layar penuh" : "Layar penuh"}
+              >
+                {isFullscreen ? (
+                  <Minimize2 size={15} aria-hidden="true" />
+                ) : (
+                  <Maximize2 size={15} aria-hidden="true" />
+                )}
+              </button>
               <button type="button" onClick={zoomIn} aria-label="Perbesar">
-                <Plus size={18} aria-hidden="true" />
+                <Plus size={16} aria-hidden="true" />
               </button>
               <button type="button" onClick={zoomOut} aria-label="Perkecil">
-                <Minus size={18} aria-hidden="true" />
+                <Minus size={16} aria-hidden="true" />
               </button>
               <button
                 type="button"
@@ -533,145 +525,161 @@ export function QuadraticSimulation() {
                 aria-label="Pusatkan tampilan"
                 title="Pusatkan tampilan"
               >
-                <Crosshair size={17} aria-hidden="true" />
+                <Crosshair size={15} aria-hidden="true" />
               </button>
             </div>
           </div>
-          <div className="quad-legend" aria-label="Legenda grafik">
+          <div className="qs2-legend" aria-label="Legenda grafik">
             <span>
-              <i className="legend-curve" /> y = ax² + bx + c
+              <i className="lg-curve" /> y = ax² + bx + c
             </span>
             <span>
-              <i className="legend-ref" /> y = x² (pembanding)
+              <i className="lg-ref" /> y = x²
             </span>
             <span>
-              <i className="legend-axis" /> sumbu simetri
+              <i className="lg-axis" /> sumbu simetri
             </span>
             <span>
-              <b className="dot-vertex" /> puncak
+              <b className="dt-vertex" /> puncak
             </span>
             <span>
-              <b className="dot-root" /> akar
+              <b className="dt-root" /> akar
             </span>
             <span>
-              <b className="dot-c" /> titik potong sumbu y
+              <b className="dt-c" /> potong sumbu y
             </span>
           </div>
         </section>
 
-        <section className="quad-controls" aria-label="Pengatur koefisien">
-          <div className="quad-inputs">
+        {/* ───── Wilayah input (1 bagian) ───── */}
+        <section className="qs2-inputs" aria-label="Pengatur koefisien">
+          <div className="qs2-sliders">
             {sliderConfig.map(({ key, min, max, hint }) => {
               const value = params[key];
-              const inputId = `quad-${baseId}-${key}`;
+              const inputId = `qs2-${baseId}-${key}`;
               const sliderStyle = {
-                "--quad-fill": `${((value - min) / (max - min)) * 100}%`,
+                "--fill": `${((value - min) / (max - min)) * 100}%`,
               } as CSSProperties;
               return (
-                <div className={`quad-slider quad-slider-${key}`} key={key}>
-                  <div className="quad-slider-head">
+                <div className={`qs2-slider qs2-slider-${key}`} key={key}>
+                  <div className="qs2-slider-head">
                     <label htmlFor={inputId}>
-                      {key} <small>{hint}</small>
+                      <i>{key}</i>
+                      <small>{hint}</small>
                     </label>
                     <output htmlFor={inputId} aria-live="polite">
                       {formatValue(value)}
                     </output>
                   </div>
-                  <div className="quad-slider-row">
-                    <button {...stepProps(key, -1, value <= min)}>
-                      <Minus size={18} aria-hidden="true" />
-                    </button>
-                    <input
-                      id={inputId}
-                      className="quad-slider-input"
-                      type="range"
-                      min={min}
-                      max={max}
-                      step="0.1"
-                      value={value}
-                      style={sliderStyle}
-                      aria-valuetext={`${key} sama dengan ${formatValue(value)}`}
-                      onChange={(event) =>
-                        updateParam(key, Number(event.currentTarget.value))
-                      }
-                    />
-                    <button {...stepProps(key, 1, value >= max)}>
-                      <Plus size={18} aria-hidden="true" />
-                    </button>
-                    <div className="quad-range-labels" aria-hidden="true">
-                      <span>{min}</span>
-                      <span>0</span>
-                      <span>{max}</span>
-                    </div>
-                  </div>
+                  <button {...stepProps(key, -1, value <= min)}>
+                    <Minus size={14} aria-hidden="true" />
+                  </button>
+                  <input
+                    id={inputId}
+                    className="qs2-range"
+                    type="range"
+                    min={min}
+                    max={max}
+                    step="0.1"
+                    value={value}
+                    style={sliderStyle}
+                    aria-valuetext={`${key} sama dengan ${formatValue(value)}`}
+                    onChange={(event) =>
+                      updateParam(key, Number(event.currentTarget.value))
+                    }
+                  />
+                  <button {...stepProps(key, 1, value >= max)}>
+                    <Plus size={14} aria-hidden="true" />
+                  </button>
                 </div>
               );
             })}
-
-            <div className="quad-actions">
-              <button
-                className="quad-reset-button"
-                type="button"
-                onClick={reset}
-              >
-                <RotateCcw size={15} aria-hidden="true" />
-                <span>Atur ulang</span>
-              </button>
-              <GraphAppearanceControls
-                appearance={style}
-                onStep={changeStyle}
-              />
-            </div>
-
-            {!isQuadratic && (
-              <p className="quad-warning" role="status">
-                Saat a = 0, persamaan menjadi garis lurus (bukan fungsi
-                kuadrat). Geser a menjauhi 0 untuk melihat parabola.
-              </p>
-            )}
           </div>
 
-          <dl className="quad-readouts" aria-live="polite">
-            <div className="readout-a">
-              <dt>Arah parabola</dt>
+          <div className="qs2-actions">
+            <button type="button" className="qs2-reset" onClick={reset}>
+              <RotateCcw size={13} aria-hidden="true" />
+              <span>Atur ulang</span>
+            </button>
+            <div className="qs2-style" role="group" aria-label="Gaya grafik">
+              <span>Garis</span>
+              <button
+                type="button"
+                aria-label="Kurangi tebal garis"
+                onClick={() => changeStyle("curveWidth", -1)}
+              >
+                <Minus size={12} aria-hidden="true" />
+              </button>
+              <b>{style.curveWidth}</b>
+              <button
+                type="button"
+                aria-label="Tambah tebal garis"
+                onClick={() => changeStyle("curveWidth", 1)}
+              >
+                <Plus size={12} aria-hidden="true" />
+              </button>
+              <span>Titik</span>
+              <button
+                type="button"
+                aria-label="Kurangi ukuran titik"
+                onClick={() => changeStyle("pointSize", -1)}
+              >
+                <Minus size={12} aria-hidden="true" />
+              </button>
+              <b>{style.pointSize}</b>
+              <button
+                type="button"
+                aria-label="Tambah ukuran titik"
+                onClick={() => changeStyle("pointSize", 1)}
+              >
+                <Plus size={12} aria-hidden="true" />
+              </button>
+            </div>
+          </div>
+
+          {!isQuadratic && (
+            <p className="qs2-warning" role="status">
+              Saat a = 0 grafik berupa garis lurus. Geser a menjauhi 0 untuk
+              melihat parabola.
+            </p>
+          )}
+
+          <dl className="qs2-readouts" aria-live="polite">
+            <div className="ro-a">
+              <dt>Arah</dt>
               <dd>
-                {!isQuadratic
-                  ? "—"
-                  : a > 0
-                    ? "Terbuka ke atas"
-                    : "Terbuka ke bawah"}
+                {!isQuadratic ? "—" : a > 0 ? "Buka ke atas" : "Buka ke bawah"}
               </dd>
             </div>
-            <div className="readout-vertex">
-              <dt>Titik puncak</dt>
+            <div className="ro-vertex">
+              <dt>Puncak</dt>
               <dd>
                 {vx === null || vy === null
                   ? "—"
                   : `(${formatValue(vx)}, ${formatValue(vy)})`}
               </dd>
             </div>
-            <div className="readout-b">
+            <div className="ro-b">
               <dt>Sumbu simetri</dt>
               <dd>{vx === null ? "—" : `x = ${formatValue(vx)}`}</dd>
             </div>
-            <div className="readout-c">
-              <dt>Titik potong sumbu y</dt>
+            <div className="ro-c">
+              <dt>Potong sumbu y</dt>
               <dd>{`(0, ${formatValue(c)})`}</dd>
             </div>
-            <div className="readout-d">
-              <dt>Diskriminan (D = b² − 4ac)</dt>
+            <div className="ro-d">
+              <dt>Diskriminan</dt>
               <dd>{isQuadratic ? formatValue(discriminant) : "—"}</dd>
             </div>
-            <div className="readout-roots">
-              <dt>Akar-akar</dt>
+            <div className="ro-roots">
+              <dt>Akar</dt>
               <dd>{rootsText}</dd>
-              {rootsNote && <small>{rootsNote}</small>}
             </div>
           </dl>
         </section>
       </div>
 
-      <ul className="quad-insights">
+      <ul className="qs2-insights">
         <li>
           <strong style={{ color: colors.a }}>Pengaruh a:</strong>{" "}
           {isQuadratic

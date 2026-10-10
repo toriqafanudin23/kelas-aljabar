@@ -1,25 +1,40 @@
-/* Memakai variabel --sim-* dan --gold dari TrigonometrySimulation.css. */
+/* Simulasi vektor (disusun ulang).
+   Urutan: (1) ponsel lanskap = dasar (kelas .is-tabbed, panel bertab),
+   (2) potret, (3) desktop (tanpa .is-tabbed), (4) layar penuh.
+   Wilayah grafik : wilayah input = 2fr : 1fr.
+   Kelas .is-tabbed dipasang oleh komponen saat layar kecil/pendek atau
+   saat layar penuh. */
+
+.vector-simulation,
+.vector-simulation *,
+.vector-simulation *::before,
+.vector-simulation *::after {
+  box-sizing: border-box;
+}
 
 .vector-simulation {
   --vs-a: #087f8c;
   --vs-b: #d16b36;
   --vs-sum: #183e54;
   --vs-proj: #c08a00;
-  --vs-btn: 40px; /* tinggi minimum tombol & kolom isian; naik di layar sentuh */
+  --ink: var(--sim-ink, #18313d);
+  --muted: var(--sim-muted, #62727d);
+  --line: var(--sim-line, #d5e0e4);
+  --paper: var(--sim-paper, #f3f7f5);
+
+  /* slider tipis, bulatan kecil */
+  --track: 3px;
+  --thumb: 13px;
+  --step: 22px;
+
   display: grid;
-  gap: 12px;
-  padding: 16px;
-  border-top: 3px solid var(--gold);
-  background: var(--sim-paper, #f3f7f5);
-  color: var(--sim-ink, #18313d);
+  gap: 6px;
+  padding: 6px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 12px;
   font-variant-numeric: tabular-nums;
   -webkit-tap-highlight-color: transparent;
-}
-
-@media (pointer: coarse) {
-  .vector-simulation {
-    --vs-btn: 46px;
-  }
 }
 
 .vector-simulation h3 {
@@ -45,108 +60,63 @@
 }
 
 .vector-simulation button:focus-visible,
-.vector-simulation input:focus-visible,
-.vector-simulation select:focus-visible {
+.vector-simulation input:focus-visible {
   outline: 2px solid var(--vs-a);
   outline-offset: 2px;
 }
 
-/* ───────── Petunjuk ponsel ───────── */
-
 .vs-orientation-hint {
   display: none;
-  align-items: flex-start;
-  gap: 8px;
-  margin: 0;
-  padding: 8px 10px;
-  border-left: 3px solid var(--vs-a);
-  background: #e8f3f1;
-  color: var(--sim-ink, #18313d);
-  font-size: 11px;
-  line-height: 1.45;
 }
 
-.vs-orientation-hint svg {
-  flex: 0 0 auto;
-  margin-top: 1px;
-  color: var(--vs-a);
-}
+/* ───────── Tata letak utama (dasar = bertab, ponsel lanskap) ───────── */
 
-/* ───────── Tata letak utama ───────── */
+.vector-simulation.is-tabbed {
+  grid-template-rows: minmax(0, 1fr);
+  height: min(100dvh, 460px);
+}
 
 .vs-main {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
-  gap: 14px;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 6px;
   min-width: 0;
+  min-height: 0;
+  height: 100%;
 }
 
-.vs-board-panel,
-.vs-panel {
-  min-width: 0;
-  padding: 12px;
-  border: 1px solid var(--sim-line, #d5e0e4);
-  background: #fff;
-}
-
-.vs-board-panel {
+.vs-column {
   display: grid;
-  align-content: start;
-  gap: 8px;
-}
-
-.vs-board-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 6px 10px;
-}
-
-.vs-board-heading h3 {
-  flex: 1 1 auto;
-  margin: 0;
-}
-
-.vs-board-heading .vs-board-hint {
-  order: 3;
-  flex: 1 1 100%;
-  color: var(--sim-muted, #62727d);
-  font-size: 11px;
-  line-height: 1.4;
-}
-
-.vs-fullscreen-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  min-height: var(--vs-btn);
-  padding: 0 14px;
-  border: 1px solid var(--vs-a);
-  background: #e8f3f1;
-  color: #0a5f69;
-  font-size: 12px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.vs-fullscreen-button:hover {
-  background: #d7ebe8;
-}
-
-.vs-board-wrap {
-  position: relative;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 5px;
   min-width: 0;
   min-height: 0;
 }
 
-.vs-board {
-  width: 100%;
+/* ───────── Grafik ───────── */
+
+.vs-board-panel {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
   min-width: 0;
-  aspect-ratio: 1 / 1;
-  max-height: 560px;
-  margin-inline: auto;
+  min-height: 0;
+  height: 100%;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.vs-stage {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+}
+
+.vs-board {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   background: #fcfdfc;
   touch-action: none;
@@ -161,27 +131,46 @@
   font-family: "Open Sans", sans-serif;
 }
 
-/* Zoom & pusatkan melayang di sudut bidang koordinat */
+/* Rumus a · b dan θ melayang di kiri atas grafik */
+.vs-caption {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  z-index: 2;
+  max-width: calc(100% - 50px);
+  margin: 0;
+  padding: 2px 8px;
+  border-left: 3px solid var(--vs-sum);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--vs-sum);
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.3;
+  pointer-events: none;
+  overflow-wrap: anywhere;
+}
+
+/* Layar penuh, zoom, pusatkan: melayang di kanan atas */
 .vs-view-tools {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: 6px;
+  right: 6px;
   z-index: 2;
   display: grid;
-  gap: 4px;
+  gap: 3px;
 }
 
 .vs-view-tools button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 28px;
+  height: 28px;
   padding: 0;
   border: 1px solid #aebdc2;
   background: rgba(255, 255, 255, 0.94);
-  color: var(--sim-ink, #18313d);
-  box-shadow: 0 1px 3px rgba(24, 49, 61, 0.18);
+  color: var(--ink);
   cursor: pointer;
 }
 
@@ -190,43 +179,26 @@
   background: #e8f3f1;
 }
 
-@media (pointer: coarse) {
-  .vs-view-tools button {
-    width: 42px;
-    height: 42px;
-  }
-}
-
-/* Pembungkus pengaturan + hasil: tidak memengaruhi tata letak biasa */
-.vs-column {
-  display: contents;
-}
-
-.vs-tabs {
-  display: none;
-}
-
-.vs-results {
-  display: grid;
-  grid-column: 1 / -1;
-  gap: 12px;
-  min-width: 0;
-}
-
 .vs-legend {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 6px 16px;
-  color: var(--sim-muted, #62727d);
-  font-size: 11px;
+  gap: 4px 12px;
+  padding: 3px 8px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.vs-legend::-webkit-scrollbar {
+  display: none;
 }
 
 .vs-legend span {
   display: inline-flex;
   flex: 0 0 auto;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   white-space: nowrap;
 }
 
@@ -254,65 +226,313 @@
   border-top-width: 4px;
 }
 
-.vs-caption {
-  min-height: 1.5em;
-  margin: 0;
-  color: var(--vs-sum);
-  font-family: "Cambria Math", Georgia, serif;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 1.35;
-  text-align: center;
-  overflow-wrap: anywhere;
+/* ───────── Tab panel kanan ───────── */
+
+.vs-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-/* ───────── Tombol umum ───────── */
-
-.vs-reset-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  min-height: var(--vs-btn);
-  padding: 0 14px;
+.vs-tabs button {
+  height: 28px;
+  padding: 0 2px;
+  margin-left: -1px;
   border: 1px solid #aebdc2;
   background: #fff;
-  color: var(--sim-ink, #18313d);
-  font-size: 12px;
+  color: var(--ink);
+  font-size: 11px;
   font-weight: 700;
   cursor: pointer;
 }
 
-.vs-reset-button:hover:not(:disabled) {
-  border-color: var(--vs-a);
-  background: #e8f3f1;
+.vs-tabs button:first-child {
+  margin-left: 0;
 }
 
-/* ───────── Panel pengaturan ───────── */
+.vs-tabs button[aria-pressed="true"] {
+  position: relative;
+  border-color: var(--vs-a);
+  background: var(--vs-a);
+  color: #fff;
+}
 
-.vs-side {
+/* Isi panel: satu kartu putih; judul h3 tidak perlu (sudah ada di tab) */
+.vector-simulation.is-tabbed .vs-side,
+.vector-simulation.is-tabbed .vs-results {
+  min-height: 0;
+  padding: 8px;
+  border: 1px solid var(--line);
+  background: #fff;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+}
+
+.vector-simulation.is-tabbed .vs-side {
   display: grid;
   align-content: start;
-  gap: 12px;
+  gap: 8px;
+}
+
+.vector-simulation.is-tabbed .vs-results {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+}
+
+.vector-simulation.is-tabbed .vs-panel > h3,
+.vector-simulation.is-tabbed .vs-wide > h3,
+.vector-simulation.is-tabbed .vs-hint {
+  display: none;
+}
+
+.vector-simulation.is-tabbed
+  .vs-column[data-tab="vector"]
+  [data-pane]:not([data-pane="vector"]),
+.vector-simulation.is-tabbed
+  .vs-column[data-tab="preset"]
+  [data-pane]:not([data-pane="preset"]),
+.vector-simulation.is-tabbed
+  .vs-column[data-tab="view"]
+  [data-pane]:not([data-pane="view"]),
+.vector-simulation.is-tabbed
+  .vs-column[data-tab="result"]
+  [data-pane]:not([data-pane="result"]),
+.vector-simulation.is-tabbed .vs-column[data-tab="result"] .vs-side {
+  display: none;
+}
+
+.vs-panel {
   min-width: 0;
+}
+
+.vs-insights {
+  display: none;
+}
+
+/* ───────── Baris komponen: a₁  −  ──●──  +  [ 5 ] ───────── */
+
+.vs-rows {
+  display: grid;
+  gap: 2px;
+}
+
+.vs-row {
+  --tone: var(--vs-a);
+  display: grid;
+  grid-template-columns: 24px var(--step) minmax(0, 1fr) var(--step) 44px;
+  align-items: center;
+  column-gap: 4px;
+  min-width: 0;
+}
+
+.vs-row-b {
+  --tone: var(--vs-b);
+}
+
+.vs-row-a + .vs-row-b {
+  margin-top: 6px;
+}
+
+.vs-row label {
+  color: var(--tone);
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.vs-row label small {
+  display: none;
+}
+
+.vs-nudge-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--step);
+  height: var(--step);
+  padding: 0;
+  border: 1px solid #aebdc2;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.vs-nudge-button:hover {
+  border-color: var(--tone);
+  background: #f1f6f5;
+}
+
+.vs-nudge-button:active {
+  background: #e0ecea;
+}
+
+.vs-num {
+  width: 100%;
+  min-width: 0;
+  height: 24px;
+  padding: 0 2px;
+  border: 1px solid #aebdc2;
+  border-radius: 0;
+  background: #fff;
+  color: var(--tone);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  text-align: center;
+}
+
+@media (pointer: coarse) {
+  .vector-simulation {
+    --step: 24px;
+  }
+
+  /* 16px mencegah iOS memperbesar halaman saat kolom difokuskan */
+  .vs-num {
+    height: 28px;
+    font-size: 16px;
+  }
+
+  .vs-row {
+    grid-template-columns: 24px var(--step) minmax(0, 1fr) var(--step) 50px;
+  }
+}
+
+/* Area sentuh 28px, tampilan visual hanya 3px. Isi dari titik 0 (tengah). */
+.vs-range {
+  --lo: 50%;
+  --hi: 50%;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 28px;
+  margin: 0;
+  background: transparent;
+  cursor: pointer;
+  touch-action: pan-y;
+}
+
+.vs-range::-webkit-slider-runnable-track {
+  height: var(--track);
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    var(--line) 0,
+    var(--line) var(--lo),
+    var(--tone) var(--lo),
+    var(--tone) var(--hi),
+    var(--line) var(--hi),
+    var(--line) 100%
+  );
+}
+
+.vs-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+  width: var(--thumb);
+  height: var(--thumb);
+  margin-top: calc((var(--track) - var(--thumb)) / 2);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: var(--tone);
+  box-shadow: 0 0 0 1px rgba(24, 49, 61, 0.28);
+}
+
+.vs-range::-moz-range-track {
+  height: var(--track);
+  border-radius: 999px;
+  background: var(--line);
+}
+
+.vs-range::-moz-range-progress {
+  height: var(--track);
+  border-radius: 999px;
+  background: transparent;
+}
+
+.vs-range::-moz-range-thumb {
+  box-sizing: border-box;
+  width: var(--thumb);
+  height: var(--thumb);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: var(--tone);
+  box-shadow: 0 0 0 1px rgba(24, 49, 61, 0.28);
+}
+
+.vs-range:focus-visible {
+  outline: none;
+}
+
+.vs-range:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 2px var(--tone);
+}
+
+.vs-range:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 2px var(--tone);
+}
+
+/* ───────── Kontrol umum ───────── */
+
+.vs-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 28px;
+  margin-top: 4px;
+  color: var(--ink);
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.vs-check-first {
+  margin-top: 0;
+}
+
+.vs-check input {
+  flex: 0 0 auto;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--vs-a);
+}
+
+.vs-subtitle {
+  margin: 8px 0 4px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.vs-hint {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  overflow-wrap: anywhere;
 }
 
 .vs-segmented {
   display: flex;
   flex-wrap: wrap;
-  gap: 0;
 }
 
 .vs-segmented button {
   flex: 1 1 auto;
-  min-height: var(--vs-btn);
-  padding: 0 12px;
-  border: 1px solid #aebdc2;
-  margin-left: -1px;
+  min-height: 30px;
+  padding: 0 10px;
   margin-top: -1px;
+  margin-left: -1px;
+  border: 1px solid #aebdc2;
   background: #fff;
-  color: var(--sim-ink, #18313d);
-  font-size: 12px;
+  color: var(--ink);
+  font-size: 11px;
   font-weight: 700;
   cursor: pointer;
 }
@@ -328,147 +548,38 @@
   color: #fff;
 }
 
-.vs-check {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  min-height: 36px;
-  margin-top: 6px;
-  color: var(--sim-ink, #18313d);
-  font-size: 12px;
-  cursor: pointer;
-}
-
-.vs-check-first {
-  margin-top: 0;
-}
-
-.vs-check input {
-  flex: 0 0 auto;
-  width: 20px;
-  height: 20px;
-  margin: 0;
-  accent-color: var(--vs-a);
-}
-
-.vs-subtitle {
-  margin: 12px 0 6px;
-  color: var(--sim-muted, #62727d);
-  font-size: 10px;
-  font-weight: 700;
-}
-
-.vs-hint {
-  margin: 6px 0 0;
-  color: var(--sim-muted, #62727d);
-  font-size: 11px;
-  overflow-wrap: anywhere;
-}
-
-/* Kolom komponen: [nama] [x: − isian +] [y: − isian +] */
-.vs-vector-row {
-  display: grid;
-  grid-template-columns: auto repeat(2, minmax(0, 1fr));
-  align-items: end;
-  gap: 8px;
-  margin-top: 10px;
-}
-
-.vs-name {
-  display: grid;
-  place-items: center;
-  width: 30px;
-  height: var(--vs-btn);
-  color: #fff;
-  font-size: 15px;
-  font-weight: 800;
-}
-
-.vs-name-a {
-  background: var(--vs-a);
-}
-
-.vs-name-b {
-  background: var(--vs-b);
-}
-
-.vs-field {
-  display: grid;
-  gap: 3px;
-  min-width: 0;
-}
-
-.vs-field label {
-  color: var(--sim-muted, #62727d);
-  font-size: 10px;
-  font-weight: 700;
-}
-
-.vs-field-control {
-  display: grid;
-  grid-template-columns: var(--vs-btn) minmax(0, 1fr) var(--vs-btn);
-  min-width: 0;
-}
-
-.vs-field-control input {
-  width: 100%;
-  min-width: 0;
-  height: var(--vs-btn);
-  padding: 0 4px;
-  border: 1px solid #aebdc2;
-  border-inline: 0;
-  border-radius: 0;
-  background: #fff;
-  color: var(--sim-ink, #18313d);
-  font-family: inherit;
-  font-size: 15px;
-  font-weight: 700;
-  text-align: center;
-}
-
-.vs-nudge-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: var(--vs-btn);
-  padding: 0;
-  border: 1px solid #aebdc2;
-  background: #f1f6f5;
-  color: var(--sim-ink, #18313d);
-  cursor: pointer;
-  user-select: none;
-  -webkit-user-select: none;
-  -webkit-touch-callout: none;
-}
-
-.vs-nudge-button:hover {
-  border-color: var(--vs-a);
-  background: #e0efed;
-}
-
-.vs-nudge-button:active {
-  background: #cfe5e2;
-}
-
-@media (pointer: coarse) {
-  /* 16px mencegah iOS memperbesar halaman saat kolom difokuskan */
-  .vs-field-control input {
-    font-size: 16px;
-  }
-}
-
 .vs-reset-row {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+}
+
+.vs-reset-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 10px;
+  border: 1px solid #aebdc2;
+  background: #fff;
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.vs-reset-button:hover {
+  border-color: var(--vs-a);
+  background: #e8f3f1;
 }
 
 /* ───────── Hasil perhitungan ───────── */
 
 .vs-wide {
   display: grid;
-  gap: 8px;
+  gap: 6px;
 }
 
 .vs-wide h3 {
@@ -477,34 +588,34 @@
 
 .vs-card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 10px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 6px;
 }
 
 .vs-card {
   display: grid;
   align-content: start;
-  gap: 6px;
+  gap: 3px;
   min-width: 0;
-  padding: 10px 12px;
-  border: 1px solid var(--sim-line, #d5e0e4);
-  background: var(--sim-paper, #f3f7f5);
+  padding: 6px 8px;
+  border: 1px solid var(--line);
+  background: var(--paper);
 }
 
 .vs-card p {
   margin: 0;
-  color: var(--sim-muted, #62727d);
-  font-size: 11px;
-  line-height: 1.45;
+  color: var(--muted);
+  font-size: 10.5px;
+  line-height: 1.35;
   overflow-wrap: anywhere;
 }
 
 .vs-card .vs-formula {
   color: var(--vs-sum);
   font-family: "Cambria Math", Georgia, serif;
-  font-size: 14px;
+  font-size: 12.5px;
   font-weight: 700;
-  line-height: 1.4;
+  line-height: 1.35;
 }
 
 .vs-card.is-active {
@@ -524,19 +635,19 @@
 .vs-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .vs-table th,
 .vs-table td {
-  padding: 7px 10px;
-  border-bottom: 1px solid var(--sim-line, #d5e0e4);
+  padding: 4px 6px;
+  border-bottom: 1px solid var(--line);
   text-align: left;
   white-space: nowrap;
 }
 
 .vs-table thead th {
-  color: var(--sim-muted, #62727d);
+  color: var(--muted);
   font-size: 10px;
   font-weight: 700;
 }
@@ -547,7 +658,7 @@
 
 .vs-table td {
   font-family: "Cambria Math", Georgia, serif;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
 }
 
@@ -556,481 +667,327 @@
 }
 
 .vs-cell-muted {
-  color: var(--sim-muted, #62727d);
+  color: var(--muted);
 }
 
-.vs-insights {
+/* Ponsel lanskap sangat pendek */
+@media (orientation: landscape) and (max-height: 360px) {
+  .vector-simulation.is-tabbed {
+    gap: 4px;
+    padding: 4px;
+  }
+
+  .vector-simulation.is-tabbed .vs-main {
+    gap: 4px;
+  }
+
+  .vector-simulation.is-tabbed .vs-side,
+  .vector-simulation.is-tabbed .vs-results {
+    padding: 6px;
+  }
+
+  .vs-range {
+    height: 24px;
+  }
+}
+
+/* ───────── Potret (cadangan): grafik atas, panel bertab di bawah ───────── */
+
+@media (orientation: portrait) and (max-width: 899px) {
+  .vector-simulation.is-tabbed:not(.is-fullscreen) {
+    grid-template-rows: auto auto;
+    height: auto;
+    padding: 8px;
+  }
+
+  .vector-simulation.is-tabbed:not(.is-fullscreen) .vs-orientation-hint {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 0;
+    padding: 6px 9px;
+    border-left: 3px solid var(--vs-a);
+    background: #e8f3f1;
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .vs-orientation-hint svg {
+    flex: 0 0 auto;
+    color: var(--vs-a);
+  }
+
+  .vector-simulation.is-tabbed:not(.is-fullscreen) .vs-main {
+    grid-template-columns: minmax(0, 1fr);
+    height: auto;
+  }
+
+  .vector-simulation.is-tabbed:not(.is-fullscreen) .vs-board-panel {
+    height: clamp(250px, 46dvh, 420px);
+  }
+
+  .vector-simulation.is-tabbed:not(.is-fullscreen) .vs-side,
+  .vector-simulation.is-tabbed:not(.is-fullscreen) .vs-results {
+    overflow: visible;
+  }
+
+  .vector-simulation.is-tabbed:not(.is-fullscreen) .vs-hint {
+    display: block;
+  }
+}
+
+/* ───────── Desktop & tablet lanskap (tanpa .is-tabbed) ───────── */
+
+.vector-simulation:not(.is-tabbed) {
+  --track: 4px;
+  --thumb: 16px;
+  --step: 28px;
+  gap: 12px;
+  padding: 14px;
+  font-size: 13px;
+}
+
+.vector-simulation:not(.is-tabbed) .vs-main {
+  grid-template-rows: clamp(460px, 72vh, 700px) auto;
+  gap: 12px;
+  height: auto;
+}
+
+.vector-simulation:not(.is-tabbed) .vs-column {
+  display: contents;
+}
+
+.vector-simulation:not(.is-tabbed) .vs-tabs {
+  display: none;
+}
+
+.vector-simulation:not(.is-tabbed) .vs-board-panel {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.vector-simulation:not(.is-tabbed) .vs-side {
+  grid-column: 2;
+  grid-row: 1;
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.vector-simulation:not(.is-tabbed) .vs-results {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: grid;
+  gap: 12px;
+}
+
+.vector-simulation:not(.is-tabbed) .vs-panel {
+  padding: 14px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.vector-simulation:not(.is-tabbed) .vs-caption {
+  top: 10px;
+  left: 10px;
+  padding: 4px 12px;
+  border-left-width: 4px;
+  font-size: clamp(15px, 1.5vw, 20px);
+}
+
+.vector-simulation:not(.is-tabbed) .vs-view-tools {
+  top: 10px;
+  right: 10px;
+  gap: 4px;
+}
+
+.vector-simulation:not(.is-tabbed) .vs-view-tools button {
+  width: 34px;
+  height: 34px;
+}
+
+.vector-simulation:not(.is-tabbed) .vs-legend {
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 7px 10px;
+  font-size: 11px;
+}
+
+.vector-simulation:not(.is-tabbed) .vs-row {
+  grid-template-columns: 34px var(--step) minmax(0, 1fr) var(--step) 56px;
+}
+
+.vector-simulation:not(.is-tabbed) .vs-row label {
+  font-size: 19px;
+}
+
+.vector-simulation:not(.is-tabbed) .vs-row label small {
+  display: inline;
+  margin-left: 3px;
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.vector-simulation:not(.is-tabbed) .vs-rows {
+  gap: 4px;
+}
+
+.vector-simulation:not(.is-tabbed) .vs-row-a + .vs-row-b {
+  margin-top: 10px;
+}
+
+.vector-simulation:not(.is-tabbed) .vs-range {
+  height: 30px;
+}
+
+.vector-simulation:not(.is-tabbed) .vs-num {
+  height: 30px;
+  font-size: 14px;
+}
+
+.vector-simulation:not(.is-tabbed) .vs-check {
+  min-height: 32px;
+  font-size: 12px;
+}
+
+.vector-simulation:not(.is-tabbed) .vs-segmented button {
+  min-height: 36px;
+  font-size: 12px;
+}
+
+.vector-simulation:not(.is-tabbed) .vs-reset-button {
+  height: 34px;
+  padding: 0 14px;
+  font-size: 12px;
+}
+
+.vector-simulation:not(.is-tabbed) .vs-card-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 10px;
+}
+
+.vector-simulation:not(.is-tabbed) .vs-card {
+  gap: 6px;
+  padding: 10px 12px;
+}
+
+.vector-simulation:not(.is-tabbed) .vs-card p {
+  font-size: 11px;
+}
+
+.vector-simulation:not(.is-tabbed) .vs-card .vs-formula {
+  font-size: 14px;
+}
+
+.vector-simulation:not(.is-tabbed) .vs-table {
+  font-size: 12px;
+}
+
+.vector-simulation:not(.is-tabbed) .vs-table th,
+.vector-simulation:not(.is-tabbed) .vs-table td {
+  padding: 7px 10px;
+}
+
+.vector-simulation:not(.is-tabbed) .vs-table td {
+  font-size: 14px;
+}
+
+.vector-simulation:not(.is-tabbed) .vs-insights {
   display: grid;
   gap: 6px;
   margin: 0;
   padding: 0;
   list-style: none;
-  color: var(--sim-muted, #62727d);
+  color: var(--muted);
   font-size: 12px;
   line-height: 1.5;
 }
 
-.vs-insights li {
+.vector-simulation:not(.is-tabbed) .vs-insights li {
   padding-left: 10px;
-  border-left: 3px solid var(--sim-line, #d5e0e4);
+  border-left: 3px solid var(--line);
 }
 
-.vs-insights strong {
-  color: var(--sim-ink, #18313d);
+.vector-simulation:not(.is-tabbed) .vs-insights strong {
+  color: var(--ink);
 }
 
-/* ───────── Layar sempit / potret ───────── */
+/* ───────── Layar penuh (selalu bertab, tanpa gulir halaman) ───────── */
 
-@media (max-width: 900px) and (orientation: portrait), (max-width: 560px) {
-  .vs-main {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .vs-board {
-    width: min(100%, 560px);
-  }
-
-  .vs-board-wrap {
-    justify-self: center;
-    width: min(100%, 560px);
-  }
-
-  .vs-legend {
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding-bottom: 2px;
-    scrollbar-width: none;
-  }
-
-  .vs-legend::-webkit-scrollbar {
-    display: none;
-  }
+.vector-simulation.is-fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  grid-template-rows: minmax(0, 1fr);
+  width: 100vw;
+  height: 100dvh;
+  padding: max(6px, env(safe-area-inset-top, 0px))
+    max(8px, env(safe-area-inset-right, 0px))
+    max(6px, env(safe-area-inset-bottom, 0px))
+    max(8px, env(safe-area-inset-left, 0px));
+  overflow: hidden;
 }
 
-@media (max-width: 900px) and (orientation: portrait) {
-  .vector-simulation:not(.is-fullscreen) .vs-orientation-hint {
-    display: flex;
-  }
+.vector-simulation.is-fullscreen .vs-orientation-hint,
+.vector-simulation.is-fullscreen .vs-insights {
+  display: none;
 }
 
-/* Potret ponsel: bidang koordinat menempel di atas, isian digeser di bawahnya */
-@media (max-width: 900px) and (orientation: portrait) and (min-height: 560px) {
-  .vector-simulation:not(.is-fullscreen) .vs-board-panel {
-    position: sticky;
-    top: 0;
-    z-index: 6;
-    gap: 6px;
-    padding: 8px;
-    box-shadow: 0 6px 16px rgba(24, 49, 61, 0.16);
+/* Layar penuh di monitor besar: ukuran sedikit lebih lega */
+@media (min-width: 900px) and (min-height: 541px) {
+  .vector-simulation.is-fullscreen {
+    --track: 4px;
+    --thumb: 15px;
+    --step: 26px;
+    font-size: 13px;
   }
 
-  .vector-simulation:not(.is-fullscreen) .vs-board-heading .vs-board-hint {
-    display: none;
+  .vector-simulation.is-fullscreen .vs-caption {
+    font-size: 17px;
   }
 
-  .vector-simulation:not(.is-fullscreen) .vs-fullscreen-button {
-    min-height: 36px;
+  .vector-simulation.is-fullscreen .vs-row {
+    grid-template-columns: 30px var(--step) minmax(0, 1fr) var(--step) 52px;
   }
 
-  .vector-simulation:not(.is-fullscreen) .vs-board-wrap {
-    width: 100%;
+  .vector-simulation.is-fullscreen .vs-row label {
+    font-size: 18px;
   }
 
-  .vector-simulation:not(.is-fullscreen) .vs-board {
-    width: 100%;
-    height: clamp(190px, 34dvh, 330px);
-    max-height: none;
-    aspect-ratio: auto;
+  .vector-simulation.is-fullscreen .vs-range {
+    height: 32px;
   }
 
-  .vector-simulation:not(.is-fullscreen) .vs-caption {
-    font-size: 14px;
-  }
-}
-
-@media (max-width: 520px) {
-  .vector-simulation {
-    gap: 10px;
-    padding: 9px;
+  .vector-simulation.is-fullscreen .vs-num {
+    height: 28px;
   }
 
-  .vs-board-panel,
-  .vs-panel {
-    padding: 8px;
-  }
-
-  .vs-card-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .vs-table th,
-  .vs-table td {
-    padding: 6px;
-  }
-
-  .vs-table td {
+  .vector-simulation.is-fullscreen .vs-tabs button {
+    height: 34px;
     font-size: 12px;
   }
+}
 
-  .vs-reset-row {
-    display: grid;
-    grid-template-columns: 1fr;
+/* Layar penuh + potret: tetap 2 : 1, grafik atas, input bawah */
+@media (orientation: portrait) and (max-width: 899px) {
+  .vector-simulation.is-fullscreen .vs-main {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 2fr) minmax(0, 1fr);
+  }
+
+  .vector-simulation.is-fullscreen .vs-board-panel {
+    height: auto;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .vector-simulation * {
     transition: none !important;
-  }
-}
-
-/* ───────── Mode layar penuh ───────── */
-
-.vector-simulation.is-fullscreen {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  box-sizing: border-box;
-  width: 100vw;
-  height: 100vh;
-  height: 100dvh;
-  /* grafik : (input + info) = 2 : 1 */
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-  grid-template-rows: minmax(0, 1fr) auto;
-  gap: 8px 10px;
-  padding: max(10px, env(safe-area-inset-top, 0px))
-    max(14px, env(safe-area-inset-right, 0px))
-    max(10px, env(safe-area-inset-bottom, 0px))
-    max(14px, env(safe-area-inset-left, 0px));
-  overflow: hidden;
-}
-
-.is-fullscreen .vs-orientation-hint {
-  display: none;
-}
-
-/* .vs-main melebur sehingga anak-anaknya ikut grid utama */
-.is-fullscreen .vs-main {
-  display: contents;
-}
-
-.is-fullscreen .vs-board-panel,
-.is-fullscreen .vs-column {
-  min-height: 0;
-}
-
-.is-fullscreen .vs-column {
-  display: grid;
-  gap: 8px;
-  overflow-y: auto;
-  align-content: start;
-}
-
-.is-fullscreen .vs-results {
-  grid-column: auto;
-  gap: 8px;
-}
-
-.is-fullscreen .vs-board-panel {
-  grid-template-rows: auto minmax(0, 1fr) auto auto;
-  align-content: stretch;
-  gap: 6px;
-  padding: 8px 10px;
-}
-
-.is-fullscreen .vs-board-heading .vs-board-hint {
-  display: none;
-}
-
-.is-fullscreen .vs-board-wrap {
-  width: 100%;
-  height: 100%;
-}
-
-.is-fullscreen .vs-board {
-  width: 100%;
-  height: 100%;
-  max-height: none;
-  aspect-ratio: auto;
-}
-
-.is-fullscreen .vs-caption {
-  min-height: 0;
-  font-size: 14px;
-}
-
-.is-fullscreen .vs-side {
-  gap: 8px;
-}
-
-.is-fullscreen .vs-panel {
-  padding: 8px 10px;
-}
-
-.is-fullscreen h3 {
-  margin-bottom: 4px;
-}
-
-.is-fullscreen .vs-vector-row {
-  margin-top: 6px;
-}
-
-.is-fullscreen .vs-check {
-  margin-top: 2px;
-}
-
-.is-fullscreen .vs-subtitle {
-  margin: 8px 0 4px;
-}
-
-.is-fullscreen .vs-hint {
-  margin-top: 4px;
-  font-size: 10px;
-}
-
-.is-fullscreen .vs-card-grid {
-  grid-template-columns: minmax(0, 1fr);
-  gap: 6px;
-}
-
-.is-fullscreen .vs-card {
-  gap: 3px;
-  padding: 7px 9px;
-}
-
-.is-fullscreen .vs-card .vs-formula {
-  font-size: 12px;
-  line-height: 1.3;
-}
-
-.is-fullscreen .vs-card p {
-  font-size: 10px;
-  line-height: 1.3;
-}
-
-.is-fullscreen .vs-table th,
-.is-fullscreen .vs-table td {
-  padding: 4px 8px;
-}
-
-.is-fullscreen .vs-table td {
-  font-size: 12px;
-}
-
-.is-fullscreen .vs-insights {
-  grid-column: 1 / -1;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 3px 16px;
-  font-size: 10.5px;
-  line-height: 1.35;
-}
-
-/* Layar penuh + potret: halaman digulir, bidang koordinat menempel di atas */
-@media (max-width: 1000px) and (orientation: portrait), (max-width: 560px) {
-  .vector-simulation.is-fullscreen {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: none;
-    align-content: start;
-    overflow-y: auto;
-  }
-
-  .is-fullscreen .vs-main {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 10px;
-  }
-
-  .is-fullscreen .vs-board-panel {
-    position: sticky;
-    top: 0;
-    z-index: 6;
-    box-shadow: 0 6px 16px rgba(24, 49, 61, 0.16);
-  }
-
-  .is-fullscreen .vs-board {
-    height: clamp(200px, 42dvh, 460px);
-  }
-
-  .is-fullscreen .vs-column {
-    display: contents;
-    overflow: visible;
-  }
-
-  .is-fullscreen .vs-insights {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
-/* ───────── Ponsel LANSKAP (tinggi pendek) ─────────
-   Layar penuh: bidang koordinat di kiri; di kanan satu panel dengan tab
-   Vektor | Contoh | Tampilan | Hasil, sehingga tidak perlu menggulir panjang. */
-
-@media (orientation: landscape) and (max-height: 540px) {
-  .vector-simulation {
-    --vs-btn: 40px;
-    gap: 8px;
-  }
-
-  .vs-insights {
-    display: none;
-  }
-
-  /* Tidak layar penuh: dua kolom, bidang koordinat tidak terlalu tinggi */
-  .vector-simulation:not(.is-fullscreen) .vs-main {
-    grid-template-columns: minmax(0, 1.1fr) minmax(260px, 0.9fr);
-  }
-
-  .vector-simulation:not(.is-fullscreen) .vs-board {
-    width: 100%;
-    height: clamp(230px, 84dvh, 420px);
-    max-height: none;
-    aspect-ratio: auto;
-  }
-
-  .vector-simulation:not(.is-fullscreen) .vs-board-wrap {
-    width: 100%;
-  }
-
-  .vector-simulation.is-fullscreen {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) clamp(300px, 40vw, 380px);
-    grid-template-rows: minmax(0, 1fr);
-    align-content: stretch;
-    overflow: hidden;
-  }
-
-  .is-fullscreen .vs-main {
-    display: contents;
-  }
-
-  .is-fullscreen .vs-board-panel {
-    position: static;
-    box-shadow: none;
-    padding: 6px 8px;
-    gap: 4px;
-  }
-
-  .is-fullscreen .vs-board {
-    height: 100%;
-  }
-
-  .is-fullscreen .vs-board-heading h3 {
-    display: none;
-  }
-
-  .is-fullscreen .vs-board-heading {
-    justify-content: flex-end;
-    min-height: 0;
-  }
-
-  .is-fullscreen .vs-fullscreen-button {
-    min-height: 34px;
-    padding: 0 10px;
-  }
-
-  .is-fullscreen .vs-fullscreen-button span {
-    display: none;
-  }
-
-  .is-fullscreen .vs-view-tools button {
-    width: 34px;
-    height: 34px;
-  }
-
-  .is-fullscreen .vs-legend {
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    overflow-x: auto;
-    font-size: 10px;
-    scrollbar-width: none;
-  }
-
-  .is-fullscreen .vs-legend::-webkit-scrollbar {
-    display: none;
-  }
-
-  .is-fullscreen .vs-caption {
-    font-size: 13px;
-    line-height: 1.25;
-  }
-
-  /* Panel kanan bertab */
-  .is-fullscreen .vs-column {
-    display: grid;
-    grid-template-rows: auto minmax(0, 1fr);
-    gap: 6px;
-    height: 100%;
-    overflow: hidden;
-  }
-
-  .is-fullscreen .vs-tabs {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .vs-tabs button {
-    min-height: 38px;
-    padding: 0 4px;
-    border: 1px solid #aebdc2;
-    margin-left: -1px;
-    background: #fff;
-    color: var(--sim-ink, #18313d);
-    font-size: 11px;
-    font-weight: 700;
-    cursor: pointer;
-  }
-
-  .vs-tabs button:first-child {
-    margin-left: 0;
-  }
-
-  .vs-tabs button[aria-pressed="true"] {
-    border-color: var(--vs-a);
-    background: var(--vs-a);
-    color: #fff;
-  }
-
-  .is-fullscreen .vs-side,
-  .is-fullscreen .vs-results {
-    min-height: 0;
-    overflow-y: auto;
-    align-content: start;
-    overscroll-behavior: contain;
-  }
-
-  /* Hanya panel pada tab aktif yang tampil */
-  .is-fullscreen
-    .vs-column[data-tab="vector"]
-    [data-pane]:not([data-pane="vector"]),
-  .is-fullscreen
-    .vs-column[data-tab="preset"]
-    [data-pane]:not([data-pane="preset"]),
-  .is-fullscreen
-    .vs-column[data-tab="view"]
-    [data-pane]:not([data-pane="view"]),
-  .is-fullscreen
-    .vs-column[data-tab="result"]
-    [data-pane]:not([data-pane="result"]),
-  .is-fullscreen .vs-column[data-tab="result"] .vs-side {
-    display: none;
-  }
-
-  .is-fullscreen .vs-hint {
-    display: none;
-  }
-
-  .is-fullscreen .vs-vector-row {
-    grid-template-columns: 28px repeat(2, minmax(0, 1fr));
-    gap: 6px;
-  }
-
-  .is-fullscreen .vs-name {
-    width: 28px;
-  }
-
-  .is-fullscreen .vs-panel {
-    padding: 8px 10px;
   }
 }

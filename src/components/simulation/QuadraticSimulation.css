@@ -1,931 +1,815 @@
-/* Memakai kelas .simulation-page, .simulation-section, .simulation-heading,
-   dst. dari TrigonometrySimulation.css (variabel --sim-* sudah tersedia). */
+/* Simulasi fungsi kuadrat v2.
+   Urutan: (1) ponsel lanskap = dasar, (2) desktop/tablet lanskap,
+   (3) potret, (4) layar penuh.
+   Wilayah grafik : wilayah input = 2fr : 1fr. */
 
-.quadratic-simulation {
-  --quad-a: #087f8c;
-  --quad-b: #d16b36;
-  --quad-c: #527a41;
-  --quad-btn: 40px; /* tinggi minimum tombol; naik di layar sentuh */
+.qs2,
+.qs2 *,
+.qs2 *::before,
+.qs2 *::after {
+  box-sizing: border-box;
+}
+
+.qs2 {
+  --ink: #18313d;
+  --muted: #62727d;
+  --line: #d5e0e4;
+  --paper: #f3f7f5;
+  --a: #087f8c;
+  --b: #d16b36;
+  --c: #527a41;
+  --curve: #183e54;
+  --vertex: #927000;
+  --root: #b23a48;
+
+  /* slider tipis, bulatan kecil */
+  --track: 3px;
+  --thumb: 13px;
+  --step: 24px;
+
   display: grid;
-  gap: 12px;
-  padding: 16px;
-  border-top: 3px solid var(--gold);
-  background: var(--sim-paper, #f3f7f5);
-  color: var(--sim-ink, #18313d);
+  grid-template-rows: minmax(0, 1fr);
+  gap: 6px;
+  height: min(100dvh, 460px);
+  padding: 6px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 12px;
   font-variant-numeric: tabular-nums;
   -webkit-tap-highlight-color: transparent;
 }
 
-@media (pointer: coarse) {
-  .quadratic-simulation {
-    --quad-btn: 46px;
-  }
-}
-
-.quadratic-simulation button {
+.qs2 button {
   touch-action: manipulation;
+  font: inherit;
 }
 
-.quadratic-simulation button:focus-visible,
-.quadratic-simulation input:focus-visible {
-  outline: 2px solid var(--quad-a);
-  outline-offset: 3px;
+.qs2 button:focus-visible,
+.qs2 input:focus-visible {
+  outline: 2px solid var(--a);
+  outline-offset: 2px;
 }
 
-/* ───────── Petunjuk ponsel ───────── */
-
-.quad-orientation-hint {
+.qs2-hint,
+.qs2-insights {
   display: none;
-  align-items: flex-start;
-  gap: 8px;
-  margin: 0;
-  padding: 8px 10px;
-  border-left: 3px solid var(--quad-a);
-  background: #e8f3f1;
-  color: var(--sim-ink, #18313d);
-  font-size: 11px;
-  line-height: 1.45;
 }
 
-.quad-orientation-hint svg {
-  flex: 0 0 auto;
-  margin-top: 1px;
-  color: var(--quad-a);
-}
+/* ───────── Pembagian 2 : 1 ───────── */
 
-/* ───────── Papan grafik ───────── */
-
-.quad-boards {
+.qs2-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
-  gap: 14px;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 6px;
   min-width: 0;
+  height: 100%;
   min-height: 0;
 }
 
-.quad-board-panel {
+/* ───────── Grafik ───────── */
+
+.qs2-graph {
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-rows: minmax(0, 1fr) auto;
   min-width: 0;
   min-height: 0;
-  padding: 12px;
-  border: 1px solid var(--sim-line, #d5e0e4);
+  height: 100%;
+  border: 1px solid var(--line);
   background: #fff;
 }
 
-.quad-board-heading {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 8px 10px;
-  padding-bottom: 10px;
-}
-
-.quad-board-heading h3 {
-  grid-area: 1 / 1;
-  margin: 0;
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.quad-fullscreen-button {
-  grid-area: 1 / 2;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  min-height: var(--quad-btn);
-  padding: 0 14px;
-  border: 1px solid var(--quad-a);
-  background: #e8f3f1;
-  color: #0a5f69;
-  font: inherit;
-  font-size: 12px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.quad-fullscreen-button:hover {
-  background: #d7ebe8;
-}
-
-/* Persamaan: besar & mudah dibaca */
-.quad-equation {
-  grid-area: 2 / 1 / 3 / 3;
-  margin: 0;
-  padding: 8px 14px;
-  border-left: 4px solid var(--quad-a);
-  background: #eef4f2;
-  color: #183e54;
-  font-family: "Cambria Math", Georgia, serif;
-  font-size: clamp(22px, 2.4vw, 32px);
-  font-weight: 700;
-  line-height: 1.25;
-  overflow-wrap: anywhere;
-}
-
-.quad-board-wrap {
+.qs2-stage {
   position: relative;
   min-width: 0;
   min-height: 0;
+  height: 100%;
 }
 
-.quad-board {
+.qs2-board {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  min-width: 0;
-  aspect-ratio: 1 / 1;
-  max-height: 520px;
-  margin-inline: auto;
+  height: 100%;
   overflow: hidden;
-  background-color: #fcfdfc;
+  background: #fcfdfc;
   touch-action: none;
   cursor: grab;
 }
 
-.quad-board:active {
+.qs2-board:active {
   cursor: grabbing;
 }
 
-.quad-board .JXGtext {
-  font-family: "Open Sans", sans-serif;
+/* Persamaan melayang di pojok kiri atas grafik */
+.qs2-eq {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  z-index: 2;
+  max-width: calc(100% - 52px);
+  margin: 0;
+  padding: 2px 8px;
+  border-left: 3px solid var(--a);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--curve);
+  font-family: "Cambria Math", Georgia, serif;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+  pointer-events: none;
+  overflow-wrap: anywhere;
 }
 
-/* Zoom & pusatkan: melayang di sudut grafik */
-.quad-view-tools {
+/* Alat tampilan melayang di pojok kanan atas */
+.qs2-tools {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: 6px;
+  right: 6px;
   z-index: 2;
   display: grid;
-  gap: 4px;
+  gap: 3px;
 }
 
-.quad-view-tools button {
+.qs2-tools button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 28px;
+  height: 28px;
   padding: 0;
   border: 1px solid #aebdc2;
   background: rgba(255, 255, 255, 0.94);
-  color: var(--sim-ink, #18313d);
-  box-shadow: 0 1px 3px rgba(24, 49, 61, 0.18);
+  color: var(--ink);
   cursor: pointer;
 }
 
-.quad-view-tools button:hover {
-  border-color: var(--quad-a);
+.qs2-tools button:hover {
+  border-color: var(--a);
   background: #e8f3f1;
 }
 
-@media (pointer: coarse) {
-  .quad-view-tools button {
-    width: 42px;
-    height: 42px;
-  }
-}
-
-.quad-legend {
+.qs2-legend {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 6px 16px;
-  padding-top: 8px;
-  color: var(--sim-muted, #62727d);
-  font-size: 11px;
+  gap: 4px 12px;
+  padding: 3px 8px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
 }
 
-.quad-legend span {
+.qs2-legend::-webkit-scrollbar {
+  display: none;
+}
+
+.qs2-legend span {
   display: inline-flex;
   flex: 0 0 auto;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   white-space: nowrap;
 }
 
-.quad-legend i {
-  width: 16px;
+.qs2-legend i {
+  width: 14px;
   height: 0;
-  border-top: 3px solid #183e54;
+  border-top: 3px solid var(--curve);
 }
 
-.quad-legend .legend-ref {
+.qs2-legend .lg-ref {
   border-top: 2px dashed #9aa8b0;
 }
 
-.quad-legend .legend-axis {
-  border-top: 2px dashed var(--quad-b);
+.qs2-legend .lg-axis {
+  border-top: 2px dashed var(--b);
 }
 
-.quad-legend b {
-  width: 9px;
-  height: 9px;
+.qs2-legend b {
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
 }
 
-.quad-legend .dot-vertex {
-  background: #927000;
+.qs2-legend .dt-vertex {
+  background: var(--vertex);
 }
 
-.quad-legend .dot-root {
-  background: #b23a48;
+.qs2-legend .dt-root {
+  background: var(--root);
 }
 
-.quad-legend .dot-c {
-  background: var(--quad-c);
+.qs2-legend .dt-c {
+  background: var(--c);
 }
 
-/* ───────── Kontrol ───────── */
+/* ───────── Input ───────── */
 
-.quad-controls {
-  display: grid;
-  align-content: start;
-  gap: 14px;
+.qs2-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   min-width: 0;
   min-height: 0;
-  padding: 14px;
-  border: 1px solid var(--sim-line, #d5e0e4);
+  padding: 8px;
+  border: 1px solid var(--line);
   background: #fff;
+  overflow-y: auto;
+  scrollbar-width: thin;
 }
 
-.quad-inputs {
-  display: grid;
-  gap: 14px;
-  min-width: 0;
-}
-
-.quad-slider {
+.qs2-sliders {
   display: grid;
   gap: 2px;
-  min-width: 0;
 }
 
-.quad-slider-a {
-  --slider-color: var(--quad-a);
+/* Satu baris: a  −  ────●────  +  1,5 */
+.qs2-slider {
+  display: grid;
+  grid-template-columns: 14px var(--step) minmax(0, 1fr) var(--step) 34px;
+  align-items: center;
+  column-gap: 4px;
 }
 
-.quad-slider-b {
-  --slider-color: var(--quad-b);
+.qs2-slider-a {
+  --sc: var(--a);
 }
 
-.quad-slider-c {
-  --slider-color: var(--quad-c);
+.qs2-slider-b {
+  --sc: var(--b);
 }
 
-.quad-slider-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
-  color: var(--slider-color);
+.qs2-slider-c {
+  --sc: var(--c);
 }
 
-.quad-slider-head label {
+.qs2-slider-head {
+  display: contents;
+}
+
+.qs2-slider-head label {
+  grid-column: 1;
+  grid-row: 1;
+  color: var(--sc);
   font-family: "Cambria Math", Georgia, serif;
-  font-size: 21px;
+  font-size: 16px;
   font-style: italic;
   font-weight: 800;
 }
 
-.quad-slider-head label small {
-  margin-left: 8px;
-  color: var(--sim-muted, #62727d);
-  font-family: "Open Sans", sans-serif;
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 600;
+.qs2-slider-head label i {
+  font-style: italic;
 }
 
-.quad-slider-head output {
-  font-size: 19px;
+.qs2-slider-head label small {
+  display: none;
+}
+
+.qs2-slider-head output {
+  grid-column: 5;
+  grid-row: 1;
+  color: var(--sc);
+  font-size: 12px;
   font-weight: 800;
+  text-align: right;
   white-space: nowrap;
 }
 
-.quad-slider-row {
-  display: grid;
-  grid-template-columns: var(--quad-btn) minmax(0, 1fr) var(--quad-btn);
-  align-items: center;
-  column-gap: 8px;
+.qs2-slider > .qs2-step:first-of-type {
+  grid-column: 2;
+  grid-row: 1;
 }
 
-.quad-step-button {
+.qs2-slider > .qs2-range {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.qs2-slider > .qs2-step:last-of-type {
+  grid-column: 4;
+  grid-row: 1;
+}
+
+.qs2-step {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: var(--quad-btn);
-  height: var(--quad-btn);
+  width: var(--step);
+  height: var(--step);
   padding: 0;
   border: 1px solid #aebdc2;
   border-radius: 50%;
   background: #fff;
-  color: var(--sim-ink, #18313d);
+  color: var(--ink);
   cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
   -webkit-touch-callout: none;
 }
 
-.quad-step-button:hover:not(:disabled) {
-  border-color: var(--slider-color);
+.qs2-step:hover:not(:disabled) {
+  border-color: var(--sc);
   background: #f1f6f5;
 }
 
-.quad-step-button:active:not(:disabled) {
+.qs2-step:active:not(:disabled) {
   background: #e0ecea;
 }
 
-.quad-step-button:disabled {
-  opacity: 0.35;
+.qs2-step:disabled {
+  opacity: 0.3;
   cursor: not-allowed;
 }
 
-.quad-slider-input {
-  --quad-fill: 50%;
+/* Area sentuh 28px, tampilan visual hanya 3px */
+.qs2-range {
+  --fill: 50%;
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
-  height: 40px;
+  height: 28px;
   margin: 0;
   background: transparent;
   cursor: pointer;
   touch-action: pan-y;
 }
 
-.quad-slider-input::-webkit-slider-runnable-track {
-  height: 8px;
+.qs2-range::-webkit-slider-runnable-track {
+  height: var(--track);
   border-radius: 999px;
   background: linear-gradient(
     to right,
-    var(--slider-color) 0,
-    var(--slider-color) var(--quad-fill),
-    #d5e0e4 var(--quad-fill),
-    #d5e0e4 100%
+    var(--sc) 0,
+    var(--sc) var(--fill),
+    var(--line) var(--fill),
+    var(--line) 100%
   );
 }
 
-.quad-slider-input::-webkit-slider-thumb {
+.qs2-range::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 28px;
-  height: 28px;
-  margin-top: -10px;
-  border: 3px solid #fff;
-  border-radius: 50%;
-  background: var(--slider-color);
-  box-shadow: 0 1px 5px rgba(24, 49, 61, 0.5);
-}
-
-.quad-slider-input::-moz-range-track {
-  height: 8px;
-  border-radius: 999px;
-  background: #d5e0e4;
-}
-
-.quad-slider-input::-moz-range-progress {
-  height: 8px;
-  border-radius: 999px;
-  background: var(--slider-color);
-}
-
-.quad-slider-input::-moz-range-thumb {
   box-sizing: border-box;
-  width: 28px;
-  height: 28px;
-  border: 3px solid #fff;
+  width: var(--thumb);
+  height: var(--thumb);
+  margin-top: calc((var(--track) - var(--thumb)) / 2);
+  border: 2px solid #fff;
   border-radius: 50%;
-  background: var(--slider-color);
-  box-shadow: 0 1px 5px rgba(24, 49, 61, 0.5);
+  background: var(--sc);
+  box-shadow: 0 0 0 1px rgba(24, 49, 61, 0.28);
+}
+
+.qs2-range::-moz-range-track {
+  height: var(--track);
+  border-radius: 999px;
+  background: var(--line);
+}
+
+.qs2-range::-moz-range-progress {
+  height: var(--track);
+  border-radius: 999px;
+  background: var(--sc);
+}
+
+.qs2-range::-moz-range-thumb {
+  box-sizing: border-box;
+  width: var(--thumb);
+  height: var(--thumb);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: var(--sc);
+  box-shadow: 0 0 0 1px rgba(24, 49, 61, 0.28);
+}
+
+.qs2-range:focus-visible {
+  outline: none;
+}
+
+.qs2-range:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 2px var(--sc);
+}
+
+.qs2-range:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 2px var(--sc);
 }
 
 @media (pointer: coarse) {
-  .quad-slider-input {
-    height: 46px;
-  }
-
-  .quad-slider-input::-webkit-slider-runnable-track {
-    height: 10px;
-  }
-
-  .quad-slider-input::-webkit-slider-thumb {
-    width: 34px;
-    height: 34px;
-    margin-top: -12px;
-  }
-
-  .quad-slider-input::-moz-range-track,
-  .quad-slider-input::-moz-range-progress {
-    height: 10px;
-  }
-
-  .quad-slider-input::-moz-range-thumb {
-    width: 34px;
-    height: 34px;
+  .qs2 {
+    --step: 26px;
   }
 }
 
-.quad-range-labels {
-  grid-column: 2;
-  display: flex;
-  justify-content: space-between;
-  margin-top: -4px;
-  color: var(--sim-muted, #62727d);
-  font-size: 9px;
-  line-height: 1;
-}
+/* ───────── Aksi ───────── */
 
-.quad-actions {
+.qs2-actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
-.quad-reset-button {
+.qs2-reset {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 6px;
-  min-height: var(--quad-btn);
-  padding: 0 14px;
+  gap: 5px;
+  height: 26px;
+  padding: 0 9px;
   border: 1px solid #aebdc2;
   background: #fff;
-  color: var(--sim-ink, #18313d);
-  font: inherit;
-  font-size: 12px;
+  color: var(--ink);
+  font-size: 11px;
   font-weight: 700;
   cursor: pointer;
 }
 
-.quad-reset-button:hover {
-  border-color: var(--quad-a);
+.qs2-reset:hover {
+  border-color: var(--a);
   background: #e8f3f1;
 }
 
-.quad-warning {
+/* Gaya grafik: disembunyikan di ponsel lanskap agar muat tanpa gulir */
+.qs2-style {
+  display: none;
+  align-items: center;
+  gap: 4px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.qs2-style span {
+  margin-left: 4px;
+}
+
+.qs2-style b {
+  min-width: 14px;
+  color: var(--ink);
+  text-align: center;
+}
+
+.qs2-style button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 1px solid #aebdc2;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.qs2-warning {
   margin: 0;
-  padding: 9px 12px;
+  padding: 4px 7px;
   border: 1px solid #e2c27a;
   background: #fff7e0;
   color: #6b5200;
-  font-size: 12px;
+  font-size: 10px;
+  line-height: 1.3;
 }
 
-/* ───────── Hasil perhitungan ───────── */
+/* ───────── Hasil ───────── */
 
-.quad-readouts {
+.qs2-readouts {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1px;
   margin: 0;
-  border: 1px solid var(--sim-line, #d5e0e4);
-  background: var(--sim-line, #d5e0e4);
+  border: 1px solid var(--line);
+  background: var(--line);
 }
 
-.quad-readouts > div {
+.qs2-readouts > div {
   min-width: 0;
-  padding: 8px 11px;
+  padding: 4px 7px;
   background: #fff;
 }
 
-.quad-readouts dt {
-  margin-bottom: 2px;
-  color: var(--sim-muted, #62727d);
-  font-size: 10px;
+.qs2-readouts dt {
+  color: var(--muted);
+  font-size: 9px;
   font-weight: 600;
+  line-height: 1.2;
 }
 
-.quad-readouts dd {
+.qs2-readouts dd {
   margin: 0;
   font-family: "Cambria Math", Georgia, serif;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 700;
-  line-height: 1.3;
+  line-height: 1.25;
   overflow-wrap: anywhere;
 }
 
-.quad-readouts small {
-  display: block;
-  margin-top: 2px;
-  color: var(--sim-muted, #62727d);
-  font-size: 10px;
-}
-
-.quad-readouts .readout-a dd {
-  color: var(--quad-a);
-  font-family: "Open Sans", sans-serif;
-  font-size: 13px;
-}
-
-.quad-readouts .readout-b dd {
-  color: var(--quad-b);
-}
-
-.quad-readouts .readout-c dd {
-  color: var(--quad-c);
-}
-
-.quad-readouts .readout-vertex dd {
-  color: #927000;
-}
-
-.quad-readouts .readout-roots dd {
-  color: #b23a48;
-}
-
-/* ───────── Penjelasan ───────── */
-
-.quad-insights {
-  display: grid;
-  gap: 6px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  color: var(--sim-muted, #62727d);
-  font-size: 12px;
-  line-height: 1.5;
-}
-
-.quad-insights li {
-  padding-left: 10px;
-  border-left: 3px solid var(--sim-line, #d5e0e4);
-}
-
-/* ───────── Layar sempit / potret: papan ditumpuk ───────── */
-
-@media (max-width: 860px) and (orientation: portrait), (max-width: 560px) {
-  .quad-boards {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .quad-board {
-    width: min(100%, 520px);
-  }
-
-  .quad-board-wrap {
-    justify-self: center;
-    width: min(100%, 520px);
-  }
-
-  /* Legenda satu baris yang bisa digeser, hemat tinggi */
-  .quad-legend {
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding-bottom: 2px;
-    scrollbar-width: none;
-  }
-
-  .quad-legend::-webkit-scrollbar {
-    display: none;
-  }
-}
-
-@media (max-width: 860px) and (orientation: portrait) {
-  .quadratic-simulation:not(.is-fullscreen) .quad-orientation-hint {
-    display: flex;
-  }
-}
-
-/* Potret ponsel: grafik menempel di atas, slider digeser di bawahnya */
-@media (max-width: 860px) and (orientation: portrait) and (min-height: 560px) {
-  .quadratic-simulation:not(.is-fullscreen) .quad-board-panel {
-    position: sticky;
-    top: 0;
-    z-index: 6;
-    padding: 8px;
-    box-shadow: 0 6px 16px rgba(24, 49, 61, 0.16);
-  }
-
-  .quadratic-simulation:not(.is-fullscreen) .quad-board-heading {
-    gap: 6px 8px;
-    padding-bottom: 6px;
-  }
-
-  .quadratic-simulation:not(.is-fullscreen) .quad-board-heading h3 {
-    font-size: 12px;
-  }
-
-  .quadratic-simulation:not(.is-fullscreen) .quad-equation {
-    padding: 5px 10px;
-    font-size: clamp(20px, 6vw, 26px);
-  }
-
-  .quadratic-simulation:not(.is-fullscreen) .quad-board {
-    width: 100%;
-    height: clamp(190px, 36dvh, 340px);
-    max-height: none;
-    aspect-ratio: auto;
-  }
-
-  .quadratic-simulation:not(.is-fullscreen) .quad-board-wrap {
-    width: 100%;
-  }
-}
-
-@media (max-width: 520px) {
-  .quadratic-simulation {
-    gap: 10px;
-    padding: 9px;
-  }
-
-  .quad-board-panel {
-    padding: 8px;
-  }
-
-  .quad-controls {
-    padding: 10px;
-    gap: 12px;
-  }
-
-  .quad-inputs {
-    gap: 10px;
-  }
-
-  .quad-readouts dd {
-    font-size: 15px;
-  }
-
-  .quad-actions {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  .quad-reset-button {
-    width: 100%;
-  }
-}
-
-/* ───────── Mode layar penuh ───────── */
-
-.quadratic-simulation.is-fullscreen {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  box-sizing: border-box;
-  width: 100vw;
-  height: 100vh;
-  height: 100dvh;
-  grid-template-rows: minmax(0, 1fr) auto;
-  gap: 8px;
-  padding: max(10px, env(safe-area-inset-top, 0px))
-    max(14px, env(safe-area-inset-right, 0px))
-    max(10px, env(safe-area-inset-bottom, 0px))
-    max(14px, env(safe-area-inset-left, 0px));
-  overflow: hidden;
-}
-
-.is-fullscreen .quad-orientation-hint {
-  display: none;
-}
-
-.is-fullscreen .quad-boards {
-  grid-template-columns: minmax(0, 1fr) clamp(300px, 28vw, 420px);
-  gap: 10px;
-  height: 100%;
-}
-
-.is-fullscreen .quad-board-panel {
-  height: 100%;
-  padding: 8px 10px;
-}
-
-.is-fullscreen .quad-board-heading {
-  padding-bottom: 6px;
-}
-
-.is-fullscreen .quad-board-wrap {
-  width: 100%;
-  height: 100%;
-}
-
-.is-fullscreen .quad-board {
-  width: 100%;
-  height: 100%;
-  max-height: none;
-  aspect-ratio: auto;
-}
-
-.is-fullscreen .quad-legend {
-  padding-top: 6px;
-}
-
-.is-fullscreen .quad-controls {
-  gap: clamp(8px, 1.6vh, 14px);
-  padding: clamp(8px, 1.6vh, 14px);
-  overflow-y: auto;
-}
-
-.is-fullscreen .quad-inputs {
-  gap: clamp(6px, 1.4vh, 12px);
-}
-
-.is-fullscreen .quad-readouts > div {
-  padding: 6px 10px;
-}
-
-.is-fullscreen .quad-readouts dd {
-  font-size: 15px;
-}
-
-.is-fullscreen .quad-insights {
-  gap: 3px;
+.qs2-readouts .ro-a dd {
+  color: var(--a);
+  font-family: inherit;
   font-size: 11px;
 }
 
-/* Layar penuh + potret (tablet / ponsel): papan atas, kontrol bawah (bisa digulir) */
-@media (max-width: 860px) and (orientation: portrait) {
-  .quadratic-simulation.is-fullscreen {
-    grid-template-rows: auto;
-    overflow-y: auto;
-  }
-
-  .is-fullscreen .quad-boards {
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: minmax(300px, 52dvh) auto;
-    height: auto;
-  }
-
-  .is-fullscreen .quad-controls {
-    overflow-y: visible;
-  }
-
-  .is-fullscreen .quad-insights {
-    display: none;
-  }
+.qs2-readouts .ro-b dd {
+  color: var(--b);
 }
 
-/* ───────── Ponsel LANSKAP (tinggi pendek) ─────────
-   Layar penuh dibagi tiga kolom tanpa scroll:
-   grafik | slider a, b, c | hasil perhitungan. */
+.qs2-readouts .ro-c dd {
+  color: var(--c);
+}
 
-@media (orientation: landscape) and (max-height: 540px) {
-  .quadratic-simulation {
-    --quad-btn: 40px;
-    gap: 8px;
-  }
+.qs2-readouts .ro-vertex dd {
+  color: var(--vertex);
+}
 
-  /* Slider satu baris: label di kiri, − slider + di kanan */
-  .quad-inputs {
+.qs2-readouts .ro-roots dd {
+  color: var(--root);
+}
+
+/* ───────── Layar sangat pendek (HP lanskap kecil) ───────── */
+
+@media (orientation: landscape) and (max-height: 360px) {
+  .qs2 {
+    padding: 4px;
     gap: 4px;
   }
 
-  .quad-slider {
-    grid-template-columns: 54px minmax(0, 1fr);
-    align-items: center;
-    gap: 0 6px;
+  .qs2-layout {
+    gap: 4px;
   }
 
-  .quad-slider-head {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
+  .qs2-inputs {
+    gap: 5px;
+    padding: 6px;
   }
 
-  .quad-slider-head label {
-    font-size: 18px;
-    line-height: 1.1;
+  .qs2-range {
+    height: 24px;
   }
 
-  .quad-slider-head label small,
-  .quad-range-labels {
-    display: none;
+  .qs2-readouts > div {
+    padding: 2px 6px;
   }
 
-  .quad-slider-head output {
-    font-size: 14px;
-    line-height: 1.2;
-  }
-
-  .quad-slider-input {
-    height: 38px;
-  }
-
-  .quad-reset-button {
-    min-height: 36px;
-    padding: 0 10px;
-  }
-
-  .quad-insights {
-    display: none;
-  }
-
-  .quadratic-simulation.is-fullscreen {
-    grid-template-rows: minmax(0, 1fr);
-    overflow: hidden;
-  }
-
-  .is-fullscreen .quad-boards {
-    grid-template-columns:
-      minmax(0, 1fr)
-      clamp(210px, 29vw, 270px)
-      clamp(150px, 21vw, 200px);
-    grid-template-rows: minmax(0, 1fr);
-    gap: 8px;
-    height: 100%;
-  }
-
-  /* Dua kartu terpisah di samping grafik */
-  .is-fullscreen .quad-controls {
-    display: contents;
-  }
-
-  .is-fullscreen .quad-inputs,
-  .is-fullscreen .quad-readouts {
-    min-height: 0;
-    height: 100%;
-    overflow-y: auto;
-  }
-
-  .is-fullscreen .quad-inputs {
-    align-content: start;
-    padding: 8px 10px;
-    border: 1px solid var(--sim-line, #d5e0e4);
-    background: #fff;
-  }
-
-  .is-fullscreen .quad-readouts {
-    grid-template-columns: minmax(0, 1fr);
-    grid-auto-rows: minmax(min-content, 1fr);
-    align-content: stretch;
-  }
-
-  .is-fullscreen .quad-readouts > div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 3px 9px;
-  }
-
-  .is-fullscreen .quad-readouts dt {
-    margin: 0;
-    font-size: 9px;
-  }
-
-  .is-fullscreen .quad-readouts dd {
-    font-size: 13px;
-    line-height: 1.2;
-  }
-
-  .is-fullscreen .quad-readouts .readout-a dd {
+  .qs2-readouts dd {
     font-size: 12px;
   }
+}
 
-  .is-fullscreen .quad-readouts small {
-    display: none;
+/* ───────── Desktop & tablet lanskap ───────── */
+
+@media (min-width: 900px) and (min-height: 541px) {
+  .qs2 {
+    --track: 4px;
+    --thumb: 16px;
+    --step: 28px;
+    grid-template-rows: auto auto;
+    gap: 12px;
+    height: auto;
+    padding: 14px;
+    font-size: 13px;
   }
 
-  .is-fullscreen .quad-warning {
-    padding: 5px 8px;
-    font-size: 10px;
-    line-height: 1.3;
+  .qs2-layout {
+    gap: 12px;
+    height: clamp(460px, 72vh, 700px);
   }
 
-  /* Judul grafik: hanya persamaan (besar) + tombol keluar */
-  .is-fullscreen .quad-board-panel {
-    padding: 6px 8px;
+  .qs2-eq {
+    top: 10px;
+    left: 10px;
+    padding: 4px 12px;
+    border-left-width: 4px;
+    font-size: clamp(22px, 2.2vw, 30px);
   }
 
-  .is-fullscreen .quad-board-heading {
-    gap: 0 8px;
-    padding-bottom: 4px;
+  .qs2-tools {
+    top: 10px;
+    right: 10px;
+    gap: 4px;
   }
 
-  .is-fullscreen .quad-board-heading h3 {
-    display: none;
-  }
-
-  .is-fullscreen .quad-equation {
-    grid-area: 1 / 1;
-    padding: 3px 10px;
-    font-size: clamp(18px, 3.2vw, 24px);
-  }
-
-  .is-fullscreen .quad-fullscreen-button {
-    min-height: 34px;
-    padding: 0 10px;
-  }
-
-  .is-fullscreen .quad-fullscreen-button span {
-    display: none;
-  }
-
-  .is-fullscreen .quad-view-tools button {
+  .qs2-tools button {
     width: 34px;
     height: 34px;
   }
 
-  .is-fullscreen .quad-legend {
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding-top: 4px;
-    font-size: 10px;
-    scrollbar-width: none;
+  .qs2-legend {
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 7px 10px;
+    font-size: 11px;
   }
 
-  .is-fullscreen .quad-legend::-webkit-scrollbar {
-    display: none;
+  .qs2-inputs {
+    gap: 14px;
+    padding: 14px;
+  }
+
+  .qs2-sliders {
+    gap: 12px;
+  }
+
+  /* Dua baris: label + nilai di atas, − slider + di bawah */
+  .qs2-slider {
+    grid-template-columns: var(--step) minmax(0, 1fr) var(--step);
+    row-gap: 2px;
+  }
+
+  .qs2-slider-head {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .qs2-slider-head label,
+  .qs2-slider-head output {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .qs2-slider-head label {
+    font-size: 21px;
+  }
+
+  .qs2-slider-head label small {
+    display: inline;
+    margin-left: 8px;
+    color: var(--muted);
+    font-family: inherit;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  .qs2-slider-head output {
+    font-size: 17px;
+  }
+
+  .qs2-slider > .qs2-step:first-of-type {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .qs2-slider > .qs2-range {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .qs2-slider > .qs2-step:last-of-type {
+    grid-column: 3;
+    grid-row: 2;
+  }
+
+  .qs2-range {
+    height: 30px;
+  }
+
+  .qs2-reset {
+    height: 32px;
+    padding: 0 12px;
+    font-size: 12px;
+  }
+
+  .qs2-style {
+    display: inline-flex;
+  }
+
+  .qs2-readouts > div {
+    padding: 8px 11px;
+  }
+
+  .qs2-readouts dt {
+    font-size: 10px;
+  }
+
+  .qs2-readouts dd {
+    font-size: 16px;
+  }
+
+  .qs2-readouts .ro-a dd {
+    font-size: 13px;
+  }
+
+  .qs2-warning {
+    padding: 8px 11px;
+    font-size: 12px;
+  }
+
+  .qs2-insights {
+    display: grid;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .qs2-insights li {
+    padding-left: 10px;
+    border-left: 3px solid var(--line);
+  }
+}
+
+/* Tinggi sedang (laptop pendek / tablet lanskap): gaya grafik ikut tampil */
+@media (orientation: landscape) and (min-height: 400px) and (max-height: 540px) {
+  .qs2-style {
+    display: inline-flex;
+  }
+}
+
+/* ───────── Potret (cadangan): grafik atas, input bawah ───────── */
+
+@media (orientation: portrait) and (max-width: 899px) {
+  .qs2 {
+    grid-template-rows: auto auto;
+    height: auto;
+    padding: 8px;
+  }
+
+  .qs2-hint {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 0;
+    padding: 6px 9px;
+    border-left: 3px solid var(--a);
+    background: #e8f3f1;
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .qs2-hint svg {
+    flex: 0 0 auto;
+    color: var(--a);
+  }
+
+  .qs2-layout {
+    grid-template-columns: minmax(0, 1fr);
+    height: auto;
+  }
+
+  .qs2-graph {
+    height: clamp(260px, 50dvh, 440px);
+  }
+
+  .qs2-inputs {
+    overflow: visible;
+  }
+
+  .qs2-style {
+    display: inline-flex;
+  }
+}
+
+/* ───────── Layar penuh ───────── */
+
+.qs2.is-fs {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  grid-template-rows: minmax(0, 1fr);
+  width: 100vw;
+  height: 100dvh;
+  padding: max(6px, env(safe-area-inset-top, 0px))
+    max(8px, env(safe-area-inset-right, 0px))
+    max(6px, env(safe-area-inset-bottom, 0px))
+    max(8px, env(safe-area-inset-left, 0px));
+  overflow: hidden;
+}
+
+.qs2.is-fs .qs2-layout {
+  height: 100%;
+}
+
+.qs2.is-fs .qs2-insights,
+.qs2.is-fs .qs2-hint {
+  display: none;
+}
+
+/* Layar penuh + potret: tetap 2 : 1, atas grafik, bawah input */
+@media (orientation: portrait) and (max-width: 899px) {
+  .qs2.is-fs .qs2-layout {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 2fr) minmax(0, 1fr);
+  }
+
+  .qs2.is-fs .qs2-graph {
+    height: auto;
+  }
+
+  .qs2.is-fs .qs2-inputs {
+    overflow-y: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qs2 * {
+    transition: none !important;
+    animation: none !important;
   }
 }
