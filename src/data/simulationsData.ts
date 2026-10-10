@@ -227,4 +227,24 @@ export const SIMULATIONS: SimulationItem[] = [
       "Garis Singgung",
     ],
   },
+  {
+    id: "two-circle-tangents",
+    index: "12",
+    category: "LINGKARAN",
+    title: "Eksplorasi Dua Lingkaran & Garis Singgung Persekutuan",
+    description:
+      "Atur posisi dan jari-jari dua lingkaran untuk melihat garis singgung persekutuan luar maupun dalam, titik singgung, dan panjang ruas singgung.",
+    prompt:
+      "Amati bagaimana jarak pusat dan jari-jari menentukan keberadaan garis singgung persekutuan luar dan dalam.",
+    level: "Kelas XI · Fase F",
+    gradeKey: "fase-f",
+    relatedMaterialSlug: "busur-dan-juring-lingkaran",
+    relatedMaterialTitle: "Lingkaran",
+    concepts: [
+      "Kedudukan Dua Lingkaran",
+      "Garis Singgung Persekutuan Luar",
+      "Garis Singgung Persekutuan Dalam",
+      "Panjang Ruas Singgung",
+    ],
+  },
 ];

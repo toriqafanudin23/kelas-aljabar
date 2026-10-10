@@ -65,6 +65,11 @@ const SIMULATION_COMPONENTS: Record<
       default: m.CircleSectorSimulation,
     })),
   ),
+  "two-circle-tangents": lazy(() =>
+    import("../components/simulation/TwoCircleTangentSimulation").then((m) => ({
+      default: m.TwoCircleTangentSimulation,
+    })),
+  ),
 };
 
 interface SimulationPlayPageProps {
